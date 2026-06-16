@@ -7,6 +7,10 @@
  * The model is explicitly told NOT to score risk or editorialize.
  * Scoring/underwriting happen downstream in scoring.ts + underwriting.ts.
  *
+ * Includes retry-with-backoff for transient Gemini errors (503 "model
+ * overloaded / high demand", 429 rate limit) — these are server-side blips
+ * on Google's end, NOT a wrong model, and usually clear on a quick retry.
+ *
  * NOTE: verify the model string + SDK surface against current docs:
  *   https://ai.google.dev/gemini-api/docs/models
  *   https://ai.google.dev/gemini-api/docs/files
@@ -20,7 +24,8 @@ import {
 import { ExtractedFDD, fddResponseSchema } from "./schema";
 
 // gemini-3.5-flash: GA, 1M context, native PDF understanding up to ~1000 pages,
-// fast + cheap. Use gemini-3.5-pro for the gnarliest docs (2M context).
+// and FAST — which matters for staying under the function timeout. Only move to
+// gemini-3.5-pro for genuinely gnarly docs; it's slower and more timeout-prone.
 const MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash";
 
 const EXTRACTION_PROMPT = `
@@ -51,6 +56,34 @@ RULES:
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 /**
+ * Retry a Gemini call on transient errors (503 UNAVAILABLE / "high demand",
+ * 429 rate limit). Non-transient errors throw immediately.
+ * Backoff: 1s, 2s, 4s. Keep `attempts` modest so the total stays under your
+ * function's maxDuration.
+ */
+async function withRetry<T>(fn: () => Promise<T>, label: string, attempts = 3): Promise<T> {
+  let lastErr: unknown;
+  for (let i = 0; i < attempts; i++) {
+    try {
+      return await fn();
+    } catch (err: unknown) {
+      lastErr = err;
+      const e = err as { status?: number; code?: number; message?: string };
+      const status = e?.status ?? e?.code;
+      const transient =
+        status === 503 ||
+        status === 429 ||
+        /UNAVAILABLE|high demand|overloaded|try again/i.test(String(e?.message ?? ""));
+      if (!transient || i === attempts - 1) throw err;
+      const wait = 1000 * Math.pow(2, i); // 1s, 2s, 4s
+      console.warn(`[${label}] transient ${status} — retrying in ${wait}ms (attempt ${i + 1}/${attempts})`);
+      await sleep(wait);
+    }
+  }
+  throw lastErr;
+}
+
+/**
  * Upload an FDD to the Gemini Files API and extract structured data.
  * @param fileBytes the raw PDF bytes
  * @param mimeType  usually "application/pdf"
@@ -65,18 +98,18 @@ export async function extractFddFromFile(
 
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
-  // 1) Upload via Files API (the right path for large PDFs).
+  // 1) Upload via Files API (the right path for large PDFs). Retry transient blips.
   const blob = new Blob([fileBytes], { type: mimeType });
-  const uploaded = await ai.files.upload({
-    file: blob,
-    config: { mimeType, displayName: "fdd-upload.pdf" },
-  });
+  const uploaded = await withRetry(
+    () => ai.files.upload({ file: blob, config: { mimeType, displayName: "fdd-upload.pdf" } }),
+    "upload",
+  );
 
-  // 2) Wait for the file to finish processing.
+  // 2) Wait for the file to finish processing (tight poll: 1.5s x up to 20 = ~30s budget).
   let fileInfo = await ai.files.get({ name: uploaded.name as string });
   let tries = 0;
-  while (fileInfo.state === "PROCESSING" && tries < 30) {
-    await sleep(2000);
+  while (fileInfo.state === "PROCESSING" && tries < 20) {
+    await sleep(1500);
     fileInfo = await ai.files.get({ name: uploaded.name as string });
     tries++;
   }
@@ -84,21 +117,25 @@ export async function extractFddFromFile(
     throw new Error("Gemini could not process the uploaded PDF.");
   }
 
-  // 3) Extract → strict JSON.
+  // 3) Extract -> strict JSON, retrying transient 503/429 overloads.
   let extracted: ExtractedFDD;
   try {
-    const response = await ai.models.generateContent({
-      model: MODEL,
-      contents: createUserContent([
-        createPartFromUri(fileInfo.uri as string, fileInfo.mimeType as string),
-        EXTRACTION_PROMPT,
-      ]),
-      config: {
-        responseMimeType: "application/json",
-        responseSchema: fddResponseSchema,
-        temperature: 0.1, // low = more deterministic extraction
-      },
-    });
+    const response = await withRetry(
+      () =>
+        ai.models.generateContent({
+          model: MODEL,
+          contents: createUserContent([
+            createPartFromUri(fileInfo.uri as string, fileInfo.mimeType as string),
+            EXTRACTION_PROMPT,
+          ]),
+          config: {
+            responseMimeType: "application/json",
+            responseSchema: fddResponseSchema,
+            temperature: 0.1, // low = more deterministic extraction
+          },
+        }),
+      "extract",
+    );
 
     const text = response.text;
     if (!text) throw new Error("Empty extraction response from Gemini.");
