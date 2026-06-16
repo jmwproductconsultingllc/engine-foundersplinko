@@ -24,6 +24,10 @@ export interface Item19Cohort {
   /** e.g. "Top 10%", "Middle 60%", "Bottom 30%", "Network Average" */
   label: string;
   avgMonthlyRevenue: number | null;
+  /** Every monthly value for this tier, if the table breaks it out by month.
+   *  We compute the true average from these in code — don't trust the model to
+   *  pick the right summary column (it tends to grab a single month). */
+  monthlyValues?: number[];
   /** what this number is based on, e.g. "45 units open 6+ months, 3+ bays" */
   basis: string;
 }
@@ -152,6 +156,7 @@ export const fddResponseSchema = {
             properties: {
               label: { type: Type.STRING },
               avgMonthlyRevenue: { type: Type.NUMBER, nullable: true },
+              monthlyValues: { type: Type.ARRAY, items: { type: Type.NUMBER } },
               basis: { type: Type.STRING },
             },
             required: ["label", "avgMonthlyRevenue", "basis"],

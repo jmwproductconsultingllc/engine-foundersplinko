@@ -52,12 +52,13 @@ RULES:
   and put them in hiddenCosts.
 - Item 17 itself covers renewal, termination, transfer, and dispute resolution — pull
   those risks into operationalRisks, never into the investment table.
-- item19.cohorts: capture each performance tier disclosed (e.g. top/middle/bottom
-  percentiles or quartiles) with its average MONTHLY revenue. CRITICAL: if the table
-  shows monthly columns (Jan-Dec) next to a full-year / annual average column (often
-  labeled with the year like "2025", or "Average" / "Total", usually the rightmost),
-  use the FULL-YEAR AVERAGE column for every tier — NEVER a single month's value. If a
-  figure is an annual total, divide by 12 and note that in basis.
+- item19.cohorts: capture each performance tier disclosed (top/middle/bottom
+  percentiles or quartiles). For EACH tier, if the table breaks revenue out by month,
+  list EVERY monthly value (in order) in monthlyValues — this is the field that
+  matters most, because we average it in code rather than trusting a single cell. Set
+  avgMonthlyRevenue to the disclosed full-year average if one is shown, otherwise null.
+  Do NOT pick a single representative month for avgMonthlyRevenue — that is exactly the
+  error to avoid.
 `;
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
@@ -147,6 +148,18 @@ export async function extractFddFromFile(
     const text = response.text;
     if (!text) throw new Error("Empty extraction response from Gemini.");
     extracted = JSON.parse(text) as ExtractedFDD;
+
+    // Compute each Item 19 cohort's average from its monthly values IN CODE.
+    // The model tends to misread dense tables and grab a single month (e.g.
+    // December) instead of the full-year average — averaging the monthlies
+    // removes that ambiguity entirely and is deterministic.
+    for (const c of extracted.item19?.cohorts ?? []) {
+      if (c.monthlyValues && c.monthlyValues.length >= 6) {
+        const mean =
+          c.monthlyValues.reduce((a, b) => a + b, 0) / c.monthlyValues.length;
+        c.avgMonthlyRevenue = Math.round(mean);
+      }
+    }
   } finally {
     // 4) Clean up the uploaded file (don't leave PII/docs lying around).
     try {
