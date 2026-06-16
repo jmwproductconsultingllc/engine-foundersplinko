@@ -13,9 +13,9 @@ import type { ExtractedFDD } from "./schema";
  * underwriting logic and it alters this read, this test fails on purpose — then you
  * decide whether the change is intended and update the baseline deliberately.
  *
- * ⚠️ Bottom-30% is set to 14139 to match the latest run. CONFIRM against Item 19,
- * p.36-37 (an earlier run produced 10885). If the FDD says 10885, update it here —
- * the cohort still covers costs either way, so only the bottom-cohort numbers move.
+ * Bottom-30% is 10885 — the 2025 FULL-YEAR AVERAGE column from Item 19 (p.36-37),
+ * confirmed against the FDD. The live engine had mistakenly grabbed the December
+ * cell (14139); the gemini.ts prompt now forces the full-year average column.
  */
 const backNine: ExtractedFDD = {
   documentCheck: {
@@ -35,7 +35,7 @@ const backNine: ExtractedFDD = {
     cohorts: [
       { label: "Top 10% Average", avgMonthlyRevenue: 33675, basis: "Open 6+ months at YE25" },
       { label: "Middle 60% Average", avgMonthlyRevenue: 19393, basis: "Open 6+ months at YE25" },
-      { label: "Bottom 30% Average", avgMonthlyRevenue: 14139, basis: "Open 6+ months at YE25" },
+      { label: "Bottom 30% Average", avgMonthlyRevenue: 10885, basis: "2025 full-year average, open 6+ months at YE25" },
     ],
     networkAverageMonthly: null,
     notes: "",
