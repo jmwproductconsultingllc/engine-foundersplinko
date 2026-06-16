@@ -41,13 +41,17 @@ RULES:
 - Use raw numbers only: 250000, not "$250,000". Use null for anything you
   genuinely cannot find. NEVER guess a number.
 - documentCheck: set appearsComplete=false and add a clear warning if core
-  disclosures (Items 1, 7, 17, 19) are missing or the file looks truncated.
+  disclosures (Items 1, 6, 7, 19, 20) are missing or the file looks truncated.
   Set appearsScanned=true if the document appears to be scanned images with no
   reliable extractable text. List every concern in documentCheck.warnings.
-- Item 17 lineItems: mark recurring=false for one-time build-out costs and
-  recurring=true for ongoing costs. Actively hunt for ancillary / hidden costs
-  mentioned outside Item 17 (e.g. mandatory third-party software/maintenance
-  fees, technology fees, step-in or ACH provisions) and put them in hiddenCosts.
+- The lineItems array holds the ESTIMATED INITIAL INVESTMENT table. In an FDD this
+  table is **Item 7** (NOT Item 17) — cite it as "Item 7, p.X". Mark recurring=false
+  for one-time build-out costs and recurring=true for ongoing costs. Actively hunt
+  for ancillary / hidden costs mentioned outside the investment table (e.g. mandatory
+  third-party software/maintenance fees, technology fees, step-in or ACH provisions)
+  and put them in hiddenCosts.
+- Item 17 itself covers renewal, termination, transfer, and dispute resolution — pull
+  those risks into operationalRisks, never into the investment table.
 - item19.cohorts: capture each performance tier disclosed (e.g. top/middle/bottom
   percentiles or quartiles) with its average MONTHLY revenue. If figures are
   annual, convert to monthly and note that in basis.
