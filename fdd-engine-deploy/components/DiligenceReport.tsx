@@ -209,7 +209,7 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
       </Card>
 
       {/* Item 17 costs */}
-      <Card title={<>Item 17 — Initial Investment <Src s={x.item17?.sourcePage} /></>}>
+      <Card title={<>Item 7 — Initial Investment <Src s={x.item17?.sourcePage} /></>}>
         <p className="text-sm text-[#CBD5E1] mb-3">
           Estimated total: <span className="font-semibold">{usd(x.item17?.initialInvestmentLow)}</span> –{" "}
           <span className="font-semibold">{usd(x.item17?.initialInvestmentHigh)}</span>
