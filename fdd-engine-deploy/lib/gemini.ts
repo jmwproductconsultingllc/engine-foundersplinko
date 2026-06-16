@@ -53,8 +53,11 @@ RULES:
 - Item 17 itself covers renewal, termination, transfer, and dispute resolution — pull
   those risks into operationalRisks, never into the investment table.
 - item19.cohorts: capture each performance tier disclosed (e.g. top/middle/bottom
-  percentiles or quartiles) with its average MONTHLY revenue. If figures are
-  annual, convert to monthly and note that in basis.
+  percentiles or quartiles) with its average MONTHLY revenue. CRITICAL: if the table
+  shows monthly columns (Jan-Dec) next to a full-year / annual average column (often
+  labeled with the year like "2025", or "Average" / "Total", usually the rightmost),
+  use the FULL-YEAR AVERAGE column for every tier — NEVER a single month's value. If a
+  figure is an annual total, divide by 12 and note that in basis.
 `;
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
