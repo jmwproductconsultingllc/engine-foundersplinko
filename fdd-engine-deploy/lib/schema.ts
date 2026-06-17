@@ -21,15 +21,45 @@ export interface LeadershipMember {
 }
 
 export interface Item19Cohort {
-  /** e.g. "Top 10%", "Middle 60%", "Bottom 30%", "Network Average" */
+  /** e.g. "Top 10%", "Middle 60%", "Company Centers - Average", "Franchised - Low" */
   label: string;
+  /** THE most important field. Company- and affiliate-owned outlets routinely
+   *  gross ~2x franchised ones and must NEVER be presented as franchisee earnings.
+   *  Five Iron's headline $3.0M is company-owned; its franchisees average $1.5M. */
+  ownership?: "franchised" | "company" | "affiliate" | "mixed" | "unknown";
+  /** how many outlets sit behind this figure (e.g. 2 = dangerously thin) */
+  sampleSize?: number | null;
+  /** what the number actually is — guards against reading profit, or pre-sale
+   *  revenue (memberships sold before a unit opens), as ongoing operating revenue */
+  revenueType?: "gross_sales" | "net_or_ebitda" | "pre_sale_only" | "other";
   avgMonthlyRevenue: number | null;
   /** Every monthly value for this tier, if the table breaks it out by month.
    *  We compute the true average from these in code — don't trust the model to
    *  pick the right summary column (it tends to grab a single month). */
   monthlyValues?: number[];
+  /** If the figure is disclosed annually (e.g. Five Iron's $3.0M/yr), put the
+   *  annual number here; code divides by 12 so the model never has to. */
+  annualRevenue?: number | null;
   /** what this number is based on, e.g. "45 units open 6+ months, 3+ bays" */
   basis: string;
+}
+
+export interface RentDisclosure {
+  /** the rent figure exactly as disclosed, no conversion */
+  rawValue: number | null;
+  /** the unit it was disclosed in — code normalizes to monthly */
+  unit?:
+    | "per_sqft_per_year"
+    | "per_sqft_per_month"
+    | "per_month"
+    | "per_year"
+    | "unknown";
+  /** square footage, required to convert any per-sqft figure to dollars */
+  squareFootage?: number | null;
+  /** WARNING: an Item 7 line like "Lease Deposit and Rent - 3 Months" is a
+   *  deposit-plus-a-few-months cash outlay, NOT monthly rent. Note the source so
+   *  the two are never confused. */
+  source: string;
 }
 
 export interface Item17LineItem {
@@ -97,7 +127,11 @@ export interface ExtractedFDD {
     flatMonthlyFees: FlatFee[];
   };
   hiddenCosts: HiddenCost[];
+  /** normalized monthly rent (computed in code from rentDetail) — what scoring uses */
   averageRentMonthly: number | null;
+  /** raw rent disclosure (value + unit + sqft) so code can normalize and the
+   *  report can show its work; handles $/sqft/yr vs $/mo vs the 3-month cash line */
+  rentDetail?: RentDisclosure;
   requiredNetWorth: number | null;
   requiredLiquidCapital: number | null;
   systemScale: {
@@ -155,11 +189,21 @@ export const fddResponseSchema = {
             type: Type.OBJECT,
             properties: {
               label: { type: Type.STRING },
+              ownership: {
+                type: Type.STRING,
+                enum: ["franchised", "company", "affiliate", "mixed", "unknown"],
+              },
+              sampleSize: { type: Type.NUMBER, nullable: true },
+              revenueType: {
+                type: Type.STRING,
+                enum: ["gross_sales", "net_or_ebitda", "pre_sale_only", "other"],
+              },
               avgMonthlyRevenue: { type: Type.NUMBER, nullable: true },
               monthlyValues: { type: Type.ARRAY, items: { type: Type.NUMBER } },
+              annualRevenue: { type: Type.NUMBER, nullable: true },
               basis: { type: Type.STRING },
             },
-            required: ["label", "avgMonthlyRevenue", "basis"],
+            required: ["label", "ownership", "revenueType", "avgMonthlyRevenue", "basis"],
           },
         },
         networkAverageMonthly: { type: Type.NUMBER, nullable: true },
@@ -226,6 +270,25 @@ export const fddResponseSchema = {
       },
     },
     averageRentMonthly: { type: Type.NUMBER, nullable: true },
+    rentDetail: {
+      type: Type.OBJECT,
+      properties: {
+        rawValue: { type: Type.NUMBER, nullable: true },
+        unit: {
+          type: Type.STRING,
+          enum: [
+            "per_sqft_per_year",
+            "per_sqft_per_month",
+            "per_month",
+            "per_year",
+            "unknown",
+          ],
+        },
+        squareFootage: { type: Type.NUMBER, nullable: true },
+        source: { type: Type.STRING },
+      },
+      required: ["rawValue", "unit", "source"],
+    },
     requiredNetWorth: { type: Type.NUMBER, nullable: true },
     requiredLiquidCapital: { type: Type.NUMBER, nullable: true },
     systemScale: {
