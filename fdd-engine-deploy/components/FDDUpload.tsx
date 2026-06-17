@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import type { IntakeData } from "./IntakeForm";
 import type { DiligenceResult } from "@/lib/types";
 
@@ -34,6 +34,18 @@ const PHASES = [
   "Large document — almost there, hang tight…",
 ];
 
+/** Style for the vertical connector between steps: solid green once a step is
+ *  done, flowing dashes on the active segment (toward the "win" below), muted
+ *  static dashes ahead. */
+function connectorStyle(done: boolean, active: boolean): CSSProperties {
+  if (done) return { backgroundColor: "#34D399" };
+  const color = active ? "#38BDF8" : "#27344F";
+  return {
+    backgroundImage: `repeating-linear-gradient(to bottom, ${color} 0 4px, transparent 4px 9px)`,
+    ...(active ? { animation: "fe-flow 0.55s linear infinite" } : {}),
+  };
+}
+
 export default function FDDUpload({
   intake,
   onResult,
@@ -55,8 +67,12 @@ export default function FDDUpload({
     // tied to real server events — the heavy extraction is one opaque ~45s model
     // call with no sub-progress — but they're paced to the real phases, and the
     // last messages park until the response actually lands.
+    // Pace to file size: small FDDs move faster, big filings stretch. Baseline
+    // tuned to ~12MB; clamped so tiny/huge files stay sane. Calibrate the base
+    // array from your real run durations.
+    const scale = Math.min(2, Math.max(0.5, file.size / (12 * 1024 * 1024)));
     const timers = [3000, 7000, 12000, 22000, 35000, 70000].map((ms, i) =>
-      setTimeout(() => setPhase(i + 1), ms),
+      setTimeout(() => setPhase(i + 1), Math.round(ms * scale)),
     );
     try {
       const fd = new FormData();
@@ -134,22 +150,67 @@ export default function FDDUpload({
       </div>
 
       {loading && (
-        <div className="mt-5" aria-live="polite">
-          <div className="flex items-center gap-3">
-            <span className="relative flex h-2.5 w-2.5 shrink-0">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38BDF8] opacity-75" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#38BDF8]" />
-            </span>
-            <span className="text-sm font-medium text-[#CBD5E1] transition-opacity duration-300">
-              {PHASES[phase]}
-            </span>
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+          aria-live="polite"
+          role="status"
+        >
+          <style>{`
+            @keyframes fe-flow { to { background-position: 0 9px; } }
+            @keyframes fe-spin { to { transform: rotate(360deg); } }
+          `}</style>
+          <div className="w-[min(92vw,440px)] rounded-2xl border border-[#27344F] bg-[#16223B] p-7 shadow-2xl">
+            <h3 className="text-base font-bold text-[#F1F5F9]">Analyzing the FDD</h3>
+            <p className="mt-1 mb-5 text-xs text-[#8194B0] truncate">
+              Reading {file?.name ?? "your document"} — up to a minute for a large filing.
+            </p>
+            <ol>
+              {PHASES.map((label, i) => {
+                const done = i < phase;
+                const active = i === phase;
+                const last = i === PHASES.length - 1;
+                return (
+                  <li key={i} className="flex gap-3">
+                    <div className="flex flex-col items-center">
+                      {done ? (
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#34D399] text-[13px] font-bold text-[#0B1220]">
+                          ✓
+                        </span>
+                      ) : active ? (
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-[#1E2C49]">
+                          <span
+                            className="h-3.5 w-3.5 rounded-full border-2 border-[#38BDF8] border-t-transparent"
+                            style={{ animation: "fe-spin 0.7s linear infinite" }}
+                          />
+                        </span>
+                      ) : (
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-[#27344F]">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#3A496A]" />
+                        </span>
+                      )}
+                      {!last && (
+                        <span
+                          className="my-1 w-[2px] flex-1"
+                          style={{ minHeight: 16, ...connectorStyle(done, active) }}
+                        />
+                      )}
+                    </div>
+                    <div
+                      className={`pb-5 pt-0.5 text-sm ${
+                        done
+                          ? "text-[#6E7F9E]"
+                          : active
+                            ? "font-semibold text-[#F1F5F9]"
+                            : "text-[#5A6B88]"
+                      }`}
+                    >
+                      {label}
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
           </div>
-          <div className="mt-3 h-1 w-full overflow-hidden rounded-full bg-[#1E2C49]">
-            <div className="h-full w-1/3 rounded-full bg-gradient-to-r from-[#34D399] to-[#38BDF8] animate-pulse" />
-          </div>
-          <p className="mt-2 text-xs text-[#8194B0]">
-            A full 300-page FDD can take up to a minute — this isn&apos;t stuck.
-          </p>
         </div>
       )}
 
