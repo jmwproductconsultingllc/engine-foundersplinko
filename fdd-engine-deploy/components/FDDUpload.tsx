@@ -31,7 +31,7 @@ const PHASES = [
   "Extracting Item 7, Item 19 & the fee structure…",
   "Separating franchisee vs. company-owned performance…",
   "Running the numbers and generating your report…",
-  "Large document — almost there, hang tight…",
+  "Finishing touches — flagging anomalies in the data…",
 ];
 
 /** Style for the vertical connector between steps: solid green once a step is
