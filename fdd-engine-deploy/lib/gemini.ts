@@ -52,13 +52,34 @@ RULES:
   and put them in hiddenCosts.
 - Item 17 itself covers renewal, termination, transfer, and dispute resolution — pull
   those risks into operationalRisks, never into the investment table.
-- item19.cohorts: capture each performance tier disclosed (top/middle/bottom
-  percentiles or quartiles). For EACH tier, if the table breaks revenue out by month,
-  list EVERY monthly value (in order) in monthlyValues — this is the field that
-  matters most, because we average it in code rather than trusting a single cell. Set
-  avgMonthlyRevenue to the disclosed full-year average if one is shown, otherwise null.
-  Do NOT pick a single representative month for avgMonthlyRevenue — that is exactly the
-  error to avoid.
+- item19.cohorts: capture every performance grouping disclosed. These come in
+  very different shapes across FDDs, so capture what is actually there:
+    * ownership (CRITICAL): tag each grouping as "franchised", "company"
+      (franchisor-owned), "affiliate" (affiliate-owned), or "mixed". Many FDDs
+      lead with COMPANY- or AFFILIATE-owned results that run far higher than
+      franchised ones — never blur the two. If a brand reports "Company Centers"
+      and "Franchised Centers" separately, that is two cohorts with different
+      ownership.
+    * sampleSize: how many outlets back the figure (e.g. 2). Small = unreliable.
+    * revenueType: "gross_sales" for top-line sales, "net_or_ebitda" for a
+      profit/EBITDA figure, "pre_sale_only" if the number is pre-opening
+      membership/pre-sale revenue (NOT ongoing operations), else "other".
+    * If the figure is disclosed MONTHLY (a Jan-Dec breakdown), list every monthly
+      value in monthlyValues — we average it in code. If it is disclosed ANNUALLY
+      (e.g. an average yearly gross sales of $3,000,000), put that in annualRevenue
+      and leave avgMonthlyRevenue null — code divides by 12. Only set
+      avgMonthlyRevenue directly when a true monthly average is the disclosed figure.
+      Never pick a single month, and never pre-convert annual to monthly yourself.
+  If the franchisor makes NO financial performance representation (the Item 19 says
+  it does not provide one), set hasItem19=false, cohorts=[], and say so in notes —
+  do not fabricate or infer any revenue. That absence is a finding, not a gap.
+- rentDetail: capture rent exactly as disclosed — rawValue, its unit
+  (per_sqft_per_year is common; also per_sqft_per_month, per_month, per_year), and
+  squareFootage if a unit size is given (needed to convert per-sqft figures). Cite
+  the source. CRITICAL: an Item 7 line such as "Lease Deposit and Rent - 3 Months"
+  is a deposit-plus-a-few-months cash outlay, NOT monthly rent — do not put that in
+  rawValue as if it were a monthly figure; prefer a stated $/sqft or monthly rent.
+  Leave averageRentMonthly null; code computes it from rentDetail.
 `;
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
@@ -149,16 +170,46 @@ export async function extractFddFromFile(
     if (!text) throw new Error("Empty extraction response from Gemini.");
     extracted = JSON.parse(text) as ExtractedFDD;
 
-    // Compute each Item 19 cohort's average from its monthly values IN CODE.
-    // The model tends to misread dense tables and grab a single month (e.g.
-    // December) instead of the full-year average — averaging the monthlies
-    // removes that ambiguity entirely and is deterministic.
+    // Normalize Item 19 cohorts IN CODE so the model never has to do arithmetic.
+    // Priority: (1) mean of monthly values if a Jan-Dec breakdown exists — this
+    // also defeats the "grabbed a single month" misread; (2) annual figure / 12.
     for (const c of extracted.item19?.cohorts ?? []) {
       if (c.monthlyValues && c.monthlyValues.length >= 6) {
         const mean =
           c.monthlyValues.reduce((a, b) => a + b, 0) / c.monthlyValues.length;
         c.avgMonthlyRevenue = Math.round(mean);
+      } else if (
+        (c.avgMonthlyRevenue === null || c.avgMonthlyRevenue === undefined) &&
+        typeof c.annualRevenue === "number"
+      ) {
+        c.avgMonthlyRevenue = Math.round(c.annualRevenue / 12);
       }
+    }
+
+    // Normalize rent to a monthly dollar figure IN CODE from the raw disclosure,
+    // so $/sqft/yr, $/sqft/mo, $/yr and $/mo all collapse to one comparable number
+    // and a per-sqft figure is never mistaken for a monthly one.
+    const rd = extracted.rentDetail;
+    if (rd && typeof rd.rawValue === "number") {
+      const sqft = typeof rd.squareFootage === "number" ? rd.squareFootage : null;
+      let monthly: number | null = null;
+      switch (rd.unit) {
+        case "per_sqft_per_year":
+          monthly = sqft !== null ? (rd.rawValue * sqft) / 12 : null;
+          break;
+        case "per_sqft_per_month":
+          monthly = sqft !== null ? rd.rawValue * sqft : null;
+          break;
+        case "per_year":
+          monthly = rd.rawValue / 12;
+          break;
+        case "per_month":
+          monthly = rd.rawValue;
+          break;
+        default:
+          monthly = null; // unknown unit — leave null rather than guess
+      }
+      if (monthly !== null) extracted.averageRentMonthly = Math.round(monthly);
     }
   } finally {
     // 4) Clean up the uploaded file (don't leave PII/docs lying around).
