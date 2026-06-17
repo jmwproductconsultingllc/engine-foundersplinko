@@ -19,6 +19,14 @@ export const RUBRIC = {
   defaultSbaRate: 10.5,
   defaultSbaTermYears: 10,
   defaultLoanToBuildout: 0.8,
+  // ---- contextual risk escalation (tunable) ----
+  // capital gap as a multiple of the buyer's liquid capital:
+  capitalGapModerateRatio: 2.5, // >= this → +1
+  capitalGapHighRatio: 4, //       >= this → +2
+  capitalGapExtremeRatio: 8, //    >= this → +3
+  // count of HIGH-severity operational tripwires:
+  someHighTripwires: 2, // >= this → +1
+  manyHighTripwires: 4, // >= this → +2
 };
 
 export interface CohortEconomics {
@@ -86,7 +94,10 @@ function buildCohort(
   };
 }
 
-export function scoreFdd(fdd: ExtractedFDD): ScoringResult {
+export function scoreFdd(
+  fdd: ExtractedFDD,
+  buyer?: { liquidCapital?: number },
+): ScoringResult {
   const notes: string[] = [];
   const reasons: string[] = [];
 
@@ -196,12 +207,58 @@ export function scoreFdd(fdd: ExtractedFDD): ScoringResult {
     points += 1;
   }
 
+  // ---- contextual escalation: capital intensity + operational tripwires ----
+  // Previously ignored — which is how a $3M capital gap or a stack of HIGH
+  // tripwires could still score "Low." Both now feed the risk level.
+  const liquid = buyer?.liquidCapital ?? null;
+  const capitalGap =
+    buildoutMidpoint != null && liquid != null
+      ? Math.max(0, buildoutMidpoint - liquid)
+      : null;
+  const gapRatio =
+    capitalGap != null && liquid && liquid > 0 ? capitalGap / liquid : null;
+  if (gapRatio != null && capitalGap != null) {
+    const gapStr = `$${Math.round(capitalGap).toLocaleString()}`;
+    if (gapRatio >= RUBRIC.capitalGapExtremeRatio) {
+      points += 3;
+      reasons.push(
+        `Capital gap of ${gapStr} is ~${gapRatio.toFixed(0)}x your liquid — extreme leverage; the deal rests almost entirely on outside capital.`,
+      );
+    } else if (gapRatio >= RUBRIC.capitalGapHighRatio) {
+      points += 2;
+      reasons.push(`Capital gap of ${gapStr} is ~${gapRatio.toFixed(1)}x your liquid — heavy reliance on outside financing.`);
+    } else if (gapRatio >= RUBRIC.capitalGapModerateRatio) {
+      points += 1;
+      reasons.push(`Capital gap of ${gapStr} is ~${gapRatio.toFixed(1)}x your liquid — meaningful outside financing required.`);
+    }
+  }
+
+  const highTripwires = (fdd.operationalRisks ?? []).filter((r) => r.severity === "high").length;
+  if (highTripwires >= RUBRIC.manyHighTripwires) {
+    points += 2;
+    reasons.push(`${highTripwires} high-severity operational tripwires disclosed — see the tripwires section.`);
+  } else if (highTripwires >= RUBRIC.someHighTripwires) {
+    points += 1;
+    reasons.push(`${highTripwires} high-severity operational tripwires disclosed — see the tripwires section.`);
+  }
+
+  // ---- map points → level ----
   let riskLevel: ScoringResult["riskLevel"] = "Low";
   if (points >= 4) riskLevel = "High";
   else if (points >= 2) riskLevel = "Medium";
 
+  // ---- "couldn't assess" floor: absence of data is NOT absence of risk ----
+  // If no pro forma could be built (company/affiliate-owned only, or no FPR),
+  // never report "Low" — the economics are unverified, not safe.
+  if (midCohort == null) {
+    reasons.push(
+      "Franchisee unit economics could not be scored — no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk.",
+    );
+    if (riskLevel === "Low") riskLevel = "Medium";
+  }
+
   if (reasons.length === 0) {
-    reasons.push("No major stress flags triggered on the available data.");
+    reasons.push("Economics were assessable and no major stress flags triggered.");
   }
 
   return {
