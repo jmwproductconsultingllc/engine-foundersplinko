@@ -16,7 +16,7 @@ import { scoreFdd } from "@/lib/scoring";
 import { underwrite, BuyerContext } from "@/lib/underwriting";
 
 export const runtime = "nodejs";
-export const maxDuration = 300;
+export const maxDuration = 60;
 export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
@@ -48,7 +48,7 @@ export async function POST(req: NextRequest) {
     const extracted = await extractFddFromFile(bytes, file.type || "application/pdf");
 
     // 2) Score deterministically (code).
-    const scoring = scoreFdd(extracted);
+    const scoring = scoreFdd(extracted, buyer);
 
     // 3) Underwrite against the buyer (code).
     const underwriting = underwrite(extracted, scoring, buyer);
