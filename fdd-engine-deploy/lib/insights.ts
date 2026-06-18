@@ -420,9 +420,7 @@ export function buildInsights(
   let buildup: BuildupRow[] = [];
 
   if (rev != null && rev > 0) {
-    const cogs$ = range(benchmark.cogsPct[0], benchmark.cogsPct[1]);
     const labor$ = range(laborPctEffective[0], laborPctEffective[1]);
-    const opex$ = range(OTHER_OPEX_PCT[0], OTHER_OPEX_PCT[1]);
     const fteLo = Math.round(((labor$[0] * 12) / (WAGE_LOADED * HOURS_FTE)) * 10) / 10;
     const fteHi = Math.round(((labor$[1] * 12) / (WAGE_LOADED * HOURS_FTE)) * 10) / 10;
     const laborNote = `${staffingLabel} · ≈ ${fteLo}–${fteHi} FTE at ~$${WAGE_LOADED}/hr fully loaded`;
@@ -443,18 +441,23 @@ export function buildInsights(
       ];
     } else if (marginAfterFeesMonthly != null) {
       // No disclosure — build down from the modeled margin-after-fees (rent + fees
-      // already netted there) by subtracting only the genuinely missing lines.
-      const lo = Math.round(marginAfterFeesMonthly - cogs$[1] - labor$[1] - opex$[1]);
-      const hi = Math.round(marginAfterFeesMonthly - cogs$[0] - labor$[0] - opex$[0]);
-      benchmarkOperatingEbitdaMonthly = [lo, hi];
+      // already netted there) by subtracting the missing lines at category MIDPOINTS.
+      // Midpoints (not stacked extremes) so the displayed lines sum to the result and
+      // a high-COGS concept doesn't produce an absurd -$X..+$Y swing.
+      const mid = (r: [number, number]) => Math.round((rev * (r[0] + r[1])) / 2 / 100);
+      const cogsMid = mid(benchmark.cogsPct);
+      const laborMid = mid(laborPctEffective);
+      const opexMid = mid(OTHER_OPEX_PCT);
+      const ebitda = Math.round(marginAfterFeesMonthly - cogsMid - laborMid - opexMid);
+      benchmarkOperatingEbitdaMonthly = [ebitda, ebitda];
       trueEbitdaBasis = "modeled";
-      const midPct = Math.round((((lo + hi) / 2) / rev) * 100);
+      const midPct = Math.round((ebitda / rev) * 100);
       buildup = [
         { label: "Margin after fees & rent (modeled)", kind: "base", dollarRange: [marginAfterFeesMonthly, marginAfterFeesMonthly] },
-        { label: "− Cost of goods", kind: "subtract", pctRange: benchmark.cogsPct, dollarRange: cogs$ },
-        { label: "− Labor", kind: "subtract", pctRange: laborPctEffective, dollarRange: labor$, note: laborNote },
-        { label: "− Other operating costs", kind: "subtract", pctRange: OTHER_OPEX_PCT, dollarRange: opex$, note: "utilities, insurance, repairs & maintenance (category estimate)" },
-        { label: "= True operating EBITDA", kind: "result", dollarRange: [lo, hi], note: `≈ ${midPct}% operating margin, before debt` },
+        { label: "− Cost of goods", kind: "subtract", pctRange: benchmark.cogsPct, dollarRange: [cogsMid, cogsMid] },
+        { label: "− Labor", kind: "subtract", pctRange: laborPctEffective, dollarRange: [laborMid, laborMid], note: laborNote },
+        { label: "− Other operating costs", kind: "subtract", pctRange: OTHER_OPEX_PCT, dollarRange: [opexMid, opexMid], note: "utilities, insurance, repairs & maintenance (category estimate)" },
+        { label: "= True operating EBITDA", kind: "result", dollarRange: [ebitda, ebitda], note: `≈ ${midPct}% operating margin, before debt` },
       ];
     }
   }
