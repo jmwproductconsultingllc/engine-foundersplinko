@@ -27,6 +27,9 @@ export interface ConceptBenchmark {
   cogsPct: [number, number];
   /** labor as a % of revenue (low, high) */
   laborPct: [number, number];
+  /** occupancy/rent as a % of revenue (low, high) — used ONLY when the FDD
+   *  discloses no rent, so the modeled EBITDA isn't overstated by a missing line */
+  occupancyPct: [number, number];
   /** typical MATURE operating-EBITDA margin band, % (low, high) — used for the cross-check */
   operatingEbitdaPct: [number, number];
   /** the cost or metric that actually decides the deal in this category */
@@ -43,6 +46,16 @@ export interface BuildupRow {
   pctRange?: [number, number];
   dollarRange?: [number, number];
   note?: string;
+}
+
+/** One line in the assumptions legend — what each Insights number rests on.
+ *  basis: disclosed = straight from the FDD; derived = computed from a disclosed
+ *  figure; benchmark = our category range because the FDD doesn't disclose it;
+ *  inferred = the model's classification (concept, staffing). */
+export interface AssumptionRow {
+  field: string;
+  basis: "disclosed" | "derived" | "benchmark" | "inferred";
+  detail: string;
 }
 
 export interface InsightsResult {
@@ -81,6 +94,10 @@ export interface InsightsResult {
   /** the transparent build-up to true operating EBITDA — the "show the math" */
   buildup: BuildupRow[];
 
+  /** every place a number rests on an assumption rather than a disclosure —
+   *  the data behind the assumptions legend */
+  assumptions: AssumptionRow[];
+
   /** contact hook → territory consulting (the report→consulting seam) */
   consultCtaUrl: string | null;
   consultCtaLabel: string;
@@ -100,6 +117,7 @@ const BENCHMARKS: Record<ConceptType, ConceptBenchmark> = {
     label: "Full-service / bar-forward food & beverage",
     cogsPct: [28, 35],
     laborPct: [28, 35],
+    occupancyPct: [6, 10],
     operatingEbitdaPct: [8, 15],
     dominantRisk:
       "Prime cost (COGS + labor). The operator rule of thumb is prime cost under ~65% of sales; north of 70% the unit bleeds. This single number decides the deal.",
@@ -114,6 +132,7 @@ const BENCHMARKS: Record<ConceptType, ConceptBenchmark> = {
     label: "QSR / fast-casual",
     cogsPct: [28, 33],
     laborPct: [22, 28],
+    occupancyPct: [6, 10],
     operatingEbitdaPct: [10, 18],
     dominantRisk:
       "Prime cost and throughput per labor hour. Smaller footprint helps fixed costs, but COGS + labor still set the ceiling.",
@@ -128,6 +147,7 @@ const BENCHMARKS: Record<ConceptType, ConceptBenchmark> = {
     label: "Experiential / entertainment venue",
     cogsPct: [8, 18],
     laborPct: [22, 30],
+    occupancyPct: [10, 18],
     operatingEbitdaPct: [12, 22],
     dominantRisk:
       "Fixed-cost coverage and utilization — big-box rent and equipment R&M against variable foot traffic. Slow weeks hurt more than COGS.",
@@ -142,6 +162,7 @@ const BENCHMARKS: Record<ConceptType, ConceptBenchmark> = {
     label: "Experiential entertainment with F&B attach (e.g. indoor golf + bar)",
     cogsPct: [15, 28],
     laborPct: [22, 30],
+    occupancyPct: [10, 16],
     operatingEbitdaPct: [15, 26],
     dominantRisk:
       "Blended margin. The bar/kitchen attach rate swings COGS up; the large footprint plus simulator/equipment R&M swing fixed costs. Owner-operator vs. absentee is a full GM salary either way.",
@@ -157,6 +178,7 @@ const BENCHMARKS: Record<ConceptType, ConceptBenchmark> = {
     label: "Boutique fitness / studio",
     cogsPct: [3, 10],
     laborPct: [20, 30],
+    occupancyPct: [12, 20],
     operatingEbitdaPct: [15, 28],
     dominantRisk:
       "Member retention/churn and fixed-cost coverage — NOT cost of goods. The deal is decided by recurring membership against rent and equipment lease.",
@@ -171,6 +193,7 @@ const BENCHMARKS: Record<ConceptType, ConceptBenchmark> = {
     label: "Health & wellness (med-spa, IV, longevity, recovery)",
     cogsPct: [15, 25],
     laborPct: [25, 35],
+    occupancyPct: [8, 14],
     operatingEbitdaPct: [12, 25],
     dominantRisk:
       "Licensed clinical labor plus regulatory/insurance load and equipment depreciation. These concepts frequently disclose NO Item 19, so benchmarks matter most precisely where extraction gives you the least.",
@@ -185,6 +208,7 @@ const BENCHMARKS: Record<ConceptType, ConceptBenchmark> = {
     label: "Retail / product",
     cogsPct: [45, 65],
     laborPct: [10, 18],
+    occupancyPct: [8, 12],
     operatingEbitdaPct: [5, 12],
     dominantRisk:
       "Gross margin on product (high COGS) and inventory turns. Thin margins amplify any sales miss.",
@@ -199,6 +223,7 @@ const BENCHMARKS: Record<ConceptType, ConceptBenchmark> = {
     label: "Home & trade services (mobile / low-overhead)",
     cogsPct: [25, 40],
     laborPct: [20, 35],
+    occupancyPct: [2, 6],
     operatingEbitdaPct: [10, 25],
     dominantRisk:
       "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
@@ -213,6 +238,7 @@ const BENCHMARKS: Record<ConceptType, ConceptBenchmark> = {
     label: "Beauty / personal care",
     cogsPct: [8, 18],
     laborPct: [35, 50],
+    occupancyPct: [8, 15],
     operatingEbitdaPct: [8, 18],
     dominantRisk:
       "Commission/booth-rent labor and chair utilization. Labor structure dominates economics.",
@@ -227,6 +253,7 @@ const BENCHMARKS: Record<ConceptType, ConceptBenchmark> = {
     label: "Education / childcare",
     cogsPct: [5, 12],
     laborPct: [40, 55],
+    occupancyPct: [10, 18],
     operatingEbitdaPct: [10, 20],
     dominantRisk:
       "Regulated staff ratios and enrollment/utilization. Labor dominates and ratios cap how lean you can run.",
@@ -241,6 +268,7 @@ const BENCHMARKS: Record<ConceptType, ConceptBenchmark> = {
     label: "General franchise (uncategorized)",
     cogsPct: [15, 35],
     laborPct: [20, 35],
+    occupancyPct: [6, 12],
     operatingEbitdaPct: [8, 20],
     dominantRisk:
       "Cost of goods and labor are not disclosed in any FDD — model them explicitly before trusting any margin figure.",
@@ -419,6 +447,24 @@ export function buildInsights(
   let trueEbitdaBasis: InsightsResult["trueEbitdaBasis"] = "none";
   let buildup: BuildupRow[] = [];
 
+  // The assumptions legend: make visible what each number rests on. Concept and
+  // operating model are the model's classification; everything below is either
+  // taken from the FDD or supplied from our benchmark table where the FDD is silent.
+  const assumptions: AssumptionRow[] = [
+    {
+      field: "Concept type",
+      basis: "inferred",
+      detail: `Classified as “${benchmark.label}” from the FDD (Item 1 / brand description).`,
+    },
+  ];
+  if (staffingModel !== "staffed") {
+    assumptions.push({
+      field: "Operating model",
+      basis: "inferred",
+      detail: `Read as ${staffingLabel} from the FDD, which lowers the labor band applied below.`,
+    });
+  }
+
   if (rev != null && rev > 0) {
     const labor$ = range(laborPctEffective[0], laborPctEffective[1]);
     const fteLo = Math.round(((labor$[0] * 12) / (WAGE_LOADED * HOURS_FTE)) * 10) / 10;
@@ -439,26 +485,72 @@ export function buildInsights(
           note: disclosedMarginSource ?? undefined,
         },
       ];
+      assumptions.push({
+        field: "Operating margin",
+        basis: "disclosed",
+        detail: `Taken straight from the franchisor's Item 19 disclosure (${disclosedMarginSource ?? "Item 19"}); no benchmark applied.`,
+      });
     } else if (marginAfterFeesMonthly != null) {
-      // No disclosure — build down from the modeled margin-after-fees (rent + fees
-      // already netted there) by subtracting the missing lines at category MIDPOINTS.
-      // Midpoints (not stacked extremes) so the displayed lines sum to the result and
-      // a high-COGS concept doesn't produce an absurd -$X..+$Y swing.
+      // No disclosure — build down from the modeled margin-after-fees by subtracting
+      // the missing lines at category MIDPOINTS (not stacked extremes, so the displayed
+      // lines sum to the result and a high-COGS concept doesn't produce an absurd swing).
       const mid = (r: [number, number]) => Math.round((rev * (r[0] + r[1])) / 2 / 100);
       const cogsMid = mid(benchmark.cogsPct);
       const laborMid = mid(laborPctEffective);
       const opexMid = mid(OTHER_OPEX_PCT);
-      const ebitda = Math.round(marginAfterFeesMonthly - cogsMid - laborMid - opexMid);
+
+      // Rent guard: if the FDD disclosed no monthly rent, "margin after fees & rent"
+      // never actually had rent removed (the fixed-cost line is just flat fees), so the
+      // modeled EBITDA would be overstated. Subtract a benchmark occupancy line in that
+      // case. When rent IS disclosed it's already netted in the base — don't double-count.
+      const rentDisclosed = fdd.averageRentMonthly != null && fdd.averageRentMonthly > 0;
+      const occupancyMid = rentDisclosed ? 0 : mid(benchmark.occupancyPct);
+
+      const ebitda = Math.round(
+        marginAfterFeesMonthly - occupancyMid - cogsMid - laborMid - opexMid,
+      );
       benchmarkOperatingEbitdaMonthly = [ebitda, ebitda];
       trueEbitdaBasis = "modeled";
       const midPct = Math.round((ebitda / rev) * 100);
-      buildup = [
+
+      const rows: BuildupRow[] = [
         { label: "Margin after fees & rent (modeled)", kind: "base", dollarRange: [marginAfterFeesMonthly, marginAfterFeesMonthly] },
+      ];
+      if (!rentDisclosed) {
+        rows.push({
+          label: "− Occupancy / rent (not disclosed)",
+          kind: "subtract",
+          pctRange: benchmark.occupancyPct,
+          dollarRange: [occupancyMid, occupancyMid],
+          note: "Item 7 disclosed no rent figure — benchmark occupancy applied so the line above isn't overstated",
+        });
+      }
+      rows.push(
         { label: "− Cost of goods", kind: "subtract", pctRange: benchmark.cogsPct, dollarRange: [cogsMid, cogsMid] },
         { label: "− Labor", kind: "subtract", pctRange: laborPctEffective, dollarRange: [laborMid, laborMid], note: laborNote },
         { label: "− Other operating costs", kind: "subtract", pctRange: OTHER_OPEX_PCT, dollarRange: [opexMid, opexMid], note: "utilities, insurance, repairs & maintenance (category estimate)" },
         { label: "= True operating EBITDA", kind: "result", dollarRange: [ebitda, ebitda], note: `≈ ${midPct}% operating margin, before debt` },
-      ];
+      );
+      buildup = rows;
+
+      if (rentDisclosed) {
+        assumptions.push({
+          field: "Rent",
+          basis: "disclosed",
+          detail: `Taken from the FDD (~$${Math.round(fdd.averageRentMonthly!).toLocaleString()}/mo); already netted in margin after fees & rent.`,
+        });
+      } else {
+        assumptions.push({
+          field: "Occupancy / rent",
+          basis: "benchmark",
+          detail: `Item 7 disclosed no rent — occupancy estimated at the ${benchmark.occupancyPct[0]}–${benchmark.occupancyPct[1]}% category band.`,
+        });
+      }
+      assumptions.push(
+        { field: "Cost of goods", basis: "benchmark", detail: `Estimated at the ${benchmark.cogsPct[0]}–${benchmark.cogsPct[1]}% category band — COGS is never disclosed in an FDD.` },
+        { field: "Labor", basis: "benchmark", detail: `Estimated at the ${laborPctEffective[0]}–${laborPctEffective[1]}% ${staffingLabel} band — labor is never disclosed in an FDD.` },
+        { field: "Other operating costs", basis: "benchmark", detail: `Utilities, insurance, and R&M estimated at ${OTHER_OPEX_PCT[0]}–${OTHER_OPEX_PCT[1]}% (category catch-all).` },
+      );
     }
   }
 
@@ -479,6 +571,7 @@ export function buildInsights(
     staffingNote,
     laborPctEffective,
     buildup,
+    assumptions,
     consultCtaUrl: CONSULT_CTA_URL || null,
     consultCtaLabel: "Book a territory review",
     consultCtaPitch:
