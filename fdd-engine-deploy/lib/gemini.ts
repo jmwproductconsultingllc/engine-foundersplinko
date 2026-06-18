@@ -169,7 +169,7 @@ export async function extractFddFromFile(
   //    pass through byte-for-byte untouched (no regression for the FDDs that
   //    already work). ignoreEncryption lets us read permission-flagged PDFs.
   //    If the trim fails for any reason, fall back to the original bytes.
-  let uploadBytes: ArrayBuffer | Uint8Array = fileBytes;
+  let uploadBytes: ArrayBuffer = fileBytes;
   try {
     const src = await PDFDocument.load(fileBytes, { ignoreEncryption: true });
     const pageCount = src.getPageCount();
@@ -178,7 +178,13 @@ export async function extractFddFromFile(
       const indices = Array.from({ length: MAX_FDD_PAGES }, (_, i) => i);
       const copied = await trimmed.copyPages(src, indices);
       copied.forEach((p) => trimmed.addPage(p));
-      uploadBytes = await trimmed.save();
+      // save() yields a Uint8Array; copy it into a standalone ArrayBuffer so the
+      // Blob constructor's BlobPart type is satisfied (TS 5.7 made typed arrays
+      // generic over their backing buffer, so Uint8Array no longer assigns to it).
+      const saved = await trimmed.save();
+      const ab = new ArrayBuffer(saved.byteLength);
+      new Uint8Array(ab).set(saved);
+      uploadBytes = ab;
       console.warn(
         `[extract] large FDD: trimmed ${pageCount} -> ${MAX_FDD_PAGES} pages ` +
           `(exhibits dropped) to fit the model input window.`,
