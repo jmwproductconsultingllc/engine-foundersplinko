@@ -276,7 +276,7 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
 
               <p className="text-[10px] text-[#8194B0]">
                 {ins.trueEbitdaBasis === "modeled"
-                  ? `COGS, labor, and other opex are category benchmarks applied to the modeled gross of ${usd(ins.proFormaRevenueMonthly)}/mo. Labor headcount is implied at ~$20/hr fully loaded. Rent and franchise fees are already inside "margin after fees & rent."`
+                  ? `Dollar figures use the midpoint of each category band (the % ranges show the spread); your unit's actuals will vary. Labor headcount implied at ~$20/hr fully loaded. Rent and franchise fees are already inside "margin after fees & rent."`
                   : ins.trueEbitdaBasis === "disclosed"
                   ? "True operating EBITDA here uses the franchisor's own disclosed margin, applied to the modeled franchised gross."
                   : ""}
