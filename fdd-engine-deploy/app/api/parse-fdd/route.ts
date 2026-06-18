@@ -5,7 +5,9 @@
  *
  * Runtime notes:
  * - Must run on the Node.js runtime (Files API + Blob), not Edge.
- * - Large-doc processing is slow; bump maxDuration (Vercel Pro allows up to 60s+).
+ * - Large-doc processing is slow; maxDuration is set to 300s (the Vercel Pro
+ *   ceiling). The largest FDDs (e.g. Five Iron) run well past 60s, so do NOT
+ *   drop this back to 60 — that silently breaks the big docs.
  * - Vercel serverless has a ~4.5MB request-body limit. Text FDDs usually fit;
  *   large/scanned PDFs may not. See README for the Vercel Blob upgrade path.
  */
@@ -16,7 +18,7 @@ import { scoreFdd } from "@/lib/scoring";
 import { underwrite, BuyerContext } from "@/lib/underwriting";
 
 export const runtime = "nodejs";
-export const maxDuration = 60;
+export const maxDuration = 300;
 export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
