@@ -231,7 +231,7 @@ export async function extractFddFromFile(
             // Rich FDDs (e.g. Five Iron's 6 Item 19 cohorts + full tables) blow
             // past the default output ceiling, which truncates the JSON and
             // breaks parsing. Give generous headroom.
-            maxOutputTokens: 32768,
+            maxOutputTokens: 65536,
           },
         }),
       "extract",
