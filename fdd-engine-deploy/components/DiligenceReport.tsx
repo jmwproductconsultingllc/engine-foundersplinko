@@ -205,7 +205,6 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
           conservative: { color: "#60A5FA", heading: "Conservative vs. industry norms" },
           no_disclosure: { color: "#8194B0", heading: "No margin disclosed in Item 19" },
         } as const)[ins.crossCheck.status];
-        const band = ins.benchmarkOperatingEbitdaMonthly;
         return (
           <Card title="Franchise Edge · Insights">
             <div className="space-y-4">
@@ -216,6 +215,15 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
                 fees and investment, never the franchisee&apos;s operating costs. Here is what
                 to budget for and verify.
               </p>
+
+              {ins.staffingNote && (
+                <div className="rounded-lg border border-[#60A5FA]/30 bg-[#60A5FA]/10 p-3">
+                  <p className="text-[11px] font-bold uppercase text-[#60A5FA]">
+                    Operating model: {ins.staffingLabel}
+                  </p>
+                  <p className="text-xs text-[#CBD5E1] mt-1">{ins.staffingNote}</p>
+                </div>
+              )}
 
               {/* disclosed-margin cross-check */}
               <div
@@ -228,43 +236,65 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
                 <p className="text-xs text-[#CBD5E1] mt-1">{ins.crossCheck.message}</p>
               </div>
 
-              {/* honest contrast: modeled margin-after-fees vs true operating EBITDA */}
-              {band && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div className="bg-[#0B1220] border border-[#27344F] rounded-lg p-3">
-                    <p className="text-[10px] uppercase text-[#8194B0]">Margin after fees &amp; rent (modeled)</p>
-                    <p className="text-lg font-bold text-[#CBD5E1]">{usd(ins.marginAfterFeesMonthly)}/mo</p>
-                    <p className="text-[10px] text-[#8194B0] mt-1">before COGS &amp; labor</p>
-                  </div>
-                  <div className="bg-[#0B1220] border border-[#34D399]/30 rounded-lg p-3">
-                    <p className="text-[10px] uppercase text-[#8194B0]">
-                      {ins.disclosedOperatingMarginPct != null
-                        ? `True operating EBITDA @ disclosed ${ins.disclosedOperatingMarginPct}%`
-                        : `True operating EBITDA @ industry ${b.operatingEbitdaPct[0]}–${b.operatingEbitdaPct[1]}%`}
-                    </p>
-                    <p className="text-lg font-bold text-[#34D399]">
-                      {usd(band[0])}
-                      {band[0] !== band[1] ? `–${usd(band[1])}` : ""}/mo
-                    </p>
-                    <p className="text-[10px] text-[#8194B0] mt-1">after COGS, labor &amp; opex, before debt</p>
+              {/* transparent build-up to true operating EBITDA — show the math */}
+              {ins.buildup.length > 0 && (
+                <div className="rounded-lg border border-[#27344F]">
+                  <p className="text-[10px] uppercase text-[#8194B0] px-3 pt-3">
+                    How we get to true operating EBITDA
+                  </p>
+                  <div className="p-3 space-y-1.5">
+                    {ins.buildup.map((r, i) => {
+                      const isResult = r.kind === "result";
+                      const dollar = r.dollarRange
+                        ? r.dollarRange[0] === r.dollarRange[1]
+                          ? usd(r.dollarRange[0])
+                          : `${usd(r.dollarRange[0])}–${usd(r.dollarRange[1])}`
+                        : "";
+                      const pct = r.pctRange ? `${r.pctRange[0]}–${r.pctRange[1]}%` : "";
+                      return (
+                        <div key={i} className={isResult ? "pt-2 mt-1 border-t border-[#27344F]" : ""}>
+                          <div className="flex justify-between items-baseline gap-3">
+                            <span className={`text-xs ${isResult ? "font-semibold text-white" : "text-[#CBD5E1]"}`}>
+                              {r.label}
+                            </span>
+                            <span className="text-xs whitespace-nowrap">
+                              {pct && <span className="text-[#8194B0] mr-2">{pct}</span>}
+                              {dollar && (
+                                <span className={isResult ? "font-bold text-[#34D399]" : "text-[#CBD5E1]"}>
+                                  {dollar}/mo
+                                </span>
+                              )}
+                            </span>
+                          </div>
+                          {r.note && <p className="text-[10px] text-[#8194B0] mt-0.5">{r.note}</p>}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               )}
 
-              {/* benchmark ranges */}
-              <div className="grid grid-cols-3 gap-3 text-center">
-                <div className="bg-[#0B1220] border border-[#27344F] rounded-lg p-3">
-                  <p className="text-[10px] uppercase text-[#8194B0]">COGS</p>
-                  <p className="text-base font-bold text-[#CBD5E1]">{b.cogsPct[0]}–{b.cogsPct[1]}%</p>
-                </div>
-                <div className="bg-[#0B1220] border border-[#27344F] rounded-lg p-3">
-                  <p className="text-[10px] uppercase text-[#8194B0]">Labor</p>
-                  <p className="text-base font-bold text-[#CBD5E1]">{b.laborPct[0]}–{b.laborPct[1]}%</p>
-                </div>
-                <div className="bg-[#0B1220] border border-[#27344F] rounded-lg p-3">
-                  <p className="text-[10px] uppercase text-[#8194B0]">Op. EBITDA</p>
-                  <p className="text-base font-bold text-[#CBD5E1]">{b.operatingEbitdaPct[0]}–{b.operatingEbitdaPct[1]}%</p>
-                </div>
+              <p className="text-[10px] text-[#8194B0]">
+                {ins.trueEbitdaBasis === "modeled"
+                  ? `COGS, labor, and other opex are category benchmarks applied to the modeled gross of ${usd(ins.proFormaRevenueMonthly)}/mo. Labor headcount is implied at ~$20/hr fully loaded. Rent and franchise fees are already inside "margin after fees & rent."`
+                  : ins.trueEbitdaBasis === "disclosed"
+                  ? "True operating EBITDA here uses the franchisor's own disclosed margin, applied to the modeled franchised gross."
+                  : ""}
+              </p>
+
+              {/* contact hook → territory consulting */}
+              <div className="rounded-lg border border-[#34D399]/30 bg-[#34D399]/5 p-3">
+                <p className="text-xs text-[#CBD5E1]">{ins.consultCtaPitch}</p>
+                {ins.consultCtaUrl && (
+                  <a
+                    href={ins.consultCtaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-2 text-xs font-semibold text-[#0B1220] bg-[#34D399] rounded-md px-3 py-1.5"
+                  >
+                    {ins.consultCtaLabel} →
+                  </a>
+                )}
               </div>
 
               <div className="text-xs text-[#CBD5E1] space-y-2">
