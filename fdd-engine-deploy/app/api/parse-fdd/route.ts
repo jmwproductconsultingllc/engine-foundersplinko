@@ -20,7 +20,8 @@ import { extractFddFromFile } from "@/lib/gemini";
 import { scoreFdd } from "@/lib/scoring";
 import { underwrite, BuyerContext } from "@/lib/underwriting";
 import { buildInsights } from "@/lib/insights";
-import { INSIGHTS_ENABLED } from "@/lib/features";
+import { assessFinancialCondition } from "@/lib/financialCondition";
+import { INSIGHTS_ENABLED, FINCON_ENABLED } from "@/lib/features";
 
 export const runtime = "nodejs";
 export const maxDuration = 300;
@@ -68,7 +69,21 @@ export async function POST(req: NextRequest) {
     // 4) Insights — concept benchmarks + disclosed-margin cross-check (toggleable).
     const insights = INSIGHTS_ENABLED ? buildInsights(extracted, scoring) : null;
 
-    return NextResponse.json({ extracted, scoring, underwriting, buyer, insights });
+    // 5) Financial-condition severity — graded in code from the raw Item 21 /
+    //    Exhibit F facts (toggleable). Returns null when the figures are too thin
+    //    to assess, which the UI renders as an "insufficient data" note.
+    const financialCondition = FINCON_ENABLED
+      ? assessFinancialCondition(extracted.financialCondition)
+      : null;
+
+    return NextResponse.json({
+      extracted,
+      scoring,
+      underwriting,
+      buyer,
+      insights,
+      financialCondition,
+    });
   } catch (err) {
     console.error("[parse-fdd] pipeline error:", err);
     const message = err instanceof Error ? err.message : "Unknown error.";
