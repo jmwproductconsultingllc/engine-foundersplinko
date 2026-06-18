@@ -93,6 +93,21 @@ export interface OperationalRisk {
   source: string;
 }
 
+/** Industry/concept classification that drives the Insights benchmark layer.
+ *  The model classifies into one of these; code supplies all benchmark numbers. */
+export type ConceptType =
+  | "food_beverage_full_service"
+  | "food_beverage_qsr"
+  | "experiential_entertainment"
+  | "experiential_with_fb"
+  | "fitness_studio"
+  | "health_wellness"
+  | "retail_product"
+  | "home_trade_services"
+  | "beauty_personal_care"
+  | "education_childcare"
+  | "other";
+
 export interface ExtractedFDD {
   documentCheck: {
     appearsComplete: boolean;
@@ -142,6 +157,10 @@ export interface ExtractedFDD {
     sourcePage: string;
   };
   operationalRisks: OperationalRisk[];
+  /** AI-classified concept/industry — drives the Insights benchmark layer. */
+  conceptType: ConceptType;
+  /** one-line reason for the classification */
+  conceptRationale?: string;
 }
 
 /**
@@ -315,10 +334,21 @@ export const fddResponseSchema = {
         required: ["title", "description", "severity", "source"],
       },
     },
+    conceptType: {
+      type: Type.STRING,
+      enum: [
+        "food_beverage_full_service", "food_beverage_qsr",
+        "experiential_entertainment", "experiential_with_fb",
+        "fitness_studio", "health_wellness", "retail_product",
+        "home_trade_services", "beauty_personal_care",
+        "education_childcare", "other",
+      ],
+    },
+    conceptRationale: { type: Type.STRING },
   },
   required: [
     "documentCheck", "brandName", "franchisorEntity", "headquarters",
     "brandBackground", "leadership", "item19", "item17", "ongoingFees",
-    "hiddenCosts", "systemScale", "operationalRisks",
+    "hiddenCosts", "systemScale", "operationalRisks", "conceptType",
   ],
 };
