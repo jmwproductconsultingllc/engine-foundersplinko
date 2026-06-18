@@ -161,6 +161,10 @@ export async function extractFddFromFile(
             responseMimeType: "application/json",
             responseSchema: fddResponseSchema,
             temperature: 0.1, // low = more deterministic extraction
+            // Rich FDDs (e.g. Five Iron's 6 Item 19 cohorts + full tables) blow
+            // past the default output ceiling, which truncates the JSON and
+            // breaks parsing. Give generous headroom.
+            maxOutputTokens: 32768,
           },
         }),
       "extract",
@@ -168,7 +172,22 @@ export async function extractFddFromFile(
 
     const text = response.text;
     if (!text) throw new Error("Empty extraction response from Gemini.");
-    extracted = JSON.parse(text) as ExtractedFDD;
+
+    // If the model hit the output-token ceiling, the JSON is truncated and will
+    // not parse — surface that precisely instead of a cryptic "Expected ',' or '}'".
+    const finish = String(response.candidates?.[0]?.finishReason ?? "");
+    if (finish === "MAX_TOKENS") {
+      throw new Error(
+        "Extraction exceeded the model's output limit — this FDD is unusually rich. Try again; if it persists, the output cap (maxOutputTokens) needs raising.",
+      );
+    }
+    try {
+      extracted = JSON.parse(text) as ExtractedFDD;
+    } catch {
+      throw new Error(
+        "The model returned malformed or truncated JSON for this FDD. Please try again; if it persists, the document is unusually large.",
+      );
+    }
 
     // Normalize Item 19 cohorts IN CODE so the model never has to do arithmetic.
     // Priority: (1) mean of monthly values if a Jan-Dec breakdown exists — this
