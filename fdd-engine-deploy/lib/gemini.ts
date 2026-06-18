@@ -50,6 +50,16 @@ RULES:
   for ancillary / hidden costs mentioned outside the investment table (e.g. mandatory
   third-party software/maintenance fees, technology fees, step-in or ACH provisions)
   and put them in hiddenCosts.
+- Fees are FACTS, not math. Record every fee EXACTLY as the FDD states it and do NO
+  arithmetic on it. If a fee is stated PER UNIT (per bay, per simulator, per seat, per
+  location, per terminal, per employee), put the disclosed PER-UNIT amount in
+  estimatedAnnualAmount and name the unit in BOTH name and description — e.g.
+  "approximately $2,000 per golf simulator bay per year" becomes amount 2000, name
+  "Trackman License Fee (per simulator bay)". NEVER multiply a per-unit fee by an
+  assumed number of units (bays/seats/locations) to produce a per-center total: you do
+  not know the count, and the per-unit rate is the correct figure to report. Likewise
+  never convert monthly↔annual or sum fees together — report each fee as written and
+  leave all math to downstream code.
 - Item 17 itself covers renewal, termination, transfer, and dispute resolution — pull
   those risks into operationalRisks, never into the investment table.
 - item19.cohorts: capture every performance grouping disclosed. These come in
