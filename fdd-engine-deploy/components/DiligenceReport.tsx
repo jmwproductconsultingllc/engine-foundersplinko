@@ -54,9 +54,9 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
   const [loan, setLoan] = useState<number>(u.recommendedLoan ?? Math.round(maxLoan * 0.8));
   const [rate, setRate] = useState<number>(10.5);
   const [term, setTerm] = useState<number>(10);
-  // Financial-condition detail opens automatically only when the read is HIGH —
-  // a serious signal shouldn't hide behind a click; lesser reads stay collapsed.
-  const [fcOpen, setFcOpen] = useState<boolean>(fc?.severity === "HIGH");
+  // Financial-condition detail is collapsed by default — the headline and the
+  // for/against lists already carry the severity; the body is opt-in.
+  const [fcOpen, setFcOpen] = useState<boolean>(false);
   const debt = amortize(loan, rate, term);
   const ebitda = s.midCohort?.monthlyEbitda ?? 0;
   const net = ebitda - debt;
@@ -141,7 +141,7 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
                     <ul className="space-y-1">
                       {fc.aggravators.map((a, i) => (
                         <li key={i} className="text-[11px] text-[#CBD5E1] flex gap-1.5">
-                          <span className="text-red-400">▲</span>
+                          <span className="text-red-400">▼</span>
                           <span>{a}</span>
                         </li>
                       ))}
@@ -154,7 +154,7 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
                     <ul className="space-y-1">
                       {fc.mitigants.map((m, i) => (
                         <li key={i} className="text-[11px] text-[#CBD5E1] flex gap-1.5">
-                          <span className="text-[#34D399]">▼</span>
+                          <span className="text-[#34D399]">▲</span>
                           <span>{m}</span>
                         </li>
                       ))}
