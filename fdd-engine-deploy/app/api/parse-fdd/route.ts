@@ -16,6 +16,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { extractFddFromFile } from "@/lib/gemini";
 import { scoreFdd } from "@/lib/scoring";
 import { underwrite, BuyerContext } from "@/lib/underwriting";
+import { buildInsights } from "@/lib/insights";
+import { INSIGHTS_ENABLED } from "@/lib/features";
 
 export const runtime = "nodejs";
 export const maxDuration = 300;
@@ -55,7 +57,10 @@ export async function POST(req: NextRequest) {
     // 3) Underwrite against the buyer (code).
     const underwriting = underwrite(extracted, scoring, buyer);
 
-    return NextResponse.json({ extracted, scoring, underwriting, buyer });
+    // 4) Insights — concept benchmarks + disclosed-margin cross-check (toggleable).
+    const insights = INSIGHTS_ENABLED ? buildInsights(extracted, scoring) : null;
+
+    return NextResponse.json({ extracted, scoring, underwriting, buyer, insights });
   } catch (err) {
     console.error("[parse-fdd] pipeline error:", err);
     const message = err instanceof Error ? err.message : "Unknown error.";
