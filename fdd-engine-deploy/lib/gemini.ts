@@ -21,12 +21,23 @@ import {
   createUserContent,
   createPartFromUri,
 } from "@google/genai";
+import { PDFDocument } from "pdf-lib";
 import { ExtractedFDD, fddResponseSchema } from "./schema";
 
 // gemini-3.5-flash: GA, 1M context, native PDF understanding up to ~1000 pages,
 // and FAST — which matters for staying under the function timeout. Only move to
 // gemini-3.5-pro for genuinely gnarly docs; it's slower and more timeout-prone.
 const MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash";
+
+// Gemini's input context is ~1M tokens. A normal FDD (≤300pp) fits easily, but
+// the largest filings (e.g. Dunkin's ~675pp) blow past it — and ~80% of those
+// pages are exhibits (the franchise agreement, 50-state addenda, audited
+// financials, the franchisee roster) that carry NONE of the diligence signal,
+// which lives entirely in Items 1-23. We cap the pages sent so the model only
+// ever sees the disclosure items. No real FDD's Items 1-23 run past ~200pp, so
+// this is quality-neutral; it also makes every large extraction faster/cheaper.
+// Tunable — raise only if you find a legitimately enormous Items section.
+const MAX_FDD_PAGES = Number(process.env.MAX_FDD_PAGES) || 300;
 
 const EXTRACTION_PROMPT = `
 You are an expert franchise economics analyst extracting structured data from a
@@ -153,8 +164,32 @@ export async function extractFddFromFile(
 
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
+  // 0) Trim oversized FDDs to the disclosure items so we never exceed Gemini's
+  //    input window. Only kicks in for filings past MAX_FDD_PAGES; normal docs
+  //    pass through byte-for-byte untouched (no regression for the FDDs that
+  //    already work). ignoreEncryption lets us read permission-flagged PDFs.
+  //    If the trim fails for any reason, fall back to the original bytes.
+  let uploadBytes: ArrayBuffer | Uint8Array = fileBytes;
+  try {
+    const src = await PDFDocument.load(fileBytes, { ignoreEncryption: true });
+    const pageCount = src.getPageCount();
+    if (pageCount > MAX_FDD_PAGES) {
+      const trimmed = await PDFDocument.create();
+      const indices = Array.from({ length: MAX_FDD_PAGES }, (_, i) => i);
+      const copied = await trimmed.copyPages(src, indices);
+      copied.forEach((p) => trimmed.addPage(p));
+      uploadBytes = await trimmed.save();
+      console.warn(
+        `[extract] large FDD: trimmed ${pageCount} -> ${MAX_FDD_PAGES} pages ` +
+          `(exhibits dropped) to fit the model input window.`,
+      );
+    }
+  } catch (e) {
+    console.warn("[extract] PDF page-trim skipped (load failed); sending original.", e);
+  }
+
   // 1) Upload via Files API (the right path for large PDFs). Retry transient blips.
-  const blob = new Blob([fileBytes], { type: mimeType });
+  const blob = new Blob([uploadBytes], { type: mimeType });
   const uploaded = await withRetry(
     () => ai.files.upload({ file: blob, config: { mimeType, displayName: "fdd-upload.pdf" } }),
     "upload",
