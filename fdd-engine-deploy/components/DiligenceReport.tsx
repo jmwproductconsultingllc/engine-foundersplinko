@@ -32,6 +32,7 @@ function amortize(p: number, ratePct: number, years: number) {
 
 export default function DiligenceReport({ result }: { result: DiligenceResult }) {
   const { extracted: x, scoring: s, underwriting: u } = result;
+  const ins = result.insights ?? null;
 
   const riskColor =
     s.riskLevel === "High"
@@ -130,13 +131,14 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
             <div className="lg:col-span-2 space-y-3">
               <Row label="Monthly Gross Revenue" value={usd(s.midCohort.monthlyRevenue)} bold green />
               <Row
-                label={`Variable costs (${Math.round(s.variableRate * 100)}%)`}
+                label={`Franchise fees (${Math.round(s.variableRate * 100)}% of sales)`}
                 value={`-${usd(s.midCohort.monthlyVariable)}`}
                 red
               />
               <Row label="Fixed costs (fees + rent)" value={`-${usd(s.fixedMonthly)}`} red />
               <div className="border-t border-[#27344F] pt-3">
-                <Row label="EBITDA (pre-debt, pre-payroll)" value={usd(s.midCohort.monthlyEbitda)} bold />
+                <Row label="Margin after fees & rent" value={usd(s.midCohort.monthlyEbitda)} bold />
+                <p className="text-[10px] text-[#8194B0] mt-1">Before COGS, labor, maintenance, and owner pay — see Insights below.</p>
               </div>
             </div>
 
@@ -185,7 +187,7 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
                 <p className={`text-2xl font-black ${net >= 0 ? "text-[#34D399]" : "text-red-400"}`}>
                   {usd(net)}
                 </p>
-                <p className="text-[10px] text-[#8194B0] mt-1">Excludes payroll, maintenance, owner draw.</p>
+                <p className="text-[10px] text-[#8194B0] mt-1">Before COGS, labor, maintenance, owner draw.</p>
               </div>
             </div>
           </div>
@@ -193,6 +195,111 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
           <p className="text-sm text-[#8194B0]">Not enough Item 19 data to build a pro forma.</p>
         )}
       </Card>
+
+      {/* Franchise Edge · Insights — operating benchmarks the FDD can't disclose */}
+      {ins && (() => {
+        const b = ins.benchmark;
+        const cc = ({
+          consistent: { color: "#34D399", heading: "Consistent with industry norms" },
+          optimistic: { color: "#F59E0B", heading: "Optimistic vs. industry norms" },
+          conservative: { color: "#60A5FA", heading: "Conservative vs. industry norms" },
+          no_disclosure: { color: "#8194B0", heading: "No margin disclosed in Item 19" },
+        } as const)[ins.crossCheck.status];
+        const band = ins.benchmarkOperatingEbitdaMonthly;
+        return (
+          <Card title="Franchise Edge · Insights">
+            <div className="space-y-4">
+              <p className="text-xs text-[#8194B0]">
+                Classified as{" "}
+                <span className="text-[#CBD5E1] font-semibold">{ins.conceptLabel}</span>
+                {ins.conceptRationale ? ` — ${ins.conceptRationale}` : ""}. An FDD discloses
+                fees and investment, never the franchisee&apos;s operating costs. Here is what
+                to budget for and verify.
+              </p>
+
+              {/* disclosed-margin cross-check */}
+              <div
+                className="rounded-lg border p-3"
+                style={{ borderColor: cc.color + "66", background: cc.color + "14" }}
+              >
+                <p className="text-[11px] font-bold uppercase" style={{ color: cc.color }}>
+                  {cc.heading}
+                </p>
+                <p className="text-xs text-[#CBD5E1] mt-1">{ins.crossCheck.message}</p>
+              </div>
+
+              {/* honest contrast: modeled margin-after-fees vs true operating EBITDA */}
+              {band && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-[#0B1220] border border-[#27344F] rounded-lg p-3">
+                    <p className="text-[10px] uppercase text-[#8194B0]">Margin after fees &amp; rent (modeled)</p>
+                    <p className="text-lg font-bold text-[#CBD5E1]">{usd(ins.marginAfterFeesMonthly)}/mo</p>
+                    <p className="text-[10px] text-[#8194B0] mt-1">before COGS &amp; labor</p>
+                  </div>
+                  <div className="bg-[#0B1220] border border-[#34D399]/30 rounded-lg p-3">
+                    <p className="text-[10px] uppercase text-[#8194B0]">
+                      {ins.disclosedOperatingMarginPct != null
+                        ? `True operating EBITDA @ disclosed ${ins.disclosedOperatingMarginPct}%`
+                        : `True operating EBITDA @ industry ${b.operatingEbitdaPct[0]}–${b.operatingEbitdaPct[1]}%`}
+                    </p>
+                    <p className="text-lg font-bold text-[#34D399]">
+                      {usd(band[0])}
+                      {band[0] !== band[1] ? `–${usd(band[1])}` : ""}/mo
+                    </p>
+                    <p className="text-[10px] text-[#8194B0] mt-1">after COGS, labor &amp; opex, before debt</p>
+                  </div>
+                </div>
+              )}
+
+              {/* benchmark ranges */}
+              <div className="grid grid-cols-3 gap-3 text-center">
+                <div className="bg-[#0B1220] border border-[#27344F] rounded-lg p-3">
+                  <p className="text-[10px] uppercase text-[#8194B0]">COGS</p>
+                  <p className="text-base font-bold text-[#CBD5E1]">{b.cogsPct[0]}–{b.cogsPct[1]}%</p>
+                </div>
+                <div className="bg-[#0B1220] border border-[#27344F] rounded-lg p-3">
+                  <p className="text-[10px] uppercase text-[#8194B0]">Labor</p>
+                  <p className="text-base font-bold text-[#CBD5E1]">{b.laborPct[0]}–{b.laborPct[1]}%</p>
+                </div>
+                <div className="bg-[#0B1220] border border-[#27344F] rounded-lg p-3">
+                  <p className="text-[10px] uppercase text-[#8194B0]">Op. EBITDA</p>
+                  <p className="text-base font-bold text-[#CBD5E1]">{b.operatingEbitdaPct[0]}–{b.operatingEbitdaPct[1]}%</p>
+                </div>
+              </div>
+
+              <div className="text-xs text-[#CBD5E1] space-y-2">
+                <p>
+                  <span className="font-semibold text-white">What actually decides the deal:</span>{" "}
+                  {b.dominantRisk}
+                </p>
+                <p>
+                  <span className="font-semibold text-white">Ramp:</span> {b.rampNote}
+                </p>
+              </div>
+
+              <div>
+                <p className="text-[11px] font-bold uppercase text-[#8194B0] mb-2">
+                  Critical considerations — {ins.conceptLabel}
+                </p>
+                <ul className="space-y-1.5">
+                  {b.considerations.map((c, i) => (
+                    <li key={i} className="text-xs text-[#CBD5E1] flex gap-2">
+                      <span className="text-[#34D399]">›</span>
+                      <span>{c}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <p className="text-[10px] text-[#64748B] border-t border-[#27344F] pt-2">
+                {ins.disclaimer}
+                {ins.disclosedMarginSource ? ` Disclosed-margin basis: ${ins.disclosedMarginSource}.` : ""}{" "}
+                ({ins.asOf})
+              </p>
+            </div>
+          </Card>
+        );
+      })()}
 
       {/* Item 19 cohorts */}
       <Card title={<>Item 19 — Financial Performance <Src s={x.item19?.sourcePage} /></>}>
@@ -209,7 +316,7 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
       </Card>
 
       {/* Item 17 costs */}
-      <Card title={<>Item 7 — Initial Investment <Src s={x.item17?.sourcePage} /></>}>
+      <Card title={<>Item 17 — Initial Investment <Src s={x.item17?.sourcePage} /></>}>
         <p className="text-sm text-[#CBD5E1] mb-3">
           Estimated total: <span className="font-semibold">{usd(x.item17?.initialInvestmentLow)}</span> –{" "}
           <span className="font-semibold">{usd(x.item17?.initialInvestmentHigh)}</span>
