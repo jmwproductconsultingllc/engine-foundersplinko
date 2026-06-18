@@ -33,6 +33,14 @@ function amortize(p: number, ratePct: number, years: number) {
 export default function DiligenceReport({ result }: { result: DiligenceResult }) {
   const { extracted: x, scoring: s, underwriting: u } = result;
   const ins = result.insights ?? null;
+  const fc = result.financialCondition ?? null;
+
+  // Financial Condition (rendered below) now owns this topic, so drop the
+  // boilerplate "Financial Condition" special-risk from the tripwires list —
+  // otherwise the same concern gets reported twice, in two different voices.
+  const tripwires = (x.operationalRisks ?? []).filter(
+    (r) => !(fc && /financial condition/i.test(r.title)),
+  );
 
   const riskColor =
     s.riskLevel === "High"
@@ -46,6 +54,9 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
   const [loan, setLoan] = useState<number>(u.recommendedLoan ?? Math.round(maxLoan * 0.8));
   const [rate, setRate] = useState<number>(10.5);
   const [term, setTerm] = useState<number>(10);
+  // Financial-condition detail opens automatically only when the read is HIGH —
+  // a serious signal shouldn't hide behind a click; lesser reads stay collapsed.
+  const [fcOpen, setFcOpen] = useState<boolean>(fc?.severity === "HIGH");
   const debt = amortize(loan, rate, term);
   const ebitda = s.midCohort?.monthlyEbitda ?? 0;
   const net = ebitda - debt;
@@ -96,6 +107,89 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
           statement of fact about the franchisor.
         </p>
       </div>
+
+      {/* Financial Condition — code-graded severity from Item 21 / Exhibit F,
+          not the franchisor's boilerplate. Suppressed when the read is LOW. */}
+      {fc && fc.severity !== "LOW" && (() => {
+        const sev = ({
+          HIGH: { color: "#F87171", label: "High concern", cls: "border-red-500/40 bg-red-500/10" },
+          MEDIUM: { color: "#FBBF24", label: "Worth a closer look", cls: "border-amber-500/40 bg-amber-500/10" },
+          LOW: { color: "#34D399", label: "No distress signals", cls: "border-[#34D399]/40 bg-[#34D399]/10" },
+          INSUFFICIENT_DATA: { color: "#8194B0", label: "Not enough data", cls: "border-[#27344F] bg-[#16223B]" },
+        } as const)[fc.severity];
+        return (
+          <div className={`border rounded-xl p-6 ${sev.cls}`}>
+            <div className="flex items-center justify-between gap-3">
+              <h3 className="text-sm font-bold uppercase tracking-wider" style={{ color: sev.color }}>
+                Financial Condition of the Franchisor
+              </h3>
+              <span
+                className="text-[10px] font-bold uppercase px-2 py-0.5 rounded whitespace-nowrap"
+                style={{ color: sev.color, background: sev.color + "1A", border: `1px solid ${sev.color}55` }}
+              >
+                {sev.label}
+              </span>
+            </div>
+
+            <p className="mt-3 text-sm font-medium text-[#F1F5F9] leading-relaxed">{fc.headline}</p>
+
+            {(fc.aggravators.length > 0 || fc.mitigants.length > 0) && (
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {fc.aggravators.length > 0 && (
+                  <div>
+                    <p className="text-[10px] font-bold uppercase text-red-300/80 mb-1">Weighing against</p>
+                    <ul className="space-y-1">
+                      {fc.aggravators.map((a, i) => (
+                        <li key={i} className="text-[11px] text-[#CBD5E1] flex gap-1.5">
+                          <span className="text-red-400">▲</span>
+                          <span>{a}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {fc.mitigants.length > 0 && (
+                  <div>
+                    <p className="text-[10px] font-bold uppercase text-[#34D399]/80 mb-1">In its favor</p>
+                    <ul className="space-y-1">
+                      {fc.mitigants.map((m, i) => (
+                        <li key={i} className="text-[11px] text-[#CBD5E1] flex gap-1.5">
+                          <span className="text-[#34D399]">▼</span>
+                          <span>{m}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {fc.body.length > 0 && (
+              <>
+                <button
+                  onClick={() => setFcOpen((o) => !o)}
+                  className="mt-4 text-xs font-semibold text-[#38BDF8] hover:underline"
+                >
+                  {fcOpen ? "Hide detail ▲" : "Tell me more ▼"}
+                </button>
+                {fcOpen && (
+                  <div className="mt-2 space-y-2">
+                    {fc.body.map((p, i) => (
+                      <p key={i} className="text-xs text-[#CBD5E1] leading-relaxed">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                )}
+              </>
+            )}
+
+            <p className="mt-3 text-[10px] text-[#8194B0] leading-relaxed border-t border-[#27344F]/60 pt-2">
+              {fc.evidenceNote}
+            </p>
+          </div>
+        );
+      })()}
 
       {/* Buyer-fit underwriting (the killer feature) */}
       <div
@@ -321,6 +415,44 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
                 </ul>
               </div>
 
+              {/* assumptions legend — the provenance of every Insights number */}
+              {ins.assumptions && ins.assumptions.length > 0 && (
+                <div className="rounded-lg border border-[#27344F]">
+                  <p className="text-[10px] uppercase text-[#8194B0] px-3 pt-3">
+                    What&apos;s disclosed vs. estimated
+                  </p>
+                  <div className="p-3 space-y-2">
+                    {ins.assumptions.map((a, i) => {
+                      const tag = ({
+                        disclosed: { c: "#34D399", t: "Disclosed" },
+                        derived: { c: "#60A5FA", t: "Derived" },
+                        benchmark: { c: "#F59E0B", t: "Benchmark" },
+                        inferred: { c: "#8194B0", t: "Inferred" },
+                      } as const)[a.basis];
+                      return (
+                        <div key={i} className="flex items-baseline gap-2">
+                          <span
+                            className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded shrink-0"
+                            style={{ color: tag.c, background: tag.c + "1A", border: `1px solid ${tag.c}55` }}
+                          >
+                            {tag.t}
+                          </span>
+                          <span className="text-[11px] text-[#CBD5E1]">
+                            <span className="text-white font-medium">{a.field}:</span> {a.detail}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <p className="text-[9px] text-[#64748B] px-3 pb-3 leading-relaxed">
+                    <span style={{ color: "#34D399" }}>Disclosed</span> = stated in this FDD ·{" "}
+                    <span style={{ color: "#60A5FA" }}>Derived</span> = computed from disclosed figures ·{" "}
+                    <span style={{ color: "#F59E0B" }}>Benchmark</span> = our industry range ·{" "}
+                    <span style={{ color: "#8194B0" }}>Inferred</span> = AI classification
+                  </p>
+                </div>
+              )}
+
               <p className="text-[10px] text-[#64748B] border-t border-[#27344F] pt-2">
                 {ins.disclaimer}
                 {ins.disclosedMarginSource ? ` Disclosed-margin basis: ${ins.disclosedMarginSource}.` : ""}{" "}
@@ -411,10 +543,10 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
       </Card>
 
       {/* Operational risks */}
-      {(x.operationalRisks?.length ?? 0) > 0 && (
+      {tripwires.length > 0 && (
         <Card title="Operational Tripwires">
           <div className="space-y-3">
-            {x.operationalRisks.map((r, i) => (
+            {tripwires.map((r, i) => (
               <div key={i} className="border border-[#27344F] rounded-lg p-3">
                 <p className="text-sm font-semibold">
                   {r.title}{" "}

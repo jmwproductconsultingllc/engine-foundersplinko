@@ -23,6 +23,7 @@ import {
 } from "@google/genai";
 import { PDFDocument } from "pdf-lib";
 import { ExtractedFDD, fddResponseSchema } from "./schema";
+import { FINANCIAL_CONDITION_EXTRACTION_PROMPT } from "./financialCondition";
 
 // gemini-3.5-flash: GA, 1M context, native PDF understanding up to ~1000 pages,
 // and FAST — which matters for staying under the function timeout. Only move to
@@ -222,15 +223,17 @@ export async function extractFddFromFile(
           model: MODEL,
           contents: createUserContent([
             createPartFromUri(fileInfo.uri as string, fileInfo.mimeType as string),
-            EXTRACTION_PROMPT,
+            EXTRACTION_PROMPT + "\n\n" + FINANCIAL_CONDITION_EXTRACTION_PROMPT,
           ]),
           config: {
             responseMimeType: "application/json",
             responseSchema: fddResponseSchema,
             temperature: 0.1, // low = more deterministic extraction
-            // Rich FDDs (e.g. Five Iron's 6 Item 19 cohorts + full tables) blow
-            // past the default output ceiling, which truncates the JSON and
-            // breaks parsing. Give generous headroom.
+            // Rich FDDs (e.g. ULC, a dense health/wellness filing) blow past a
+            // 32K output ceiling, which truncates the JSON and breaks parsing.
+            // 65,536 is gemini-3.5-flash's hard max — use all of it. If a doc
+            // STILL exceeds this, the fix is a more compact extraction (cap
+            // cohort/fee counts), not a higher number — there isn't one.
             maxOutputTokens: 65536,
           },
         }),

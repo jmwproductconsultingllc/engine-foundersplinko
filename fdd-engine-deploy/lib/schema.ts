@@ -12,6 +12,7 @@
  */
 
 import { Type } from "@google/genai";
+import type { FinancialConditionExtraction } from "./financialCondition";
 
 export interface LeadershipMember {
   name: string;
@@ -165,6 +166,11 @@ export interface ExtractedFDD {
   staffingModel: "staffed" | "lightly_staffed" | "automated";
   /** one-line reason for the staffing classification */
   staffingRationale?: string;
+  /** RAW financial-condition facts (Item 21 / Exhibit F + Special Risks page).
+   *  Severity grading happens in code (financialCondition.ts). Optional/nullable
+   *  so a filing with no readable audited financials degrades cleanly rather than
+   *  failing extraction. */
+  financialCondition?: FinancialConditionExtraction;
 }
 
 /**
@@ -354,11 +360,50 @@ export const fddResponseSchema = {
       enum: ["staffed", "lightly_staffed", "automated"],
     },
     staffingRationale: { type: Type.STRING },
+    financialCondition: {
+      type: Type.OBJECT,
+      properties: {
+        specialRiskPresent: { type: Type.BOOLEAN },
+        auditorName: { type: Type.STRING, nullable: true },
+        auditOpinion: {
+          type: Type.STRING,
+          enum: ["unmodified", "qualified", "adverse", "disclaimer", "unknown"],
+        },
+        goingConcernRaised: { type: Type.BOOLEAN },
+        priorPeriodRestatement: { type: Type.BOOLEAN },
+        parentName: { type: Type.STRING, nullable: true },
+        parentGuaranteeOfPerformance: { type: Type.BOOLEAN },
+        years: {
+          type: Type.ARRAY,
+          items: {
+            type: Type.OBJECT,
+            properties: {
+              fiscalYearEnd: { type: Type.STRING, nullable: true },
+              revenue: { type: Type.NUMBER, nullable: true },
+              netIncome: { type: Type.NUMBER, nullable: true },
+              totalAssets: { type: Type.NUMBER, nullable: true },
+              totalLiabilities: { type: Type.NUMBER, nullable: true },
+              cash: { type: Type.NUMBER, nullable: true },
+              currentAssets: { type: Type.NUMBER, nullable: true },
+              currentLiabilities: { type: Type.NUMBER, nullable: true },
+              relatedPartyDebt: { type: Type.NUMBER, nullable: true },
+              deferredRevenue: { type: Type.NUMBER, nullable: true },
+              netWorth: { type: Type.NUMBER, nullable: true },
+            },
+            required: ["fiscalYearEnd"],
+          },
+        },
+      },
+      required: [
+        "specialRiskPresent", "auditOpinion", "goingConcernRaised",
+        "priorPeriodRestatement", "parentGuaranteeOfPerformance", "years",
+      ],
+    },
   },
   required: [
     "documentCheck", "brandName", "franchisorEntity", "headquarters",
     "brandBackground", "leadership", "item19", "item17", "ongoingFees",
     "hiddenCosts", "systemScale", "operationalRisks", "conceptType",
-    "staffingModel",
+    "staffingModel", "financialCondition",
   ],
 };
