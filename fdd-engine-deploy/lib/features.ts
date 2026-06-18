@@ -7,6 +7,10 @@
  * code change.
  *
  *   INSIGHTS_ENABLED=false   → disables the "Franchise Edge · Insights" section
+ *   CONSULT_CTA_URL=https://… → destination for the in-report "book a territory
+ *                               review" hook (leave unset to hide the button)
  */
 
 export const INSIGHTS_ENABLED = process.env.INSIGHTS_ENABLED !== "false";
+
+export const CONSULT_CTA_URL = process.env.CONSULT_CTA_URL || "";

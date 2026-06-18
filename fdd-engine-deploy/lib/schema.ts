@@ -161,6 +161,10 @@ export interface ExtractedFDD {
   conceptType: ConceptType;
   /** one-line reason for the classification */
   conceptRationale?: string;
+  /** operating model — drives the Insights labor adjustment */
+  staffingModel: "staffed" | "lightly_staffed" | "automated";
+  /** one-line reason for the staffing classification */
+  staffingRationale?: string;
 }
 
 /**
@@ -345,10 +349,16 @@ export const fddResponseSchema = {
       ],
     },
     conceptRationale: { type: Type.STRING },
+    staffingModel: {
+      type: Type.STRING,
+      enum: ["staffed", "lightly_staffed", "automated"],
+    },
+    staffingRationale: { type: Type.STRING },
   },
   required: [
     "documentCheck", "brandName", "franchisorEntity", "headquarters",
     "brandBackground", "leadership", "item19", "item17", "ongoingFees",
     "hiddenCosts", "systemScale", "operationalRisks", "conceptType",
+    "staffingModel",
   ],
 };

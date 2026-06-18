@@ -99,6 +99,13 @@ RULES:
   retail_product, home_trade_services, beauty_personal_care, education_childcare,
   or other. Put a one-line reason in conceptRationale. CLASSIFY ONLY — do NOT
   estimate any costs, margins, or ratios; downstream code supplies those.
+- staffingModel: classify how the business is run, from the FDD's own description.
+  Use "automated" for an unattended / self-service / keyless / 24-hour concept that
+  operates with little or no on-site staff; "lightly_staffed" for a small-crew or
+  semi-absentee model; "staffed" for a conventionally staffed venue. Read the concept
+  description (Item 1), the owner's on-site obligation (Item 15), and staffing cues in
+  Item 11. If unclear, default to "staffed". Put a one-line reason in staffingRationale.
+  CLASSIFY ONLY — do not estimate labor cost.
 `;
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));

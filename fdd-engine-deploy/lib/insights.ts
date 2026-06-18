@@ -18,6 +18,7 @@
 
 import { ExtractedFDD, ConceptType } from "./schema";
 import { ScoringResult } from "./scoring";
+import { CONSULT_CTA_URL } from "./features";
 
 export interface ConceptBenchmark {
   /** human-readable concept name */
@@ -34,6 +35,14 @@ export interface ConceptBenchmark {
   rampNote: string;
   /** what to budget for and verify — the "critical considerations given industry" */
   considerations: string[];
+}
+
+export interface BuildupRow {
+  label: string;
+  kind: "base" | "subtract" | "result";
+  pctRange?: [number, number];
+  dollarRange?: [number, number];
+  note?: string;
 }
 
 export interface InsightsResult {
@@ -56,8 +65,26 @@ export interface InsightsResult {
   proFormaRevenueMonthly: number | null;
   /** what the (relabeled) pro forma currently shows as margin after fees & rent */
   marginAfterFeesMonthly: number | null;
-  /** benchmark-implied TRUE operating EBITDA on that revenue, $/mo (low, high) */
+  /** TRUE operating EBITDA on that revenue, $/mo (low, high) — disclosed or built bottom-up */
   benchmarkOperatingEbitdaMonthly: [number, number] | null;
+  /** whether true EBITDA came from a disclosed margin or was modeled bottom-up */
+  trueEbitdaBasis: "disclosed" | "modeled" | "none";
+
+  /** operating model detected from the FDD — drives the labor adjustment */
+  staffingModel: "staffed" | "lightly_staffed" | "automated";
+  staffingLabel: string;
+  /** caveat shown when the model is not conventionally staffed */
+  staffingNote: string | null;
+  /** staffing-adjusted labor band actually used, % of revenue */
+  laborPctEffective: [number, number];
+
+  /** the transparent build-up to true operating EBITDA — the "show the math" */
+  buildup: BuildupRow[];
+
+  /** contact hook → territory consulting (the report→consulting seam) */
+  consultCtaUrl: string | null;
+  consultCtaLabel: string;
+  consultCtaPitch: string;
 
   asOf: string;
   disclaimer: string;
@@ -313,12 +340,41 @@ function deriveDisclosedMargin(
 
 const TOLERANCE_PTS = 4; // how far outside the band before we flag it
 
+const WAGE_LOADED = 20; // $/hr fully loaded — a stated, visible assumption
+const HOURS_FTE = 2080; // annual hours per full-time-equivalent
+const OTHER_OPEX_PCT: [number, number] = [6, 10]; // utilities, insurance, R&M catch-all
+
+const STAFFING_LABEL: Record<InsightsResult["staffingModel"], string> = {
+  staffed: "conventionally staffed",
+  lightly_staffed: "lightly staffed",
+  automated: "automated / minimal-staff",
+};
+
+/** Adjust the concept's staffed-baseline labor band for the detected operating model. */
+function laborBandFor(
+  model: InsightsResult["staffingModel"],
+  base: [number, number],
+): [number, number] {
+  if (model === "automated") return [5, 12];
+  if (model === "lightly_staffed")
+    return [Math.round(base[0] * 0.5), Math.round(base[1] * 0.6)];
+  return base;
+}
+
 export function buildInsights(
   fdd: ExtractedFDD,
   scoring: ScoringResult,
 ): InsightsResult {
   const conceptType: ConceptType = fdd.conceptType ?? "other";
   const benchmark = BENCHMARKS[conceptType] ?? BENCHMARKS.other;
+
+  const staffingModel = (fdd.staffingModel ?? "staffed") as InsightsResult["staffingModel"];
+  const staffingLabel = STAFFING_LABEL[staffingModel];
+  const laborPctEffective = laborBandFor(staffingModel, benchmark.laborPct);
+  const staffingNote =
+    staffingModel === "staffed"
+      ? null
+      : `Flagged as an ${staffingLabel} model from the FDD, so labor is adjusted down to ${laborPctEffective[0]}–${laborPctEffective[1]}% — the ${benchmark.laborPct[0]}–${benchmark.laborPct[1]}% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.`;
 
   const disclosed = deriveDisclosedMargin(fdd);
   const disclosedOperatingMarginPct = disclosed?.pct ?? null;
@@ -353,15 +409,54 @@ export function buildInsights(
   // contextualize the pro-forma cohort revenue
   const rev = scoring.midCohort?.monthlyRevenue ?? null;
   const marginAfterFeesMonthly = scoring.midCohort?.monthlyEbitda ?? null;
+
+  const range = (lo: number, hi: number): [number, number] => [
+    Math.round((rev! * lo) / 100),
+    Math.round((rev! * hi) / 100),
+  ];
+
   let benchmarkOperatingEbitdaMonthly: [number, number] | null = null;
+  let trueEbitdaBasis: InsightsResult["trueEbitdaBasis"] = "none";
+  let buildup: BuildupRow[] = [];
+
   if (rev != null && rev > 0) {
-    // if a margin was disclosed, center the band on it; otherwise use the concept band
-    const lo = disclosedOperatingMarginPct ?? loPct;
-    const hi = disclosedOperatingMarginPct ?? hiPct;
-    benchmarkOperatingEbitdaMonthly = [
-      Math.round((rev * Math.min(lo, hi)) / 100),
-      Math.round((rev * Math.max(lo, hi)) / 100),
-    ];
+    const cogs$ = range(benchmark.cogsPct[0], benchmark.cogsPct[1]);
+    const labor$ = range(laborPctEffective[0], laborPctEffective[1]);
+    const opex$ = range(OTHER_OPEX_PCT[0], OTHER_OPEX_PCT[1]);
+    const fteLo = Math.round(((labor$[0] * 12) / (WAGE_LOADED * HOURS_FTE)) * 10) / 10;
+    const fteHi = Math.round(((labor$[1] * 12) / (WAGE_LOADED * HOURS_FTE)) * 10) / 10;
+    const laborNote = `${staffingLabel} · ≈ ${fteLo}–${fteHi} FTE at ~$${WAGE_LOADED}/hr fully loaded`;
+
+    if (disclosedOperatingMarginPct != null) {
+      // Franchisor disclosed a real margin — that's ground truth; use it.
+      const eb = Math.round((rev * disclosedOperatingMarginPct) / 100);
+      benchmarkOperatingEbitdaMonthly = [eb, eb];
+      trueEbitdaBasis = "disclosed";
+      buildup = [
+        { label: "Franchised gross sales (modeled)", kind: "base", dollarRange: [rev, rev] },
+        {
+          label: `× franchisor's disclosed operating margin (${disclosedOperatingMarginPct}%)`,
+          kind: "result",
+          dollarRange: [eb, eb],
+          note: disclosedMarginSource ?? undefined,
+        },
+      ];
+    } else if (marginAfterFeesMonthly != null) {
+      // No disclosure — build down from the modeled margin-after-fees (rent + fees
+      // already netted there) by subtracting only the genuinely missing lines.
+      const lo = Math.round(marginAfterFeesMonthly - cogs$[1] - labor$[1] - opex$[1]);
+      const hi = Math.round(marginAfterFeesMonthly - cogs$[0] - labor$[0] - opex$[0]);
+      benchmarkOperatingEbitdaMonthly = [lo, hi];
+      trueEbitdaBasis = "modeled";
+      const midPct = Math.round((((lo + hi) / 2) / rev) * 100);
+      buildup = [
+        { label: "Margin after fees & rent (modeled)", kind: "base", dollarRange: [marginAfterFeesMonthly, marginAfterFeesMonthly] },
+        { label: "− Cost of goods", kind: "subtract", pctRange: benchmark.cogsPct, dollarRange: cogs$ },
+        { label: "− Labor", kind: "subtract", pctRange: laborPctEffective, dollarRange: labor$, note: laborNote },
+        { label: "− Other operating costs", kind: "subtract", pctRange: OTHER_OPEX_PCT, dollarRange: opex$, note: "utilities, insurance, repairs & maintenance (category estimate)" },
+        { label: "= True operating EBITDA", kind: "result", dollarRange: [lo, hi], note: `≈ ${midPct}% operating margin, before debt` },
+      ];
+    }
   }
 
   return {
@@ -375,6 +470,16 @@ export function buildInsights(
     proFormaRevenueMonthly: rev,
     marginAfterFeesMonthly,
     benchmarkOperatingEbitdaMonthly,
+    trueEbitdaBasis,
+    staffingModel,
+    staffingLabel,
+    staffingNote,
+    laborPctEffective,
+    buildup,
+    consultCtaUrl: CONSULT_CTA_URL || null,
+    consultCtaLabel: "Book a territory review",
+    consultCtaPitch:
+      "These are category benchmarks applied to the disclosed top line — your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
     asOf: "2026 — general industry benchmarks, refine against real franchisee P&Ls",
     disclaimer:
       "Industry benchmark ranges for your own budgeting and Item 20 questions — NOT a projection of this franchise's results, and not investment advice.",
