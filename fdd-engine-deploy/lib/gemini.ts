@@ -90,6 +90,15 @@ RULES:
   is a deposit-plus-a-few-months cash outlay, NOT monthly rent — do not put that in
   rawValue as if it were a monthly figure; prefer a stated $/sqft or monthly rent.
   Leave averageRentMonthly null; code computes it from rentDetail.
+- conceptType: classify the franchise into ONE industry/concept so the report can
+  apply the right operating benchmarks. Choose exactly one of:
+  food_beverage_full_service, food_beverage_qsr, experiential_entertainment,
+  experiential_with_fb (an experiential/entertainment venue with a meaningful
+  bar/restaurant attach — e.g. an indoor-golf or simulator concept with a full bar
+  and kitchen), fitness_studio, health_wellness (med-spa, IV, longevity, recovery),
+  retail_product, home_trade_services, beauty_personal_care, education_childcare,
+  or other. Put a one-line reason in conceptRationale. CLASSIFY ONLY — do NOT
+  estimate any costs, margins, or ratios; downstream code supplies those.
 `;
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
