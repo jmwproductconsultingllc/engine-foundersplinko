@@ -119,12 +119,42 @@ export function scoreFdd(
 
   // ---- cohorts ----
   const cohorts = fdd.item19?.cohorts ?? [];
-  const midRaw =
+  let midRaw =
     findCohort(cohorts, ["middle", "mid", "60", "median", "2nd", "second"]) ?? null;
   const bottomRaw = findCohort(cohorts, ["bottom", "30", "lowest", "4th", "fourth"]) ?? null;
 
-  const midRevenue =
+  let midRevenue =
     midRaw?.avgMonthlyRevenue ?? fdd.item19?.networkAverageMonthly ?? null;
+
+  // P1 — LEAD WITH THE FRANCHISED COHORT. When the percentile-tier search finds
+  // nothing (e.g. an FDD that reports Company vs Franchised instead of tiers,
+  // like Five Iron), build the pro forma off the FRANCHISED operating figure —
+  // never company/affiliate-owned (which runs ~2x higher) and never pre-sale.
+  if (midRevenue == null) {
+    const franchised = cohorts.find(
+      (c) =>
+        c.avgMonthlyRevenue != null &&
+        c.revenueType !== "pre_sale_only" &&
+        c.revenueType !== "net_or_ebitda" &&
+        !/pre-?sale/i.test(c.label) &&
+        (c.ownership === "franchised" ||
+          (/franchis/i.test(c.label) &&
+            c.ownership !== "company" &&
+            c.ownership !== "affiliate")),
+    );
+    if (franchised) {
+      midRaw = franchised;
+      midRevenue = franchised.avgMonthlyRevenue;
+      if (franchised.sampleSize != null && franchised.sampleSize <= 5) {
+        reasons.push(
+          `Pro forma is built on only ${franchised.sampleSize} franchised location${
+            franchised.sampleSize === 1 ? "" : "s"
+          } — a very thin sample; treat the modeled franchisee economics as low-confidence.`,
+        );
+      }
+    }
+  }
+
   const bottomRevenue = bottomRaw?.avgMonthlyRevenue ?? null;
 
   let midCohort: CohortEconomics | null = null;
