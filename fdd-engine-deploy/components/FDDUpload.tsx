@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type CSSProperties } from "react";
+import { upload } from "@vercel/blob/client";
 import type { IntakeData } from "./IntakeForm";
 import type { DiligenceResult } from "@/lib/types";
 
@@ -75,12 +76,22 @@ export default function FDDUpload({
       setTimeout(() => setPhase(i + 1), Math.round(ms * scale)),
     );
     try {
-      const fd = new FormData();
-      fd.append("fdd", file);
-      fd.append("liquidAssets", String(intake.liquidCapital));
-      fd.append("netWorth", String(intake.netWorth));
+      // Upload the PDF straight to Vercel Blob (no 4.5MB body limit), then hand
+      // the route just the blob URL + buyer context as small JSON.
+      const blob = await upload(file.name, file, {
+        access: "public",
+        handleUploadUrl: "/api/blob-upload",
+      });
 
-      const res = await fetch("/api/parse-fdd", { method: "POST", body: fd });
+      const res = await fetch("/api/parse-fdd", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          blobUrl: blob.url,
+          liquidAssets: intake.liquidCapital,
+          netWorth: intake.netWorth,
+        }),
+      });
 
       // Read the body ONCE as text, then try to parse it. This way a non-JSON
       // response (a timeout page, an empty 504 body, an HTML error) never throws
