@@ -74,24 +74,43 @@ RULES:
   leave all math to downstream code.
 - Item 17 itself covers renewal, termination, transfer, and dispute resolution — pull
   those risks into operationalRisks, never into the investment table.
-- item19.cohorts: capture every performance grouping disclosed. These come in
-  very different shapes across FDDs, so capture what is actually there:
-    * ownership (CRITICAL): tag each grouping as "franchised", "company"
-      (franchisor-owned), "affiliate" (affiliate-owned), or "mixed". Many FDDs
-      lead with COMPANY- or AFFILIATE-owned results that run far higher than
-      franchised ones — never blur the two. If a brand reports "Company Centers"
-      and "Franchised Centers" separately, that is two cohorts with different
-      ownership.
+- item19.cohorts: capture EVERY table the franchisor discloses in Item 19. Each
+  table is its own cohort, and Item 19 is routinely UNDER-captured because it
+  contains several tables. CRITICAL: a franchisor very often discloses a separate
+  PROFITABILITY table — EBITDA, adjusted EBITDA, net income, or operating income —
+  IN ADDITION to a gross-sales table for the same group of outlets. You MUST
+  capture BOTH. The profitability figure is the single most important number in
+  the FDD: the true owner-margin downstream is computed by pairing a group's gross
+  sales with its EBITDA, so NEVER skip, summarize away, or merge a profit table.
+  Worked example — a brand disclosing "Company Centers Average Gross Sales",
+  "Franchised Centers Average Gross Sales", "Company Centers Average EBITDA", and
+  "Select Company Centers Average EBITDA" is FOUR separate cohorts: two
+  gross_sales and two net_or_ebitda. Returning only the gross-sales tables is WRONG.
+  For each cohort:
+    * ownership (CRITICAL): "franchised", "company" (franchisor-owned),
+      "affiliate" (affiliate-owned), or "mixed". Many FDDs lead with COMPANY- or
+      AFFILIATE-owned results that run far higher than franchised ones — never
+      blur the two. "Company Centers" and "Franchised Centers" are two cohorts.
+    * revenueType (CRITICAL): "gross_sales" for a top-line sales/revenue figure;
+      "net_or_ebitda" for ANY profit figure (EBITDA, adjusted EBITDA, net income,
+      operating income); "pre_sale_only" for pre-opening/pre-sale membership
+      revenue (NOT ongoing operations); else "other". Classify every cohort.
+    * label: name a profit cohort in PARALLEL with its gross-sales cohort so the
+      two can be matched downstream — e.g. gross "Company Centers" pairs with
+      EBITDA "Company Centers EBITDA" (same group name, differing only by the
+      EBITDA/sales word).
     * sampleSize: how many outlets back the figure (e.g. 2). Small = unreliable.
-    * revenueType: "gross_sales" for top-line sales, "net_or_ebitda" for a
-      profit/EBITDA figure, "pre_sale_only" if the number is pre-opening
-      membership/pre-sale revenue (NOT ongoing operations), else "other".
-    * If the figure is disclosed MONTHLY (a Jan-Dec breakdown), list every monthly
-      value in monthlyValues — we average it in code. If it is disclosed ANNUALLY
-      (e.g. an average yearly gross sales of $3,000,000), put that in annualRevenue
-      and leave avgMonthlyRevenue null — code divides by 12. Only set
-      avgMonthlyRevenue directly when a true monthly average is the disclosed figure.
-      Never pick a single month, and never pre-convert annual to monthly yourself.
+    * If a figure is disclosed MONTHLY (a Jan-Dec breakdown), list every monthly
+      value in monthlyValues — we average it in code. If disclosed ANNUALLY (e.g.
+      an average yearly gross sales of $3,000,000), put it in annualRevenue and
+      leave avgMonthlyRevenue null — code divides by 12. Set avgMonthlyRevenue
+      directly only when a true monthly average is the disclosed figure. Never
+      pick a single month; never pre-convert yourself. These same rules apply to
+      EBITDA/profit figures.
+  SELF-CHECK before finishing Item 19: re-scan the section and confirm that every
+  EBITDA / net-income / operating-income table you saw is present as a
+  net_or_ebitda cohort. A missing profitability table is the most common and most
+  costly extraction error — do not make it.
   If the franchisor makes NO financial performance representation (the Item 19 says
   it does not provide one), set hasItem19=false, cohorts=[], and say so in notes —
   do not fabricate or infer any revenue. That absence is a finding, not a gap.
