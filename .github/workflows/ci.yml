@@ -1,0 +1,41 @@
+name: CI
+
+# Runs on every push to main and on pull requests. A red X here means a
+# regression — typecheck failure or a golden-test mismatch — reached the repo,
+# so you see it before it ships instead of after a user does.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    # The Next app lives in this subfolder (same as Vercel's Root Directory).
+    defaults:
+      run:
+        working-directory: fdd-engine-deploy
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # npm install (not npm ci) so this works whether or not a package-lock.json
+      # is committed. For fully reproducible installs, commit the lockfile and
+      # switch this line to `npm ci`.
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      # Belt-and-suspenders with the Vercel build, but faster feedback and it
+      # also catches PRs before they merge.
+      - name: Type-check
+        run: npx tsc --noEmit
+
+      # The deterministic core: scoring, underwriting, fee-display logic, etc.
+      # This is what the Vercel build can't catch — code that compiles fine but
+      # produces the wrong read.
+      - name: Golden tests
+        run: npm test
