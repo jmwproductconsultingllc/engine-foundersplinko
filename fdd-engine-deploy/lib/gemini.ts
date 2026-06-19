@@ -47,6 +47,18 @@ Franchise Disclosure Document (FDD). Return ONLY JSON matching the provided sche
 RULES:
 - Extract FACTS ONLY. Do NOT assign a risk score, rating, or recommendation —
   that is computed downstream. Do not editorialize.
+- OUTPUT BUDGET — BE CONCISE. Keep EVERY prose field (background, whyItMatters,
+  brandBackground, fee and hiddenCost descriptions, operationalRisk descriptions,
+  cohort descriptions/notes, rationales) to ONE short sentence or phrase. These
+  are labels, not narrative — never write multi-sentence histories or restate a
+  fact several ways. The structured numbers and the Item 19 / Item 7 / fees /
+  financialCondition data are what matter; verbose prose wastes a hard output
+  budget and can truncate the document mid-extraction. If the FDD is very rich,
+  protect the COMPLETENESS of those structured sections over prose length
+  everywhere else.
+- leadership: extract only the 6 MOST SENIOR people (CEO/President plus the key
+  finance, legal, operations, and development heads). One short sentence of
+  background each, one short clause for whyItMatters — no multi-job chronologies.
 - For EVERY figure you extract, fill the matching "source" / "sourcePage" field
   with the Item number and page (e.g. "Item 19, p.37"). If you cannot locate the
   page, say so in that field. Never invent a citation.
@@ -138,6 +150,34 @@ RULES:
   Item 11. If unclear, default to "staffed". Put a one-line reason in staffingRationale.
   CLASSIFY ONLY — do not estimate labor cost.
 `;
+
+// Appended ONLY on a retry, after the full extraction hits the 65,536-token
+// output ceiling (gemini-3.5-flash's hard max — it cannot be raised). It forces
+// a numbers-only extraction: identical schema, every prose field emptied, so the
+// JSON fits the budget while all figures and citations survive.
+const MINIMAL_MODE_SUFFIX = `
+MINIMAL OUTPUT MODE (retry — the full extraction exceeded the output limit):
+This FDD is exceptionally data-dense, so you MUST cut output size hard. Return the
+SAME JSON schema, but:
+- Set EVERY prose / descriptive / narrative field to an empty string "": all
+  leadership.background and leadership.whyItMatters, brandBackground, every fee and
+  hiddenCost description, every operationalRisk description, every Item 19 cohort
+  description and notes, conceptRationale, staffingRationale, and any other
+  rationale / explanation / summary text field.
+- Keep ALL numbers, ranges, labels, ownership and revenueType tags, sampleSize,
+  monthly and annual figures, every fee name and amount, all source / sourcePage
+  citations, the documentCheck flags, and the FULL financialCondition structure
+  COMPLETE and accurate. Do not drop a single line item, fee, cohort, or financial
+  figure. Still cap leadership at the 6 most senior people.
+The goal: identical structured data, zero prose, so the JSON fits the output budget.
+`;
+
+// True when Gemini stopped because it hit the output-token ceiling (truncated JSON).
+function hitOutputCap(r: {
+  candidates?: ReadonlyArray<{ finishReason?: unknown }> | null;
+}): boolean {
+  return String(r?.candidates?.[0]?.finishReason ?? "") === "MAX_TOKENS";
+}
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -236,40 +276,51 @@ export async function extractFddFromFile(
   // 3) Extract -> strict JSON, retrying transient 503/429 overloads.
   let extracted: ExtractedFDD;
   try {
-    const response = await withRetry(
-      () =>
-        ai.models.generateContent({
-          model: MODEL,
-          contents: createUserContent([
-            createPartFromUri(fileInfo.uri as string, fileInfo.mimeType as string),
-            EXTRACTION_PROMPT + "\n\n" + FINANCIAL_CONDITION_EXTRACTION_PROMPT,
-          ]),
-          config: {
-            responseMimeType: "application/json",
-            responseSchema: fddResponseSchema,
-            temperature: 0.1, // low = more deterministic extraction
-            // Rich FDDs (e.g. ULC, a dense health/wellness filing) blow past a
-            // 32K output ceiling, which truncates the JSON and breaks parsing.
-            // 65,536 is gemini-3.5-flash's hard max — use all of it. If a doc
-            // STILL exceeds this, the fix is a more compact extraction (cap
-            // cohort/fee counts), not a higher number — there isn't one.
-            maxOutputTokens: 65536,
-          },
-        }),
-      "extract",
-    );
+    // One extraction call. `minimal` appends the strip-prose suffix used on the
+    // retry path below; same schema + output cap either way.
+    const callExtraction = (minimal: boolean) =>
+      withRetry(
+        () =>
+          ai.models.generateContent({
+            model: MODEL,
+            contents: createUserContent([
+              createPartFromUri(fileInfo.uri as string, fileInfo.mimeType as string),
+              EXTRACTION_PROMPT +
+                "\n\n" +
+                FINANCIAL_CONDITION_EXTRACTION_PROMPT +
+                (minimal ? "\n\n" + MINIMAL_MODE_SUFFIX : ""),
+            ]),
+            config: {
+              responseMimeType: "application/json",
+              responseSchema: fddResponseSchema,
+              temperature: 0.1, // low = more deterministic extraction
+              // 65,536 is gemini-3.5-flash's HARD max output — there is no higher
+              // number. A rich FDD that exceeds it truncates the JSON; the fix is
+              // less output (the minimal-mode retry below), not a bigger cap.
+              maxOutputTokens: 65536,
+            },
+          }),
+        minimal ? "extract-minimal" : "extract",
+      );
+
+    // Full extraction first (best quality). If it blows the output ceiling the
+    // JSON is truncated, so retry ONCE in minimal mode: identical structured
+    // schema with all prose stripped, so the numbers (Item 7 / 19 / fees /
+    // financials) survive and only the narrative goes light. Only a genuinely
+    // enormous filing fails after that.
+    let response = await callExtraction(false);
+    if (hitOutputCap(response)) {
+      console.warn("[extract] output cap hit — retrying in minimal (numbers-only) mode.");
+      response = await callExtraction(true);
+      if (hitOutputCap(response)) {
+        throw new Error(
+          "This FDD is too data-dense to extract in full, even after compacting — its Item 19 or fee tables are exceptionally large. Try a text-based copy of the document.",
+        );
+      }
+    }
 
     const text = response.text;
     if (!text) throw new Error("Empty extraction response from Gemini.");
-
-    // If the model hit the output-token ceiling, the JSON is truncated and will
-    // not parse — surface that precisely instead of a cryptic "Expected ',' or '}'".
-    const finish = String(response.candidates?.[0]?.finishReason ?? "");
-    if (finish === "MAX_TOKENS") {
-      throw new Error(
-        "Extraction exceeded the model's output limit — this FDD is unusually rich. Try again; if it persists, the output cap (maxOutputTokens) needs raising.",
-      );
-    }
     try {
       extracted = JSON.parse(text) as ExtractedFDD;
     } catch {
