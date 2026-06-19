@@ -34,7 +34,12 @@ export default function Page() {
 
   return (
     <main className="min-h-screen bg-[#0B1220] text-[#F1F5F9] px-4 py-12 md:px-8 md:py-16">
-      <style>{`@keyframes fe-hero { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }`}</style>
+      <style>{`
+        @keyframes fe-hero { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+        details.fdd-primer > summary { list-style: none; }
+        details.fdd-primer > summary::-webkit-details-marker { display: none; }
+        details.fdd-primer[open] .fdd-chevron { transform: rotate(180deg); }
+      `}</style>
 
       <div className="mx-auto max-w-3xl">
         {/* hero */}
@@ -75,6 +80,51 @@ export default function Page() {
               <span aria-hidden>→</span>
             </a>
           </div>
+
+          {/* On-ramp for cold/novice visitors who don't have an FDD or know what it is */}
+          <details className="fdd-primer mt-4 rounded-xl border border-[#27344F] bg-[#111B30]/60 px-5 py-4">
+            <summary className="flex cursor-pointer items-center justify-between gap-3 text-sm font-medium text-[#CBD5E1]">
+              <span className="flex items-center gap-2.5">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#38BDF8]/15 text-xs font-bold text-[#38BDF8]">
+                  ?
+                </span>
+                Not sure what an FDD is, or where to get one?
+              </span>
+              <svg
+                className="fdd-chevron h-4 w-4 shrink-0 text-[#5A6B88] transition-transform duration-200"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </summary>
+            <div className="mt-3 space-y-3 text-sm leading-relaxed text-[#8194B0]">
+              <p>
+                An FDD — Franchise Disclosure Document — is the 200–300 page disclosure every
+                franchisor must give you before you invest: the real costs, fees, financials,
+                litigation, and the rules of the deal.
+              </p>
+              <p>
+                Ask the franchise for it directly — under FTC rules they must provide it free, at
+                least 14 days before you sign anything or pay a dime. Or look one up in a state
+                registry to start comparing brands before you ever talk to a salesperson.
+              </p>
+              <a
+                href="https://apps.dfi.wi.gov/apps/FranchiseSearch/MainSearch.aspx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-medium text-[#38BDF8] hover:underline"
+              >
+                Look up an FDD on Wisconsin&apos;s free registry
+                <span aria-hidden>↗</span>
+              </a>
+            </div>
+          </details>
         </div>
 
         {/* value matrix */}
