@@ -2,6 +2,7 @@
 
 import { useState, type ReactNode } from "react";
 import type { DiligenceResult } from "@/lib/types";
+import { recurringFeeDisplays } from "@/lib/fees";
 
 const usd = (n: number | null | undefined) =>
   n == null
@@ -34,6 +35,7 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
   const { extracted: x, scoring: s, underwriting: u } = result;
   const ins = result.insights ?? null;
   const fc = result.financialCondition ?? null;
+  const fees = recurringFeeDisplays(x);
 
   // Financial Condition (rendered below) now owns this topic, so drop the
   // boilerplate "Financial Condition" special-risk from the tripwires list —
@@ -539,9 +541,9 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
       <Card title="Ongoing Fees & Hidden Costs">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2 text-sm">
-            <Row label="Royalty" value={x.ongoingFees?.royaltyPct != null ? `${x.ongoingFees.royaltyPct}%` : "—"} />
-            <Row label="Brand fund" value={x.ongoingFees?.brandFundPct != null ? `${x.ongoingFees.brandFundPct}%` : "—"} />
-            <Row label="Local ad" value={x.ongoingFees?.localAdPct != null ? `${x.ongoingFees.localAdPct}%` : "—"} />
+            <FeeRow label="Royalty" d={fees.royalty} />
+            <FeeRow label="Brand fund" d={fees.brandFund} />
+            <FeeRow label="Local ad" d={fees.localAd} />
             {x.ongoingFees?.flatMonthlyFees?.map((ff, i) => (
               <Row key={i} label={<>{ff.name} <Src s={ff.source} /></>} value={`${usd(ff.monthlyAmount)}/mo`} />
             ))}
@@ -653,6 +655,20 @@ function Row({
       >
         {value}
       </span>
+    </div>
+  );
+}
+
+/** A recurring-fee line. Shows "{n}%" when the FDD discloses a rate; when it
+ *  doesn't, shows the fee name with a plain-language note instead of a bare
+ *  dash. The decision lives in lib/fees.ts (recurringFeeDisplays) and is
+ *  golden-tested — this component only renders it. */
+function FeeRow({ label, d }: { label: string; d: { pct: string | null; note: string | null } }) {
+  if (d.pct != null) return <Row label={label} value={d.pct} />;
+  return (
+    <div>
+      <span className="text-sm text-[#CBD5E1]">{label}</span>
+      {d.note && <p className="text-xs text-[#8194B0] mt-0.5 leading-snug">{d.note}</p>}
     </div>
   );
 }
