@@ -123,15 +123,48 @@ export default function FDDUpload({
         }),
       });
 
-      const raw = await res.text();
-      let parsed: unknown = null;
-      try {
-        parsed = raw ? JSON.parse(raw) : null;
-      } catch {
-        /* response wasn't JSON — handled below */
+      // Pre-flight failures (bad request, file retrieval) come back as a normal
+      // JSON error with a status code — map them the old way.
+      if (!res.ok) {
+        const raw = await res.text();
+        let errParsed: unknown = null;
+        try {
+          errParsed = raw ? JSON.parse(raw) : null;
+        } catch {
+          /* non-JSON error body */
+        }
+        throw new Error(readError(errParsed, res.status));
       }
 
-      if (!res.ok) throw new Error(readError(parsed, res.status));
+      // Success is a keep-alive STREAM: heartbeat whitespace while the server
+      // works (so Safari/proxies don't drop a long, silent request), then one
+      // final JSON line — the result, or an { error } payload. Read to the end,
+      // then parse the trailing JSON (heartbeats are whitespace, so trim clears them).
+      let acc = "";
+      if (res.body) {
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        for (;;) {
+          const { value, done } = await reader.read();
+          if (done) break;
+          acc += decoder.decode(value, { stream: true });
+        }
+        acc += decoder.decode();
+      } else {
+        acc = await res.text();
+      }
+
+      let parsed: unknown = null;
+      try {
+        const trimmed = acc.trim();
+        parsed = trimmed ? JSON.parse(trimmed) : null;
+      } catch {
+        throw new Error("The server returned an unexpected response. Please try again.");
+      }
+      if (parsed && typeof parsed === "object" && "error" in parsed) {
+        const e = (parsed as { error?: unknown }).error;
+        throw new Error(typeof e === "string" && e.trim() ? e : "Failed to analyze the FDD.");
+      }
       if (!parsed) {
         throw new Error("The server returned an unexpected response. Please try again.");
       }
