@@ -7,32 +7,38 @@ import DiligenceReport from "@/components/DiligenceReport";
 import InfographicTeaser from "@/components/InfographicTeaser";
 import type { DiligenceResult } from "@/lib/types";
 import { track } from "@/lib/analytics";
+import { getSampleResult } from "@/lib/sampleReport";
 
 const DISPLAY =
   "var(--font-display, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif)";
 
-// Set NEXT_PUBLIC_SAMPLE_REPORT_URL in Vercel when the canonical sample exists;
-// until then the button scrolls to the value matrix.
-const SAMPLE_URL = process.env.NEXT_PUBLIC_SAMPLE_REPORT_URL || "#what-you-get";
-
 export default function Page() {
   const [result, setResult] = useState<DiligenceResult | null>(null);
   const [unlocked, setUnlocked] = useState(false);
+  const [isSample, setIsSample] = useState(false);
   const [primerOpen, setPrimerOpen] = useState(false);
 
   if (result) {
+    const reset = () => {
+      setResult(null);
+      setUnlocked(false);
+      setIsSample(false);
+    };
     return (
       <main className="min-h-screen bg-[#0B1220] text-[#F1F5F9] px-4 py-10 md:px-8">
         <div className="mx-auto max-w-4xl space-y-5">
-          <button
-            onClick={() => {
-              setResult(null);
-              setUnlocked(false);
-            }}
-            className="text-sm font-medium text-[#38BDF8] hover:underline"
-          >
-            ← Analyze another FDD
+          <button onClick={reset} className="text-sm font-medium text-[#38BDF8] hover:underline">
+            ← {isSample ? "Back to start" : "Analyze another FDD"}
           </button>
+          {isSample && (
+            <div className="rounded-xl border border-[#38BDF8]/30 bg-[#38BDF8]/[0.07] px-5 py-3.5 text-sm leading-relaxed text-[#CBD5E1]">
+              <span className="font-semibold text-[#38BDF8]">Sample report.</span> An illustrative example of a
+              full Franchise Edge read — fictional brand, realistic numbers.{" "}
+              <button onClick={reset} className="font-medium text-[#38BDF8] hover:underline">
+                Run yours →
+              </button>
+            </div>
+          )}
           {unlocked ? (
             <DiligenceReport result={result} />
           ) : (
@@ -146,23 +152,26 @@ export default function Page() {
 
           <FDDUpload
             onResult={(r) => {
+              setIsSample(false);
               setUnlocked(false);
               setResult(r);
             }}
           />
 
           <div className="mt-4 text-center">
-            <a
-              href={SAMPLE_URL}
-              target={SAMPLE_URL.startsWith("#") ? undefined : "_blank"}
-              rel={SAMPLE_URL.startsWith("#") ? undefined : "noopener noreferrer"}
-              onClick={() => track("sample_report_clicked")}
+            <button
+              onClick={() => {
+                track("sample_report_clicked");
+                setIsSample(true);
+                setUnlocked(true);
+                setResult(getSampleResult());
+              }}
               className="inline-flex items-center gap-1.5 rounded-lg border border-[#27344F] px-4 py-2
                 text-sm font-medium text-[#CBD5E1] transition-colors hover:border-[#38BDF8] hover:text-[#38BDF8]"
             >
               See a sample report
               <span aria-hidden>→</span>
-            </a>
+            </button>
           </div>
         </div>
 
