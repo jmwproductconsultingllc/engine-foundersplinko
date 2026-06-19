@@ -1,9 +1,13 @@
 "use client";
 
-import { useState, type CSSProperties } from "react";
+import { useState, useRef, type CSSProperties, type DragEvent } from "react";
 import { upload } from "@vercel/blob/client";
-import type { IntakeData } from "./IntakeForm";
 import type { DiligenceResult } from "@/lib/types";
+
+// Display face with a system fallback, so this works whether or not the
+// next/font variable is set in layout.tsx.
+const DISPLAY =
+  "var(--font-display, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif)";
 
 /** Pull a human-readable error out of whatever the server returned. */
 function readError(parsed: unknown, status: number): string {
@@ -35,9 +39,7 @@ const PHASES = [
   "Finishing touches — flagging anomalies in the data…",
 ];
 
-/** Style for the vertical connector between steps: solid green once a step is
- *  done, flowing dashes on the active segment (toward the "win" below), muted
- *  static dashes ahead. */
+/** Style for the vertical connector between steps. */
 function connectorStyle(done: boolean, active: boolean): CSSProperties {
   if (done) return { backgroundColor: "#34D399" };
   const color = active ? "#38BDF8" : "#27344F";
@@ -47,37 +49,58 @@ function connectorStyle(done: boolean, active: boolean): CSSProperties {
   };
 }
 
+const QUICK = [
+  { label: "$100k", value: 100_000 },
+  { label: "$250k", value: 250_000 },
+  { label: "$500k", value: 500_000 },
+  { label: "$1M", value: 1_000_000 },
+];
+
 export default function FDDUpload({
-  intake,
   onResult,
 }: {
-  intake: IntakeData;
   onResult: (r: DiligenceResult) => void;
 }) {
+  const [liquid, setLiquid] = useState<number>(250_000);
   const [file, setFile] = useState<File | null>(null);
+  const [dragging, setDragging] = useState(false);
   const [loading, setLoading] = useState(false);
   const [phase, setPhase] = useState(0);
   const [error, setError] = useState<string | null>(null);
+  const fileInput = useRef<HTMLInputElement>(null);
+
+  const pickFile = (f: File | null) => {
+    if (!f) return;
+    if (f.type !== "application/pdf") {
+      setError("That doesn't look like a PDF. Upload the FDD as a PDF file.");
+      return;
+    }
+    setFile(f);
+    setError(null);
+  };
+
+  const onDrop = (e: DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setDragging(false);
+    pickFile(e.dataTransfer.files?.[0] ?? null);
+  };
 
   const run = async () => {
     if (!file) return;
     setLoading(true);
     setError(null);
     setPhase(0);
-    // Narrate the ~1-minute parse so it never looks frozen. These are timed, not
-    // tied to real server events — the heavy extraction is one opaque ~45s model
-    // call with no sub-progress — but they're paced to the real phases, and the
-    // last messages park until the response actually lands.
-    // Pace to file size: small FDDs move faster, big filings stretch. Baseline
-    // tuned to ~12MB; clamped so tiny/huge files stay sane. Calibrate the base
-    // array from your real run durations.
+    // Narrate the ~1-minute parse so it never looks frozen. Timed, not tied to
+    // real server events; paced to file size and parked on the last messages.
     const scale = Math.min(2, Math.max(0.5, file.size / (12 * 1024 * 1024)));
     const timers = [3000, 7000, 12000, 22000, 35000, 70000].map((ms, i) =>
       setTimeout(() => setPhase(i + 1), Math.round(ms * scale)),
     );
     try {
-      // Upload the PDF straight to Vercel Blob (no 4.5MB body limit), then hand
-      // the route just the blob URL + buyer context as small JSON.
+      // Upload straight to Vercel Blob (no 4.5MB body limit), then hand the
+      // route the blob URL + buyer capital as small JSON. We collect one number
+      // now — liquid capital toward the build-out — and pass it as both the
+      // liquid figure and a conservative net-worth floor.
       const blob = await upload(file.name, file, {
         access: "public",
         handleUploadUrl: "/api/blob-upload",
@@ -88,14 +111,11 @@ export default function FDDUpload({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           blobUrl: blob.url,
-          liquidAssets: intake.liquidCapital,
-          netWorth: intake.netWorth,
+          liquidAssets: liquid,
+          netWorth: liquid,
         }),
       });
 
-      // Read the body ONCE as text, then try to parse it. This way a non-JSON
-      // response (a timeout page, an empty 504 body, an HTML error) never throws
-      // a cryptic "Unexpected token" / "did not match the expected pattern".
       const raw = await res.text();
       let parsed: unknown = null;
       try {
@@ -104,9 +124,7 @@ export default function FDDUpload({
         /* response wasn't JSON — handled below */
       }
 
-      if (!res.ok) {
-        throw new Error(readError(parsed, res.status));
-      }
+      if (!res.ok) throw new Error(readError(parsed, res.status));
       if (!parsed) {
         throw new Error("The server returned an unexpected response. Please try again.");
       }
@@ -114,7 +132,6 @@ export default function FDDUpload({
       onResult(parsed as DiligenceResult);
     } catch (e) {
       const msg = e instanceof Error ? e.message : "Something went wrong.";
-      // Network-level failures (dropped connection, some timeouts) surface here.
       const isNetwork = /load failed|networkerror|failed to fetch|terminated/i.test(msg);
       setError(
         isNetwork
@@ -128,48 +145,139 @@ export default function FDDUpload({
     }
   };
 
+  const fmt = (n: number) => (n ? n.toLocaleString("en-US") : "");
+
   return (
-    <div className="bg-[#16223B] border border-[#27344F] rounded-xl p-6 md:p-8">
-      <h2 className="text-lg font-bold text-[#F1F5F9] mb-1">Upload the FDD</h2>
-      <p className="text-sm text-[#8194B0] mb-5">
-        We&apos;ll cross-reference your{" "}
-        <span className="text-[#CBD5E1] font-medium">${intake.liquidCapital.toLocaleString()}</span> liquid
-        capital against this franchise&apos;s real unit economics and required build-out.
+    <div className="rounded-2xl border border-[#27344F] bg-gradient-to-b from-[#16223B] to-[#111B30] p-6 md:p-8 shadow-2xl shadow-black/40">
+      <style>{`
+        @keyframes fe-flow { to { background-position: 0 9px; } }
+        @keyframes fe-spin { to { transform: rotate(360deg); } }
+        @keyframes fe-rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+      `}</style>
+
+      {/* ── Step 1: the one number (the signature) ── */}
+      <label className="block text-sm font-semibold text-[#F1F5F9]">
+        How much can you put toward opening?
+      </label>
+      <p className="mt-1 text-xs text-[#8194B0]">
+        The cash you have for the build-out — the one number we measure the whole deal against.
       </p>
 
-      <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+      <div
+        className="mt-4 flex items-center gap-1.5 rounded-xl border border-[#F5B847]/30 bg-[#0B1220] px-4 py-3
+          focus-within:border-[#F5B847]/70 focus-within:ring-2 focus-within:ring-[#F5B847]/15 transition-colors"
+      >
+        <span
+          className="text-3xl md:text-4xl font-semibold text-[#F5B847] leading-none select-none"
+          style={{ fontFamily: DISPLAY }}
+        >
+          $
+        </span>
         <input
+          type="text"
+          inputMode="numeric"
+          aria-label="Capital available toward opening, in dollars"
+          value={fmt(liquid)}
+          onChange={(e) => {
+            const digits = e.target.value.replace(/[^0-9]/g, "").slice(0, 9);
+            setLiquid(digits ? Number(digits) : 0);
+          }}
+          placeholder="250,000"
+          className="w-full bg-transparent text-3xl md:text-4xl font-semibold text-[#F5B847] leading-none
+            placeholder:text-[#5A6B88] focus:outline-none"
+          style={{ fontFamily: DISPLAY }}
+        />
+      </div>
+
+      <div className="mt-3 flex flex-wrap gap-2">
+        {QUICK.map((q) => (
+          <button
+            key={q.label}
+            type="button"
+            onClick={() => setLiquid(q.value)}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-colors ${
+              liquid === q.value
+                ? "border-[#F5B847]/60 bg-[#F5B847]/10 text-[#F5B847]"
+                : "border-[#27344F] text-[#8194B0] hover:border-[#3A496A] hover:text-[#CBD5E1]"
+            }`}
+          >
+            {q.label}
+          </button>
+        ))}
+      </div>
+
+      {/* ── Step 2: the document ── */}
+      <div
+        onDragOver={(e) => {
+          e.preventDefault();
+          if (!loading) setDragging(true);
+        }}
+        onDragLeave={() => setDragging(false)}
+        onDrop={onDrop}
+        onClick={() => !loading && fileInput.current?.click()}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if ((e.key === "Enter" || e.key === " ") && !loading) {
+            e.preventDefault();
+            fileInput.current?.click();
+          }
+        }}
+        className={`mt-6 cursor-pointer rounded-xl border-2 border-dashed px-5 py-7 text-center transition-colors ${
+          dragging
+            ? "border-[#34D399] bg-[#34D399]/5"
+            : file
+              ? "border-[#34D399]/50 bg-[#34D399]/5"
+              : "border-[#27344F] hover:border-[#3A496A] bg-[#0B1220]/40"
+        }`}
+      >
+        <input
+          ref={fileInput}
           type="file"
           accept="application/pdf"
           disabled={loading}
-          onChange={(e) => {
-            setFile(e.target.files?.[0] || null);
-            setError(null);
-          }}
-          className="block w-full text-sm text-[#8194B0] file:mr-4 file:py-2.5 file:px-4 file:rounded-lg
-            file:border-0 file:text-sm file:font-semibold file:bg-[#1E2C49] file:text-[#38BDF8]
-            hover:file:bg-[#27344F] cursor-pointer disabled:opacity-50"
+          className="hidden"
+          onChange={(e) => pickFile(e.target.files?.[0] ?? null)}
         />
-        <button
-          onClick={run}
-          disabled={!file || loading}
-          className="whitespace-nowrap px-6 py-2.5 rounded-lg font-semibold bg-[#34D399] text-[#0B1220]
-            hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed transition"
-        >
-          {loading ? "Analyzing…" : "Generate Diligence Report"}
-        </button>
+        {file ? (
+          <div className="flex items-center justify-center gap-2 text-sm">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#34D399] text-[13px] font-bold text-[#0B1220]">
+              ✓
+            </span>
+            <span className="font-medium text-[#F1F5F9] truncate max-w-[16rem]">{file.name}</span>
+            <span className="text-[#8194B0]">· tap to change</span>
+          </div>
+        ) : (
+          <>
+            <p className="text-sm font-medium text-[#CBD5E1]">
+              Drop the FDD here, or <span className="text-[#38BDF8]">browse</span>
+            </p>
+            <p className="mt-1 text-xs text-[#8194B0]">PDF · up to ~4.5MB</p>
+          </>
+        )}
       </div>
 
+      {/* ── Step 3: go ── */}
+      <button
+        onClick={run}
+        disabled={!file || loading}
+        className="mt-5 w-full rounded-xl bg-[#34D399] px-6 py-3.5 text-base font-bold text-[#0B1220]
+          hover:brightness-110 active:brightness-95 disabled:opacity-40 disabled:cursor-not-allowed
+          transition shadow-lg shadow-[#34D399]/10"
+      >
+        {loading ? "Analyzing…" : "Run my diligence"}
+      </button>
+      <p className="mt-2.5 text-center text-xs text-[#5A6B88]">
+        Your file is processed to generate the report, not stored or sold.
+      </p>
+
+      {/* ── Loading overlay (unchanged behavior) ── */}
       {loading && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
           aria-live="polite"
           role="status"
         >
-          <style>{`
-            @keyframes fe-flow { to { background-position: 0 9px; } }
-            @keyframes fe-spin { to { transform: rotate(360deg); } }
-          `}</style>
           <div className="w-[min(92vw,440px)] rounded-2xl border border-[#27344F] bg-[#16223B] p-7 shadow-2xl">
             <h3 className="text-base font-bold text-[#F1F5F9]">Analyzing the FDD</h3>
             <p className="mt-1 mb-5 text-xs text-[#8194B0] truncate">
