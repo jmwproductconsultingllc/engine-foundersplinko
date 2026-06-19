@@ -3,6 +3,7 @@
 import { useState, useRef, type CSSProperties, type DragEvent } from "react";
 import { upload } from "@vercel/blob/client";
 import type { DiligenceResult } from "@/lib/types";
+import { track } from "@/lib/analytics";
 
 // Display face with a system fallback, so this works whether or not the
 // next/font variable is set in layout.tsx.
@@ -77,6 +78,7 @@ export default function FDDUpload({
     }
     setFile(f);
     setError(null);
+    track("file_selected", { sizeMB: Math.round((f.size / 1048576) * 100) / 100 });
   };
 
   const onDrop = (e: DragEvent<HTMLDivElement>) => {
@@ -90,6 +92,11 @@ export default function FDDUpload({
     setLoading(true);
     setError(null);
     setPhase(0);
+    const startedAt = Date.now();
+    track("analyze_started", {
+      capital: liquid,
+      fileSizeMB: Math.round((file.size / 1048576) * 100) / 100,
+    });
     // Narrate the ~1-minute parse so it never looks frozen. Timed, not tied to
     // real server events; paced to file size and parked on the last messages.
     const scale = Math.min(2, Math.max(0.5, file.size / (12 * 1024 * 1024)));
@@ -129,7 +136,15 @@ export default function FDDUpload({
         throw new Error("The server returned an unexpected response. Please try again.");
       }
 
-      onResult(parsed as DiligenceResult);
+      const r = parsed as DiligenceResult;
+      track("analyze_succeeded", {
+        capital: liquid,
+        durationMs: Date.now() - startedAt,
+        riskLevel: r.scoring?.riskLevel ?? null,
+        finconSeverity: r.financialCondition?.severity ?? "none",
+        proFormaBuilt: r.scoring?.midCohort != null,
+      });
+      onResult(r);
     } catch (e) {
       const msg = e instanceof Error ? e.message : "Something went wrong.";
       const isNetwork = /load failed|networkerror|failed to fetch|terminated/i.test(msg);
@@ -138,6 +153,7 @@ export default function FDDUpload({
           ? "The request didn't complete — usually a timeout on a large FDD. Please try again."
           : msg,
       );
+      track("analyze_failed", { message: msg, network: isNetwork });
     } finally {
       timers.forEach(clearTimeout);
       setLoading(false);
