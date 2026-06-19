@@ -136,37 +136,34 @@ export default function FDDUpload({
         throw new Error(readError(errParsed, res.status));
       }
 
-      // Success is a keep-alive STREAM: heartbeat whitespace while the server
-      // works (so Safari/proxies don't drop a long, silent request), then one
-      // final JSON line — the result, or an { error } payload. Read to the end,
-      // then parse the trailing JSON (heartbeats are whitespace, so trim clears them).
-      let acc = "";
-      if (res.body) {
-        const reader = res.body.getReader();
-        const decoder = new TextDecoder();
-        for (;;) {
-          const { value, done } = await reader.read();
-          if (done) break;
-          acc += decoder.decode(value, { stream: true });
-        }
-        acc += decoder.decode();
-      } else {
-        acc = await res.text();
-      }
+      // Success is a keep-alive stream: heartbeat whitespace while the server
+      // works, then one final JSON line (the result, or an { error } payload).
+      // Let the browser assemble the whole body — res.text() reads the full
+      // stream natively and is more robust across browsers than a manual reader
+      // (Safari mis-assembles a hand-rolled getReader loop). The heartbeat keeps
+      // the connection alive so res.text() resolves on long extractions.
+      const raw = await res.text();
+      const trimmed = raw.trim();
 
       let parsed: unknown = null;
-      try {
-        const trimmed = acc.trim();
-        parsed = trimmed ? JSON.parse(trimmed) : null;
-      } catch {
-        throw new Error("The server returned an unexpected response. Please try again.");
+      if (trimmed) {
+        try {
+          parsed = JSON.parse(trimmed);
+        } catch {
+          // Body arrived but isn't valid JSON — usually a payload truncated
+          // mid-stream (a browser/proxy cutting a long request short).
+          throw new Error("The server returned an unexpected response. Please try again.");
+        }
       }
       if (parsed && typeof parsed === "object" && "error" in parsed) {
         const e = (parsed as { error?: unknown }).error;
         throw new Error(typeof e === "string" && e.trim() ? e : "Failed to analyze the FDD.");
       }
       if (!parsed) {
-        throw new Error("The server returned an unexpected response. Please try again.");
+        // Connection delivered heartbeats but no result — the request was cut
+        // before the analysis finished (some browsers cap how long a single
+        // request may run).
+        throw new Error("The analysis didn't finish in time. Please try again.");
       }
 
       const r = parsed as DiligenceResult;
