@@ -343,6 +343,20 @@ export function gradeSeverity(
 
   let severity: Severity = high ? 'HIGH' : medium ? 'MEDIUM' : 'LOW';
 
+  // Growth-stage cap (founder call): a deficit / losses WITHOUT an auditor's
+  // going-concern doubt, at a franchisor whose revenue is still growing and
+  // whose audit is clean, is the normal shape of a young, scaling brand — not
+  // "oh shit" distress. Cap it at MEDIUM so HIGH stays reserved for
+  // auditor-flagged or shrinking-revenue cases. Every red flag still appears in
+  // the aggravators and the context line explains the weakness — the goal is to
+  // inform and drive real diligence, not spook people off emerging brands.
+  const growthStageCap =
+    severity === 'HIGH' &&
+    !x.goingConcernRaised &&
+    x.auditOpinion === 'unmodified' &&
+    m.revenueTrend === 'improving';
+  if (growthStageCap) severity = 'MEDIUM';
+
   // Franchisor self-flagged the risk but figures look stable -> don't undercut
   // the disclosure; floor at MEDIUM and say so honestly.
   if (severity === 'LOW' && x.specialRiskPresent) {
@@ -357,7 +371,8 @@ export function gradeSeverity(
 
   // Choose the headline driver by priority.
   let primaryDriver = 'low';
-  if (x.goingConcernRaised) primaryDriver = 'goingConcern';
+  if (growthStageCap) primaryDriver = 'growthStageDeficit';
+  else if (x.goingConcernRaised) primaryDriver = 'goingConcern';
   else if (m.netWorthSign === 'negative' && m.netWorthTrend === 'worsening')
     primaryDriver = 'negativeWorseningNetWorth';
   else if (
@@ -384,6 +399,8 @@ function buildHeadline(driver: string, m: ComputedMetrics): string {
   switch (driver) {
     case 'goingConcern':
       return "The franchisor's own auditor has raised substantial doubt about whether it can stay in business — a serious signal for a company you'd depend on for years of support.";
+    case 'growthStageDeficit':
+      return `This franchisor is carrying a deficit and running a net loss as it grows — net worth is roughly ${nw} in the red. Its audit is clean and revenue is rising, so the question is runway: understand how the gap is funded, and for how long, before you commit.`;
     case 'negativeWorseningNetWorth':
       return `This franchisor owes far more than it owns and the gap is widening fast — its net worth is roughly ${nw} in the red and deteriorating, and it stays afloat on related-party loans rather than its own operations.`;
     case 'underwaterBalanceSheet':
@@ -487,7 +504,11 @@ function buildBody(
 function buildContext(x: FinancialConditionExtraction, g: Grade): string | null {
   if (g.severity === 'LOW' || g.severity === 'INSUFFICIENT_DATA') return null;
   if (x.goingConcernRaised) return null; // auditor flagged survival — do not soften
-  if (!g.mitigants.length) return null;
+  if (x.auditOpinion !== 'unmodified') return null; // only reassure on a clean audit
+  // Only frame as growth-stage when revenue is actually GROWING — a shrinking
+  // franchisor carrying a deficit is a different, worse story, and the
+  // "spending ahead of revenue" narrative would mislead.
+  if (!g.mitigants.includes('revenue is growing')) return null;
   return `Worth perspective: ${g.mitigants.join(
     '; '
   )}. Early-stage franchisors commonly run losses and carry a deficit while investing to scale — this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.`;

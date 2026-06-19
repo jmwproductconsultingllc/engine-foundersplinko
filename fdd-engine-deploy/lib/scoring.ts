@@ -263,7 +263,14 @@ export function scoreFdd(
     }
   }
 
-  const highTripwires = (fdd.operationalRisks ?? []).filter((r) => r.severity === "high").length;
+  // Financial condition is now its own dedicated signal (the FinCon card), and
+  // the report display drops it from the tripwire list. Exclude it here too, so
+  // this count — and the "see the tripwires section" bullet — matches what the
+  // reader actually sees, and the boilerplate financial-condition risk (which
+  // over-fires) no longer double-counts against the score.
+  const highTripwires = (fdd.operationalRisks ?? []).filter(
+    (r) => r.severity === "high" && !/financial condition/i.test(r.title),
+  ).length;
   if (highTripwires >= RUBRIC.manyHighTripwires) {
     points += 2;
     reasons.push(`${highTripwires} high-severity operational tripwires disclosed — see the tripwires section.`);
