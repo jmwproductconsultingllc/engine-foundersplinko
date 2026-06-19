@@ -2,16 +2,22 @@
  * app/api/parse-fdd/route.ts
  * Pipeline: receive a Vercel Blob URL for the FDD + buyer context → fetch the
  * PDF from Blob → extract (Gemini) → score (code) → underwrite (code)
- * → Insights (code) → return one combined payload, then delete the blob.
+ * → Insights (code) → stream the combined payload back.
+ *
+ * Why this STREAMS the response:
+ * - The server has up to 300s (Vercel Pro), but browsers don't. Safari in
+ *   particular drops a request that sits silent ~60s waiting for a response, and
+ *   a rich FDD (which triggers the minimal-mode extraction retry) can run ~90s+.
+ *   So we emit a whitespace heartbeat every few seconds to keep the socket warm,
+ *   then send one final JSON line: the result, or an { error } payload. The
+ *   client trims the heartbeats and parses the trailing JSON.
  *
  * Runtime notes:
  * - Must run on the Node.js runtime (Files API + Blob), not Edge.
- * - Large-doc processing is slow; maxDuration is 300s (the Vercel Pro ceiling).
- *   The largest FDDs (e.g. Five Iron) run well past 60s, so do NOT drop this
- *   back to 60 — that silently breaks the big docs.
- * - The FDD no longer rides in the request body, so the ~4.5MB serverless body
- *   limit no longer caps file size. The browser uploads straight to Blob (see
- *   app/api/blob-upload/route.ts) and we fetch it here.
+ * - maxDuration is 300s (the Vercel Pro ceiling). The largest FDDs run well past
+ *   60s, so do NOT drop this back to 60 — that silently breaks the big docs.
+ * - The FDD no longer rides in the request body (no ~4.5MB serverless body
+ *   limit); the browser uploads straight to Blob and we fetch it here.
  */
 
 import { NextRequest, NextResponse } from "next/server";
@@ -26,6 +32,15 @@ import { INSIGHTS_ENABLED, FINCON_ENABLED } from "@/lib/features";
 export const runtime = "nodejs";
 export const maxDuration = 300;
 export const dynamic = "force-dynamic";
+
+async function delSafe(url: string | null) {
+  if (!url) return;
+  try {
+    await del(url);
+  } catch {
+    /* ignore cleanup errors */
+  }
+}
 
 export async function POST(req: NextRequest) {
   let blobUrl: string | null = null;
@@ -44,6 +59,7 @@ export async function POST(req: NextRequest) {
     // Pull the PDF back from Blob — a server-side fetch, no request-body limit.
     const fileRes = await fetch(blobUrl);
     if (!fileRes.ok) {
+      await delSafe(blobUrl);
       return NextResponse.json(
         { error: "Could not retrieve the uploaded file. Please try again." },
         { status: 400 },
@@ -51,54 +67,86 @@ export async function POST(req: NextRequest) {
     }
     const bytes = await fileRes.arrayBuffer();
     if (bytes.byteLength < 20_000) {
+      await delSafe(blobUrl);
       return NextResponse.json(
         { error: "That file looks too small to be a full FDD — it may have been truncated." },
         { status: 400 },
       );
     }
 
-    // 1) Extract structured facts (Gemini).
-    const extracted = await extractFddFromFile(bytes, "application/pdf");
+    // Bytes are in memory now; the transient blob is no longer needed — drop it
+    // immediately (and so the heartbeat path below doesn't have to clean up).
+    await delSafe(blobUrl);
+    blobUrl = null;
 
-    // 2) Score deterministically (code).
-    const scoring = scoreFdd(extracted, buyer);
+    // Stream the heavy work behind a heartbeat (see header comment).
+    const enc = new TextEncoder();
+    const stream = new ReadableStream({
+      async start(controller) {
+        const beat = setInterval(() => {
+          try {
+            controller.enqueue(enc.encode(" "));
+          } catch {
+            /* stream already closing */
+          }
+        }, 5000);
+        try {
+          // 1) Extract structured facts (Gemini).
+          const extracted = await extractFddFromFile(bytes, "application/pdf");
+          // 2) Score deterministically (code).
+          const scoring = scoreFdd(extracted, buyer);
+          // 3) Underwrite against the buyer (code).
+          const underwriting = underwrite(extracted, scoring, buyer);
+          // 4) Insights — concept benchmarks + disclosed-margin cross-check (toggleable).
+          const insights = INSIGHTS_ENABLED ? buildInsights(extracted, scoring) : null;
+          // 5) Financial-condition severity, graded in code from the raw facts (toggleable).
+          const financialCondition = FINCON_ENABLED
+            ? assessFinancialCondition(extracted.financialCondition)
+            : null;
 
-    // 3) Underwrite against the buyer (code).
-    const underwriting = underwrite(extracted, scoring, buyer);
+          controller.enqueue(
+            enc.encode(
+              "\n" +
+                JSON.stringify({
+                  extracted,
+                  scoring,
+                  underwriting,
+                  buyer,
+                  insights,
+                  financialCondition,
+                }),
+            ),
+          );
+        } catch (err) {
+          console.error("[parse-fdd] pipeline error:", err);
+          const message = err instanceof Error ? err.message : "Unknown error.";
+          controller.enqueue(
+            enc.encode("\n" + JSON.stringify({ error: `Failed to analyze the FDD. ${message}` })),
+          );
+        } finally {
+          clearInterval(beat);
+          try {
+            controller.close();
+          } catch {
+            /* already closed */
+          }
+        }
+      },
+    });
 
-    // 4) Insights — concept benchmarks + disclosed-margin cross-check (toggleable).
-    const insights = INSIGHTS_ENABLED ? buildInsights(extracted, scoring) : null;
-
-    // 5) Financial-condition severity — graded in code from the raw Item 21 /
-    //    Exhibit F facts (toggleable). Returns null when the figures are too thin
-    //    to assess, which the UI renders as an "insufficient data" note.
-    const financialCondition = FINCON_ENABLED
-      ? assessFinancialCondition(extracted.financialCondition)
-      : null;
-
-    return NextResponse.json({
-      extracted,
-      scoring,
-      underwriting,
-      buyer,
-      insights,
-      financialCondition,
+    return new Response(stream, {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "no-cache, no-transform",
+        "X-Accel-Buffering": "no",
+      },
     });
   } catch (err) {
-    console.error("[parse-fdd] pipeline error:", err);
-    const message = err instanceof Error ? err.message : "Unknown error.";
+    console.error("[parse-fdd] request error:", err);
+    await delSafe(blobUrl);
     return NextResponse.json(
-      { error: `Failed to analyze the FDD. ${message}` },
-      { status: 500 },
+      { error: "Could not read the request. Please try again." },
+      { status: 400 },
     );
-  } finally {
-    // Best-effort cleanup of the transient blob, success or failure.
-    if (blobUrl) {
-      try {
-        await del(blobUrl);
-      } catch {
-        /* ignore cleanup errors */
-      }
-    }
   }
 }
