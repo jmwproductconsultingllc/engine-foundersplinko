@@ -4,6 +4,7 @@ import { useState } from "react";
 import FDDUpload from "@/components/FDDUpload";
 import FeatureMatrix from "@/components/FeatureMatrix";
 import DiligenceReport from "@/components/DiligenceReport";
+import InfographicTeaser from "@/components/InfographicTeaser";
 import type { DiligenceResult } from "@/lib/types";
 import { track } from "@/lib/analytics";
 
@@ -16,6 +17,7 @@ const SAMPLE_URL = process.env.NEXT_PUBLIC_SAMPLE_REPORT_URL || "#what-you-get";
 
 export default function Page() {
   const [result, setResult] = useState<DiligenceResult | null>(null);
+  const [unlocked, setUnlocked] = useState(false);
   const [primerOpen, setPrimerOpen] = useState(false);
 
   if (result) {
@@ -23,12 +25,19 @@ export default function Page() {
       <main className="min-h-screen bg-[#0B1220] text-[#F1F5F9] px-4 py-10 md:px-8">
         <div className="mx-auto max-w-4xl space-y-5">
           <button
-            onClick={() => setResult(null)}
+            onClick={() => {
+              setResult(null);
+              setUnlocked(false);
+            }}
             className="text-sm font-medium text-[#38BDF8] hover:underline"
           >
             ← Analyze another FDD
           </button>
-          <DiligenceReport result={result} />
+          {unlocked ? (
+            <DiligenceReport result={result} />
+          ) : (
+            <InfographicTeaser result={result} onUnlock={() => setUnlocked(true)} />
+          )}
         </div>
       </main>
     );
@@ -135,7 +144,12 @@ export default function Page() {
             )}
           </div>
 
-          <FDDUpload onResult={setResult} />
+          <FDDUpload
+            onResult={(r) => {
+              setUnlocked(false);
+              setResult(r);
+            }}
+          />
 
           <div className="mt-4 text-center">
             <a
