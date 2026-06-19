@@ -292,10 +292,19 @@ const BENCHMARKS: Record<ConceptType, ConceptBenchmark> = {
 /** strip the metric words so "Company Centers Gross Sales" and
  *  "Company Centers Adjusted EBITDA" collapse to the same base key. */
 function baseKey(label: string): string {
+  // Reduce a cohort label to its GROUP identity (e.g. "company centers") by
+  // stripping metric/aggregation words, so a group's gross-sales table and its
+  // EBITDA table pair even when the franchisor labels them unevenly — e.g.
+  // "Company Centers Average Gross Sales" vs "Company Centers EBITDA" must both
+  // reduce to "company centers". Group-distinguishing words (select, company,
+  // franchised, included, top, bottom) are deliberately kept.
   return label
     .replace(/adjusted\s+ebitda/gi, "")
     .replace(/\bebitda\b/gi, "")
-    .replace(/gross\s+sales/gi, "")
+    .replace(/operating\s+income/gi, "")
+    .replace(/net\s+income/gi, "")
+    .replace(/gross\s+(sales|revenue)/gi, "")
+    .replace(/\b(average|avg|median|mean|annual|monthly)\b/gi, "")
     .replace(/\s+/g, " ")
     .trim()
     .toLowerCase();
