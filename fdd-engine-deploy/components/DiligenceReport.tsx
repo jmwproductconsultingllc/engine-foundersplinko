@@ -133,6 +133,12 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
 
             <p className="mt-3 text-sm font-medium text-[#F1F5F9] leading-relaxed">{fc.headline}</p>
 
+            {fc.context && (
+              <div className="mt-3 rounded-lg border border-[#60A5FA]/40 bg-[#60A5FA]/10 px-3 py-2">
+                <p className="text-xs text-[#CBD5E1] leading-relaxed">{fc.context}</p>
+              </div>
+            )}
+
             {(fc.aggravators.length > 0 || fc.mitigants.length > 0) && (
               <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {fc.aggravators.length > 0 && (
@@ -330,6 +336,45 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
                 <p className="text-xs text-[#CBD5E1] mt-1">{ins.crossCheck.message}</p>
               </div>
 
+              {/* assumptions legend — provenance key, placed ABOVE the build-up so
+                  the reader knows how to read the numbers before seeing them */}
+              {ins.assumptions && ins.assumptions.length > 0 && (
+                <div className="rounded-lg border border-[#27344F]">
+                  <p className="text-[10px] uppercase text-[#8194B0] px-3 pt-3">
+                    How to read the numbers below — disclosed vs. estimated
+                  </p>
+                  <div className="p-3 space-y-2">
+                    {ins.assumptions.map((a, i) => {
+                      const tag = ({
+                        disclosed: { c: "#34D399", t: "Disclosed" },
+                        derived: { c: "#60A5FA", t: "Derived" },
+                        benchmark: { c: "#F59E0B", t: "Benchmark" },
+                        inferred: { c: "#8194B0", t: "Inferred" },
+                      } as const)[a.basis];
+                      return (
+                        <div key={i} className="flex items-baseline gap-2">
+                          <span
+                            className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded shrink-0"
+                            style={{ color: tag.c, background: tag.c + "1A", border: `1px solid ${tag.c}55` }}
+                          >
+                            {tag.t}
+                          </span>
+                          <span className="text-[11px] text-[#CBD5E1]">
+                            <span className="text-white font-medium">{a.field}:</span> {a.detail}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <p className="text-[9px] text-[#64748B] px-3 pb-3 leading-relaxed">
+                    <span style={{ color: "#34D399" }}>Disclosed</span> = stated in this FDD ·{" "}
+                    <span style={{ color: "#60A5FA" }}>Derived</span> = our calculation from disclosed figures ·{" "}
+                    <span style={{ color: "#F59E0B" }}>Benchmark</span> = our industry range ·{" "}
+                    <span style={{ color: "#8194B0" }}>Inferred</span> = AI classification
+                  </p>
+                </div>
+              )}
+
               {/* transparent build-up to true operating EBITDA — show the math */}
               {ins.buildup.length > 0 && (
                 <div className="rounded-lg border border-[#27344F]">
@@ -345,6 +390,18 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
                           : `${usd(r.dollarRange[0])}–${usd(r.dollarRange[1])}`
                         : "";
                       const pct = r.pctRange ? `${r.pctRange[0]}–${r.pctRange[1]}%` : "";
+                      // color each value by provenance, matching the legend:
+                      // disclosed = green, benchmark = amber, derived = blue.
+                      const valColor =
+                        r.basis === "disclosed"
+                          ? "#34D399"
+                          : r.basis === "benchmark"
+                            ? "#F59E0B"
+                            : r.basis === "derived"
+                              ? "#60A5FA"
+                              : isResult
+                                ? "#34D399"
+                                : "#CBD5E1";
                       return (
                         <div key={i} className={isResult ? "pt-2 mt-1 border-t border-[#27344F]" : ""}>
                           <div className="flex justify-between items-baseline gap-3">
@@ -352,9 +409,9 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
                               {r.label}
                             </span>
                             <span className="text-xs whitespace-nowrap">
-                              {pct && <span className="text-[#8194B0] mr-2">{pct}</span>}
+                              {pct && <span className="mr-2" style={{ color: valColor }}>{pct}</span>}
                               {dollar && (
-                                <span className={isResult ? "font-bold text-[#34D399]" : "text-[#CBD5E1]"}>
+                                <span className={isResult ? "font-bold" : ""} style={{ color: valColor }}>
                                   {dollar}/mo
                                 </span>
                               )}
@@ -415,44 +472,6 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
                 </ul>
               </div>
 
-              {/* assumptions legend — the provenance of every Insights number */}
-              {ins.assumptions && ins.assumptions.length > 0 && (
-                <div className="rounded-lg border border-[#27344F]">
-                  <p className="text-[10px] uppercase text-[#8194B0] px-3 pt-3">
-                    What&apos;s disclosed vs. estimated
-                  </p>
-                  <div className="p-3 space-y-2">
-                    {ins.assumptions.map((a, i) => {
-                      const tag = ({
-                        disclosed: { c: "#34D399", t: "Disclosed" },
-                        derived: { c: "#60A5FA", t: "Derived" },
-                        benchmark: { c: "#F59E0B", t: "Benchmark" },
-                        inferred: { c: "#8194B0", t: "Inferred" },
-                      } as const)[a.basis];
-                      return (
-                        <div key={i} className="flex items-baseline gap-2">
-                          <span
-                            className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded shrink-0"
-                            style={{ color: tag.c, background: tag.c + "1A", border: `1px solid ${tag.c}55` }}
-                          >
-                            {tag.t}
-                          </span>
-                          <span className="text-[11px] text-[#CBD5E1]">
-                            <span className="text-white font-medium">{a.field}:</span> {a.detail}
-                          </span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                  <p className="text-[9px] text-[#64748B] px-3 pb-3 leading-relaxed">
-                    <span style={{ color: "#34D399" }}>Disclosed</span> = stated in this FDD ·{" "}
-                    <span style={{ color: "#60A5FA" }}>Derived</span> = computed from disclosed figures ·{" "}
-                    <span style={{ color: "#F59E0B" }}>Benchmark</span> = our industry range ·{" "}
-                    <span style={{ color: "#8194B0" }}>Inferred</span> = AI classification
-                  </p>
-                </div>
-              )}
-
               <p className="text-[10px] text-[#64748B] border-t border-[#27344F] pt-2">
                 {ins.disclaimer}
                 {ins.disclosedMarginSource ? ` Disclosed-margin basis: ${ins.disclosedMarginSource}.` : ""}{" "}
@@ -467,9 +486,37 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
       <Card title={<>Item 19 — Financial Performance <Src s={x.item19?.sourcePage} /></>}>
         {x.item19?.hasItem19 ? (
           <div className="space-y-2">
-            {x.item19.cohorts.map((c, i) => (
-              <Row key={i} label={`${c.label}${c.basis ? ` — ${c.basis}` : ""}`} value={`${usd(c.avgMonthlyRevenue)}/mo`} />
-            ))}
+            {x.item19.cohorts.map((c, i) => {
+              const isBasis =
+                !!s.midCohort &&
+                c.label === s.midCohort.label &&
+                c.avgMonthlyRevenue === s.midCohort.monthlyRevenue;
+              if (isBasis) {
+                return (
+                  <div key={i} className="rounded-lg border border-[#38BDF8]/50 bg-[#38BDF8]/10 px-3 py-2">
+                    <div className="flex justify-between items-baseline gap-3">
+                      <span className="text-sm font-semibold text-[#F1F5F9]">
+                        {c.label}
+                        {c.basis ? ` — ${c.basis}` : ""}
+                      </span>
+                      <span className="text-sm font-bold text-[#38BDF8] whitespace-nowrap">
+                        {usd(c.avgMonthlyRevenue)}/mo
+                      </span>
+                    </div>
+                    <p className="text-[10px] font-semibold uppercase tracking-wide text-[#38BDF8] mt-1">
+                      ◄ The figure behind the pro forma &amp; Insights above — the franchised, apples-to-apples number
+                    </p>
+                  </div>
+                );
+              }
+              return (
+                <Row
+                  key={i}
+                  label={`${c.label}${c.basis ? ` — ${c.basis}` : ""}`}
+                  value={`${usd(c.avgMonthlyRevenue)}/mo`}
+                />
+              );
+            })}
             {x.item19.notes && <p className="text-xs text-[#8194B0] mt-2">{x.item19.notes}</p>}
           </div>
         ) : (
@@ -477,8 +524,9 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
         )}
       </Card>
 
-      {/* Item 17 costs */}
-      <Card title={<>Item 17 — Initial Investment <Src s={x.item17?.sourcePage} /></>}>
+      {/* Initial investment (Item 7 in an FDD; the schema field is named item17
+          for legacy reasons — the Src below shows the real Item 7 page). */}
+      <Card title={<>Initial Investment <Src s={x.item17?.sourcePage} /></>}>
         <p className="text-sm text-[#CBD5E1] mb-3">
           Estimated total: <span className="font-semibold">{usd(x.item17?.initialInvestmentLow)}</span> –{" "}
           <span className="font-semibold">{usd(x.item17?.initialInvestmentHigh)}</span>

@@ -83,6 +83,10 @@ export interface ComputedMetrics {
 export interface FinancialConditionInsight {
   severity: Severity;
   headline: string; // always-visible hook (one sentence)
+  /** always-visible growth-stage framing — set ONLY when losses/deficit are NOT
+   *  paired with an auditor going-concern doubt. Keeps a young-but-scaling
+   *  franchisor from reading as a failing one. null when it doesn't apply. */
+  context: string | null;
   body: string[]; // "tell me more" paragraphs, plain English
   aggravators: string[]; // factors that worsen the read
   mitigants: string[]; // factors that soften it
@@ -452,14 +456,9 @@ function buildBody(
   if (found.length)
     body.push(`What we found${fy}${auditor}: ` + found.join(' '));
 
-  // --- What this does NOT mean (credibility guardrail) ---
-  if (g.mitigants.length && g.severity !== 'LOW') {
-    body.push(
-      `What this does not mean: ${g.mitigants.join(
-        '; '
-      )}. This reads more like an early-stage franchisor spending ahead of revenue than a failing business — a real risk, but a different one.`
-    );
-  }
+  // NOTE: the growth-stage "what this does not mean" framing moved OUT of the
+  // collapsed body into the always-visible `context` field (see buildContext),
+  // so a young-but-scaling franchisor isn't pre-judged as a failing one.
 
   // --- Why it matters to you ---
   const guarantee =
@@ -479,6 +478,19 @@ function buildBody(
   );
 
   return body;
+}
+
+/** Growth-stage framing for the always-visible card. Returned ONLY when the
+ *  distress signals are the kind a young, scaling franchisor typically shows
+ *  (losses / deficit with offsetting positives) AND the auditor did NOT raise
+ *  going-concern doubt. If the auditor flagged survival risk, we never soften it. */
+function buildContext(x: FinancialConditionExtraction, g: Grade): string | null {
+  if (g.severity === 'LOW' || g.severity === 'INSUFFICIENT_DATA') return null;
+  if (x.goingConcernRaised) return null; // auditor flagged survival — do not soften
+  if (!g.mitigants.length) return null;
+  return `Worth perspective: ${g.mitigants.join(
+    '; '
+  )}. Early-stage franchisors commonly run losses and carry a deficit while investing to scale — this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.`;
 }
 
 function buildEvidenceNote(x: FinancialConditionExtraction): string {
@@ -504,6 +516,7 @@ export function assessFinancialCondition(
   return {
     severity: grade.severity,
     headline: buildHeadline(grade.primaryDriver, metrics),
+    context: buildContext(extraction, grade),
     body: buildBody(extraction, metrics, grade),
     aggravators: grade.aggravators,
     mitigants: grade.mitigants,

@@ -46,6 +46,10 @@ export interface BuildupRow {
   pctRange?: [number, number];
   dollarRange?: [number, number];
   note?: string;
+  /** provenance of this line's number, for color-coding against the legend.
+   *  disclosed = from the FDD; benchmark = our category range; derived =
+   *  computed (every "result" line is derived — it's our arithmetic). */
+  basis?: "disclosed" | "derived" | "benchmark";
 }
 
 /** One line in the assumptions legend — what each Insights number rests on.
@@ -477,19 +481,27 @@ export function buildInsights(
       benchmarkOperatingEbitdaMonthly = [eb, eb];
       trueEbitdaBasis = "disclosed";
       buildup = [
-        { label: "Franchised gross sales (modeled)", kind: "base", dollarRange: [rev, rev] },
+        { label: "Franchised gross sales (modeled)", kind: "base", dollarRange: [rev, rev], basis: "disclosed" },
         {
           label: `× franchisor's disclosed operating margin (${disclosedOperatingMarginPct}%)`,
           kind: "result",
           dollarRange: [eb, eb],
           note: disclosedMarginSource ?? undefined,
+          basis: "derived",
         },
       ];
-      assumptions.push({
-        field: "Operating margin",
-        basis: "disclosed",
-        detail: `Taken straight from the franchisor's Item 19 disclosure (${disclosedMarginSource ?? "Item 19"}); no benchmark applied.`,
-      });
+      assumptions.push(
+        {
+          field: "Operating margin",
+          basis: "disclosed",
+          detail: `Taken straight from the franchisor's Item 19 disclosure (${disclosedMarginSource ?? "Item 19"}); no benchmark applied.`,
+        },
+        {
+          field: "True operating EBITDA",
+          basis: "derived",
+          detail: "Our calculation — the disclosed margin applied to the modeled franchised gross. The margin is from the FDD; this dollar figure is computed, not disclosed.",
+        },
+      );
     } else if (marginAfterFeesMonthly != null) {
       // No disclosure — build down from the modeled margin-after-fees by subtracting
       // the missing lines at category MIDPOINTS (not stacked extremes, so the displayed
@@ -514,7 +526,7 @@ export function buildInsights(
       const midPct = Math.round((ebitda / rev) * 100);
 
       const rows: BuildupRow[] = [
-        { label: "Margin after fees & rent (modeled)", kind: "base", dollarRange: [marginAfterFeesMonthly, marginAfterFeesMonthly] },
+        { label: "Margin after fees & rent (modeled)", kind: "base", dollarRange: [marginAfterFeesMonthly, marginAfterFeesMonthly], basis: "derived" },
       ];
       if (!rentDisclosed) {
         rows.push({
@@ -523,13 +535,14 @@ export function buildInsights(
           pctRange: benchmark.occupancyPct,
           dollarRange: [occupancyMid, occupancyMid],
           note: "Item 7 disclosed no rent figure — benchmark occupancy applied so the line above isn't overstated",
+          basis: "benchmark",
         });
       }
       rows.push(
-        { label: "− Cost of goods", kind: "subtract", pctRange: benchmark.cogsPct, dollarRange: [cogsMid, cogsMid] },
-        { label: "− Labor", kind: "subtract", pctRange: laborPctEffective, dollarRange: [laborMid, laborMid], note: laborNote },
-        { label: "− Other operating costs", kind: "subtract", pctRange: OTHER_OPEX_PCT, dollarRange: [opexMid, opexMid], note: "utilities, insurance, repairs & maintenance (category estimate)" },
-        { label: "= True operating EBITDA", kind: "result", dollarRange: [ebitda, ebitda], note: `≈ ${midPct}% operating margin, before debt` },
+        { label: "− Cost of goods", kind: "subtract", pctRange: benchmark.cogsPct, dollarRange: [cogsMid, cogsMid], basis: "benchmark" },
+        { label: "− Labor", kind: "subtract", pctRange: laborPctEffective, dollarRange: [laborMid, laborMid], note: laborNote, basis: "benchmark" },
+        { label: "− Other operating costs", kind: "subtract", pctRange: OTHER_OPEX_PCT, dollarRange: [opexMid, opexMid], note: "utilities, insurance, repairs & maintenance (category estimate)", basis: "benchmark" },
+        { label: "= True operating EBITDA", kind: "result", dollarRange: [ebitda, ebitda], note: `≈ ${midPct}% operating margin, before debt`, basis: "derived" },
       );
       buildup = rows;
 
@@ -550,6 +563,7 @@ export function buildInsights(
         { field: "Cost of goods", basis: "benchmark", detail: `Estimated at the ${benchmark.cogsPct[0]}–${benchmark.cogsPct[1]}% category band — COGS is never disclosed in an FDD.` },
         { field: "Labor", basis: "benchmark", detail: `Estimated at the ${laborPctEffective[0]}–${laborPctEffective[1]}% ${staffingLabel} band — labor is never disclosed in an FDD.` },
         { field: "Other operating costs", basis: "benchmark", detail: `Utilities, insurance, and R&M estimated at ${OTHER_OPEX_PCT[0]}–${OTHER_OPEX_PCT[1]}% (category catch-all).` },
+        { field: "True operating EBITDA", basis: "derived", detail: "Our calculation — the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD." },
       );
     }
   }
