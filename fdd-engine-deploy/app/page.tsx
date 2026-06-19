@@ -5,6 +5,7 @@ import FDDUpload from "@/components/FDDUpload";
 import FeatureMatrix from "@/components/FeatureMatrix";
 import DiligenceReport from "@/components/DiligenceReport";
 import type { DiligenceResult } from "@/lib/types";
+import { track } from "@/lib/analytics";
 
 const DISPLAY =
   "var(--font-display, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif)";
@@ -56,7 +57,10 @@ export default function Page() {
             Upload the franchise&apos;s{" "}
             <button
               type="button"
-              onClick={() => setPrimerOpen(true)}
+              onClick={() => {
+                if (!primerOpen) track("primer_opened", { source: "hero_link" });
+                setPrimerOpen(true);
+              }}
               className="font-medium text-[#38BDF8] underline decoration-dotted underline-offset-2 hover:decoration-solid"
             >
               FDD
@@ -77,7 +81,10 @@ export default function Page() {
           <div className="mb-4 rounded-xl border border-[#38BDF8]/25 bg-[#38BDF8]/[0.05] px-5 py-3.5">
             <button
               type="button"
-              onClick={() => setPrimerOpen((o) => !o)}
+              onClick={() => {
+                if (!primerOpen) track("primer_opened", { source: "strip" });
+                setPrimerOpen((o) => !o);
+              }}
               aria-expanded={primerOpen}
               className="flex w-full items-center justify-between gap-3 text-left text-sm font-medium text-[#CBD5E1]"
             >
@@ -118,6 +125,7 @@ export default function Page() {
                   href="https://apps.dfi.wi.gov/apps/FranchiseSearch/MainSearch.aspx"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => track("fdd_lookup_clicked")}
                   className="inline-flex items-center gap-1.5 font-medium text-[#38BDF8] hover:underline"
                 >
                   Look up an FDD on Wisconsin&apos;s free registry
@@ -132,6 +140,9 @@ export default function Page() {
           <div className="mt-4 text-center">
             <a
               href={SAMPLE_URL}
+              target={SAMPLE_URL.startsWith("#") ? undefined : "_blank"}
+              rel={SAMPLE_URL.startsWith("#") ? undefined : "noopener noreferrer"}
+              onClick={() => track("sample_report_clicked")}
               className="inline-flex items-center gap-1.5 rounded-lg border border-[#27344F] px-4 py-2
                 text-sm font-medium text-[#CBD5E1] transition-colors hover:border-[#38BDF8] hover:text-[#38BDF8]"
             >
