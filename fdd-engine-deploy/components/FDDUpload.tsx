@@ -182,6 +182,7 @@ export default function FDDUpload({
             const digits = e.target.value.replace(/[^0-9]/g, "").slice(0, 9);
             setLiquid(digits ? Number(digits) : 0);
           }}
+          onFocus={(e) => e.target.select()}
           placeholder="250,000"
           className="w-full bg-transparent text-3xl md:text-4xl font-semibold text-[#F5B847] leading-none
             placeholder:text-[#5A6B88] focus:outline-none"
