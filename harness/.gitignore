@@ -1,0 +1,9 @@
+# harness/.gitignore
+
+# Franchisor-copyrighted FDD source docs — never commit.
+corpus/
+
+# Full per-pass logs embed extracted FDD figures — keep local.
+# (The *.summary.json files are counts + flips only, no franchisor data,
+#  and are safe to commit + diff across prompt/model changes.)
+runs/*.jsonl

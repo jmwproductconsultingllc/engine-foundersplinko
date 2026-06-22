@@ -1,16 +1,21 @@
 /**
  * app/api/parse-fdd/route.ts
- * Pipeline: receive a Vercel Blob URL for the FDD + buyer context → fetch the
- * PDF from Blob → extract (Gemini) → score (code) → underwrite (code)
- * → Insights (code) → stream the combined payload back.
+ * Receive a Vercel Blob URL for the FDD + buyer context → fetch the PDF from
+ * Blob → runDiligence() → stream the combined payload back.
+ *
+ * The pipeline steps (extract + score + underwrite + Insights + financial
+ * condition) now live in lib/pipeline.ts so the eval harness runs the EXACT
+ * same code path. This route owns only the transport: Blob fetch, buyer
+ * parsing, the heartbeat stream, and cleanup. The streamed payload is
+ * unchanged — runDiligence returns the same object this route used to build.
  *
  * Why this STREAMS the response:
  * - The server has up to 300s (Vercel Pro), but browsers don't. Safari in
- *   particular drops a request that sits silent ~60s waiting for a response, and
- *   a rich FDD (which triggers the minimal-mode extraction retry) can run ~90s+.
- *   So we emit a whitespace heartbeat every few seconds to keep the socket warm,
- *   then send one final JSON line: the result, or an { error } payload. The
- *   client trims the heartbeats and parses the trailing JSON.
+ *   particular drops a request that sits silent ~60s, and a rich FDD (which
+ *   triggers the minimal-mode extraction retry) can run ~90s+. So we emit a
+ *   whitespace heartbeat every few seconds to keep the socket warm, then send
+ *   one final JSON line: the result, or an { error } payload. The client trims
+ *   the heartbeats and parses the trailing JSON.
  *
  * Runtime notes:
  * - Must run on the Node.js runtime (Files API + Blob), not Edge.
@@ -22,12 +27,8 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { del } from "@vercel/blob";
-import { extractFddFromFile } from "@/lib/gemini";
-import { scoreFdd } from "@/lib/scoring";
-import { underwrite, BuyerContext } from "@/lib/underwriting";
-import { buildInsights } from "@/lib/insights";
-import { assessFinancialCondition } from "@/lib/financialCondition";
-import { INSIGHTS_ENABLED, FINCON_ENABLED } from "@/lib/features";
+import { runDiligence } from "@/lib/pipeline";
+import { BuyerContext } from "@/lib/underwriting";
 
 export const runtime = "nodejs";
 export const maxDuration = 300;
@@ -91,32 +92,13 @@ export async function POST(req: NextRequest) {
           }
         }, 5000);
         try {
-          // 1) Extract structured facts (Gemini).
-          const extracted = await extractFddFromFile(bytes, "application/pdf");
-          // 2) Score deterministically (code).
-          const scoring = scoreFdd(extracted, buyer);
-          // 3) Underwrite against the buyer (code).
-          const underwriting = underwrite(extracted, scoring, buyer);
-          // 4) Insights — concept benchmarks + disclosed-margin cross-check (toggleable).
-          const insights = INSIGHTS_ENABLED ? buildInsights(extracted, scoring) : null;
-          // 5) Financial-condition severity, graded in code from the raw facts (toggleable).
-          const financialCondition = FINCON_ENABLED
-            ? assessFinancialCondition(extracted.financialCondition)
-            : null;
-
-          controller.enqueue(
-            enc.encode(
-              "\n" +
-                JSON.stringify({
-                  extracted,
-                  scoring,
-                  underwriting,
-                  buyer,
-                  insights,
-                  financialCondition,
-                }),
-            ),
-          );
+          // One call — the exact same pipeline the eval harness runs.
+          const result = await runDiligence({
+            bytes,
+            mimeType: "application/pdf",
+            buyer,
+          });
+          controller.enqueue(enc.encode("\n" + JSON.stringify(result)));
         } catch (err) {
           console.error("[parse-fdd] pipeline error:", err);
           const message = err instanceof Error ? err.message : "Unknown error.";
