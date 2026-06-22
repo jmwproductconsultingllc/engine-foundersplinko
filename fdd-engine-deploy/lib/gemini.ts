@@ -47,6 +47,15 @@ Franchise Disclosure Document (FDD). Return ONLY JSON matching the provided sche
 RULES:
 - Extract FACTS ONLY. Do NOT assign a risk score, rating, or recommendation —
   that is computed downstream. Do not editorialize.
+- LANGUAGE — ENGLISH ONLY. Write EVERY prose, descriptive, or narrative field in
+  English, no matter what language the source FDD (or any text quoted inside it)
+  is written in. This covers all leadership.background and whyItMatters,
+  brandBackground, every fee and hiddenCost description, every operationalRisk
+  description, every Item 19 cohort description and notes, conceptRationale,
+  staffingRationale, and any other rationale/summary field. If source text is in
+  another language, translate the relevant facts into English — never copy or
+  generate prose in another language. Proper nouns (company, person, and place
+  names) stay exactly as written.
 - OUTPUT BUDGET — BE CONCISE. Keep EVERY prose field (background, whyItMatters,
   brandBackground, fee and hiddenCost descriptions, operationalRisk descriptions,
   cohort descriptions/notes, rationales) to ONE short sentence or phrase. These
