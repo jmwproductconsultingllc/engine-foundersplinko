@@ -58,9 +58,12 @@ const QUICK = [
 ];
 
 export default function FDDUpload({
-  onResult,
+  onComplete,
 }: {
-  onResult: (r: DiligenceResult) => void;
+  // Called with the persisted reportId once analysis succeeds; the caller
+  // redirects to /report/[reportId]. (Was onResult(DiligenceResult) when the
+  // report rendered in-session.)
+  onComplete: (reportId: string) => void;
 }) {
   const [liquid, setLiquid] = useState<number>(250_000);
   const [file, setFile] = useState<File | null>(null);
@@ -137,11 +140,11 @@ export default function FDDUpload({
       }
 
       // Success is a keep-alive stream: heartbeat whitespace while the server
-      // works, then one final JSON line (the result, or an { error } payload).
-      // Let the browser assemble the whole body — res.text() reads the full
-      // stream natively and is more robust across browsers than a manual reader
-      // (Safari mis-assembles a hand-rolled getReader loop). The heartbeat keeps
-      // the connection alive so res.text() resolves on long extractions.
+      // works, then one final JSON line (the result + reportId, or an { error }
+      // payload). Let the browser assemble the whole body — res.text() reads the
+      // full stream natively and is more robust across browsers than a manual
+      // reader (Safari mis-assembles a hand-rolled getReader loop). The heartbeat
+      // keeps the connection alive so res.text() resolves on long extractions.
       const raw = await res.text();
       const trimmed = raw.trim();
 
@@ -166,7 +169,8 @@ export default function FDDUpload({
         throw new Error("The analysis didn't finish in time. Please try again.");
       }
 
-      const r = parsed as DiligenceResult;
+      // The response is the full result with the persisted reportId tacked on.
+      const r = parsed as DiligenceResult & { reportId?: string };
       track("analyze_succeeded", {
         capital: liquid,
         durationMs: Date.now() - startedAt,
@@ -174,7 +178,12 @@ export default function FDDUpload({
         finconSeverity: r.financialCondition?.severity ?? "none",
         proFormaBuilt: r.scoring?.midCohort != null,
       });
-      onResult(r);
+      if (!r.reportId) {
+        // Analysis ran but persistence didn't return an id — treat as a retryable
+        // failure rather than navigating to a report that isn't there.
+        throw new Error("The analysis finished but the report couldn't be saved. Please try again.");
+      }
+      onComplete(r.reportId);
     } catch (e) {
       const msg = e instanceof Error ? e.message : "Something went wrong.";
       const isNetwork = /load failed|networkerror|failed to fetch|terminated/i.test(msg);

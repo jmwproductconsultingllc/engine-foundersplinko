@@ -1,12 +1,12 @@
 // fdd-engine-deploy/app/report/[reportId]/page.tsx
 //
 // Permanent, shareable report surface. Loads the persisted report from Blob and
-// renders the existing DiligenceReport. This is where the paywall gate (teaser
-// vs full) will live in #2 — for now it renders the full report.
+// hands it to ReportView, which applies the teaser/paid gate. This is the page
+// the upload now redirects to, and where the Stripe paywall (#5/#6) lives.
 
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import DiligenceReport from "@/components/DiligenceReport";
+import ReportView from "@/components/ReportView";
 import { loadReport } from "@/lib/reports";
 
 // Always read fresh — the paid flag changes out-of-band (Stripe webhook in #6).
@@ -35,7 +35,7 @@ export default async function ReportPage({
         >
           ← Analyze another FDD
         </a>
-        <DiligenceReport result={record.result} />
+        <ReportView result={record.result} paid={record.paid} />
       </div>
     </main>
   );

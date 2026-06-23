@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import FDDUpload from "@/components/FDDUpload";
 import FeatureMatrix from "@/components/FeatureMatrix";
 import DiligenceReport from "@/components/DiligenceReport";
@@ -13,6 +14,9 @@ const DISPLAY =
   "var(--font-display, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif)";
 
 export default function Page() {
+  const router = useRouter();
+  // Result state below is now used ONLY by the sample report (an in-session
+  // demo). A real upload persists server-side and redirects to /report/[id].
   const [result, setResult] = useState<DiligenceResult | null>(null);
   const [unlocked, setUnlocked] = useState(false);
   const [isSample, setIsSample] = useState(false);
@@ -150,13 +154,7 @@ export default function Page() {
             )}
           </div>
 
-          <FDDUpload
-            onResult={(r) => {
-              setIsSample(false);
-              setUnlocked(false);
-              setResult(r);
-            }}
-          />
+          <FDDUpload onComplete={(reportId) => router.push(`/report/${reportId}`)} />
 
           <div className="mt-4 text-center">
             <button
