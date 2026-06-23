@@ -177,6 +177,13 @@ export interface ExtractedFDD {
  * The response schema handed to Gemini so it returns strict JSON matching
  * ExtractedFDD. Numbers must be raw (no "$" or ","). Unknown = null.
  */
+// Gemini validates `responseSchema` as an OpenAPI schema, where array bounds are
+// INTEGERS — but the @google/genai Schema type declares maxItems/minItems as
+// proto int64 *strings*. Passing a JSON string makes the API 400 ("invalid
+// argument"), so we send a numeric value and cast it to satisfy the SDK's
+// declared string type. Compiles identically to a string literal; emits an int.
+const cap = (n: number): string => n as unknown as string;
+
 export const fddResponseSchema = {
   type: Type.OBJECT,
   properties: {
@@ -185,8 +192,8 @@ export const fddResponseSchema = {
       properties: {
         appearsComplete: { type: Type.BOOLEAN },
         appearsScanned: { type: Type.BOOLEAN },
-        itemsFound: { type: Type.ARRAY, maxItems: "40", items: { type: Type.STRING } },
-        warnings: { type: Type.ARRAY, maxItems: "40", items: { type: Type.STRING } },
+        itemsFound: { type: Type.ARRAY, maxItems: cap(40), items: { type: Type.STRING } },
+        warnings: { type: Type.ARRAY, maxItems: cap(40), items: { type: Type.STRING } },
       },
       required: ["appearsComplete", "appearsScanned", "itemsFound", "warnings"],
     },
@@ -196,7 +203,7 @@ export const fddResponseSchema = {
     brandBackground: { type: Type.STRING },
     leadership: {
       type: Type.ARRAY,
-      maxItems: "8",
+      maxItems: cap(8),
       items: {
         type: Type.OBJECT,
         properties: {
@@ -215,7 +222,7 @@ export const fddResponseSchema = {
         unitsReported: { type: Type.NUMBER, nullable: true },
         cohorts: {
           type: Type.ARRAY,
-          maxItems: "40",
+          maxItems: cap(40),
           items: {
             type: Type.OBJECT,
             properties: {
@@ -230,7 +237,7 @@ export const fddResponseSchema = {
                 enum: ["gross_sales", "net_or_ebitda", "pre_sale_only", "other"],
               },
               avgMonthlyRevenue: { type: Type.NUMBER, nullable: true },
-              monthlyValues: { type: Type.ARRAY, maxItems: "12", items: { type: Type.NUMBER } },
+              monthlyValues: { type: Type.ARRAY, maxItems: cap(12), items: { type: Type.NUMBER } },
               annualRevenue: { type: Type.NUMBER, nullable: true },
               basis: { type: Type.STRING },
             },
@@ -250,7 +257,7 @@ export const fddResponseSchema = {
         initialInvestmentHigh: { type: Type.NUMBER, nullable: true },
         lineItems: {
           type: Type.ARRAY,
-          maxItems: "60",
+          maxItems: cap(60),
           items: {
             type: Type.OBJECT,
             properties: {
@@ -275,7 +282,7 @@ export const fddResponseSchema = {
         localAdPct: { type: Type.NUMBER, nullable: true },
         flatMonthlyFees: {
           type: Type.ARRAY,
-          maxItems: "30",
+          maxItems: cap(30),
           items: {
             type: Type.OBJECT,
             properties: {
@@ -291,7 +298,7 @@ export const fddResponseSchema = {
     },
     hiddenCosts: {
       type: Type.ARRAY,
-      maxItems: "30",
+      maxItems: cap(30),
       items: {
         type: Type.OBJECT,
         properties: {
@@ -338,7 +345,7 @@ export const fddResponseSchema = {
     },
     operationalRisks: {
       type: Type.ARRAY,
-      maxItems: "30",
+      maxItems: cap(30),
       items: {
         type: Type.OBJECT,
         properties: {
@@ -381,7 +388,7 @@ export const fddResponseSchema = {
         parentGuaranteeOfPerformance: { type: Type.BOOLEAN },
         years: {
           type: Type.ARRAY,
-          maxItems: "6",
+          maxItems: cap(6),
           items: {
             type: Type.OBJECT,
             properties: {
