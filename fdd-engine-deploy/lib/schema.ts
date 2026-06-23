@@ -185,8 +185,8 @@ export const fddResponseSchema = {
       properties: {
         appearsComplete: { type: Type.BOOLEAN },
         appearsScanned: { type: Type.BOOLEAN },
-        itemsFound: { type: Type.ARRAY, items: { type: Type.STRING } },
-        warnings: { type: Type.ARRAY, items: { type: Type.STRING } },
+        itemsFound: { type: Type.ARRAY, maxItems: "40", items: { type: Type.STRING } },
+        warnings: { type: Type.ARRAY, maxItems: "40", items: { type: Type.STRING } },
       },
       required: ["appearsComplete", "appearsScanned", "itemsFound", "warnings"],
     },
@@ -196,6 +196,7 @@ export const fddResponseSchema = {
     brandBackground: { type: Type.STRING },
     leadership: {
       type: Type.ARRAY,
+      maxItems: "8",
       items: {
         type: Type.OBJECT,
         properties: {
@@ -214,6 +215,7 @@ export const fddResponseSchema = {
         unitsReported: { type: Type.NUMBER, nullable: true },
         cohorts: {
           type: Type.ARRAY,
+          maxItems: "40",
           items: {
             type: Type.OBJECT,
             properties: {
@@ -228,7 +230,7 @@ export const fddResponseSchema = {
                 enum: ["gross_sales", "net_or_ebitda", "pre_sale_only", "other"],
               },
               avgMonthlyRevenue: { type: Type.NUMBER, nullable: true },
-              monthlyValues: { type: Type.ARRAY, items: { type: Type.NUMBER } },
+              monthlyValues: { type: Type.ARRAY, maxItems: "12", items: { type: Type.NUMBER } },
               annualRevenue: { type: Type.NUMBER, nullable: true },
               basis: { type: Type.STRING },
             },
@@ -248,6 +250,7 @@ export const fddResponseSchema = {
         initialInvestmentHigh: { type: Type.NUMBER, nullable: true },
         lineItems: {
           type: Type.ARRAY,
+          maxItems: "60",
           items: {
             type: Type.OBJECT,
             properties: {
@@ -272,6 +275,7 @@ export const fddResponseSchema = {
         localAdPct: { type: Type.NUMBER, nullable: true },
         flatMonthlyFees: {
           type: Type.ARRAY,
+          maxItems: "30",
           items: {
             type: Type.OBJECT,
             properties: {
@@ -287,6 +291,7 @@ export const fddResponseSchema = {
     },
     hiddenCosts: {
       type: Type.ARRAY,
+      maxItems: "30",
       items: {
         type: Type.OBJECT,
         properties: {
@@ -333,6 +338,7 @@ export const fddResponseSchema = {
     },
     operationalRisks: {
       type: Type.ARRAY,
+      maxItems: "30",
       items: {
         type: Type.OBJECT,
         properties: {
@@ -375,6 +381,7 @@ export const fddResponseSchema = {
         parentGuaranteeOfPerformance: { type: Type.BOOLEAN },
         years: {
           type: Type.ARRAY,
+          maxItems: "6",
           items: {
             type: Type.OBJECT,
             properties: {
