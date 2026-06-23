@@ -52,9 +52,6 @@ export async function saveReport(
     addRandomSuffix: false, // deterministic pathname so we can find it by reportId
     contentType: "application/json",
   });
-  // NOTE (#6): flipping paid=true re-puts at this same key, which will need
-  // allowOverwrite: true, and a CDN-cache-busting read (overwrites take ~1 min
-  // to clear). Not needed yet — paid is always false at creation.
   return reportId;
 }
 
@@ -83,4 +80,29 @@ export async function loadReport(reportId: string): Promise<StoredReport | null>
     return null;
   }
   return record;
+}
+
+/**
+ * Flip a report to paid. Called by the Stripe webhook after checkout completes.
+ * Idempotent — Stripe can deliver the same event more than once, so setting
+ * paid on an already-paid record is a no-op success.
+ *
+ * Note: overwriting a public blob takes up to ~1 min to clear the CDN cache, so
+ * the /report page won't necessarily reflect this instantly. The buyer-facing
+ * flow (part B) verifies the Stripe session on return for immediate unlock; this
+ * write is the durable source of truth for later visits.
+ */
+export async function markPaid(reportId: string): Promise<boolean> {
+  const record = await loadReport(reportId);
+  if (!record) return false;
+  if (record.paid) return true;
+
+  const updated: StoredReport = { ...record, paid: true };
+  await put(keyFor(reportId), JSON.stringify(updated), {
+    access: "public",
+    addRandomSuffix: false,
+    contentType: "application/json",
+    allowOverwrite: true, // overwriting the existing report record
+  });
+  return true;
 }
