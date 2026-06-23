@@ -20,6 +20,7 @@ import {
   GoogleGenAI,
   createUserContent,
   createPartFromUri,
+  ThinkingLevel,
 } from "@google/genai";
 import { PDFDocument } from "pdf-lib";
 import { ExtractedFDD, fddResponseSchema } from "./schema";
@@ -42,16 +43,20 @@ const MAX_FDD_PAGES = Number(process.env.MAX_FDD_PAGES) || 300;
 
 // Extraction is mechanical (locate figures, fill the schema, cite pages), not
 // reasoning — so we constrain Gemini's thinking, the single biggest latency
-// lever. The model's DEFAULT is dynamic/HIGH thinking, which is what was pushing
-// every extraction (even small FDDs) toward the function timeout. "low" is
-// supported on every Gemini 3 model and cuts most of that latency while keeping
-// a little reasoning for Item 19 cohort pairing. On Flash you can drop to
-// "minimal" (the floor) via env for maximum headroom on the largest filings.
-const THINKING_LEVEL = (process.env.GEMINI_THINKING_LEVEL || "low") as
-  | "minimal"
-  | "low"
-  | "medium"
-  | "high";
+// lever. The model's DEFAULT is dynamic/HIGH thinking, which is what pushed
+// every extraction (even small FDDs) toward the 300s function timeout. "low"
+// keeps a little reasoning for Item 19 cohort pairing while cutting most of the
+// latency. Override via env GEMINI_THINKING_LEVEL = low | medium | high.
+// (Flash also supports a lower "minimal" floor; wire that enum member in if
+// "low" still isn't fast enough on the largest filings.)
+const THINKING_LEVELS: Record<string, ThinkingLevel> = {
+  low: ThinkingLevel.LOW,
+  medium: ThinkingLevel.MEDIUM,
+  high: ThinkingLevel.HIGH,
+};
+const THINKING_LEVEL: ThinkingLevel =
+  THINKING_LEVELS[(process.env.GEMINI_THINKING_LEVEL || "low").toLowerCase()] ??
+  ThinkingLevel.LOW;
 
 const EXTRACTION_PROMPT = `
 You are an expert franchise economics analyst extracting structured data from a
