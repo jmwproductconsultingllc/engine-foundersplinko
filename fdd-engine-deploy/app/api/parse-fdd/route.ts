@@ -21,8 +21,9 @@
  *
  * Runtime notes:
  * - Must run on the Node.js runtime (Files API + Blob), not Edge.
- * - maxDuration is 300s (the Vercel Pro ceiling). The largest FDDs run well past
- *   60s, so do NOT drop this back to 60 — that silently breaks the big docs.
+ * - maxDuration is 800s (Pro/Enterprise GA ceiling; default is 300s). The
+ *   richest FDDs trigger the full+minimal extraction double-pass and run several
+ *   minutes, so do NOT drop this — a lower ceiling silently breaks the big docs.
  * - The FDD no longer rides in the request body (no ~4.5MB serverless body
  *   limit); the browser uploads straight to Blob and we fetch it here.
  */
@@ -36,7 +37,13 @@ import { BuyerContext } from "@/lib/underwriting";
 import type { DiligenceResult } from "@/lib/types";
 
 export const runtime = "nodejs";
-export const maxDuration = 300;
+// 800s is the Pro/Enterprise GA ceiling (the platform DEFAULT is 300s — which is
+// what the rich-doc double-pass was timing out against). The full+minimal
+// extraction on the densest FDDs runs ~5-6 min, so we lift the ceiling to let it
+// finish at full numerical fidelity. Under Fluid compute, time spent waiting on
+// the Gemini call is billed as idle I/O, not CPU, so this is cheap. The
+// heartbeat stream below keeps the client socket warm across the long wait.
+export const maxDuration = 800;
 export const dynamic = "force-dynamic";
 
 async function delSafe(url: string | null) {
