@@ -113,6 +113,18 @@ RULES:
   for ancillary / hidden costs mentioned outside the investment table (e.g. mandatory
   third-party software/maintenance fees, technology fees, step-in or ACH provisions)
   and put them in hiddenCosts.
+- ITEM 7 IS A LOW–HIGH RANGE — CAPTURE BOTH ENDS. The "Amount" column gives a LOW
+  and a HIGH for every row; put the smaller figure in low and the larger in high.
+  These two figures often sit side by side with NO separator (e.g.
+  "Real Estate Improvements  $50,000  $225,000" or "Equipment  $156,050  $251,000")
+  — that is ONE row's low and high, NOT two columns and NOT the start of the next
+  row. NEVER keep only the first number and drop the second. If a row shows a single
+  amount (the low and high are identical, common for a fixed franchise fee), set BOTH
+  low and high to that number — do not leave high null. SELF-CHECK before finishing
+  Item 7: the FDD states a TOTAL row (e.g. "TOTAL $307,050 to $688,500"); the sum of
+  your low values should reconcile to the total low AND the sum of your high values
+  to the total high. If your highs don't add up to the disclosed total high, you
+  dropped high-end figures — re-scan and fill them in.
 - Fees are FACTS, not math. Record every fee EXACTLY as the FDD states it and do NO
   arithmetic on it. If a fee is stated PER UNIT (per bay, per simulator, per seat, per
   location, per terminal, per employee), put the disclosed PER-UNIT amount in
