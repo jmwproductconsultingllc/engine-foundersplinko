@@ -13,10 +13,16 @@ import { recurringFeeDisplays } from "@/lib/fees";
  * presence, and the royalty line (via the fees helper). It never touches the
  * fragile derived cohort margins / build-up — those live behind the unlock.
  *
- * The unlock CTA fires `upgrade_clicked` and calls onUnlock. Today onUnlock just
- * reveals the full report; when payment lands it routes to checkout instead —
- * same event, so the funnel reads coherently from the first dollar.
+ * The unlock CTA fires `upgrade_clicked` and calls onUnlock. onUnlock now routes
+ * to Stripe checkout (the parent handles the navigation) — same event, so the
+ * funnel reads coherently from the first dollar.
  */
+
+// Launch price shown on the CTA. NOTE: the charged amount is set independently
+// in app/api/checkout/route.ts (PRICE_CENTS). Keep these in sync until the A/B
+// (#2) consolidates pricing into one source.
+const PRICE_CENTS = 19900;
+const PRICE_LABEL = "$199";
 
 const usd = (n: number | null | undefined) =>
   n == null
@@ -79,7 +85,7 @@ export default function InfographicTeaser({
   const moreReasons = Math.max(0, reasons.length - 1);
 
   const handleUnlock = () => {
-    track("upgrade_clicked", { ...eventProps, price: null });
+    track("upgrade_clicked", { ...eventProps, price: PRICE_CENTS });
     onUnlock();
   };
 
@@ -205,9 +211,12 @@ export default function InfographicTeaser({
             onClick={handleUnlock}
             className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#34D399] px-5 py-3.5 text-[15px] font-bold text-[#06231A] transition-colors hover:bg-[#2BBD87]"
           >
-            Unlock the full report
+            Unlock the full report — {PRICE_LABEL}
             <span aria-hidden>→</span>
           </button>
+          <p className="mt-2 text-center text-[11px] text-[#8194B0]">
+            One-time payment · instant access · secure checkout
+          </p>
           <p className="mt-3 text-center text-[11px] leading-relaxed text-[#5A6B88]">
             Informational only — not legal, financial, or investment advice. Figures are AI-extracted; verify
             against the source FDD.

@@ -17,3 +17,23 @@ export function getStripe(): Stripe {
   _stripe = new Stripe(key);
   return _stripe;
 }
+
+/**
+ * Verify a completed Checkout session was paid AND belongs to this report.
+ * Used for immediate unlock on return from Stripe, independent of the Blob paid
+ * flag (which lags ~1 min behind on the CDN after the webhook flips it).
+ * The reportId match prevents unlocking report A with report B's session id.
+ */
+export async function isSessionPaidFor(
+  sessionId: string,
+  reportId: string,
+): Promise<boolean> {
+  try {
+    const session = await getStripe().checkout.sessions.retrieve(sessionId);
+    return (
+      session.payment_status === "paid" && session.metadata?.reportId === reportId
+    );
+  } catch {
+    return false;
+  }
+}
