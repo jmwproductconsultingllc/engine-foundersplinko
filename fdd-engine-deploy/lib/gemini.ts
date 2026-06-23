@@ -40,6 +40,19 @@ const MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash";
 // Tunable — raise only if you find a legitimately enormous Items section.
 const MAX_FDD_PAGES = Number(process.env.MAX_FDD_PAGES) || 300;
 
+// Extraction is mechanical (locate figures, fill the schema, cite pages), not
+// reasoning — so we constrain Gemini's thinking, the single biggest latency
+// lever. The model's DEFAULT is dynamic/HIGH thinking, which is what was pushing
+// every extraction (even small FDDs) toward the function timeout. "low" is
+// supported on every Gemini 3 model and cuts most of that latency while keeping
+// a little reasoning for Item 19 cohort pairing. On Flash you can drop to
+// "minimal" (the floor) via env for maximum headroom on the largest filings.
+const THINKING_LEVEL = (process.env.GEMINI_THINKING_LEVEL || "low") as
+  | "minimal"
+  | "low"
+  | "medium"
+  | "high";
+
 const EXTRACTION_PROMPT = `
 You are an expert franchise economics analyst extracting structured data from a
 Franchise Disclosure Document (FDD). Return ONLY JSON matching the provided schema.
@@ -303,6 +316,11 @@ export async function extractFddFromFile(
               responseMimeType: "application/json",
               responseSchema: fddResponseSchema,
               temperature: 0.1, // low = more deterministic extraction
+              // Constrain thinking — the dominant latency lever. The default is
+              // dynamic/HIGH; "low" (or "minimal" on Flash) keeps each extraction
+              // fast enough to stay under the 300s function ceiling, including
+              // the double-pass that fires on rich docs.
+              thinkingConfig: { thinkingLevel: THINKING_LEVEL },
               // 65,536 is gemini-3.5-flash's HARD max output — there is no higher
               // number. A rich FDD that exceeds it truncates the JSON; the fix is
               // less output (the minimal-mode retry below), not a bigger cap.
