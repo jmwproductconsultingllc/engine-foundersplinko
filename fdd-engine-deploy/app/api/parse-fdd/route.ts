@@ -1,21 +1,23 @@
 /**
  * app/api/parse-fdd/route.ts
  * Receive a Vercel Blob URL for the FDD + buyer context → fetch the PDF from
- * Blob → runDiligence() → stream the combined payload back.
+ * Blob → runDiligence() → PERSIST the report → stream the payload back.
  *
- * The pipeline steps (extract + score + underwrite + Insights + financial
- * condition) now live in lib/pipeline.ts so the eval harness runs the EXACT
- * same code path. This route owns only the transport: Blob fetch, buyer
- * parsing, the heartbeat stream, and cleanup. The streamed payload is
- * unchanged — runDiligence returns the same object this route used to build.
+ * The pipeline steps live in lib/pipeline.ts (so the eval harness runs the same
+ * code path). This route owns transport: Blob fetch, buyer parsing, persistence,
+ * the heartbeat stream, and cleanup.
+ *
+ * Persistence (part 1 of the report-delivery work): after analysis we save the
+ * result to Blob under a random reportId and include that id in the streamed
+ * JSON. The response still carries the full result too, so the in-session
+ * render is unchanged — the redirect to /report/[reportId] is a later step.
  *
  * Why this STREAMS the response:
  * - The server has up to 300s (Vercel Pro), but browsers don't. Safari in
  *   particular drops a request that sits silent ~60s, and a rich FDD (which
  *   triggers the minimal-mode extraction retry) can run ~90s+. So we emit a
  *   whitespace heartbeat every few seconds to keep the socket warm, then send
- *   one final JSON line: the result, or an { error } payload. The client trims
- *   the heartbeats and parses the trailing JSON.
+ *   one final JSON line: the result (+ reportId), or an { error } payload.
  *
  * Runtime notes:
  * - Must run on the Node.js runtime (Files API + Blob), not Edge.
@@ -27,8 +29,11 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { del } from "@vercel/blob";
+import { createHash } from "node:crypto";
 import { runDiligence } from "@/lib/pipeline";
+import { saveReport } from "@/lib/reports";
 import { BuyerContext } from "@/lib/underwriting";
+import type { DiligenceResult } from "@/lib/types";
 
 export const runtime = "nodejs";
 export const maxDuration = 300;
@@ -98,7 +103,20 @@ export async function POST(req: NextRequest) {
             mimeType: "application/pdf",
             buyer,
           });
-          controller.enqueue(enc.encode("\n" + JSON.stringify(result)));
+
+          // Persist so the report has a permanent URL (and a paid flag for #6).
+          // Cast: runDiligence's inferred return matches DiligenceResult
+          // structurally; the cast just sidesteps optional-vs-null nitpicks.
+          const fileHash = createHash("sha256")
+            .update(Buffer.from(bytes))
+            .digest("hex")
+            .slice(0, 16);
+          const reportId = await saveReport(result as DiligenceResult, fileHash);
+          console.log("[parse-fdd] report saved:", reportId);
+
+          // Stream the full result (so the in-session render is unchanged) plus
+          // the reportId (used by the redirect in part 2).
+          controller.enqueue(enc.encode("\n" + JSON.stringify({ ...result, reportId })));
         } catch (err) {
           console.error("[parse-fdd] pipeline error:", err);
           const message = err instanceof Error ? err.message : "Unknown error.";
