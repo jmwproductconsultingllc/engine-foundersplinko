@@ -75,6 +75,24 @@ RULES:
   are the sole exception, and go to operationalRisks as noted below.) On long,
   exhibit-heavy filings this is what keeps the extraction focused and the output
   from overflowing.
+- THIN IS A FINDING — DO NOT PAD. Some FDDs, especially early-stage brands,
+  disclose very little in their Items: Item 19 states NO financial performance
+  representation, Item 20 shows zero or only a handful of outlets, and there are
+  just a few fees. When the Items are genuinely thin, the correct extraction is
+  THIN. Do NOT backfill the schema by mining the franchise agreement, manuals, or
+  other exhibits for extra fees, costs, or operational risks to make the output
+  look fuller. A short, honest extraction is correct and expected; a padded one is
+  wrong and will overflow the output budget on long filings. Absence IS the data —
+  capture it (hasItem19=false, zero unit counts) and move on.
+- FINANCIAL STATEMENTS — THE FRANCHISOR'S OWN, NOT EVERY ENTITY. A filing often
+  bundles audited financials for a PARENT, affiliate, or guarantor alongside the
+  franchisor named on the cover. Populate financialCondition.years from the
+  FRANCHISOR'S OWN audited statements ONLY. If a parent or affiliate guarantees the
+  franchisor's obligations, record that entity's name in financialCondition.parentName
+  and set parentGuaranteeOfPerformance — but do NOT extract the parent's or
+  affiliates' full multi-year statements as if they were the franchisor's. One
+  entity's financials, not three; extracting all of them bloats the output and
+  misstates the franchisor's condition.
 - Extract FACTS ONLY. Do NOT assign a risk score, rating, or recommendation —
   that is computed downstream. Do not editorialize.
 - LANGUAGE — ENGLISH ONLY. Write EVERY prose, descriptive, or narrative field in
@@ -200,6 +218,13 @@ RULES:
   description (Item 1), the owner's on-site obligation (Item 15), and staffing cues in
   Item 11. If unclear, default to "staffed". Put a one-line reason in staffingRationale.
   CLASSIFY ONLY — do not estimate labor cost.
+- FINAL CHECK — STAY IN SCOPE. Most pages of a full FDD are exhibits you must
+  ignore. Your entire output should reflect ONLY the numbered Items (1–23) and the
+  franchisor's own financial statements — often just a few dozen pages of a much
+  longer file. If your output is growing large for a brand that discloses little
+  (no Item 19, few or no open units), that is the signal you are wrongly pulling
+  fees, risks, or financials out of the franchise agreement, manuals, addenda, or a
+  parent/affiliate's statements. Stop, and keep only the disclosure facts.
 `;
 
 // Appended ONLY on a retry, after the full extraction hits the 65,536-token
