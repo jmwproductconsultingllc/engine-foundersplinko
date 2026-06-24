@@ -21,6 +21,7 @@ import {
   createUserContent,
   createPartFromUri,
   ThinkingLevel,
+  Type,
 } from "@google/genai";
 import { PDFDocument } from "pdf-lib";
 import { ExtractedFDD, fddResponseSchema } from "./schema";
@@ -248,6 +249,55 @@ SAME JSON schema, but:
 The goal: identical structured data, zero prose, so the JSON fits the output budget.
 `;
 
+// Focused re-extraction of ONLY the Item 7 investment table, used to recover
+// high-end figures the main pass dropped (see the reconcile-and-repair step in
+// extractFddFromFile). Tiny output + more thinking budget than the main pass —
+// the table is the only thing in scope, so it can afford to read carefully.
+const ITEM7_REPAIR_PROMPT = `
+Extract ONLY the Item 7 "ESTIMATED INITIAL INVESTMENT" table from this FDD. Return
+JSON matching the schema: a lineItems array with ONE object per table row.
+
+This table has TWO dollar columns — a LOW estimate and a HIGH estimate (often headed
+"Low Estimate" / "High Estimate", or "Low" / "High"). For EVERY row return BOTH:
+- category  = the expenditure name (e.g. "Net Leasehold Improvements")
+- low       = the row's LOW / left dollar figure
+- high      = the row's HIGH / right dollar figure
+- recurring = false for one-time build-out costs, true for any ongoing/periodic cost
+
+CRITICAL:
+- Capture the HIGH value for EVERY row. The high figures are a real, separate column
+  — never copy the low into high, and never omit the high.
+- Rows often span several lines because the "When Due" and "To Whom Payment Is Made"
+  columns wrap. A single row's low and high are the two dollar amounts on that
+  expenditure's line; read across, then move to the next expenditure.
+- If a row's low and high are genuinely identical (e.g. a fixed franchise fee),
+  return that same number for both.
+- Do NOT include the TOTAL row, and do NOT extract anything outside this table.
+- Raw numbers only (65000, not "$65,000").
+SELF-CHECK before returning: the FDD states a TOTAL high; the sum of your high values
+should reconcile to it. If it doesn't, you dropped or misread highs — re-scan and fix.
+`;
+
+const ITEM7_REPAIR_SCHEMA = {
+  type: Type.OBJECT,
+  properties: {
+    lineItems: {
+      type: Type.ARRAY,
+      items: {
+        type: Type.OBJECT,
+        properties: {
+          category: { type: Type.STRING },
+          low: { type: Type.NUMBER },
+          high: { type: Type.NUMBER },
+          recurring: { type: Type.BOOLEAN },
+        },
+        required: ["category", "low", "high", "recurring"],
+      },
+    },
+  },
+  required: ["lineItems"],
+};
+
 // True when Gemini stopped because it hit the output-token ceiling (truncated JSON).
 function hitOutputCap(r: {
   candidates?: ReadonlyArray<{ finishReason?: unknown }> | null;
@@ -283,6 +333,51 @@ async function withRetry<T>(fn: () => Promise<T>, label: string, attempts = 3): 
     }
   }
   throw lastErr;
+}
+
+/**
+ * Focused re-extraction of just the Item 7 investment table, to recover high-end
+ * figures the main pass dropped. Reuses the already-uploaded file (no re-upload).
+ * Returns the rows, or null on ANY failure so the caller keeps the originals.
+ */
+async function reextractItem7(
+  ai: GoogleGenAI,
+  fileUri: string,
+  fileMime: string,
+): Promise<Array<{ category: string; low: number; high: number; recurring: boolean }> | null> {
+  try {
+    const resp = await withRetry(
+      () =>
+        ai.models.generateContent({
+          model: MODEL,
+          contents: createUserContent([
+            createPartFromUri(fileUri, fileMime),
+            ITEM7_REPAIR_PROMPT,
+          ]),
+          config: {
+            responseMimeType: "application/json",
+            responseSchema: ITEM7_REPAIR_SCHEMA,
+            temperature: 0.1,
+            // Tiny, focused output — afford MEDIUM thinking so the model reads BOTH
+            // table columns carefully. Output is small, so there's no timeout risk.
+            thinkingConfig: { thinkingLevel: ThinkingLevel.MEDIUM },
+            maxOutputTokens: 8192,
+          },
+        }),
+      "item7-repair",
+    );
+    const txt = resp.text;
+    if (!txt) return null;
+    const parsed = JSON.parse(txt) as {
+      lineItems?: Array<{ category: string; low: number; high: number; recurring: boolean }>;
+    };
+    return Array.isArray(parsed.lineItems) && parsed.lineItems.length > 0
+      ? parsed.lineItems
+      : null;
+  } catch (e) {
+    console.warn("[extract] Item 7 repair call failed; keeping original line items.", e);
+    return null;
+  }
 }
 
 /**
@@ -450,6 +545,46 @@ export async function extractFddFromFile(
           monthly = null; // unknown unit — leave null rather than guess
       }
       if (monthly !== null) extracted.averageRentMonthly = Math.round(monthly);
+    }
+
+    // Item 7 high-end repair. The initial-investment table has a LOW and a HIGH
+    // column; on densely formatted tables the main pass sometimes captures only the
+    // LOW figure per row (dropping every high) while still reading the disclosed
+    // TOTAL high. Detect that — line-item highs that don't reconcile to the total —
+    // and re-extract JUST the Item 7 table in a focused, higher-thinking call. Apply
+    // the result ONLY if its highs then reconcile to the disclosed total; otherwise
+    // keep the original rows. No-op whenever the highs already add up.
+    const it17 = extracted.item17;
+    const totalHigh = it17?.initialInvestmentHigh ?? null;
+    const rows = it17?.lineItems ?? [];
+    if (typeof totalHigh === "number" && totalHigh > 0 && rows.length > 0) {
+      const sumOf = (rs: typeof rows) =>
+        rs.reduce((s, r) => s + (typeof r.high === "number" ? r.high : r.low ?? 0), 0);
+      if (sumOf(rows) < 0.9 * totalHigh) {
+        console.warn(
+          `[extract] Item 7 highs don't reconcile (Σ ${sumOf(rows)} vs total ${totalHigh}) — re-extracting the table.`,
+        );
+        const repaired = await reextractItem7(
+          ai,
+          fileInfo.uri as string,
+          fileInfo.mimeType as string,
+        );
+        if (repaired && repaired.length === rows.length) {
+          const merged = rows.map((r, i) => ({ ...r, high: repaired[i].high }));
+          if (Math.abs(sumOf(merged) - totalHigh) <= 0.1 * totalHigh) {
+            it17.lineItems = merged;
+            console.warn(`[extract] Item 7 highs repaired (Σ now ${sumOf(merged)}).`);
+          } else {
+            console.warn(
+              `[extract] Item 7 repair didn't reconcile (Σ ${sumOf(merged)} vs ${totalHigh}); keeping original.`,
+            );
+          }
+        } else if (repaired) {
+          console.warn(
+            `[extract] Item 7 repair returned ${repaired.length} rows vs ${rows.length}; keeping original.`,
+          );
+        }
+      }
     }
   } finally {
     // 4) Clean up the uploaded file (don't leave PII/docs lying around).
