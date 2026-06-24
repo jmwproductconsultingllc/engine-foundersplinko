@@ -71,7 +71,7 @@ export async function POST(req: NextRequest) {
           const ok = await sendReportEmail({
             to,
             reportUrl,
-            brandName: record.result?.brandName ?? null,
+            brandName: record.result?.extracted?.brandName || null,
           });
           console.log(
             `[stripe-webhook] report email ${ok ? "sent" : "FAILED"} -> ${to} (${reportId})`,
