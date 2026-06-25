@@ -9,6 +9,7 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.106.0",
     "@google/genai": "latest",
     "@vercel/blob": "2.4.1",
     "next": "^16.2.0",

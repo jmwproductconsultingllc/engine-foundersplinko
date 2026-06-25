@@ -8,7 +8,7 @@
 // Imports are relative (./x), not the @/ alias, so this file resolves cleanly
 // both under Next.js and under the harness's tsx runner.
 
-import { extractFddFromFile } from "./gemini";
+import { extractFdd } from "./extractFdd";
 import { scoreFdd } from "./scoring";
 import { underwrite, type BuyerContext } from "./underwriting";
 import { buildInsights } from "./insights";
@@ -35,8 +35,12 @@ export interface DiligenceInput {
 export async function runDiligence(input: DiligenceInput) {
   const { bytes, mimeType, buyer } = input;
 
-  // 1) Extract structured facts (Gemini).
-  const extracted = await extractFddFromFile(bytes, mimeType);
+  // 1) Extract structured facts — provider failover (Gemini primary, Claude
+  //    fallback by default; flip with EXTRACTION_PRIMARY). Identical downstream.
+  const { result: extracted, provider, fellBack } = await extractFdd(bytes, mimeType);
+  if (fellBack) {
+    console.warn(`[pipeline] extraction served by FALLBACK provider: ${provider}`);
+  }
   // 2) Score deterministically (code).
   const scoring = scoreFdd(extracted, buyer);
   // 3) Underwrite against the buyer (code).
