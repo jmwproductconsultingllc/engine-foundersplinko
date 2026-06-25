@@ -20,6 +20,7 @@ import { ExtractedFDD, fddResponseSchema } from "./schema";
 import { EXTRACTION_PROMPT } from "./gemini";
 import { FINANCIAL_CONDITION_EXTRACTION_PROMPT } from "./financialCondition";
 import { geminiSchemaToJsonSchema } from "./schemaToJsonSchema";
+import { trimPdfToPages } from "./pdfTrim";
 
 // Default to Sonnet 4.6: 1M context, large output budget, strong extraction,
 // cheaper than Opus. Override with CLAUDE_EXTRACTION_MODEL (e.g. claude-opus-4-8).
@@ -29,6 +30,12 @@ const CLAUDE_MODEL = process.env.CLAUDE_EXTRACTION_MODEL || "claude-sonnet-4-6";
 // for our (bounded, SCOPE-fenced) extraction. Raise via env if a filing ever
 // needs more (Claude supports up to 128k on current models).
 const MAX_OUTPUT_TOKENS = Number(process.env.CLAUDE_MAX_OUTPUT_TOKENS) || 64000;
+
+// Trim oversized filings to this many leading pages before sending, so the
+// prompt fits Claude's 1M-token context window. A UPS Store-class FDD is ~600
+// pages / ~1.5M tokens; 250 leading pages keep the disclosure Items + financials
+// with margin even for image-heavy docs. Raise via CLAUDE_MAX_PDF_PAGES.
+const MAX_PDF_PAGES = Number(process.env.CLAUDE_MAX_PDF_PAGES) || 250;
 
 const TOOL_NAME = "emit_fdd_extraction";
 
@@ -46,7 +53,16 @@ export async function extractFddWithClaude(
   _mimeType: string,
 ): Promise<ExtractedFDD> {
   const client = getClient();
-  const base64 = Buffer.from(fileBytes).toString("base64");
+
+  // Keep huge filings within Claude's context window — trim the exhibit tail,
+  // which carries no extraction signal. Falls back to the full doc if trim fails.
+  const { data, trimmed, originalPages } = await trimPdfToPages(fileBytes, MAX_PDF_PAGES);
+  if (trimmed) {
+    console.warn(
+      `[claude] large FDD: trimmed ${originalPages} -> ${MAX_PDF_PAGES} pages to fit context.`,
+    );
+  }
+  const base64 = Buffer.from(data).toString("base64");
 
   const tool: Anthropic.Tool = {
     name: TOOL_NAME,
