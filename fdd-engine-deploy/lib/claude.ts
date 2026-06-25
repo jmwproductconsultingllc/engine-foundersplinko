@@ -31,11 +31,13 @@ const CLAUDE_MODEL = process.env.CLAUDE_EXTRACTION_MODEL || "claude-sonnet-4-6";
 // needs more (Claude supports up to 128k on current models).
 const MAX_OUTPUT_TOKENS = Number(process.env.CLAUDE_MAX_OUTPUT_TOKENS) || 64000;
 
-// Trim oversized filings to this many leading pages before sending, so the
-// prompt fits Claude's 1M-token context window. A UPS Store-class FDD is ~600
-// pages / ~1.5M tokens; 250 leading pages keep the disclosure Items + financials
-// with margin even for image-heavy docs. Raise via CLAUDE_MAX_PDF_PAGES.
-const MAX_PDF_PAGES = Number(process.env.CLAUDE_MAX_PDF_PAGES) || 250;
+// Trim oversized filings to this many leading pages before sending. This serves
+// TWO limits at once: it keeps the prompt under Claude's 1M-token context (a UPS
+// Store-class FDD is ~600pp / ~1.5M tokens), AND it keeps the streaming request
+// short enough to finish before the connection times out (a 250+pp doc ran long
+// enough to get terminated mid-stream). 150 leading pages reliably covers the
+// disclosure Items + financials. Tune with CLAUDE_MAX_PDF_PAGES.
+const MAX_PDF_PAGES = Number(process.env.CLAUDE_MAX_PDF_PAGES) || 150;
 
 const TOOL_NAME = "emit_fdd_extraction";
 
@@ -44,7 +46,9 @@ function getClient(): Anthropic {
   if (_client) return _client;
   const key = process.env.ANTHROPIC_API_KEY;
   if (!key) throw new Error("ANTHROPIC_API_KEY is not set.");
-  _client = new Anthropic({ apiKey: key });
+  // Generous per-attempt timeout (just under the route's maxDuration=800s) so a
+  // long-but-valid extraction on a dense doc isn't abandoned early.
+  _client = new Anthropic({ apiKey: key, timeout: 780_000 });
   return _client;
 }
 
