@@ -171,6 +171,8 @@ function failureAlertHtml(args: FailureAlertArgs): string {
   </body>
 </html>`;
 }
+
+function reportEmailHtml(args: { reportUrl: string; brandName?: string | null }): string {
   const { reportUrl, brandName } = args;
   const brandLine = brandName
     ? `Your full diligence report for <strong>${escapeHtml(brandName)}</strong> is ready.`
