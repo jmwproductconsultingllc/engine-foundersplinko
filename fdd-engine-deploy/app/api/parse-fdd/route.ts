@@ -29,10 +29,11 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
-import { del } from "@vercel/blob";
+import { del, put } from "@vercel/blob";
 import { createHash } from "node:crypto";
 import { runDiligence } from "@/lib/pipeline";
 import { saveReport } from "@/lib/reports";
+import { sendFailureAlert } from "@/lib/email";
 import { BuyerContext } from "@/lib/underwriting";
 import type { DiligenceResult } from "@/lib/types";
 
@@ -127,8 +128,49 @@ export async function POST(req: NextRequest) {
         } catch (err) {
           console.error("[parse-fdd] pipeline error:", err);
           const message = err instanceof Error ? err.message : "Unknown error.";
+
+          // --- Failure capture -------------------------------------------------
+          // Retain the failed doc for replay + alert the operator. Both steps are
+          // wrapped so a capture failure can NEVER block the user's response.
+          let failedDocUrl: string | null = null;
+          try {
+            const stamp = new Date().toISOString().replace(/[:.]/g, "-");
+            const hash = createHash("sha256")
+              .update(Buffer.from(bytes))
+              .digest("hex")
+              .slice(0, 12);
+            const saved = await put(`failures/${stamp}-${hash}.pdf`, Buffer.from(bytes), {
+              access: "public",
+              contentType: "application/pdf",
+            });
+            failedDocUrl = saved.url;
+            console.log("[parse-fdd] retained failed doc:", failedDocUrl);
+          } catch (capErr) {
+            console.error("[parse-fdd] could not retain failed doc:", capErr);
+          }
+          try {
+            await sendFailureAlert({
+              error: message,
+              failedDocUrl,
+              fileSizeBytes: bytes.byteLength,
+              buyer,
+            });
+          } catch (alertErr) {
+            console.error("[parse-fdd] failure alert send error:", alertErr);
+          }
+
+          // Calm, branded message for the user. The raw technical detail goes to
+          // the operator alert + server logs — never to the buyer's screen.
           controller.enqueue(
-            enc.encode("\n" + JSON.stringify({ error: `Failed to analyze the FDD. ${message}` })),
+            enc.encode(
+              "\n" +
+                JSON.stringify({
+                  error:
+                    "This FDD didn't go through — it may be an unusual or scanned format. " +
+                    "We've been automatically notified and we're looking into it. Please try again " +
+                    "in a few minutes, and if it keeps happening, email jason@foundersplinko.com.",
+                }),
+            ),
           );
         } finally {
           clearInterval(beat);

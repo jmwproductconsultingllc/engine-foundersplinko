@@ -78,7 +78,99 @@ export async function sendReportEmail(args: SendReportEmailArgs): Promise<boolea
   }
 }
 
-function reportEmailHtml(args: { reportUrl: string; brandName?: string | null }): string {
+// ---------------------------------------------------------------------------
+// Failure alert — internal notification to the operator when an FDD fails to
+// extract. Carries the full technical error, a link to the RETAINED copy of the
+// failed document (for local replay), and the buyer's inputs for context. This
+// is what turns a silent production failure into something you can act on the
+// same day, with the exact doc in hand.
+// ---------------------------------------------------------------------------
+
+export interface FailureAlertArgs {
+  /** The full technical error message (provider chain, stack-ish detail). */
+  error: string;
+  /** Public Blob URL of the retained failed document, or null if re-upload failed. */
+  failedDocUrl: string | null;
+  /** Size of the uploaded file in bytes (helps spot truncation / huge docs). */
+  fileSizeBytes?: number;
+  /** Buyer inputs at time of failure (context only). */
+  buyer?: { liquidCapital: number; netWorth: number };
+}
+
+// Where alerts go. Defaults to the operator inbox; override with FAILURE_ALERT_TO.
+const ALERT_TO = process.env.FAILURE_ALERT_TO || "jason@foundersplinko.com";
+
+/**
+ * Email the operator that an extraction failed. Returns true on success, never
+ * throws — the caller logs the result and continues, because the user still
+ * needs their (calm) on-screen error regardless of whether this alert lands.
+ */
+export async function sendFailureAlert(args: FailureAlertArgs): Promise<boolean> {
+  const { error, failedDocUrl, fileSizeBytes, buyer } = args;
+  try {
+    const resend = getResend();
+    const { error: sendErr } = await resend.emails.send({
+      from: FROM,
+      to: ALERT_TO,
+      subject: "⚠️ FDD extraction FAILED — needs a look",
+      html: failureAlertHtml({ error, failedDocUrl, fileSizeBytes, buyer }),
+    });
+    if (sendErr) {
+      console.error("[email] failure-alert returned an error:", sendErr);
+      return false;
+    }
+    return true;
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : "unknown";
+    console.error("[email] failure-alert send failed:", msg);
+    return false;
+  }
+}
+
+function failureAlertHtml(args: FailureAlertArgs): string {
+  const { error, failedDocUrl, fileSizeBytes, buyer } = args;
+  const sizeLabel =
+    typeof fileSizeBytes === "number"
+      ? `${(fileSizeBytes / 1_000_000).toFixed(1)} MB`
+      : "unknown";
+  const buyerLabel = buyer
+    ? `liquid $${buyer.liquidCapital.toLocaleString()} · net worth $${buyer.netWorth.toLocaleString()}`
+    : "n/a";
+  const when = new Date().toISOString();
+
+  const docBlock = failedDocUrl
+    ? `<a href="${failedDocUrl}" style="display:inline-block;background:#111827;color:#ffffff;text-decoration:none;font-size:14px;font-weight:600;padding:11px 18px;border-radius:8px;">Download the failed FDD &rarr;</a>
+       <p style="margin:8px 0 0 0;font-size:12px;color:#6b7280;word-break:break-all;">${failedDocUrl}</p>`
+    : `<p style="margin:0;font-size:13px;color:#b91c1c;">Failed doc could not be retained (re-upload errored — see logs).</p>`;
+
+  return `<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#f4f5f7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#1f2430;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f5f7;padding:28px 16px;">
+      <tr><td align="center">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border:1px solid #e4e7ec;border-radius:12px;">
+          <tr><td style="padding:24px 24px 0 24px;">
+            <div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#b91c1c;font-weight:700;">Franchise Edge · extraction failed</div>
+            <h1 style="margin:8px 0 0 0;font-size:18px;color:#111827;">An FDD didn't extract</h1>
+          </td></tr>
+          <tr><td style="padding:18px 24px 0 24px;">${docBlock}</td></tr>
+          <tr><td style="padding:18px 24px 0 24px;">
+            <div style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#6b7280;font-weight:700;margin-bottom:6px;">Error</div>
+            <pre style="margin:0;white-space:pre-wrap;word-break:break-word;font-size:12px;line-height:1.5;background:#f9fafb;border:1px solid #eceff3;border-radius:8px;padding:12px;color:#111827;">${escapeHtml(error)}</pre>
+          </td></tr>
+          <tr><td style="padding:16px 24px 24px 24px;">
+            <p style="margin:0;font-size:13px;line-height:1.7;color:#374151;">
+              <strong>File size:</strong> ${sizeLabel}<br>
+              <strong>Buyer inputs:</strong> ${buyerLabel}<br>
+              <strong>When:</strong> ${when}
+            </p>
+          </td></tr>
+        </table>
+      </td></tr>
+    </table>
+  </body>
+</html>`;
+}
   const { reportUrl, brandName } = args;
   const brandLine = brandName
     ? `Your full diligence report for <strong>${escapeHtml(brandName)}</strong> is ready.`
