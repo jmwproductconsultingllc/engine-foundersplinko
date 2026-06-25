@@ -57,32 +57,39 @@ export async function extractFddWithClaude(
     input_schema: geminiSchemaToJsonSchema(fddResponseSchema) as Anthropic.Tool.InputSchema,
   };
 
-  const message = await client.messages.create({
-    model: CLAUDE_MODEL,
-    max_tokens: MAX_OUTPUT_TOKENS,
-    tools: [tool],
-    // Force the tool so the model MUST emit schema-shaped JSON (no prose).
-    tool_choice: { type: "tool", name: TOOL_NAME },
-    messages: [
-      {
-        role: "user",
-        content: [
-          {
-            type: "document",
-            source: {
-              type: "base64",
-              media_type: "application/pdf",
-              data: base64,
+  // Stream the response: with a large max_tokens the SDK refuses a blocking
+  // .create() (a request that *could* exceed 10 minutes must stream). We keep
+  // the high output ceiling — that's what clears Gemini's overflow wall — and
+  // collect the assembled Message via finalMessage(), so callers still get a
+  // single result object. The route's maxDuration=800 + Fluid compute cover it.
+  const message = await client.messages
+    .stream({
+      model: CLAUDE_MODEL,
+      max_tokens: MAX_OUTPUT_TOKENS,
+      tools: [tool],
+      // Force the tool so the model MUST emit schema-shaped JSON (no prose).
+      tool_choice: { type: "tool", name: TOOL_NAME },
+      messages: [
+        {
+          role: "user",
+          content: [
+            {
+              type: "document",
+              source: {
+                type: "base64",
+                media_type: "application/pdf",
+                data: base64,
+              },
             },
-          },
-          {
-            type: "text",
-            text: EXTRACTION_PROMPT + FINANCIAL_CONDITION_EXTRACTION_PROMPT,
-          },
-        ],
-      },
-    ],
-  });
+            {
+              type: "text",
+              text: EXTRACTION_PROMPT + FINANCIAL_CONDITION_EXTRACTION_PROMPT,
+            },
+          ],
+        },
+      ],
+    })
+    .finalMessage();
 
   const toolUse = message.content.find(
     (block): block is Anthropic.ToolUseBlock => block.type === "tool_use",
