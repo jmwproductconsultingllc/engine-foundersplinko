@@ -513,26 +513,35 @@ export function buildInsights(
       );
     } else if (marginAfterFeesMonthly != null) {
       // No disclosure — build down from the modeled margin-after-fees by subtracting
-      // the missing lines at category MIDPOINTS (not stacked extremes, so the displayed
-      // lines sum to the result and a high-COGS concept doesn't produce an absurd swing).
-      const mid = (r: [number, number]) => Math.round((rev * (r[0] + r[1])) / 2 / 100);
-      const cogsMid = mid(benchmark.cogsPct);
-      const laborMid = mid(laborPctEffective);
-      const opexMid = mid(OTHER_OPEX_PCT);
+      // the missing lines as RANGES (each category's low–high), and carry the swing
+      // through to the result. We deliberately do NOT collapse to a midpoint: the
+      // spread IS the finding. A single number reads as a disclosed fact; the range
+      // shows the buyer how completely the outcome hinges on their real cost
+      // structure — the exact thing to verify against Item 20 P&Ls — instead of
+      // false precision. (labor$ low–high and laborNote were computed just above.)
+      const cogs$ = range(benchmark.cogsPct[0], benchmark.cogsPct[1]);
+      const opex$ = range(OTHER_OPEX_PCT[0], OTHER_OPEX_PCT[1]);
 
       // Rent guard: if the FDD disclosed no monthly rent, "margin after fees & rent"
       // never actually had rent removed (the fixed-cost line is just flat fees), so the
       // modeled EBITDA would be overstated. Subtract a benchmark occupancy line in that
       // case. When rent IS disclosed it's already netted in the base — don't double-count.
       const rentDisclosed = fdd.averageRentMonthly != null && fdd.averageRentMonthly > 0;
-      const occupancyMid = rentDisclosed ? 0 : mid(benchmark.occupancyPct);
+      const occ$: [number, number] = rentDisclosed
+        ? [0, 0]
+        : range(benchmark.occupancyPct[0], benchmark.occupancyPct[1]);
 
-      const ebitda = Math.round(
-        marginAfterFeesMonthly - occupancyMid - cogsMid - laborMid - opexMid,
+      // Best case subtracts the LOW end of every cost; worst case the HIGH end.
+      const ebitdaHigh = Math.round(
+        marginAfterFeesMonthly - occ$[0] - cogs$[0] - labor$[0] - opex$[0],
       );
-      benchmarkOperatingEbitdaMonthly = [ebitda, ebitda];
+      const ebitdaLow = Math.round(
+        marginAfterFeesMonthly - occ$[1] - cogs$[1] - labor$[1] - opex$[1],
+      );
+      benchmarkOperatingEbitdaMonthly = [ebitdaLow, ebitdaHigh];
       trueEbitdaBasis = "modeled";
-      const midPct = Math.round((ebitda / rev) * 100);
+      const loPctMargin = Math.round((ebitdaLow / rev) * 100);
+      const hiPctMargin = Math.round((ebitdaHigh / rev) * 100);
 
       const rows: BuildupRow[] = [
         { label: "Margin after fees & rent (modeled)", kind: "base", dollarRange: [marginAfterFeesMonthly, marginAfterFeesMonthly], basis: "derived" },
@@ -542,16 +551,16 @@ export function buildInsights(
           label: "− Occupancy / rent (not disclosed)",
           kind: "subtract",
           pctRange: benchmark.occupancyPct,
-          dollarRange: [occupancyMid, occupancyMid],
+          dollarRange: occ$,
           note: "Item 7 disclosed no rent figure — benchmark occupancy applied so the line above isn't overstated",
           basis: "benchmark",
         });
       }
       rows.push(
-        { label: "− Cost of goods", kind: "subtract", pctRange: benchmark.cogsPct, dollarRange: [cogsMid, cogsMid], basis: "benchmark" },
-        { label: "− Labor", kind: "subtract", pctRange: laborPctEffective, dollarRange: [laborMid, laborMid], note: laborNote, basis: "benchmark" },
-        { label: "− Other operating costs", kind: "subtract", pctRange: OTHER_OPEX_PCT, dollarRange: [opexMid, opexMid], note: "utilities, insurance, repairs & maintenance (category estimate)", basis: "benchmark" },
-        { label: "= True operating EBITDA", kind: "result", dollarRange: [ebitda, ebitda], note: `≈ ${midPct}% operating margin, before debt`, basis: "derived" },
+        { label: "− Cost of goods", kind: "subtract", pctRange: benchmark.cogsPct, dollarRange: cogs$, basis: "benchmark" },
+        { label: "− Labor", kind: "subtract", pctRange: laborPctEffective, dollarRange: labor$, note: laborNote, basis: "benchmark" },
+        { label: "− Other operating costs", kind: "subtract", pctRange: OTHER_OPEX_PCT, dollarRange: opex$, note: "utilities, insurance, repairs & maintenance (category estimate)", basis: "benchmark" },
+        { label: "= True operating EBITDA", kind: "result", dollarRange: [ebitdaLow, ebitdaHigh], note: `≈ ${loPctMargin}% to ${hiPctMargin}% operating margin, before debt`, basis: "derived" },
       );
       buildup = rows;
 
