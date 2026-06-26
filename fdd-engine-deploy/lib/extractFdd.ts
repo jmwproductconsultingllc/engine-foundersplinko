@@ -16,6 +16,7 @@
 import { ExtractedFDD } from "./schema";
 import { extractFddFromFile } from "./gemini";
 import { extractFddWithClaude } from "./claude";
+import { recoverFinancials } from "./financialsPass";
 
 export type ExtractionProvider = "gemini" | "claude";
 
@@ -45,6 +46,28 @@ function msgOf(e: unknown): string {
   }
 }
 
+// --- Financials backfill helpers -------------------------------------------
+
+/** True when the main pass produced no usable financial-statement figures. */
+function financialsAreThin(fin: unknown): boolean {
+  const years = (fin as { years?: Array<Record<string, unknown> | null> } | null | undefined)?.years;
+  if (!Array.isArray(years) || years.length === 0) return true;
+  return years.every(
+    (y) => !y || (y.revenue == null && y.netIncome == null && y.totalAssets == null && y.netWorth == null),
+  );
+}
+
+// A warning counts as "financials are missing" only if it mentions financials
+// AND an absence phrase — so once we recover them we can drop exactly those
+// (now-false) warnings without disturbing legitimate ones.
+const FIN_TERM_RE =
+  /(financial statement|balance sheet|income statement|statement of operations|audited|financial condition|financial data)/i;
+const MISSING_RE =
+  /(not included|not present|not in the provided|not in provided|not in the uploaded|not in uploaded|referenced but|largely null|are null|not provided|outside the provided|could not be located)/i;
+function isFinancialsMissingWarning(w: string): boolean {
+  return FIN_TERM_RE.test(w) && MISSING_RE.test(w);
+}
+
 export async function extractFdd(
   fileBytes: ArrayBuffer,
   mimeType: string,
@@ -52,9 +75,10 @@ export async function extractFdd(
   const primary = resolvePrimary();
   const secondary: ExtractionProvider = primary === "gemini" ? "claude" : "gemini";
 
+  let outcome: ExtractionOutcome;
   try {
     const result = await EXTRACTORS[primary](fileBytes, mimeType);
-    return { result, provider: primary, fellBack: false };
+    outcome = { result, provider: primary, fellBack: false };
   } catch (primaryErr) {
     console.error(
       `[extract] primary provider "${primary}" failed — failing over to "${secondary}": ${msgOf(primaryErr)}`,
@@ -62,7 +86,7 @@ export async function extractFdd(
     try {
       const result = await EXTRACTORS[secondary](fileBytes, mimeType);
       console.warn(`[extract] recovered via fallback provider "${secondary}".`);
-      return { result, provider: secondary, fellBack: true };
+      outcome = { result, provider: secondary, fellBack: true };
     } catch (secondaryErr) {
       // Both providers are down or the document is genuinely unprocessable.
       console.error(
@@ -74,4 +98,29 @@ export async function extractFdd(
       );
     }
   }
+
+  // Transparency backfill — if the franchisor's financial statements were a late
+  // exhibit outside the trimmed window, the main pass returns empty financials
+  // and (worse) warns they're "not in the provided pages," which to someone who
+  // uploaded the complete FDD looks like we altered their document. Find and
+  // extract the statements from the FULL doc, then drop the now-false warning.
+  try {
+    if (financialsAreThin(outcome.result.financialCondition)) {
+      const recovered = await recoverFinancials(fileBytes);
+      if (recovered && !financialsAreThin(recovered)) {
+        outcome.result.financialCondition = recovered;
+        const dc = outcome.result.documentCheck;
+        if (dc && Array.isArray(dc.warnings) && dc.warnings.length) {
+          dc.warnings = dc.warnings.filter((w) => !isFinancialsMissingWarning(w));
+        }
+        console.warn(
+          "[extract] financials recovered from full doc via targeted pass; stale warning cleared.",
+        );
+      }
+    }
+  } catch (e) {
+    console.warn("[extract] financials backfill skipped:", e instanceof Error ? e.message : e);
+  }
+
+  return outcome;
 }
