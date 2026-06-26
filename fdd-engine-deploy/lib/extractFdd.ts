@@ -105,11 +105,17 @@ export async function extractFdd(
   // uploaded the complete FDD looks like we altered their document. Find and
   // extract the statements from the FULL doc, then drop the now-false warning.
   try {
-    if (financialsAreThin(outcome.result.financialCondition)) {
+    const dc = outcome.result.documentCheck;
+    const warnsFinancialsMissing =
+      !!dc && Array.isArray(dc.warnings) && dc.warnings.some(isFinancialsMissingWarning);
+    // Fire recovery if the main pass produced no usable figures OR if it flagged the
+    // audited statements as missing — even when it scraped partial numbers from the
+    // Item 21 narrative (which alone would look "not thin" and wrongly skip recovery).
+    if (financialsAreThin(outcome.result.financialCondition) || warnsFinancialsMissing) {
+      console.log("[extract] financials look incomplete — attempting targeted recovery from full doc.");
       const recovered = await recoverFinancials(fileBytes);
       if (recovered && !financialsAreThin(recovered)) {
         outcome.result.financialCondition = recovered;
-        const dc = outcome.result.documentCheck;
         if (dc && Array.isArray(dc.warnings) && dc.warnings.length) {
           dc.warnings = dc.warnings.filter((w) => !isFinancialsMissingWarning(w));
         }
