@@ -64,7 +64,12 @@ async function scorePages(bytes: ArrayBuffer): Promise<number[]> {
   // Dynamic import keeps unpdf (and its bundled pdfjs) out of the main bundle
   // and off the build's critical path — if it ever fails, only this pass does.
   const { getDocumentProxy, extractText } = await import("unpdf");
-  const pdf = await getDocumentProxy(new Uint8Array(bytes));
+  // CRITICAL: hand pdfjs a COPY of the bytes. pdfjs takes ownership of the typed
+  // array it's given and DETACHES the underlying ArrayBuffer. Because the caller's
+  // `bytes` is that same buffer, detaching it would corrupt every later step that
+  // reuses it — the page carve below, and the route's failure-capture re-upload
+  // and file-size readout (which is why a failure showed "0.0 MB").
+  const pdf = await getDocumentProxy(new Uint8Array(bytes.slice(0)));
   const { text } = await extractText(pdf, { mergePages: false });
   const pages: string[] = Array.isArray(text) ? text : [String(text)];
   return pages.map((t) => {
