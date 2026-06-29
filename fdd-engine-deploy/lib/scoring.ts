@@ -271,18 +271,60 @@ export function scoreFdd(
   const highTripwires = (fdd.operationalRisks ?? []).filter(
     (r) => r.severity === "high" && !/financial condition/i.test(r.title),
   ).length;
+  // HIGH operational tripwires are existential/major disclosed risks — immediate
+  // termination, mandatory mid-term capital calls, unilateral revenue cuts. The
+  // old rubric let three of them contribute just +1 (which alone maps to "Low"),
+  // so a stack of severe disclosed risks could be erased by a clean-looking
+  // economic model. Beyond adding points we now FLOOR the level (applied after the
+  // points→level map below) — a franchise that can be terminated overnight is not
+  // low-risk no matter how the pro forma pencils.
+  let tripwireFloor: ScoringResult["riskLevel"] | null = null;
   if (highTripwires >= RUBRIC.manyHighTripwires) {
-    points += 2;
+    points += 3;
+    tripwireFloor = "High";
     reasons.push(`${highTripwires} high-severity operational tripwires disclosed — see the tripwires section.`);
   } else if (highTripwires >= RUBRIC.someHighTripwires) {
-    points += 1;
+    points += 2;
+    tripwireFloor = "Medium";
     reasons.push(`${highTripwires} high-severity operational tripwires disclosed — see the tripwires section.`);
+  } else if (highTripwires >= 1) {
+    points += 1;
+    reasons.push("A high-severity operational tripwire is disclosed — see the tripwires section.");
+  }
+
+  // Franchisor financial distress — judged from the FIGURES, not the boilerplate
+  // "Special Risks" financial-condition flag (which over-fires on routine
+  // disclosure; UPS trips that flag but its statements are fine). Going-concern
+  // doubt or a negative net worth means the franchisor's ability to support the
+  // system is genuinely in question, so it both scores and floors the level.
+  const fc = fdd.financialCondition;
+  const negativeNetWorth = (fc?.years ?? []).some(
+    (y) => y?.netWorth != null && y.netWorth < 0,
+  );
+  let finconFloor: ScoringResult["riskLevel"] | null = null;
+  if (fc?.goingConcernRaised || negativeNetWorth) {
+    points += 2;
+    finconFloor = "Medium";
+    reasons.push(
+      `Franchisor financial distress disclosed (${
+        fc?.goingConcernRaised ? "going-concern doubt" : "negative net worth"
+      }) — confirm its ability to support the system against the audited statements.`,
+    );
   }
 
   // ---- map points → level ----
   let riskLevel: ScoringResult["riskLevel"] = "Low";
   if (points >= 4) riskLevel = "High";
   else if (points >= 2) riskLevel = "Medium";
+
+  // ---- hard floors: a serious DISCLOSED risk cannot be overridden by a clean
+  // economic model. Raise (never lower) the level to any floor that was set. ----
+  const levelOrder = { Low: 0, Medium: 1, High: 2 } as const;
+  const floorTo = (lvl: ScoringResult["riskLevel"]) => {
+    if (levelOrder[lvl] > levelOrder[riskLevel]) riskLevel = lvl;
+  };
+  if (tripwireFloor) floorTo(tripwireFloor);
+  if (finconFloor) floorTo(finconFloor);
 
   // ---- "couldn't assess" floor: absence of data is NOT absence of risk ----
   // If no pro forma could be built (company/affiliate-owned only, or no FPR),
