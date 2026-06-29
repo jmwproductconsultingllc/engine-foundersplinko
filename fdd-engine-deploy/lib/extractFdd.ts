@@ -17,6 +17,7 @@ import { ExtractedFDD } from "./schema";
 import { extractFddFromFile } from "./gemini";
 import { extractFddWithClaude } from "./claude";
 import { recoverFinancials } from "./financialsPass";
+import type { FinancialConditionExtraction } from "./financialCondition";
 
 export type ExtractionProvider = "gemini" | "claude";
 
@@ -48,22 +49,65 @@ function msgOf(e: unknown): string {
 
 // --- Financials backfill helpers -------------------------------------------
 
-/** True when the main pass produced no usable financial-statement figures. */
-function financialsAreThin(fin: unknown): boolean {
-  const years = (fin as { years?: Array<Record<string, unknown> | null> } | null | undefined)?.years;
+// Whether the AUDITED financial statements were actually captured. This reads the
+// DATA, not the model's prose. A balance sheet (totalAssets / totalLiabilities) or
+// a real audit opinion only ever comes from the statements themselves; an Item 21
+// narrative scrape yields a stray revenue or net-worth figure but never a balance
+// sheet — so "we have a couple of numbers" must NOT count as complete. That was the
+// old bug: a narrative scrape read as "not thin" and wrongly skipped recovery.
+// auditOpinion is a non-nullable enum whose "unknown" value means "not seen," so it
+// is treated the same as missing.
+function financialsIncomplete(fin: unknown): boolean {
+  const f = fin as
+    | {
+        auditorName?: unknown;
+        auditOpinion?: unknown;
+        years?: Array<{ totalAssets?: unknown; totalLiabilities?: unknown } | null>;
+      }
+    | null
+    | undefined;
+  const years = f?.years;
   if (!Array.isArray(years) || years.length === 0) return true;
-  return years.every(
-    (y) => !y || (y.revenue == null && y.netIncome == null && y.totalAssets == null && y.netWorth == null),
+  const hasBalanceSheet = years.some(
+    (y) => y != null && (y.totalAssets != null || y.totalLiabilities != null),
   );
+  const auditorName = typeof f?.auditorName === "string" ? f.auditorName.trim() : "";
+  const auditOpinion = typeof f?.auditOpinion === "string" ? f.auditOpinion : "";
+  const hasAuditMeta = auditorName !== "" || (auditOpinion !== "" && auditOpinion !== "unknown");
+  return !hasBalanceSheet && !hasAuditMeta;
 }
 
-// A warning counts as "financials are missing" only if it mentions financials
-// AND an absence phrase — so once we recover them we can drop exactly those
-// (now-false) warnings without disturbing legitimate ones.
+// The recovery pass reads ONLY the financial-statement pages, so it is authoritative
+// for the statements (years + auditor + opinion + going-concern) but blind to
+// narrative context (parent entity, special-risk flag) the full-doc main pass
+// already captured. Merge accordingly — never let a statements-only pass null out
+// e.g. UPS's parent name by wholesale-replacing the object.
+function mergeRecoveredFinancials(
+  base: ExtractedFDD["financialCondition"],
+  recovered: FinancialConditionExtraction,
+): ExtractedFDD["financialCondition"] {
+  const recoveredOpinion =
+    recovered.auditOpinion && recovered.auditOpinion !== "unknown" ? recovered.auditOpinion : null;
+  return {
+    ...base,
+    years: recovered.years ?? base.years,
+    auditorName: recovered.auditorName ?? base.auditorName ?? null,
+    auditOpinion: recoveredOpinion ?? base.auditOpinion,
+    goingConcernRaised: recovered.goingConcernRaised ?? base.goingConcernRaised,
+  };
+}
+
+// A warning counts as "financials are missing" only if it mentions financials AND an
+// absence/partial phrase — so once we recover them we drop exactly those (now-false)
+// warnings without disturbing legitimate financial FINDINGS (e.g. an equity deficit),
+// which also live in documentCheck.warnings. The model rewords the absence every run
+// ("not provided" / "not fully provided" / "description only" / ...), so match the
+// family, not one phrasing — the narrow old pattern missed "not fully provided" and
+// left the stale note on the report.
 const FIN_TERM_RE =
-  /(financial statement|balance sheet|income statement|statement of operations|audited|financial condition|financial data)/i;
+  /(financial statement|balance sheet|income statement|statement of operations|audited|financial condition|financial data|financial figures)/i;
 const MISSING_RE =
-  /(not included|not present|not in the provided|not in provided|not in the uploaded|not in uploaded|referenced but|largely null|are null|not provided|outside the provided|could not be located)/i;
+  /(not (?:fully |directly )?(?:provided|reproduced|included|present|available|extracted|attached|reflected)|not in (?:the )?(?:provided|uploaded)|could not be (?:located|extracted|read|found)|description only|referenced but|outside the provided|limited to|are null|largely null)/i;
 function isFinancialsMissingWarning(w: string): boolean {
   return FIN_TERM_RE.test(w) && MISSING_RE.test(w);
 }
@@ -108,19 +152,33 @@ export async function extractFdd(
     const dc = outcome.result.documentCheck;
     const warnsFinancialsMissing =
       !!dc && Array.isArray(dc.warnings) && dc.warnings.some(isFinancialsMissingWarning);
-    // Fire recovery if the main pass produced no usable figures OR if it flagged the
-    // audited statements as missing — even when it scraped partial numbers from the
-    // Item 21 narrative (which alone would look "not thin" and wrongly skip recovery).
-    if (financialsAreThin(outcome.result.financialCondition) || warnsFinancialsMissing) {
+    // Fire recovery when the audited statements were not captured — judged from the
+    // DATA (robust to the model scraping a stray Item 21 figure), with the warning
+    // text as a secondary backstop. The data check is primary precisely because the
+    // warning phrasing is unreliable run-to-run.
+    if (financialsIncomplete(outcome.result.financialCondition) || warnsFinancialsMissing) {
       console.log("[extract] financials look incomplete — attempting targeted recovery from full doc.");
       const recovered = await recoverFinancials(fileBytes);
-      if (recovered && !financialsAreThin(recovered)) {
-        outcome.result.financialCondition = recovered;
+      if (recovered && !financialsIncomplete(recovered)) {
+        outcome.result.financialCondition = mergeRecoveredFinancials(
+          outcome.result.financialCondition,
+          recovered,
+        );
         if (dc && Array.isArray(dc.warnings) && dc.warnings.length) {
           dc.warnings = dc.warnings.filter((w) => !isFinancialsMissingWarning(w));
         }
         console.warn(
           "[extract] financials recovered from full doc via targeted pass; stale warning cleared.",
+        );
+      } else {
+        // Recovery ran but came back empty/thin — the statements are likely a scanned
+        // image with no text layer (densestRange scores on EXTRACTED text, so an
+        // image-only exhibit scores zero and never gets carved). Leave the main-pass
+        // financials and the honest warning intact; never fabricate. If this branch
+        // fires on docs we know contain statements, the next fix is to carve the
+        // late-exhibit page range directly and let Claude's vision read it.
+        console.warn(
+          "[extract] targeted recovery yielded no audited statements — leaving main-pass financials and warning intact.",
         );
       }
     }
