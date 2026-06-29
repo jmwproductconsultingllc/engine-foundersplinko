@@ -309,7 +309,16 @@ export function gradeSeverity(
     );
   if (m.revenueTrend === 'improving') mitigants.push('revenue is growing');
   if (m.netWorthSign === 'positive') mitigants.push('positive net worth');
-  if (n(m.netIncome) && m.netIncome >= 0) mitigants.push('the business is profitable');
+  // "Profitable" requires BOTH real revenue and a positive bottom line. A
+  // pre-operational franchisor (newly formed, zero outlets) reports $0 revenue
+  // and $0 net income — which the old `netIncome >= 0` test wrongly surfaced as
+  // "the business is profitable," the worst place to overstate on a brand-new
+  // franchisor. Revenue must exist (the materiality floor: it has actually
+  // operated) and net income must be strictly positive (breakeven isn't
+  // "profitable"). A pre-revenue shell's capitalization still shows honestly via
+  // "positive net worth" and any parent guarantee, which remain.
+  if (n(m.netIncome) && m.netIncome > 0 && n(m.revenue) && m.revenue > 0)
+    mitigants.push('the business is profitable');
   if (x.parentGuaranteeOfPerformance)
     mitigants.push("the parent guarantees the franchisor's performance");
 
