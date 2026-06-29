@@ -85,15 +85,20 @@ function financialsIncomplete(fin: unknown): boolean {
 function mergeRecoveredFinancials(
   base: ExtractedFDD["financialCondition"],
   recovered: FinancialConditionExtraction,
-): ExtractedFDD["financialCondition"] {
-  const recoveredOpinion =
-    recovered.auditOpinion && recovered.auditOpinion !== "unknown" ? recovered.auditOpinion : null;
+): FinancialConditionExtraction {
+  // Build on `recovered` (always fully-formed) rather than `base` — base is an
+  // OPTIONAL field (FinancialConditionExtraction | undefined), and spreading a
+  // possibly-undefined value makes every property optional, which is not
+  // assignable to the strict return type. recovered owns the statements it just
+  // read (years + auditor + opinion + going-concern + prior-period); base owns the
+  // narrative/cover fields a statements-only pass can't see (special-risk flag,
+  // parent entity + guarantee), so those are pulled back in with undefined-guards.
   return {
-    ...base,
-    years: recovered.years ?? base.years,
-    auditorName: recovered.auditorName ?? base.auditorName ?? null,
-    auditOpinion: recoveredOpinion ?? base.auditOpinion,
-    goingConcernRaised: recovered.goingConcernRaised ?? base.goingConcernRaised,
+    ...recovered,
+    specialRiskPresent: base?.specialRiskPresent ?? recovered.specialRiskPresent,
+    parentName: base?.parentName ?? recovered.parentName ?? null,
+    parentGuaranteeOfPerformance:
+      base?.parentGuaranteeOfPerformance ?? recovered.parentGuaranteeOfPerformance,
   };
 }
 
