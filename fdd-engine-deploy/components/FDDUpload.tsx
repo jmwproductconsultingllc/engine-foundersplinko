@@ -29,15 +29,19 @@ function readError(parsed: unknown, status: number): string {
 }
 
 /** Narrated phases shown during the parse. Index 0 shows immediately; the rest
- *  are timed (see run()). The last two are safe to dwell on if the call runs long. */
+ *  are timed (see run()). Labels name the ACTUAL diligence work item-by-item —
+ *  a substantive label can be dwelled on and still read as thorough analysis,
+ *  where a generic "loading" reads as stuck. The last two are safe to park on if
+ *  the call runs long. */
 const PHASES = [
-  "Reading the document you uploaded…",
-  "Confirming this is a Franchise Disclosure Document…",
-  "Identifying the brand and franchisor…",
-  "Extracting Item 7, Item 19 & the fee structure…",
-  "Separating franchisee vs. company-owned performance…",
-  "Running the numbers and generating your report…",
-  "Finishing touches — flagging anomalies in the data…",
+  "Reading your document…",
+  "Confirming the Franchise Disclosure Document & franchisor…",
+  "Mapping the fee structure and true cost to open (Items 6–7)…",
+  "Reading the Item 19 financial performance representation…",
+  "Scanning litigation, bankruptcy & operational tripwires (Items 3, 17–20)…",
+  "Locating and parsing the audited financial statements…",
+  "Modeling unit economics and stress-testing debt coverage…",
+  "Compiling your buyer-aligned diligence report…",
 ];
 
 /** Style for the vertical connector between steps. */
@@ -100,10 +104,14 @@ export default function FDDUpload({
       capital: liquid,
       fileSizeMB: Math.round((file.size / 1048576) * 100) / 100,
     });
-    // Narrate the ~1-minute parse so it never looks frozen. Timed, not tied to
-    // real server events; paced to file size and parked on the last messages.
+    // Narrate the ~30–120s parse so it never looks frozen. Timed, not tied to
+    // real server events; paced to file size and parked on the last two messages.
+    // Back-loaded on purpose: a fast (small) FDD finishes around the "modeling"
+    // step — the buyer sees the deep work, then the report — while a large filing
+    // reaches the open-ended "compiling" step late and only dwells there briefly,
+    // never racing to the end and stalling on a bare spinner.
     const scale = Math.min(2, Math.max(0.5, file.size / (12 * 1024 * 1024)));
-    const timers = [3000, 7000, 12000, 22000, 35000, 70000].map((ms, i) =>
+    const timers = [2500, 6500, 13000, 26000, 45000, 70000, 105000].map((ms, i) =>
       setTimeout(() => setPhase(i + 1), Math.round(ms * scale)),
     );
     try {
@@ -335,9 +343,9 @@ export default function FDDUpload({
           role="status"
         >
           <div className="w-[min(92vw,440px)] rounded-2xl border border-[#27344F] bg-[#16223B] p-7 shadow-2xl">
-            <h3 className="text-base font-bold text-[#F1F5F9]">Analyzing the FDD</h3>
+            <h3 className="text-base font-bold text-[#F1F5F9]">Running your diligence</h3>
             <p className="mt-1 mb-5 text-xs text-[#8194B0] truncate">
-              Reading {file?.name ?? "your document"} — up to a minute for a large filing.
+              Reading {file?.name ?? "your document"} — a thorough scan can take up to a minute.
             </p>
             <ol>
               {PHASES.map((label, i) => {
