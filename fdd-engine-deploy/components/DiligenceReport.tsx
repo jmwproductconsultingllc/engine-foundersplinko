@@ -31,6 +31,156 @@ function amortize(p: number, ratePct: number, years: number) {
   return (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
 }
 
+// ───────────────────────────────────────────────────────────────────────────
+// Item 19 provenance — trace the pro-forma headline back to its disclosed source
+//
+// The pro-forma top line (s.midCohort.monthlyRevenue) is asserted with no
+// lineage today, and when the cohort table renders all-null (median / network
+// fallback) the reader has no way to see where the number came from. This
+// resolves the source from the disclosed cohort fields and degrades HONESTLY:
+// when a figure can't be traced to a disclosed line, it says "verify against the
+// FDD" rather than implying a source it can't substantiate.
+//
+// Forward-compatible: if scoring later stamps s.midCohort.source, that is
+// trusted verbatim and this reverse-engineering is skipped.
+// ───────────────────────────────────────────────────────────────────────────
+type ProvBasis = "disclosed" | "network" | "estimated" | "untraced";
+
+// The extractor populates these Item19Cohort fields (see lib/schema.ts); the
+// base view type may not surface all of them, so we read through a local
+// optional view. Every field is guarded — missing ones simply drop out.
+type CohortView = {
+  label?: string | null;
+  basis?: string | null;
+  avgMonthlyRevenue?: number | null;
+  annualRevenue?: number | null;
+  monthlyValues?: number[] | null;
+  sampleSize?: number | null;
+  revenueType?: string | null;
+  ownership?: string | null;
+  rangePosition?: string | null;
+};
+
+const METRIC_LABEL: Record<string, string> = {
+  gross_sales: "gross sales",
+  net_or_ebitda: "EBITDA / profit",
+  pre_sale_only: "pre-opening sales",
+  other: "a non-standard metric",
+};
+const OWNER_LABEL: Record<string, string> = {
+  franchised: "franchised units",
+  company: "company-owned units",
+  affiliate: "affiliate units",
+  mixed: "a franchised + company blend",
+  unknown: "units of unstated ownership",
+};
+// within $2 or 2% counts as a match (rounding between annual÷12 and stored monthly)
+const approxEq = (a: number, b: number) => Math.abs(a - b) <= Math.max(2, Math.abs(b) * 0.02);
+
+type Provenance = {
+  basis: ProvBasis;
+  sourceLabel: string | null;
+  page?: string;
+  math: string | null;
+  metric: string | null;
+  applicability: string | null;
+  sample: number | null;
+};
+
+function resolveProvenance(result: DiligenceResult): Provenance | null {
+  const s = result.scoring;
+  const x = result.extracted;
+  const mid = s?.midCohort;
+  if (!mid) return null;
+  const used = mid.monthlyRevenue;
+  const page = x.item19?.sourcePage;
+
+  // 1) Forward-compat: trust an explicit stamp from scoring if present.
+  const stamped = (mid as { source?: { label?: string; math?: string; basis?: ProvBasis } | null }).source;
+  if (stamped?.label) {
+    return {
+      basis: stamped.basis ?? "disclosed",
+      sourceLabel: stamped.label,
+      page,
+      math: stamped.math ?? null,
+      metric: null,
+      applicability: null,
+      sample: null,
+    };
+  }
+
+  const cohorts = (x.item19?.cohorts ?? []) as CohortView[];
+
+  // 2) The cohort scoring named (match by label).
+  const src = cohorts.find((c) => c.label === mid.label) ?? null;
+  if (src) {
+    const metric = src.revenueType ? METRIC_LABEL[src.revenueType] ?? null : null;
+    const applicability = src.ownership ? OWNER_LABEL[src.ownership] ?? null : null;
+    let math: string | null = null;
+    if (used != null) {
+      if (src.avgMonthlyRevenue != null && approxEq(src.avgMonthlyRevenue, used)) {
+        math = "disclosed monthly average";
+      } else if (src.annualRevenue != null && approxEq(src.annualRevenue / 12, used)) {
+        math = `${usd(src.annualRevenue)}/yr ÷ 12`;
+      } else if (src.monthlyValues && src.monthlyValues.length) {
+        const avg = src.monthlyValues.reduce((a, b) => a + b, 0) / src.monthlyValues.length;
+        if (approxEq(avg, used)) math = `average of ${src.monthlyValues.length} disclosed monthly figures`;
+      }
+    }
+    return { basis: "disclosed", sourceLabel: src.label ?? mid.label, page, math, metric, applicability, sample: src.sampleSize ?? null };
+  }
+
+  // 3) Not a named cohort — is it the network average of all disclosed cohorts?
+  const net = (x.item19 as { networkAverageMonthly?: number | null } | undefined)?.networkAverageMonthly ?? null;
+  if (net != null && used != null && approxEq(net, used)) {
+    return { basis: "network", sourceLabel: "network average of disclosed Item 19 cohorts", page, math: null, metric: null, applicability: null, sample: null };
+  }
+
+  // 4) Couldn't trace it. Be honest: estimated (no Item 19 at all) vs untraced.
+  return { basis: x.item19?.hasItem19 ? "untraced" : "estimated", sourceLabel: null, page, math: null, metric: null, applicability: null, sample: null };
+}
+
+function ProvenanceNote({ result }: { result: DiligenceResult }) {
+  const p = resolveProvenance(result);
+  if (!p) return null;
+
+  // Honest fallback — figure is NOT a traced disclosed number.
+  if (p.basis === "estimated" || p.basis === "untraced") {
+    return (
+      <div className="mt-2 rounded-lg border border-amber-500/40 bg-amber-500/10 px-3 py-2">
+        <p className="text-[11px] font-bold uppercase tracking-wide text-amber-300">How this is calculated</p>
+        <p className="mt-0.5 text-[12px] leading-snug text-[#E8C97A]">
+          {p.basis === "estimated"
+            ? "No Item 19 earnings were disclosed — this top line is an industry estimate, not a disclosed figure. Verify against the FDD before relying on it."
+            : `This figure couldn't be traced to a specific disclosed Item 19 line${p.page ? ` (${p.page})` : ""} — verify it against the FDD.`}
+        </p>
+      </div>
+    );
+  }
+
+  const axisBits = [p.applicability, p.metric].filter(Boolean).join(" · ");
+  return (
+    <div className="mt-2 rounded-lg border border-[#27344F] bg-[#0B1220] px-3 py-2">
+      <p className="text-[11px] font-bold uppercase tracking-wide text-[#38BDF8]">How this is calculated</p>
+      <p className="mt-0.5 text-[12px] leading-snug text-[#CBD5E1]">
+        Source: <span className="font-medium text-[#F1F5F9]">Item 19 — {p.sourceLabel}</span>
+        {p.page ? <span className="text-[#8194B0]"> ({p.page})</span> : null}
+        {p.sample != null ? <span className="text-[#8194B0]"> · {p.sample} units</span> : null}
+        {p.math ? (
+          <>
+            {" · "}
+            <span className="text-[#F1F5F9]">{p.math}</span>
+          </>
+        ) : null}
+      </p>
+      {axisBits ? <p className="mt-0.5 text-[11px] text-[#8194B0]">Basis: {axisBits}</p> : null}
+      <p className="mt-1 text-[10px] text-[#5A6B88]">
+        Disclosed figure extracted from the FDD — confirm against the source before relying on it.
+      </p>
+    </div>
+  );
+}
+
 export default function DiligenceReport({ result }: { result: DiligenceResult }) {
   const { extracted: x, scoring: s, underwriting: u } = result;
   const ins = result.insights ?? null;
@@ -232,6 +382,7 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2 space-y-3">
               <Row label="Monthly Gross Revenue" value={usd(s.midCohort.monthlyRevenue)} bold green />
+              <ProvenanceNote result={result} />
               <Row
                 label={`Franchise fees (${Math.round(s.variableRate * 100)}% of sales)`}
                 value={`-${usd(s.midCohort.monthlyVariable)}`}
@@ -489,10 +640,23 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
         {x.item19?.hasItem19 ? (
           <div className="space-y-2">
             {x.item19.cohorts.map((c, i) => {
-              const isBasis =
-                !!s.midCohort &&
-                c.label === s.midCohort.label &&
-                c.avgMonthlyRevenue === s.midCohort.monthlyRevenue;
+              const cv = c as CohortView;
+              // Match the pro-forma "basis" cohort by LABEL only. Its display value
+              // (avgMonthlyRevenue) is frequently null even when scoring derived a
+              // usable monthly figure (annual ÷ 12, median, etc.), so the old
+              // value-equality test silently failed on exactly those reports.
+              const isBasis = !!s.midCohort && c.label === s.midCohort.label;
+              // Best monthly figure to SHOW for this row: disclosed avg → annual ÷ 12
+              // → (for the basis row only) the figure the pro forma actually used.
+              const derivedMonthly =
+                cv.avgMonthlyRevenue != null
+                  ? cv.avgMonthlyRevenue
+                  : cv.annualRevenue != null
+                    ? cv.annualRevenue / 12
+                    : isBasis
+                      ? s.midCohort!.monthlyRevenue
+                      : null;
+              const annualNote = cv.avgMonthlyRevenue == null && cv.annualRevenue != null;
               if (isBasis) {
                 return (
                   <div key={i} className="rounded-lg border border-[#38BDF8]/50 bg-[#38BDF8]/10 px-3 py-2">
@@ -502,7 +666,10 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
                         {c.basis ? ` — ${c.basis}` : ""}
                       </span>
                       <span className="text-sm font-bold text-[#38BDF8] whitespace-nowrap">
-                        {usd(c.avgMonthlyRevenue)}/mo
+                        {usd(derivedMonthly)}/mo
+                        {annualNote ? (
+                          <span className="text-[10px] font-normal text-[#8194B0]"> (annual ÷ 12)</span>
+                        ) : null}
                       </span>
                     </div>
                     <p className="text-[10px] font-semibold uppercase tracking-wide text-[#38BDF8] mt-1">
@@ -514,8 +681,8 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
               return (
                 <Row
                   key={i}
-                  label={`${c.label}${c.basis ? ` — ${c.basis}` : ""}`}
-                  value={`${usd(c.avgMonthlyRevenue)}/mo`}
+                  label={`${c.label}${c.basis ? ` — ${c.basis}` : ""}${annualNote ? " (annual ÷ 12)" : ""}`}
+                  value={`${usd(derivedMonthly)}/mo`}
                 />
               );
             })}
