@@ -37,6 +37,21 @@ export interface CohortEconomics {
   monthlyEbitda: number; // excludes payroll + debt service
   annualEbitda: number;
   coversCosts: boolean;
+  /**
+   * Provenance of monthlyRevenue — where the pro-forma top line actually came
+   * from, recorded at the point the routing decision is made (NOT reverse-
+   * engineered downstream). Powers the report's "How this is calculated" line.
+   * Raw enum values (revenueType/ownership) are passed through; the renderer
+   * maps them to prose. Optional so legacy callers/tests stay valid.
+   */
+  source?: {
+    basis: "disclosed" | "network";
+    label: string;
+    math: string | null;
+    revenueType?: string | null;
+    ownership?: string | null;
+    sample?: number | null;
+  } | null;
 }
 
 export interface ScoringResult {
@@ -73,6 +88,36 @@ function findCohort(cohorts: Item19Cohort[], keys: string[]): Item19Cohort | nul
     if (keys.some((k) => l.includes(k))) return c;
   }
   return null;
+}
+
+const fmtUsd0 = (n: number) =>
+  new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
+
+/**
+ * How the monthly figure was derived from a disclosed cohort, for the
+ * "How this is calculated" line. If the cohort carries an annual figure that
+ * reconciles to the stored monthly average, we show "$X/yr ÷ 12"; otherwise it
+ * is the disclosed monthly average as-is. annualRevenue is read defensively so
+ * this stays valid even if the field isn't on the cohort type.
+ */
+function cohortMath(c: Item19Cohort): string | null {
+  if (c.avgMonthlyRevenue == null) return null;
+  const annual = (c as { annualRevenue?: number | null }).annualRevenue ?? null;
+  if (annual != null && Math.abs(annual / 12 - c.avgMonthlyRevenue) <= Math.max(2, c.avgMonthlyRevenue * 0.02)) {
+    return `${fmtUsd0(annual)}/yr ÷ 12`;
+  }
+  return "disclosed monthly average";
+}
+
+function disclosedSource(c: Item19Cohort): NonNullable<CohortEconomics["source"]> {
+  return {
+    basis: "disclosed",
+    label: c.label,
+    math: cohortMath(c),
+    revenueType: c.revenueType ?? null,
+    ownership: c.ownership ?? null,
+    sample: c.sampleSize ?? null,
+  };
 }
 
 function buildCohort(
@@ -123,8 +168,18 @@ export function scoreFdd(
     findCohort(cohorts, ["middle", "mid", "60", "median", "2nd", "second"]) ?? null;
   const bottomRaw = findCohort(cohorts, ["bottom", "30", "lowest", "4th", "fourth"]) ?? null;
 
-  let midRevenue =
-    midRaw?.avgMonthlyRevenue ?? fdd.item19?.networkAverageMonthly ?? null;
+  let midSource: CohortEconomics["source"] = null;
+  let midRevenue: number | null = null;
+  if (midRaw?.avgMonthlyRevenue != null) {
+    midRevenue = midRaw.avgMonthlyRevenue;
+    midSource = disclosedSource(midRaw);
+  } else if (fdd.item19?.networkAverageMonthly != null) {
+    // A tier cohort may have matched by keyword but carried no value (the
+    // median / blank-cohort case) — the NUMBER is still the network average, so
+    // record it as such rather than inheriting the unmatched tier's label.
+    midRevenue = fdd.item19.networkAverageMonthly;
+    midSource = { basis: "network", label: "network average of disclosed cohorts", math: null };
+  }
 
   // P1 — LEAD WITH THE FRANCHISED COHORT. When the percentile-tier search finds
   // nothing (e.g. an FDD that reports Company vs Franchised instead of tiers,
@@ -145,6 +200,7 @@ export function scoreFdd(
     if (franchised) {
       midRaw = franchised;
       midRevenue = franchised.avgMonthlyRevenue;
+      midSource = disclosedSource(franchised);
       if (franchised.sampleSize != null && franchised.sampleSize <= 5) {
         reasons.push(
           `Pro forma is built on only ${franchised.sampleSize} franchised location${
@@ -161,12 +217,14 @@ export function scoreFdd(
   let bottomCohort: CohortEconomics | null = null;
 
   if (midRevenue != null) {
-    midCohort = buildCohort(
-      midRaw?.label ?? "Network Average",
-      midRevenue,
-      variableRate,
-      fixedMonthly,
-    );
+    // When the figure is the network average, label it as such — don't inherit
+    // an unmatched tier cohort's label (which produced the "2nd Quartile" pro
+    // forma whose number was actually the network average). Label only; the
+    // risk math is unchanged.
+    const midLabel =
+      midSource?.basis === "network" ? "Network Average" : midRaw?.label ?? "Network Average";
+    midCohort = buildCohort(midLabel, midRevenue, variableRate, fixedMonthly);
+    midCohort.source = midSource;
   } else {
     notes.push("No Item 19 middle-cohort or network-average revenue found; economics are indeterminate.");
   }

@@ -95,17 +95,27 @@ function resolveProvenance(result: DiligenceResult): Provenance | null {
   const used = mid.monthlyRevenue;
   const page = x.item19?.sourcePage;
 
-  // 1) Forward-compat: trust an explicit stamp from scoring if present.
-  const stamped = (mid as { source?: { label?: string; math?: string; basis?: ProvBasis } | null }).source;
+  // 1) Authoritative: if scoring stamped the source at routing time, trust it
+  //    verbatim and skip the reverse-engineering below.
+  const stamped = (mid as {
+    source?: {
+      label?: string;
+      math?: string | null;
+      basis?: ProvBasis;
+      revenueType?: string | null;
+      ownership?: string | null;
+      sample?: number | null;
+    } | null;
+  }).source;
   if (stamped?.label) {
     return {
       basis: stamped.basis ?? "disclosed",
       sourceLabel: stamped.label,
       page,
       math: stamped.math ?? null,
-      metric: null,
-      applicability: null,
-      sample: null,
+      metric: stamped.revenueType ? METRIC_LABEL[stamped.revenueType] ?? null : null,
+      applicability: stamped.ownership ? OWNER_LABEL[stamped.ownership] ?? null : null,
+      sample: stamped.sample ?? null,
     };
   }
 
