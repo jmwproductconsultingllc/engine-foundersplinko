@@ -68,7 +68,7 @@ export async function extractFddFromFile(
   fileBytes: ArrayBuffer,
   mimeType: string,
 ): Promise<ExtractedFDD> {
-  const genAI = new GoogleGenAI(process.env.GEMINI_API_KEY!);
+  const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! });
   
   // Create a temp file via Gemini Files API for reliable large-file handling
   const uploadResult = await genAI.files.upload({
