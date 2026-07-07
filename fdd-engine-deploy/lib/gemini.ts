@@ -4,6 +4,7 @@
  * then ask the current Gemini model to return strict JSON matching our schema.
  * * UPDATED: Hardened retry logic for network drops and explicit prompt 
  * constraint to prevent token overflow on dense tables.
+ * * FIXED: Wrapped fileBytes in Blob to satisfy SDK type requirements.
  */
 
 import {
@@ -70,9 +71,9 @@ export async function extractFddFromFile(
 ): Promise<ExtractedFDD> {
   const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! });
   
-  // Create a temp file via Gemini Files API for reliable large-file handling
+  // FIX: Wrap the ArrayBuffer in a Blob instead of Uint8Array to satisfy the SDK type
   const uploadResult = await genAI.files.upload({
-    file: new Uint8Array(fileBytes),
+    file: new Blob([fileBytes], { type: mimeType }),
     mimeType,
   });
 
