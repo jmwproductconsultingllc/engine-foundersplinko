@@ -71,10 +71,9 @@ export async function extractFddFromFile(
 ): Promise<ExtractedFDD> {
   const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! });
   
-  // FIX: Wrap the ArrayBuffer in a Blob instead of Uint8Array to satisfy the SDK type
+  // FIX: Remove 'mimeType' property as it is inferred from the Blob's 'type'
   const uploadResult = await genAI.files.upload({
     file: new Blob([fileBytes], { type: mimeType }),
-    mimeType,
   });
 
   try {
