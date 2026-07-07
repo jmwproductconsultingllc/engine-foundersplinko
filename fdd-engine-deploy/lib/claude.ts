@@ -37,7 +37,7 @@ const MAX_OUTPUT_TOKENS = Number(process.env.CLAUDE_MAX_OUTPUT_TOKENS) || 64000;
 // short enough to finish before the connection times out (a 250+pp doc ran long
 // enough to get terminated mid-stream). 150 leading pages reliably covers the
 // disclosure Items + financials. Tune with CLAUDE_MAX_PDF_PAGES.
-const MAX_PDF_PAGES = Number(process.env.CLAUDE_MAX_PDF_PAGES) || 150;
+const MAX_PDF_PAGES = Number(process.env.CLAUDE_MAX_PDF_PAGES) || 100;
 
 const TOOL_NAME = "emit_fdd_extraction";
 
