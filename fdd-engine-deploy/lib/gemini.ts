@@ -1,23 +1,15 @@
 /**
  * lib/gemini.ts
- * Handles ONLY extraction: upload the FDD via the Gemini Files API, 
- * then ask the current Gemini model to return strict JSON matching our schema.
- * * UPDATED: Hardened retry logic for network drops and explicit prompt 
- * constraint to prevent token overflow on dense tables.
- * * FIXED: Wrapped fileBytes in Blob to satisfy SDK type requirements.
+ * UPDATED: Corrected API usage for the new @google/genai SDK.
  */
 
 import {
   GoogleGenAI,
-  createUserContent,
-  createPartFromUri,
-  ThinkingLevel,
 } from "@google/genai";
-import { PDFDocument } from "pdf-lib";
 import { ExtractedFDD, fddResponseSchema } from "./schema";
 import { FINANCIAL_CONDITION_EXTRACTION_PROMPT } from "./financialCondition";
 
-// gemini-3.5-flash: 1M context, native PDF understanding, fast.
+// gemini-2.0-flash: Use the specific model string compatible with the new SDK
 const MODEL = process.env.GEMINI_MODEL || "gemini-2.0-flash";
 
 export const EXTRACTION_PROMPT = `
@@ -36,7 +28,6 @@ row by row, IGNORE the individual unit rows and extract ONLY the summary,
 average, median, or quartile rows at the bottom of the table.
 `.trim();
 
-/** Hardened retry logic that catches network drops (fetch failed) and timeouts. */
 async function withRetry<T>(fn: () => Promise<T>, retries = 3): Promise<T> {
   for (let i = 0; i < retries; i++) {
     try {
@@ -44,13 +35,8 @@ async function withRetry<T>(fn: () => Promise<T>, retries = 3): Promise<T> {
     } catch (e: any) {
       const status = e?.status;
       const msg = String(e?.message ?? "");
-      
-      // Catches HTTP errors AND native network/fetch failures
       const transient =
-        status === 503 ||
-        status === 429 ||
-        status === 502 ||
-        status === 504 ||
+        status === 503 || status === 429 || status === 502 || status === 504 ||
         /UNAVAILABLE|high demand|overloaded|try again|fetch failed|socket hang up|ECONNRESET|ETIMEDOUT|network/i.test(msg);
 
       if (transient && i < retries - 1) {
@@ -69,38 +55,37 @@ export async function extractFddFromFile(
   fileBytes: ArrayBuffer,
   mimeType: string,
 ): Promise<ExtractedFDD> {
+  // Use the updated GoogleGenAI client
   const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! });
   
-  // FIX: Remove 'mimeType' property as it is inferred from the Blob's 'type'
   const uploadResult = await genAI.files.upload({
     file: new Blob([fileBytes], { type: mimeType }),
   });
 
   try {
     return await withRetry(async () => {
-      const model = genAI.getGenerativeModel({
+      // In the new SDK, generateContent is called directly on the client
+      const result = await genAI.generateContent({
         model: MODEL,
-        generationConfig: {
+        contents: [
+          {
+            fileData: {
+              fileUri: uploadResult.uri,
+              mimeType,
+            },
+          },
+          { text: EXTRACTION_PROMPT + FINANCIAL_CONDITION_EXTRACTION_PROMPT },
+        ],
+        config: {
           responseMimeType: "application/json",
           responseSchema: fddResponseSchema,
         },
       });
 
-      const result = await model.generateContent([
-        {
-          fileData: {
-            fileUri: uploadResult.uri,
-            mimeType,
-          },
-        },
-        { text: EXTRACTION_PROMPT + FINANCIAL_CONDITION_EXTRACTION_PROMPT },
-      ]);
-
-      const text = result.response.text();
-      return JSON.parse(text) as ExtractedFDD;
+      const text = result.text();
+      return JSON.parse(text || "{}") as ExtractedFDD;
     });
   } finally {
-    // Clean up file from Gemini API
-    await genAI.files.delete(uploadResult.name).catch(() => {});
+    await genAI.files.delete({ name: uploadResult.name }).catch(() => {});
   }
 }
