@@ -1,0 +1,6 @@
+
+# Build cache and OS noise
+.DS_Store
+**/.DS_Store
+tsconfig.tsbuildinfo
+**/tsconfig.tsbuildinfo
