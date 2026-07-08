@@ -12,18 +12,37 @@
 //   we could have served the customer is a lost sale. Resilience wins.
 // - Returns which provider served the result so the pipeline/logs can see when a
 //   fallback happened (a signal to check on the primary).
+//
+// DETERMINISM CACHE (see lib/extractionCache.ts)
+// ----------------------------------------------
+// An FDD is immutable for its filing year, and the model has slight run-to-run
+// variance that a downstream deterministic scorer can amplify into a HIGH↔MEDIUM
+// flip. So we content-hash the bytes and, on a cache HIT, return the previously
+// finished extraction verbatim — no model call, no variance, identical score
+// every time. On a MISS we run the normal provider+backfill flow and then store
+// the FINISHED result (post-backfill — see the boundary note below). The cache is
+// keyed by `fileHash` passed in from the route (which already computes it for the
+// report record), so we hash the document exactly once per request.
+//
+// Backfill boundary (critical): we cache the result AFTER the financials backfill,
+// not the raw provider output. A cache hit must return the same complete data a
+// fresh run would — caching pre-backfill would freeze the "financials missing"
+// state permanently on any doc whose statements were a late exhibit.
 
 import { ExtractedFDD } from "./schema";
 import { extractFddFromFile } from "./gemini";
 import { extractFddWithClaude } from "./claude";
 import { recoverFinancials } from "./financialsPass";
 import type { FinancialConditionExtraction } from "./financialCondition";
+import { getCachedExtraction, putCachedExtraction } from "./extractionCache";
 
-export type ExtractionProvider = "gemini" | "claude";
+// "cache" is a virtual provider: it means the result was served from the
+// content-addressed store, no model vendor was called this request.
+export type ExtractionProvider = "gemini" | "claude" | "cache";
 
-type Extractor = (bytes: ArrayBuffer, mimeType: string) => Promise<ExtractedFDD>;
+type ProviderFn = (bytes: ArrayBuffer, mimeType: string) => Promise<ExtractedFDD>;
 
-const EXTRACTORS: Record<ExtractionProvider, Extractor> = {
+const EXTRACTORS: Record<"gemini" | "claude", ProviderFn> = {
   gemini: extractFddFromFile,
   claude: extractFddWithClaude,
 };
@@ -32,9 +51,11 @@ export interface ExtractionOutcome {
   result: ExtractedFDD;
   provider: ExtractionProvider;
   fellBack: boolean;
+  /** True when the result came from the determinism cache (no model call). */
+  fromCache: boolean;
 }
 
-function resolvePrimary(): ExtractionProvider {
+function resolvePrimary(): "gemini" | "claude" {
   return process.env.EXTRACTION_PRIMARY === "claude" ? "claude" : "gemini";
 }
 
@@ -117,17 +138,20 @@ function isFinancialsMissingWarning(w: string): boolean {
   return FIN_TERM_RE.test(w) && MISSING_RE.test(w);
 }
 
-export async function extractFdd(
+/**
+ * Run the raw provider extraction with primary→secondary failover.
+ * (No cache, no backfill — that wrapping lives in extractFdd below.)
+ */
+async function extractWithFailover(
   fileBytes: ArrayBuffer,
   mimeType: string,
-): Promise<ExtractionOutcome> {
+): Promise<{ result: ExtractedFDD; provider: "gemini" | "claude"; fellBack: boolean }> {
   const primary = resolvePrimary();
-  const secondary: ExtractionProvider = primary === "gemini" ? "claude" : "gemini";
+  const secondary: "gemini" | "claude" = primary === "gemini" ? "claude" : "gemini";
 
-  let outcome: ExtractionOutcome;
   try {
     const result = await EXTRACTORS[primary](fileBytes, mimeType);
-    outcome = { result, provider: primary, fellBack: false };
+    return { result, provider: primary, fellBack: false };
   } catch (primaryErr) {
     console.error(
       `[extract] primary provider "${primary}" failed — failing over to "${secondary}": ${msgOf(primaryErr)}`,
@@ -135,9 +159,8 @@ export async function extractFdd(
     try {
       const result = await EXTRACTORS[secondary](fileBytes, mimeType);
       console.warn(`[extract] recovered via fallback provider "${secondary}".`);
-      outcome = { result, provider: secondary, fellBack: true };
+      return { result, provider: secondary, fellBack: true };
     } catch (secondaryErr) {
-      // Both providers are down or the document is genuinely unprocessable.
       console.error(
         `[extract] fallback provider "${secondary}" also failed: ${msgOf(secondaryErr)}`,
       );
@@ -147,28 +170,20 @@ export async function extractFdd(
       );
     }
   }
+}
 
-  // Transparency backfill — if the franchisor's financial statements were a late
-  // exhibit outside the trimmed window, the main pass returns empty financials
-  // and (worse) warns they're "not in the provided pages," which to someone who
-  // uploaded the complete FDD looks like we altered their document. Find and
-  // extract the statements from the FULL doc, then drop the now-false warning.
+// Apply the transparency financials backfill IN PLACE on a freshly-extracted result
+// (see the long note on the original inline block). Only runs on cache MISSES.
+async function backfillFinancials(result: ExtractedFDD, fileBytes: ArrayBuffer): Promise<void> {
   try {
-    const dc = outcome.result.documentCheck;
+    const dc = result.documentCheck;
     const warnsFinancialsMissing =
       !!dc && Array.isArray(dc.warnings) && dc.warnings.some(isFinancialsMissingWarning);
-    // Fire recovery when the audited statements were not captured — judged from the
-    // DATA (robust to the model scraping a stray Item 21 figure), with the warning
-    // text as a secondary backstop. The data check is primary precisely because the
-    // warning phrasing is unreliable run-to-run.
-    if (financialsIncomplete(outcome.result.financialCondition) || warnsFinancialsMissing) {
+    if (financialsIncomplete(result.financialCondition) || warnsFinancialsMissing) {
       console.log("[extract] financials look incomplete — attempting targeted recovery from full doc.");
       const recovered = await recoverFinancials(fileBytes);
       if (recovered && !financialsIncomplete(recovered)) {
-        outcome.result.financialCondition = mergeRecoveredFinancials(
-          outcome.result.financialCondition,
-          recovered,
-        );
+        result.financialCondition = mergeRecoveredFinancials(result.financialCondition, recovered);
         if (dc && Array.isArray(dc.warnings) && dc.warnings.length) {
           dc.warnings = dc.warnings.filter((w) => !isFinancialsMissingWarning(w));
         }
@@ -176,12 +191,6 @@ export async function extractFdd(
           "[extract] financials recovered from full doc via targeted pass; stale warning cleared.",
         );
       } else {
-        // Recovery ran but came back empty/thin — the statements are likely a scanned
-        // image with no text layer (densestRange scores on EXTRACTED text, so an
-        // image-only exhibit scores zero and never gets carved). Leave the main-pass
-        // financials and the honest warning intact; never fabricate. If this branch
-        // fires on docs we know contain statements, the next fix is to carve the
-        // late-exhibit page range directly and let Claude's vision read it.
         console.warn(
           "[extract] targeted recovery yielded no audited statements — leaving main-pass financials and warning intact.",
         );
@@ -190,6 +199,47 @@ export async function extractFdd(
   } catch (e) {
     console.warn("[extract] financials backfill skipped:", e instanceof Error ? e.message : e);
   }
+}
 
-  return outcome;
+/**
+ * Extract an FDD with determinism cache + provider failover + financials backfill.
+ *
+ * @param fileBytes  the PDF bytes
+ * @param mimeType   e.g. "application/pdf"
+ * @param fileHash   OPTIONAL content hash (sha256, as computed by the route). When
+ *                   provided, enables the read-through / write-through cache. When
+ *                   omitted (e.g. the eval harness, which runs offline with no Blob
+ *                   creds), the function behaves exactly as before — extract fresh,
+ *                   no cache I/O. This is why the harness keeps working unchanged.
+ */
+export async function extractFdd(
+  fileBytes: ArrayBuffer,
+  mimeType: string,
+  fileHash?: string,
+): Promise<ExtractionOutcome> {
+  // 1) Read-through: identical document → identical finished extraction, no model
+  //    call, no variance. This is the guarantee that kills the flip-flop.
+  if (fileHash) {
+    const cached = await getCachedExtraction(fileHash);
+    if (cached) {
+      console.log(`[extract] cache HIT for ${fileHash} — served without a model call.`);
+      return { result: cached, provider: "cache", fellBack: false, fromCache: true };
+    }
+    console.log(`[extract] cache MISS for ${fileHash} — extracting fresh.`);
+  }
+
+  // 2) Miss (or no hash): real extraction with provider failover…
+  const { result, provider, fellBack } = await extractWithFailover(fileBytes, mimeType);
+
+  // 3) …then the financials backfill, IN PLACE, before anything is cached. The
+  //    cached object must be the finished, complete extraction (see boundary note).
+  await backfillFinancials(result, fileBytes);
+
+  // 4) Write-through: store the FINISHED result so every future run of this exact
+  //    document is an instant, byte-identical cache hit. Non-fatal on failure.
+  if (fileHash) {
+    await putCachedExtraction(fileHash, result);
+  }
+
+  return { result, provider, fellBack, fromCache: false };
 }

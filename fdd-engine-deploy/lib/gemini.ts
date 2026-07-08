@@ -332,7 +332,7 @@ export async function extractFddFromFile(
             config: {
               responseMimeType: "application/json",
               responseSchema: fddResponseSchema,
-              temperature: 0.1, // low = more deterministic extraction
+              temperature: 0, // 0 = maximally deterministic extraction
               // Constrain thinking — the dominant latency lever. The default is
               // dynamic/HIGH; "low" (or "minimal" on Flash) keeps each extraction
               // fast enough to stay under the 300s function ceiling, including

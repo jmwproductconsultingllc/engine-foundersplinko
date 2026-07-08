@@ -86,6 +86,7 @@ export async function extractFddWithClaude(
     .stream({
       model: CLAUDE_MODEL,
       max_tokens: MAX_OUTPUT_TOKENS,
+      temperature: 0,
       tools: [tool],
       // Force the tool so the model MUST emit schema-shaped JSON (no prose).
       tool_choice: { type: "tool", name: TOOL_NAME },

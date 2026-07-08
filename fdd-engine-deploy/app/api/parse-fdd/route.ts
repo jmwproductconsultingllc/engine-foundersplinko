@@ -12,6 +12,11 @@
  * JSON. The response still carries the full result too, so the in-session
  * render is unchanged — the redirect to /report/[reportId] is a later step.
  *
+ * Determinism cache: we compute the content hash of the bytes ONCE, up front, and
+ * pass it into runDiligence so identical documents return the identical finished
+ * extraction with no model call (kills the same-doc HIGH↔MEDIUM flip-flop) — and
+ * we reuse that same hash for the report record and the failure-capture filename.
+ *
  * Why this STREAMS the response:
  * - The server has up to 300s (Vercel Pro), but browsers don't. Safari in
  *   particular drops a request that sits silent ~60s, and a rich FDD (which
@@ -56,6 +61,14 @@ async function delSafe(url: string | null) {
   }
 }
 
+// Full sha256 of the bytes. We slice the first 16 hex chars for the reportId /
+// cache key (64 bits of collision resistance is plenty across a catalog of FDDs)
+// and reuse the same full-hash source for the failure filename. Computed ONCE per
+// request so the document is never hashed twice.
+function hashBytes(bytes: ArrayBuffer): string {
+  return createHash("sha256").update(Buffer.from(bytes)).digest("hex");
+}
+
 export async function POST(req: NextRequest) {
   let blobUrl: string | null = null;
   try {
@@ -88,6 +101,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // Hash once, up front — used for the cache key, the report id, and (on failure)
+    // the retained-doc filename.
+    const fullHash = hashBytes(bytes);
+    const fileHash = fullHash.slice(0, 16);
+
     // Bytes are in memory now; the transient blob is no longer needed — drop it
     // immediately (and so the heartbeat path below doesn't have to clean up).
     await delSafe(blobUrl);
@@ -105,20 +123,19 @@ export async function POST(req: NextRequest) {
           }
         }, 5000);
         try {
-          // One call — the exact same pipeline the eval harness runs.
+          // One call — the exact same pipeline the eval harness runs. Passing
+          // fileHash enables the determinism cache: an identical document returns
+          // the identical finished extraction with no model call.
           const result = await runDiligence({
             bytes,
             mimeType: "application/pdf",
             buyer,
+            fileHash,
           });
 
           // Persist so the report has a permanent URL (and a paid flag for #6).
           // Cast: runDiligence's inferred return matches DiligenceResult
           // structurally; the cast just sidesteps optional-vs-null nitpicks.
-          const fileHash = createHash("sha256")
-            .update(Buffer.from(bytes))
-            .digest("hex")
-            .slice(0, 16);
           const reportId = await saveReport(result as DiligenceResult, fileHash);
           console.log("[parse-fdd] report saved:", reportId);
 
@@ -135,14 +152,14 @@ export async function POST(req: NextRequest) {
           let failedDocUrl: string | null = null;
           try {
             const stamp = new Date().toISOString().replace(/[:.]/g, "-");
-            const hash = createHash("sha256")
-              .update(Buffer.from(bytes))
-              .digest("hex")
-              .slice(0, 12);
-            const saved = await put(`failures/${stamp}-${hash}.pdf`, Buffer.from(bytes), {
-              access: "public",
-              contentType: "application/pdf",
-            });
+            const saved = await put(
+              `failures/${stamp}-${fullHash.slice(0, 12)}.pdf`,
+              Buffer.from(bytes),
+              {
+                access: "public",
+                contentType: "application/pdf",
+              },
+            );
             failedDocUrl = saved.url;
             console.log("[parse-fdd] retained failed doc:", failedDocUrl);
           } catch (capErr) {
