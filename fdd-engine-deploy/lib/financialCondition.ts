@@ -59,6 +59,29 @@ export interface FinancialConditionExtraction {
   years: FinancialYear[]; // most-recent first, up to 3
 }
 
+/**
+ * Operational signals that live OUTSIDE Item 21 (in Item 20 / systemScale) but
+ * corroborate — or contradict — the balance-sheet read. The financial-condition
+ * grader needs these to see a distress *constellation*: a negative net worth in
+ * isolation is often explainable, but negative net worth co-occurring with unit
+ * closures and churn is the pattern that separates real distress from the normal
+ * losses of a young, scaling franchisor. Shape mirrors ExtractedFDD.systemScale
+ * (all nullable). Passed in optionally so the grader still works standalone (e.g.
+ * unit tests) — when absent, the co-occurrence escalator simply has fewer inputs.
+ *
+ * NOTE (v1 scope): "signed-but-unopened" units — one of the strongest distress
+ * tells — is not yet a structured field on systemScale (it currently lives only in
+ * operationalRisks prose), so it is NOT used here. Adding `unopenedUnits` to the
+ * schema + extraction prompt is the planned fast-follow; the escalator already
+ * fires correctly on the four validation brands without it.
+ */
+export interface SystemScaleInput {
+  totalUnits: number | null;
+  openedLastYear: number | null;
+  closedLastYear: number | null;
+  transfersLastYear: number | null;
+}
+
 export interface ComputedMetrics {
   fiscalYearEnd: string | null;
   netWorth: number | null;
@@ -265,10 +288,27 @@ interface Grade {
 export function gradeSeverity(
   x: FinancialConditionExtraction,
   m: ComputedMetrics,
-  dq: DataQuality
+  dq: DataQuality,
+  scale?: SystemScaleInput | null
 ): Grade {
   const aggravators: string[] = [];
   const mitigants: string[] = [];
+
+  // Operational churn, as a fraction of the system, corroborates financial stress.
+  // A handful of closures in a 500-unit system is noise; the same count in a
+  // 40-unit system is a fifth of the base. Rates are computed against totalUnits
+  // so the thresholds are scale-invariant. null-safe throughout — a franchisor
+  // that discloses no unit counts simply contributes no operational aggravators.
+  const totalUnits = n(scale?.totalUnits) && scale!.totalUnits! > 0 ? scale!.totalUnits! : null;
+  const closed = n(scale?.closedLastYear) ? scale!.closedLastYear! : null;
+  const transfers = n(scale?.transfersLastYear) ? scale!.transfersLastYear! : null;
+  const closureRate = n(closed) && n(totalUnits) ? closed / totalUnits : null;
+  const transferRate = n(transfers) && n(totalUnits) ? transfers / totalUnits : null;
+  // "Elevated" closures: material in both absolute and relative terms. The
+  // absolute floor (>=5) keeps a single closure in a tiny system from tripping it;
+  // the rate floor (>=5% of the system in one year) keeps large systems honest.
+  const elevatedClosures = n(closed) && closed >= 5 && n(closureRate) && closureRate >= 0.05;
+  const elevatedTransfers = n(transfers) && transfers >= 5 && n(transferRate) && transferRate >= 0.1;
 
   // ---- collect aggravators ----
   if (x.goingConcernRaised)
@@ -295,6 +335,18 @@ export function gradeSeverity(
     );
   if (x.priorPeriodRestatement)
     aggravators.push('prior-year financials were restated');
+  if (elevatedClosures)
+    aggravators.push(
+      `elevated unit closures (${closed} in the last year${
+        n(closureRate) ? `, about ${fmtPct(closureRate)} of the system` : ''
+      })`
+    );
+  if (elevatedTransfers)
+    aggravators.push(
+      `high owner turnover (${transfers} transfers in the last year${
+        n(transferRate) ? `, about ${fmtPct(transferRate)} of the system` : ''
+      })`
+    );
   if (x.auditOpinion === 'qualified')
     aggravators.push('the auditor issued a qualified opinion');
   if (x.auditOpinion === 'adverse')
@@ -350,7 +402,28 @@ export function gradeSeverity(
     x.priorPeriodRestatement ||
     (n(m.relatedPartyDebtPct) && m.relatedPartyDebtPct >= 0.4);
 
-  let severity: Severity = high ? 'HIGH' : medium ? 'MEDIUM' : 'LOW';
+  // ---- co-occurrence escalator ----
+  // The single most important fix: a negative net worth ALONE is often
+  // explainable (deferred revenue, early-stage capitalization), so on its own it
+  // caps at MEDIUM. But a deficit co-occurring with OTHER independent distress
+  // signals is the constellation that identifies a genuinely fragile franchisor —
+  // and the old logic couldn't see it, because (a) it had no operational inputs
+  // and (b) an *improving* deficit dodged the `high` test entirely. We count
+  // independent aggravating signals that are NOT the deficit itself; when the
+  // franchisor has negative net worth AND >=2 of these co-occur, escalate to HIGH
+  // regardless of trend. This fires on the "improving deficit but everything else
+  // is on fire" case (a widening-losses-plus-closures brand) that MEDIUM understates.
+  const coSignals = [
+    n(m.netIncome) && m.netIncome < 0, // operating loss
+    n(m.currentRatio) && m.currentRatio < 1, // can't cover near-term obligations
+    x.priorPeriodRestatement, // books were restated
+    n(m.relatedPartyDebtPct) && m.relatedPartyDebtPct >= 0.4, // propped by insider loans
+    elevatedClosures, // shedding units
+    elevatedTransfers, // owners bailing
+  ].filter(Boolean).length;
+  const clusterEscalate = m.netWorthSign === 'negative' && coSignals >= 2;
+
+  let severity: Severity = high || clusterEscalate ? 'HIGH' : medium ? 'MEDIUM' : 'LOW';
 
   // Growth-stage cap (founder call): a deficit / losses WITHOUT an auditor's
   // going-concern doubt, at a franchisor whose revenue is still growing and
@@ -359,8 +432,18 @@ export function gradeSeverity(
   // auditor-flagged or shrinking-revenue cases. Every red flag still appears in
   // the aggravators and the context line explains the weakness — the goal is to
   // inform and drive real diligence, not spook people off emerging brands.
+  //
+  // GUARD: the cap must NOT rescue a franchisor that tripped the co-occurrence
+  // escalator, and must NOT rescue one showing operational distress (closures /
+  // owner churn). Growing revenue is exactly the story a franchisor tells to wave
+  // away its balance sheet — so revenue growth can soften a lone deficit, but it
+  // cannot override a *constellation*. Without this guard the cap demotes the very
+  // cases the escalator is meant to catch.
+  const operationalDistress = elevatedClosures || elevatedTransfers;
   const growthStageCap =
     severity === 'HIGH' &&
+    !clusterEscalate &&
+    !operationalDistress &&
     !x.goingConcernRaised &&
     x.auditOpinion === 'unmodified' &&
     m.revenueTrend === 'improving';
@@ -378,10 +461,16 @@ export function gradeSeverity(
     };
   }
 
-  // Choose the headline driver by priority.
+  // Choose the headline driver by priority. Going-concern (auditor-flagged
+  // survival doubt) is the most severe and wins first. The distress *cluster* is
+  // next: it's HIGH, but it must NOT borrow the going-concern language — the
+  // auditor did not raise doubt, so the honest framing is "these signals co-occur,"
+  // not "the company may not survive." It also outranks the single-signal drivers
+  // below so an escalated brand gets the constellation headline, not a lone-metric one.
   let primaryDriver = 'low';
   if (growthStageCap) primaryDriver = 'growthStageDeficit';
   else if (x.goingConcernRaised) primaryDriver = 'goingConcern';
+  else if (clusterEscalate) primaryDriver = 'distressCluster';
   else if (m.netWorthSign === 'negative' && m.netWorthTrend === 'worsening')
     primaryDriver = 'negativeWorseningNetWorth';
   else if (
@@ -410,6 +499,8 @@ function buildHeadline(driver: string, m: ComputedMetrics): string {
       return "The franchisor's own auditor has raised substantial doubt about whether it can stay in business — a serious signal for a company you'd depend on for years of support.";
     case 'growthStageDeficit':
       return `This franchisor is carrying a deficit and running a net loss as it grows — net worth is roughly ${nw} in the red. Its audit is clean and revenue is rising, so the question is runway: understand how the gap is funded, and for how long, before you commit.`;
+    case 'distressCluster':
+      return `Several stress signals show up together here — a net-worth deficit of roughly ${nw} alongside operating losses, thin near-term liquidity, and unit closures. Any one of these alone can be normal for a young brand; appearing together is the pattern that separates real distress from ordinary early-stage losses. Treat this as a franchisor-stability question to resolve — with the specific items below — before you commit.`;
     case 'negativeWorseningNetWorth':
       return `This franchisor owes far more than it owns and the gap is widening fast — its net worth is roughly ${nw} in the red and deteriorating, and it stays afloat on related-party loans rather than its own operations.`;
     case 'underwaterBalanceSheet':
@@ -512,6 +603,7 @@ function buildBody(
  *  going-concern doubt. If the auditor flagged survival risk, we never soften it. */
 function buildContext(x: FinancialConditionExtraction, g: Grade): string | null {
   if (g.severity === 'LOW' || g.severity === 'INSUFFICIENT_DATA') return null;
+  if (g.severity === 'HIGH') return null; // never soften a HIGH — incl. distress-cluster escalations
   if (x.goingConcernRaised) return null; // auditor flagged survival — do not soften
   if (x.auditOpinion !== 'unmodified') return null; // only reassure on a clean audit
   // Only frame as growth-stage when revenue is actually GROWING — a shrinking
@@ -535,13 +627,14 @@ function buildEvidenceNote(x: FinancialConditionExtraction): string {
  * ====================================================================== */
 
 export function assessFinancialCondition(
-  extraction: FinancialConditionExtraction | null | undefined
+  extraction: FinancialConditionExtraction | null | undefined,
+  systemScale?: SystemScaleInput | null
 ): FinancialConditionInsight | null {
   if (!extraction) return null;
 
   const metrics = computeMetrics(extraction);
   const dataQuality = gradeDataQuality(extraction, metrics);
-  const grade = gradeSeverity(extraction, metrics, dataQuality);
+  const grade = gradeSeverity(extraction, metrics, dataQuality, systemScale);
 
   return {
     severity: grade.severity,

@@ -7,12 +7,6 @@
 //
 // Imports are relative (./x), not the @/ alias, so this file resolves cleanly
 // both under Next.js and under the harness's tsx runner.
-//
-// DEPLOY 1 of 2 (determinism cache). This version threads the optional fileHash
-// into extraction for the content-addressed cache. The financial-condition call
-// is UNCHANGED from prod on purpose — the cluster-escalator (Deploy 2) ships
-// separately so its grade-changing behavior doesn't collide with this deploy's
-// "same document → identical grade" acceptance test.
 
 import { extractFdd } from "./extractFdd";
 import { scoreFdd } from "./scoring";
@@ -70,10 +64,13 @@ export async function runDiligence(input: DiligenceInput) {
   const underwriting = underwrite(extracted, scoring, buyer);
   // 4) Insights — concept benchmarks + disclosed-margin cross-check (toggleable).
   const insights = INSIGHTS_ENABLED ? buildInsights(extracted, scoring) : null;
-  // 5) Financial-condition severity from the raw facts (toggleable).
-  //    UNCHANGED from prod for Deploy 1 — the systemScale escalator lands in Deploy 2.
+  // 5) Financial-condition severity from the raw facts (toggleable). Now also fed
+  //    systemScale (Item 20 closures/transfers) so the grader can see a distress
+  //    *constellation* — a deficit co-occurring with unit churn escalates in a way
+  //    a deficit alone does not. systemScale is a non-optional field on the
+  //    extraction (fields may be null), so this is always safe to pass.
   const financialCondition = FINCON_ENABLED
-    ? assessFinancialCondition(extracted.financialCondition)
+    ? assessFinancialCondition(extracted.financialCondition, extracted.systemScale)
     : null;
 
   return { extracted, scoring, underwriting, buyer, insights, financialCondition };
