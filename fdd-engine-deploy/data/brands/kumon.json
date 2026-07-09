@@ -1,0 +1,456 @@
+{
+ "slug": "kumon",
+ "brandName": "Kumon",
+ "category": "Education & STEM",
+ "grade": "THIN",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-09T18:47:37.678Z",
+ "sourceStem": "kumon",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Financial Statements"
+    ],
+    "warnings": []
+   },
+   "brandName": "Kumon",
+   "franchisorEntity": "KUMON NORTH AMERICA, INC.",
+   "headquarters": "Rutherford, New Jersey",
+   "brandBackground": "Kumon operates after-school learning centers providing math and reading programs using the Kumon Method.",
+   "leadership": [
+    {
+     "name": "Yusuke Nakamura",
+     "role": "Chief Executive Officer and Chief Operating Officer",
+     "background": "Has been with the Kumon organization since 1997 and previously served as President of Kumon Philippines.",
+     "whyItMatters": "Provides deep international and operational experience within the Kumon system."
+    },
+    {
+     "name": "Akiko Kaneshiro",
+     "role": "Executive Senior Vice President and Chief Support Officer",
+     "background": "Appointed in July 2025, previously serving as Vice President of Overseas Strategy Department for KIE.",
+     "whyItMatters": "Brings strategic alignment with the global parent company."
+    },
+    {
+     "name": "Joseph Nativo",
+     "role": "Executive Senior Vice President, Chief Administrative Officer and Chief Financial Officer",
+     "background": "Has served as CFO since August 1999 and has been with Kumon since 1992.",
+     "whyItMatters": "Ensures long-term financial continuity and administrative oversight."
+    },
+    {
+     "name": "Nadia Monaco",
+     "role": "Senior Vice President and Director of Field Operations / Center Network Development",
+     "background": "Appointed in 2025/2026, previously serving as Vice President of Customer Experience.",
+     "whyItMatters": "Oversees the direct support and expansion of the franchise network."
+    }
+   ],
+   "item19": {
+    "hasItem19": false,
+    "cohorts": [],
+    "notes": "The franchisor does not make any representations about a franchisee's future financial performance.",
+    "sourcePage": "Item 19, p.47"
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Training Agreement Deposit Fee",
+      "recurring": false,
+      "notes": "Paid at signing of Training Agreement; applied to franchise fee upon completion.",
+      "high": 1000,
+      "low": 1000
+     },
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Fee is $2,000 to $3,000, less the $1,000 deposit if first center.",
+      "high": 3000,
+      "low": 2000
+     },
+     {
+      "category": "Initial Purchase of Materials",
+      "recurring": false,
+      "notes": "Instruction answer books, achievement tests, placement tests, and promotional material.",
+      "high": 2000,
+      "low": 2000
+     },
+     {
+      "category": "Pre-Opening Marketing Spend",
+      "recurring": false,
+      "notes": "Required minimum spend on pre-opening marketing activities.",
+      "high": 2500,
+      "low": 2500
+     },
+     {
+      "category": "Architect Design",
+      "recurring": false,
+      "notes": "Estimated cost for architectural design services.",
+      "high": 15000,
+      "low": 0
+     },
+     {
+      "category": "Leasehold Improvements",
+      "recurring": false,
+      "notes": "Estimated cost for build-out, net of potential franchisor carpet/paint reimbursement.",
+      "high": 90000,
+      "low": 40000
+     },
+     {
+      "category": "Security Deposit",
+      "recurring": false,
+      "notes": "If required by landlord.",
+      "high": 30000,
+      "low": 0
+     },
+     {
+      "category": "Rent",
+      "recurring": true,
+      "notes": "Estimated rent for the first three months.",
+      "high": 27000,
+      "low": 9000
+     },
+     {
+      "category": "Furniture, Equipment, Signage & Supplies",
+      "recurring": false,
+      "notes": "Net of initial furniture/fixtures and exterior sign provided/reimbursed by Kumon.",
+      "high": 11000,
+      "low": 9000
+     },
+     {
+      "category": "Notebook Computers & Tablets",
+      "recurring": false,
+      "notes": "Required hardware for center operations.",
+      "high": 4000,
+      "low": 2000
+     },
+     {
+      "category": "Professional Fees",
+      "recurring": false,
+      "notes": "Accountant and lawyer fees.",
+      "high": 5000,
+      "low": 1000
+     },
+     {
+      "category": "Liability Insurance",
+      "recurring": true,
+      "notes": "Estimated annual premium for required liability insurance.",
+      "high": 580,
+      "low": 580
+     },
+     {
+      "category": "Business License, Name Registration",
+      "recurring": false,
+      "notes": "Required local and state registrations.",
+      "high": 200,
+      "low": 100
+     },
+     {
+      "category": "Kumon Lead Management System",
+      "recurring": false,
+      "notes": "Purchase and installation of the system.",
+      "high": 100,
+      "low": 0
+     },
+     {
+      "category": "Recommended Reading List",
+      "recurring": false,
+      "notes": "Purchase of approximately 378 books for levels 7A-L.",
+      "high": 3700,
+      "low": 3000
+     },
+     {
+      "category": "Fingerprinting, Criminal Background Check",
+      "recurring": false,
+      "notes": "Required for FBI background check.",
+      "high": 100,
+      "low": 50
+     },
+     {
+      "category": "Payroll Cost for Assistants",
+      "recurring": true,
+      "notes": "Estimated payroll for assistants for the first 3 months.",
+      "high": 14000,
+      "low": 11000
+     },
+     {
+      "category": "SAM Prevention Training",
+      "recurring": false,
+      "notes": "Sexual abuse and molestation prevention training.",
+      "high": 600,
+      "low": 400
+     },
+     {
+      "category": "Additional Funds",
+      "recurring": false,
+      "notes": "Estimated working capital for the first 3 months of operation.",
+      "high": 25000,
+      "low": 19000
+     }
+    ],
+    "sourcePage": "Item 7, p.23-25",
+    "initialInvestmentHigh": 233780,
+    "initialInvestmentLow": 101630
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "New Center Marketing Fee",
+      "source": "Item 6, p.10",
+      "monthlyAmount": 300
+     }
+    ],
+    "brandFundPct": null,
+    "localAdPct": null,
+    "royaltyPct": null
+   },
+   "hiddenCosts": [
+    {
+     "name": "Initial Enrollment Royalty Fee",
+     "description": "$30 per newly enrolled student.",
+     "source": "Item 6, p.8",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Monthly Royalty During TLP",
+     "description": "$42.75 per full-payment student and $21.38 per partially exempt/prorated student per subject.",
+     "source": "Item 6, p.8",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Monthly Royalty After TLP",
+     "description": "$38 per full-paying student and $19 per partially exempt/prorated student per subject.",
+     "source": "Item 6, p.8",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Late or Inaccurate Report Fee",
+     "description": "$200 for the first month, $500 for the second, and $1,000 for the third month and thereafter.",
+     "source": "Item 6, p.8",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Relocation Fee",
+     "description": "$2,000 fee if fewer than 80% of enrolled students transfer to the new location.",
+     "source": "Item 6, p.9",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Lead Management System Monthly Expense",
+     "description": "Approximately $50 per month plus applicable taxes for use of the system.",
+     "source": "Item 7, Note 6, p.27",
+     "estimatedAnnualAmount": 600
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p.55",
+    "closedLastYear": 1,
+    "openedLastYear": 62,
+    "totalUnits": 1710,
+    "transfersLastYear": 64
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "The franchise agreement requires you to resolve disputes by mediation, arbitration, and/or litigation only in New Jersey.",
+     "severity": "high",
+     "source": "Special Risks, p.4"
+    },
+    {
+     "title": "Royalty Rate Changes",
+     "description": "The franchise agreement permits the franchisor to change royalty rates or due dates on at least one year's notice.",
+     "severity": "medium",
+     "source": "Special Risks, p.4"
+    },
+    {
+     "title": "Non-Exclusive Territory",
+     "description": "You will not receive an exclusive territory and may face competition from other franchisees or company-owned outlets.",
+     "severity": "medium",
+     "source": "Item 12, p.44"
+    }
+   ],
+   "conceptType": "education_childcare",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025",
+      "revenue": 153926604,
+      "totalAssets": 128755329,
+      "totalLiabilities": 43654731
+     },
+     {
+      "fiscalYearEnd": "2024",
+      "revenue": 155935802,
+      "totalAssets": 126655235,
+      "totalLiabilities": 47421848
+     },
+     {
+      "fiscalYearEnd": "2023",
+      "revenue": 153032416,
+      "totalAssets": 126820364,
+      "totalLiabilities": 53498449
+     }
+    ],
+    "auditorName": "Citrin Cooperman & Company, LLP",
+    "parentName": "Kumon Institute of Education Co., Ltd."
+   },
+   "averageRentMonthly": 9000,
+   "conceptRationale": "Kumon is a supplemental after-school learning program focusing on math and reading for children.",
+   "rentDetail": {
+    "rawValue": 9000,
+    "unit": "per_month",
+    "source": "Item 7, p.24",
+    "squareFootage": 1000
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "Centers require the franchisee to act as the full-time instructor and hire assistants as student enrollment increases."
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "No Item 19 financial performance representation \u2014 earnings are undisclosed, which is itself a caution.",
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section.",
+    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+   ],
+   "midCohort": null,
+   "bottomCohort": null,
+   "buildoutMidpoint": 167705,
+   "assumedLoan": 134164,
+   "assumedMonthlyDebtService": 1810.3418907394444,
+   "dscr": null,
+   "rentPctOfRevenue": null,
+   "paybackYears": null,
+   "variableRate": 0,
+   "fixedMonthly": 9300,
+   "notes": [
+    "Royalty % not found; variable costs may be understated.",
+    "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $167,705 mid-point build-out without financing, though that leaves little working-capital cushion."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "education_childcare",
+   "conceptLabel": "Education / childcare",
+   "conceptRationale": "Kumon is a supplemental after-school learning program focusing on math and reading for children.",
+   "benchmark": {
+    "label": "Education / childcare",
+    "cogsPct": [
+     5,
+     12
+    ],
+    "laborPct": [
+     40,
+     55
+    ],
+    "occupancyPct": [
+     10,
+     18
+    ],
+    "operatingEbitdaPct": [
+     10,
+     20
+    ],
+    "dominantRisk": "Regulated staff ratios and enrollment/utilization. Labor dominates and ratios cap how lean you can run.",
+    "rampNote": "12\u201324 months to mature enrollment.",
+    "considerations": [
+     "Labor is the dominant line at ~40\u201355% and is floored by regulated student/staff ratios.",
+     "Validate enrollment ramp and capacity-utilization curves with Item 20 operators.",
+     "Confirm licensing, facility, and compliance costs specific to your state \u2014 not in the FDD."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201320% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": null,
+   "marginAfterFeesMonthly": null,
+   "benchmarkOperatingEbitdaMonthly": null,
+   "trueEbitdaBasis": "none",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    40,
+    55
+   ],
+   "buildup": [],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cEducation / childcare\u201d from the FDD (Item 1 / brand description)."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Kumon Institute of Education Co., Ltd. is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 153926604,
+    "revenueTrend": "flat",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.3390518383903163,
+    "adjLiabilitiesToAssets": 0.3390518383903163,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

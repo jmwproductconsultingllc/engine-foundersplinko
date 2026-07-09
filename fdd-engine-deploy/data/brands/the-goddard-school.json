@@ -1,0 +1,503 @@
+{
+ "slug": "the-goddard-school",
+ "brandName": "The Goddard School",
+ "category": "Childcare & Preschool",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-09T18:42:27.813Z",
+ "sourceStem": "goddard-school",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "The Goddard School",
+   "franchisorEntity": "Goddard Franchisor LLC",
+   "headquarters": "King of Prussia, PA",
+   "brandBackground": "",
+   "leadership": [
+    {
+     "name": "Darin Harris",
+     "role": "President and Chief Executive Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Timothy J. Dwyer",
+     "role": "Chief Financial Officer, Treasurer and Secretary",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Cynthia Turner",
+     "role": "Chief Legal Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Dr. Lauren Loquasto",
+     "role": "Senior Vice President, Chief Academic Officer of Goddard Manager",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Jacqueline Burls",
+     "role": "Senior Vice President, Chief School Support Services Officer of Goddard Manager",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Marcel Nahm",
+     "role": "Senior Vice President, Chief Marketing Officer of Goddard Manager",
+     "background": "",
+     "whyItMatters": ""
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "2025 Mature Schools Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 208969,
+      "basis": "Item 19, p. 134",
+      "annualRevenue": 2507631,
+      "monthlyValues": [],
+      "sampleSize": 620
+     },
+     {
+      "label": "2025 Mature Schools EBITDA",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 45546,
+      "basis": "Item 19, p. 134",
+      "annualRevenue": 546554,
+      "monthlyValues": [],
+      "sampleSize": 620
+     },
+     {
+      "label": "2025 Mature Schools EBITDAR",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 73017,
+      "basis": "Item 19, p. 134",
+      "annualRevenue": 876198,
+      "monthlyValues": [],
+      "sampleSize": 620
+     }
+    ],
+    "notes": "",
+    "sourcePage": "Item 19, p. 134",
+    "networkAverageMonthly": null,
+    "unitsReported": 620
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial License Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 135000,
+      "low": 135000
+     },
+     {
+      "category": "Initial Training and Opening Support Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 42000,
+      "low": 35000
+     },
+     {
+      "category": "Initial Marketing Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 75000,
+      "low": 55000
+     },
+     {
+      "category": "Site Development Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 35000,
+      "low": 35000
+     },
+     {
+      "category": "Background Check",
+      "recurring": false,
+      "notes": "",
+      "high": 6000,
+      "low": 1500
+     },
+     {
+      "category": "Lease Deposit",
+      "recurring": false,
+      "notes": "",
+      "high": 50000,
+      "low": 25000
+     },
+     {
+      "category": "Project Management Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 75000,
+      "low": 0
+     },
+     {
+      "category": "Furniture, Fixtures and Equipment",
+      "recurring": false,
+      "notes": "",
+      "high": 307000,
+      "low": 243000
+     },
+     {
+      "category": "Playground Equipment",
+      "recurring": false,
+      "notes": "",
+      "high": 240000,
+      "low": 140000
+     },
+     {
+      "category": "Marketing Materials, Stationery, Forms, and Curricular Resources",
+      "recurring": false,
+      "notes": "",
+      "high": 15000,
+      "low": 15000
+     },
+     {
+      "category": "Signs",
+      "recurring": false,
+      "notes": "",
+      "high": 28000,
+      "low": 28000
+     },
+     {
+      "category": "Computer System, IT Security, etc.",
+      "recurring": false,
+      "notes": "",
+      "high": 40000,
+      "low": 26000
+     },
+     {
+      "category": "Security System",
+      "recurring": false,
+      "notes": "",
+      "high": 45000,
+      "low": 45000
+     },
+     {
+      "category": "Miscellaneous Opening Costs",
+      "recurring": false,
+      "notes": "",
+      "high": 135000,
+      "low": 120000
+     },
+     {
+      "category": "Additional Funds - 3 months",
+      "recurring": true,
+      "notes": "",
+      "high": 275000,
+      "low": 100000
+     }
+    ],
+    "sourcePage": "Item 7, p. 42-44",
+    "initialInvestmentHigh": 1503000,
+    "initialInvestmentLow": 1003500
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Proprietary Curriculum Fee",
+      "source": "Item 6, p. 21",
+      "monthlyAmount": 700
+     }
+    ],
+    "brandFundPct": 0.04,
+    "localAdPct": null,
+    "royaltyPct": 0.07
+   },
+   "hiddenCosts": [
+    {
+     "name": "Director's Initial Training Fee",
+     "description": "",
+     "source": "Item 6, p. 26",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Conventions Registration Fee",
+     "description": "",
+     "source": "Item 6, p. 26",
+     "estimatedAnnualAmount": 2000
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 140-145",
+    "closedLastYear": 1,
+    "openedLastYear": 24,
+    "totalUnits": 665,
+    "transfersLastYear": 26
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p. iii"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "",
+     "severity": "high",
+     "source": "Special Risks, p. iii"
+    }
+   ],
+   "conceptType": "education_childcare",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "cash": 500000,
+      "currentAssets": 10703169,
+      "currentLiabilities": 4889557,
+      "deferredRevenue": 20445550,
+      "netIncome": 24791811,
+      "netWorth": 817574609,
+      "relatedPartyDebt": null,
+      "revenue": 121755470,
+      "totalAssets": 847707966,
+      "totalLiabilities": 30133357
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "cash": 500000,
+      "currentAssets": 10022255,
+      "currentLiabilities": 3500770,
+      "deferredRevenue": 19359628,
+      "netIncome": 16425607,
+      "netWorth": 897111013,
+      "relatedPartyDebt": null,
+      "revenue": 111808181,
+      "totalAssets": 924873961,
+      "totalLiabilities": 27762948
+     }
+    ],
+    "auditorName": "RSM US LLP",
+    "parentName": "Goddard Systems, LLC"
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "",
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p. 43",
+    "squareFootage": 10000
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": ""
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "Capital gap of $1,003,250 is ~4.0x your liquid \u2014 heavy reliance on outside financing.",
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "2025 Mature Schools Gross Revenue",
+    "monthlyRevenue": 208969,
+    "monthlyVariable": 229.8659,
+    "monthlyFixed": 700,
+    "monthlyEbitda": 208039.1341,
+    "annualEbitda": 2496469.6092,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "2025 Mature Schools Gross Revenue",
+     "math": "$2,507,631/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 620
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 1253250,
+   "assumedLoan": 1002600,
+   "assumedMonthlyDebtService": 13528.58277671631,
+   "dscr": 15.377747805043608,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.5020089150621013,
+   "variableRate": 0.0011,
+   "fixedMonthly": 700,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 1003250,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 1003250,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 13537.35355150672,
+   "adjustedMonthlyNetCashFlow": 194501.78054849326,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $1,253,250 mid-point build-out, there is a $1,003,250 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $194,502/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "education_childcare",
+   "conceptLabel": "Education / childcare",
+   "conceptRationale": "",
+   "benchmark": {
+    "label": "Education / childcare",
+    "cogsPct": [
+     5,
+     12
+    ],
+    "laborPct": [
+     40,
+     55
+    ],
+    "occupancyPct": [
+     10,
+     18
+    ],
+    "operatingEbitdaPct": [
+     10,
+     20
+    ],
+    "dominantRisk": "Regulated staff ratios and enrollment/utilization. Labor dominates and ratios cap how lean you can run.",
+    "rampNote": "12\u201324 months to mature enrollment.",
+    "considerations": [
+     "Labor is the dominant line at ~40\u201355% and is floored by regulated student/staff ratios.",
+     "Validate enrollment ramp and capacity-utilization curves with Item 20 operators.",
+     "Confirm licensing, facility, and compliance costs specific to your state \u2014 not in the FDD."
+    ]
+   },
+   "disclosedOperatingMarginPct": 21.8,
+   "disclosedMarginSource": "2025 Mature Schools EBITDA \u00f7 2025 Mature Schools Gross Revenue",
+   "crossCheck": {
+    "status": "consistent",
+    "message": "The franchisor's disclosed margin (21.8%) is consistent with the typical 10\u201320% band for this concept \u2014 a positive signal on the reported economics. Still verify against real franchisee P&Ls (Item 20)."
+   },
+   "proFormaRevenueMonthly": 208969,
+   "marginAfterFeesMonthly": 208039.1341,
+   "benchmarkOperatingEbitdaMonthly": [
+    45555,
+    45555
+   ],
+   "trueEbitdaBasis": "disclosed",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    40,
+    55
+   ],
+   "buildup": [
+    {
+     "label": "Franchised gross sales (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      208969,
+      208969
+     ],
+     "basis": "disclosed"
+    },
+    {
+     "label": "\u00d7 franchisor's disclosed operating margin (21.8%)",
+     "kind": "result",
+     "dollarRange": [
+      45555,
+      45555
+     ],
+     "note": "2025 Mature Schools EBITDA \u00f7 2025 Mature Schools Gross Revenue",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cEducation / childcare\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating margin",
+     "basis": "disclosed",
+     "detail": "Taken straight from the franchisor's Item 19 disclosure (2025 Mature Schools EBITDA \u00f7 2025 Mature Schools Gross Revenue); no benchmark applied."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed margin applied to the modeled franchised gross. The margin is from the FDD; this dollar figure is computed, not disclosed."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "What we found (2025-12-31, audited by RSM US LLP): Net income of $24.79M on $121.76M of revenue \u2014 roughly 0.8x spent per $1 earned. Positive net worth of $817.57M. Cash of $500K against $4.89M of obligations due within a year (a current ratio of 2.19). Note: about 68% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.0x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Goddard Systems, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "positive net worth",
+    "the business is profitable"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": 817574609,
+    "netWorthSign": "positive",
+    "netWorthTrend": "worsening",
+    "netIncome": 24791811,
+    "netIncomeTrend": "improving",
+    "revenue": 121755470,
+    "revenueTrend": "improving",
+    "currentRatio": 2.1889854234238397,
+    "workingCapital": 5813612,
+    "liabilitiesToAssets": 0.03554686072160846,
+    "adjLiabilitiesToAssets": 0.01142823636035054,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": 0.678502232592273,
+    "expenseToRevenue": 0.7963803104698294,
+    "cash": 500000,
+    "nearTermObligations": 4889557
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

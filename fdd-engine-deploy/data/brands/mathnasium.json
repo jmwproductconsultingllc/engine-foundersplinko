@@ -1,0 +1,608 @@
+{
+ "slug": "mathnasium",
+ "brandName": "Mathnasium",
+ "category": "Education & STEM",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-09T18:48:14.725Z",
+ "sourceStem": "mathnasium",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Mathnasium",
+   "franchisorEntity": "Mathnasium Franchisor LLC",
+   "headquarters": "Los Angeles, California",
+   "brandBackground": "Mathnasium operates learning centers that provide math instruction using the Mathnasium system of learning.",
+   "leadership": [
+    {
+     "name": "Tyler Sgro",
+     "role": "Chief Executive Officer",
+     "background": "Served as Chief Operating Officer of MCL from January 2023 to July 2024.",
+     "whyItMatters": "He leads the overall strategic direction of the brand."
+    },
+    {
+     "name": "Tracy Cramer",
+     "role": "Secretary and General Counsel",
+     "background": "Served as General Counsel for MCL since August 2023.",
+     "whyItMatters": "She manages the legal and regulatory compliance of the franchise system."
+    },
+    {
+     "name": "Terrence Gardiner",
+     "role": "Treasurer and Chief Accounting Officer",
+     "background": "Served as Vice President of Accounting and Finance of MCL from January 2021 to December 2025.",
+     "whyItMatters": "He oversees the financial reporting and accounting controls."
+    },
+    {
+     "name": "Kevin Shen",
+     "role": "Chief Financial Officer",
+     "background": "Served as Chief Development Officer of MCL from November 2022 to December 2025.",
+     "whyItMatters": "He directs the financial strategy and franchise development."
+    },
+    {
+     "name": "Michael Stanfield",
+     "role": "Chief Marketing Officer",
+     "background": "Joined MCL in September 2022 as Chief Marketing Officer.",
+     "whyItMatters": "He leads the national and local marketing initiatives."
+    },
+    {
+     "name": "Kristin Goedke",
+     "role": "Chief Franchise Operations Officer",
+     "background": "Served as Vice President of North America Development at Papa John's International.",
+     "whyItMatters": "She manages the day-to-day support and operations for franchisees."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "All Franchised Centers (Overall Average)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 32073,
+      "basis": "Item 19, Table 1, p. 53",
+      "annualRevenue": 384874,
+      "monthlyValues": [],
+      "sampleSize": 914
+     },
+     {
+      "label": "All Franchised Centers (Overall Median)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 27202,
+      "basis": "Item 19, Table 1, p. 53",
+      "annualRevenue": 326428,
+      "monthlyValues": [],
+      "sampleSize": 914
+     },
+     {
+      "label": "All Franchised Centers Average Operating Profit",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 9750,
+      "basis": "Item 19, Table 2, p. 54",
+      "annualRevenue": 117000,
+      "monthlyValues": [],
+      "sampleSize": 914
+     },
+     {
+      "label": "All Franchised Centers Median Operating Profit",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 9303,
+      "basis": "Item 19, Table 2, p. 54",
+      "annualRevenue": 111630,
+      "monthlyValues": [],
+      "sampleSize": 914
+     },
+     {
+      "label": "Top 1/4 Quartile Average Gross Receipts",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 57776,
+      "basis": "Item 19, Table 1, p. 53",
+      "annualRevenue": 693314,
+      "monthlyValues": [],
+      "sampleSize": 229
+     },
+     {
+      "label": "Mid-Upper 1/4 Quartile Average Gross Receipts",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 32618,
+      "basis": "Item 19, Table 1, p. 53",
+      "annualRevenue": 391418,
+      "monthlyValues": [],
+      "sampleSize": 228
+     },
+     {
+      "label": "Mid-Lower 1/4 Quartile Average Gross Receipts",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 23168,
+      "basis": "Item 19, Table 1, p. 53",
+      "annualRevenue": 278021,
+      "monthlyValues": [],
+      "sampleSize": 228
+     },
+     {
+      "label": "Bottom 1/4 Quartile Average Gross Receipts",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 14692,
+      "basis": "Item 19, Table 1, p. 53",
+      "annualRevenue": 176306,
+      "monthlyValues": [],
+      "sampleSize": 229
+     }
+    ],
+    "notes": "Includes existing franchised Mathnasium Centers in the United States that were open and operated by the same franchisee for 12 months or longer as of December 31, 2025.",
+    "sourcePage": "Item 19, p. 53-54",
+    "networkAverageMonthly": null,
+    "unitsReported": 914
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Standard initial franchise fee for the first center.",
+      "high": 49000,
+      "low": 49000
+     },
+     {
+      "category": "Expenses While Training",
+      "recurring": false,
+      "notes": "Covers travel and lodging costs for training.",
+      "high": 3000,
+      "low": 2500
+     },
+     {
+      "category": "Technology Fee",
+      "recurring": true,
+      "notes": "Covers technology license fees before opening.",
+      "high": 1596,
+      "low": 266
+     },
+     {
+      "category": "Rent (1st and last month's rent)",
+      "recurring": false,
+      "notes": "Estimated rent for a 1,200 to 1,600 square foot space.",
+      "high": 14000,
+      "low": 6000
+     },
+     {
+      "category": "Paint, Carpet and Tenant Improvements",
+      "recurring": false,
+      "notes": "Minimal tenant improvements and decorating.",
+      "high": 14500,
+      "low": 8000
+     },
+     {
+      "category": "Furniture, Signs, Equipment and Supplies",
+      "recurring": false,
+      "notes": "Includes exterior signs, interior wall art, desks, and chairs.",
+      "high": 25000,
+      "low": 17000
+     },
+     {
+      "category": "Insurance",
+      "recurring": true,
+      "notes": "Annual premium for required insurance coverage.",
+      "high": 1750,
+      "low": 1500
+     },
+     {
+      "category": "Business License, Name Registration",
+      "recurring": false,
+      "notes": "Local municipality and state fees.",
+      "high": 1000,
+      "low": 250
+     },
+     {
+      "category": "Professional Services",
+      "recurring": false,
+      "notes": "Legal and accounting services to start the business.",
+      "high": 2000,
+      "low": 1300
+     },
+     {
+      "category": "Phone and Utilities",
+      "recurring": true,
+      "notes": "Setup deposits and initial utility costs.",
+      "high": 1000,
+      "low": 500
+     },
+     {
+      "category": "Video surveillance and related equipment",
+      "recurring": false,
+      "notes": "Required security monitoring equipment.",
+      "high": 2500,
+      "low": 500
+     },
+     {
+      "category": "Pre-Open Advertising",
+      "recurring": false,
+      "notes": "Required local marketing spend before opening.",
+      "high": 5500,
+      "low": 5500
+     },
+     {
+      "category": "Additional Funds (4 Months)",
+      "recurring": false,
+      "notes": "Working capital for the initial operational period.",
+      "high": 45000,
+      "low": 35000
+     }
+    ],
+    "sourcePage": "Item 7, p. 22-23",
+    "initialInvestmentHigh": 165846,
+    "initialInvestmentLow": 127316
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Base Royalty",
+      "source": "Item 6, p. 17",
+      "monthlyAmount": 650
+     },
+     {
+      "name": "Technology License Fee",
+      "source": "Item 6, p. 18",
+      "monthlyAmount": 266
+     },
+     {
+      "name": "Digital and Local Marketing Fee",
+      "source": "Item 6, p. 17",
+      "monthlyAmount": 1000
+     }
+    ],
+    "brandFundPct": 2,
+    "localAdPct": null,
+    "royaltyPct": 10
+   },
+   "hiddenCosts": [
+    {
+     "name": "Late fee for late payment",
+     "description": "$250, plus an additional $100 every 2 weeks until payment is made.",
+     "source": "Item 6, p. 18"
+    },
+    {
+     "name": "Non-Compliance Fine",
+     "description": "$300 per month for each non-complying incident.",
+     "source": "Item 6, p. 19"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 65",
+    "closedLastYear": 15,
+    "openedLastYear": 63,
+    "totalUnits": 1047,
+    "transfersLastYear": 69
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by mediation, arbitration, or litigation in Los Angeles County, California.",
+     "severity": "medium",
+     "source": "Special Risks, p. iv"
+    },
+    {
+     "title": "Sales Performance Required",
+     "description": "Must maintain minimum enrollment of 75 students and not fall below the 8th percentile of gross revenue.",
+     "severity": "high",
+     "source": "Special Risks, p. iv"
+    }
+   ],
+   "conceptType": "education_childcare",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "cash": 576281,
+      "currentAssets": 11889110,
+      "currentLiabilities": 4601808,
+      "deferredRevenue": 6263341,
+      "netIncome": 40876973,
+      "netWorth": 338404416,
+      "relatedPartyDebt": null,
+      "revenue": 53415858,
+      "totalAssets": 346903884,
+      "totalLiabilities": 8499468
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "cash": 2426056,
+      "currentAssets": 8291218,
+      "currentLiabilities": 5609328,
+      "deferredRevenue": 5376048,
+      "netIncome": 13986441,
+      "netWorth": 336044983,
+      "relatedPartyDebt": null,
+      "revenue": 18209962,
+      "totalAssets": 344938315,
+      "totalLiabilities": 8893332
+     }
+    ],
+    "auditorName": "PricewaterhouseCoopers LLP",
+    "parentName": "Mathnasium Holdings, LLC"
+   },
+   "averageRentMonthly": 4092,
+   "conceptRationale": "Mathnasium is a learning center providing math instruction to children.",
+   "rentDetail": {
+    "rawValue": 49098,
+    "unit": "per_year",
+    "source": "Item 19, Table 2, p. 54",
+    "squareFootage": 1400
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "Requires a Center Director and instructors to teach students."
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "Above-market royalty at 10%.",
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "All Franchised Centers (Overall Median)",
+    "monthlyRevenue": 27202,
+    "monthlyVariable": 3264.24,
+    "monthlyFixed": 6008,
+    "monthlyEbitda": 17929.760000000002,
+    "annualEbitda": 215157.12000000002,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "All Franchised Centers (Overall Median)",
+     "math": "$326,428/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 914
+    }
+   },
+   "bottomCohort": {
+    "label": "Bottom 1/4 Quartile Average Gross Receipts",
+    "monthlyRevenue": 14692,
+    "monthlyVariable": 1763.04,
+    "monthlyFixed": 6008,
+    "monthlyEbitda": 6920.959999999999,
+    "annualEbitda": 83051.51999999999,
+    "coversCosts": true
+   },
+   "buildoutMidpoint": 146581,
+   "assumedLoan": 117264.8,
+   "assumedMonthlyDebtService": 1582.3125409885126,
+   "dscr": 11.331364402129307,
+   "rentPctOfRevenue": 0.15043011543268878,
+   "paybackYears": 0.6812742241576759,
+   "variableRate": 0.12,
+   "fixedMonthly": 6008,
+   "notes": []
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 17929.760000000002,
+   "survivesBottomCohort": true,
+   "assessment": "$250,000 liquid covers the $146,581 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $17,930/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "education_childcare",
+   "conceptLabel": "Education / childcare",
+   "conceptRationale": "Mathnasium is a learning center providing math instruction to children.",
+   "benchmark": {
+    "label": "Education / childcare",
+    "cogsPct": [
+     5,
+     12
+    ],
+    "laborPct": [
+     40,
+     55
+    ],
+    "occupancyPct": [
+     10,
+     18
+    ],
+    "operatingEbitdaPct": [
+     10,
+     20
+    ],
+    "dominantRisk": "Regulated staff ratios and enrollment/utilization. Labor dominates and ratios cap how lean you can run.",
+    "rampNote": "12\u201324 months to mature enrollment.",
+    "considerations": [
+     "Labor is the dominant line at ~40\u201355% and is floored by regulated student/staff ratios.",
+     "Validate enrollment ramp and capacity-utilization curves with Item 20 operators.",
+     "Confirm licensing, facility, and compliance costs specific to your state \u2014 not in the FDD."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201320% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 27202,
+   "marginAfterFeesMonthly": 17929.760000000002,
+   "benchmarkOperatingEbitdaMonthly": [
+    -3015,
+    4057
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    40,
+    55
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      17929.760000000002,
+      17929.760000000002
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      5,
+      12
+     ],
+     "dollarRange": [
+      1360,
+      3264
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      40,
+      55
+     ],
+     "dollarRange": [
+      10881,
+      14961
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 3.1\u20134.3 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      1632,
+      2720
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -3015,
+      4057
+     ],
+     "note": "\u2248 -11% to 15% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cEducation / childcare\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Rent",
+     "basis": "disclosed",
+     "detail": "Taken from the FDD (~$4,092/mo); already netted in margin after fees & rent."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 5\u201312% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 40\u201355% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "What we found (2025-12-31, audited by PricewaterhouseCoopers LLP): Net income of $40.88M on $53.42M of revenue \u2014 roughly 0.2x spent per $1 earned. Positive net worth of $338.40M. Cash of $576K against $4.60M of obligations due within a year (a current ratio of 2.58). Note: about 74% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.0x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Mathnasium Holdings, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "positive net worth",
+    "the business is profitable"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": 338404416,
+    "netWorthSign": "positive",
+    "netWorthTrend": "flat",
+    "netIncome": 40876973,
+    "netIncomeTrend": "improving",
+    "revenue": 53415858,
+    "revenueTrend": "improving",
+    "currentRatio": 2.583573673651747,
+    "workingCapital": 7287302,
+    "liabilitiesToAssets": 0.02450093063818219,
+    "adjLiabilitiesToAssets": 0.006445955502763987,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": 0.7369097689408325,
+    "expenseToRevenue": 0.23474087039844985,
+    "cash": 576281,
+    "nearTermObligations": 4601808
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

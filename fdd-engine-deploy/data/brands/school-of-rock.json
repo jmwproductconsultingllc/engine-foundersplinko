@@ -1,0 +1,589 @@
+{
+ "slug": "school-of-rock",
+ "brandName": "School of Rock",
+ "category": "Arts & Music",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-09T18:49:54.517Z",
+ "sourceStem": "school of rock",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "School of Rock",
+   "franchisorEntity": "School of Rock Franchising, LLC",
+   "headquarters": "Canton, MA",
+   "brandBackground": "Performance-based music schools with a rock music program.",
+   "leadership": [
+    {
+     "name": "Stacey Ryan",
+     "role": "President",
+     "background": "Served as President since August 2024 and previously as Chief Operating Officer.",
+     "whyItMatters": "Leads the overall strategic direction and operations of the franchise system."
+    },
+    {
+     "name": "Robert Price",
+     "role": "Chief Executive Officer of YEB",
+     "background": "Served as CEO of YEB since June 2025 and previously as President of School of Rock.",
+     "whyItMatters": "Oversees the parent company portfolio and strategic alignment."
+    },
+    {
+     "name": "Elliot Schiffer",
+     "role": "Chief Development Officer",
+     "background": "Served as Chief Development Officer since April 2024.",
+     "whyItMatters": "Responsible for franchise system growth and development."
+    },
+    {
+     "name": "Sam Dresser",
+     "role": "Chief Innovation Officer",
+     "background": "Served as Chief Innovation Officer since April 2021.",
+     "whyItMatters": "Drives educational and curriculum innovation for the schools."
+    },
+    {
+     "name": "Hali Hill",
+     "role": "General Counsel of YEB",
+     "background": "Served as General Counsel for YEB since May 2024.",
+     "whyItMatters": "Manages legal compliance and risk mitigation across the brands."
+    },
+    {
+     "name": "James Love",
+     "role": "Vice President of Domestic Franchise Operations",
+     "background": "Served as VP of Domestic Franchise Operations since November 2024.",
+     "whyItMatters": "Directs support and operational standards for US franchisees."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Company-Owned Designated Schools Gross Sales",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 81110,
+      "basis": "Average annual total sales of 46 company-owned schools open the full 12 months of 2025.",
+      "annualRevenue": 973321,
+      "monthlyValues": [],
+      "sampleSize": 46
+     },
+     {
+      "label": "Franchised Designated Schools Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 56945,
+      "basis": "Average annual total sales of 243 franchised schools open the full 12 months of 2025.",
+      "annualRevenue": 683344,
+      "monthlyValues": [],
+      "sampleSize": 243
+     },
+     {
+      "label": "Company-Owned Designated Schools Net Operating Income",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 19663,
+      "basis": "Average annual net operating income of 46 company-owned schools open the full 12 months of 2025.",
+      "annualRevenue": 235955,
+      "monthlyValues": [],
+      "sampleSize": 46
+     }
+    ],
+    "notes": "Total Sales means all revenue generated at, from, or in connection with the operation of the School.",
+    "sourcePage": "Item 19, p. 60-62",
+    "networkAverageMonthly": null,
+    "unitsReported": 289
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Non-refundable fee for a single school.",
+      "high": 59900,
+      "low": 59900
+     },
+     {
+      "category": "Initial Rent Outlays",
+      "recurring": false,
+      "notes": "Estimated pre-opening rent outlays and security deposits.",
+      "high": 24800,
+      "low": 8500
+     },
+     {
+      "category": "Leasehold Improvements",
+      "recurring": false,
+      "notes": "Renovation and construction costs net of tenant improvement allowances.",
+      "high": 417000,
+      "low": 195000
+     },
+     {
+      "category": "Furnishings and Finishings",
+      "recurring": false,
+      "notes": "Basic furniture, artwork, wall coverings, and sound panels.",
+      "high": 26000,
+      "low": 14000
+     },
+     {
+      "category": "Equipment",
+      "recurring": false,
+      "notes": "Music equipment, office equipment, and telephones.",
+      "high": 40000,
+      "low": 26000
+     },
+     {
+      "category": "Security and Cameras",
+      "recurring": false,
+      "notes": "Access control system and security cameras.",
+      "high": 20000,
+      "low": 6500
+     },
+     {
+      "category": "Signage",
+      "recurring": false,
+      "notes": "Interior and exterior signage.",
+      "high": 15000,
+      "low": 8000
+     },
+     {
+      "category": "Supplies",
+      "recurring": false,
+      "notes": "Cleaning, office, and computer supplies.",
+      "high": 3000,
+      "low": 2000
+     },
+     {
+      "category": "Pre-Opening Training",
+      "recurring": false,
+      "notes": "Travel, lodging, and meals for final week of training.",
+      "high": 3700,
+      "low": 2300
+     },
+     {
+      "category": "Advertising",
+      "recurring": false,
+      "notes": "Grand opening marketing program and Kick It Open Kit.",
+      "high": 12000,
+      "low": 10000
+     },
+     {
+      "category": "Opening Inventory",
+      "recurring": false,
+      "notes": "Branded merchandise and accessories for approximately three months.",
+      "high": 4000,
+      "low": 3000
+     },
+     {
+      "category": "Computer/ Software",
+      "recurring": false,
+      "notes": "Computer hardware, POS, and live streaming equipment.",
+      "high": 9000,
+      "low": 4000
+     },
+     {
+      "category": "Permits & Licenses",
+      "recurring": false,
+      "notes": "Zoning, business licenses, and third-party permitting service.",
+      "high": 7200,
+      "low": 3200
+     },
+     {
+      "category": "Architectural Fees",
+      "recurring": false,
+      "notes": "Preliminary and final architectural drawings.",
+      "high": 14000,
+      "low": 11700
+     },
+     {
+      "category": "Prepaid Insurance Premiums",
+      "recurring": false,
+      "notes": "25% of annual premium for general liability and worker's compensation.",
+      "high": 2000,
+      "low": 750
+     },
+     {
+      "category": "Utility Costs & Deposits",
+      "recurring": false,
+      "notes": "Deposits for gas, electricity, telephone, and water.",
+      "high": 1500,
+      "low": 700
+     },
+     {
+      "category": "Miscellaneous Opening Expenses",
+      "recurring": false,
+      "notes": "Legal, accounting, and office supplies.",
+      "high": 12000,
+      "low": 6500
+     },
+     {
+      "category": "Additional Funds for 3 Months",
+      "recurring": true,
+      "notes": "Working capital for the first three months of operation.",
+      "high": 85000,
+      "low": 25000
+     }
+    ],
+    "sourcePage": "Item 7, p. 26-27",
+    "initialInvestmentHigh": 756100,
+    "initialInvestmentLow": 378050
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p. 23",
+      "monthlyAmount": 260
+     },
+     {
+      "name": "PRO Licensing Fee",
+      "source": "Item 6, p. 24",
+      "monthlyAmount": 92
+     }
+    ],
+    "brandFundPct": 0.03,
+    "localAdPct": 0.03,
+    "royaltyPct": 0.08
+   },
+   "hiddenCosts": [
+    {
+     "name": "Method App Fee",
+     "description": "$6.21 per curriculum-eligible student per month.",
+     "source": "Item 6, p. 24",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Non-Compliance Fee",
+     "description": "$800 per violation, up to $2,000 per violation plus actual costs.",
+     "source": "Item 6, p. 23",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Step-In Rights Fee",
+     "description": "3% of Gross Sales during the period of management plus direct costs.",
+     "source": "Item 6, p. 25",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 63-67",
+    "closedLastYear": 2,
+    "openedLastYear": 27,
+    "totalUnits": 323,
+    "transfersLastYear": 9
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by arbitration or litigation in Massachusetts, which may be more costly.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "Spouses must sign personal guarantees making them personally liable for all franchise obligations.",
+     "severity": "high",
+     "source": "Special Risks, p. 4"
+    },
+    {
+     "title": "No Exclusive Territory",
+     "description": "Franchisees do not receive an exclusive territory and may face competition from other outlets or channels.",
+     "severity": "medium",
+     "source": "Item 12, p. 39"
+    }
+   ],
+   "conceptType": "education_childcare",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 29167036,
+      "totalAssets": 11642883,
+      "totalLiabilities": 9206483
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 26136563,
+      "totalAssets": 10748479,
+      "totalLiabilities": 8186162
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 22832323,
+      "totalAssets": 9067259,
+      "totalLiabilities": 7158569
+     }
+    ],
+    "auditorName": "RSM US LLP",
+    "parentName": "School of Rock, LLC"
+   },
+   "conceptRationale": "Performance-based music school primarily serving school-age children.",
+   "staffingRationale": "Requires a General Manager, Music Director, and multiple music instructors to operate the school and teach students."
+  },
+  "scoring": {
+   "riskLevel": "Low",
+   "riskReasons": [
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Franchised Designated Schools Gross Sales",
+    "monthlyRevenue": 56945,
+    "monthlyVariable": 79.72300000000001,
+    "monthlyFixed": 352,
+    "monthlyEbitda": 56513.277,
+    "annualEbitda": 678159.324,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Franchised Designated Schools Gross Sales",
+     "math": "$683,344/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 243
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 567075,
+   "assumedLoan": 453660,
+   "assumedMonthlyDebtService": 6121.461063719451,
+   "dscr": 9.231991580399281,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.8361973063427202,
+   "variableRate": 0.0014000000000000002,
+   "fixedMonthly": 352,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 317075,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 317075,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 4278.451410260646,
+   "adjustedMonthlyNetCashFlow": 52234.825589739354,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $567,075 mid-point build-out, there is a $317,075 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $52,235/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "education_childcare",
+   "conceptLabel": "Education / childcare",
+   "conceptRationale": "Performance-based music school primarily serving school-age children.",
+   "benchmark": {
+    "label": "Education / childcare",
+    "cogsPct": [
+     5,
+     12
+    ],
+    "laborPct": [
+     40,
+     55
+    ],
+    "occupancyPct": [
+     10,
+     18
+    ],
+    "operatingEbitdaPct": [
+     10,
+     20
+    ],
+    "dominantRisk": "Regulated staff ratios and enrollment/utilization. Labor dominates and ratios cap how lean you can run.",
+    "rampNote": "12\u201324 months to mature enrollment.",
+    "considerations": [
+     "Labor is the dominant line at ~40\u201355% and is floored by regulated student/staff ratios.",
+     "Validate enrollment ramp and capacity-utilization curves with Item 20 operators.",
+     "Confirm licensing, facility, and compliance costs specific to your state \u2014 not in the FDD."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201320% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 56945,
+   "marginAfterFeesMonthly": 56513.277,
+   "benchmarkOperatingEbitdaMonthly": [
+    2415,
+    21776
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    40,
+    55
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      56513.277,
+      56513.277
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      18
+     ],
+     "dollarRange": [
+      5695,
+      10250
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      5,
+      12
+     ],
+     "dollarRange": [
+      2847,
+      6833
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      40,
+      55
+     ],
+     "dollarRange": [
+      22778,
+      31320
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 6.6\u20139 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      3417,
+      5695
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      2415,
+      21776
+     ],
+     "note": "\u2248 4% to 38% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cEducation / childcare\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 10\u201318% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 5\u201312% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 40\u201355% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so School of Rock, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 29167036,
+    "revenueTrend": "improving",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.7907391150456463,
+    "adjLiabilitiesToAssets": 0.7907391150456463,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

@@ -1,0 +1,667 @@
+{
+ "slug": "once-upon-a-child",
+ "brandName": "Once Upon A Child",
+ "category": "Kids Retail",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-09T18:48:15.471Z",
+ "sourceStem": "onceuponachildstore",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Once Upon A Child",
+   "franchisorEntity": "Winmark Corporation",
+   "headquarters": "605 Highway 169 N, Suite 400, Minneapolis, Minnesota 55441",
+   "brandBackground": "Once Upon A Child is a retail franchise specializing in buying and selling quality used and new children's apparel, toys, equipment, furniture, and accessories.",
+   "leadership": [
+    {
+     "name": "Brett D. Heffes",
+     "role": "Chair of the Board, Director and Chief Executive Officer",
+     "background": "Elected Chair in March 2020 and has served as CEO since February 2016.",
+     "whyItMatters": "Provides top-level executive leadership and strategic direction."
+    },
+    {
+     "name": "Renae M. Gaudette",
+     "role": "Chief Operating Officer",
+     "background": "Served as COO since February 2022 and has been with Winmark since 1995.",
+     "whyItMatters": "Oversees day-to-day franchise operations and brand management."
+    },
+    {
+     "name": "Anthony D. Ishaug",
+     "role": "Chief Financial Officer",
+     "background": "Served as CFO since September 2008 and Treasurer since November 2009.",
+     "whyItMatters": "Manages the financial strategy and fiscal health of the franchisor."
+    },
+    {
+     "name": "Lisa Hake",
+     "role": "Chief Marketing Officer",
+     "background": "Served as CMO since October 2025, previously VP of Marketing at Great Clips.",
+     "whyItMatters": "Directs brand marketing and promotional strategies."
+    },
+    {
+     "name": "Ryan D. Baune",
+     "role": "Vice President, Technology",
+     "background": "Served as VP of Technology since February 2025, previously with Taco John's.",
+     "whyItMatters": "Leads technology infrastructure and POS system development."
+    },
+    {
+     "name": "Bradley W. Spencer",
+     "role": "Vice President, Operations",
+     "background": "Served as VP of Operations since March 2020, previously Director of Once Upon A Child Division.",
+     "whyItMatters": "Directs operational support and field consulting for franchisees."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "2024 Openings Average Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 81693,
+      "basis": "Average annual gross sales of franchised stores opened in 2024.",
+      "annualRevenue": 980314,
+      "monthlyValues": [],
+      "sampleSize": 32
+     },
+     {
+      "label": "2024 Openings Average Gross Profit",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 54676,
+      "basis": "Average annual gross profit of franchised stores opened in 2024.",
+      "annualRevenue": 656116,
+      "monthlyValues": [],
+      "sampleSize": 32
+     },
+     {
+      "label": "2023 Openings Average Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 96583,
+      "basis": "Average annual gross sales of franchised stores opened in 2023.",
+      "annualRevenue": 1158993,
+      "monthlyValues": [],
+      "sampleSize": 26
+     },
+     {
+      "label": "2023 Openings Average Gross Profit",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 64074,
+      "basis": "Average annual gross profit of franchised stores opened in 2023.",
+      "annualRevenue": 768892,
+      "monthlyValues": [],
+      "sampleSize": 26
+     },
+     {
+      "label": "2022 Openings Average Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 94765,
+      "basis": "Average annual gross sales of franchised stores opened in 2022.",
+      "annualRevenue": 1137184,
+      "monthlyValues": [],
+      "sampleSize": 25
+     },
+     {
+      "label": "2022 Openings Average Gross Profit",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 63668,
+      "basis": "Average annual gross profit of franchised stores opened in 2022.",
+      "annualRevenue": 764014,
+      "monthlyValues": [],
+      "sampleSize": 25
+     },
+     {
+      "label": "2021 Openings Average Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 107939,
+      "basis": "Average annual gross sales of franchised stores opened in 2021.",
+      "annualRevenue": 1295268,
+      "monthlyValues": [],
+      "sampleSize": 13
+     },
+     {
+      "label": "2021 Openings Average Gross Profit",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 72198,
+      "basis": "Average annual gross profit of franchised stores opened in 2021.",
+      "annualRevenue": 866377,
+      "monthlyValues": [],
+      "sampleSize": 13
+     },
+     {
+      "label": "2020 Openings Average Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 93365,
+      "basis": "Average annual gross sales of franchised stores opened in 2020.",
+      "annualRevenue": 1120378,
+      "monthlyValues": [],
+      "sampleSize": 25
+     },
+     {
+      "label": "2020 Openings Average Gross Profit",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 62734,
+      "basis": "Average annual gross profit of franchised stores opened in 2020.",
+      "annualRevenue": 752813,
+      "monthlyValues": [],
+      "sampleSize": 25
+     },
+     {
+      "label": "2019 & Prior Openings Average Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 111198,
+      "basis": "Average annual gross sales of franchised stores opened in 2019 and prior.",
+      "annualRevenue": 1334370,
+      "monthlyValues": [],
+      "sampleSize": 287
+     },
+     {
+      "label": "2019 & Prior Openings Average Gross Profit",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 74099,
+      "basis": "Average annual gross profit of franchised stores opened in 2019 and prior.",
+      "annualRevenue": 889188,
+      "monthlyValues": [],
+      "sampleSize": 287
+     },
+     {
+      "label": "Total Franchised Stores Average Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 105749,
+      "basis": "Average annual gross sales of all reported franchised stores.",
+      "annualRevenue": 1268984,
+      "monthlyValues": [],
+      "sampleSize": 408
+     },
+     {
+      "label": "Total Franchised Stores Average Gross Profit",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 70541,
+      "basis": "Average annual gross profit of all reported franchised stores.",
+      "annualRevenue": 846489,
+      "monthlyValues": [],
+      "sampleSize": 408
+     }
+    ],
+    "notes": "Gross profit figures reflect cost of sales but do not reflect operating expenses.",
+    "sourcePage": "Item 19, p. 43",
+    "networkAverageMonthly": 105748.67,
+    "unitsReported": 408
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Non-refundable fee for a single store.",
+      "high": 25000,
+      "low": 25000
+     },
+     {
+      "category": "Fixtures and Supplies",
+      "recurring": false,
+      "notes": "Includes shelving, counters, and other store fixtures.",
+      "high": 75000,
+      "low": 60000
+     },
+     {
+      "category": "Signs",
+      "recurring": false,
+      "notes": "Interior and exterior signage.",
+      "high": 15000,
+      "low": 10000
+     },
+     {
+      "category": "Security System and/or Cameras",
+      "recurring": false,
+      "notes": "Required security equipment.",
+      "high": 4000,
+      "low": 1500
+     },
+     {
+      "category": "Point-of-Sale (POS) System",
+      "recurring": false,
+      "notes": "Hardware and software license fee.",
+      "high": 30900,
+      "low": 23200
+     },
+     {
+      "category": "Leasehold Improvements",
+      "recurring": false,
+      "notes": "Flooring, lighting, and decor.",
+      "high": 21000,
+      "low": 11000
+     },
+     {
+      "category": "Build-out",
+      "recurring": false,
+      "notes": "Physical labor expense of building the store.",
+      "high": 55000,
+      "low": 35000
+     },
+     {
+      "category": "Deposits and Business Licenses",
+      "recurring": false,
+      "notes": "Utility, security deposits, and licenses.",
+      "high": 15000,
+      "low": 5000
+     },
+     {
+      "category": "Opening Inventory",
+      "recurring": false,
+      "notes": "New and used children's apparel and goods.",
+      "high": 85000,
+      "low": 75000
+     },
+     {
+      "category": "Miscellaneous Pre-opening Expenses",
+      "recurring": false,
+      "notes": "Training travel, legal, internet, and pre-opening labor.",
+      "high": 80000,
+      "low": 50000
+     },
+     {
+      "category": "Rent - First 3 Months",
+      "recurring": true,
+      "notes": "Estimated rent expense for the first three months.",
+      "high": 30000,
+      "low": 20000
+     },
+     {
+      "category": "Additional Funds - 3 Months",
+      "recurring": true,
+      "notes": "Working capital for initial operations.",
+      "high": 50000,
+      "low": 40000
+     }
+    ],
+    "sourcePage": "Item 7, p. 16-17",
+    "initialInvestmentHigh": 485900,
+    "initialInvestmentLow": 355700
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Marketing Fee",
+      "source": "Item 6, p. 13",
+      "monthlyAmount": 125
+     },
+     {
+      "name": "Software Fee",
+      "source": "Item 6, p. 13",
+      "monthlyAmount": 295
+     }
+    ],
+    "brandFundPct": 0.03,
+    "localAdPct": 0.05,
+    "royaltyPct": 0.05
+   },
+   "hiddenCosts": [
+    {
+     "name": "Technology Fee",
+     "description": "Periodic fee for technology-related services, estimated between $500 and $2,500 per year.",
+     "source": "Item 6, p. 15",
+     "estimatedAnnualAmount": 2500
+    },
+    {
+     "name": "Computer Hardware Handling Fee",
+     "description": "Approximately 4% handling fee on computer hardware component purchases.",
+     "source": "Item 8, p. 19",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 45, 51",
+    "closedLastYear": 6,
+    "openedLastYear": 17,
+    "totalUnits": 441,
+    "transfersLastYear": 15
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by arbitration only in Minnesota, which may increase costs.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "Spouses must sign a personal guarantee, placing personal and marital assets at risk.",
+     "severity": "high",
+     "source": "Special Risks, p. 4"
+    },
+    {
+     "title": "Minimum Advertising Payments",
+     "description": "Franchisees must make minimum advertising payments regardless of sales levels.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4"
+    }
+   ],
+   "conceptType": "retail_product",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-27",
+      "cash": 10295700,
+      "currentAssets": 14096000,
+      "currentLiabilities": 5666000,
+      "deferredRevenue": 10017400,
+      "netIncome": 41654100,
+      "netWorth": -53682400,
+      "relatedPartyDebt": null,
+      "revenue": 86055700,
+      "totalAssets": 24884100,
+      "totalLiabilities": 78566500
+     },
+     {
+      "fiscalYearEnd": "2024-12-28",
+      "cash": 12189800,
+      "currentAssets": 15365600,
+      "currentLiabilities": 5087900,
+      "deferredRevenue": 9687300,
+      "netIncome": 39954200,
+      "netWorth": -51046100,
+      "relatedPartyDebt": null,
+      "revenue": 81289100,
+      "totalAssets": 26844500,
+      "totalLiabilities": 77890600
+     },
+     {
+      "fiscalYearEnd": "2023-12-30",
+      "cash": 13361500,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "deferredRevenue": null,
+      "netIncome": 40178100,
+      "netWorth": -59156100,
+      "relatedPartyDebt": null,
+      "revenue": 83243500,
+      "totalAssets": null,
+      "totalLiabilities": null
+     }
+    ],
+    "auditorName": "Grant Thornton LLP",
+    "parentName": null
+   },
+   "averageRentMonthly": 8333,
+   "conceptRationale": "Once Upon A Child is a retail store concept that buys and sells used and new children's products.",
+   "rentDetail": {
+    "rawValue": 100000,
+    "unit": "per_year",
+    "source": "Item 7, Note 13, p. 18",
+    "squareFootage": 4000
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "The retail store model requires on-site staff to manage inventory, buy used goods, and assist customers."
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section.",
+    "Franchisor financial distress disclosed (negative net worth) \u2014 confirm its ability to support the system against the audited statements."
+   ],
+   "midCohort": {
+    "label": "Network Average",
+    "monthlyRevenue": 105748.67,
+    "monthlyVariable": 137.47327099999998,
+    "monthlyFixed": 8753,
+    "monthlyEbitda": 96858.196729,
+    "annualEbitda": 1162298.360748,
+    "coversCosts": true,
+    "source": {
+     "basis": "network",
+     "label": "network average of disclosed cohorts",
+     "math": null
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 420800,
+   "assumedLoan": 336640,
+   "assumedMonthlyDebtService": 4542.451731452003,
+   "dscr": 21.322889588094554,
+   "rentPctOfRevenue": 0.07880004542846733,
+   "paybackYears": 0.3620412918152901,
+   "variableRate": 0.0013,
+   "fixedMonthly": 8753,
+   "notes": []
+  },
+  "underwriting": {
+   "capitalGap": 170800,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 170800,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 2304.689744926337,
+   "adjustedMonthlyNetCashFlow": 94553.50698407367,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $420,800 mid-point build-out, there is a $170,800 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $94,554/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "retail_product",
+   "conceptLabel": "Retail / product",
+   "conceptRationale": "Once Upon A Child is a retail store concept that buys and sells used and new children's products.",
+   "benchmark": {
+    "label": "Retail / product",
+    "cogsPct": [
+     45,
+     65
+    ],
+    "laborPct": [
+     10,
+     18
+    ],
+    "occupancyPct": [
+     8,
+     12
+    ],
+    "operatingEbitdaPct": [
+     5,
+     12
+    ],
+    "dominantRisk": "Gross margin on product (high COGS) and inventory turns. Thin margins amplify any sales miss.",
+    "rampNote": "3\u201312 months to run-rate depending on category.",
+    "considerations": [
+     "Budget COGS at 45\u201365% of sales \u2014 product margin is the whole game here.",
+     "Verify inventory turns and markdown/shrink rates with Item 20 operators.",
+     "Confirm minimum inventory and required reorder commitments in Item 8/Item 11."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 5\u201312% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 105748.67,
+   "marginAfterFeesMonthly": 96858.196729,
+   "benchmarkOperatingEbitdaMonthly": [
+    -1489,
+    32351
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    10,
+    18
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      96858.196729,
+      96858.196729
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      45,
+      65
+     ],
+     "dollarRange": [
+      47587,
+      68737
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      18
+     ],
+     "dollarRange": [
+      10575,
+      19035
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 3.1\u20135.5 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      6345,
+      10575
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -1489,
+      32351
+     ],
+     "note": "\u2248 -1% to 31% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cRetail / product\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Rent",
+     "basis": "disclosed",
+     "detail": "Taken from the FDD (~$8,333/mo); already netted in margin after fees & rent."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 45\u201365% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 10\u201318% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "This franchisor has negative net worth (about $53.68M in the red) \u2014 it owes more than it owns \u2014 though the trend isn't worsening. Understand what's funding the gap before you commit.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; the business is profitable. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "What we found (2025-12-27, audited by Grant Thornton LLP): Net income of $41.65M on $86.06M of revenue \u2014 roughly 0.5x spent per $1 earned. Negative net worth (a members'/stockholders' deficit) of $53.68M. Total liabilities are about 3.2x total assets. Cash of $10.30M against $5.67M of obligations due within a year (a current ratio of 2.49). Note: about 13% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 2.8x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "negative net worth \u2014 it owes more than it owns",
+    "liabilities far exceed assets"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "the business is profitable"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-27",
+    "netWorth": -53682400,
+    "netWorthSign": "negative",
+    "netWorthTrend": "flat",
+    "netIncome": 41654100,
+    "netIncomeTrend": "flat",
+    "revenue": 86055700,
+    "revenueTrend": "improving",
+    "currentRatio": 2.487822096717261,
+    "workingCapital": 8430000,
+    "liabilitiesToAssets": 3.1572972299580857,
+    "adjLiabilitiesToAssets": 2.7547349512339205,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": 0.12750217968218006,
+    "expenseToRevenue": 0.5159634980599774,
+    "cash": 10295700,
+    "nearTermObligations": 5666000
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

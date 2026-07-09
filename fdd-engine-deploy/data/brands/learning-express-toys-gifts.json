@@ -1,0 +1,426 @@
+{
+ "slug": "learning-express-toys-gifts",
+ "brandName": "Learning Express Toys & Gifts",
+ "category": "Kids Retail",
+ "grade": "THIN",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-09T18:47:41.615Z",
+ "sourceStem": "learning-express-toys",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Learning Express Toys & Gifts",
+   "franchisorEntity": "Learning Express, Inc.",
+   "headquarters": "63 Walnut St., Devens, Massachusetts 01434",
+   "brandBackground": "Learning Express operates retail specialty toy and gift stores featuring toys, books, games, and customer-centric services.",
+   "leadership": [
+    {
+     "name": "Lauren Derse",
+     "role": "Chief Executive Officer, Secretary and Director",
+     "background": "Joined Learning Express in June 2012 and has served as CEO since July 2022.",
+     "whyItMatters": "Leads the overall strategic direction and brand management of the franchise system."
+    },
+    {
+     "name": "Kathy Troknya",
+     "role": "President and Chief Operating Officer",
+     "background": "Joined Learning Express in 1990 and has served as President since November 2011.",
+     "whyItMatters": "Oversees all daily franchise operations and system-wide execution."
+    },
+    {
+     "name": "Mike Derse",
+     "role": "Chief Development Officer, Treasurer",
+     "background": "Joined in 2012, promoted to CDO in July 2022, and appointed Treasurer in January 2023.",
+     "whyItMatters": "Manages franchise development, expansion strategies, and financial treasury."
+    },
+    {
+     "name": "Kim Schneiderbauer",
+     "role": "Vice President, Finance & Human Resources",
+     "background": "Joined in 1999 and promoted to Vice President of Finance & HR in January 2018.",
+     "whyItMatters": "Directs the financial administration and human resource policies of the franchisor."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "2025 Franchised Stores",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 74277,
+      "basis": "Average sales of 77 franchised stores open for one full-year or more in 2025.",
+      "annualRevenue": 891318,
+      "monthlyValues": [],
+      "sampleSize": 77
+     },
+     {
+      "label": "2024 Franchised Stores",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 69740,
+      "basis": "Average sales of 84 franchised stores open for one full-year or more in 2024.",
+      "annualRevenue": 836884,
+      "monthlyValues": [],
+      "sampleSize": 84
+     },
+     {
+      "label": "2023 Franchised Stores",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 79109,
+      "basis": "Average sales of 83 franchised stores open for one full-year or more in 2023.",
+      "annualRevenue": 949309,
+      "monthlyValues": [],
+      "sampleSize": 83
+     }
+    ],
+    "notes": "Excludes stores open less than 12 months and one location in Fremont, NE due to population criteria.",
+    "sourcePage": "Item 19, p. 37"
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Standard initial fee for a new store.",
+      "low": 40000
+     }
+    ],
+    "sourcePage": "Item 7, p. 14"
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Email, Social Media, Text and Loyalty Marketing Service",
+      "source": "Item 6, p. 13",
+      "monthlyAmount": 212.5
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Payment by Credit Card Fee",
+     "description": "A fee of 3.5% of the invoice is charged for payments made to the franchisor via credit card.",
+     "source": "Item 6, p. 12"
+    },
+    {
+     "name": "POS and Back-Office Computer Maintenance",
+     "description": "Estimated annual cost of licensing, maintaining, and upgrading the POS and back-office computer system is $1,800 to $3,600.",
+     "source": "Item 11, p. 28"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 39-42",
+    "totalUnits": 79,
+    "transfersLastYear": 1
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "The franchise agreement requires mediation, arbitration, and litigation to take place in Massachusetts.",
+     "severity": "medium",
+     "source": "Item 17, p. 36"
+    },
+    {
+     "title": "Mandatory Minimum Royalty Payments",
+     "description": "Franchisees must pay a minimum royalty of $1,500 per month regardless of sales performance.",
+     "severity": "high",
+     "source": "Item 6, p. 12"
+    },
+    {
+     "title": "Spousal Personal Guarantee",
+     "description": "Spouses or domestic partners of owners with a 5% or greater interest must sign a personal guarantee.",
+     "severity": "medium",
+     "source": "Item 15, p. 33"
+    }
+   ],
+   "conceptType": "retail_product",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025",
+      "revenue": 4580079,
+      "totalAssets": 3128909,
+      "totalLiabilities": 444697
+     },
+     {
+      "fiscalYearEnd": "2024",
+      "revenue": 4861287,
+      "totalAssets": 3169587,
+      "totalLiabilities": 261431
+     },
+     {
+      "fiscalYearEnd": "2023",
+      "revenue": 5375546,
+      "totalAssets": 4011790,
+      "totalLiabilities": 370566
+     }
+    ]
+   },
+   "averageRentMonthly": 6729,
+   "conceptRationale": "Learning Express is a specialty retail toy and gift store concept.",
+   "rentDetail": {
+    "rawValue": 35,
+    "unit": "per_sqft_per_year",
+    "source": "Item 7, Note B, p. 15",
+    "squareFootage": 2307
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "Requires active management and a roster of 6 to 10 employees to operate the retail storefront."
+  },
+  "scoring": {
+   "riskLevel": "Low",
+   "riskReasons": [
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "2025 Franchised Stores",
+    "monthlyRevenue": 74277,
+    "monthlyVariable": 0,
+    "monthlyFixed": 6941.5,
+    "monthlyEbitda": 67335.5,
+    "annualEbitda": 808026,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "2025 Franchised Stores",
+     "math": "$891,318/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 77
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": null,
+   "assumedLoan": null,
+   "assumedMonthlyDebtService": null,
+   "dscr": null,
+   "rentPctOfRevenue": 0.0905933196009532,
+   "paybackYears": null,
+   "variableRate": 0,
+   "fixedMonthly": 6941.5,
+   "notes": [
+    "Royalty % not found; variable costs may be understated.",
+    "Item 17 initial investment not found; debt-service and payback cannot be computed."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": null,
+   "sbaLoanRequired": false,
+   "recommendedLoan": null,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": null,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": null,
+   "assessment": "Item 17 investment range was not found, so the capital gap cannot be computed from this document."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "retail_product",
+   "conceptLabel": "Retail / product",
+   "conceptRationale": "Learning Express is a specialty retail toy and gift store concept.",
+   "benchmark": {
+    "label": "Retail / product",
+    "cogsPct": [
+     45,
+     65
+    ],
+    "laborPct": [
+     10,
+     18
+    ],
+    "occupancyPct": [
+     8,
+     12
+    ],
+    "operatingEbitdaPct": [
+     5,
+     12
+    ],
+    "dominantRisk": "Gross margin on product (high COGS) and inventory turns. Thin margins amplify any sales miss.",
+    "rampNote": "3\u201312 months to run-rate depending on category.",
+    "considerations": [
+     "Budget COGS at 45\u201365% of sales \u2014 product margin is the whole game here.",
+     "Verify inventory turns and markdown/shrink rates with Item 20 operators.",
+     "Confirm minimum inventory and required reorder commitments in Item 8/Item 11."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 5\u201312% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 74277,
+   "marginAfterFeesMonthly": 67335.5,
+   "benchmarkOperatingEbitdaMonthly": [
+    -1742,
+    22026
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    10,
+    18
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      67335.5,
+      67335.5
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      45,
+      65
+     ],
+     "dollarRange": [
+      33425,
+      48280
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      18
+     ],
+     "dollarRange": [
+      7428,
+      13370
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 2.1\u20133.9 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      4457,
+      7428
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -1742,
+      22026
+     ],
+     "note": "\u2248 -2% to 30% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cRetail / product\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Rent",
+     "basis": "disclosed",
+     "detail": "Taken from the FDD (~$6,729/mo); already netted in margin after fees & rent."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 45\u201365% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 10\u201318% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 4580079,
+    "revenueTrend": "worsening",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.1421252583568266,
+    "adjLiabilitiesToAssets": 0.1421252583568266,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

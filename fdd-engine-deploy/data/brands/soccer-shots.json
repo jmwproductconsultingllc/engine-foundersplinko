@@ -1,0 +1,583 @@
+{
+ "slug": "soccer-shots",
+ "brandName": "Soccer Shots",
+ "category": "Sports & Athletics",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-09T18:50:56.138Z",
+ "sourceStem": "soccer-shots",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Soccer Shots",
+   "franchisorEntity": "Soccer Shots Franchising, LLC",
+   "headquarters": "Middletown, PA",
+   "brandBackground": "Soccer Shots offers elective youth soccer education and character development programs for children primarily aged 18 months to 8 years.",
+   "leadership": [
+    {
+     "name": "Justin Bredeman",
+     "role": "Chief Executive Officer",
+     "background": "CEO of Soccer Shots since October 2009 and former franchise owner.",
+     "whyItMatters": "Provides long-term brand leadership and direct franchisee perspective."
+    },
+    {
+     "name": "Kevin Stumpf",
+     "role": "President",
+     "background": "President since August 2021, previously serving as Chief Financial Officer.",
+     "whyItMatters": "Brings strong financial and operational management experience to the brand."
+    },
+    {
+     "name": "Jason Webb",
+     "role": "Founder, Vice President of Strategic Partnerships",
+     "background": "Cofounder of Soccer Shots and VP of Strategic Partnerships since January 2015.",
+     "whyItMatters": "Maintains foundational brand values and drives key strategic relationships."
+    },
+    {
+     "name": "Kyle Squillario",
+     "role": "Vice President",
+     "background": "Vice President since January 2022 and Partner at Susquehanna Private Capital.",
+     "whyItMatters": "Connects the brand to its private equity parent company resources."
+    },
+    {
+     "name": "Camilo Beltran",
+     "role": "Executive Director",
+     "background": "Executive Director since January 2022 and Executive Director of COUS, LLC since 2012.",
+     "whyItMatters": "Oversees corporate-affiliated operations and system integration."
+    },
+    {
+     "name": "Matt Crist",
+     "role": "Senior Director, Franchise Development",
+     "background": "Senior Director of Franchise Development since April 2024, with the brand since 2015.",
+     "whyItMatters": "Leads franchise system growth and recruitment efforts."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Single Territory Reporting Franchisees Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 18569,
+      "basis": "Average annual gross sales for single territory franchisees open at least 9 months in 2025.",
+      "annualRevenue": 222830.36,
+      "monthlyValues": [],
+      "sampleSize": 57
+     },
+     {
+      "label": "Two Territories Reporting Franchisees Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 46574,
+      "basis": "Average annual gross sales for franchisees with two territories open at least 9 months in 2025.",
+      "annualRevenue": 558889.78,
+      "monthlyValues": [],
+      "sampleSize": 50
+     },
+     {
+      "label": "Three Territories Reporting Franchisees Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 85135,
+      "basis": "Average annual gross sales for franchisees with three territories open at least 9 months in 2025.",
+      "annualRevenue": 1021618.97,
+      "monthlyValues": [],
+      "sampleSize": 23
+     },
+     {
+      "label": "Four or More Territories Reporting Franchisees Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 124270,
+      "basis": "Average annual gross sales for franchisees with four or more territories open at least 9 months in 2025.",
+      "annualRevenue": 1491235.73,
+      "monthlyValues": [],
+      "sampleSize": 19
+     },
+     {
+      "label": "Single Territory Reporting Franchisees EBITDA Percentage",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 4605,
+      "basis": "Average EBITDA margin percentage for single territory franchisees in 2025.",
+      "annualRevenue": 55261.93,
+      "monthlyValues": [],
+      "sampleSize": 57
+     },
+     {
+      "label": "Multi-Territory Reporting Franchisees EBITDA Percentage",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 12140,
+      "basis": "Average EBITDA margin percentage for multi-territory franchisees in 2025.",
+      "annualRevenue": 145676.46,
+      "monthlyValues": [],
+      "sampleSize": 92
+     },
+     {
+      "label": "Company-Owned Territories Average Gross Sales",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 17820,
+      "basis": "Average annual gross sales per company-owned territory in 2025.",
+      "annualRevenue": 213842.85,
+      "monthlyValues": [],
+      "sampleSize": 33
+     }
+    ],
+    "notes": "EBITDA values calculated by applying the average EBITDA margin percentages to the average gross sales of the respective cohorts.",
+    "sourcePage": "Item 19, pp. 39-55",
+    "networkAverageMonthly": null,
+    "unitsReported": 182
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Covers administrative costs, training for 2 people, and initial shopping cart credits.",
+      "high": 36500,
+      "low": 36500
+     },
+     {
+      "category": "Expenses While Attending Training",
+      "recurring": false,
+      "notes": "Covers transportation, lodging, and meals for training attendees.",
+      "high": 2500,
+      "low": 500
+     },
+     {
+      "category": "Insurance",
+      "recurring": true,
+      "notes": "Estimated cost of required insurance policies.",
+      "high": 2000,
+      "low": 1000
+     },
+     {
+      "category": "Office Equipment and Office Supplies",
+      "recurring": false,
+      "notes": "Assumes use of an existing computer; high end covers new purchases.",
+      "high": 2000,
+      "low": 0
+     },
+     {
+      "category": "On Field Equipment",
+      "recurring": false,
+      "notes": "Additional equipment needed beyond initial credits.",
+      "high": 1000,
+      "low": 500
+     },
+     {
+      "category": "Branded Apparel",
+      "recurring": false,
+      "notes": "Required branded clothing for coaches and staff.",
+      "high": 1000,
+      "low": 400
+     },
+     {
+      "category": "Prepaid Expenses and Deposits",
+      "recurring": false,
+      "notes": "Includes security deposits, business licenses, and utility deposits.",
+      "high": 500,
+      "low": 100
+     },
+     {
+      "category": "Organizational Costs/Professional Fees",
+      "recurring": false,
+      "notes": "Legal and accounting fees for business setup.",
+      "high": 2000,
+      "low": 500
+     },
+     {
+      "category": "Season Prizes and Jersey Costs",
+      "recurring": true,
+      "notes": "Prizes and jerseys for the first season of operations.",
+      "high": 2500,
+      "low": 1000
+     },
+     {
+      "category": "Marketing Expenses",
+      "recurring": false,
+      "notes": "Includes the $100 Franchise Advisory Council fee.",
+      "high": 100,
+      "low": 100
+     },
+     {
+      "category": "Additional Funds - 3 months",
+      "recurring": false,
+      "notes": "Working capital to cover initial operational expenses.",
+      "high": 4200,
+      "low": 2350
+     }
+    ],
+    "sourcePage": "Item 7, pp. 20-21",
+    "initialInvestmentHigh": 54300,
+    "initialInvestmentLow": 42950
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Franchise Advisory Council Fee",
+      "source": "Item 6, p. 9",
+      "monthlyAmount": 8.33
+     }
+    ],
+    "brandFundPct": 1,
+    "localAdPct": 2,
+    "royaltyPct": 7
+   },
+   "hiddenCosts": [
+    {
+     "name": "Software License Fee",
+     "description": "Sliding scale starting at 2% on the first $50,000 of Gross Sales, decreasing to 0.25% over $1,000,000.",
+     "source": "Item 6, p. 9",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Non-Compliance Fees",
+     "description": "Charged per contractual deviation: $250 for first, $500 for second, $750 for third and subsequent violations.",
+     "source": "Item 6, p. 9",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Late P&L Upload Fee",
+     "description": "Charged for late financial uploads: $50 for first, $100 for second, $150 for third breach in a 12-month period.",
+     "source": "Item 6, p. 9",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 57",
+    "closedLastYear": 0,
+    "openedLastYear": 11,
+    "totalUnits": 335,
+    "transfersLastYear": 14
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved via mediation, arbitration, or litigation only in Pennsylvania.",
+     "severity": "medium",
+     "source": "Front Matter, p. 4"
+    },
+    {
+     "title": "Mandatory Minimum Payments",
+     "description": "Franchisees must make minimum royalty, advertising, and other payments regardless of sales levels.",
+     "severity": "high",
+     "source": "Front Matter, p. 4"
+    },
+    {
+     "title": "Mandatory Minimum Sales Levels",
+     "description": "Failure to maintain minimum sales performance levels can result in loss of territory or termination.",
+     "severity": "high",
+     "source": "Front Matter, p. 4"
+    }
+   ],
+   "conceptType": "education_childcare",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025",
+      "revenue": 15627066,
+      "totalAssets": 72987444,
+      "totalLiabilities": 7731371
+     },
+     {
+      "fiscalYearEnd": "2024",
+      "revenue": 17295587,
+      "totalAssets": 67917229,
+      "totalLiabilities": 4551113
+     },
+     {
+      "fiscalYearEnd": "2023",
+      "revenue": 17199413,
+      "totalAssets": 65542371,
+      "totalLiabilities": 4801452
+     }
+    ],
+    "auditorName": "CBIZ CPAs P.C.",
+    "parentName": "SS Acquisition LLC"
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "The franchise offers youth soccer education and character development programs primarily to young children.",
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p. 22",
+    "squareFootage": null
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "The business model relies on hiring and training coaches to deliver soccer instruction on-field."
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "2 high-severity operational tripwires disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Single Territory Reporting Franchisees Gross Sales",
+    "monthlyRevenue": 18569,
+    "monthlyVariable": 1856.9,
+    "monthlyFixed": 8.33,
+    "monthlyEbitda": 16703.769999999997,
+    "annualEbitda": 200445.23999999996,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Single Territory Reporting Franchisees Gross Sales",
+     "math": "$222,830/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 57
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 48625,
+   "assumedLoan": 38900,
+   "assumedMonthlyDebtService": 524.8971374568765,
+   "dscr": 31.82293978764994,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.2425849573679076,
+   "variableRate": 0.1,
+   "fixedMonthly": 8.33,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 16703.769999999997,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $48,625 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $16,704/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "education_childcare",
+   "conceptLabel": "Education / childcare",
+   "conceptRationale": "The franchise offers youth soccer education and character development programs primarily to young children.",
+   "benchmark": {
+    "label": "Education / childcare",
+    "cogsPct": [
+     5,
+     12
+    ],
+    "laborPct": [
+     40,
+     55
+    ],
+    "occupancyPct": [
+     10,
+     18
+    ],
+    "operatingEbitdaPct": [
+     10,
+     20
+    ],
+    "dominantRisk": "Regulated staff ratios and enrollment/utilization. Labor dominates and ratios cap how lean you can run.",
+    "rampNote": "12\u201324 months to mature enrollment.",
+    "considerations": [
+     "Labor is the dominant line at ~40\u201355% and is floored by regulated student/staff ratios.",
+     "Validate enrollment ramp and capacity-utilization curves with Item 20 operators.",
+     "Confirm licensing, facility, and compliance costs specific to your state \u2014 not in the FDD."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201320% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 18569,
+   "marginAfterFeesMonthly": 16703.769999999997,
+   "benchmarkOperatingEbitdaMonthly": [
+    -936,
+    5377
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    40,
+    55
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      16703.769999999997,
+      16703.769999999997
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      18
+     ],
+     "dollarRange": [
+      1857,
+      3342
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      5,
+      12
+     ],
+     "dollarRange": [
+      928,
+      2228
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      40,
+      55
+     ],
+     "dollarRange": [
+      7428,
+      10213
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 2.1\u20132.9 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      1114,
+      1857
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -936,
+      5377
+     ],
+     "note": "\u2248 -5% to 29% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cEducation / childcare\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 10\u201318% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 5\u201312% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 40\u201355% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so SS Acquisition LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 15627066,
+    "revenueTrend": "worsening",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.10592741129556475,
+    "adjLiabilitiesToAssets": 0.10592741129556475,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

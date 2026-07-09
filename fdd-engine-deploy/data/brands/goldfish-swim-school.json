@@ -1,0 +1,549 @@
+{
+ "slug": "goldfish-swim-school",
+ "brandName": "Goldfish Swim School",
+ "category": "Swim",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-09T18:43:14.527Z",
+ "sourceStem": "goldfish-swim",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 11",
+     "Item 12",
+     "Item 15",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Goldfish Swim School",
+   "franchisorEntity": "GOLDFISH SWIM SCHOOL FRANCHISING LLC",
+   "headquarters": "Troy, Michigan",
+   "brandBackground": "Goldfish Swim School provides specialized quality swim instruction and aquatic activities to children aged 4 months to 12 years.",
+   "leadership": [
+    {
+     "name": "Chris McCuiston",
+     "role": "Managing Member and CEO",
+     "background": "Co-founded the brand and has served as CEO since formation in June 2008.",
+     "whyItMatters": "Provides long-term executive leadership and continuity since inception."
+    },
+    {
+     "name": "Andrew McCuiston",
+     "role": "Member & President",
+     "background": "Served as VP of Franchise Development from 2008 to 2018, and President since May 2018.",
+     "whyItMatters": "Oversees the strategic growth and operational direction of the franchise system."
+    },
+    {
+     "name": "Jennifer McCuiston",
+     "role": "Member",
+     "background": "Thought leader designing and executing the swim curriculum since October 2005.",
+     "whyItMatters": "Ensures the core educational product and curriculum remain high quality."
+    },
+    {
+     "name": "Matthew Davis",
+     "role": "Chief Financial Officer",
+     "background": "Served as CFO since February 2022, previously VP of Finance and Director of Finance.",
+     "whyItMatters": "Manages the financial health and reporting of the franchisor entity."
+    },
+    {
+     "name": "Daniel Israel",
+     "role": "Chief Franchising Officer and General Counsel",
+     "background": "Served as Chief Franchising Officer and General Counsel since February 2022.",
+     "whyItMatters": "Directs legal compliance and franchise sales operations."
+    },
+    {
+     "name": "Michael Skitzki",
+     "role": "Chief Operations Officer",
+     "background": "Served as COO since February 2022, previously VP of Operations and COO of Franworth.",
+     "whyItMatters": "Responsible for day-to-day operational support and system execution."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "All Franchised Schools Open > 12 Months - Average Total Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 166181,
+      "basis": "Average annual revenue of 169 franchised schools open at least 12 months as of Dec 31, 2025.",
+      "annualRevenue": 1994169,
+      "monthlyValues": [],
+      "sampleSize": 169
+     },
+     {
+      "label": "All Franchised Schools Open > 12 Months - Average Profit Before Other Expenses",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 46710,
+      "basis": "Average annual profit before other expenses of 169 franchised schools open at least 12 months.",
+      "annualRevenue": 560524,
+      "monthlyValues": [],
+      "sampleSize": 169
+     },
+     {
+      "label": "Franchised Schools Open 13-24 Months - Average Total Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 127834,
+      "basis": "Average annual revenue of 17 franchised schools open between 12 and 24 months as of Dec 31, 2025.",
+      "annualRevenue": 1534009,
+      "monthlyValues": [],
+      "sampleSize": 17
+     },
+     {
+      "label": "Franchised Schools Open 13-24 Months - Average Profit Before Other Expenses",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 22653,
+      "basis": "Average annual profit before other expenses of 17 franchised schools open between 12 and 24 months.",
+      "annualRevenue": 271835,
+      "monthlyValues": [],
+      "sampleSize": 17
+     }
+    ],
+    "notes": "Profit before other expenses does not include interest, taxes, depreciation, amortization, or owner compensation.",
+    "sourcePage": "Item 19, p. 58-60",
+    "networkAverageMonthly": null,
+    "unitsReported": 186
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Franchise Fee",
+      "recurring": false,
+      "notes": "Paid at signing of Franchise Agreement.",
+      "high": 50000,
+      "low": 40000
+     },
+     {
+      "category": "Real Estate Fee",
+      "recurring": false,
+      "notes": "Paid at signing of Franchise Agreement.",
+      "high": 2500,
+      "low": 0
+     },
+     {
+      "category": "Real Estate/Rent",
+      "recurring": false,
+      "notes": "Includes 3 months rent and security deposit.",
+      "high": 82000,
+      "low": 0
+     },
+     {
+      "category": "Architectural Fees",
+      "recurring": false,
+      "notes": "Before beginning operations.",
+      "high": 85000,
+      "low": 34500
+     },
+     {
+      "category": "Leasehold Improvements",
+      "recurring": false,
+      "notes": "Renovation and pool construction costs.",
+      "high": 2685033,
+      "low": 1334230
+     },
+     {
+      "category": "Insurance",
+      "recurring": true,
+      "notes": "Estimated for first 3 months of operation.",
+      "high": 5700,
+      "low": 4283
+     },
+     {
+      "category": "Training",
+      "recurring": false,
+      "notes": "Travel and living expenses during training.",
+      "high": 37000,
+      "low": 17250
+     },
+     {
+      "category": "Furniture, Fixtures, Equipment, Computers, and Decor",
+      "recurring": false,
+      "notes": "Includes computer hardware and software.",
+      "high": 126500,
+      "low": 100000
+     },
+     {
+      "category": "Initial Advertising Expense",
+      "recurring": false,
+      "notes": "Before opening and first 3 months.",
+      "high": 70000,
+      "low": 30000
+     },
+     {
+      "category": "Licenses, Permits, & Deposits",
+      "recurring": false,
+      "notes": "Zoning, occupancy, and utility deposits.",
+      "high": 80000,
+      "low": 4500
+     },
+     {
+      "category": "Legal & Accounting",
+      "recurring": false,
+      "notes": "Professional fees to establish business.",
+      "high": 35000,
+      "low": 8500
+     },
+     {
+      "category": "Project Manager/Owner's Representative",
+      "recurring": false,
+      "notes": "To supervise construction.",
+      "high": 45000,
+      "low": 15000
+     },
+     {
+      "category": "Water Tap Fees",
+      "recurring": false,
+      "notes": "Local government utility connection fees.",
+      "high": 93000,
+      "low": 0
+     },
+     {
+      "category": "Additional Funds (3 months)",
+      "recurring": true,
+      "notes": "Working capital for initial operational period.",
+      "high": 350000,
+      "low": 75000
+     }
+    ],
+    "sourcePage": "Item 7, p. 13-14",
+    "initialInvestmentHigh": 3746733,
+    "initialInvestmentLow": 1663263
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p. 9",
+      "monthlyAmount": 1295
+     }
+    ],
+    "brandFundPct": 0.02,
+    "localAdPct": 0.02,
+    "royaltyPct": 0.06
+   },
+   "hiddenCosts": [
+    {
+     "name": "Technology Fee",
+     "description": "Currently $700 to $1,295 per month depending on service level selected.",
+     "source": "Item 6, p. 9",
+     "estimatedAnnualAmount": 15540
+    },
+    {
+     "name": "Transfer Fee",
+     "description": "50% of the then-current initial franchise fee if transferee is new to the system.",
+     "source": "Item 6, p. 10",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Audit Expenses",
+     "description": "Approximately $1,500 to $5,000 plus interest on underpayments if audit reveals underreporting of 3% or more.",
+     "source": "Item 6, p. 10",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 70",
+    "closedLastYear": 0,
+    "openedLastYear": 23,
+    "totalUnits": 199,
+    "transfersLastYear": 8
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by arbitration or litigation only in Michigan, which may increase costs.",
+     "severity": "medium",
+     "source": "Special Risks, p. 5"
+    },
+    {
+     "title": "Mandatory Minimum Payments",
+     "description": "Franchisees must pay minimum royalty and marketing fees regardless of sales levels.",
+     "severity": "high",
+     "source": "Special Risks, p. 5"
+    }
+   ],
+   "conceptType": "experiential_entertainment",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unknown",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [],
+    "auditorName": null,
+    "parentName": null
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "The concept is an indoor swim school offering lessons and aquatic activities, which is an experiential child-focused service.",
+   "rentDetail": {
+    "rawValue": 82000,
+    "unit": "unknown",
+    "source": "Item 7, p. 13",
+    "squareFootage": 9000
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "Requires swim instructors, lifeguards, reception staff, and a designated manager to operate safely."
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "Capital gap of $2,454,998 is ~10x your liquid \u2014 extreme leverage; the deal rests almost entirely on outside capital.",
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "All Franchised Schools Open > 12 Months - Average Total Revenue",
+    "monthlyRevenue": 166181,
+    "monthlyVariable": 166.181,
+    "monthlyFixed": 1295,
+    "monthlyEbitda": 164719.819,
+    "annualEbitda": 1976637.8279999997,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "All Franchised Schools Open > 12 Months - Average Total Revenue",
+     "math": "$1,994,169/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 169
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 2704998,
+   "assumedLoan": 2163998.4,
+   "assumedMonthlyDebtService": 29199.91171262881,
+   "dscr": 5.6411067478933345,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 1.368484383776551,
+   "variableRate": 0.001,
+   "fixedMonthly": 1295,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 2454998,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 2454998,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 33126.514721397354,
+   "adjustedMonthlyNetCashFlow": 131593.30427860265,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $2,704,998 mid-point build-out, there is a $2,454,998 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $131,593/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "experiential_entertainment",
+   "conceptLabel": "Experiential / entertainment venue",
+   "conceptRationale": "The concept is an indoor swim school offering lessons and aquatic activities, which is an experiential child-focused service.",
+   "benchmark": {
+    "label": "Experiential / entertainment venue",
+    "cogsPct": [
+     8,
+     18
+    ],
+    "laborPct": [
+     22,
+     30
+    ],
+    "occupancyPct": [
+     10,
+     18
+    ],
+    "operatingEbitdaPct": [
+     12,
+     22
+    ],
+    "dominantRisk": "Fixed-cost coverage and utilization \u2014 big-box rent and equipment R&M against variable foot traffic. Slow weeks hurt more than COGS.",
+    "rampNote": "6\u201318 months to a mature traffic/booking base; year-one runs well under the Item 19 average.",
+    "considerations": [
+     "COGS is modest; the real costs are labor (~22\u201330%), big-footprint rent, and equipment maintenance.",
+     "Ask about utilization/occupancy rates and seasonality at Item 20 units \u2014 the model lives or dies on weekday/off-peak traffic.",
+     "Confirm equipment R&M and replacement reserves; experiential gear wears and isn't in the pro forma."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 12\u201322% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 166181,
+   "marginAfterFeesMonthly": 164719.819,
+   "benchmarkOperatingEbitdaMonthly": [
+    38422,
+    88277
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    22,
+    30
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      164719.819,
+      164719.819
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      18
+     ],
+     "dollarRange": [
+      16618,
+      29913
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      8,
+      18
+     ],
+     "dollarRange": [
+      13294,
+      29913
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      22,
+      30
+     ],
+     "dollarRange": [
+      36560,
+      49854
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 10.5\u201314.4 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      9971,
+      16618
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      38422,
+      88277
+     ],
+     "note": "\u2248 23% to 53% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cExperiential / entertainment venue\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 10\u201318% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 8\u201318% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 22\u201330% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "INSUFFICIENT_DATA",
+   "headline": "We couldn't extract enough of this franchisor's financial statements to assess its condition. Request the audited Item 21 financials and have them reviewed before committing.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [],
+   "mitigants": [],
+   "metrics": {
+    "fiscalYearEnd": null,
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": null,
+    "revenueTrend": "unknown",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": null,
+    "adjLiabilitiesToAssets": null,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "missing"
+  }
+ }
+}

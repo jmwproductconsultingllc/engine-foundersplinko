@@ -1,0 +1,663 @@
+{
+ "slug": "british-swim-school",
+ "brandName": "British Swim School",
+ "category": "Swim",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-09T18:42:27.816Z",
+ "sourceStem": "brittish-swim",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "British Swim School",
+   "franchisorEntity": "British Swim School Franchising, LLC",
+   "headquarters": "Virginia Beach, VA",
+   "brandBackground": "",
+   "leadership": [
+    {
+     "name": "Ashley Gundlach",
+     "role": "President",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Michael Hull",
+     "role": "Chief Financial Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Jay Canaday",
+     "role": "Vice President of Operations",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Melissa McGarvey",
+     "role": "Vice President of Aquatics",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Dave Warn",
+     "role": "Vice President of Franchise Development",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Kevin W. Wilson",
+     "role": "Chief Executive Officer (BFB)",
+     "background": "",
+     "whyItMatters": ""
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Class of Pre-2022 Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 47895,
+      "basis": "Item 19, p.61",
+      "annualRevenue": 574744,
+      "monthlyValues": [],
+      "sampleSize": 88
+     },
+     {
+      "label": "Class of 2022 Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 32060,
+      "basis": "Item 19, p.61",
+      "annualRevenue": 384722,
+      "monthlyValues": [],
+      "sampleSize": 13
+     },
+     {
+      "label": "Class of 2023 Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 31347,
+      "basis": "Item 19, p.61",
+      "annualRevenue": 376169,
+      "monthlyValues": [],
+      "sampleSize": 36
+     },
+     {
+      "label": "Class of 2024 Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 21406,
+      "basis": "Item 19, p.61",
+      "annualRevenue": 256871,
+      "monthlyValues": [],
+      "sampleSize": 69
+     },
+     {
+      "label": "Class of 2025 Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 9974,
+      "basis": "Item 19, p.61",
+      "annualRevenue": 119685,
+      "monthlyValues": [],
+      "sampleSize": 38
+     },
+     {
+      "label": "2025 Income Statement Performance Average Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 36076,
+      "basis": "Item 19, p.63",
+      "annualRevenue": 432912,
+      "monthlyValues": [],
+      "sampleSize": 168
+     },
+     {
+      "label": "2025 Income Statement Performance Average Net Operating Income",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 9038,
+      "basis": "Item 19, p.63",
+      "annualRevenue": 108457,
+      "monthlyValues": [],
+      "sampleSize": 168
+     }
+    ],
+    "notes": "",
+    "sourcePage": "Item 19, p.60-65",
+    "networkAverageMonthly": null,
+    "unitsReported": 244
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 59500,
+      "low": 59500
+     },
+     {
+      "category": "Mailer Program Set-Up Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 1000,
+      "low": 1000
+     },
+     {
+      "category": "Mailing List Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 150,
+      "low": 150
+     },
+     {
+      "category": "Postcard Fees",
+      "recurring": false,
+      "notes": "",
+      "high": 4500,
+      "low": 4500
+     },
+     {
+      "category": "SEO Fees",
+      "recurring": false,
+      "notes": "",
+      "high": 3600,
+      "low": 3600
+     },
+     {
+      "category": "Digital Marketing Fees",
+      "recurring": false,
+      "notes": "",
+      "high": 17000,
+      "low": 17000
+     },
+     {
+      "category": "Chatbot Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 1500,
+      "low": 500
+     },
+     {
+      "category": "Pool Security Deposit",
+      "recurring": false,
+      "notes": "",
+      "high": 8000,
+      "low": 0
+     },
+     {
+      "category": "Pool Usage Fee - 3 months",
+      "recurring": false,
+      "notes": "",
+      "high": 12000,
+      "low": 1500
+     },
+     {
+      "category": "Opening Inventory",
+      "recurring": false,
+      "notes": "",
+      "high": 6100,
+      "low": 3050
+     },
+     {
+      "category": "Signage",
+      "recurring": false,
+      "notes": "",
+      "high": 750,
+      "low": 250
+     },
+     {
+      "category": "Financial Management Training",
+      "recurring": false,
+      "notes": "",
+      "high": 200,
+      "low": 200
+     },
+     {
+      "category": "Training: Travel and Living Expenses",
+      "recurring": false,
+      "notes": "",
+      "high": 5000,
+      "low": 1500
+     },
+     {
+      "category": "Accountant and Legal Fees",
+      "recurring": false,
+      "notes": "",
+      "high": 1000,
+      "low": 300
+     },
+     {
+      "category": "Insurance Premium",
+      "recurring": true,
+      "notes": "",
+      "high": 5000,
+      "low": 2400
+     },
+     {
+      "category": "Computer System",
+      "recurring": false,
+      "notes": "",
+      "high": 3500,
+      "low": 0
+     },
+     {
+      "category": "Office Security Deposit",
+      "recurring": false,
+      "notes": "",
+      "high": 1500,
+      "low": 0
+     },
+     {
+      "category": "Office Rent, Office Furniture, Fixtures and Equipment - 3 Months",
+      "recurring": false,
+      "notes": "",
+      "high": 4500,
+      "low": 0
+     },
+     {
+      "category": "Technology Fee - 3 months",
+      "recurring": false,
+      "notes": "",
+      "high": 750,
+      "low": 750
+     },
+     {
+      "category": "Pre-Marketing and Grand Opening Advertising",
+      "recurring": false,
+      "notes": "",
+      "high": 15000,
+      "low": 10000
+     },
+     {
+      "category": "First 3 Months of Aquatics Manager",
+      "recurring": false,
+      "notes": "",
+      "high": 10500,
+      "low": 7500
+     },
+     {
+      "category": "Additional Funds - 3 Months",
+      "recurring": false,
+      "notes": "",
+      "high": 15000,
+      "low": 9000
+     }
+    ],
+    "sourcePage": "Item 7, p.19-22",
+    "initialInvestmentHigh": 176050,
+    "initialInvestmentLow": 122700
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p.13",
+      "monthlyAmount": 250
+     },
+     {
+      "name": "SEO Fee",
+      "source": "Item 6, p.12",
+      "monthlyAmount": 300
+     }
+    ],
+    "brandFundPct": 0.02,
+    "localAdPct": null,
+    "royaltyPct": 0.1
+   },
+   "hiddenCosts": [
+    {
+     "name": "Chatbot Fee",
+     "description": "",
+     "source": "Item 6, p.17",
+     "estimatedAnnualAmount": 6000
+    },
+    {
+     "name": "Annual Convention Non-Attendance Fee",
+     "description": "",
+     "source": "Item 6, p.15",
+     "estimatedAnnualAmount": 1200
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p.73",
+    "closedLastYear": 16,
+    "openedLastYear": 47,
+    "totalUnits": 289,
+    "transfersLastYear": 18
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p.5"
+    },
+    {
+     "title": "Mandatory Minimum Payments",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p.5"
+    },
+    {
+     "title": "Financial Condition",
+     "description": "",
+     "severity": "high",
+     "source": "Special Risks, p.5"
+    },
+    {
+     "title": "Unopened Franchises",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p.5"
+    }
+   ],
+   "conceptType": "experiential_entertainment",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": true,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025",
+      "revenue": 12279184,
+      "totalAssets": 7175078,
+      "totalLiabilities": 6986708
+     },
+     {
+      "fiscalYearEnd": "2024",
+      "revenue": 10543992,
+      "totalAssets": 5803041,
+      "totalLiabilities": 6783771
+     }
+    ],
+    "auditorName": "Eide Bailly LLP",
+    "parentName": "BSS Acquisition Holdings, LLC"
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "",
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p.20",
+    "squareFootage": null
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": ""
+  },
+  "scoring": {
+   "riskLevel": "Low",
+   "riskReasons": [
+    "Economics were assessable and no major stress flags triggered."
+   ],
+   "midCohort": {
+    "label": "Class of Pre-2022 Gross Revenue",
+    "monthlyRevenue": 47895,
+    "monthlyVariable": 57.474000000000004,
+    "monthlyFixed": 550,
+    "monthlyEbitda": 47287.526,
+    "annualEbitda": 567450.3119999999,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Class of Pre-2022 Gross Revenue",
+     "math": "$574,744/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 88
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 149375,
+   "assumedLoan": 119500,
+   "assumedMonthlyDebtService": 1612.4732114677827,
+   "dscr": 29.32608471489314,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.26323890716267684,
+   "variableRate": 0.0012000000000000001,
+   "fixedMonthly": 550,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 47287.526,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $149,375 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $47,288/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "experiential_entertainment",
+   "conceptLabel": "Experiential / entertainment venue",
+   "conceptRationale": "",
+   "benchmark": {
+    "label": "Experiential / entertainment venue",
+    "cogsPct": [
+     8,
+     18
+    ],
+    "laborPct": [
+     22,
+     30
+    ],
+    "occupancyPct": [
+     10,
+     18
+    ],
+    "operatingEbitdaPct": [
+     12,
+     22
+    ],
+    "dominantRisk": "Fixed-cost coverage and utilization \u2014 big-box rent and equipment R&M against variable foot traffic. Slow weeks hurt more than COGS.",
+    "rampNote": "6\u201318 months to a mature traffic/booking base; year-one runs well under the Item 19 average.",
+    "considerations": [
+     "COGS is modest; the real costs are labor (~22\u201330%), big-footprint rent, and equipment maintenance.",
+     "Ask about utilization/occupancy rates and seasonality at Item 20 units \u2014 the model lives or dies on weekday/off-peak traffic.",
+     "Confirm equipment R&M and replacement reserves; experiential gear wears and isn't in the pro forma."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 12\u201322% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 47895,
+   "marginAfterFeesMonthly": 47287.526,
+   "benchmarkOperatingEbitdaMonthly": [
+    10887,
+    25255
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    22,
+    30
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      47287.526,
+      47287.526
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      18
+     ],
+     "dollarRange": [
+      4790,
+      8621
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      8,
+      18
+     ],
+     "dollarRange": [
+      3832,
+      8621
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      22,
+      30
+     ],
+     "dollarRange": [
+      10537,
+      14369
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 3\u20134.1 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      2874,
+      4790
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      10887,
+      25255
+     ],
+     "note": "\u2248 23% to 53% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cExperiential / entertainment venue\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 10\u201318% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 8\u201318% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 22\u201330% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so BSS Acquisition Holdings, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you",
+    "prior-year financials were restated",
+    "elevated unit closures (16 in the last year, about 6% of the system)"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 12279184,
+    "revenueTrend": "improving",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.9737466268659379,
+    "adjLiabilitiesToAssets": 0.9737466268659379,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

@@ -1,0 +1,584 @@
+{
+ "slug": "code-ninjas",
+ "brandName": "Code Ninjas",
+ "category": "Education & STEM",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-09T18:42:27.819Z",
+ "sourceStem": "code-ninjas",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Code Ninjas",
+   "franchisorEntity": "Code Ninjas, LLC",
+   "headquarters": "Peachtree Corners, Georgia",
+   "brandBackground": "Code Ninjas operates child-focused learning centers providing educational programs in computer programming, coding, math, logic, and teamwork.",
+   "leadership": [
+    {
+     "name": "Navin Gurnaney",
+     "role": "Chief Executive Officer",
+     "background": "Served as CEO of Tim Hortons India, Reliance Foods, and Starbucks India.",
+     "whyItMatters": "Brings extensive executive leadership experience from major global consumer brands."
+    },
+    {
+     "name": "Adam Patterson",
+     "role": "Chief Financial Officer",
+     "background": "Served as Vice President of Finance at BCJ Building Services.",
+     "whyItMatters": "Oversees the financial strategy and fiscal management of the franchise system."
+    },
+    {
+     "name": "Tyler Semerdjian",
+     "role": "Chief Marketing Officer",
+     "background": "Served as Chief Marketing Officer at Family Quest Entertainment.",
+     "whyItMatters": "Directs the brand's marketing, advertising, and promotional strategies."
+    },
+    {
+     "name": "Archana Singh",
+     "role": "Chief Technology Officer",
+     "background": "Served as Assistant Director at Ernst & Young.",
+     "whyItMatters": "Manages the technology infrastructure and software platforms critical to the coding curriculum."
+    },
+    {
+     "name": "Michael Rodrigues",
+     "role": "Vice President of Franchise Development",
+     "background": "Served as Vice President of Franchise Development for Franperform.",
+     "whyItMatters": "Leads the expansion and recruitment of new franchise owners."
+    },
+    {
+     "name": "Tim Klein",
+     "role": "Vice President of Operations",
+     "background": "Held various operational positions for Starbucks.",
+     "whyItMatters": "Ensures operational standards and support systems are executed across locations."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Center Overall Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 19801,
+      "basis": "Annual Gross Sales of operational franchised Centers during 2025.",
+      "annualRevenue": 237614,
+      "monthlyValues": [],
+      "sampleSize": 224
+     },
+     {
+      "label": "Studio Overall Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 17471,
+      "basis": "Annual Gross Sales of operational franchised Studios during 2025.",
+      "annualRevenue": 209647,
+      "monthlyValues": [],
+      "sampleSize": 6
+     },
+     {
+      "label": "All Overall Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 19740,
+      "basis": "Annual Gross Sales of all operational franchised locations during 2025.",
+      "annualRevenue": 236884,
+      "monthlyValues": [],
+      "sampleSize": 230
+     }
+    ],
+    "notes": "The data represents historical financial performance of franchised locations that were open and operational for the full year of 2025.",
+    "sourcePage": "Item 19, p. 49",
+    "networkAverageMonthly": 19740,
+    "unitsReported": 230
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Fully earned when paid and non-refundable.",
+      "high": 45000,
+      "low": 45000
+     },
+     {
+      "category": "New Franchisee Training Fee",
+      "recurring": false,
+      "notes": "Currently $750 per attendee.",
+      "high": 750,
+      "low": 750
+     },
+     {
+      "category": "Lease",
+      "recurring": true,
+      "notes": "First month's rent and security deposit.",
+      "high": 10000,
+      "low": 7000
+     },
+     {
+      "category": "Utility Deposit",
+      "recurring": false,
+      "notes": "Deposits before installation of services.",
+      "high": 500,
+      "low": 250
+     },
+     {
+      "category": "Architect Fees",
+      "recurring": false,
+      "notes": "Fees for site design and layout.",
+      "high": 5000,
+      "low": 1500
+     },
+     {
+      "category": "Construction Costs",
+      "recurring": false,
+      "notes": "Leasehold improvements and build-out.",
+      "high": 9000,
+      "low": 50000
+     },
+     {
+      "category": "Expenses for Initial Training",
+      "recurring": false,
+      "notes": "Travel, lodging, and meals for training.",
+      "high": 1500,
+      "low": 1500
+     },
+     {
+      "category": "Business Licenses and Permits",
+      "recurring": false,
+      "notes": "Zoning, building, and operational permits.",
+      "high": 1000,
+      "low": 250
+     },
+     {
+      "category": "Business Insurance",
+      "recurring": true,
+      "notes": "12 months of required insurance coverage.",
+      "high": 2500,
+      "low": 1000
+     },
+     {
+      "category": "Initial Inventory",
+      "recurring": false,
+      "notes": "Stickers, patches, bags, and office supplies.",
+      "high": 5000,
+      "low": 2500
+     },
+     {
+      "category": "Computer Hardware & Software",
+      "recurring": false,
+      "notes": "POS hardware, student laptops, and tablets.",
+      "high": 20000,
+      "low": 10000
+     },
+     {
+      "category": "Furniture, Fixtures, and Equipment",
+      "recurring": false,
+      "notes": "Desks, chairs, and lounge furniture.",
+      "high": 30000,
+      "low": 20000
+     },
+     {
+      "category": "Signage",
+      "recurring": false,
+      "notes": "Interior and exterior branded signs.",
+      "high": 12000,
+      "low": 6000
+     },
+     {
+      "category": "Grand Opening Marketing Program",
+      "recurring": false,
+      "notes": "Minimum required spend for initial launch.",
+      "high": 10000,
+      "low": 8000
+     },
+     {
+      "category": "Professional Fees",
+      "recurring": false,
+      "notes": "Legal, accounting, and consulting fees.",
+      "high": 2500,
+      "low": 500
+     },
+     {
+      "category": "Additional Funds (3 months)",
+      "recurring": true,
+      "notes": "Working capital for start-up phase.",
+      "high": 30000,
+      "low": 20000
+     }
+    ],
+    "sourcePage": "Item 7, p. 15-16",
+    "initialInvestmentHigh": 265750,
+    "initialInvestmentLow": 174250
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Marketing and Advertising Expenses",
+      "source": "Item 6, p. 8",
+      "monthlyAmount": 350
+     },
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p. 8",
+      "monthlyAmount": 350
+     }
+    ],
+    "brandFundPct": 2,
+    "localAdPct": 4,
+    "royaltyPct": 8.25
+   },
+   "hiddenCosts": [
+    {
+     "name": "Pre-Opening Minimum Royalty Fee",
+     "description": "Fee of $500 per month if the center is not open by the agreed opening deadline.",
+     "source": "Item 5, p. 7",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Convention Fee",
+     "description": "Annual fee of $750 per attendee if a franchise convention is held.",
+     "source": "Item 6, p. 10",
+     "estimatedAnnualAmount": 750
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 52-57",
+    "closedLastYear": 13,
+    "openedLastYear": 14,
+    "totalUnits": 245,
+    "transfersLastYear": 18
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "The franchise agreement requires you to resolve disputes by mediation and litigation in Georgia.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4"
+    },
+    {
+     "title": "Financial Condition",
+     "description": "The franchisor's financial condition calls into question its ability to provide services and support.",
+     "severity": "high",
+     "source": "Special Risks, p. 4"
+    },
+    {
+     "title": "Mandatory Minimum Payments",
+     "description": "You must make minimum royalty or advertising fund payments if you have not opened after the deadline.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4"
+    },
+    {
+     "title": "Turnover Rate",
+     "description": "During the last 3 years, 92 outlets were terminated, not renewed, reacquired, or ceased operations.",
+     "severity": "high",
+     "source": "Special Risks, p. 4"
+    }
+   ],
+   "conceptType": "education_childcare",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025",
+      "revenue": 11353596,
+      "totalAssets": 2780853,
+      "totalLiabilities": 5838033
+     },
+     {
+      "fiscalYearEnd": "2024",
+      "revenue": 10255083,
+      "totalAssets": 3151460,
+      "totalLiabilities": 4947982
+     },
+     {
+      "fiscalYearEnd": "2023",
+      "revenue": 11075695,
+      "totalAssets": 3623224,
+      "totalLiabilities": 4850836
+     }
+    ],
+    "auditorName": "Forvis Mazars, LLP",
+    "parentName": "Code Ninjas Holdings LLC"
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "Code Ninjas provides child-focused STEM and computer programming educational classes.",
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p. 19",
+    "squareFootage": 1300
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "Requires a full-time Center Director and trained instructional staff to run daily operations."
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "Above-market royalty at 8.25%.",
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Network Average",
+    "monthlyRevenue": 19740,
+    "monthlyVariable": 2812.95,
+    "monthlyFixed": 700,
+    "monthlyEbitda": 16227.05,
+    "annualEbitda": 194724.59999999998,
+    "coversCosts": true,
+    "source": {
+     "basis": "network",
+     "label": "network average of disclosed cohorts",
+     "math": null
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 220000,
+   "assumedLoan": 176000,
+   "assumedMonthlyDebtService": 2374.855943249621,
+   "dscr": 6.8328565554152325,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 1.1298007545014859,
+   "variableRate": 0.1425,
+   "fixedMonthly": 700,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 16227.05,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $220,000 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $16,227/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "education_childcare",
+   "conceptLabel": "Education / childcare",
+   "conceptRationale": "Code Ninjas provides child-focused STEM and computer programming educational classes.",
+   "benchmark": {
+    "label": "Education / childcare",
+    "cogsPct": [
+     5,
+     12
+    ],
+    "laborPct": [
+     40,
+     55
+    ],
+    "occupancyPct": [
+     10,
+     18
+    ],
+    "operatingEbitdaPct": [
+     10,
+     20
+    ],
+    "dominantRisk": "Regulated staff ratios and enrollment/utilization. Labor dominates and ratios cap how lean you can run.",
+    "rampNote": "12\u201324 months to mature enrollment.",
+    "considerations": [
+     "Labor is the dominant line at ~40\u201355% and is floored by regulated student/staff ratios.",
+     "Validate enrollment ramp and capacity-utilization curves with Item 20 operators.",
+     "Confirm licensing, facility, and compliance costs specific to your state \u2014 not in the FDD."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201320% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 19740,
+   "marginAfterFeesMonthly": 16227.05,
+   "benchmarkOperatingEbitdaMonthly": [
+    -2526,
+    4186
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    40,
+    55
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      16227.05,
+      16227.05
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      18
+     ],
+     "dollarRange": [
+      1974,
+      3553
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      5,
+      12
+     ],
+     "dollarRange": [
+      987,
+      2369
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      40,
+      55
+     ],
+     "dollarRange": [
+      7896,
+      10857
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 2.3\u20133.1 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      1184,
+      1974
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -2526,
+      4186
+     ],
+     "note": "\u2248 -13% to 21% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cEducation / childcare\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 10\u201318% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 5\u201312% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 40\u201355% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Code Ninjas Holdings LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you",
+    "elevated unit closures (13 in the last year, about 5% of the system)"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 11353596,
+    "revenueTrend": "improving",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 2.0993677119934064,
+    "adjLiabilitiesToAssets": 2.0993677119934064,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

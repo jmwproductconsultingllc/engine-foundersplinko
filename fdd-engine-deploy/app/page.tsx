@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import FDDUpload from "@/components/FDDUpload";
 import FeatureMatrix from "@/components/FeatureMatrix";
 import DiligenceReport from "@/components/DiligenceReport";
@@ -63,6 +64,15 @@ export default function Page() {
           className="mx-auto mb-7 max-w-2xl text-center"
           style={{ animation: "fe-hero 0.5s ease-out both" }}
         >
+          <div className="mb-5 flex items-center justify-center">
+            <Link
+              href="/brands"
+              onClick={() => track("brands_library_clicked", { source: "home_hero" })}
+              className="rounded-full border border-[#38BDF8]/30 bg-[#38BDF8]/[0.06] px-4 py-1.5 text-xs font-bold text-[#38BDF8] transition-colors hover:bg-[#38BDF8]/[0.12]"
+            >
+              Browse the kids franchise library →
+            </Link>
+          </div>
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#38BDF8]">
             Franchise Edge
           </p>

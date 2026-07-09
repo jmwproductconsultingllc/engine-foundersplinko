@@ -1,0 +1,628 @@
+{
+ "slug": "sharkey-s-cuts-for-kids",
+ "brandName": "Sharkey's Cuts for Kids",
+ "category": "Hair & Personal Care",
+ "grade": "THIN",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-09T18:50:10.996Z",
+ "sourceStem": "sharkeys-kids-cut",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Sharkey's Cuts for Kids",
+   "franchisorEntity": "Sharkey\u2019s Cuts for Kids International Co., LLC",
+   "headquarters": "Westport, Connecticut",
+   "brandBackground": "Sharkey's Cuts for Kids operates hair salons furnished and designed to attract children and families.",
+   "leadership": [
+    {
+     "name": "Scott Sharkey",
+     "role": "Founder and Manager",
+     "background": "Founder and Manager of the franchisor since April 2013 and predecessor since July 2003.",
+     "whyItMatters": "He has over 20 years of experience leading the brand."
+    },
+    {
+     "name": "Denis Kurdi",
+     "role": "Director of Corporate Operations",
+     "background": "Joined Sharkey's Cuts for Kids International in May 2017.",
+     "whyItMatters": "Manages day-to-day corporate operations."
+    },
+    {
+     "name": "Michael Cohen",
+     "role": "VP of Real Estate",
+     "background": "Joined in August 2018; previously President of Darby Litho in NYC since 1999.",
+     "whyItMatters": "Oversees site selection and real estate processes."
+    },
+    {
+     "name": "Jamie Raney",
+     "role": "Director of Franchise Support & Salon Operations",
+     "background": "Joined in February 2022; previously Franchise Business Consultant for Regis Corporation.",
+     "whyItMatters": "Directs ongoing franchisee support and operational standards."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Top Quartile Performers Open 7 Days per Week (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 41777,
+      "basis": "Average unit revenue of top quartile franchised salons open 7 days a week for at least 12 months.",
+      "annualRevenue": 501328.83,
+      "monthlyValues": [],
+      "sampleSize": 24
+     },
+     {
+      "label": "Second Quartile Performers Open 7 Days per Week (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 30096,
+      "basis": "Average unit revenue of second quartile franchised salons open 7 days a week for at least 12 months.",
+      "annualRevenue": 361157.03,
+      "monthlyValues": [],
+      "sampleSize": 24
+     },
+     {
+      "label": "Third Quartile Performers Open 7 Days per Week (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 23365,
+      "basis": "Average unit revenue of third quartile franchised salons open 7 days a week for at least 12 months.",
+      "annualRevenue": 280382.6,
+      "monthlyValues": [],
+      "sampleSize": 24
+     },
+     {
+      "label": "Bottom Quartile Performers Open 7 Days per Week (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 14599,
+      "basis": "Average unit revenue of bottom quartile franchised salons open 7 days a week for at least 12 months.",
+      "annualRevenue": 175189.65,
+      "monthlyValues": [],
+      "sampleSize": 24
+     },
+     {
+      "label": "Top Quartile Performers Open 6 Days per Week (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 24922,
+      "basis": "Average unit revenue of top quartile franchised salons open 6 days a week for at least 12 months.",
+      "annualRevenue": 299058.93,
+      "monthlyValues": [],
+      "sampleSize": 15
+     },
+     {
+      "label": "Second Quartile Performers Open 6 Days per Week (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 17752,
+      "basis": "Average unit revenue of second quartile franchised salons open 6 days a week for at least 12 months.",
+      "annualRevenue": 213027.31,
+      "monthlyValues": [],
+      "sampleSize": 15
+     },
+     {
+      "label": "Third Quartile Performers Open 6 Days per Week (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 13678,
+      "basis": "Average unit revenue of third quartile franchised salons open 6 days a week for at least 12 months.",
+      "annualRevenue": 164131.95,
+      "monthlyValues": [],
+      "sampleSize": 15
+     },
+     {
+      "label": "Bottom Quartile Performers Open 6 Days per Week (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 9476,
+      "basis": "Average unit revenue of bottom quartile franchised salons open 6 days a week for at least 12 months.",
+      "annualRevenue": 113711.14,
+      "monthlyValues": [],
+      "sampleSize": 14
+     }
+    ],
+    "notes": "Data represents 159 franchised outlets open and operating for at least a full 12 months as of December 31, 2025.",
+    "sourcePage": "Item 19, p. 43-52",
+    "networkAverageMonthly": null,
+    "unitsReported": 159
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Paid upon signing the Franchise Agreement.",
+      "high": 45000,
+      "low": 45000
+     },
+     {
+      "category": "Initial Turn-Key Package",
+      "recurring": false,
+      "notes": "Includes equipment and supplies.",
+      "high": 119990,
+      "low": 119990
+     },
+     {
+      "category": "Rental - 1 months",
+      "recurring": true,
+      "notes": "Estimated monthly rent.",
+      "high": 6500,
+      "low": 2250
+     },
+     {
+      "category": "Leasehold Improvements",
+      "recurring": false,
+      "notes": "After TI reimbursement.",
+      "high": 62500,
+      "low": 0
+     },
+     {
+      "category": "Professional Fees",
+      "recurring": false,
+      "notes": "Legal and accounting fees.",
+      "high": 4000,
+      "low": 0
+     },
+     {
+      "category": "Blueprints and Plans",
+      "recurring": false,
+      "notes": "Architect and government agency fees.",
+      "high": 5000,
+      "low": 0
+     },
+     {
+      "category": "Computer Systems & Software, Signage, Lighting, Tile, Paint, Washer/Dryer",
+      "recurring": false,
+      "notes": "Purchased before opening.",
+      "high": 24000,
+      "low": 13500
+     },
+     {
+      "category": "Insurance Premiums - Per Month",
+      "recurring": true,
+      "notes": "Estimated monthly insurance cost.",
+      "high": 250,
+      "low": 175
+     },
+     {
+      "category": "Security Deposits",
+      "recurring": false,
+      "notes": "Landlord and utility deposits.",
+      "high": 6500,
+      "low": 2250
+     },
+     {
+      "category": "Grand Opening Advertising",
+      "recurring": false,
+      "notes": "Paid to franchisor at signing.",
+      "high": 15000,
+      "low": 15000
+     },
+     {
+      "category": "Recruiting Technology Fee",
+      "recurring": false,
+      "notes": "1-year subscription.",
+      "high": 750,
+      "low": 750
+     },
+     {
+      "category": "Main TV Advertising Media Player Installation and First Month",
+      "recurring": false,
+      "notes": "Paid to third party vendor.",
+      "high": 795,
+      "low": 795
+     },
+     {
+      "category": "Permits and Licenses",
+      "recurring": false,
+      "notes": "Governmental agency fees.",
+      "high": 750,
+      "low": 250
+     },
+     {
+      "category": "Additional Funds - Three Months",
+      "recurring": false,
+      "notes": "Working capital for initial operations.",
+      "high": 50000,
+      "low": 0
+     }
+    ],
+    "sourcePage": "Item 7, p. 16-17",
+    "initialInvestmentHigh": 341035,
+    "initialInvestmentLow": 199960
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Royalty Fee (Months 4-12)",
+      "source": "Item 6, p. 12",
+      "monthlyAmount": 1000
+     },
+     {
+      "name": "Royalty Fee (Months 13-24)",
+      "source": "Item 6, p. 12",
+      "monthlyAmount": 1250
+     },
+     {
+      "name": "Royalty Fee (Months 25-36)",
+      "source": "Item 6, p. 12",
+      "monthlyAmount": 1500
+     },
+     {
+      "name": "Royalty Fee (Months 37+)",
+      "source": "Item 6, p. 12",
+      "monthlyAmount": 1750
+     },
+     {
+      "name": "Monthly Software Fee",
+      "source": "Item 6, p. 14",
+      "monthlyAmount": 165
+     },
+     {
+      "name": "Monthly Media Player Fee",
+      "source": "Item 6, p. 14",
+      "monthlyAmount": 45
+     }
+    ],
+    "brandFundPct": 1,
+    "localAdPct": 3,
+    "royaltyPct": null
+   },
+   "hiddenCosts": [
+    {
+     "name": "Inventory Control Minimum",
+     "description": "Must maintain inventory of at least $4,500 wholesale dollars at all times.",
+     "source": "Item 8, p. 25",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Annual or Every 2 Years Conference",
+     "description": "Fee of $750 to $1,750 per person plus food, travel, and lodging.",
+     "source": "Item 6, p. 14",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Remodeling, Refurbishment, New Equipment and/or New Furniture",
+     "description": "Not to exceed $25,000 in a 5-year period.",
+     "source": "Item 6, p. 15",
+     "estimatedAnnualAmount": 5000
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 53",
+    "closedLastYear": 0,
+    "openedLastYear": 37,
+    "totalUnits": 201,
+    "transfersLastYear": 15
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by arbitration and/or litigation only in Connecticut.",
+     "severity": "medium",
+     "source": "Special Risks, p. 5"
+    },
+    {
+     "title": "Spouse Liability",
+     "description": "Spouse must sign a personal guarantee making them liable for financial obligations.",
+     "severity": "high",
+     "source": "Special Risks, p. 5"
+    },
+    {
+     "title": "Inventory Control Requirement",
+     "description": "Must maintain a minimum inventory of $4,500 at all times.",
+     "severity": "medium",
+     "source": "Special Risks, p. 5"
+    },
+    {
+     "title": "High Turnover Rate",
+     "description": "37 franchised outlets were transferred, terminated, reacquired, or ceased operations in the last 3 years.",
+     "severity": "high",
+     "source": "Special Risks, p. 5"
+    }
+   ],
+   "conceptType": "beauty_personal_care",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": true,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025",
+      "revenue": 9685377,
+      "totalAssets": 6126079,
+      "totalLiabilities": 11904724
+     },
+     {
+      "fiscalYearEnd": "2024",
+      "revenue": 6741988,
+      "totalAssets": 5493276,
+      "totalLiabilities": 13065396
+     },
+     {
+      "fiscalYearEnd": "2023",
+      "revenue": 7684440,
+      "totalAssets": 4861719,
+      "totalLiabilities": 11747231
+     }
+    ],
+    "auditorName": "Kezos & Dunlavy",
+    "parentName": null
+   },
+   "averageRentMonthly": 5500,
+   "conceptRationale": "The concept is a specialized hair salon designed specifically for children and families.",
+   "rentDetail": {
+    "rawValue": 5500,
+    "unit": "per_month",
+    "source": "Item 7, p. 23",
+    "squareFootage": 1400
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "Salons require licensed stylists and on-site management to perform hair cutting services."
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "2 high-severity operational tripwires disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Second Quartile Performers Open 7 Days per Week (2025)",
+    "monthlyRevenue": 30096,
+    "monthlyVariable": 1203.84,
+    "monthlyFixed": 11210,
+    "monthlyEbitda": 17682.16,
+    "annualEbitda": 212185.91999999998,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Second Quartile Performers Open 7 Days per Week (2025)",
+     "math": "$361,157/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 24
+    }
+   },
+   "bottomCohort": {
+    "label": "Bottom Quartile Performers Open 7 Days per Week (2025)",
+    "monthlyRevenue": 14599,
+    "monthlyVariable": 583.96,
+    "monthlyFixed": 11210,
+    "monthlyEbitda": 2805.040000000001,
+    "annualEbitda": 33660.48000000001,
+    "coversCosts": true
+   },
+   "buildoutMidpoint": 270497.5,
+   "assumedLoan": 216398,
+   "assumedMonthlyDebtService": 2919.9663432234747,
+   "dscr": 6.055604045243861,
+   "rentPctOfRevenue": 0.1827485380116959,
+   "paybackYears": 1.27481361628519,
+   "variableRate": 0.04,
+   "fixedMonthly": 11210,
+   "notes": [
+    "Royalty % not found; variable costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 20497.5,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 20497.5,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 276.5830096406768,
+   "adjustedMonthlyNetCashFlow": 17405.576990359325,
+   "survivesBottomCohort": true,
+   "assessment": "With $250,000 liquid against a $270,498 mid-point build-out, there is a $20,498 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $17,406/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "beauty_personal_care",
+   "conceptLabel": "Beauty / personal care",
+   "conceptRationale": "The concept is a specialized hair salon designed specifically for children and families.",
+   "benchmark": {
+    "label": "Beauty / personal care",
+    "cogsPct": [
+     8,
+     18
+    ],
+    "laborPct": [
+     35,
+     50
+    ],
+    "occupancyPct": [
+     8,
+     15
+    ],
+    "operatingEbitdaPct": [
+     8,
+     18
+    ],
+    "dominantRisk": "Commission/booth-rent labor and chair utilization. Labor structure dominates economics.",
+    "rampNote": "6\u201312 months to mature chair utilization.",
+    "considerations": [
+     "Labor (commission or booth-rent) is the big line at ~35\u201350%; COGS on product is modest.",
+     "Verify chair/room utilization and stylist retention with Item 20 operators.",
+     "Confirm whether labor runs on commission, hourly, or booth rent \u2014 it changes the model entirely."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 8\u201318% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 30096,
+   "marginAfterFeesMonthly": 17682.16,
+   "benchmarkOperatingEbitdaMonthly": [
+    -5793,
+    2934
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    35,
+    50
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      17682.16,
+      17682.16
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      8,
+      18
+     ],
+     "dollarRange": [
+      2408,
+      5417
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      35,
+      50
+     ],
+     "dollarRange": [
+      10534,
+      15048
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 3\u20134.3 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      1806,
+      3010
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -5793,
+      2934
+     ],
+     "note": "\u2248 -19% to 10% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cBeauty / personal care\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Rent",
+     "basis": "disclosed",
+     "detail": "Taken from the FDD (~$5,500/mo); already netted in margin after fees & rent."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 8\u201318% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 35\u201350% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "prior-year financials were restated"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 9685377,
+    "revenueTrend": "improving",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 1.943286072543302,
+    "adjLiabilitiesToAssets": 1.943286072543302,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

@@ -1,0 +1,414 @@
+{
+ "slug": "kona-ice",
+ "brandName": "Kona Ice",
+ "category": "Kids",
+ "grade": "THIN",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-09T18:47:27.233Z",
+ "sourceStem": "kona ice",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Kona Ice",
+   "franchisorEntity": "Kona Ice, Inc.",
+   "headquarters": "Florence, Kentucky",
+   "brandBackground": "Kona Ice businesses provide flavored shaved ice, blended beverages, ice cream, and related products to the general public in a mobile environment.",
+   "leadership": [
+    {
+     "name": "Tony Lamb",
+     "role": "Chief Executive Officer, President, Secretary and Board Member",
+     "background": "Mr. Lamb has served as CEO, President, and Secretary since inception in February 2008.",
+     "whyItMatters": "He is the founder and has led the brand since its inception."
+    },
+    {
+     "name": "Matthew Perelman",
+     "role": "Board Member",
+     "background": "Co-Founder and Managing Partner of Garnett Station Partners since September 2013.",
+     "whyItMatters": "Brings private equity and retail investment experience to the board."
+    },
+    {
+     "name": "Rafael Haramati",
+     "role": "Board Member",
+     "background": "Managing Director at Garnett Station Partners since January 2020.",
+     "whyItMatters": "Provides financial and investment oversight."
+    },
+    {
+     "name": "Robert A. Whitehouse II",
+     "role": "Board Member",
+     "background": "CEO of Eagle Financial Services, Inc. since August 2014.",
+     "whyItMatters": "Connects the brand with its primary indirect financing partner."
+    }
+   ],
+   "item19": {
+    "hasItem19": false,
+    "cohorts": [],
+    "notes": "The franchisor does not make any representations about a franchisee's future financial performance or the past financial performance of company-owned or franchised outlets.",
+    "sourcePage": "Item 19, p. 52",
+    "networkAverageMonthly": null,
+    "unitsReported": null
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Paid upon signing the Franchise Agreement.",
+      "high": 15000,
+      "low": 15000
+     },
+     {
+      "category": "KEV and Installed Equipment",
+      "recurring": false,
+      "notes": "Low estimate assumes buying a used KEV; high estimate is for a new KEV.",
+      "high": 157491,
+      "low": 87365
+     },
+     {
+      "category": "Training Expenses",
+      "recurring": false,
+      "notes": "Covers travel, lodging, and food for additional attendees.",
+      "high": 950,
+      "low": 140
+     },
+     {
+      "category": "KEV Delivery",
+      "recurring": false,
+      "notes": "Delivery fee from manufacturer in Florence, Kentucky.",
+      "high": 10000,
+      "low": 0
+     },
+     {
+      "category": "KEV Compliance Fee",
+      "recurring": false,
+      "notes": "Fee to modify KEV to meet local health department requirements.",
+      "high": 7000,
+      "low": 0
+     },
+     {
+      "category": "KEV Insurance for 3 Months",
+      "recurring": true,
+      "notes": "Estimated insurance cost for the first three months.",
+      "high": 2100,
+      "low": 1000
+     },
+     {
+      "category": "Tax, Title, and Licensing of KEV",
+      "recurring": false,
+      "notes": "Includes sales tax of approximately 6% of the purchase price.",
+      "high": 8000,
+      "low": 1000
+     },
+     {
+      "category": "Initial Inventory",
+      "recurring": false,
+      "notes": "Includes mixing drum, sanitation kit, cups, flavorings, and uniforms.",
+      "high": 11735,
+      "low": 9975
+     },
+     {
+      "category": "Optional Inventory",
+      "recurring": false,
+      "notes": "Optional branded merchandise.",
+      "high": 225,
+      "low": 0
+     },
+     {
+      "category": "Permits and Licenses",
+      "recurring": false,
+      "notes": "Local permits and licenses required to operate.",
+      "high": 1500,
+      "low": 250
+     },
+     {
+      "category": "Real Estate or KEV Storage",
+      "recurring": true,
+      "notes": "Low estimate assumes home storage; high estimate is for outdoor storage.",
+      "high": 4000,
+      "low": 0
+     },
+     {
+      "category": "Computer System and Software",
+      "recurring": false,
+      "notes": "Cost of computer and required software.",
+      "high": 1000,
+      "low": 0
+     },
+     {
+      "category": "Additional Funds - 3 Months",
+      "recurring": true,
+      "notes": "Working capital for the first three months of operation.",
+      "high": 9600,
+      "low": 0
+     }
+    ],
+    "sourcePage": "Item 7, p. 26-27",
+    "initialInvestmentHigh": 228601,
+    "initialInvestmentLow": 114730
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p. 17",
+      "monthlyAmount": 50
+     },
+     {
+      "name": "KonaOS Business Management Software Fee (per KEV)",
+      "source": "Item 6, p. 17",
+      "monthlyAmount": 35
+     },
+     {
+      "name": "Monitor Content Management Software Fee (per monitor)",
+      "source": "Item 6, p. 20",
+      "monthlyAmount": 20
+     },
+     {
+      "name": "Kona Email Address Fee (per email)",
+      "source": "Item 6, p. 16",
+      "monthlyAmount": 18
+     }
+    ],
+    "brandFundPct": null,
+    "localAdPct": null,
+    "royaltyPct": null
+   },
+   "hiddenCosts": [
+    {
+     "name": "Brand Fund Contribution",
+     "description": "$1,000 per year for KEVs and KEV 2.0 Trucks, plus $200 per year for each piece of Additional Equipment.",
+     "source": "Item 6, p. 15",
+     "estimatedAnnualAmount": 1000
+    },
+    {
+     "name": "Royalty",
+     "description": "Flat annual fee of $3,000 for years 1-2, $4,000 for years 3-6, and $5,000 for years 7-10.",
+     "source": "Item 6, p. 14",
+     "estimatedAnnualAmount": 3000
+    },
+    {
+     "name": "Smoothie Royalty",
+     "description": "Additional $1,000 per year if the franchisee elects to offer smoothies.",
+     "source": "Item 6, p. 14",
+     "estimatedAnnualAmount": 1000
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 59",
+    "closedLastYear": 0,
+    "openedLastYear": 113,
+    "totalUnits": 1933,
+    "transfersLastYear": 99
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "The franchise agreement requires you to resolve disputes with the franchisor by mediation, arbitration, and/or litigation only in Kentucky.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "Your spouse must sign a document that makes your spouse liable for all financial obligations under the franchise agreement.",
+     "severity": "high",
+     "source": "Special Risks, p. 4"
+    },
+    {
+     "title": "Mandatory Minimum Payments",
+     "description": "You must make minimum royalty or advertising fund payments, regardless of your sales levels.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4"
+    }
+   ],
+   "conceptType": "food_beverage_qsr",
+   "staffingModel": "lightly_staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 56285419,
+      "totalAssets": 49250421,
+      "totalLiabilities": 39740259
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 53722484,
+      "totalAssets": 49426072,
+      "totalLiabilities": 49843475
+     }
+    ],
+    "auditorName": "Barnes Dennig",
+    "parentName": "Kona Ice Holdings, LLC"
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "Kona Ice is a mobile food truck concept serving shaved ice and blended beverages, which fits the Quick Service Restaurant (QSR) category.",
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p. 21",
+    "squareFootage": null
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "The business is operated out of a mobile truck (KEV) which typically requires only one or two operators at a time."
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "No Item 19 financial performance representation \u2014 earnings are undisclosed, which is itself a caution.",
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section.",
+    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+   ],
+   "midCohort": null,
+   "bottomCohort": null,
+   "buildoutMidpoint": 171665.5,
+   "assumedLoan": 137332.4,
+   "assumedMonthlyDebtService": 1853.0946951178084,
+   "dscr": null,
+   "rentPctOfRevenue": null,
+   "paybackYears": null,
+   "variableRate": 0,
+   "fixedMonthly": 123,
+   "notes": [
+    "Royalty % not found; variable costs may be understated.",
+    "Average rent not found; fixed costs may be understated.",
+    "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $171,666 mid-point build-out without financing, though that leaves little working-capital cushion."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "food_beverage_qsr",
+   "conceptLabel": "QSR / fast-casual",
+   "conceptRationale": "Kona Ice is a mobile food truck concept serving shaved ice and blended beverages, which fits the Quick Service Restaurant (QSR) category.",
+   "benchmark": {
+    "label": "QSR / fast-casual",
+    "cogsPct": [
+     28,
+     33
+    ],
+    "laborPct": [
+     22,
+     28
+    ],
+    "occupancyPct": [
+     6,
+     10
+    ],
+    "operatingEbitdaPct": [
+     10,
+     18
+    ],
+    "dominantRisk": "Prime cost and throughput per labor hour. Smaller footprint helps fixed costs, but COGS + labor still set the ceiling.",
+    "rampNote": "3\u20136 months to run-rate once open.",
+    "considerations": [
+     "Budget COGS ~28\u201333% and labor ~22\u201328%; target prime cost under ~60%.",
+     "Verify average ticket and daily transaction counts with Item 20 operators, not the franchisor.",
+     "Watch for required remodels and equipment refresh cycles buried in Item 6/Item 11."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201318% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": null,
+   "marginAfterFeesMonthly": null,
+   "benchmarkOperatingEbitdaMonthly": null,
+   "trueEbitdaBasis": "none",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 11\u201317% \u2014 the 22\u201328% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    11,
+    17
+   ],
+   "buildup": [],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cQSR / fast-casual\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Kona Ice Holdings, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 56285419,
+    "revenueTrend": "flat",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.8069019146049533,
+    "adjLiabilitiesToAssets": 0.8069019146049533,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

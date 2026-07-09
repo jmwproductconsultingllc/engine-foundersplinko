@@ -1,0 +1,577 @@
+{
+ "slug": "aqua-tots-swim-school",
+ "brandName": "Aqua-Tots Swim School",
+ "category": "Swim",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-09T18:42:27.815Z",
+ "sourceStem": "aquatots",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Aqua-Tots Swim School",
+   "franchisorEntity": "Aqua-Tots Swim School Holding LLC",
+   "headquarters": "Mesa, Arizona",
+   "brandBackground": "",
+   "leadership": [
+    {
+     "name": "Ron Sciarro",
+     "role": "Co-Founder",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Paul Preston",
+     "role": "Co-Founder and President",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Craig A Wright",
+     "role": "Chief Executive Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "John Garry",
+     "role": "Franchise Development Director",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Jonathan Martin",
+     "role": "Chief Operating Officer",
+     "background": "",
+     "whyItMatters": ""
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "West Region (CA)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 223987,
+      "basis": "",
+      "annualRevenue": 2687841,
+      "monthlyValues": [],
+      "sampleSize": 8
+     },
+     {
+      "label": "Northeast Region (MA, NJ, NY, PA)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 144921,
+      "basis": "",
+      "annualRevenue": 1739049,
+      "monthlyValues": [],
+      "sampleSize": 7
+     },
+     {
+      "label": "All other regions",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 84165,
+      "basis": "",
+      "annualRevenue": 1009985,
+      "monthlyValues": [],
+      "sampleSize": 116
+     },
+     {
+      "label": "All Outlets",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 94900,
+      "basis": "",
+      "annualRevenue": 1138797,
+      "monthlyValues": [],
+      "sampleSize": 131
+     }
+    ],
+    "notes": "",
+    "sourcePage": "Item 19, p.47-48",
+    "networkAverageMonthly": null,
+    "unitsReported": 131
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 50000,
+      "low": 50000
+     },
+     {
+      "category": "Initial Travel Expenses during Training",
+      "recurring": false,
+      "notes": "",
+      "high": 18000,
+      "low": 20000
+     },
+     {
+      "category": "Rent or Real Estate",
+      "recurring": false,
+      "notes": "",
+      "high": 85000,
+      "low": 12000
+     },
+     {
+      "category": "Pool Design, Build and Aquatic Supplies and Equipment",
+      "recurring": false,
+      "notes": "",
+      "high": 400000,
+      "low": 250000
+     },
+     {
+      "category": "Tenant Improvements",
+      "recurring": false,
+      "notes": "",
+      "high": 2100000,
+      "low": 1200000
+     },
+     {
+      "category": "Miscellaneous Opening Costs",
+      "recurring": false,
+      "notes": "",
+      "high": 19500,
+      "low": 6000
+     },
+     {
+      "category": "Computers, Color Printer and Copier",
+      "recurring": false,
+      "notes": "",
+      "high": 15000,
+      "low": 5000
+     },
+     {
+      "category": "Signage",
+      "recurring": false,
+      "notes": "",
+      "high": 60000,
+      "low": 15000
+     },
+     {
+      "category": "Opening Inventory",
+      "recurring": false,
+      "notes": "",
+      "high": 18800,
+      "low": 9000
+     },
+     {
+      "category": "Advertising (3 mos)",
+      "recurring": false,
+      "notes": "",
+      "high": 45000,
+      "low": 26000
+     },
+     {
+      "category": "Aqua-Tots Swim Schools Proprietary Software",
+      "recurring": false,
+      "notes": "",
+      "high": 2790,
+      "low": 2320
+     },
+     {
+      "category": "Insurance",
+      "recurring": false,
+      "notes": "",
+      "high": 10500,
+      "low": 2500
+     },
+     {
+      "category": "Additional Funds for Initial three (3) Months",
+      "recurring": false,
+      "notes": "",
+      "high": 115000,
+      "low": 40000
+     }
+    ],
+    "sourcePage": "Item 7, p.19-20",
+    "initialInvestmentHigh": 2939590,
+    "initialInvestmentLow": 1619820
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Monthly Software Fee",
+      "source": "Item 6, p.17",
+      "monthlyAmount": 295
+     },
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p.17",
+      "monthlyAmount": 170
+     }
+    ],
+    "brandFundPct": 2,
+    "localAdPct": 2,
+    "royaltyPct": 6
+   },
+   "hiddenCosts": [
+    {
+     "name": "Computer and Communications Equipment Upgrades and Maintenance",
+     "description": "",
+     "source": "Item 6, p.18",
+     "estimatedAnnualAmount": 3000
+    },
+    {
+     "name": "Conferences and Summit Fees",
+     "description": "",
+     "source": "Item 6, p.16",
+     "estimatedAnnualAmount": 2500
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p.49-52",
+    "closedLastYear": 0,
+    "openedLastYear": 7,
+    "totalUnits": 139,
+    "transfersLastYear": 4
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p.v"
+    },
+    {
+     "title": "Non-competition Covenants",
+     "description": "",
+     "severity": "medium",
+     "source": "Item 17, p.46"
+    }
+   ],
+   "conceptType": "education_childcare",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "cash": 2386122,
+      "currentAssets": 3151542,
+      "currentLiabilities": 1159361,
+      "deferredRevenue": null,
+      "netIncome": 4457671,
+      "netWorth": 3407031,
+      "relatedPartyDebt": null,
+      "revenue": 20700614,
+      "totalAssets": 5830742,
+      "totalLiabilities": 1264350
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "cash": 3079893,
+      "currentAssets": 3958221,
+      "currentLiabilities": 1622046,
+      "deferredRevenue": null,
+      "netIncome": 3516682,
+      "netWorth": 2900194,
+      "relatedPartyDebt": null,
+      "revenue": 18042852,
+      "totalAssets": 6238858,
+      "totalLiabilities": 1716118
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "cash": 1475810,
+      "currentAssets": 2185033,
+      "currentLiabilities": 552630,
+      "deferredRevenue": null,
+      "netIncome": 3961196,
+      "netWorth": 2904795,
+      "relatedPartyDebt": null,
+      "revenue": 16248564,
+      "totalAssets": 4812730,
+      "totalLiabilities": 1355305
+     }
+    ],
+    "auditorName": "KMS Financial Consulting",
+    "parentName": null
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "",
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p.20",
+    "squareFootage": 6000
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": ""
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "Capital gap of $2,029,705 is ~8x your liquid \u2014 extreme leverage; the deal rests almost entirely on outside capital."
+   ],
+   "midCohort": {
+    "label": "West Region (CA)",
+    "monthlyRevenue": 223987,
+    "monthlyVariable": 22398.7,
+    "monthlyFixed": 465,
+    "monthlyEbitda": 201123.3,
+    "annualEbitda": 2413479.5999999996,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "West Region (CA)",
+     "math": "$2,687,841/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 8
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 2279705,
+   "assumedLoan": 1823764,
+   "assumedMonthlyDebtService": 24608.958945935807,
+   "dscr": 8.172767504787751,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.9445718952834739,
+   "variableRate": 0.1,
+   "fixedMonthly": 465,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 2029705,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 2029705,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 27387.823763031094,
+   "adjustedMonthlyNetCashFlow": 173735.47623696888,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $2,279,705 mid-point build-out, there is a $2,029,705 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $173,735/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "education_childcare",
+   "conceptLabel": "Education / childcare",
+   "conceptRationale": "",
+   "benchmark": {
+    "label": "Education / childcare",
+    "cogsPct": [
+     5,
+     12
+    ],
+    "laborPct": [
+     40,
+     55
+    ],
+    "occupancyPct": [
+     10,
+     18
+    ],
+    "operatingEbitdaPct": [
+     10,
+     20
+    ],
+    "dominantRisk": "Regulated staff ratios and enrollment/utilization. Labor dominates and ratios cap how lean you can run.",
+    "rampNote": "12\u201324 months to mature enrollment.",
+    "considerations": [
+     "Labor is the dominant line at ~40\u201355% and is floored by regulated student/staff ratios.",
+     "Validate enrollment ramp and capacity-utilization curves with Item 20 operators.",
+     "Confirm licensing, facility, and compliance costs specific to your state \u2014 not in the FDD."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201320% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 223987,
+   "marginAfterFeesMonthly": 201123.3,
+   "benchmarkOperatingEbitdaMonthly": [
+    -11665,
+    64491
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    40,
+    55
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      201123.3,
+      201123.3
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      18
+     ],
+     "dollarRange": [
+      22399,
+      40318
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      5,
+      12
+     ],
+     "dollarRange": [
+      11199,
+      26878
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      40,
+      55
+     ],
+     "dollarRange": [
+      89595,
+      123193
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 25.8\u201335.5 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      13439,
+      22399
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -11665,
+      64491
+     ],
+     "note": "\u2248 -5% to 29% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cEducation / childcare\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 10\u201318% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 5\u201312% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 40\u201355% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "What we found (2025-12-31, audited by KMS Financial Consulting): Net income of $4.46M on $20.70M of revenue \u2014 roughly 0.8x spent per $1 earned. Positive net worth of $3.41M. Cash of $2.39M against $1.16M of obligations due within a year (a current ratio of 2.72).",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "positive net worth",
+    "the business is profitable"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": 3407031,
+    "netWorthSign": "positive",
+    "netWorthTrend": "improving",
+    "netIncome": 4457671,
+    "netIncomeTrend": "improving",
+    "revenue": 20700614,
+    "revenueTrend": "improving",
+    "currentRatio": 2.718343984315498,
+    "workingCapital": 1992181,
+    "liabilitiesToAssets": 0.2168420417161315,
+    "adjLiabilitiesToAssets": 0.2168420417161315,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": 0.7846599622600566,
+    "cash": 2386122,
+    "nearTermObligations": 1159361
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

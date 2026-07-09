@@ -1,0 +1,658 @@
+{
+ "slug": "primrose-schools",
+ "brandName": "Primrose Schools",
+ "category": "Childcare & Preschool",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-09T18:49:23.179Z",
+ "sourceStem": "primrose-schools",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Primrose Schools",
+   "franchisorEntity": "PRIMROSE SCHOOL FRANCHISING SPE, LLC",
+   "headquarters": "3200 Windy Hill Road SE, Suite 1200E, Atlanta, GA 30339",
+   "brandBackground": "Primrose Schools offers high-quality educational childcare services for children from six weeks to twelve years old using a proprietary Balanced Learning curriculum.",
+   "leadership": [
+    {
+     "name": "David Berg",
+     "role": "Chief Executive Officer and Manager",
+     "background": "Served as CEO of EWC Franchisor LLC (European Wax Center) and on its Board of Directors.",
+     "whyItMatters": "Brings extensive executive leadership experience in high-growth franchise systems."
+    },
+    {
+     "name": "Rob Gray",
+     "role": "Chief Financial Officer",
+     "background": "Held multiple financial roles at PSFC including Chief Accounting Officer and VP of Finance.",
+     "whyItMatters": "Provides deep continuity and oversight of the brand's financial operations."
+    },
+    {
+     "name": "Kristin Goran",
+     "role": "General Counsel and Secretary",
+     "background": "Served as Chief Legal Officer of PSFC and General Counsel of PHC.",
+     "whyItMatters": "Ensures legal compliance and robust franchise system governance."
+    },
+    {
+     "name": "Amy Jackson",
+     "role": "Chief Franchise Officer of PSFC",
+     "background": "Served as Chief Early Learning Strategy Officer of PSFC and Adjunct Professor at Johns Hopkins University.",
+     "whyItMatters": "Brings academic and strategic early childhood education expertise to franchise operations."
+    },
+    {
+     "name": "Greg Foglesong",
+     "role": "Chief Commercial Officer of PSFC",
+     "background": "Served as Chief Commercial Officer of Monica + Andy, Inc. and Chief Marketing and Digital Officer of Bob's Discount Furniture.",
+     "whyItMatters": "Brings strong retail marketing and commercial strategy experience to drive enrollment."
+    },
+    {
+     "name": "Pam Turner",
+     "role": "Chief Information Officer of PSFC",
+     "background": "Served as Chief of Staff of PSFC and VP of Operations Strategy for Hand and Stone Franchise LLC.",
+     "whyItMatters": "Oversees technology systems and digital infrastructure critical for school operations."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Top Quartile Occupancy Rate Schools Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 298866,
+      "basis": "Average annual gross revenue of active franchised schools in the top quartile of occupancy (94% average occupancy).",
+      "annualRevenue": 3586393,
+      "monthlyValues": [],
+      "sampleSize": 130
+     },
+     {
+      "label": "Second Quartile Occupancy Rate Schools Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 259161,
+      "basis": "Average annual gross revenue of active franchised schools in the second quartile of occupancy (83% average occupancy).",
+      "annualRevenue": 3109936,
+      "monthlyValues": [],
+      "sampleSize": 130
+     },
+     {
+      "label": "Third Quartile Occupancy Rate Schools Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 209465,
+      "basis": "Average annual gross revenue of active franchised schools in the third quartile of occupancy (72% average occupancy).",
+      "annualRevenue": 2513577,
+      "monthlyValues": [],
+      "sampleSize": 130
+     },
+     {
+      "label": "Bottom Quartile Occupancy Rate Schools Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 159149,
+      "basis": "Average annual gross revenue of active franchised schools in the bottom quartile of occupancy (52% average occupancy).",
+      "annualRevenue": 1909787,
+      "monthlyValues": [],
+      "sampleSize": 130
+     },
+     {
+      "label": "Top Quartile Occupancy Rate Schools EBITDAR",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 91349,
+      "basis": "Average annual EBITDAR of active franchised schools in the top quartile of occupancy (94% average occupancy).",
+      "annualRevenue": 1096191,
+      "monthlyValues": [],
+      "sampleSize": 102
+     },
+     {
+      "label": "Second Quartile Occupancy Rate Schools EBITDAR",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 76864,
+      "basis": "Average annual EBITDAR of active franchised schools in the second quartile of occupancy (83% average occupancy).",
+      "annualRevenue": 922370,
+      "monthlyValues": [],
+      "sampleSize": 101
+     },
+     {
+      "label": "Third Quartile Occupancy Rate Schools EBITDAR",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 54122,
+      "basis": "Average annual EBITDAR of active franchised schools in the third quartile of occupancy (71% average occupancy).",
+      "annualRevenue": 649467,
+      "monthlyValues": [],
+      "sampleSize": 101
+     },
+     {
+      "label": "Bottom Quartile Occupancy Rate Schools EBITDAR",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 40256,
+      "basis": "Average annual EBITDAR of active franchised schools in the bottom quartile of occupancy (52% average occupancy).",
+      "annualRevenue": 483076,
+      "monthlyValues": [],
+      "sampleSize": 101
+     },
+     {
+      "label": "Top Quartile Occupancy Rate Rent Reporting Schools EBITDA",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 64081,
+      "basis": "Average annual EBITDA of active franchised schools that reported rent in the top quartile of occupancy (94% average occupancy).",
+      "annualRevenue": 768966,
+      "monthlyValues": [],
+      "sampleSize": 89
+     },
+     {
+      "label": "Second Quartile Occupancy Rate Rent Reporting Schools EBITDA",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 48015,
+      "basis": "Average annual EBITDA of active franchised schools that reported rent in the second quartile of occupancy (83% average occupancy).",
+      "annualRevenue": 576178,
+      "monthlyValues": [],
+      "sampleSize": 89
+     },
+     {
+      "label": "Third Quartile Occupancy Rate Rent Reporting Schools EBITDA",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 28569,
+      "basis": "Average annual EBITDA of active franchised schools that reported rent in the third quartile of occupancy (71% average occupancy).",
+      "annualRevenue": 342824,
+      "monthlyValues": [],
+      "sampleSize": 89
+     },
+     {
+      "label": "Bottom Quartile Occupancy Rate Rent Reporting Schools EBITDA",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 13309,
+      "basis": "Average annual EBITDA of active franchised schools that reported rent in the bottom quartile of occupancy (53% average occupancy).",
+      "annualRevenue": 159702,
+      "monthlyValues": [],
+      "sampleSize": 90
+     }
+    ],
+    "notes": "EBITDAR excludes rent, interest, taxes, depreciation, and amortization. EBITDA includes rent expenses.",
+    "sourcePage": "Item 19, pp. 74-96",
+    "networkAverageMonthly": null,
+    "unitsReported": 520
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Fee",
+      "recurring": false,
+      "notes": "Standard initial franchise fee for a new franchisee.",
+      "high": 80000,
+      "low": 50000
+     },
+     {
+      "category": "Real Estate Fee",
+      "recurring": false,
+      "notes": "Fee for real estate and development services.",
+      "high": 70000,
+      "low": 25000
+     },
+     {
+      "category": "Development Costs",
+      "recurring": false,
+      "notes": "Includes site development, construction, and professional fees.",
+      "high": 6202500,
+      "low": 4254600
+     },
+     {
+      "category": "Security Deposit and Rent Guarantee Fee",
+      "recurring": false,
+      "notes": "Security deposit for lease and potential rent guarantee fee.",
+      "high": 250000,
+      "low": 0
+     },
+     {
+      "category": "Utility Security Deposits",
+      "recurring": false,
+      "notes": "Deposits required by utility companies before opening.",
+      "high": 30000,
+      "low": 10000
+     },
+     {
+      "category": "School Equipment and Supplies",
+      "recurring": false,
+      "notes": "Furniture, fixtures, equipment, and teaching materials.",
+      "high": 383000,
+      "low": 313000
+     },
+     {
+      "category": "Insurance",
+      "recurring": true,
+      "notes": "Estimated cost for the first quarter of insurance premiums.",
+      "high": 20000,
+      "low": 5000
+     },
+     {
+      "category": "Initial Training Fee",
+      "recurring": false,
+      "notes": "Covers initial training and opening support services.",
+      "high": 35000,
+      "low": 35000
+     },
+     {
+      "category": "Marketing, Advertising and Grand Opening",
+      "recurring": false,
+      "notes": "Required grand opening advertising spend.",
+      "high": 105000,
+      "low": 75000
+     },
+     {
+      "category": "Vehicle Lease",
+      "recurring": true,
+      "notes": "Lease payments for a required student transportation vehicle.",
+      "high": 2800,
+      "low": 0
+     },
+     {
+      "category": "Licenses",
+      "recurring": false,
+      "notes": "Business licenses and permits required to operate.",
+      "high": 7000,
+      "low": 4000
+     },
+     {
+      "category": "Miscellaneous",
+      "recurring": false,
+      "notes": "Storage, legal fees, and pre-opening payroll.",
+      "high": 45000,
+      "low": 10000
+     },
+     {
+      "category": "Financing Cost",
+      "recurring": false,
+      "notes": "Finance charges and loan fees prior to closing.",
+      "high": 310000,
+      "low": 55000
+     },
+     {
+      "category": "Additional Funds - 3 months",
+      "recurring": true,
+      "notes": "Working capital for the first three months of operation.",
+      "high": 420000,
+      "low": 180000
+     }
+    ],
+    "sourcePage": "Item 7, p. 32",
+    "initialInvestmentHigh": 7960300,
+    "initialInvestmentLow": 5016600
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Academic Curriculum Material License Fee",
+      "source": "Item 6, p. 26",
+      "monthlyAmount": 333.33
+     },
+     {
+      "name": "Technology Software Subscriptions",
+      "source": "Item 11, p. 49",
+      "monthlyAmount": 550
+     }
+    ],
+    "brandFundPct": 2,
+    "localAdPct": 1,
+    "royaltyPct": 7
+   },
+   "hiddenCosts": [
+    {
+     "name": "Construction Management Fee",
+     "description": "Fee charged if the franchisor or its affiliate is designated as the construction manager.",
+     "source": "Item 5, p. 23",
+     "estimatedAnnualAmount": 37500
+    },
+    {
+     "name": "National Architect Prototype Release Fee",
+     "description": "Fee for releasing prototype plans if using an outside architect.",
+     "source": "Item 5, p. 24",
+     "estimatedAnnualAmount": 8000
+    },
+    {
+     "name": "National Architect Plan Review Fee",
+     "description": "Fee to review plans designed by an outside architect.",
+     "source": "Item 5, p. 24",
+     "estimatedAnnualAmount": 2500
+    },
+    {
+     "name": "Rent Guarantee Fee",
+     "description": "Fee equal to 5% of the rent guarantee amount if provided by PSFC.",
+     "source": "Item 5, p. 24",
+     "estimatedAnnualAmount": 25000
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, pp. 97-101",
+    "closedLastYear": 4,
+    "openedLastYear": 36,
+    "totalUnits": 557,
+    "transfersLastYear": 21
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by arbitration or litigation in Georgia, which may increase costs.",
+     "severity": "medium",
+     "source": "Front Matter, p. v"
+    },
+    {
+     "title": "Unopened Franchises",
+     "description": "A significant number of signed franchise agreements have not yet opened, indicating potential development delays.",
+     "severity": "medium",
+     "source": "Front Matter, p. v"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "Franchisees' spouses must sign personal guarantees, placing personal and marital assets at risk.",
+     "severity": "high",
+     "source": "Front Matter, p. v"
+    }
+   ],
+   "conceptType": "education_childcare",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 0,
+      "totalAssets": 6000000,
+      "totalLiabilities": 0
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 0,
+      "totalAssets": 6000000,
+      "totalLiabilities": 0
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 0,
+      "totalAssets": 6000000,
+      "totalLiabilities": 0
+     }
+    ],
+    "auditorName": "PricewaterhouseCoopers LLP",
+    "parentName": "Primrose Holding Corporation"
+   },
+   "averageRentMonthly": 28192,
+   "conceptRationale": "Primrose Schools is a leading educational childcare franchise system offering early education and care services.",
+   "rentDetail": {
+    "rawValue": 338305,
+    "unit": "per_year",
+    "source": "Item 19, p. 85",
+    "squareFootage": null
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "Requires on-premises supervision by an On-Site Owner, a Director, and certified teachers."
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "Capital gap of $6,238,450 is ~25x your liquid \u2014 extreme leverage; the deal rests almost entirely on outside capital.",
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Second Quartile Occupancy Rate Schools Gross Revenue",
+    "monthlyRevenue": 259161,
+    "monthlyVariable": 25916.100000000002,
+    "monthlyFixed": 29075.33,
+    "monthlyEbitda": 204169.57,
+    "annualEbitda": 2450034.84,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Second Quartile Occupancy Rate Schools Gross Revenue",
+     "math": "$3,109,936/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 130
+    }
+   },
+   "bottomCohort": {
+    "label": "Bottom Quartile Occupancy Rate Schools Gross Revenue",
+    "monthlyRevenue": 159149,
+    "monthlyVariable": 15914.900000000001,
+    "monthlyFixed": 29075.33,
+    "monthlyEbitda": 114158.77,
+    "annualEbitda": 1369905.24,
+    "coversCosts": true
+   },
+   "buildoutMidpoint": 6488450,
+   "assumedLoan": 5190760,
+   "assumedMonthlyDebtService": 70041.51838626366,
+   "dscr": 2.9149792109595545,
+   "rentPctOfRevenue": 0.10878179973066936,
+   "paybackYears": 2.6483092787366243,
+   "variableRate": 0.1,
+   "fixedMonthly": 29075.33,
+   "notes": []
+  },
+  "underwriting": {
+   "capitalGap": 6238450,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 6238450,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 84178.52306344091,
+   "adjustedMonthlyNetCashFlow": 119991.0469365591,
+   "survivesBottomCohort": true,
+   "assessment": "With $250,000 liquid against a $6,488,450 mid-point build-out, there is a $6,238,450 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $119,991/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "education_childcare",
+   "conceptLabel": "Education / childcare",
+   "conceptRationale": "Primrose Schools is a leading educational childcare franchise system offering early education and care services.",
+   "benchmark": {
+    "label": "Education / childcare",
+    "cogsPct": [
+     5,
+     12
+    ],
+    "laborPct": [
+     40,
+     55
+    ],
+    "occupancyPct": [
+     10,
+     18
+    ],
+    "operatingEbitdaPct": [
+     10,
+     20
+    ],
+    "dominantRisk": "Regulated staff ratios and enrollment/utilization. Labor dominates and ratios cap how lean you can run.",
+    "rampNote": "12\u201324 months to mature enrollment.",
+    "considerations": [
+     "Labor is the dominant line at ~40\u201355% and is floored by regulated student/staff ratios.",
+     "Validate enrollment ramp and capacity-utilization curves with Item 20 operators.",
+     "Confirm licensing, facility, and compliance costs specific to your state \u2014 not in the FDD."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201320% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 259161,
+   "marginAfterFeesMonthly": 204169.57,
+   "benchmarkOperatingEbitdaMonthly": [
+    4616,
+    71998
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    40,
+    55
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      204169.57,
+      204169.57
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      5,
+      12
+     ],
+     "dollarRange": [
+      12958,
+      31099
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      40,
+      55
+     ],
+     "dollarRange": [
+      103664,
+      142539
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 29.9\u201341.1 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      15550,
+      25916
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      4616,
+      71998
+     ],
+     "note": "\u2248 2% to 28% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cEducation / childcare\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Rent",
+     "basis": "disclosed",
+     "detail": "Taken from the FDD (~$28,192/mo); already netted in margin after fees & rent."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 5\u201312% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 40\u201355% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. Primrose Holding Corporation guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 0,
+    "revenueTrend": "flat",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0,
+    "adjLiabilitiesToAssets": 0,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

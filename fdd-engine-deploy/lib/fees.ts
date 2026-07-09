@@ -47,10 +47,22 @@ function hasPurchaseBasedFee(x: FeeFacts): boolean {
   return hay.some((s) => /(purchase|markup|wholesale|product\s+(?:price|cost))/i.test(s));
 }
 
+/**
+ * R2 fix — the corpus stores percentages in two conventions: fractions
+ * (0.07 → 7%) and whole percents (7.5 → 7.5%). No real franchise fee is below
+ * 1%, so v<1 is safely a fraction. Shared by the report UI and the brand pages
+ * (lib/brands.ts imports this) so both render "7%", never "0.07%".
+ */
+export function normalizeRoyaltyPct(v: number | null | undefined): number | null {
+  if (v == null || !Number.isFinite(v)) return null;
+  return Math.round((v < 1 ? v * 100 : v) * 100) / 100;
+}
+
 /** Disclosed percentage → a clean "{n}%". 0 is a real disclosure ("0%"), not absence. */
 function asPct(pct: number | null | undefined): FeeDisplay | null {
-  if (pct == null) return null;
-  return { pct: `${pct}%`, note: null };
+  const n = normalizeRoyaltyPct(pct);
+  if (n == null) return null;
+  return { pct: `${n}%`, note: null };
 }
 
 export function recurringFeeDisplays(x: FeeFacts): RecurringFeeDisplays {

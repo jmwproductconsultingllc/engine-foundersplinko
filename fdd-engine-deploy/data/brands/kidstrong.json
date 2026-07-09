@@ -1,0 +1,659 @@
+{
+ "slug": "kidstrong",
+ "brandName": "KidStrong",
+ "category": "Fitness & Gym",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-09T18:44:24.932Z",
+ "sourceStem": "kidstrong",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "KidStrong",
+   "franchisorEntity": "KidStrong Franchising LLC",
+   "headquarters": "Frisco, Texas",
+   "brandBackground": "",
+   "leadership": [
+    {
+     "name": "Matt Sharp",
+     "role": "Founder and CEO",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Megin Sharp",
+     "role": "Founder and Senior Director of Programming and Training",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Kristina Eastman",
+     "role": "President",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Josh Patrick",
+     "role": "Senior Vice President of Franchise Development",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Laura Fetters",
+     "role": "Vice President of Business Development",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "AJ Schuler",
+     "role": "Director of Franchise Development",
+     "background": "",
+     "whyItMatters": ""
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Standard 2-Floor Centers - Top Quartile",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 88724,
+      "basis": "",
+      "annualRevenue": 1064687,
+      "monthlyValues": [],
+      "sampleSize": 27
+     },
+     {
+      "label": "Standard 2-Floor Centers - 2nd Quartile",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 69100,
+      "basis": "",
+      "annualRevenue": 829198,
+      "monthlyValues": [],
+      "sampleSize": 27
+     },
+     {
+      "label": "Standard 2-Floor Centers - Third Quartile",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 57742,
+      "basis": "",
+      "annualRevenue": 692900,
+      "monthlyValues": [],
+      "sampleSize": 27
+     },
+     {
+      "label": "Standard 2-Floor Centers - Bottom Quartile",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 42521,
+      "basis": "",
+      "annualRevenue": 510254,
+      "monthlyValues": [],
+      "sampleSize": 28
+     },
+     {
+      "label": "Hybrid-Floor Centers",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 51792,
+      "basis": "",
+      "annualRevenue": 621503,
+      "monthlyValues": [],
+      "sampleSize": 4
+     }
+    ],
+    "notes": "",
+    "sourcePage": "Item 19, p. 67-68",
+    "networkAverageMonthly": null,
+    "unitsReported": 113
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 45000,
+      "low": 45000
+     },
+     {
+      "category": "Initial Training Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 5000,
+      "low": 5000
+     },
+     {
+      "category": "On-Site New Center Opening Support Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 2500,
+      "low": 2500
+     },
+     {
+      "category": "On-Site New Center Opening Sales Support Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 2500,
+      "low": 2500
+     },
+     {
+      "category": "Startup Marketing Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 1500,
+      "low": 1500
+     },
+     {
+      "category": "Pre-Paid Rent And Lease Deposit",
+      "recurring": false,
+      "notes": "",
+      "high": 20000,
+      "low": 10000
+     },
+     {
+      "category": "Architect Fees",
+      "recurring": false,
+      "notes": "",
+      "high": 19000,
+      "low": 15500
+     },
+     {
+      "category": "Leasehold Improvements",
+      "recurring": false,
+      "notes": "",
+      "high": 275000,
+      "low": 175000
+     },
+     {
+      "category": "Fixtures, Furnishings, And Other Fixed Assets",
+      "recurring": false,
+      "notes": "",
+      "high": 8000,
+      "low": 3500
+     },
+     {
+      "category": "Equipment Package Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 120000,
+      "low": 98500
+     },
+     {
+      "category": "Equipment Installation Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 20500,
+      "low": 13000
+     },
+     {
+      "category": "Electronics",
+      "recurring": false,
+      "notes": "",
+      "high": 5000,
+      "low": 4000
+     },
+     {
+      "category": "Office Supplies",
+      "recurring": false,
+      "notes": "",
+      "high": 2000,
+      "low": 1000
+     },
+     {
+      "category": "Interior Signage",
+      "recurring": false,
+      "notes": "",
+      "high": 15000,
+      "low": 7500
+     },
+     {
+      "category": "Exterior Signage",
+      "recurring": false,
+      "notes": "",
+      "high": 20000,
+      "low": 10000
+     },
+     {
+      "category": "Permits, Licenses And Legal/ Professional Services",
+      "recurring": false,
+      "notes": "",
+      "high": 6000,
+      "low": 5000
+     },
+     {
+      "category": "Training (Transportation, Lodging, Etc.)",
+      "recurring": false,
+      "notes": "",
+      "high": 6500,
+      "low": 2500
+     },
+     {
+      "category": "Retail And Print",
+      "recurring": false,
+      "notes": "",
+      "high": 9000,
+      "low": 6000
+     },
+     {
+      "category": "Pre-Opening Marketing Expenditure",
+      "recurring": false,
+      "notes": "",
+      "high": 45000,
+      "low": 35000
+     },
+     {
+      "category": "Insurance Deposits",
+      "recurring": false,
+      "notes": "",
+      "high": 2700,
+      "low": 900
+     },
+     {
+      "category": "Virtual Sales Support Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 11000,
+      "low": 7500
+     },
+     {
+      "category": "Additional Funds (3 Months)",
+      "recurring": true,
+      "notes": "",
+      "high": 30000,
+      "low": 25000
+     }
+    ],
+    "sourcePage": "Item 7, p. 20-21",
+    "initialInvestmentHigh": 671200,
+    "initialInvestmentLow": 476400
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Ongoing Marketing Services Fee",
+      "source": "Item 6, p. 10",
+      "monthlyAmount": 825
+     },
+     {
+      "name": "Direct Software Fee",
+      "source": "Item 6, p. 11",
+      "monthlyAmount": 600
+     },
+     {
+      "name": "Music Licensing Fee",
+      "source": "Item 6, p. 17",
+      "monthlyAmount": 29
+     }
+    ],
+    "brandFundPct": 1.65,
+    "localAdPct": 5,
+    "royaltyPct": 8.5
+   },
+   "hiddenCosts": [
+    {
+     "name": "Technology Fee",
+     "description": "",
+     "source": "Item 6, p. 12",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Camera System Maintenance",
+     "description": "",
+     "source": "Item 6, p. 16",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Non-Compliance Fee",
+     "description": "",
+     "source": "Item 6, p. 16",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 69",
+    "closedLastYear": 0,
+    "openedLastYear": 35,
+    "totalUnits": 167,
+    "transfersLastYear": 16
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "",
+     "severity": "medium",
+     "source": "Front Matter, p. 4"
+    },
+    {
+     "title": "Financial Condition",
+     "description": "",
+     "severity": "high",
+     "source": "Front Matter, p. 4"
+    },
+    {
+     "title": "Unopened Franchises",
+     "description": "",
+     "severity": "medium",
+     "source": "Front Matter, p. 4"
+    }
+   ],
+   "conceptType": "education_childcare",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 15103932,
+      "totalAssets": 5193337,
+      "totalLiabilities": 8070099
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 10543631,
+      "totalAssets": 6003414,
+      "totalLiabilities": 6431142
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 6860395,
+      "totalAssets": null,
+      "totalLiabilities": null
+     }
+    ],
+    "auditorName": "Citrin Cooperman & Company, LLP",
+    "parentName": "KidStrong, Inc."
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "",
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p. 20",
+    "squareFootage": null
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": ""
+  },
+  "scoring": {
+   "riskLevel": "Low",
+   "riskReasons": [
+    "Above-market royalty at 8.5%."
+   ],
+   "midCohort": {
+    "label": "Standard 2-Floor Centers - 2nd Quartile",
+    "monthlyRevenue": 69100,
+    "monthlyVariable": 10468.65,
+    "monthlyFixed": 1454,
+    "monthlyEbitda": 57177.35,
+    "annualEbitda": 686128.2,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Standard 2-Floor Centers - 2nd Quartile",
+     "math": "$829,198/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 27
+    }
+   },
+   "bottomCohort": {
+    "label": "Standard 2-Floor Centers - Bottom Quartile",
+    "monthlyRevenue": 42521,
+    "monthlyVariable": 6441.9315,
+    "monthlyFixed": 1454,
+    "monthlyEbitda": 34625.0685,
+    "annualEbitda": 415500.82200000004,
+    "coversCosts": true
+   },
+   "buildoutMidpoint": 573800,
+   "assumedLoan": 459040,
+   "assumedMonthlyDebtService": 6194.056091984695,
+   "dscr": 9.231002940704606,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.8362868630089829,
+   "variableRate": 0.1515,
+   "fixedMonthly": 1454,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 323800,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 323800,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 4369.195195592201,
+   "adjustedMonthlyNetCashFlow": 52808.15480440779,
+   "survivesBottomCohort": true,
+   "assessment": "With $250,000 liquid against a $573,800 mid-point build-out, there is a $323,800 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $52,808/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "education_childcare",
+   "conceptLabel": "Education / childcare",
+   "conceptRationale": "",
+   "benchmark": {
+    "label": "Education / childcare",
+    "cogsPct": [
+     5,
+     12
+    ],
+    "laborPct": [
+     40,
+     55
+    ],
+    "occupancyPct": [
+     10,
+     18
+    ],
+    "operatingEbitdaPct": [
+     10,
+     20
+    ],
+    "dominantRisk": "Regulated staff ratios and enrollment/utilization. Labor dominates and ratios cap how lean you can run.",
+    "rampNote": "12\u201324 months to mature enrollment.",
+    "considerations": [
+     "Labor is the dominant line at ~40\u201355% and is floored by regulated student/staff ratios.",
+     "Validate enrollment ramp and capacity-utilization curves with Item 20 operators.",
+     "Confirm licensing, facility, and compliance costs specific to your state \u2014 not in the FDD."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201320% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 69100,
+   "marginAfterFeesMonthly": 57177.35,
+   "benchmarkOperatingEbitdaMonthly": [
+    -8468,
+    15026
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    40,
+    55
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      57177.35,
+      57177.35
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      18
+     ],
+     "dollarRange": [
+      6910,
+      12438
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      5,
+      12
+     ],
+     "dollarRange": [
+      3455,
+      8292
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      40,
+      55
+     ],
+     "dollarRange": [
+      27640,
+      38005
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 8\u201311 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      4146,
+      6910
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -8468,
+      15026
+     ],
+     "note": "\u2248 -12% to 22% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cEducation / childcare\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 10\u201318% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 5\u201312% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 40\u201355% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so KidStrong, Inc. is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 15103932,
+    "revenueTrend": "improving",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 1.5539332417672875,
+    "adjLiabilitiesToAssets": 1.5539332417672875,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

@@ -1,0 +1,524 @@
+{
+ "slug": "i9-sports",
+ "brandName": "i9 Sports",
+ "category": "Sports & Athletics",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-09T18:43:56.119Z",
+ "sourceStem": "i9",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "i9 Sports",
+   "franchisorEntity": "i9 SPORTS, LLC",
+   "headquarters": "Riverview, Florida",
+   "brandBackground": "i9 Sports franchises operate youth amateur sports leagues, camps, tournaments, and clinics.",
+   "leadership": [
+    {
+     "name": "Ron Shimek",
+     "role": "President",
+     "background": "Served as President of i9 Sports since January 2026 and previously President of Mr. Handyman SPV LLC.",
+     "whyItMatters": "Directs the overall strategic vision and operations of the franchise system."
+    },
+    {
+     "name": "Robert Price",
+     "role": "Chief Executive Officer of YEB",
+     "background": "CEO of parent company Youth Enrichment Brands since June 2025, formerly President of School of Rock.",
+     "whyItMatters": "Oversees the parent portfolio company guiding the brand's high-level growth."
+    },
+    {
+     "name": "Hali Hill",
+     "role": "General Counsel of YEB",
+     "background": "General Counsel for YEB since May 2024, previously Deputy General Counsel of ServiceMaster Opco Holdings.",
+     "whyItMatters": "Manages legal compliance and regulatory affairs for the franchise network."
+    },
+    {
+     "name": "Elliot Schiffer",
+     "role": "Chief Development Officer",
+     "background": "Chief Development Officer since April 2024, previously Interim CEO of Escalante's Comida Fina.",
+     "whyItMatters": "Leads franchise development, recruitment, and system expansion."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Covered Units Average Registration Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 38235,
+      "basis": "Average registration revenue of 213 Covered Units operating throughout 2025.",
+      "annualRevenue": 458817,
+      "monthlyValues": [],
+      "sampleSize": 213
+     },
+     {
+      "label": "Covered Units Median Registration Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 29962,
+      "basis": "Median registration revenue of 213 Covered Units operating throughout 2025.",
+      "annualRevenue": 359546,
+      "monthlyValues": [],
+      "sampleSize": 213
+     },
+     {
+      "label": "Included Franchises Average Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 42839,
+      "basis": "Average revenue of 129 Included Franchises reporting complete financial data.",
+      "annualRevenue": 514066,
+      "monthlyValues": [],
+      "sampleSize": 129
+     },
+     {
+      "label": "Included Franchises Average Operating Profit",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 10774,
+      "basis": "Average operating profit of 129 Included Franchises reporting complete financial data.",
+      "annualRevenue": 129290,
+      "monthlyValues": [],
+      "sampleSize": 129
+     }
+    ],
+    "notes": "Registration Revenue means registration sales generated and does not include sponsorships, commissions, merchandise, or concession sales.",
+    "sourcePage": "Item 19, p. 53-64",
+    "networkAverageMonthly": null,
+    "unitsReported": 213
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Franchise Fee",
+      "recurring": false,
+      "notes": "Paid upon signing the 10-Year Agreement.",
+      "high": 24900,
+      "low": 24900
+     },
+     {
+      "category": "Territory Fee",
+      "recurring": false,
+      "notes": "Paid upon signing the Area Developer Agreement.",
+      "high": 15000,
+      "low": 15000
+     },
+     {
+      "category": "Grand Opening Advertising",
+      "recurring": false,
+      "notes": "Minimum required spend to promote initial sports programs.",
+      "high": 8000,
+      "low": 6000
+     },
+     {
+      "category": "Insurance",
+      "recurring": true,
+      "notes": "Estimated cost for required insurance policies.",
+      "high": 1500,
+      "low": 1000
+     },
+     {
+      "category": "Legal & Accounting Services",
+      "recurring": false,
+      "notes": "Cost to incorporate and consult with an accountant.",
+      "high": 1500,
+      "low": 800
+     },
+     {
+      "category": "Furniture, Equipment, Inventory, and Supplies",
+      "recurring": false,
+      "notes": "Includes computer, smartphone, printer, and office supplies.",
+      "high": 4000,
+      "low": 3000
+     },
+     {
+      "category": "Training Expenses",
+      "recurring": false,
+      "notes": "Travel, lodging, and meals for training programs.",
+      "high": 2000,
+      "low": 1200
+     },
+     {
+      "category": "Additional Funds - 3 months",
+      "recurring": true,
+      "notes": "Working capital for the first three months of operation.",
+      "high": 13000,
+      "low": 8000
+     }
+    ],
+    "sourcePage": "Item 7, p. 29-30",
+    "initialInvestmentHigh": 69900,
+    "initialInvestmentLow": 59900
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Customer Service Center Fee (Minimum)",
+      "source": "Item 6, p. 16",
+      "monthlyAmount": 332.5
+     },
+     {
+      "name": "Telecommunication Platform Fee",
+      "source": "Item 6, p. 16",
+      "monthlyAmount": 30
+     },
+     {
+      "name": "National Brand Fund Contribution (Minimum)",
+      "source": "Item 6, p. 16",
+      "monthlyAmount": 275
+     }
+    ],
+    "brandFundPct": 2,
+    "localAdPct": 2,
+    "royaltyPct": 7.5
+   },
+   "hiddenCosts": [
+    {
+     "name": "Technology Fee",
+     "description": "Currently a $3 processing fee charged directly to each customer with each paid registration.",
+     "source": "Item 6, p. 16",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Mandatory Insurance Program Fee",
+     "description": "Currently $3.11 per unique player per policy year.",
+     "source": "Item 6, p. 19",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Email Fee",
+     "description": "Currently $14.72 per month per address.",
+     "source": "Item 6, p. 17",
+     "estimatedAnnualAmount": 176.64
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 65",
+    "closedLastYear": 0,
+    "openedLastYear": 30,
+    "totalUnits": 294,
+    "transfersLastYear": 21
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "The franchise agreement requires you to resolve disputes with the franchisor by mediation only in Florida.",
+     "severity": "medium",
+     "source": "Front Matter, Special Risks"
+    },
+    {
+     "title": "Minimum Performance Standards",
+     "description": "Must meet or exceed a minimum annual player registration revenue of $80,000 after one year.",
+     "severity": "high",
+     "source": "Item 12, p. 43"
+    }
+   ],
+   "conceptType": "experiential_entertainment",
+   "staffingModel": "lightly_staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025",
+      "revenue": 31253630,
+      "totalAssets": 5719733,
+      "totalLiabilities": 5212792
+     },
+     {
+      "fiscalYearEnd": "2024",
+      "revenue": 32002997,
+      "totalAssets": 5427027,
+      "totalLiabilities": 4981954
+     }
+    ],
+    "auditorName": "RSM US LLP",
+    "parentName": "Youth Enrichment Brands, LLC"
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "i9 Sports provides youth sports leagues, camps, and clinics, which are experiential recreational activities.",
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p. 31",
+    "squareFootage": null
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "Leagues and camps are run on-site at rented fields/venues using part-time coordinators, coaches, and referees."
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "Above-market royalty at 7.5%.",
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Covered Units Median Registration Revenue",
+    "monthlyRevenue": 29962,
+    "monthlyVariable": 3445.63,
+    "monthlyFixed": 637.5,
+    "monthlyEbitda": 25878.87,
+    "annualEbitda": 310546.44,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Covered Units Median Registration Revenue",
+     "math": "$359,546/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 213
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 64900,
+   "assumedLoan": 51920,
+   "assumedMonthlyDebtService": 700.5825032586383,
+   "dscr": 36.93907552590724,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.20898645626077697,
+   "variableRate": 0.115,
+   "fixedMonthly": 637.5,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 25878.87,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $64,900 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $25,879/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "experiential_entertainment",
+   "conceptLabel": "Experiential / entertainment venue",
+   "conceptRationale": "i9 Sports provides youth sports leagues, camps, and clinics, which are experiential recreational activities.",
+   "benchmark": {
+    "label": "Experiential / entertainment venue",
+    "cogsPct": [
+     8,
+     18
+    ],
+    "laborPct": [
+     22,
+     30
+    ],
+    "occupancyPct": [
+     10,
+     18
+    ],
+    "operatingEbitdaPct": [
+     12,
+     22
+    ],
+    "dominantRisk": "Fixed-cost coverage and utilization \u2014 big-box rent and equipment R&M against variable foot traffic. Slow weeks hurt more than COGS.",
+    "rampNote": "6\u201318 months to a mature traffic/booking base; year-one runs well under the Item 19 average.",
+    "considerations": [
+     "COGS is modest; the real costs are labor (~22\u201330%), big-footprint rent, and equipment maintenance.",
+     "Ask about utilization/occupancy rates and seasonality at Item 20 units \u2014 the model lives or dies on weekday/off-peak traffic.",
+     "Confirm equipment R&M and replacement reserves; experiential gear wears and isn't in the pro forma."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 12\u201322% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 29962,
+   "marginAfterFeesMonthly": 25878.87,
+   "benchmarkOperatingEbitdaMonthly": [
+    6704,
+    15392
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 11\u201318% \u2014 the 22\u201330% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    11,
+    18
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      25878.87,
+      25878.87
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      18
+     ],
+     "dollarRange": [
+      2996,
+      5393
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      8,
+      18
+     ],
+     "dollarRange": [
+      2397,
+      5393
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      11,
+      18
+     ],
+     "dollarRange": [
+      3296,
+      5393
+     ],
+     "note": "lightly staffed \u00b7 \u2248 1\u20131.6 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      1798,
+      2996
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      6704,
+      15392
+     ],
+     "note": "\u2248 22% to 51% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cExperiential / entertainment venue\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 10\u201318% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 8\u201318% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 11\u201318% lightly staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Youth Enrichment Brands, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 31253630,
+    "revenueTrend": "flat",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.9113698139406158,
+    "adjLiabilitiesToAssets": 0.9113698139406158,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

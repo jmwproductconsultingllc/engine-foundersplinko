@@ -24,6 +24,23 @@ export interface StoredReport {
   fileHash: string;
   createdAt: string; // ISO
   expiresAt: string; // ISO
+  /** buyer email when captured pre-checkout (Brief A2 persists + sends against this) */
+  email?: string | null;
+  /** acquisition ref (?ref=… or campaign route). THE cold/warm revenue tag:
+   *  ref="mallory" → Related-Party (warm, disclosed separately for XPRIZE);
+   *  ref ∈ {seo, reddit, broker, paid, …} or absent → cold arms-length.
+   *  Written at mint/save time so the Stripe webhook attributes off the record,
+   *  not off session inference. */
+  ref?: string | null;
+  /** set when this record was minted from a canonical brand template
+   *  (app/api/mint-brand-report) rather than a user upload */
+  brandSlug?: string | null;
+}
+
+export interface SaveReportOptions {
+  email?: string | null;
+  ref?: string | null;
+  brandSlug?: string | null;
 }
 
 function keyFor(reportId: string): string {
@@ -33,10 +50,15 @@ function keyFor(reportId: string): string {
 /**
  * Persist a freshly-computed report. Returns the unguessable reportId, which is
  * the access token for the /report/[reportId] URL.
+ *
+ * `result` may come from the live pipeline OR be a pre-computed copy of a
+ * canonical brand template (the brand-page mint flow) — payment stays per-buyer
+ * either way because every call creates a fresh UUID record.
  */
 export async function saveReport(
   result: DiligenceResult,
   fileHash: string,
+  options: SaveReportOptions = {},
 ): Promise<string> {
   const reportId = randomUUID();
   const now = Date.now();
@@ -46,6 +68,9 @@ export async function saveReport(
     fileHash,
     createdAt: new Date(now).toISOString(),
     expiresAt: new Date(now + TTL_MS).toISOString(),
+    email: options.email ?? null,
+    ref: options.ref ?? null,
+    brandSlug: options.brandSlug ?? null,
   };
   await put(keyFor(reportId), JSON.stringify(record), {
     access: "public",

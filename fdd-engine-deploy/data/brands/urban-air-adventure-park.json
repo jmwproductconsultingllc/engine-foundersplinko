@@ -1,0 +1,530 @@
+{
+ "slug": "urban-air-adventure-park",
+ "brandName": "Urban Air Adventure Park",
+ "category": "Play & Entertainment",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-09T18:51:20.360Z",
+ "sourceStem": "urban-air-adventure",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Urban Air Adventure Park",
+   "franchisorEntity": "UATP Management, LLC",
+   "headquarters": "Bedford, Texas",
+   "brandBackground": "Urban Air Adventure Park operates indoor adventure parks featuring trampolines, ropes courses, and other recreational attractions.",
+   "leadership": [
+    {
+     "name": "Mandy Dowson",
+     "role": "Brand President",
+     "background": "Appointed Brand President in January 2026, previously serving as CEO of Jenny Craig.",
+     "whyItMatters": "Directs the overall strategic vision and brand execution for the franchise system."
+    },
+    {
+     "name": "Tim Sharp",
+     "role": "Vice President of Franchise Relations",
+     "background": "Served as President from December 2024 to December 2025 and VP of Operations from 2019 to 2024.",
+     "whyItMatters": "Manages ongoing franchisee relations and operational support systems."
+    },
+    {
+     "name": "Eden Bullock",
+     "role": "Vice President of Operations",
+     "background": "Appointed VP of Operations in January 2026, previously a leadership consultant at TopTalent Learning.",
+     "whyItMatters": "Oversees daily park operations, training programs, and brand standards compliance."
+    },
+    {
+     "name": "Michael Browning, Jr.",
+     "role": "Chief Executive Officer of Unleashed Services",
+     "background": "Co-founder of UATP and CEO of Unleashed Brands since July 2021.",
+     "whyItMatters": "Leads the parent platform that provides executive management to all affiliated brands."
+    },
+    {
+     "name": "Stephen Polozola",
+     "role": "Chief Legal Officer of Unleashed Services",
+     "background": "Co-founder of UATP and General Counsel since inception in May 2013.",
+     "whyItMatters": "Directs legal strategy, franchise compliance, and intellectual property protection."
+    },
+    {
+     "name": "Jon Shell",
+     "role": "Chief Financial Officer of Unleashed Services",
+     "background": "Appointed CFO in December 2024, previously serving as CEO and CFO of Neighborly.",
+     "whyItMatters": "Manages financial planning, reporting, and capital allocation across the portfolio."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "2.0 Parks Top Quartile Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 390404,
+      "basis": "Average annual gross sales of the top quartile of 2.0 Parks open the entire fiscal year 2025.",
+      "annualRevenue": 4684848,
+      "monthlyValues": [],
+      "sampleSize": 21
+     },
+     {
+      "label": "2.0 Parks 2nd Quartile Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 257623,
+      "basis": "Average annual gross sales of the second quartile of 2.0 Parks open the entire fiscal year 2025.",
+      "annualRevenue": 3091470,
+      "monthlyValues": [],
+      "sampleSize": 20
+     },
+     {
+      "label": "2.0 Parks 3rd Quartile Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 212804,
+      "basis": "Average annual gross sales of the third quartile of 2.0 Parks open the entire fiscal year 2025.",
+      "annualRevenue": 2553650,
+      "monthlyValues": [],
+      "sampleSize": 20
+     },
+     {
+      "label": "2.0 Parks 4th Quartile Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 163379,
+      "basis": "Average annual gross sales of the fourth quartile of 2.0 Parks open the entire fiscal year 2025.",
+      "annualRevenue": 1960549,
+      "monthlyValues": [],
+      "sampleSize": 20
+     },
+     {
+      "label": "2.5 Parks Top Quartile Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 438893,
+      "basis": "Average annual gross sales of the top quartile of 2.5 Parks open the entire fiscal year 2025.",
+      "annualRevenue": 5266717,
+      "monthlyValues": [],
+      "sampleSize": 3
+     },
+     {
+      "label": "2.5 Parks 2nd Quartile Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 309526,
+      "basis": "Average annual gross sales of the second quartile of 2.5 Parks open the entire fiscal year 2025.",
+      "annualRevenue": 3714314,
+      "monthlyValues": [],
+      "sampleSize": 4
+     },
+     {
+      "label": "2.5 Parks 3rd Quartile Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 267394,
+      "basis": "Average annual gross sales of the third quartile of 2.5 Parks open the entire fiscal year 2025.",
+      "annualRevenue": 3208733,
+      "monthlyValues": [],
+      "sampleSize": 4
+     },
+     {
+      "label": "2.5 Parks 4th Quartile Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 225334,
+      "basis": "Average annual gross sales of the fourth quartile of 2.5 Parks open the entire fiscal year 2025.",
+      "annualRevenue": 2704012,
+      "monthlyValues": [],
+      "sampleSize": 4
+     }
+    ],
+    "notes": "Excludes 1.0 and 1.5 Trampoline Parks as they are no longer offered, as well as units that opened or closed during 2025 or did not provide complete data.",
+    "sourcePage": "Item 19, p. 70-71",
+    "networkAverageMonthly": null,
+    "unitsReported": 96
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Paid upon signing the Franchise Agreement.",
+      "high": 100000,
+      "low": 100000
+     },
+     {
+      "category": "Security Deposits for commercial lease",
+      "recurring": false,
+      "notes": "Typically equal to one month's base rent.",
+      "high": 70000,
+      "low": 25000
+     },
+     {
+      "category": "Leasehold Improvements",
+      "recurring": false,
+      "notes": "Estimated cost for build-out of the facility.",
+      "high": 2225980,
+      "low": 853613
+     },
+     {
+      "category": "Base Attraction Equipment 2.0 Package",
+      "recurring": false,
+      "notes": "Required base attractions package from UA Attractions.",
+      "high": 1618650,
+      "low": 1214760
+     },
+     {
+      "category": "Additional funds - 3 months",
+      "recurring": true,
+      "notes": "Working capital to cover initial operating expenses.",
+      "high": 270000,
+      "low": 150000
+     }
+    ],
+    "sourcePage": "Item 7, p. 27-29",
+    "initialInvestmentHigh": 5441558,
+    "initialInvestmentLow": 2852887
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "POS System Fee and Computer Systems",
+      "source": "Item 6, p. 20",
+      "monthlyAmount": 2230
+     },
+     {
+      "name": "Call Center Fee",
+      "source": "Item 6, p. 23",
+      "monthlyAmount": 1850
+     }
+    ],
+    "brandFundPct": 0.05,
+    "localAdPct": 0.06,
+    "royaltyPct": 0.07
+   },
+   "hiddenCosts": [
+    {
+     "name": "U.S. Tariff on Chinese Imports",
+     "description": "A 145% tariff on Chinese imports directly impacts the cost of purchasing required base and optional attractions.",
+     "source": "Item 7, Note 13, p. 33",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Technology Fee",
+     "description": "Up to 0.25% of Gross Sales for basic troubleshooting support if implemented.",
+     "source": "Item 6, p. 23",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 73",
+    "closedLastYear": 10,
+    "openedLastYear": 19,
+    "totalUnits": 206,
+    "transfersLastYear": 14
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by arbitration or litigation in Tarrant County, Texas, which may increase costs.",
+     "severity": "medium",
+     "source": "Special Risks, p. v"
+    },
+    {
+     "title": "Parent Platform Litigation History",
+     "description": "Parent company Unleashed Brands has faced multiple legal proceedings from franchisees questioning operational changes.",
+     "severity": "medium",
+     "source": "State Specific Appendix (Maryland), p. 87"
+    }
+   ],
+   "conceptType": "experiential_with_fb",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 204630,
+      "totalAssets": 820621,
+      "totalLiabilities": 528621
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 194710,
+      "totalAssets": 883138,
+      "totalLiabilities": 532132
+     }
+    ],
+    "auditorName": "Deloitte & Touche LLP",
+    "parentName": "UA Holdings, LLC"
+   },
+   "averageRentMonthly": 25000,
+   "conceptRationale": "The concept is an indoor adventure park featuring active entertainment attractions alongside an on-site caf\u00e9.",
+   "rentDetail": {
+    "rawValue": 25000,
+    "unit": "per_month",
+    "source": "Item 7, Note 3, p. 31",
+    "squareFootage": 25000
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "Requires a full-time general manager and a large team of on-site staff to operate attractions, front desk, and caf\u00e9."
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "Capital gap of $3,897,223 is ~16x your liquid \u2014 extreme leverage; the deal rests almost entirely on outside capital."
+   ],
+   "midCohort": {
+    "label": "2.0 Parks 2nd Quartile Gross Sales",
+    "monthlyRevenue": 257623,
+    "monthlyVariable": 463.72139999999996,
+    "monthlyFixed": 29080,
+    "monthlyEbitda": 228079.2786,
+    "annualEbitda": 2736951.3432,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "2.0 Parks 2nd Quartile Gross Sales",
+     "math": "$3,091,470/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 20
+    }
+   },
+   "bottomCohort": {
+    "label": "2.0 Parks 4th Quartile Gross Sales",
+    "monthlyRevenue": 163379,
+    "monthlyVariable": 294.0822,
+    "monthlyFixed": 29080,
+    "monthlyEbitda": 134004.9178,
+    "annualEbitda": 1608059.0136,
+    "coversCosts": true
+   },
+   "buildoutMidpoint": 4147222.5,
+   "assumedLoan": 3317778,
+   "assumedMonthlyDebtService": 44768.43637319797,
+   "dscr": 5.094644733595092,
+   "rentPctOfRevenue": 0.09704102506375595,
+   "paybackYears": 1.5152708177673095,
+   "variableRate": 0.0018,
+   "fixedMonthly": 29080,
+   "notes": []
+  },
+  "underwriting": {
+   "capitalGap": 3897222.5,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 3897222.5,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 52587.17054710879,
+   "adjustedMonthlyNetCashFlow": 175492.1080528912,
+   "survivesBottomCohort": true,
+   "assessment": "With $250,000 liquid against a $4,147,223 mid-point build-out, there is a $3,897,223 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $175,492/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "experiential_with_fb",
+   "conceptLabel": "Experiential entertainment with F&B attach (e.g. indoor golf + bar)",
+   "conceptRationale": "The concept is an indoor adventure park featuring active entertainment attractions alongside an on-site caf\u00e9.",
+   "benchmark": {
+    "label": "Experiential entertainment with F&B attach (e.g. indoor golf + bar)",
+    "cogsPct": [
+     15,
+     28
+    ],
+    "laborPct": [
+     22,
+     30
+    ],
+    "occupancyPct": [
+     10,
+     16
+    ],
+    "operatingEbitdaPct": [
+     15,
+     26
+    ],
+    "dominantRisk": "Blended margin. The bar/kitchen attach rate swings COGS up; the large footprint plus simulator/equipment R&M swing fixed costs. Owner-operator vs. absentee is a full GM salary either way.",
+    "rampNote": "6\u201318 months to a mature membership/booking base; the Item 19 average is NOT a year-one number.",
+    "considerations": [
+     "Budget blended COGS ~15\u201328% (sim time and memberships carry little; the bar and kitchen drive it) and labor ~22\u201330%.",
+     "Decide owner-operator vs. absentee before modeling \u2014 absentee adds a GM salary (~$60\u201390K/yr) the pro forma omits.",
+     "Confirm the F&B attach rate and per-bay equipment costs (e.g. simulator licenses, R&M) at mature franchised units via Item 20.",
+     "Assume a 6\u201318 month ramp; discount the Item 19 mature average for year one."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 15\u201326% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 257623,
+   "marginAfterFeesMonthly": 228079.2786,
+   "benchmarkOperatingEbitdaMonthly": [
+    52896,
+    117302
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    22,
+    30
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      228079.2786,
+      228079.2786
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      15,
+      28
+     ],
+     "dollarRange": [
+      38643,
+      72134
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      22,
+      30
+     ],
+     "dollarRange": [
+      56677,
+      77287
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 16.3\u201322.3 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      15457,
+      25762
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      52896,
+      117302
+     ],
+     "note": "\u2248 21% to 46% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cExperiential entertainment with F&B attach (e.g. indoor golf + bar)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Rent",
+     "basis": "disclosed",
+     "detail": "Taken from the FDD (~$25,000/mo); already netted in margin after fees & rent."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 15\u201328% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 22\u201330% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. UA Holdings, LLC guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 204630,
+    "revenueTrend": "flat",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.6441719137092519,
+    "adjLiabilitiesToAssets": 0.6441719137092519,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

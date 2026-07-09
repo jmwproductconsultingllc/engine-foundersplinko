@@ -1,0 +1,586 @@
+{
+ "slug": "sky-zone",
+ "brandName": "Sky Zone",
+ "category": "Play & Entertainment",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-09T18:50:45.534Z",
+ "sourceStem": "skyzone",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Sky Zone",
+   "franchisorEntity": "Sky Zone Franchise Group, LLC",
+   "headquarters": "Dallas, TX",
+   "brandBackground": "Sky Zone operates indoor trampoline parks featuring trampoline attractions and other active entertainment attractions.",
+   "leadership": [
+    {
+     "name": "David Hoffmann",
+     "role": "Chief Executive Officer, CTH",
+     "background": "Served as CEO of Mammoth Holdings Inc. from October 2021 to May 2025.",
+     "whyItMatters": "Provides executive leadership and strategic direction for the parent company."
+    },
+    {
+     "name": "Mike Revak",
+     "role": "Chief Operating Officer, CTH and SFG",
+     "background": "Previously served as President of SFG and COO of Rockin' Jump Franchise, LLC.",
+     "whyItMatters": "Oversees daily operations and franchise development across the brands."
+    },
+    {
+     "name": "Michael Healy",
+     "role": "Chief Financial Officer, CTH and SFG",
+     "background": "Served as Chief Financial Officer for Bloomin' Brands from May 2009 to October 2025.",
+     "whyItMatters": "Directs financial strategy, accounting, and fiscal management."
+    },
+    {
+     "name": "Stephanie Meltzer-Paul",
+     "role": "Chief Commercial Officer, CTH and SFG",
+     "background": "Previously served as Executive Vice President of Global Loyalty Services for Mastercard.",
+     "whyItMatters": "Leads commercial strategy, marketing, and guest experience initiatives."
+    },
+    {
+     "name": "Sherin Sakr",
+     "role": "President of International and Chief Legal Officer, CTH and SFG",
+     "background": "Previously served as Chief Legal Officer for WellBiz Brands, Inc.",
+     "whyItMatters": "Manages international expansion and all legal and regulatory affairs."
+    },
+    {
+     "name": "Joe Tenczar",
+     "role": "Chief Information Officer, CTH and SFG",
+     "background": "Previously served as Chief Strategy Officer and CIO for Sonny's Franchise Company.",
+     "whyItMatters": "Directs technology systems, POS platforms, and information security."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Model Parks Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 237256,
+      "basis": "Average Gross Sales of 34 Model Parks open and operating throughout the 2025 fiscal year.",
+      "annualRevenue": 2847069,
+      "monthlyValues": [],
+      "sampleSize": 34
+     },
+     {
+      "label": "Model Parks EBITDA",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 59233,
+      "basis": "Average EBITDA of 34 Model Parks open and operating throughout the 2025 fiscal year.",
+      "annualRevenue": 710790,
+      "monthlyValues": [],
+      "sampleSize": 34
+     },
+     {
+      "label": "Franchised Parks (System-Wide) Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 187999,
+      "basis": "Average Gross Sales of 106 franchisee-owned parks in the United States during the 2025 fiscal year.",
+      "annualRevenue": 2255992,
+      "monthlyValues": [],
+      "sampleSize": 106
+     },
+     {
+      "label": "Franchised Parks (System-Wide) EBITDA",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 41390,
+      "basis": "Average EBITDA of 106 franchisee-owned parks in the United States during the 2025 fiscal year.",
+      "annualRevenue": 496683,
+      "monthlyValues": [],
+      "sampleSize": 106
+     },
+     {
+      "label": "Corporate Parks Gross Sales",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 270035,
+      "basis": "Average Gross Sales of 110 corporate-owned parks in the United States during the 2025 fiscal year.",
+      "annualRevenue": 3240425,
+      "monthlyValues": [],
+      "sampleSize": 110
+     }
+    ],
+    "notes": "Model Parks are franchisee-owned parks that have at least 25,000 square feet of space, have 4 or more private party rooms, and were open and operating throughout the Reporting Period.",
+    "sourcePage": "Item 19, p. 63-66",
+    "networkAverageMonthly": null,
+    "unitsReported": 106
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Uniform fee paid upon signing the Franchise Agreement.",
+      "high": 75000,
+      "low": 75000
+     },
+     {
+      "category": "Lease & Security Deposits",
+      "recurring": false,
+      "notes": "Estimated at one to two months' rent.",
+      "high": 106800,
+      "low": 24700
+     },
+     {
+      "category": "Leasehold Improvements / Construction",
+      "recurring": false,
+      "notes": "Varies widely by size of space and local construction rates.",
+      "high": 3000000,
+      "low": 1504000
+     },
+     {
+      "category": "Attractions",
+      "recurring": false,
+      "notes": "Purchased from affiliate Sky Zone, LLC.",
+      "high": 1550000,
+      "low": 672000
+     },
+     {
+      "category": "Furniture & Cabinets",
+      "recurring": false,
+      "notes": "Purchased from designated vendors.",
+      "high": 180000,
+      "low": 80000
+     },
+     {
+      "category": "Flooring",
+      "recurring": false,
+      "notes": "Flooring materials as specified in the Operations Manual.",
+      "high": 90000,
+      "low": 35000
+     },
+     {
+      "category": "Lighting",
+      "recurring": false,
+      "notes": "Lighting equipment from designated vendor.",
+      "high": 120000,
+      "low": 70000
+     },
+     {
+      "category": "Signage & Graphics",
+      "recurring": false,
+      "notes": "Includes exterior sign and branded graphics package.",
+      "high": 120000,
+      "low": 50000
+     },
+     {
+      "category": "Fire Alarms, Sprinklers & Security",
+      "recurring": false,
+      "notes": "Required fire alarms, sprinkler systems, and security systems.",
+      "high": 70000,
+      "low": 30000
+     },
+     {
+      "category": "Caf\u00e9 Equipment",
+      "recurring": false,
+      "notes": "Ovens, freezers, ice makers, and refrigerators from approved vendor.",
+      "high": 120000,
+      "low": 90000
+     },
+     {
+      "category": "IT Equipment",
+      "recurring": false,
+      "notes": "Technology package including POS, surveillance, and AV equipment.",
+      "high": 144000,
+      "low": 139500
+     },
+     {
+      "category": "Architect",
+      "recurring": false,
+      "notes": "Paid directly to approved architect.",
+      "high": 125000,
+      "low": 75000
+     },
+     {
+      "category": "Construction Permits",
+      "recurring": false,
+      "notes": "Estimated building and health permits.",
+      "high": 50000,
+      "low": 20000
+     },
+     {
+      "category": "Other Licenses & Permits",
+      "recurring": false,
+      "notes": "Initial business licenses, food establishment licenses, etc.",
+      "high": 17500,
+      "low": 5000
+     },
+     {
+      "category": "Initial Food & Beverage Inventory",
+      "recurring": false,
+      "notes": "Initial supply of food and beverage items.",
+      "high": 15000,
+      "low": 10000
+     },
+     {
+      "category": "Inventory, Uniforms & Party Supplies",
+      "recurring": false,
+      "notes": "Wristbands, SkySocks, uniforms, and party supplies.",
+      "high": 34100,
+      "low": 21600
+     },
+     {
+      "category": "Additional Park Fixtures & Supplies",
+      "recurring": false,
+      "notes": "Party carts, floor scrubber, safety barriers, AED, etc.",
+      "high": 28100,
+      "low": 18100
+     },
+     {
+      "category": "Training Program & Pre-Opening Labor Expenses",
+      "recurring": false,
+      "notes": "Travel, lodging, and pre-opening wages for employees.",
+      "high": 86750,
+      "low": 48400
+     },
+     {
+      "category": "Professional Fees",
+      "recurring": false,
+      "notes": "Legal and accounting fees to establish business.",
+      "high": 15000,
+      "low": 5000
+     },
+     {
+      "category": "Insurance (First Quarter of Operations)",
+      "recurring": true,
+      "notes": "Mandatory Master Insurance Program costs.",
+      "high": 65000,
+      "low": 24000
+     },
+     {
+      "category": "Additional Funds (Three Months)",
+      "recurring": true,
+      "notes": "Working capital for initial three months of operation.",
+      "high": 345000,
+      "low": 205900
+     },
+     {
+      "category": "Grand Opening Marketing Expense",
+      "recurring": false,
+      "notes": "Minimum required spend on grand opening advertising.",
+      "high": 35000,
+      "low": 35000
+     },
+     {
+      "category": "Technology Fees",
+      "recurring": true,
+      "notes": "Technology fee paid beginning two months prior to opening.",
+      "high": 2960,
+      "low": 2960
+     },
+     {
+      "category": "Site Development Fee",
+      "recurring": false,
+      "notes": "Paid to us no later than 10 days before opening.",
+      "high": 5000,
+      "low": 5000
+     }
+    ],
+    "sourcePage": "Item 7, p. 17-22",
+    "initialInvestmentHigh": 6400210,
+    "initialInvestmentLow": 3246160
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p. 7",
+      "monthlyAmount": 1480
+     }
+    ],
+    "brandFundPct": 0.03,
+    "localAdPct": 0.04,
+    "royaltyPct": 0.06
+   },
+   "hiddenCosts": [
+    {
+     "name": "Master Insurance Program Costs",
+     "description": "Total Cost of Risk, currently between 2.4% and 13.0% of Gross Sales, subject to recalculation every six months.",
+     "source": "Item 6, p. 9",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Non-Compliance Fee",
+     "description": "$250 for each day you remain out of compliance; $2,500 per violation for failure to obtain guest waivers.",
+     "source": "Item 6, p. 8",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Management Fee",
+     "description": "50% of Gross Sales plus travel and living expenses if the franchisor assumes operation of the park upon default.",
+     "source": "Item 6, p. 9",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 75",
+    "closedLastYear": 2,
+    "openedLastYear": 4,
+    "totalUnits": 245,
+    "transfersLastYear": 5
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by arbitration and/or litigation only in Texas, which may be more costly and less favorable.",
+     "severity": "medium",
+     "source": "Special Risks, p. 5"
+    },
+    {
+     "title": "Supplier Control",
+     "description": "Franchisees must purchase nearly all inventory and supplies from the franchisor or designated suppliers at prices they set.",
+     "severity": "high",
+     "source": "Special Risks, p. 5"
+    },
+    {
+     "title": "Mandatory Insurance Program",
+     "description": "Franchisees must participate in the Master Insurance Program and pay a Total Cost of Risk that can fluctuate significantly.",
+     "severity": "medium",
+     "source": "Item 6, p. 14"
+    }
+   ],
+   "conceptType": "experiential_with_fb",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 20581200,
+      "totalAssets": 63956700,
+      "totalLiabilities": 15867300
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 22245400,
+      "totalAssets": 43622500,
+      "totalLiabilities": 9460100
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 20520900,
+      "totalAssets": 71145900,
+      "totalLiabilities": 13305900
+     }
+    ],
+    "auditorName": "PricewaterhouseCoopers LLP",
+    "parentName": "CircusTrix Holdings, LLC"
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "Sky Zone is an indoor trampoline and active entertainment park that includes party rooms and a concession/caf\u00e9 area.",
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p. 23",
+    "squareFootage": null
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "The business requires a full management team, court monitors, and caf\u00e9 staff to supervise shifts and operate the attractions safely."
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "Capital gap of $4,573,185 is ~18x your liquid \u2014 extreme leverage; the deal rests almost entirely on outside capital.",
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Model Parks Gross Sales",
+    "monthlyRevenue": 237256,
+    "monthlyVariable": 308.4328,
+    "monthlyFixed": 1480,
+    "monthlyEbitda": 235467.5672,
+    "annualEbitda": 2825610.8064,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Model Parks Gross Sales",
+     "math": "$2,847,069/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 34
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 4823185,
+   "assumedLoan": 3858548,
+   "assumedMonthlyDebtService": 52065.3161938292,
+   "dscr": 4.522541768946516,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 1.706953055628008,
+   "variableRate": 0.0013,
+   "fixedMonthly": 1480,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 4573185,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 4573185,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 61708.270322897835,
+   "adjustedMonthlyNetCashFlow": 173759.29687710217,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $4,823,185 mid-point build-out, there is a $4,573,185 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $173,759/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "experiential_with_fb",
+   "conceptLabel": "Experiential entertainment with F&B attach (e.g. indoor golf + bar)",
+   "conceptRationale": "Sky Zone is an indoor trampoline and active entertainment park that includes party rooms and a concession/caf\u00e9 area.",
+   "benchmark": {
+    "label": "Experiential entertainment with F&B attach (e.g. indoor golf + bar)",
+    "cogsPct": [
+     15,
+     28
+    ],
+    "laborPct": [
+     22,
+     30
+    ],
+    "occupancyPct": [
+     10,
+     16
+    ],
+    "operatingEbitdaPct": [
+     15,
+     26
+    ],
+    "dominantRisk": "Blended margin. The bar/kitchen attach rate swings COGS up; the large footprint plus simulator/equipment R&M swing fixed costs. Owner-operator vs. absentee is a full GM salary either way.",
+    "rampNote": "6\u201318 months to a mature membership/booking base; the Item 19 average is NOT a year-one number.",
+    "considerations": [
+     "Budget blended COGS ~15\u201328% (sim time and memberships carry little; the bar and kitchen drive it) and labor ~22\u201330%.",
+     "Decide owner-operator vs. absentee before modeling \u2014 absentee adds a GM salary (~$60\u201390K/yr) the pro forma omits.",
+     "Confirm the F&B attach rate and per-bay equipment costs (e.g. simulator licenses, R&M) at mature franchised units via Item 20.",
+     "Assume a 6\u201318 month ramp; discount the Item 19 mature average for year one."
+    ]
+   },
+   "disclosedOperatingMarginPct": 25,
+   "disclosedMarginSource": "Model Parks EBITDA \u00f7 Model Parks Gross Sales",
+   "crossCheck": {
+    "status": "consistent",
+    "message": "The franchisor's disclosed margin (25%) is consistent with the typical 15\u201326% band for this concept \u2014 a positive signal on the reported economics. Still verify against real franchisee P&Ls (Item 20)."
+   },
+   "proFormaRevenueMonthly": 237256,
+   "marginAfterFeesMonthly": 235467.5672,
+   "benchmarkOperatingEbitdaMonthly": [
+    59314,
+    59314
+   ],
+   "trueEbitdaBasis": "disclosed",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    22,
+    30
+   ],
+   "buildup": [
+    {
+     "label": "Franchised gross sales (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      237256,
+      237256
+     ],
+     "basis": "disclosed"
+    },
+    {
+     "label": "\u00d7 franchisor's disclosed operating margin (25%)",
+     "kind": "result",
+     "dollarRange": [
+      59314,
+      59314
+     ],
+     "note": "Model Parks EBITDA \u00f7 Model Parks Gross Sales",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cExperiential entertainment with F&B attach (e.g. indoor golf + bar)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating margin",
+     "basis": "disclosed",
+     "detail": "Taken straight from the franchisor's Item 19 disclosure (Model Parks EBITDA \u00f7 Model Parks Gross Sales); no benchmark applied."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed margin applied to the modeled franchised gross. The margin is from the FDD; this dollar figure is computed, not disclosed."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so CircusTrix Holdings, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 20581200,
+    "revenueTrend": "worsening",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.24809441387688858,
+    "adjLiabilitiesToAssets": 0.24809441387688858,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}
