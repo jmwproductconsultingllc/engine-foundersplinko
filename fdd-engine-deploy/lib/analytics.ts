@@ -31,7 +31,12 @@ export type AnalyticsEvent =
   | "upgrade_clicked" // clicked to pay (#2)                         { priceVariant, price }
   | "checkout_started" // Stripe checkout opened (#5)                { priceVariant, price }
   | "purchase_completed" // payment succeeded (#5/#6)                { priceVariant, price }
-  | "report_unlocked"; // full report accessed after payment (#6)
+  | "report_unlocked" // full report accessed after payment (#6)
+  // ── brand pages (feat/brand-pages: Path-A cold funnel + demand loop) ──
+  | "brands_library_clicked" // home hero pill → /brands             { source }
+  | "brand_card_clicked" // live card → /franchise/[slug]            { slug, risk, mo }
+  | "brand_requested" // ghost card demand signal — "which FDD next" { brand, category }
+  | "snapshot_email_submitted"; // detail-page email capture, pre-A2 { slug, ref }
 
 interface PostHogLike {
   capture: (event: string, props?: Props) => void;
