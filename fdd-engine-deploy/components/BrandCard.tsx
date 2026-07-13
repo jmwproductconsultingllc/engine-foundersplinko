@@ -70,8 +70,14 @@ export function LiveBrandCard({ card, refTag }: { card: BrandCardModel; refTag?:
       ) : (
         <>
           <div className="mt-auto pt-3 text-[21px] font-extrabold leading-none text-[#F5B847]">
-            {card.lo != null && card.hi != null ? `${usd(card.lo)}–${usd(card.hi)}` : "—"}
-            <span className="ml-1.5 text-[11px] font-semibold text-[#8194B0]">to open</span>
+            {card.lo != null && card.hi != null
+              ? `${usd(card.lo)}–${usd(card.hi)}`
+              : card.buildoutMid != null
+                ? `~${usd(card.buildoutMid)}`
+                : "—"}
+            <span className="ml-1.5 text-[11px] font-semibold text-[#8194B0]">
+              {card.lo != null ? "to open" : "est. build-out"}
+            </span>
           </div>
           <div className="mt-1.5 text-[11px] text-[#8194B0]">
             Item 19 not disclosed · see the diligence →

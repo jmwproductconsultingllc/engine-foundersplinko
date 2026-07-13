@@ -31,8 +31,11 @@ export async function generateMetadata({
   const card = toCard(brand);
   const cost =
     card.lo != null && card.hi != null ? `${usd(card.lo)}–${usd(card.hi)}` : "cost to open";
-  const title = `${brand.brandName} Franchise — Cost, Item 19 & Diligence | Franchise Edge`;
-  const description = `A PE-grade read of the ${brand.brandName} FDD: real cost to open (${cost}), risk level, Item 19 numbers, royalty and system scale.`;
+  // P1-4: query-matched pattern over the registry — targets "[brand] franchise
+  // cost", "[brand] franchise review", "is [brand] a good investment", "[brand] FDD"
+  const year = new Date().getFullYear();
+  const title = `${brand.brandName} Franchise Review (${year}): Cost, Item 19 Earnings, Fees — from the actual FDD`;
+  const description = `Is ${brand.brandName} a good investment? Real cost to open (${cost}), Item 19 earnings, royalty and fee stack, and risk flags — read from the actual ${brand.brandName} FDD, not the sales deck.`;
   return {
     title,
     description,

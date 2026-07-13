@@ -17,6 +17,9 @@ const display = Space_Grotesk({
 // PostHog loads via the official snippet below (no npm dependency). It stays
 // completely inert until NEXT_PUBLIC_POSTHOG_KEY is set in Vercel, so this is
 // safe to deploy before the project key exists. Host defaults to US cloud.
+// GA4 / Google Ads (P0-2). Inert until NEXT_PUBLIC_GA4_MEASUREMENT_ID is set.
+const GA4_ID = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID;
+
 const PH_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY;
 const PH_HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com";
 
@@ -41,6 +44,14 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{ __html: POSTHOG_SNIPPET }}
           />
+        )}
+        {GA4_ID && (
+          <>
+            <Script src={"https://www.googletagmanager.com/gtag/js?id=" + GA4_ID} strategy="afterInteractive" />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {"window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" + GA4_ID + "');"}
+            </Script>
+          </>
         )}
       </body>
     </html>

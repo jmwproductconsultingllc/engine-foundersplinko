@@ -2,7 +2,7 @@
 // Ghosts and THIN brands are deliberately absent: never invite Google to a 404.
 
 import type { MetadataRoute } from "next";
-import { listBrands, toCard } from "@/lib/brands";
+import { listBrands, toCard, verticalOf } from "@/lib/brands";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://engine.foundersplinko.com";
 
@@ -19,5 +19,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })),
+    // P1-6: same-vertical comparison pages (canonical = alphabetical slug order)
+    ...(() => {
+      const out: MetadataRoute.Sitemap = [];
+      for (let i = 0; i < live.length; i++)
+        for (let j = i + 1; j < live.length; j++) {
+          if (verticalOf(live[i]) !== verticalOf(live[j])) continue;
+          const [a, b2] = [live[i].slug, live[j].slug].sort();
+          out.push({ url: `${BASE}/compare/${a}-vs-${b2}`, changeFrequency: "weekly", priority: 0.6 });
+        }
+      return out;
+    })(),
   ];
 }

@@ -32,6 +32,8 @@ export interface StoredReport {
    *  Written at mint/save time so the Stripe webhook attributes off the record,
    *  not off session inference. */
   ref?: string | null;
+  /** first-touch utm_* params captured by middleware at landing */
+  utm?: Record<string, string> | null;
   /** set when this record was minted from a canonical brand template
    *  (app/api/mint-brand-report) rather than a user upload */
   brandSlug?: string | null;
@@ -41,6 +43,8 @@ export interface SaveReportOptions {
   email?: string | null;
   ref?: string | null;
   brandSlug?: string | null;
+  /** first-touch acquisition params (P0 conversion sprint) */
+  utm?: Record<string, string> | null;
 }
 
 function keyFor(reportId: string): string {
@@ -71,6 +75,7 @@ export async function saveReport(
     email: options.email ?? null,
     ref: options.ref ?? null,
     brandSlug: options.brandSlug ?? null,
+    utm: options.utm ?? null,
   };
   await put(keyFor(reportId), JSON.stringify(record), {
     access: "public",

@@ -19,6 +19,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getBrand } from "@/lib/brands";
 import { saveReport } from "@/lib/reports";
+import { readUtm } from "@/lib/utm";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -55,10 +56,12 @@ export async function GET(req: NextRequest) {
   // Fresh per-buyer record from the immutable canonical template. fileHash is
   // a synthetic brand marker (there's no buyer upload to hash) — kept unique
   // per mint so hash-based dedup analytics never collide two buyers.
+  const utm = readUtm(req);
   const reportId = await saveReport(brand.result, `brand:${slug}:${Date.now()}`, {
     email,
     ref,
     brandSlug: slug,
+    utm: Object.keys(utm).length ? (utm as Record<string, string>) : null,
   });
 
   return NextResponse.redirect(`${origin}/api/checkout?reportId=${reportId}`, 303);

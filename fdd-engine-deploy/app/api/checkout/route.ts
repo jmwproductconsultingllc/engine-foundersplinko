@@ -8,6 +8,7 @@
 // report to paid, and the success return carries the session id for verification.
 
 import { NextRequest, NextResponse } from "next/server";
+import { readUtm } from "@/lib/utm";
 import { getStripe } from "@/lib/stripe";
 import { loadReport } from "@/lib/reports";
 
@@ -50,7 +51,9 @@ export async function GET(req: NextRequest) {
         quantity: 1,
       },
     ],
-    metadata: { reportId },
+    // P0-1: first-touch UTM from the middleware cookie -> Stripe metadata, so
+    // every purchase carries its acquisition source (ads acceptance test).
+    metadata: { reportId, ...readUtm(req) },
     success_url: `${origin}/report/${reportId}?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${origin}/report/${reportId}`,
   });

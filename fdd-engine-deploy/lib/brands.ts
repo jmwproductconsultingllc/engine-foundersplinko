@@ -28,7 +28,7 @@ export interface BrandRecord {
    *  parsed from a 100-page-trimmed doc; NEVER surfaced to users — rendered
    *  only as a data attribute so we know which pages silently upgrade after
    *  the clean re-parse. */
-  parseQuality?: "clean" | "degraded-fallback";
+  parseQuality?: string; // known: clean | degraded-fallback | full | manual-verified
   grade: "READY" | "THIN";
   sourceFddYear: number | null;
   generatedAt: string;
@@ -67,11 +67,14 @@ export interface BrandCard {
   /** last-resort investment figure when Item 7 low/high are absent */
   buildoutMid: number | null;
   vertical: string;
-  parseQuality: "clean" | "degraded-fallback";
+  parseQuality: string;
   royaltyPct: number | null; // normalized (R2)
   units: number | null;
   openedLastYear: number | null;
   closedLastYear: number | null;
+  /** top FDD-cited disclosures for the "what the sales deck won't lead with"
+   *  section (P1-5). Descriptive rendering only — never accusatory. */
+  tripwires: { title: string; description: string; severity: string; source: string }[];
 }
 
 // ---------------------------------------------------------------------------
@@ -350,8 +353,13 @@ export function toCard(brand: BrandRecord, preference: CohortPreference = "reven
   // live = clickable + sellable. Cost display needs either the Item 7 range or,
   // as a last resort, the engine's mid-point build-out (batch2 brief §data-2;
   // in practice the batch shipped full Item 7s, so the fallback is dormant).
+  // manual-verified records (hand-checked stubs awaiting full extraction) may
+  // ship without a risk grade: they render honestly as "grading in progress"
+  // rather than ghosting a brand with a client deadline. Everything else still
+  // requires a computed risk verdict to be sellable.
+  const gradedOrVerified = risk != null || brand.parseQuality === "manual-verified";
   const live =
-    brand.grade === "READY" && risk != null && ((lo != null && hi != null) || buildoutMid != null);
+    brand.grade === "READY" && gradedOrVerified && ((lo != null && hi != null) || buildoutMid != null);
 
   return {
     brandName: brand.brandName,
@@ -377,6 +385,16 @@ export function toCard(brand: BrandRecord, preference: CohortPreference = "reven
     units: e.systemScale?.totalUnits ?? null,
     openedLastYear: e.systemScale?.openedLastYear ?? null,
     closedLastYear: e.systemScale?.closedLastYear ?? null,
+    tripwires: (e.operationalRisks ?? [])
+      .slice()
+      .sort((a, b) => ({ high: 0, medium: 1, low: 2 }[a.severity ?? "low"] ?? 2) - ({ high: 0, medium: 1, low: 2 }[b.severity ?? "low"] ?? 2))
+      .slice(0, 3)
+      .map((t) => ({
+        title: t.title ?? "",
+        description: t.description ?? "",
+        severity: t.severity ?? "medium",
+        source: t.source ?? "FDD",
+      })),
   };
 }
 

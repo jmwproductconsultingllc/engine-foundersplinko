@@ -42,7 +42,7 @@ export default function BrandDetail({
   const [email, setEmail] = useState("");
   const [emailSent, setEmailSent] = useState(false);
 
-  const tone = RISK_TONE[card.risk ?? ""] ?? RISK_TONE.Medium;
+  const tone = card.risk ? (RISK_TONE[card.risk] ?? RISK_TONE.Medium) : null;
   // Item 7 range preferred; engine mid-point build-out as last resort
   // (batch2 brief §data-2 — dormant on current data, all records carry Item 7).
   const hasRange = card.lo != null && card.hi != null;
@@ -85,7 +85,12 @@ export default function BrandDetail({
         <p className="mt-8 text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#38BDF8]">
           Franchise Diligence · Free snapshot
         </p>
-        <h1 className="mt-2 text-[34px] font-extrabold leading-[1.15] tracking-tight">{card.brandName}</h1>
+        <h1 className="mt-2 text-[30px] font-extrabold leading-[1.2] tracking-tight">
+          {card.brandName} Franchise Review ({new Date().getFullYear()})
+        </h1>
+        <p className="mt-1 text-[15px] font-semibold text-[#8194B0]">
+          Cost, Item 19 earnings &amp; fees — from the actual FDD
+        </p>
         <p className="mt-2.5 max-w-[62ch] text-[15px] text-[#8194B0]">
           A private-equity-grade read of the {card.brandName} Franchise Disclosure Document — the real
           cost to open, the earnings picture, and the risks a salesperson has no incentive to mention.
@@ -135,16 +140,29 @@ export default function BrandDetail({
           </div>
         )}
 
-        {/* verdict */}
-        <div className={`mt-4 flex items-center gap-3.5 rounded-2xl border px-5 py-4 ${tone.border} ${tone.bg}`}>
-          <div>
+        {/* verdict — or the honest in-progress state for manual-verified stubs */}
+        {tone ? (
+          <div className={`mt-4 flex items-center gap-3.5 rounded-2xl border px-5 py-4 ${tone.border} ${tone.bg}`}>
+            <div>
+              <div className="text-xs font-bold uppercase tracking-[0.14em] text-[#8194B0]">
+                Diligence risk level
+              </div>
+              <div className={`mt-0.5 text-[22px] font-extrabold ${tone.text}`}>{card.risk}</div>
+              {card.riskReasons[0] && <div className="mt-1 text-[13px] text-[#CBD5E1]">{card.riskReasons[0]}</div>}
+            </div>
+          </div>
+        ) : (
+          <div className="mt-4 rounded-2xl border border-[#27344F] bg-[#0E1729] px-5 py-4">
             <div className="text-xs font-bold uppercase tracking-[0.14em] text-[#8194B0]">
               Diligence risk level
             </div>
-            <div className={`mt-0.5 text-[22px] font-extrabold ${tone.text}`}>{card.risk}</div>
-            {card.riskReasons[0] && <div className="mt-1 text-[13px] text-[#CBD5E1]">{card.riskReasons[0]}</div>}
+            <div className="mt-0.5 text-[18px] font-extrabold text-[#8194B0]">Grading in progress</div>
+            <div className="mt-1 text-[13px] text-[#CBD5E1]">
+              Key figures below are hand-verified against the FDD; the full computed risk grade and
+              fee-stack model publish when the complete extraction finishes.
+            </div>
           </div>
-        </div>
+        )}
 
         {/* capital-fit calculator */}
         <section className="mt-8">
@@ -268,16 +286,29 @@ export default function BrandDetail({
         {card.riskReasons.length > 0 && (
           <section className="mt-8">
             <div className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#8194B0]">
-              What the FDD flags
+              What the sales deck won&apos;t lead with
             </div>
+            <p className="mt-1 text-xs text-[#586A88]">
+              Descriptive, FDD-cited disclosures — read them before discovery day.
+            </p>
             <div className="mt-3 flex flex-col gap-2">
-              {card.riskReasons.slice(0, 2).map((r) => (
+              {(card.tripwires.length > 0
+                ? card.tripwires.map((t) => ({
+                    key: t.title,
+                    text: `The FDD discloses: ${t.description || t.title}`,
+                    cite: t.source,
+                  }))
+                : card.riskReasons.slice(0, 3).map((r) => ({ key: r, text: r, cite: null }))
+              ).map((f) => (
                 <div
-                  key={r}
+                  key={f.key}
                   className="flex items-start gap-2.5 rounded-xl border border-[#27344F] bg-[#0E1729] px-3.5 py-3 text-[13px] text-[#CBD5E1]"
                 >
                   <span className="shrink-0 text-amber-300">▲</span>
-                  <span>{r}</span>
+                  <span>
+                    {f.text}
+                    {f.cite && <span className="ml-1.5 text-[11px] text-[#586A88]">({f.cite})</span>}
+                  </span>
                 </div>
               ))}
             </div>
