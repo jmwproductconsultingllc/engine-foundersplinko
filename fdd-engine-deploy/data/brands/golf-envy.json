@@ -1,0 +1,507 @@
+{
+ "slug": "golf-envy",
+ "brandName": "Golf Envy",
+ "category": "Indoor golf",
+ "vertical": "Sports & Entertainment",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "golf envy",
+ "fileHash": "4e06e7cda3d574f0",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Golf Envy",
+   "franchisorEntity": "Golf Envy Franchising, LLC",
+   "headquarters": "Irvine, California",
+   "brandBackground": "",
+   "leadership": [
+    {
+     "name": "Ryan Wines",
+     "role": "Founder & Chief Executive Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Cole Arranaga",
+     "role": "Chief Operating Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Richard Collins",
+     "role": "Vice President of Franchise Development",
+     "background": "",
+     "whyItMatters": ""
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Affiliate-Owned Clubs Gross Sales",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 35343,
+      "basis": "Item 19, Table 1, p.51",
+      "annualRevenue": 424118,
+      "monthlyValues": [
+       33600,
+       36187,
+       38860,
+       29702,
+       27595,
+       34592,
+       39010,
+       38113,
+       38537,
+       33778,
+       35194,
+       38950
+      ],
+      "sampleSize": 2
+     },
+     {
+      "label": "Tempe, AZ Pre-Sale Revenue",
+      "ownership": "franchised",
+      "revenueType": "pre_sale_only",
+      "avgMonthlyRevenue": 1503,
+      "basis": "Item 19, Table 2, p.52",
+      "annualRevenue": 18041,
+      "monthlyValues": [],
+      "sampleSize": 1
+     },
+     {
+      "label": "Doylestown, PA Pre-Sale Revenue",
+      "ownership": "franchised",
+      "revenueType": "pre_sale_only",
+      "avgMonthlyRevenue": 6907,
+      "basis": "Item 19, Table 2, p.52",
+      "annualRevenue": 82889,
+      "monthlyValues": [],
+      "sampleSize": 1
+     }
+    ],
+    "notes": "",
+    "sourcePage": "Item 19, p.50-53",
+    "networkAverageMonthly": null,
+    "unitsReported": 2
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 50000,
+      "low": 50000
+     },
+     {
+      "category": "Opening Support Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 20000,
+      "low": 20000
+     },
+     {
+      "category": "Local Marketing Requirement - Pre-Open (2 Months)",
+      "recurring": false,
+      "notes": "",
+      "high": 60000,
+      "low": 6000
+     },
+     {
+      "category": "Net Leasehold Improvements",
+      "recurring": false,
+      "notes": "",
+      "high": 202924,
+      "low": 148479
+     },
+     {
+      "category": "Architecture, Engineering and Design Fees",
+      "recurring": false,
+      "notes": "",
+      "high": 17000,
+      "low": 12900
+     },
+     {
+      "category": "Project Management Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 18000,
+      "low": 13500
+     },
+     {
+      "category": "Signage",
+      "recurring": false,
+      "notes": "",
+      "high": 15000,
+      "low": 7000
+     },
+     {
+      "category": "Furniture, Fixtures & Equipment",
+      "recurring": false,
+      "notes": "",
+      "high": 22000,
+      "low": 22000
+     },
+     {
+      "category": "Golf Simulators",
+      "recurring": false,
+      "notes": "",
+      "high": 237500,
+      "low": 18000
+     },
+     {
+      "category": "Golf Simulator Software and Licenses - 3 Months",
+      "recurring": true,
+      "notes": "",
+      "high": 1800,
+      "low": 1800
+     },
+     {
+      "category": "Opening Inventory and Supplies",
+      "recurring": false,
+      "notes": "",
+      "high": 1000,
+      "low": 500
+     },
+     {
+      "category": "Computer System and Required Software - 3 Months",
+      "recurring": true,
+      "notes": "",
+      "high": 4000,
+      "low": 3000
+     },
+     {
+      "category": "Training Expenses",
+      "recurring": false,
+      "notes": "",
+      "high": 2500,
+      "low": 1000
+     },
+     {
+      "category": "Lease Deposit and Rent - 3 Months",
+      "recurring": true,
+      "notes": "",
+      "high": 30000,
+      "low": 20000
+     },
+     {
+      "category": "Professional Fees, Permits and Licenses",
+      "recurring": false,
+      "notes": "",
+      "high": 5000,
+      "low": 2000
+     },
+     {
+      "category": "Insurance Premium - 3 Months",
+      "recurring": true,
+      "notes": "",
+      "high": 4000,
+      "low": 3000
+     },
+     {
+      "category": "Additional Funds (3 Months)",
+      "recurring": false,
+      "notes": "",
+      "high": 60000,
+      "low": 20000
+     }
+    ],
+    "sourcePage": "Item 7, p.16-17",
+    "initialInvestmentHigh": 696724,
+    "initialInvestmentLow": 349179
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Marketing Fund",
+      "source": "Item 6, p.12",
+      "monthlyAmount": 300
+     },
+     {
+      "name": "Local Marketing Requirement",
+      "source": "Item 6, p.12",
+      "monthlyAmount": 3000
+     }
+    ],
+    "brandFundPct": null,
+    "localAdPct": null,
+    "royaltyPct": 8
+   },
+   "hiddenCosts": [
+    {
+     "name": "Email Fee",
+     "description": "",
+     "source": "Item 6, p.12",
+     "estimatedAnnualAmount": 216
+    },
+    {
+     "name": "Site Selection Area Change Request Fee",
+     "description": "",
+     "source": "Item 6, p.13",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Non-Compliance Fee",
+     "description": "",
+     "source": "Item 6, p.13",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Vendor or Equipment Testing Fees",
+     "description": "",
+     "source": "Item 6, p.14",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p.54",
+    "closedLastYear": 0,
+    "openedLastYear": 1,
+    "totalUnits": 3,
+    "transfersLastYear": 0
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "",
+     "severity": "medium",
+     "source": "FDD Cover Page, p.4"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "",
+     "severity": "high",
+     "source": "FDD Cover Page, p.4"
+    },
+    {
+     "title": "Short Operating History",
+     "description": "",
+     "severity": "medium",
+     "source": "FDD Cover Page, p.4"
+    },
+    {
+     "title": "Financial Condition",
+     "description": "",
+     "severity": "high",
+     "source": "FDD Cover Page, p.4"
+    },
+    {
+     "title": "Mandatory Minimum Payments",
+     "description": "",
+     "severity": "medium",
+     "source": "FDD Cover Page, p.4"
+    }
+   ],
+   "conceptType": "experiential_with_fb",
+   "staffingModel": "automated",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "cash": 464508,
+      "currentAssets": 1150652,
+      "currentLiabilities": 308768,
+      "deferredRevenue": 1104948,
+      "netIncome": -229647,
+      "netWorth": 152620,
+      "relatedPartyDebt": null,
+      "revenue": 658024,
+      "totalAssets": 1899992,
+      "totalLiabilities": 1747372
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "cash": 133166,
+      "currentAssets": 266258,
+      "currentLiabilities": 194468,
+      "deferredRevenue": 129275,
+      "netIncome": -147732,
+      "netWorth": 82268,
+      "relatedPartyDebt": null,
+      "revenue": 725,
+      "totalAssets": 884256,
+      "totalLiabilities": 801988
+     }
+    ],
+    "auditorName": "DA Advisory Group PLLC",
+    "parentName": "Zeze Holdings, LLC"
+   },
+   "averageRentMonthly": 5875,
+   "conceptRationale": "",
+   "rentDetail": {
+    "rawValue": 26.11,
+    "unit": "per_sqft_per_year",
+    "source": "Item 19, Table 3, p.52",
+    "squareFootage": 2700
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": ""
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "Above-market royalty at 8%.",
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section.",
+    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+   ],
+   "midCohort": null,
+   "bottomCohort": null,
+   "buildoutMidpoint": 522951.5,
+   "assumedLoan": 418361.2,
+   "assumedMonthlyDebtService": 5645.156717301383,
+   "dscr": null,
+   "rentPctOfRevenue": null,
+   "paybackYears": null,
+   "variableRate": 0.08,
+   "fixedMonthly": 9175,
+   "notes": [
+    "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 272951.5,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 272951.5,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 3683.070977238063,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $522,952 mid-point build-out, there is a $272,952 capital gap. An SBA loan or an equity partner is required to do this deal."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "experiential_with_fb",
+   "conceptLabel": "Experiential entertainment with F&B attach (e.g. indoor golf + bar)",
+   "conceptRationale": "",
+   "benchmark": {
+    "label": "Experiential entertainment with F&B attach (e.g. indoor golf + bar)",
+    "cogsPct": [
+     15,
+     28
+    ],
+    "laborPct": [
+     22,
+     30
+    ],
+    "occupancyPct": [
+     10,
+     16
+    ],
+    "operatingEbitdaPct": [
+     15,
+     26
+    ],
+    "dominantRisk": "Blended margin. The bar/kitchen attach rate swings COGS up; the large footprint plus simulator/equipment R&M swing fixed costs. Owner-operator vs. absentee is a full GM salary either way.",
+    "rampNote": "6\u201318 months to a mature membership/booking base; the Item 19 average is NOT a year-one number.",
+    "considerations": [
+     "Budget blended COGS ~15\u201328% (sim time and memberships carry little; the bar and kitchen drive it) and labor ~22\u201330%.",
+     "Decide owner-operator vs. absentee before modeling \u2014 absentee adds a GM salary (~$60\u201390K/yr) the pro forma omits.",
+     "Confirm the F&B attach rate and per-bay equipment costs (e.g. simulator licenses, R&M) at mature franchised units via Item 20.",
+     "Assume a 6\u201318 month ramp; discount the Item 19 mature average for year one."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 15\u201326% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": null,
+   "marginAfterFeesMonthly": null,
+   "benchmarkOperatingEbitdaMonthly": null,
+   "trueEbitdaBasis": "none",
+   "staffingModel": "automated",
+   "staffingLabel": "automated / minimal-staff",
+   "staffingNote": "Flagged as an automated / minimal-staff model from the FDD, so labor is adjusted down to 5\u201312% \u2014 the 22\u201330% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    5,
+    12
+   ],
+   "buildup": [],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cExperiential entertainment with F&B attach (e.g. indoor golf + bar)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as automated / minimal-staff from the FDD, which lowers the labor band applied below."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "This franchisor is losing money as it grows (a net loss of $230K in the most recent year), though it still has positive net worth. Worth understanding how long its runway lasts.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; positive net worth. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "What we found (2025-12-31, audited by DA Advisory Group PLLC): Net loss of $230K on $658K of revenue \u2014 roughly 1.3x spent per $1 earned. Losses are widening, not shrinking. Positive net worth of $153K. Cash of $465K against $309K of obligations due within a year (a current ratio of 3.73). Note: about 63% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.3x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Zeze Holdings, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "operating losses that are widening",
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "positive net worth"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": 152620,
+    "netWorthSign": "positive",
+    "netWorthTrend": "improving",
+    "netIncome": -229647,
+    "netIncomeTrend": "worsening",
+    "revenue": 658024,
+    "revenueTrend": "improving",
+    "currentRatio": 3.726590838428853,
+    "workingCapital": 841884,
+    "liabilitiesToAssets": 0.9196733459930357,
+    "adjLiabilitiesToAssets": 0.3381193183971301,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": 0.6323484638645921,
+    "expenseToRevenue": 1.348994869488043,
+    "cash": 464508,
+    "nearTermObligations": 308768
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

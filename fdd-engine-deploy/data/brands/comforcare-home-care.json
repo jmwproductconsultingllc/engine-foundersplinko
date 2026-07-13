@@ -1,0 +1,549 @@
+{
+ "slug": "comforcare-home-care",
+ "brandName": "ComForCare Home Care",
+ "category": "In-home care",
+ "vertical": "Senior Care",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "comforcare",
+ "fileHash": "10b945eaff6fc9e3",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 15",
+     "Item 17",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "ComForCare Home Care",
+   "franchisorEntity": "ComForCare Franchise Systems, LLC",
+   "headquarters": "Troy, MI",
+   "brandBackground": "ComForCare offers franchises for non-medical personal care, companionship, and on-site community care, with optional private duty nursing services.",
+   "leadership": [
+    {
+     "name": "J.J. Sorrenti",
+     "role": "Chief Executive Officer",
+     "background": "CEO of parent Best Life Brands, LLC since March 2020.",
+     "whyItMatters": "Provides senior executive leadership across the parent brand portfolio."
+    },
+    {
+     "name": "Kevin Vesely",
+     "role": "Chief Financial Officer",
+     "background": "CFO of Best Life Brands, LLC since September 2023; former VP of Finance for Sonova, Inc.",
+     "whyItMatters": "Directs financial strategy and controls for the franchise system."
+    },
+    {
+     "name": "Jennifer LoBianco",
+     "role": "Chief Marketing Officer",
+     "background": "CMO since December 2022; former Senior VP of Marketing.",
+     "whyItMatters": "Leads national brand marketing and customer acquisition strategies."
+    },
+    {
+     "name": "Rebecca Bouchard",
+     "role": "Brand President",
+     "background": "Brand President since March 2024; former VP of Operations for ComForCare.",
+     "whyItMatters": "Directly oversees ComForCare brand operations and franchisee support."
+    },
+    {
+     "name": "David Tarr",
+     "role": "Vice President of Franchise Development",
+     "background": "VP of Franchise Development since November 2022.",
+     "whyItMatters": "Manages franchise system expansion and territory sales."
+    },
+    {
+     "name": "Stephen D. Greenwald",
+     "role": "In-House Counsel",
+     "background": "In-house counsel since inception and general counsel of parent Best Life Brands, LLC.",
+     "whyItMatters": "Manages legal compliance and franchise agreement enforcement."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Table A - Gross Sales Information by Franchise Territory Operating at Least One Full Year",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 107987,
+      "basis": "Average gross sales of 220 franchised territories open and operating for the entire 2025 measurement period.",
+      "annualRevenue": 1295843,
+      "monthlyValues": [],
+      "sampleSize": 220
+     },
+     {
+      "label": "Table B - Gross Sales Information by Franchise Owner Operating at Least One Full Year",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 172128,
+      "basis": "Average gross sales of 154 franchise owners operating for at least one full year, aggregating multi-territory owners.",
+      "annualRevenue": 2065531,
+      "monthlyValues": [],
+      "sampleSize": 154
+     }
+    ],
+    "notes": "Table A excludes 30 territories open less than a year, 3 territories that failed to report, and 7 undeveloped/pending territories.",
+    "sourcePage": "Item 19, p. 65-67"
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Standard single unit initial franchise fee.",
+      "high": 59000,
+      "low": 59000
+     },
+     {
+      "category": "Travel Expenses for Training",
+      "recurring": false,
+      "notes": "Cost of travel and lodging for training.",
+      "high": 7800,
+      "low": 0
+     },
+     {
+      "category": "Real Estate & Related Expenses",
+      "recurring": false,
+      "notes": "Estimated rent and deposits for 3 months.",
+      "high": 3400,
+      "low": 2250
+     },
+     {
+      "category": "Office Equipment",
+      "recurring": false,
+      "notes": "Furniture, copier, and training equipment.",
+      "high": 6800,
+      "low": 2300
+     },
+     {
+      "category": "Computer Systems",
+      "recurring": false,
+      "notes": "Hardware, software, and setup fees for 3 months.",
+      "high": 5000,
+      "low": 3000
+     },
+     {
+      "category": "Signs",
+      "recurring": false,
+      "notes": "Office signage.",
+      "high": 575,
+      "low": 100
+     },
+     {
+      "category": "Miscellaneous Opening Costs",
+      "recurring": false,
+      "notes": "Utilities, business licenses, and legal fees.",
+      "high": 5600,
+      "low": 1200
+     },
+     {
+      "category": "Licensing Fees",
+      "recurring": false,
+      "notes": "State licensing fees where applicable.",
+      "high": 6000,
+      "low": 0
+     },
+     {
+      "category": "Accreditation Fees",
+      "recurring": false,
+      "notes": "Third-party accreditation costs where applicable.",
+      "high": 10000,
+      "low": 0
+     },
+     {
+      "category": "Insurance",
+      "recurring": false,
+      "notes": "Initial deposit for required insurance policies.",
+      "high": 3650,
+      "low": 1875
+     },
+     {
+      "category": "Office Supplies",
+      "recurring": false,
+      "notes": "Basic inventory of office supplies.",
+      "high": 2350,
+      "low": 1000
+     },
+     {
+      "category": "Local Marketing",
+      "recurring": false,
+      "notes": "First 3 months of local marketing spend.",
+      "high": 6000,
+      "low": 6000
+     },
+     {
+      "category": "Recruiting Expenses",
+      "recurring": false,
+      "notes": "Caregiver recruiting costs for 3 months.",
+      "high": 2250,
+      "low": 2250
+     },
+     {
+      "category": "Additional Funds",
+      "recurring": false,
+      "notes": "Working capital for 3-6 months.",
+      "high": 45500,
+      "low": 23500
+     }
+    ],
+    "sourcePage": "Item 7, p. 33",
+    "initialInvestmentHigh": 163925,
+    "initialInvestmentLow": 102475
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Client Management Software Fee",
+      "source": "Item 6, p. 24",
+      "monthlyAmount": 480
+     },
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p. 24",
+      "monthlyAmount": 100
+     },
+     {
+      "name": "Google Workspace Fee",
+      "source": "Item 6, p. 25",
+      "monthlyAmount": 18
+     }
+    ],
+    "brandFundPct": 0.01,
+    "localAdPct": 0.02,
+    "royaltyPct": 0.05
+   },
+   "hiddenCosts": [
+    {
+     "name": "essentialALZ Exam Fee",
+     "description": "Certification exam fee per person, renewed bi-annually.",
+     "source": "Item 6, p. 25",
+     "estimatedAnnualAmount": 110
+    },
+    {
+     "name": "Telehealth Fees",
+     "description": "Mandatory participation in approved Telehealth programs.",
+     "source": "Item 6, p. 24",
+     "estimatedAnnualAmount": 6000
+    },
+    {
+     "name": "Annual Conference Absentee Fee",
+     "description": "Penalty fee charged if the franchisee fails to attend the mandatory Annual Conference.",
+     "source": "Item 6, p. 26",
+     "estimatedAnnualAmount": 2500
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 70-71",
+    "closedLastYear": 5,
+    "openedLastYear": 29,
+    "totalUnits": 270,
+    "transfersLastYear": 14
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "The franchise agreement requires mediation, arbitration, and litigation to take place only in Michigan.",
+     "severity": "medium",
+     "source": "Special Risks, p. e"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "Franchisee spouses must sign a personal guarantee making them personally liable for all financial obligations.",
+     "severity": "high",
+     "source": "Special Risks, p. e"
+    },
+    {
+     "title": "Sales Performance Required",
+     "description": "Franchisees must maintain minimum billable hour levels or face territory reduction or termination.",
+     "severity": "high",
+     "source": "Special Risks, p. e"
+    }
+   ],
+   "conceptType": "health_wellness",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 41815922,
+      "totalAssets": 46767421,
+      "totalLiabilities": 113527567
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 28417442,
+      "totalAssets": 45722038,
+      "totalLiabilities": 73160682
+     }
+    ],
+    "auditorName": "RSM US LLP",
+    "parentName": "CFC Holding Company, LLC"
+   },
+   "averageRentMonthly": 1500,
+   "conceptRationale": "The franchise provides non-medical home care, companionship, and wellness services to seniors and individuals aging in place.",
+   "rentDetail": {
+    "rawValue": 18000,
+    "unit": "per_year",
+    "source": "Item 7, p. 35",
+    "squareFootage": 500
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "Requires a full-time managing owner, at least one administrative/marketing employee, a caregiver recruiter, and a part-time nurse."
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "2 high-severity operational tripwires disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Table A - Gross Sales Information by Franchise Territory Operating at Least One Full Year",
+    "monthlyRevenue": 107987,
+    "monthlyVariable": 86.3896,
+    "monthlyFixed": 2098,
+    "monthlyEbitda": 105802.6104,
+    "annualEbitda": 1269631.3248,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Table A - Gross Sales Information by Franchise Territory Operating at Least One Full Year",
+     "math": "$1,295,843/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 220
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 133200,
+   "assumedLoan": 106560,
+   "assumedMonthlyDebtService": 1437.867325640225,
+   "dscr": 73.58301319830765,
+   "rentPctOfRevenue": 0.013890560900849176,
+   "paybackYears": 0.10491234533850405,
+   "variableRate": 0.0008,
+   "fixedMonthly": 2098,
+   "notes": []
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 105802.6104,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $133,200 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $105,803/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "health_wellness",
+   "conceptLabel": "Health & wellness (med-spa, IV, longevity, recovery)",
+   "conceptRationale": "The franchise provides non-medical home care, companionship, and wellness services to seniors and individuals aging in place.",
+   "benchmark": {
+    "label": "Health & wellness (med-spa, IV, longevity, recovery)",
+    "cogsPct": [
+     15,
+     25
+    ],
+    "laborPct": [
+     25,
+     35
+    ],
+    "occupancyPct": [
+     8,
+     14
+    ],
+    "operatingEbitdaPct": [
+     12,
+     25
+    ],
+    "dominantRisk": "Licensed clinical labor plus regulatory/insurance load and equipment depreciation. These concepts frequently disclose NO Item 19, so benchmarks matter most precisely where extraction gives you the least.",
+    "rampNote": "6\u201318 months to mature treatment-room utilization.",
+    "considerations": [
+     "Product/consumables run ~15\u201325%; clinical/licensed labor is expensive at ~25\u201335%.",
+     "Factor heavy equipment depreciation, malpractice/liability insurance, and regulatory compliance \u2014 none of it is in the FDD.",
+     "With little or no Item 19, validate revenue per treatment room and ramp directly with Item 20 franchisees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 12\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 107987,
+   "marginAfterFeesMonthly": 105802.6104,
+   "benchmarkOperatingEbitdaMonthly": [
+    30212,
+    56129
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    25,
+    35
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      105802.6104,
+      105802.6104
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      15,
+      25
+     ],
+     "dollarRange": [
+      16198,
+      26997
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      25,
+      35
+     ],
+     "dollarRange": [
+      26997,
+      37795
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 7.8\u201310.9 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      6479,
+      10799
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      30212,
+      56129
+     ],
+     "note": "\u2248 28% to 52% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHealth & wellness (med-spa, IV, longevity, recovery)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Rent",
+     "basis": "disclosed",
+     "detail": "Taken from the FDD (~$1,500/mo); already netted in margin after fees & rent."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 15\u201325% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 25\u201335% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; the parent guarantees the franchisor's performance. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. CFC Holding Company, LLC guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 41815922,
+    "revenueTrend": "improving",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 2.4274925700948957,
+    "adjLiabilitiesToAssets": 2.4274925700948957,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

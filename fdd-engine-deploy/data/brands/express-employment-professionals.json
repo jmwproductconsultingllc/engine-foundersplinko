@@ -1,0 +1,523 @@
+{
+ "slug": "express-employment-professionals",
+ "brandName": "Express Employment Professionals",
+ "category": "Staffing",
+ "vertical": "B2B & Business Services",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "expressemploymentservices",
+ "fileHash": "6a6ddaf4631b7a38",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 11",
+     "Item 15",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Express Employment Professionals",
+   "franchisorEntity": "Express Services, Inc.",
+   "headquarters": "9701 Boardwalk Blvd., Oklahoma City, Oklahoma 73162",
+   "brandBackground": "Express Employment Professionals is a major staffing franchise offering temporary staffing, contract staffing, and direct hire services.",
+   "leadership": [
+    {
+     "name": "Robert A. Funk, Jr.",
+     "role": "Director, Chairman of the Board, President, and CEO",
+     "background": "Appointed CEO in May 2025, previously serving in corporate development and strategic planning roles since 2021.",
+     "whyItMatters": "Provides executive leadership and strategic direction for the entire franchise system."
+    },
+    {
+     "name": "Pat Jones",
+     "role": "Chief Financial Officer, Executive Vice President",
+     "background": "CFO since September 2022, previously CFO for Petra Industries.",
+     "whyItMatters": "Oversees the financial health and accounting operations of the franchisor."
+    },
+    {
+     "name": "Russell C. Lissuzzo II",
+     "role": "Executive Vice President of Legal and Compliance, General Counsel, and Secretary",
+     "background": "General Counsel since January 2022, previously Senior VP of Legal.",
+     "whyItMatters": "Manages legal affairs, regulatory compliance, and franchise agreements."
+    },
+    {
+     "name": "Patty Smith",
+     "role": "Executive Vice President of Operations",
+     "background": "Appointed EVP of Operations in May 2025, previously Senior VP of Operational Development.",
+     "whyItMatters": "Directs the operational support and training systems for franchisees."
+    },
+    {
+     "name": "Vinny Provenzano",
+     "role": "Senior Vice President of Global Franchising",
+     "background": "SVP of Global Franchising since October 2023, previously VP of Franchising.",
+     "whyItMatters": "Leads franchise development and expansion efforts globally."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Franchise Units Open More Than 24 Months - FY 2025 Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 445224,
+      "basis": "Average annual sales of franchised units open more than 24 months during FY 2025.",
+      "annualRevenue": 5342686,
+      "monthlyValues": [],
+      "sampleSize": 526
+     },
+     {
+      "label": "Franchise Units Open More Than 24 Months - FY 2025 Gross Margin",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 89781,
+      "basis": "Average annual gross margin of franchised units open more than 24 months during FY 2025.",
+      "annualRevenue": 1077371,
+      "monthlyValues": [],
+      "sampleSize": 526
+     },
+     {
+      "label": "Core Occupations Services - FY 2025 Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 419289,
+      "basis": "Average annual sales for Core Occupations Services in FY 2025.",
+      "annualRevenue": 5031470,
+      "monthlyValues": [],
+      "sampleSize": 601
+     },
+     {
+      "label": "Professional Occupations Services - FY 2025 Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 89475,
+      "basis": "Average annual sales for Professional Occupations Services in FY 2025.",
+      "annualRevenue": 1073697,
+      "monthlyValues": [],
+      "sampleSize": 18
+     },
+     {
+      "label": "Healthcare Occupations Services - FY 2025 Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 158658,
+      "basis": "Average annual sales for Healthcare Occupations Services in FY 2025.",
+      "annualRevenue": 1903898,
+      "monthlyValues": [],
+      "sampleSize": 11
+     }
+    ],
+    "notes": "Item 19 provides extensive historical performance data broken down by service type (Core, Professional, Healthcare) and tenure.",
+    "sourcePage": "Item 19, p. 87-108",
+    "networkAverageMonthly": null,
+    "unitsReported": 526
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Fee is $40,000 for Core Occupations, but can be reduced with multiple addenda.",
+      "high": 40000,
+      "low": 20000
+     },
+     {
+      "category": "Lease and Deposit",
+      "recurring": false,
+      "notes": "Estimated for one month's rent and security deposit.",
+      "high": 35000,
+      "low": 2500
+     },
+     {
+      "category": "Leasehold Improvements",
+      "recurring": false,
+      "notes": "Varies based on location size and condition.",
+      "high": 15000,
+      "low": 5000
+     },
+     {
+      "category": "Computer System Hardware",
+      "recurring": false,
+      "notes": "Required hardware purchased through franchisor.",
+      "high": 17000,
+      "low": 10000
+     },
+     {
+      "category": "Additional Funds (9 months)",
+      "recurring": true,
+      "notes": "Working capital to cover initial operating expenses.",
+      "high": 175000,
+      "low": 75000
+     }
+    ],
+    "sourcePage": "Item 7, p. 37-38",
+    "initialInvestmentHigh": 287700,
+    "initialInvestmentLow": 131000
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Monthly Communications Fee",
+      "source": "Item 6, p. 21",
+      "monthlyAmount": 420
+     },
+     {
+      "name": "Cloud Computer Fee",
+      "source": "Item 6, p. 21",
+      "monthlyAmount": 210
+     },
+     {
+      "name": "User Fee (per user)",
+      "source": "Item 6, p. 21",
+      "monthlyAmount": 49.5
+     }
+    ],
+    "brandFundPct": 0.006,
+    "localAdPct": null,
+    "royaltyPct": 0.4
+   },
+   "hiddenCosts": [
+    {
+     "name": "Online Business Management Fee",
+     "description": "Annual fee to cover online business management expenses.",
+     "source": "Item 6, p. 20",
+     "estimatedAnnualAmount": 600
+    },
+    {
+     "name": "Joint Commission National Certification Fee",
+     "description": "Annual fee for offices providing Healthcare Services.",
+     "source": "Item 6, p. 28",
+     "estimatedAnnualAmount": 1000
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 109",
+    "closedLastYear": 12,
+    "openedLastYear": 9,
+    "totalUnits": 765,
+    "transfersLastYear": 42
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved via mediation, arbitration, or litigation only in Oklahoma.",
+     "severity": "medium",
+     "source": "Item 17, p. v"
+    },
+    {
+     "title": "Minimum Performance Standards",
+     "description": "Franchisees must meet strict quarterly gross margin and sales quotas to avoid default.",
+     "severity": "high",
+     "source": "Item 12, p. 71-72"
+    }
+   ],
+   "conceptType": "other",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditorName": "RSM US LLP",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": null,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "December 28, 2025",
+      "revenue": 3230407000,
+      "netIncome": 54375000,
+      "totalAssets": 972347000,
+      "totalLiabilities": 352688000,
+      "cash": 156699000,
+      "currentAssets": 801265000,
+      "currentLiabilities": 309643000,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": 619203000
+     },
+     {
+      "fiscalYearEnd": "December 29, 2024",
+      "revenue": 3281381000,
+      "netIncome": 86500000,
+      "totalAssets": 978945000,
+      "totalLiabilities": 387558000,
+      "cash": 179886000,
+      "currentAssets": 741804000,
+      "currentLiabilities": 340079000,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": 590905000
+     },
+     {
+      "fiscalYearEnd": "December 31, 2023",
+      "revenue": 3590296000,
+      "netIncome": 124841000,
+      "totalAssets": null,
+      "totalLiabilities": null,
+      "cash": 251424000,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": null
+     }
+    ]
+   },
+   "averageRentMonthly": 3125,
+   "conceptRationale": "The franchise operates in the professional staffing and recruiting sector, which does not fit standard retail or food categories.",
+   "rentDetail": {
+    "rawValue": 25,
+    "unit": "per_sqft_per_year",
+    "source": "Item 7, p. 41",
+    "squareFootage": 1500
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "Requires a conventional office staff including a Sales Representative, Staffing Consultant, and Front Office Coordinator."
+  },
+  "scoring": {
+   "riskLevel": "Low",
+   "riskReasons": [
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Franchise Units Open More Than 24 Months - FY 2025 Sales",
+    "monthlyRevenue": 445224,
+    "monthlyVariable": 1807.6094400000002,
+    "monthlyFixed": 3804.5,
+    "monthlyEbitda": 439611.89055999997,
+    "annualEbitda": 5275342.68672,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Franchise Units Open More Than 24 Months - FY 2025 Sales",
+     "math": "$5,342,686/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 526
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 209350,
+   "assumedLoan": 167480,
+   "assumedMonthlyDebtService": 2259.8913259968554,
+   "dscr": 194.52788968340494,
+   "rentPctOfRevenue": 0.007018938781377464,
+   "paybackYears": 0.03968462570725725,
+   "variableRate": 0.00406,
+   "fixedMonthly": 3804.5,
+   "notes": []
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 439611.89055999997,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $209,350 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $439,612/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "other",
+   "conceptLabel": "General franchise (uncategorized)",
+   "conceptRationale": "The franchise operates in the professional staffing and recruiting sector, which does not fit standard retail or food categories.",
+   "benchmark": {
+    "label": "General franchise (uncategorized)",
+    "cogsPct": [
+     15,
+     35
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     6,
+     12
+    ],
+    "operatingEbitdaPct": [
+     8,
+     20
+    ],
+    "dominantRisk": "Cost of goods and labor are not disclosed in any FDD \u2014 model them explicitly before trusting any margin figure.",
+    "rampNote": "Assume 6\u201318 months to a mature run-rate.",
+    "considerations": [
+     "Budget COGS and labor explicitly \u2014 neither is in the FDD, and together they usually run 45\u201365% of sales.",
+     "Use the Item 20 franchisee list to validate real operating costs and ramp before committing capital."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 8\u201320% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 445224,
+   "marginAfterFeesMonthly": 439611.89055999997,
+   "benchmarkOperatingEbitdaMonthly": [
+    83434,
+    257070
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    20,
+    35
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      439611.89055999997,
+      439611.89055999997
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      15,
+      35
+     ],
+     "dollarRange": [
+      66784,
+      155828
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      20,
+      35
+     ],
+     "dollarRange": [
+      89045,
+      155828
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 25.7\u201345 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      26713,
+      44522
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      83434,
+      257070
+     ],
+     "note": "\u2248 19% to 58% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cGeneral franchise (uncategorized)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Rent",
+     "basis": "disclosed",
+     "detail": "Taken from the FDD (~$3,125/mo); already netted in margin after fees & rent."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 15\u201335% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 20\u201335% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "What we found (December 28, 2025, audited by RSM US LLP): Net income of $54.38M on $3.23B of revenue \u2014 roughly 1.0x spent per $1 earned. Losses are widening, not shrinking. Positive net worth of $619.20M. Cash of $156.70M against $309.64M of obligations due within a year (a current ratio of 2.59).",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "positive net worth",
+    "the business is profitable"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "December 28, 2025",
+    "netWorth": 619203000,
+    "netWorthSign": "positive",
+    "netWorthTrend": "flat",
+    "netIncome": 54375000,
+    "netIncomeTrend": "worsening",
+    "revenue": 3230407000,
+    "revenueTrend": "flat",
+    "currentRatio": 2.587705841888885,
+    "workingCapital": 491622000,
+    "liabilitiesToAssets": 0.36271824770375183,
+    "adjLiabilitiesToAssets": 0.36271824770375183,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": 0.9831677556419361,
+    "cash": 156699000,
+    "nearTermObligations": 309643000
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

@@ -1,0 +1,659 @@
+{
+ "slug": "the-brothers-that-just-do-gutters",
+ "brandName": "The Brothers that just do Gutters",
+ "category": "Exterior",
+ "vertical": "Home & Property Services",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "gutter-brothers",
+ "fileHash": "600b366b46b0c3f4",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "The Brothers that just do Gutters",
+   "franchisorEntity": "Brothers Parsons Franchising LLC",
+   "headquarters": "Scottsdale, Arizona",
+   "brandBackground": "A business providing gutter installation, maintenance, cleaning, repair, and related services and products.",
+   "leadership": [
+    {
+     "name": "Jordan Lajoie",
+     "role": "Operating Partner and Board Chair",
+     "background": "Served as Chairman of the Board since July 2025 and Operating Partner of The Riverside Company since July 2020.",
+     "whyItMatters": "Brings private equity oversight and strategic leadership experience."
+    },
+    {
+     "name": "Ryan Parsons",
+     "role": "Chief Executive Officer",
+     "background": "Co-founder of the brand and CEO since November 2023.",
+     "whyItMatters": "Provides deep brand-specific operational knowledge as a co-founder."
+    },
+    {
+     "name": "Danny Horboychuk",
+     "role": "Brand Leader",
+     "background": "Brand Leader since November 2023, previously serving as Franchise Executive Director and General Manager.",
+     "whyItMatters": "Manages day-to-day franchise support and brand execution."
+    },
+    {
+     "name": "Ken Parsons",
+     "role": "Senior Vice President of Training and Development",
+     "background": "Co-founder and former President from July 2014 until November 2023.",
+     "whyItMatters": "Directs training programs based on decades of brand experience."
+    },
+    {
+     "name": "Gregory Esgar",
+     "role": "Chief Financial Officer",
+     "background": "Joined as CFO in May 2022, previously serving as CFO for Prose Franchising.",
+     "whyItMatters": "Oversees financial strategy and compliance across the system."
+    },
+    {
+     "name": "Samuel Methuselah",
+     "role": "Chief Operating Officer",
+     "background": "COO since June 2025, previously serving as COO/CFO of Innovative Sports Surfacing.",
+     "whyItMatters": "Directs operational systems and franchisee support structures."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Company Owned Outlet: Poughkeepsie, NY Gross Sales 2023",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 376559,
+      "basis": "Item 19, p. 50",
+      "annualRevenue": 4518709,
+      "monthlyValues": [],
+      "sampleSize": 1
+     },
+     {
+      "label": "Company Owned Outlet: Poughkeepsie, NY Gross Sales 2024",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 380593,
+      "basis": "Item 19, p. 50",
+      "annualRevenue": 4567117,
+      "monthlyValues": [],
+      "sampleSize": 1
+     },
+     {
+      "label": "Company Owned Outlet: Poughkeepsie, NY Gross Sales 2025",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 275957,
+      "basis": "Item 19, p. 50",
+      "annualRevenue": 3311488,
+      "monthlyValues": [],
+      "sampleSize": 1
+     },
+     {
+      "label": "Company Owned Outlet: Poughkeepsie, NY Adjusted Profit 2023",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 95504,
+      "basis": "Item 19, p. 50",
+      "annualRevenue": 1146042,
+      "monthlyValues": [],
+      "sampleSize": 1
+     },
+     {
+      "label": "Company Owned Outlet: Poughkeepsie, NY Adjusted Profit 2024",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 115636,
+      "basis": "Item 19, p. 50",
+      "annualRevenue": 1387627,
+      "monthlyValues": [],
+      "sampleSize": 1
+     },
+     {
+      "label": "Company Owned Outlet: Poughkeepsie, NY Adjusted Profit 2025",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 85977,
+      "basis": "Item 19, p. 50",
+      "annualRevenue": 1031726,
+      "monthlyValues": [],
+      "sampleSize": 1
+     },
+     {
+      "label": "All Operational Franchise Outlets Average Gross Sales 2023",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 97190,
+      "basis": "Item 19, p. 56",
+      "annualRevenue": 1166277,
+      "monthlyValues": [],
+      "sampleSize": 61
+     },
+     {
+      "label": "All Operational Franchise Outlets Average Adjusted Profit 2023",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 23803,
+      "basis": "Item 19, p. 56",
+      "annualRevenue": 285641,
+      "monthlyValues": [],
+      "sampleSize": 61
+     },
+     {
+      "label": "All Operational Franchise Outlets Average Gross Sales 2024",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 101040,
+      "basis": "Item 19, p. 57",
+      "annualRevenue": 1212481,
+      "monthlyValues": [],
+      "sampleSize": 66
+     },
+     {
+      "label": "All Operational Franchise Outlets Average Adjusted Profit 2024",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 27200,
+      "basis": "Item 19, p. 57",
+      "annualRevenue": 326396,
+      "monthlyValues": [],
+      "sampleSize": 66
+     },
+     {
+      "label": "All Operational Franchise Outlets Average Gross Sales 2025",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 95630,
+      "basis": "Item 19, p. 58",
+      "annualRevenue": 1147556,
+      "monthlyValues": [],
+      "sampleSize": 71
+     },
+     {
+      "label": "All Operational Franchise Outlets Average Adjusted Profit 2025",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 26702,
+      "basis": "Item 19, p. 58",
+      "annualRevenue": 320418,
+      "monthlyValues": [],
+      "sampleSize": 71
+     }
+    ],
+    "notes": "Operational Franchise Outlets are those that were open and in operation prior to the commencement of the reported Calendar Year.",
+    "sourcePage": "Item 19, p. 47-73",
+    "networkAverageMonthly": null,
+    "unitsReported": null
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Non-refundable fee for a single base territory.",
+      "high": 49500,
+      "low": 49500
+     },
+     {
+      "category": "Construction and Leasehold Improvements",
+      "recurring": false,
+      "notes": "Assumes home-based administrative operation.",
+      "high": 5000,
+      "low": 1500
+     },
+     {
+      "category": "Storage Unit",
+      "recurring": false,
+      "notes": "Optional storage space for equipment.",
+      "high": 1000,
+      "low": 0
+     },
+     {
+      "category": "Equipment",
+      "recurring": false,
+      "notes": "Tools for customizing, fabricating, and installing gutters.",
+      "high": 25000,
+      "low": 13000
+     },
+     {
+      "category": "Initial Inventory",
+      "recurring": false,
+      "notes": "Brackets, parts, and branded apparel.",
+      "high": 4000,
+      "low": 1000
+     },
+     {
+      "category": "Computer, Software and Point of Sale System",
+      "recurring": false,
+      "notes": "Desktop computer, iPad, and initial software licenses.",
+      "high": 6500,
+      "low": 4000
+     },
+     {
+      "category": "Service Vehicle",
+      "recurring": false,
+      "notes": "Three months of lease payments for one service vehicle.",
+      "high": 12500,
+      "low": 5500
+     },
+     {
+      "category": "Merchandise Kit",
+      "recurring": false,
+      "notes": "Initial marketing materials and branded items.",
+      "high": 6000,
+      "low": 3500
+     },
+     {
+      "category": "Start-Up Marketing - Three Months",
+      "recurring": false,
+      "notes": "Minimum local marketing spend for grand opening.",
+      "high": 35000,
+      "low": 15000
+     },
+     {
+      "category": "Insurance Deposits - Three Months",
+      "recurring": false,
+      "notes": "Initial deposit for required commercial insurance.",
+      "high": 5000,
+      "low": 2500
+     },
+     {
+      "category": "Travel for Initial Training",
+      "recurring": false,
+      "notes": "Travel and lodging expenses for training in NY.",
+      "high": 5000,
+      "low": 2500
+     },
+     {
+      "category": "Professional Fees",
+      "recurring": false,
+      "notes": "Attorneys, accountants, and advisors.",
+      "high": 3000,
+      "low": 1500
+     },
+     {
+      "category": "Licenses and Permits",
+      "recurring": false,
+      "notes": "Local contractor or home improvement licenses.",
+      "high": 2500,
+      "low": 750
+     },
+     {
+      "category": "Additional Funds - Three Months",
+      "recurring": false,
+      "notes": "Working capital for initial operations.",
+      "high": 125000,
+      "low": 45000
+     }
+    ],
+    "sourcePage": "Item 7, p. 19",
+    "initialInvestmentHigh": 285000,
+    "initialInvestmentLow": 145250
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p. 13",
+      "monthlyAmount": 200
+     }
+    ],
+    "brandFundPct": 2,
+    "localAdPct": 3,
+    "royaltyPct": 6
+   },
+   "hiddenCosts": [
+    {
+     "name": "Contact Center Fee",
+     "description": "3% of weekly Gross Sales for mandatory call center services.",
+     "source": "Item 6, p. 13",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Minimum Weekly Royalty Fee",
+     "description": "Starts at $125 per week per territory after the first 12 months.",
+     "source": "Item 6, p. 12",
+     "estimatedAnnualAmount": 6500
+    },
+    {
+     "name": "Non-Compliance Fee: Customer Reviews",
+     "description": "Charged if customer ratings fall below 4.5 stars or 90% satisfaction.",
+     "source": "Item 6, p. 13",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 74",
+    "closedLastYear": 6,
+    "openedLastYear": 20,
+    "totalUnits": 110,
+    "transfersLastYear": 6
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by mediation, arbitration, or litigation in New York.",
+     "severity": "medium",
+     "source": "Special Risks, p. iv"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "Spouses must sign a personal guarantee making them liable for all franchise obligations.",
+     "severity": "high",
+     "source": "Special Risks, p. iv"
+    },
+    {
+     "title": "Mandatory Minimum Payments",
+     "description": "Minimum royalty and advertising payments are required regardless of sales levels.",
+     "severity": "medium",
+     "source": "Special Risks, p. iv"
+    }
+   ],
+   "conceptType": "home_trade_services",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 30970167,
+      "totalAssets": 190163471,
+      "totalLiabilities": 78505985
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 25736997,
+      "totalAssets": 100695951,
+      "totalLiabilities": 23068938
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 7174382,
+      "totalAssets": 106213868,
+      "totalLiabilities": 21871558
+     }
+    ],
+    "auditorName": "Plante & Moran, PLLC",
+    "parentName": "EHC Holding Company, LLC"
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "The franchise provides gutter installation, maintenance, cleaning, and repair services directly to homes.",
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p. 20",
+    "squareFootage": null
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "Requires active management and field crews to perform physical gutter installation and cleaning services."
+  },
+  "scoring": {
+   "riskLevel": "Low",
+   "riskReasons": [
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "All Operational Franchise Outlets Average Gross Sales 2023",
+    "monthlyRevenue": 97190,
+    "monthlyVariable": 10690.9,
+    "monthlyFixed": 200,
+    "monthlyEbitda": 86299.1,
+    "annualEbitda": 1035589.2000000001,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "All Operational Franchise Outlets Average Gross Sales 2023",
+     "math": "$1,166,277/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 61
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 215125,
+   "assumedLoan": 172100,
+   "assumedMonthlyDebtService": 2322.231294507158,
+   "dscr": 37.16214668372001,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.2077319848449559,
+   "variableRate": 0.11,
+   "fixedMonthly": 200,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 86299.1,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $215,125 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $86,299/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "The franchise provides gutter installation, maintenance, cleaning, and repair services directly to homes.",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 97190,
+   "marginAfterFeesMonthly": 86299.1,
+   "benchmarkOperatingEbitdaMonthly": [
+    -2144,
+    34788
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    20,
+    35
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      86299.1,
+      86299.1
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      2,
+      6
+     ],
+     "dollarRange": [
+      1944,
+      5831
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      25,
+      40
+     ],
+     "dollarRange": [
+      24298,
+      38876
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      20,
+      35
+     ],
+     "dollarRange": [
+      19438,
+      34017
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 5.6\u20139.8 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      5831,
+      9719
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -2144,
+      34788
+     ],
+     "note": "\u2248 -2% to 36% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 2\u20136% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 25\u201340% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 20\u201335% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. EHC Holding Company, LLC guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "elevated unit closures (6 in the last year, about 5% of the system)"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 30970167,
+    "revenueTrend": "improving",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.4128342030525936,
+    "adjLiabilitiesToAssets": 0.4128342030525936,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

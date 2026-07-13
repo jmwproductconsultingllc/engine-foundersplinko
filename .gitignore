@@ -4,3 +4,6 @@
 **/.DS_Store
 tsconfig.tsbuildinfo
 **/tsconfig.tsbuildinfo
+.DS_Store
+harness/
+fdd-engine-deploy/.claude/

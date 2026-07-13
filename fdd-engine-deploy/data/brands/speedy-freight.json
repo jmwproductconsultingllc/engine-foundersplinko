@@ -1,0 +1,770 @@
+{
+ "slug": "speedy-freight",
+ "brandName": "Speedy Freight",
+ "category": "Logistics",
+ "vertical": "B2B & Business Services",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "speedy-freight",
+ "fileHash": "db2b7fa7197cf55c",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Financial statements show $0 revenue and $0 assets for FY2024, indicating the franchisor had no operations in that year; FY2023 also shows minimal activity ($1,000 loss), reflecting very short operating history.",
+     "Primary trademark 'Speedy Freight' is NOT federally registered as of issuance date \u2014 only pending applications exist; this is flagged as a Special Risk.",
+     "Franchisor financial condition is flagged as a Special Risk in front matter, calling into question ability to provide support.",
+     "Item 19 uses UK franchisee data and one US company-owned location as proxies for US franchisee performance \u2014 no US franchisee financial performance data exists.",
+     "Franchisor formed May 2023; began franchising January 2025 \u2014 very limited operating history."
+    ]
+   },
+   "brandName": "Speedy Freight",
+   "franchisorEntity": "Speedy Freight Franchising LLC",
+   "headquarters": "Irving, Texas 75061",
+   "brandBackground": "UK-originated logistics franchise (operating since 2006 via affiliate Puro Ventures Limited) that launched US franchising in January 2025, offering shipping, logistics consulting, and carrier brokerage services to business customers.",
+   "conceptType": "home_trade_services",
+   "conceptRationale": "B2B freight logistics consulting and carrier brokerage sold to businesses from a small office \u2014 a professional trade services model.",
+   "staffingModel": "lightly_staffed",
+   "staffingRationale": "Requires at least one full-time sales executive per territory plus operational staff; Item 7 working capital assumes 1\u20133 of each type.",
+   "leadership": [
+    {
+     "name": "Michael Smith",
+     "role": "Chief Executive Officer",
+     "background": "CEO since franchisor's inception; also CEO of UK affiliate Puro Ventures Limited since October 2016.",
+     "whyItMatters": "Leads the entire Speedy Freight global franchise system."
+    },
+    {
+     "name": "John Munnelly",
+     "role": "Chief Operating Officer",
+     "background": "COO since franchisor's inception; also COO of UK affiliate PVL since January 2019.",
+     "whyItMatters": "Oversees day-to-day franchise operations globally."
+    },
+    {
+     "name": "James Pugh",
+     "role": "Chief Financial Officer",
+     "background": "CFO since October 2025; previously COO of Airtime Rewards Limited (2018\u20132025).",
+     "whyItMatters": "Responsible for financial oversight of the US franchisor entity."
+    },
+    {
+     "name": "Kody Slade",
+     "role": "President of Franchise Development",
+     "background": "President of Franchise Development since March 2026; previously Director/Development Director at InXpress (2016\u20132023) and President of US Operations for Speedy Freight LLC.",
+     "whyItMatters": "Leads US franchise sales and oversees the training program with 16+ years in logistics."
+    },
+    {
+     "name": "Starr Bollefer",
+     "role": "President of National Sales",
+     "background": "President of National Sales since March 2026; previously VP/President of Sales at Speedy Freight and Senior Director at InstiCo Freight Management.",
+     "whyItMatters": "Drives national revenue growth and sales strategy for the US system."
+    },
+    {
+     "name": "Hannah Edghill",
+     "role": "Group Financial Controller",
+     "background": "Group Financial Controller since franchisor's inception; also Financial Controller of UK affiliate PVL since January 2023.",
+     "whyItMatters": "Manages financial reporting and controls across the global group."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp.33-38",
+    "unitsReported": 58,
+    "networkAverageMonthly": null,
+    "notes": "Item 19 uses UK franchised businesses (57 outlets open 12+ months) and one US company-owned business as proxies for US franchisee performance. No US franchisee financial data exists. UK figures converted from GBP at 1.3239 USD (November 30, 2025 rate). No profitability/EBITDA table is disclosed \u2014 only Total Revenue and Gross Margin (revenue minus direct shipping costs). Gross Margin is NOT net income; royalties, technology fees, and other operating expenses must still be deducted.",
+    "cohorts": [
+     {
+      "label": "UK Franchised Businesses 60+ Months \u2014 Total Revenue (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 53,
+      "annualRevenue": 1121936,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual Total Revenue for UK franchised outlets open 60+ months, 2025 reporting period (12 months ended November 30, 2025); converted from GBP at 1.3239 USD."
+     },
+     {
+      "label": "UK Franchised Businesses 60+ Months \u2014 Gross Margin (2025)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 53,
+      "annualRevenue": 436911,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual Gross Margin (Total Revenue minus direct shipping costs) for UK franchised outlets open 60+ months, 2025 reporting period; converted from GBP at 1.3239 USD."
+     },
+     {
+      "label": "UK Franchised Businesses 12\u201336 Months \u2014 Total Revenue (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 4,
+      "annualRevenue": 701801,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual Total Revenue for UK franchised outlets open 12\u201336 months, 2025 reporting period; converted from GBP at 1.3239 USD."
+     },
+     {
+      "label": "UK Franchised Businesses 12\u201336 Months \u2014 Gross Margin (2025)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 4,
+      "annualRevenue": 242217,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual Gross Margin for UK franchised outlets open 12\u201336 months, 2025 reporting period; converted from GBP at 1.3239 USD."
+     },
+     {
+      "label": "UK Top 20% Franchised Businesses \u2014 Total Revenue (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 11,
+      "annualRevenue": 1984852,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual Total Revenue for top 20% of UK franchised outlets by 2025 Gross Margin; 2025 reporting period."
+     },
+     {
+      "label": "UK Top 20% Franchised Businesses \u2014 Gross Margin (2025)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 11,
+      "annualRevenue": 792399,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual Gross Margin for top 20% of UK franchised outlets by 2025 Gross Margin; 2025 reporting period."
+     },
+     {
+      "label": "UK Middle 60% Franchised Businesses \u2014 Total Revenue (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 35,
+      "annualRevenue": 1068790,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual Total Revenue for middle 60% of UK franchised outlets by 2025 Gross Margin; 2025 reporting period."
+     },
+     {
+      "label": "UK Middle 60% Franchised Businesses \u2014 Gross Margin (2025)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 35,
+      "annualRevenue": 409410,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual Gross Margin for middle 60% of UK franchised outlets by 2025 Gross Margin; 2025 reporting period."
+     },
+     {
+      "label": "UK Bottom 20% Franchised Businesses \u2014 Total Revenue (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 11,
+      "annualRevenue": 275344,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual Total Revenue for bottom 20% of UK franchised outlets by 2025 Gross Margin; 2025 reporting period."
+     },
+     {
+      "label": "UK Bottom 20% Franchised Businesses \u2014 Gross Margin (2025)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 11,
+      "annualRevenue": 98128,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual Gross Margin for bottom 20% of UK franchised outlets by 2025 Gross Margin; 2025 reporting period."
+     },
+     {
+      "label": "US Company-Owned Business \u2014 Total Revenue (2025)",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 4772725,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Total Revenue for the single US company-owned Dallas, TX location, 12 months ended November 30, 2025 (12\u201336 months in operation)."
+     },
+     {
+      "label": "US Company-Owned Business \u2014 Gross Margin (2025)",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 1,
+      "annualRevenue": 708223,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Gross Margin (Total Revenue minus direct shipping costs) for the single US company-owned location, 12 months ended November 30, 2025."
+     },
+     {
+      "label": "US Company-Owned Business \u2014 Total Revenue (2024)",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 1549876,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Total Revenue for the single US company-owned location, 12 months ended November 30, 2024."
+     },
+     {
+      "label": "US Company-Owned Business \u2014 Gross Margin (2024)",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 1,
+      "annualRevenue": 193153,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Gross Margin for the single US company-owned location, 12 months ended November 30, 2024."
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp.11-14",
+    "initialInvestmentLow": 74750,
+    "initialInvestmentHigh": 193750,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 49500,
+      "high": 49500,
+      "recurring": false,
+      "notes": "Lump sum due when franchise agreement is signed; non-refundable."
+     },
+     {
+      "category": "Training Fee",
+      "low": 5000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "For up to 3 people; due when franchise agreement is signed; non-refundable."
+     },
+     {
+      "category": "Recruitment Service Fee",
+      "low": 0,
+      "high": 21000,
+      "recurring": false,
+      "notes": "Optional pre-opening; $0 if not used; up to $21,000 for 6 employees recruited by franchisor."
+     },
+     {
+      "category": "Office Expenses",
+      "low": 1500,
+      "high": 12000,
+      "recurring": false,
+      "notes": "Rent and furnishings for ~800 sq ft office; high estimate covers 3 months of lease payments."
+     },
+     {
+      "category": "Licensing Fees and Surety Bonding",
+      "low": 900,
+      "high": 10000,
+      "recurring": false,
+      "notes": "Required if franchisee is deemed a freight broker offering ground, ocean, or air freight."
+     },
+     {
+      "category": "Insurance",
+      "low": 500,
+      "high": 2500,
+      "recurring": false,
+      "notes": "Pre-opening insurance coverage; paid to insurance company."
+     },
+     {
+      "category": "Office Equipment and Supplies",
+      "low": 1000,
+      "high": 4000,
+      "recurring": false,
+      "notes": "General office supplies, stationery, business cards, computer, printer."
+     },
+     {
+      "category": "Training Transportation and Expenses",
+      "low": 1500,
+      "high": 7500,
+      "recurring": false,
+      "notes": "Travel, lodging, meals for initial training in Irving, TX; not included in Training Fee."
+     },
+     {
+      "category": "Business Licenses and Permits",
+      "low": 100,
+      "high": 2000,
+      "recurring": false,
+      "notes": "Local government business license fees; varies by jurisdiction."
+     },
+     {
+      "category": "Computer Hardware and Software",
+      "low": 2000,
+      "high": 10000,
+      "recurring": false,
+      "notes": "Laptop, two monitors, docking station, and Microsoft 365; other software included in monthly Technology Fees."
+     },
+     {
+      "category": "Professional Fees",
+      "low": 500,
+      "high": 2000,
+      "recurring": false,
+      "notes": "Legal, accounting, or other professional advisors for franchise setup."
+     },
+     {
+      "category": "Additional Funds \u2013 3 Months",
+      "low": 12250,
+      "high": 68250,
+      "recurring": true,
+      "notes": "Working capital for 3-month startup; includes payroll, rent, utilities, Operations Technology Fee ($1,500\u2013$4,500) and Sales Technology Fee ($750\u2013$2,250); excludes royalties and advertising fees."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 30,
+    "brandFundPct": 1,
+    "localAdPct": null,
+    "flatMonthlyFees": [
+     {
+      "name": "Operations Technology Fee",
+      "monthlyAmount": 500,
+      "source": "Item 6, p.7 (per operational employee per month)"
+     },
+     {
+      "name": "Sales Technology Fee",
+      "monthlyAmount": 250,
+      "source": "Item 6, p.7 (per sales employee per month)"
+     },
+     {
+      "name": "Transactional Service Fee",
+      "monthlyAmount": null,
+      "source": "Item 6, p.7 ($1.00 per job completed in TMS system)"
+     },
+     {
+      "name": "Conference Fee",
+      "monthlyAmount": null,
+      "source": "Item 6, p.7 (currently estimated $500 per person per conference; due upon notice)"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Recruitment Service Fee (ongoing)",
+     "description": "Greater of $3,500 or 10% of recruited employee's base annual salary per hire if franchisor recruitment services are used (or required in future).",
+     "estimatedAnnualAmount": 3500,
+     "source": "Item 6, p.7"
+    },
+    {
+     "name": "Unauthorized Advertising Fee",
+     "description": "$500 per occurrence for use of unapproved advertising materials.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.6"
+    },
+    {
+     "name": "Insurance Reimbursement Surcharge",
+     "description": "If franchisee fails to obtain insurance, franchisor may obtain it and charge cost plus 20% administrative surcharge.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.6"
+    },
+    {
+     "name": "Additional Training Fee",
+     "description": "$400 per attendee per day for additional or remedial training beyond initial program.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.6"
+    },
+    {
+     "name": "Supplier and Product Evaluation Fee",
+     "description": "$100\u2013$500 per evaluation of a proposed new supplier or product nominated by franchisee.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Customer Issue Resolution Fee",
+     "description": "Franchisee reimburses franchisor for reasonable costs (gift cards, refunds) incurred resolving customer complaints.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Payment Service Fee",
+     "description": "Up to 4% of total charge if franchisee pays fees to franchisor or affiliate by credit card.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Late Payment Fee",
+     "description": "$100 per occurrence plus 18% per year simple interest (or highest rate allowed by law) on overdue amounts.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Non-Sufficient Funds Fee",
+     "description": "$100 per occurrence plus 18% per year interest on failed electronic payments.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Failure to Submit Required Report Fee",
+     "description": "$100 per occurrence plus $100 per week until required report is submitted.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Audit Expenses",
+     "description": "Cost of audit, understated amounts, and related accounting/legal/travel expenses if franchisee understates Gross Margin by more than 2%.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Management Fee (Step-In)",
+     "description": "$250 per day per Interim Manager plus direct costs if franchisor steps in to manage the business.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.9"
+    },
+    {
+     "name": "Administrative Services Fee",
+     "description": "$3.00 per occurrence for processing supplemental invoices.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.9"
+    },
+    {
+     "name": "Invoice Financing Assistance Fee",
+     "description": "Reimbursement of actual costs plus prime rate plus 4% (daily) if franchisor assists with carrier invoice financing.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.10"
+    },
+    {
+     "name": "Liquidated Damages",
+     "description": "Minimum $30,000; calculated as combined monthly average of Royalties and Brand Fund Contributions multiplied by lesser of 36 or remaining months in term, if franchisee terminates without cause or franchisor terminates for material breach.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.10"
+    },
+    {
+     "name": "Broker Fees on Transfer",
+     "description": "Franchisee must reimburse all franchisor brokerage commissions, finder's fees, and similar charges on any transfer to a third party.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.10"
+    },
+    {
+     "name": "Brand Fund Contribution Increase",
+     "description": "Franchisor reserves right to increase Brand Fund Contribution from 1% to up to 3% of Gross Margin upon written notice.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.6"
+    },
+    {
+     "name": "Computer System Maintenance",
+     "description": "Estimated ~$250 per year for ongoing maintenance, updates, or upgrades to the Computer System.",
+     "estimatedAnnualAmount": 250,
+     "source": "Item 11, p.22"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, pp.39-41",
+    "totalUnits": 10,
+    "openedLastYear": 9,
+    "closedLastYear": 0,
+    "transfersLastYear": 0
+   },
+   "operationalRisks": [
+    {
+     "title": "Franchisor Financial Condition",
+     "description": "The Special Risks section explicitly states the franchisor's financial condition calls into question its ability to provide services and support; FY2024 shows $0 revenue and $0 assets.",
+     "severity": "high",
+     "source": "Special Risks, p.4; Item 21 / Exhibit B"
+    },
+    {
+     "title": "Short Operating History",
+     "description": "Franchisor was formed May 2023 and began franchising January 2025 \u2014 fewer than 18 months of US franchising history as of issuance.",
+     "severity": "high",
+     "source": "Special Risks, p.4; Item 1, p.8"
+    },
+    {
+     "title": "Unregistered Primary Trademark",
+     "description": "The 'Speedy Freight' mark is not federally registered; only pending USPTO applications exist, creating risk of forced rebranding.",
+     "severity": "high",
+     "source": "Special Risks, p.4; Item 13, pp.26-27"
+    },
+    {
+     "title": "Minimum Sales Performance Requirements",
+     "description": "Failure to meet annual Gross Margin per business count thresholds (MPR-E or MPR) results in loss of territorial exclusivity or franchise termination.",
+     "severity": "high",
+     "source": "Item 12, pp.24-25"
+    },
+    {
+     "title": "Royalty on Gross Margin (30%)",
+     "description": "The 30% royalty is applied to Gross Margin (revenue minus direct shipping costs), not gross revenue, but is still a very high rate that significantly reduces franchisee net income.",
+     "severity": "high",
+     "source": "Item 6, p.6"
+    },
+    {
+     "title": "Item 19 Based Primarily on UK Data",
+     "description": "Financial performance representations rely on UK franchisees and one US company-owned location; no US franchisee performance data exists, limiting comparability.",
+     "severity": "high",
+     "source": "Item 19, p.33"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "Spouses of franchise owners must sign the Franchise Owner Agreement, making them personally liable for all financial obligations even without an ownership interest.",
+     "severity": "medium",
+     "source": "Special Risks, p.4; Item 15, p.29"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "All disputes must be mediated, arbitrated, and litigated in Dallas, Texas, regardless of franchisee's home state.",
+     "severity": "medium",
+     "source": "Special Risks, p.4; Item 17, p.32"
+    },
+    {
+     "title": "Franchisor Controls Billing and Collections",
+     "description": "Franchisor conducts billing and collection on behalf of franchisee, deducting royalties and fees before remitting balance; franchisee has limited control over cash flow timing.",
+     "severity": "medium",
+     "source": "Item 6, pp.10-11"
+    },
+    {
+     "title": "Territorial Exclusivity Conditional",
+     "description": "Exclusive territory is contingent on maintaining at least one full-time sales executive and meeting MPR-E thresholds; exclusivity can be lost without termination of the franchise.",
+     "severity": "medium",
+     "source": "Item 12, p.24"
+    },
+    {
+     "title": "Trademark License from Parent (SFHL) \u2014 Termination Risk",
+     "description": "The Marks are owned by UK parent SFHL and licensed to the franchisor; if the Trademark License is terminated, franchisees' rights to the Marks could be affected.",
+     "severity": "medium",
+     "source": "Item 13, p.26"
+    },
+    {
+     "title": "Renewal on New Terms",
+     "description": "Successor franchise agreement may have materially different terms including higher royalties; franchisee must sign current-form agreement to renew.",
+     "severity": "medium",
+     "source": "Item 17, p.30"
+    },
+    {
+     "title": "Non-Compete Post-Termination (50-Mile Radius, 1 Year)",
+     "description": "After termination or expiration, franchisee and owners cannot operate a competitive business within 50 miles of any Speedy Freight location for one year.",
+     "severity": "medium",
+     "source": "Item 17, p.32"
+    },
+    {
+     "title": "Franchisor Step-In Rights",
+     "description": "Franchisor may appoint an Interim Manager and charge $250/day plus costs if it determines the business is in jeopardy or upon a Crisis Management Event.",
+     "severity": "low",
+     "source": "Item 6, p.9"
+    }
+   ],
+   "rentDetail": {
+    "rawValue": 500,
+    "unit": "per_month",
+    "squareFootage": 800,
+    "source": "Item 7, p.12 \u2014 offices typically ~800 sq ft with rent ranges of $500 to $4,000 per month depending on market and size"
+   },
+   "averageRentMonthly": null,
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "UHY LLP",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "Speedy Freight Holdings Limited",
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-11-30",
+      "revenue": 1346259,
+      "netIncome": 1139366,
+      "totalAssets": 1329444,
+      "totalLiabilities": 190078,
+      "cash": 57605,
+      "currentAssets": 314880,
+      "currentLiabilities": 190078,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": 1139366
+     },
+     {
+      "fiscalYearEnd": "2024-11-30",
+      "revenue": 0,
+      "netIncome": 0,
+      "totalAssets": 0,
+      "totalLiabilities": 0,
+      "cash": 0,
+      "currentAssets": 0,
+      "currentLiabilities": 0,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": 0
+     },
+     {
+      "fiscalYearEnd": "2023-11-30",
+      "revenue": 0,
+      "netIncome": -1000,
+      "totalAssets": null,
+      "totalLiabilities": null,
+      "cash": 0,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": 0
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "Above-market royalty at 30%.",
+    "5 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
+    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+   ],
+   "midCohort": null,
+   "bottomCohort": null,
+   "buildoutMidpoint": 134250,
+   "assumedLoan": 107400,
+   "assumedMonthlyDebtService": 1449.2018653693713,
+   "dscr": null,
+   "rentPctOfRevenue": null,
+   "paybackYears": null,
+   "variableRate": 0.31,
+   "fixedMonthly": 750,
+   "notes": [
+    "Average rent not found; fixed costs may be understated.",
+    "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $134,250 mid-point build-out without financing, though that leaves little working-capital cushion."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "B2B freight logistics consulting and carrier brokerage sold to businesses from a small office \u2014 a professional trade services model.",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": null,
+   "marginAfterFeesMonthly": null,
+   "benchmarkOperatingEbitdaMonthly": null,
+   "trueEbitdaBasis": "none",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 10\u201321% \u2014 the 20\u201335% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    10,
+    21
+   ],
+   "buildup": [],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; positive net worth; the business is profitable. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "What we found (2025-11-30, audited by UHY LLP): Net income of $1.14M on $1.35M of revenue \u2014 roughly 0.2x spent per $1 earned. Positive net worth of $1.14M. Cash of $58K against $190K of obligations due within a year (a current ratio of 1.66).",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Speedy Freight Holdings Limited is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "positive net worth",
+    "the business is profitable"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-11-30",
+    "netWorth": 1139366,
+    "netWorthSign": "positive",
+    "netWorthTrend": "improving",
+    "netIncome": 1139366,
+    "netIncomeTrend": "improving",
+    "revenue": 1346259,
+    "revenueTrend": "improving",
+    "currentRatio": 1.656583086943255,
+    "workingCapital": 124802,
+    "liabilitiesToAssets": 0.14297555970766726,
+    "adjLiabilitiesToAssets": 0.14297555970766726,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": 0.15367993825853718,
+    "cash": 57605,
+    "nearTermObligations": 190078
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

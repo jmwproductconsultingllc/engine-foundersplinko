@@ -21,6 +21,14 @@ export interface BrandRecord {
   slug: string;
   brandName: string;
   category: string;
+  /** Top-level vertical (batch2+). Absent on the original kids records —
+   *  verticalOf() defaults those to "Kids & Family" (zero migration). */
+  vertical?: string;
+  /** Internal extraction-quality marker (batch2+). "degraded-fallback" =
+   *  parsed from a 100-page-trimmed doc; NEVER surfaced to users — rendered
+   *  only as a data attribute so we know which pages silently upgrade after
+   *  the clean re-parse. */
+  parseQuality?: "clean" | "degraded-fallback";
   grade: "READY" | "THIN";
   sourceFddYear: number | null;
   generatedAt: string;
@@ -56,6 +64,10 @@ export interface BrandCard {
   hi: number | null;
   costSource: "declared" | "summed" | null;
   costMismatch: boolean; // sum diverges >10% from declared — queue Item 7 repair
+  /** last-resort investment figure when Item 7 low/high are absent */
+  buildoutMid: number | null;
+  vertical: string;
+  parseQuality: "clean" | "degraded-fallback";
   royaltyPct: number | null; // normalized (R2)
   units: number | null;
   openedLastYear: number | null;
@@ -79,6 +91,61 @@ export const CATEGORY_ORDER: readonly string[] = [
   "Hair & Personal Care",
   "Kids Retail",
 ];
+
+// ---------------------------------------------------------------------------
+// Verticals (multi-vertical launch). /brands rows = VERTICAL_ORDER. Kids keeps
+// its sub-category sections (CATEGORY_ORDER above becomes its SUBCATEGORIES);
+// other verticals render flat until they earn sub-sections (>8 brands).
+// ---------------------------------------------------------------------------
+
+export const KIDS_VERTICAL = "Kids & Family";
+
+export const VERTICAL_ORDER: readonly string[] = [
+  KIDS_VERTICAL,
+  "Home & Property Services",
+  "Fitness & Wellness",
+  "Food & Beverage",
+  "B2B & Business Services",
+  "Beauty & Personal Care",
+  "Sports & Entertainment",
+  "Senior Care",
+  "Real Estate",
+  "Pets",
+  "Auto & Transport",
+];
+
+export const SUBCATEGORIES: Record<string, readonly string[]> = {
+  [KIDS_VERTICAL]: CATEGORY_ORDER,
+};
+
+/** Vertical for a record — absent field defaults to Kids & Family so the
+ *  original 18 kids records need zero migration. */
+export function verticalOf(b: BrandRecord): string {
+  return b.vertical ?? KIDS_VERTICAL;
+}
+
+/** Best-effort vertical for a live in-session DiligenceResult (upload flow
+ *  post-parse chip). Prefers an explicit vertical if the engine ever emits
+ *  one; falls back to conceptType. Returns null when unclassifiable — render
+ *  no chip rather than a wrong one. */
+export function verticalForResult(result: DiligenceResult): string | null {
+  const explicit = (result as unknown as { vertical?: string }).vertical;
+  if (explicit && VERTICAL_ORDER.includes(explicit)) return explicit;
+  const map: Record<string, string> = {
+    education_childcare: KIDS_VERTICAL,
+    food_beverage_qsr: "Food & Beverage",
+    fitness_gym: "Fitness & Wellness",
+    home_services: "Home & Property Services",
+    senior_care: "Senior Care",
+    real_estate: "Real Estate",
+    pet_services: "Pets",
+    automotive: "Auto & Transport",
+    beauty_personal_care: "Beauty & Personal Care",
+    b2b_services: "B2B & Business Services",
+  };
+  const ct = result.extracted?.conceptType;
+  return (ct && map[ct]) || null;
+}
 
 // ---------------------------------------------------------------------------
 // Cost range. The v1 brief said Σ lineItems, but the corpus proved the declared
@@ -190,14 +257,22 @@ function deriveCaveat(c: Item19Cohort, degraded: boolean): string | null {
   return notes.length ? notes.join(" · ") : null;
 }
 
+/** Monthly figure for a cohort. Batch2+ records often carry only annualRevenue
+ *  (avgMonthlyRevenue null) — derive annual/12, the same math the engine's own
+ *  midCohort source uses. Kids-batch records with explicit monthly unchanged. */
+function monthlyOf(c: Item19Cohort): number | null {
+  if (typeof c.avgMonthlyRevenue === "number" && c.avgMonthlyRevenue > 0) return c.avgMonthlyRevenue;
+  if (typeof c.annualRevenue === "number" && c.annualRevenue > 0) return c.annualRevenue / 12;
+  return null;
+}
+
 export function pickHeroCohort(
   cohorts: Item19Cohort[] | null | undefined,
   preference: CohortPreference = "revenue",
 ): HeroPick | null {
   const all = (cohorts ?? []).filter(
     (c) =>
-      typeof c.avgMonthlyRevenue === "number" &&
-      (c.avgMonthlyRevenue as number) > 0 &&
+      monthlyOf(c) != null &&
       // pre-sale-only revenue (memberships sold before opening) and 'other' are
       // never hero material — not ongoing operating economics (v3 §1).
       c.revenueType !== "pre_sale_only" &&
@@ -245,7 +320,7 @@ export function pickHeroCohort(
       });
       const c = sorted[0];
       return {
-        monthly: Math.round(c.avgMonthlyRevenue as number),
+        monthly: Math.round(monthlyOf(c) as number),
         kind, // from revenueType — a profit number is never labeled "revenue" or vice-versa
         sampleSize: c.sampleSize ?? null,
         label: c.label ?? "",
@@ -271,7 +346,12 @@ export function toCard(brand: BrandRecord, preference: CohortPreference = "reven
   // structurally unrenderable brands stay ghosts (clickable-for-demand-signal
   // per reconciliation #2, but not linked to a detail page). Grade is the
   // converter's call and the gate; don't second-guess it per-field here.
-  const live = brand.grade === "READY" && risk != null && lo != null && hi != null;
+  const buildoutMid = brand.result.scoring?.buildoutMidpoint ?? null;
+  // live = clickable + sellable. Cost display needs either the Item 7 range or,
+  // as a last resort, the engine's mid-point build-out (batch2 brief §data-2;
+  // in practice the batch shipped full Item 7s, so the fallback is dormant).
+  const live =
+    brand.grade === "READY" && risk != null && ((lo != null && hi != null) || buildoutMid != null);
 
   return {
     brandName: brand.brandName,
@@ -290,6 +370,9 @@ export function toCard(brand: BrandRecord, preference: CohortPreference = "reven
     hi,
     costSource,
     costMismatch: mismatch,
+    buildoutMid,
+    vertical: verticalOf(brand),
+    parseQuality: brand.parseQuality ?? "clean",
     royaltyPct: normalizeRoyaltyPct(e.ongoingFees?.royaltyPct),
     units: e.systemScale?.totalUnits ?? null,
     openedLastYear: e.systemScale?.openedLastYear ?? null,
@@ -383,36 +466,104 @@ export const GHOST_UNIVERSE: Record<string, string[]> = {
 export interface CategoryRow {
   category: string;
   cards: BrandCard[]; // live first (sorted by mo desc), then store-ghosts (THIN)
-  ghostNames: string[]; // never-parsed universe brands → GhostBrandCard
+  ghostNames: string[];
   liveCount: number;
-  totalCount: number; // live + THIN + universe ghosts (the "N tracked" tally)
+  totalCount: number;
 }
 
-export async function listDirectory(preference: CohortPreference = "revenue"): Promise<CategoryRow[]> {
-  const brands = await listBrands();
-  const known = new Set(CATEGORY_ORDER);
+export interface VerticalRow {
+  vertical: string;
+  /** present only for verticals with SUBCATEGORIES (Kids & Family today) */
+  subsections: CategoryRow[] | null;
+  /** flat card list for verticals without subsections */
+  cards: BrandCard[];
+  liveCount: number;
+  totalCount: number;
+}
 
-  for (const b of brands) {
-    if (!known.has(b.category)) {
-      console.warn(
-        `[brands] "${b.slug}" has off-taxonomy category "${b.category}" — excluded from /brands. Fix the registry.`,
-      );
+function buildCategoryRows(
+  cards: BrandCard[],
+  subcats: readonly string[],
+  withGhosts: boolean,
+): CategoryRow[] {
+  return subcats
+    .map((category) => {
+      const inCat = cards.filter((c) => c.category === category);
+      const live = inCat.filter((c) => c.live).sort((a, b) => (b.mo ?? 0) - (a.mo ?? 0));
+      const thin = inCat.filter((c) => !c.live);
+      const inStore = new Set(inCat.map((c) => c.brandName.toLowerCase()));
+      const ghostNames = withGhosts
+        ? (GHOST_UNIVERSE[category] ?? []).filter((n) => !inStore.has(n.toLowerCase()))
+        : [];
+      return {
+        category,
+        cards: [...live, ...thin],
+        ghostNames,
+        liveCount: live.length,
+        totalCount: inCat.length + ghostNames.length,
+      };
+    })
+    .filter((row) => row.totalCount > 0);
+}
+
+/** Multi-vertical directory: rows = VERTICAL_ORDER. Kids & Family keeps its
+ *  sub-category sections and ghost universe (unchanged vs. the kids-only
+ *  launch — Kona Ice's off-taxonomy exclusion behaves identically because a
+ *  Kids-defaulted record whose category isn't a Kids subcategory still
+ *  renders nowhere, with a warn). Other verticals render flat, live cards
+ *  sorted by monthly hero desc. */
+export async function listVerticalDirectory(
+  preference: CohortPreference = "revenue",
+): Promise<VerticalRow[]> {
+  const brands = await listBrands();
+  const knownVerticals = new Set(VERTICAL_ORDER);
+
+  const rows: VerticalRow[] = [];
+  for (const vertical of VERTICAL_ORDER) {
+    const inVert = brands.filter((b) => verticalOf(b) === vertical);
+    const cards = inVert.map((b) => toCard(b, preference));
+    const subcats = SUBCATEGORIES[vertical];
+
+    if (subcats) {
+      const subsections = buildCategoryRows(cards, subcats, true);
+      const placed = new Set(subsections.flatMap((s) => s.cards.map((c) => c.slug)));
+      for (const c of cards) {
+        if (!placed.has(c.slug)) {
+          console.warn(
+            `[brands] "${c.slug}" (${vertical}) has off-taxonomy category "${c.category}" — excluded. Fix the registry.`,
+          );
+        }
+      }
+      const liveCount = subsections.reduce((a, s) => a + s.liveCount, 0);
+      const totalCount = subsections.reduce((a, s) => a + s.totalCount, 0);
+      if (totalCount > 0) rows.push({ vertical, subsections, cards: [], liveCount, totalCount });
+    } else {
+      const live = cards.filter((c) => c.live).sort((a, b) => (b.mo ?? 0) - (a.mo ?? 0));
+      const thin = cards.filter((c) => !c.live);
+      if (cards.length > 0)
+        rows.push({
+          vertical,
+          subsections: null,
+          cards: [...live, ...thin],
+          liveCount: live.length,
+          totalCount: cards.length,
+        });
     }
   }
 
-  return CATEGORY_ORDER.map((category) => {
-    const cards = brands.filter((b) => b.category === category).map((b) => toCard(b, preference));
-    const live = cards.filter((c) => c.live).sort((a, b) => (b.mo ?? 0) - (a.mo ?? 0));
-    const thin = cards.filter((c) => !c.live);
-    // Universe ghosts, minus anything already in the store under any grade.
-    const inStore = new Set(cards.map((c) => c.brandName.toLowerCase()));
-    const ghostNames = (GHOST_UNIVERSE[category] ?? []).filter((n) => !inStore.has(n.toLowerCase()));
-    return {
-      category,
-      cards: [...live, ...thin],
-      ghostNames,
-      liveCount: live.length,
-      totalCount: cards.length + ghostNames.length,
-    };
-  }).filter((row) => row.totalCount > 0);
+  for (const b of brands) {
+    if (!knownVerticals.has(verticalOf(b))) {
+      console.warn(
+        `[brands] "${b.slug}" has unknown vertical "${b.vertical}" — excluded from /brands. Fix the record.`,
+      );
+    }
+  }
+  return rows;
+}
+
+/** Legacy kids-only view (original launch shape). Prefer listVerticalDirectory. */
+export async function listDirectory(preference: CohortPreference = "revenue"): Promise<CategoryRow[]> {
+  const brands = await listBrands();
+  const kids = brands.filter((b) => verticalOf(b) === KIDS_VERTICAL).map((b) => toCard(b, preference));
+  return buildCategoryRows(kids, CATEGORY_ORDER, true);
 }

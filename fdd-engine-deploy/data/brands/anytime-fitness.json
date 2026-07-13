@@ -1,0 +1,631 @@
+{
+ "slug": "anytime-fitness",
+ "brandName": "Anytime Fitness",
+ "category": "Gym/studio",
+ "vertical": "Fitness & Wellness",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "anytimefitness",
+ "fileHash": "0d1ddc0a61ed9d9f",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 11",
+     "Item 12",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Anytime Fitness",
+   "franchisorEntity": "ANYTIME FITNESS FRANCHISOR LLC",
+   "headquarters": "111 Weir Drive, Woodbury, MN 55125",
+   "brandBackground": "Anytime Fitness offers 24-hour fitness centers with convenient access and coaching services.",
+   "leadership": [
+    {
+     "name": "Thomas Leverton",
+     "role": "Chief Executive Officer",
+     "background": "Served as CEO of parent companies since November 2024 and was previously a partner at Pritzker Private Capital.",
+     "whyItMatters": "Provides senior private equity and corporate leadership experience to the brand."
+    },
+    {
+     "name": "Charles Runyon",
+     "role": "Board Member/Founder",
+     "background": "Co-founder of Anytime Fitness and served as CEO from October 2021 to November 2024.",
+     "whyItMatters": "Maintains the original brand vision and long-term continuity."
+    },
+    {
+     "name": "Dave Mortensen",
+     "role": "Board Member/Founder",
+     "background": "Co-founder of Anytime Fitness and served as President from October 2021 to November 2024.",
+     "whyItMatters": "Ensures foundational operational knowledge remains on the board."
+    },
+    {
+     "name": "Stacy Anderson",
+     "role": "Global Brand President",
+     "background": "Served as Global Brand President since January 2024 and Brand President since August 2016.",
+     "whyItMatters": "Directs global brand strategy and marketing consistency."
+    },
+    {
+     "name": "Robert Gunkel",
+     "role": "Interim Chief Financial Officer",
+     "background": "Interim CFO since January 2026 and previously served as EVP and Treasurer for Sonesta RL Hotels.",
+     "whyItMatters": "Oversees financial planning and franchise system economics."
+    },
+    {
+     "name": "James Goniea",
+     "role": "General Counsel and Secretary",
+     "background": "General Counsel since October 2021 and previously held GC roles with predecessor AFLLC since 2017.",
+     "whyItMatters": "Manages legal compliance, franchise agreements, and regulatory filings."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "All Franchised Centers Operating With AF Coaching - Membership Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 28459,
+      "basis": "Item 19, p. 55",
+      "annualRevenue": 341503,
+      "monthlyValues": [],
+      "sampleSize": 1683
+     },
+     {
+      "label": "All Franchised Centers Operating With AF Coaching - Coaching Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 6143,
+      "basis": "Item 19, p. 55",
+      "annualRevenue": 73710,
+      "monthlyValues": [],
+      "sampleSize": 1683
+     },
+     {
+      "label": "All Franchised Centers Operating With AF Coaching - Pay-Per-Visit Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 2665,
+      "basis": "Item 19, p. 55",
+      "annualRevenue": 31976,
+      "monthlyValues": [],
+      "sampleSize": 1683
+     },
+     {
+      "label": "All Franchised Centers Operating With AF Coaching - Total Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 37235,
+      "basis": "Item 19, p. 55",
+      "annualRevenue": 446814,
+      "monthlyValues": [],
+      "sampleSize": 1683
+     },
+     {
+      "label": "Franchised Centers Using Coaching Dashboard - Total Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 46774,
+      "basis": "Item 19, p. 57",
+      "annualRevenue": 561291,
+      "monthlyValues": [],
+      "sampleSize": 215
+     },
+     {
+      "label": "Company-Owned Centers - Average Total Revenue",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 43488,
+      "basis": "Item 19, p. 58",
+      "annualRevenue": 521854,
+      "monthlyValues": [],
+      "sampleSize": 11
+     },
+     {
+      "label": "Company-Owned Centers - EBITDA",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 12468,
+      "basis": "Item 19, p. 59",
+      "annualRevenue": 149620,
+      "monthlyValues": [],
+      "sampleSize": 11
+     }
+    ],
+    "notes": "Centers are placed in quartiles based on their individual total revenue for the Relevant Time Period.",
+    "sourcePage": "Item 19, p. 54-59",
+    "networkAverageMonthly": null,
+    "unitsReported": 1683
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise/Development Fee",
+      "recurring": false,
+      "notes": "Standard initial franchise fee is $42,500.",
+      "high": 42500,
+      "low": 42500
+     },
+     {
+      "category": "Travel and Training Expenses",
+      "recurring": false,
+      "notes": "Covers travel and living expenses during training.",
+      "high": 2425,
+      "low": 1500
+     },
+     {
+      "category": "Leasehold Improvements",
+      "recurring": false,
+      "notes": "Estimated cost to build out a vanilla shell space.",
+      "high": 417300,
+      "low": 170280
+     },
+     {
+      "category": "3 Months' Rent + Security Deposit",
+      "recurring": false,
+      "notes": "Includes security deposit and first 3 months of rent.",
+      "high": 58700,
+      "low": 33500
+     },
+     {
+      "category": "Construction Management Fees",
+      "recurring": false,
+      "notes": "Optional fee for construction oversight.",
+      "high": 12500,
+      "low": 0
+     },
+     {
+      "category": "Architect/Design Fees",
+      "recurring": false,
+      "notes": "Fees for creating construction documents.",
+      "high": 26075,
+      "low": 12825
+     },
+     {
+      "category": "Fitness Equipment",
+      "recurring": false,
+      "notes": "Cost of purchasing required fitness equipment.",
+      "high": 157936,
+      "low": 139873
+     },
+     {
+      "category": "Technology Equipment Package",
+      "recurring": false,
+      "notes": "Technology system package from affiliate ProVision.",
+      "high": 45462,
+      "low": 37857
+     },
+     {
+      "category": "Supplies",
+      "recurring": false,
+      "notes": "Office and cleaning supplies, including AED.",
+      "high": 3800,
+      "low": 3500
+     },
+     {
+      "category": "Interior & Exterior Signs",
+      "recurring": false,
+      "notes": "Cost of recommended signage package.",
+      "high": 36900,
+      "low": 14250
+     },
+     {
+      "category": "Miscellaneous Opening Costs",
+      "recurring": false,
+      "notes": "Utility setup, licensing, and professional fees.",
+      "high": 7910,
+      "low": 6750
+     },
+     {
+      "category": "Pre-Sale/Grand Opening Advertising",
+      "recurring": false,
+      "notes": "Required spend on grand opening marketing.",
+      "high": 23000,
+      "low": 11000
+     },
+     {
+      "category": "Insurance/Bond",
+      "recurring": false,
+      "notes": "Estimated cost for first year insurance and surety bond.",
+      "high": 3450,
+      "low": 2900
+     },
+     {
+      "category": "Furniture & Fixtures",
+      "recurring": false,
+      "notes": "Cost of office and club furniture.",
+      "high": 18330,
+      "low": 15200
+     },
+     {
+      "category": "Additional Funds - 3 Months",
+      "recurring": false,
+      "notes": "Working capital for initial three months of operation.",
+      "high": 49194,
+      "low": 47394
+     }
+    ],
+    "sourcePage": "Item 7, p. 19",
+    "initialInvestmentHigh": 905482,
+    "initialInvestmentLow": 539329
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Monthly Fee",
+      "source": "Item 6, p. 11",
+      "monthlyAmount": 842
+     },
+     {
+      "name": "General Advertising and Marketing Fee",
+      "source": "Item 6, p. 11",
+      "monthlyAmount": 900
+     },
+     {
+      "name": "Base Technology Fee",
+      "source": "Item 6, p. 11",
+      "monthlyAmount": 799
+     }
+    ],
+    "brandFundPct": 0.03,
+    "localAdPct": null,
+    "royaltyPct": 0.08
+   },
+   "hiddenCosts": [
+    {
+     "name": "Equipment Maintenance Assessment",
+     "description": "Annual assessment fee conducted by preferred machine technicians.",
+     "source": "Item 8, p. 23",
+     "estimatedAnnualAmount": 275
+    },
+    {
+     "name": "Conference Fee",
+     "description": "Mandatory fee charged in years when a conference is scheduled.",
+     "source": "Item 6, p. 14",
+     "estimatedAnnualAmount": 749
+    },
+    {
+     "name": "Continuing Engagement Credit Fees",
+     "description": "Fee charged for failing to meet minimum continuing engagement credits.",
+     "source": "Item 6, p. 14",
+     "estimatedAnnualAmount": 2400
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 60",
+    "closedLastYear": 66,
+    "openedLastYear": 53,
+    "totalUnits": 2282,
+    "transfersLastYear": 169
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by mediation, arbitration, or litigation in Minnesota.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "Spouses must sign a personal guarantee making them liable for all financial obligations.",
+     "severity": "high",
+     "source": "Special Risks, p. 4"
+    },
+    {
+     "title": "Supplier Control",
+     "description": "Franchisees must purchase nearly all supplies and technology from designated vendors.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4"
+    }
+   ],
+   "conceptType": "fitness_studio",
+   "staffingModel": "automated",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025",
+      "cash": 19324000,
+      "currentAssets": 70163000,
+      "currentLiabilities": 38559000,
+      "deferredRevenue": 71172000,
+      "netIncome": 154915000,
+      "netWorth": -932047000,
+      "relatedPartyDebt": null,
+      "revenue": 375934000,
+      "totalAssets": 106725000,
+      "totalLiabilities": 1038772000
+     },
+     {
+      "fiscalYearEnd": "2024",
+      "cash": 9591000,
+      "currentAssets": 67893000,
+      "currentLiabilities": 42862000,
+      "deferredRevenue": 77151000,
+      "netIncome": 113091000,
+      "netWorth": -949009000,
+      "relatedPartyDebt": null,
+      "revenue": 317009000,
+      "totalAssets": 111119000,
+      "totalLiabilities": 1060128000
+     }
+    ],
+    "auditorName": "PricewaterhouseCoopers LLP",
+    "parentName": "Purpose Brands Holdings, LLC"
+   },
+   "averageRentMonthly": 8745,
+   "conceptRationale": "The brand operates 24-hour fitness centers offering gym access and coaching services.",
+   "rentDetail": {
+    "rawValue": 19.08,
+    "unit": "per_sqft_per_year",
+    "source": "Item 7, p. 20",
+    "squareFootage": 5500
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "The concept is designed to allow members 24-hour keyless access, operating unstaffed during off-peak hours."
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "Rent is heavy: ~31% of mid-cohort revenue (above 25%).",
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section.",
+    "Franchisor financial distress disclosed (negative net worth) \u2014 confirm its ability to support the system against the audited statements."
+   ],
+   "midCohort": {
+    "label": "All Franchised Centers Operating With AF Coaching - Membership Revenue",
+    "monthlyRevenue": 28459,
+    "monthlyVariable": 31.304900000000004,
+    "monthlyFixed": 11286,
+    "monthlyEbitda": 17141.6951,
+    "annualEbitda": 205700.34120000002,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "All Franchised Centers Operating With AF Coaching - Membership Revenue",
+     "math": "$341,503/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 1683
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 722405.5,
+   "assumedLoan": 577924.4,
+   "assumedMonthlyDebtService": 7798.222705050975,
+   "dscr": 2.1981540856607213,
+   "rentPctOfRevenue": 0.30728416318212165,
+   "paybackYears": 3.5119314619785373,
+   "variableRate": 0.0011,
+   "fixedMonthly": 11286,
+   "notes": []
+  },
+  "underwriting": {
+   "capitalGap": 472405.5,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 472405.5,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 6374.403461925051,
+   "adjustedMonthlyNetCashFlow": 10767.29163807495,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $722,406 mid-point build-out, there is a $472,406 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $10,767/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "fitness_studio",
+   "conceptLabel": "Boutique fitness / studio",
+   "conceptRationale": "The brand operates 24-hour fitness centers offering gym access and coaching services.",
+   "benchmark": {
+    "label": "Boutique fitness / studio",
+    "cogsPct": [
+     3,
+     10
+    ],
+    "laborPct": [
+     20,
+     30
+    ],
+    "occupancyPct": [
+     12,
+     20
+    ],
+    "operatingEbitdaPct": [
+     15,
+     28
+    ],
+    "dominantRisk": "Member retention/churn and fixed-cost coverage \u2014 NOT cost of goods. The deal is decided by recurring membership against rent and equipment lease.",
+    "rampNote": "9\u201318 months to a mature, retained member base.",
+    "considerations": [
+     "COGS is trivial; the risks are member churn and covering fixed rent + equipment lease.",
+     "Ask Item 20 operators for monthly retention, average membership lifetime, and break-even member count.",
+     "Model CAC and free-trial conversion \u2014 member acquisition cost is the hidden operating line."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 15\u201328% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 28459,
+   "marginAfterFeesMonthly": 17141.6951,
+   "benchmarkOperatingEbitdaMonthly": [
+    8035,
+    13157
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "automated",
+   "staffingLabel": "automated / minimal-staff",
+   "staffingNote": "Flagged as an automated / minimal-staff model from the FDD, so labor is adjusted down to 5\u201312% \u2014 the 20\u201330% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    5,
+    12
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      17141.6951,
+      17141.6951
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      3,
+      10
+     ],
+     "dollarRange": [
+      854,
+      2846
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      5,
+      12
+     ],
+     "dollarRange": [
+      1423,
+      3415
+     ],
+     "note": "automated / minimal-staff \u00b7 \u2248 0.4\u20131 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      1708,
+      2846
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      8035,
+      13157
+     ],
+     "note": "\u2248 28% to 46% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cBoutique fitness / studio\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as automated / minimal-staff from the FDD, which lowers the labor band applied below."
+    },
+    {
+     "field": "Rent",
+     "basis": "disclosed",
+     "detail": "Taken from the FDD (~$8,745/mo); already netted in margin after fees & rent."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 3\u201310% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 5\u201312% automated / minimal-staff band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "This franchisor has negative net worth (about $932.05M in the red) \u2014 it owes more than it owns \u2014 though the trend isn't worsening. Understand what's funding the gap before you commit.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; the business is profitable; the parent guarantees the franchisor's performance. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "What we found (2025, audited by PricewaterhouseCoopers LLP): Net income of $154.91M on $375.93M of revenue \u2014 roughly 0.6x spent per $1 earned. Negative net worth (a members'/stockholders' deficit) of $932.05M. Total liabilities are about 9.7x total assets. Cash of $19.32M against $38.56M of obligations due within a year (a current ratio of 1.82).",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. Purpose Brands Holdings, LLC guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "negative net worth \u2014 it owes more than it owns",
+    "liabilities far exceed assets"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "the business is profitable",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025",
+    "netWorth": -932047000,
+    "netWorthSign": "negative",
+    "netWorthTrend": "flat",
+    "netIncome": 154915000,
+    "netIncomeTrend": "improving",
+    "revenue": 375934000,
+    "revenueTrend": "improving",
+    "currentRatio": 1.8196270650172464,
+    "workingCapital": 31604000,
+    "liabilitiesToAssets": 9.733164675568048,
+    "adjLiabilitiesToAssets": 9.066291871632702,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": 0.06851551639820866,
+    "expenseToRevenue": 0.5879196880303458,
+    "cash": 19324000,
+    "nearTermObligations": 38559000
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

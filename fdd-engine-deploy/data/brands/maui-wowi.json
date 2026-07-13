@@ -1,0 +1,379 @@
+{
+ "slug": "maui-wowi",
+ "brandName": "Maui Wowi",
+ "category": "Coffee/smoothie",
+ "vertical": "Food & Beverage",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "mauiwowi",
+ "fileHash": "400f624ebfc661ed",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": [
+     "Item 19 discloses that the franchisor does not make any financial performance representations."
+    ]
+   },
+   "brandName": "Maui Wowi",
+   "franchisorEntity": "Kahala Franchising, L.L.C.",
+   "headquarters": "Scottsdale, Arizona",
+   "brandBackground": "",
+   "leadership": [
+    {
+     "name": "Eric Lefebvre",
+     "role": "Chief Executive Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Renee St-Onge",
+     "role": "Chief Financial Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Jeff Smit",
+     "role": "Chief Operating Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Jenny Moody",
+     "role": "Chief Legal Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "John Wuycheck",
+     "role": "Senior Vice President of Development",
+     "background": "",
+     "whyItMatters": ""
+    }
+   ],
+   "item19": {
+    "hasItem19": false,
+    "cohorts": [],
+    "notes": "",
+    "sourcePage": "Item 19, p.77",
+    "networkAverageMonthly": null,
+    "unitsReported": null
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "",
+      "low": 24000
+     },
+     {
+      "category": "Travel and Living Expenses while training",
+      "recurring": false,
+      "notes": "",
+      "low": 650
+     },
+     {
+      "category": "Mobile Operating Unit",
+      "recurring": false,
+      "notes": "",
+      "low": 0
+     },
+     {
+      "category": "Coffee Equipment",
+      "recurring": false,
+      "notes": "",
+      "low": 0
+     },
+     {
+      "category": "Optional Equipment",
+      "recurring": false,
+      "notes": "",
+      "low": 0
+     },
+     {
+      "category": "Opening Inventory",
+      "recurring": false,
+      "notes": "",
+      "low": 1500
+     },
+     {
+      "category": "POS System, Credit Card Processing and Back Office Computer Equipment",
+      "recurring": false,
+      "notes": "",
+      "low": 0
+     },
+     {
+      "category": "Miscellaneous Opening Costs",
+      "recurring": false,
+      "notes": "",
+      "low": 1750
+     },
+     {
+      "category": "Additional Funds - 3 months",
+      "recurring": false,
+      "notes": "",
+      "low": 0
+     },
+     {
+      "category": "Business Insurance",
+      "recurring": false,
+      "notes": "",
+      "low": 1000
+     }
+    ],
+    "sourcePage": "Item 7, p.35-36",
+    "initialInvestmentHigh": 279050,
+    "initialInvestmentLow": 28900
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Optional Snack Program Fee",
+      "source": "Item 6, p.28",
+      "monthlyAmount": 150
+     },
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p.28",
+      "monthlyAmount": 99.95
+     },
+     {
+      "name": "Data Fees",
+      "source": "Item 6, p.29",
+      "monthlyAmount": 75
+     },
+     {
+      "name": "POS System Software, Maintenance, Support, and Upgrade Contract",
+      "source": "Item 6, p.29",
+      "monthlyAmount": 129
+     }
+    ],
+    "brandFundPct": 15,
+    "localAdPct": 3,
+    "royaltyPct": null
+   },
+   "hiddenCosts": [
+    {
+     "name": "Advertising Fee on Purchases",
+     "description": "",
+     "source": "Item 6, p.28",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Annual Meeting Registration Fee",
+     "description": "",
+     "source": "Item 6, p.29",
+     "estimatedAnnualAmount": 1000
+    },
+    {
+     "name": "Lease Guarantee Fee",
+     "description": "",
+     "source": "Item 6, p.32",
+     "estimatedAnnualAmount": 10000
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p.78",
+    "closedLastYear": 3,
+    "openedLastYear": 0,
+    "totalUnits": 75,
+    "transfersLastYear": 2
+   },
+   "operationalRisks": [
+    {
+     "title": "Spousal Liability",
+     "description": "",
+     "severity": "high",
+     "source": "Special Risks, p.4"
+    },
+    {
+     "title": "No Exclusive Territory",
+     "description": "",
+     "severity": "medium",
+     "source": "Item 12, p.61"
+    }
+   ],
+   "conceptType": "food_beverage_qsr",
+   "staffingModel": "lightly_staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-11-30",
+      "revenue": 604239000,
+      "totalAssets": null,
+      "totalLiabilities": null
+     }
+    ],
+    "auditorName": null,
+    "parentName": "MTY Franchising USA, Inc."
+   },
+   "averageRentMonthly": 1200,
+   "conceptRationale": "",
+   "rentDetail": {
+    "rawValue": 1200,
+    "unit": "per_month",
+    "source": "Item 7, p.42",
+    "squareFootage": 400
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": ""
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "No Item 19 financial performance representation \u2014 earnings are undisclosed, which is itself a caution.",
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section.",
+    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+   ],
+   "midCohort": null,
+   "bottomCohort": null,
+   "buildoutMidpoint": 153975,
+   "assumedLoan": 123180,
+   "assumedMonthlyDebtService": 1662.1292902811838,
+   "dscr": null,
+   "rentPctOfRevenue": null,
+   "paybackYears": null,
+   "variableRate": 0.18,
+   "fixedMonthly": 1653.95,
+   "notes": [
+    "Royalty % not found; variable costs may be understated.",
+    "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $153,975 mid-point build-out without financing, though that leaves little working-capital cushion."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "food_beverage_qsr",
+   "conceptLabel": "QSR / fast-casual",
+   "conceptRationale": "",
+   "benchmark": {
+    "label": "QSR / fast-casual",
+    "cogsPct": [
+     28,
+     33
+    ],
+    "laborPct": [
+     22,
+     28
+    ],
+    "occupancyPct": [
+     6,
+     10
+    ],
+    "operatingEbitdaPct": [
+     10,
+     18
+    ],
+    "dominantRisk": "Prime cost and throughput per labor hour. Smaller footprint helps fixed costs, but COGS + labor still set the ceiling.",
+    "rampNote": "3\u20136 months to run-rate once open.",
+    "considerations": [
+     "Budget COGS ~28\u201333% and labor ~22\u201328%; target prime cost under ~60%.",
+     "Verify average ticket and daily transaction counts with Item 20 operators, not the franchisor.",
+     "Watch for required remodels and equipment refresh cycles buried in Item 6/Item 11."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201318% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": null,
+   "marginAfterFeesMonthly": null,
+   "benchmarkOperatingEbitdaMonthly": null,
+   "trueEbitdaBasis": "none",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 11\u201317% \u2014 the 22\u201328% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    11,
+    17
+   ],
+   "buildup": [],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cQSR / fast-casual\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. MTY Franchising USA, Inc. guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-11-30",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 604239000,
+    "revenueTrend": "unknown",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": null,
+    "adjLiabilitiesToAssets": null,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

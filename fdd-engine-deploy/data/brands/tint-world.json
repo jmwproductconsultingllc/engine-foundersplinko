@@ -1,0 +1,895 @@
+{
+ "slug": "tint-world",
+ "brandName": "Tint World",
+ "category": "Auto styling/tint",
+ "vertical": "Auto & Transport",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "tin world",
+ "fileHash": "0713601fa493940b",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Financial statements (Exhibit G) are referenced but not included in the provided pages; financial condition fields populated from Item 21 reference only \u2014 actual balance sheet figures are null.",
+     "Item 19 profitability table (Table 1-D) is based on only 74 of 105 centers that provided QuickBooks statements; sample is noted as unaudited."
+    ]
+   },
+   "brandName": "Tint World",
+   "franchisorEntity": "Tint World, LLC",
+   "headquarters": "Boca Raton, FL",
+   "brandBackground": "Tint World was founded in Florida in 1982 as an automotive window tinting retailer, began franchising in 2007, and has grown to 142+ U.S. locations specializing in window tinting, vehicle wraps, paint protection film, mobile electronics, detailing, and ceramic coatings.",
+   "conceptType": "retail_product",
+   "conceptRationale": "Fixed-location retail and installation centers selling and installing automotive aftermarket products and services \u2014 primarily a product/service retail model, not food/beverage or experiential entertainment.",
+   "staffingModel": "staffed",
+   "staffingRationale": "Item 15 requires a full-time on-premises general manager and sufficient trained technicians/installers; Item 11 training covers employee staffing and HR, indicating a conventionally staffed operation.",
+   "leadership": [
+    {
+     "name": "Charles J. Bonfiglio",
+     "role": "Founder & Chief Executive Officer",
+     "background": "Founded Tint World in September 2006 in Boca Raton, FL and has led the company since inception; also CEO of I Car Care LLC (Auto Parts Network).",
+     "whyItMatters": "Sole founder with 18+ years of system development and training experience driving brand strategy."
+    },
+    {
+     "name": "Jonathan Norman",
+     "role": "President & Chief Investment Officer",
+     "background": "Appointed President in March 2025; previously COO/franchise developer for N\u00e9kter Juice Bar and Planet Fitness (2009\u20132021).",
+     "whyItMatters": "Brings multi-brand franchise scaling experience critical to Tint World's growth phase post-PE investment."
+    },
+    {
+     "name": "Jeanette Bonfiglio",
+     "role": "Chief of Staff",
+     "background": "Appointed Chief of Staff in January 2025 after serving as CFO since September 2014.",
+     "whyItMatters": "Long-tenured financial and operational leader providing continuity through ownership transition."
+    },
+    {
+     "name": "J. R. Stocks",
+     "role": "Chief Operating Officer",
+     "background": "Appointed COO in March 2024; previously held executive roles at DS18, Race Sport Lighting, Wet Sounds, and Custom Sounds (2016\u20132024).",
+     "whyItMatters": "Deep mobile electronics and automotive aftermarket expertise directly aligned with Tint World's core product categories."
+    },
+    {
+     "name": "Eric Taylor",
+     "role": "Chief Development Officer",
+     "background": "Appointed CDO in February 2026; previously CDO at Sky Zone (2023\u20132026) and VP Real Estate at Tijuana Flats (2019\u20132023).",
+     "whyItMatters": "Franchise real estate and development experience supports the pipeline of 56 signed-but-unopened locations."
+    },
+    {
+     "name": "Craig Martin",
+     "role": "Vice President of Finance",
+     "background": "Appointed VP Finance in February 2026; previously Managing Director at CFGI and Senior Accounting Manager at MorganFranklin Consulting.",
+     "whyItMatters": "Brings transaction-services accounting expertise needed post-Susquehanna Growth Equity acquisition."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp. 49-54",
+    "unitsReported": 120,
+    "networkAverageMonthly": 67689,
+    "notes": "Item 19 discloses four tables: Table 1-A (high/low for 105 centers open 2+ years), Table 1-B (average/median/top50%/bottom50% gross sales and gross profit for 105 centers), Table 1-C (gross sales breakdown top/bottom 50% for 105 centers), Table 1-D (full P&L including EBITDA for 74 of 105 centers), Table 2-A (high/avg/median/low for 15 centers open 1 full year), Table 2-B (top/bottom 50% for 15 centers). All data is unaudited, franchisee-reported, calendar year 2025. Financial data not prepared on GAAP basis.",
+    "cohorts": [
+     {
+      "label": "105 Centers (2+ Years) \u2014 Average All",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 105,
+      "annualRevenue": 812267,
+      "avgMonthlyRevenue": null,
+      "basis": "Average gross sales for all 105 franchised centers open 2+ full calendar years, CY2025; unaudited POS data.",
+      "monthlyValues": []
+     },
+     {
+      "label": "105 Centers (2+ Years) \u2014 Median All",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 105,
+      "annualRevenue": 749138,
+      "avgMonthlyRevenue": null,
+      "basis": "Median gross sales for all 105 franchised centers open 2+ full calendar years, CY2025; unaudited POS data.",
+      "monthlyValues": []
+     },
+     {
+      "label": "105 Centers (2+ Years) \u2014 Top 50% Average",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 53,
+      "annualRevenue": 1060773,
+      "avgMonthlyRevenue": null,
+      "basis": "Average gross sales for top 50% of 105 centers open 2+ years, CY2025; 19 of 53 above this average.",
+      "monthlyValues": []
+     },
+     {
+      "label": "105 Centers (2+ Years) \u2014 Bottom 50% Average",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 52,
+      "annualRevenue": 558982,
+      "avgMonthlyRevenue": null,
+      "basis": "Average gross sales for bottom 50% of 105 centers open 2+ years, CY2025; 27 of 52 above this average.",
+      "monthlyValues": []
+     },
+     {
+      "label": "105 Centers (2+ Years) \u2014 Highest",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 105,
+      "annualRevenue": 1925471,
+      "avgMonthlyRevenue": null,
+      "basis": "Highest single-location gross sales among 105 centers open 2+ years, CY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "105 Centers (2+ Years) \u2014 Lowest",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 105,
+      "annualRevenue": 312524,
+      "avgMonthlyRevenue": null,
+      "basis": "Lowest single-location gross sales among 105 centers open 2+ years, CY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "105 Centers (2+ Years) \u2014 EBITDA Average All",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 74,
+      "annualRevenue": 170585,
+      "avgMonthlyRevenue": null,
+      "basis": "Average EBITDA (Gross Profit less defined Operating Expenses) for 74 of 105 centers that provided QuickBooks statements, CY2025; excludes auto, loans, dining/travel, personal, bonuses, bad debt, donations, interest, taxes, D&A.",
+      "monthlyValues": []
+     },
+     {
+      "label": "105 Centers (2+ Years) \u2014 EBITDA Median All",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 74,
+      "annualRevenue": 168927,
+      "avgMonthlyRevenue": null,
+      "basis": "Median EBITDA for 74 of 105 centers that provided QuickBooks statements, CY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "105 Centers (2+ Years) \u2014 EBITDA Top 50%",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 74,
+      "annualRevenue": 264539,
+      "avgMonthlyRevenue": null,
+      "basis": "Average EBITDA for top 50% of centers in the 74-center P&L sample, CY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "105 Centers (2+ Years) \u2014 EBITDA Bottom 50%",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 74,
+      "annualRevenue": 94206,
+      "avgMonthlyRevenue": null,
+      "basis": "Average EBITDA for bottom 50% of centers in the 74-center P&L sample, CY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "15 Centers (1 Full Year) \u2014 Average",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 15,
+      "annualRevenue": 616417,
+      "avgMonthlyRevenue": null,
+      "basis": "Average gross sales for 15 franchised centers open exactly 1 full calendar year, CY2025; 9 of 15 above average.",
+      "monthlyValues": []
+     },
+     {
+      "label": "15 Centers (1 Full Year) \u2014 Median",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 15,
+      "annualRevenue": 615676,
+      "avgMonthlyRevenue": null,
+      "basis": "Median gross sales for 15 franchised centers open 1 full calendar year, CY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "15 Centers (1 Full Year) \u2014 High",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 15,
+      "annualRevenue": 955388,
+      "avgMonthlyRevenue": null,
+      "basis": "Highest gross sales among 15 centers open 1 full year, CY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "15 Centers (1 Full Year) \u2014 Low",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 15,
+      "annualRevenue": 438746,
+      "avgMonthlyRevenue": null,
+      "basis": "Lowest gross sales among 15 centers open 1 full year, CY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "15 Centers (1 Full Year) \u2014 Top 50% Average",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 8,
+      "annualRevenue": 707184,
+      "avgMonthlyRevenue": null,
+      "basis": "Average gross sales for top 50% (8 centers) of 15 centers open 1 full year, CY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "15 Centers (1 Full Year) \u2014 Bottom 50% Average",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 7,
+      "annualRevenue": 512684,
+      "avgMonthlyRevenue": null,
+      "basis": "Average gross sales for bottom 50% (7 centers) of 15 centers open 1 full year, CY2025.",
+      "monthlyValues": []
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp. 15-21",
+    "initialInvestmentLow": 249950,
+    "initialInvestmentHigh": 479950,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 49950,
+      "high": 49950,
+      "recurring": false,
+      "notes": "Lump sum, non-refundable, paid at signing of Franchise Agreement."
+     },
+     {
+      "category": "Lease Rent, Deposits, Leasehold Improvements",
+      "low": 70000,
+      "high": 210000,
+      "recurring": false,
+      "notes": "Includes security deposit, prepaid rent, and leasehold improvements for 3,000\u20135,000 sq ft center; highly variable by market."
+     },
+     {
+      "category": "Showroom Displays, Furniture Package",
+      "low": 29900,
+      "high": 44900,
+      "recurring": false,
+      "notes": "Includes kiosk, interactive video, sales counter, shelving, chairs; high end includes car audio/electronics demo display."
+     },
+     {
+      "category": "Signage Brand Package",
+      "low": 7000,
+      "high": 18000,
+      "recurring": false,
+      "notes": "Channel letter illuminated exterior sign, survey, permit, freight, and installation."
+     },
+     {
+      "category": "Equipment, Tools Package",
+      "low": 11000,
+      "high": 18000,
+      "recurring": false,
+      "notes": "Film plotter, toolbox, heat guns, steamer, pressure washer, buffers; high end adds air compressor, floor jack, ozone machine."
+     },
+     {
+      "category": "Administrative Merchandise, Window Graphics Package",
+      "low": 4000,
+      "high": 7000,
+      "recurring": false,
+      "notes": "POS materials, brochures, business cards, storefront graphics, uniforms, hats."
+     },
+     {
+      "category": "Freight, Delivery Package",
+      "low": 2000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Varies by geographic location and initial order volume."
+     },
+     {
+      "category": "Software Technology Package",
+      "low": 5000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Initial setup of POS, PRO-CUT, TINT-PRO, QBO, FranConnect, Office 365, Zoom, Contact Center, Data Warehousing."
+     },
+     {
+      "category": "Computer Hardware, Phones Package",
+      "low": 4000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Three computers, printer, merchant hardware, four IP phones."
+     },
+     {
+      "category": "Initial Inventory, Supplies Package",
+      "low": 20000,
+      "high": 35000,
+      "recurring": false,
+      "notes": "Initial stocking inventory and supplies required to begin operations."
+     },
+     {
+      "category": "Grand Opening Event Promotion Package",
+      "low": 10000,
+      "high": 10000,
+      "recurring": false,
+      "notes": "One-day grand opening event plus 30-day pre/90-day post advertising; paid to NAF."
+     },
+     {
+      "category": "Business Insurance",
+      "low": 1500,
+      "high": 2200,
+      "recurring": false,
+      "notes": "First three months of liability, hired/non-owned auto, and workers' comp coverage."
+     },
+     {
+      "category": "Business Licenses",
+      "low": 600,
+      "high": 900,
+      "recurring": false,
+      "notes": "Varies by geographic area and services offered."
+     },
+     {
+      "category": "Accounting, Legal Expenses",
+      "low": 1000,
+      "high": 2000,
+      "recurring": false,
+      "notes": "Varies by choice of advisors and depth of work required."
+     },
+     {
+      "category": "Travel, Living, Training Expenses",
+      "low": 3000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Based on 2 persons attending initial training; varies by travel distance and seasonality."
+     },
+     {
+      "category": "Miscellaneous Expense",
+      "low": 1000,
+      "high": 2000,
+      "recurring": false,
+      "notes": "Finalizing and setting up the center."
+     },
+     {
+      "category": "Additional Funds, Three Months",
+      "low": 30000,
+      "high": 60000,
+      "recurring": false,
+      "notes": "Working capital for first 3 months post-opening; covers rent, payroll, utilities, insurance, advertising; excludes owner salary."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 6,
+    "brandFundPct": 6,
+    "localAdPct": 2,
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "monthlyAmount": 1000,
+      "source": "Item 6, p. 10"
+     },
+     {
+      "name": "Center Operations POS Software License Fee",
+      "monthlyAmount": 249,
+      "source": "Item 6, p. 10"
+     },
+     {
+      "name": "Accounting Services Fee",
+      "monthlyAmount": 400,
+      "source": "Item 6, p. 11"
+     },
+     {
+      "name": "Franchise Convention Fee (annual, per occurrence)",
+      "monthlyAmount": null,
+      "source": "Item 6, p. 10 \u2014 currently $699/year for up to 2 people"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Startup Local Advertising Expenditure",
+     "description": "Required $500/week paid to NAF for first 26 weeks post-opening (plus 30 days pre-opening) for local startup advertising.",
+     "estimatedAnnualAmount": 26000,
+     "source": "Item 6, p. 10"
+    },
+    {
+     "name": "Mobile Services POS Software License Fee",
+     "description": "Additional $299/month if authorized to provide Mobile Services.",
+     "estimatedAnnualAmount": 3588,
+     "source": "Item 6, p. 10"
+    },
+    {
+     "name": "Mobile Services Advertising Expenditure",
+     "description": "Additional $500/week to NAF if authorized for Mobile Services, plus $250/week per additional territory.",
+     "estimatedAnnualAmount": 26000,
+     "source": "Item 6, p. 10"
+    },
+    {
+     "name": "Mobile Services Territory Fee",
+     "description": "Non-refundable $10,000 fee paid at execution of Mobile Services Addendum.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 5, p. 8"
+    },
+    {
+     "name": "Mandatory Minimum Royalty",
+     "description": "Minimum $500/week royalty regardless of sales, beginning 6 months after opening.",
+     "estimatedAnnualAmount": 26000,
+     "source": "Item 6, p. 10"
+    },
+    {
+     "name": "Mandatory Minimum NAF Fee",
+     "description": "Minimum $1,000/week NAF contribution regardless of sales level.",
+     "estimatedAnnualAmount": 52000,
+     "source": "Item 6, p. 10"
+    },
+    {
+     "name": "Periodic Center Upgrade/Remodel",
+     "description": "Franchisor may require remodeling up to once every 3 years, not to exceed $30,000 per occurrence.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 12"
+    },
+    {
+     "name": "Mystery Shopper Fee",
+     "description": "$100 per mystery shopper service visit; frequency set by franchisor.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 11"
+    },
+    {
+     "name": "National & Fleet Account Processing Fee",
+     "description": "5% of total charge deducted from national/fleet account collections remitted on franchisee's behalf.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 11"
+    },
+    {
+     "name": "Credit Card Payment Service Fee",
+     "description": "Up to 4% of total charge for customer payment processing or credit card payments to franchisor.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 11"
+    },
+    {
+     "name": "Loan Packaging Service Fee",
+     "description": "$2,500 fee if franchisee applies for SBA loan through franchisor's lending sources.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 7, p. 21"
+    },
+    {
+     "name": "Development Schedule Extension Fee",
+     "description": "$10,000 per center for a single 6-month extension of the opening deadline.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 11"
+    },
+    {
+     "name": "Supplier Evaluation Fee",
+     "description": "Up to $2,500 if franchisee requests approval of a non-approved supplier.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 10"
+    },
+    {
+     "name": "Continuing Education Fee",
+     "description": "$500 per day per person plus travel/lodging/meals for supplemental or mandatory training programs.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 10"
+    },
+    {
+     "name": "Liquidated Damages on Termination",
+     "description": "Greater of 48 months of average monthly recurring fees or total fees through end of term if terminated for default.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 12"
+    }
+   ],
+   "systemScale": {
+    "totalUnits": 149,
+    "openedLastYear": 11,
+    "closedLastYear": 7,
+    "transfersLastYear": 24,
+    "sourcePage": "Item 20, pp. 55-60"
+   },
+   "operationalRisks": [
+    {
+     "title": "Mandatory Minimum Fee Payments Regardless of Sales",
+     "description": "Franchisee must pay minimum royalty ($500/week) and NAF ($1,000/week) regardless of revenue; failure can result in termination and loss of investment.",
+     "severity": "high",
+     "source": "Special Risks, p. iv; Item 6, p. 10"
+    },
+    {
+     "title": "Spousal Liability Guarantee",
+     "description": "Franchisee's spouse must sign a guarantee making them personally liable for all financial obligations under the franchise agreement, placing marital assets at risk.",
+     "severity": "high",
+     "source": "Special Risks, p. iv"
+    },
+    {
+     "title": "Significant Unopened Franchise Pipeline",
+     "description": "56 franchise agreements signed but outlets not yet opened as of December 31, 2025; delays experienced by others may affect new franchisees.",
+     "severity": "medium",
+     "source": "Special Risks, p. iv; Item 20, p. 59"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution (Florida Only)",
+     "description": "All disputes must be mediated and arbitrated in Palm Beach County, Florida, which may disadvantage out-of-state franchisees in cost and settlement leverage.",
+     "severity": "medium",
+     "source": "Special Risks, p. iv; Item 17, p. 47"
+    },
+    {
+     "title": "Non-Exclusive Territory with Broad Franchisor Reserved Rights",
+     "description": "Franchisor retains rights to compete via internet sales, national accounts, mobile services, and alternative channels within the franchisee's designated territory.",
+     "severity": "high",
+     "source": "Item 12, pp. 37-39"
+    },
+    {
+     "title": "Franchisor Can Authorize Mobile Services in Franchisee's Territory",
+     "description": "If franchisee does not elect or comply with Mobile Services requirements, franchisor may authorize another franchisee to provide Mobile Services within the designated territory.",
+     "severity": "medium",
+     "source": "Item 12, p. 37"
+    },
+    {
+     "title": "Renewal Requires Signing New Agreement with Potentially Different Terms",
+     "description": "Renewal requires execution of then-current franchise agreement, which may contain materially different terms, plus a 25% renewal fee.",
+     "severity": "medium",
+     "source": "Item 17, p. 45"
+    },
+    {
+     "title": "Post-Termination Non-Compete (2 Years, 20-Mile Radius)",
+     "description": "After termination or expiration, franchisee cannot operate a competitive business for 2 years within 20 miles of the former center or any other Tint World center.",
+     "severity": "medium",
+     "source": "Item 17, p. 47"
+    },
+    {
+     "title": "Franchisor Receives Supplier Rebates Up to 15%",
+     "description": "Franchisor and affiliates receive rebates of 0\u201315% from approved suppliers; required purchases represent 80\u201390% of establishment costs and 15\u201340% of ongoing operating costs.",
+     "severity": "medium",
+     "source": "Item 8, p. 24"
+    },
+    {
+     "title": "Recent Private Equity Ownership Change",
+     "description": "Susquehanna Growth Equity acquired majority ownership in September 2025, creating a new holding structure (TW InvestCo/TW Holdco/TW GuaranteeCo/TW Midco) that may affect franchisor strategy and obligations.",
+     "severity": "medium",
+     "source": "Item 1, p. 1"
+    },
+    {
+     "title": "Confidentiality Clauses Restrict Franchisee Candor",
+     "description": "Franchisor has signed confidentiality clauses with current and former franchisees during the last three fiscal years that may restrict their ability to speak openly with prospective franchisees.",
+     "severity": "medium",
+     "source": "Item 20, p. 60"
+    },
+    {
+     "title": "Liquidated Damages Clause on Default Termination",
+     "description": "If terminated for default, franchisee owes the greater of 48 months of average recurring fees or all fees through end of term.",
+     "severity": "high",
+     "source": "Item 6, p. 12"
+    }
+   ],
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "rentDetail": {
+    "rawValue": 4000,
+    "unit": "per_month",
+    "squareFootage": 4000,
+    "source": "Item 7, p. 19 \u2014 monthly base rent typically ranges from approximately $4,000 to $8,000 for a 3,000\u20135,000 sq ft center"
+   },
+   "averageRentMonthly": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": null,
+    "auditOpinion": "unknown",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "TW Midco, LLC",
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 21197247.53,
+      "netIncome": null,
+      "totalAssets": null,
+      "totalLiabilities": null,
+      "cash": null,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": null
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": null,
+      "netIncome": null,
+      "totalAssets": null,
+      "totalLiabilities": null,
+      "cash": null,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": null
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": null,
+      "netIncome": null,
+      "totalAssets": null,
+      "totalLiabilities": null,
+      "cash": null,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": null
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "4 high-severity operational tripwires disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Network Average",
+    "monthlyRevenue": 67689,
+    "monthlyVariable": 9476.460000000001,
+    "monthlyFixed": 1649,
+    "monthlyEbitda": 56563.54,
+    "annualEbitda": 678762.48,
+    "coversCosts": true,
+    "source": {
+     "basis": "network",
+     "label": "network average of disclosed cohorts",
+     "math": null
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 364950,
+   "assumedLoan": 291960,
+   "assumedMonthlyDebtService": 3939.56216585886,
+   "dscr": 14.357823945562396,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.5376696720184062,
+   "variableRate": 0.14,
+   "fixedMonthly": 1649,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 114950,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 114950,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 1551.0777879349089,
+   "adjustedMonthlyNetCashFlow": 55012.46221206509,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $364,950 mid-point build-out, there is a $114,950 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $55,012/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "retail_product",
+   "conceptLabel": "Retail / product",
+   "conceptRationale": "Fixed-location retail and installation centers selling and installing automotive aftermarket products and services \u2014 primarily a product/service retail model, not food/beverage or experiential entertainment.",
+   "benchmark": {
+    "label": "Retail / product",
+    "cogsPct": [
+     45,
+     65
+    ],
+    "laborPct": [
+     10,
+     18
+    ],
+    "occupancyPct": [
+     8,
+     12
+    ],
+    "operatingEbitdaPct": [
+     5,
+     12
+    ],
+    "dominantRisk": "Gross margin on product (high COGS) and inventory turns. Thin margins amplify any sales miss.",
+    "rampNote": "3\u201312 months to run-rate depending on category.",
+    "considerations": [
+     "Budget COGS at 45\u201365% of sales \u2014 product margin is the whole game here.",
+     "Verify inventory turns and markdown/shrink rates with Item 20 operators.",
+     "Confirm minimum inventory and required reorder commitments in Item 8/Item 11."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 5\u201312% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 67689,
+   "marginAfterFeesMonthly": 56563.54,
+   "benchmarkOperatingEbitdaMonthly": [
+    -14510,
+    9859
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    10,
+    18
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      56563.54,
+      56563.54
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      8,
+      12
+     ],
+     "dollarRange": [
+      5415,
+      8123
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      45,
+      65
+     ],
+     "dollarRange": [
+      30460,
+      43998
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      18
+     ],
+     "dollarRange": [
+      6769,
+      12184
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 2\u20133.5 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      4061,
+      6769
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -14510,
+      9859
+     ],
+     "note": "\u2248 -21% to 15% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cRetail / product\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 8\u201312% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 45\u201365% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 10\u201318% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so TW Midco, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you",
+    "high owner turnover (24 transfers in the last year, about 16% of the system)"
+   ],
+   "mitigants": [],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 21197247.53,
+    "revenueTrend": "unknown",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": null,
+    "adjLiabilitiesToAssets": null,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

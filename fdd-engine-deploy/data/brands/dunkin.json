@@ -1,0 +1,886 @@
+{
+ "slug": "dunkin",
+ "brandName": "Dunkin'",
+ "category": "QSR/coffee",
+ "vertical": "Food & Beverage",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "dunkin",
+ "fileHash": "59e74c28b24bd561",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": false,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20"
+    ],
+    "warnings": [
+     "Item 20 transfer tables appear to cut off mid-table (only through Michigan shown); full state-by-state data may be incomplete."
+    ]
+   },
+   "brandName": "Dunkin'",
+   "franchisorEntity": "Dunkin' Donuts Franchising LLC",
+   "headquarters": "Three Glenlake Parkway, Atlanta, Georgia 30328",
+   "brandBackground": "Dunkin' is a QSR brand founded in 1954 offering donuts, coffee, espresso, bagels, muffins, croissants, breakfast sandwiches, and other food and beverage products; franchising has been offered since 1955 and the system had 9,999 U.S. restaurants as of December 28, 2025.",
+   "conceptType": "food_beverage_qsr",
+   "conceptRationale": "Dunkin' is a quick-service restaurant chain focused on coffee, donuts, and breakfast items sold through counter and drive-thru service.",
+   "staffingModel": "staffed",
+   "staffingRationale": "Item 15 requires at least two trained individuals to manage the restaurant at all times, and Item 11 describes a full crew-based operation with dedicated employees.",
+   "leadership": [
+    {
+     "name": "Paul Brown",
+     "role": "Board of Managers Member / Inspire Brands CEO",
+     "background": "CEO of Inspire Brands since its formation in February 2018 and Board Member of Dunkin' Donuts Franchising LLC since December 2020.",
+     "whyItMatters": "Top executive overseeing the entire Inspire Brands portfolio including Dunkin'."
+    },
+    {
+     "name": "Katherine Jaspon",
+     "role": "Chief Financial Officer / Assistant Secretary / Board of Managers Member",
+     "background": "CFO of Dunkin' Donuts Franchising LLC since April 2017 and Inspire Brands CFO since July 2021.",
+     "whyItMatters": "Controls financial strategy and reporting for the franchisor entity."
+    },
+    {
+     "name": "Scott Catlett",
+     "role": "Chief Legal & Administrative Officer / Secretary / Board of Managers Member",
+     "background": "Joined Inspire Brands and Dunkin' in September 2025; previously Chief Legal and Franchise Officer at Yum Brands.",
+     "whyItMatters": "Oversees all legal, franchise compliance, and administrative matters."
+    },
+    {
+     "name": "Scott Murphy",
+     "role": "Chief Brand Officer",
+     "background": "Chief Brand Officer of Inspire Brands and Dunkin' since November 2023; previously President of Dunkin' from December 2020 to November 2023.",
+     "whyItMatters": "Leads brand strategy, marketing, and menu innovation for Dunkin'."
+    },
+    {
+     "name": "Ricardo Colon",
+     "role": "Senior Vice President / Chief Operating Officer \u2013 Dunkin'",
+     "background": "SVP and COO of Dunkin' since January 2021; previously SVP National Operations and Development from December 2017.",
+     "whyItMatters": "Directly responsible for day-to-day U.S. restaurant operations and franchisee support."
+    },
+    {
+     "name": "Jason Maceda",
+     "role": "Chief Portfolio Officer",
+     "background": "Inspire Brands Chief Portfolio Officer since December 2025; previously Chief Development Officer from January 2024.",
+     "whyItMatters": "Leads franchise development and new unit growth strategy."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp. 87-91",
+    "unitsReported": 7010,
+    "networkAverageMonthly": 114339,
+    "cohorts": [
+     {
+      "label": "All 2025 Franchised Restaurants \u2013 1st Quartile",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1752,
+      "annualRevenue": 2154341,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average AUV (Gross Sales) for highest-performing quartile of 7,010 franchised Dunkin' restaurants operating full year in 2025, excluding new openings, extended closures, Multi-Brand, self-serve, and part-time units."
+     },
+     {
+      "label": "All 2025 Franchised Restaurants \u2013 2nd Quartile",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1753,
+      "annualRevenue": 1489962,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average AUV for second quartile of 2025 Franchised Restaurants."
+     },
+     {
+      "label": "All 2025 Franchised Restaurants \u2013 3rd Quartile",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1752,
+      "annualRevenue": 1126192,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average AUV for third quartile of 2025 Franchised Restaurants."
+     },
+     {
+      "label": "All 2025 Franchised Restaurants \u2013 4th Quartile",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1753,
+      "annualRevenue": 718088,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average AUV for lowest-performing quartile of 2025 Franchised Restaurants."
+     },
+     {
+      "label": "All 2025 Franchised Restaurants \u2013 Overall Average",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 7010,
+      "annualRevenue": 1372069,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Overall average AUV across all 7,010 qualifying franchised Dunkin' restaurants in 2025."
+     },
+     {
+      "label": "Traditional/Freestanding Pad or Building",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 3169,
+      "annualRevenue": 1584319,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average AUV for freestanding pad or building traditional locations in 2025."
+     },
+     {
+      "label": "Traditional/Other",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 2423,
+      "annualRevenue": 1250245,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average AUV for other traditional (shopping center/storefront) locations in 2025."
+     },
+     {
+      "label": "Non-Traditional/SDO \u2013 Gas or C-store",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 900,
+      "annualRevenue": 1141971,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average AUV for gas station or convenience store SDO locations in 2025."
+     },
+     {
+      "label": "Non-Traditional/SDO \u2013 Airport",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 102,
+      "annualRevenue": 1667646,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average AUV for airport SDO locations in 2025."
+     },
+     {
+      "label": "Non-Traditional/SDO \u2013 Other",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 416,
+      "annualRevenue": 890102,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average AUV for other non-traditional SDO locations (casinos, hospitals, colleges, etc.) in 2025."
+     },
+     {
+      "label": "Traditional Drive-Thru Restaurants",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 4161,
+      "annualRevenue": 1547899,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average AUV for traditional 2025 Franchised Restaurants with a drive-thru window."
+     },
+     {
+      "label": "Traditional No Drive-Thru Restaurants",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1431,
+      "annualRevenue": 1124559,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average AUV for traditional 2025 Franchised Restaurants without a drive-thru window."
+     }
+    ],
+    "notes": "Item 19 discloses gross sales (AUV) only; no EBITDA, net income, or profitability table is provided. AUVs are unaudited self-reported figures from franchisee POS systems. Excluded: 314 new openings, 1,261 extended closures, 36 Multi-Brand, 111 self-serve, 25 part-time/seasonal, 81 closed units, all company-owned, and all 1,219 Combo Restaurants."
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp. 44-52",
+    "initialInvestmentLow": 532400,
+    "initialInvestmentHigh": 1832500,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 40000,
+      "high": 90000,
+      "recurring": false,
+      "notes": "Varies by Development Area Type (Type 1=$90k, Type 6=$40k); lump sum due upon signing Franchise Agreement."
+     },
+     {
+      "category": "Building Costs",
+      "low": 180000,
+      "high": 600000,
+      "recurring": false,
+      "notes": "Freestanding restaurant; cost to construct or retrofit building, excluding land purchase."
+     },
+     {
+      "category": "Site Development Costs",
+      "low": 13000,
+      "high": 350000,
+      "recurring": false,
+      "notes": "Freestanding restaurant; land development, landscaping, electrical/water hookup, paving, lighting."
+     },
+     {
+      "category": "Additional Development Costs",
+      "low": 12000,
+      "high": 90000,
+      "recurring": false,
+      "notes": "Freestanding restaurant; architectural, engineering, and legal fees."
+     },
+     {
+      "category": "Equipment, Fixtures & Signs",
+      "low": 189000,
+      "high": 300000,
+      "recurring": false,
+      "notes": "Freestanding restaurant; furnishings, installations, equipment, trade fixtures, smallwares; includes 10% tax/delivery estimate."
+     },
+     {
+      "category": "Restaurant Technology System",
+      "low": 65000,
+      "high": 118000,
+      "recurring": false,
+      "notes": "Freestanding restaurant; POS systems (2-4 terminals), BOH software, digital signage, drive-thru equipment, and related technology."
+     },
+     {
+      "category": "Licenses, Permits, Fees and Deposits",
+      "low": 3500,
+      "high": 7500,
+      "recurring": false,
+      "notes": "Freestanding restaurant; excludes government-imposed impact fees which can be $87,000+ in some markets."
+     },
+     {
+      "category": "Real Estate Costs",
+      "low": null,
+      "high": null,
+      "recurring": true,
+      "notes": "Variable; depends on location, lease terms, and structure; affiliates use net-net-net leases."
+     },
+     {
+      "category": "Opening Inventory",
+      "low": 8000,
+      "high": 20000,
+      "recurring": false,
+      "notes": "Freestanding restaurant; initial inventory of food ingredients, paper goods, cleaning supplies."
+     },
+     {
+      "category": "Miscellaneous Opening Costs",
+      "low": 9500,
+      "high": 70000,
+      "recurring": false,
+      "notes": "Pre-opening payroll, utility deposits, petty cash, distribution center fees, miscellaneous expenses."
+     },
+     {
+      "category": "Uniforms",
+      "low": 400,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Freestanding restaurant."
+     },
+     {
+      "category": "Insurance",
+      "low": 10000,
+      "high": 16000,
+      "recurring": false,
+      "notes": "Freestanding restaurant; lump sum or down payment before opening; annual renewal is ongoing."
+     },
+     {
+      "category": "Training Related Expenses",
+      "low": 2000,
+      "high": 50000,
+      "recurring": false,
+      "notes": "Travel, lodging, meals, uniforms for 2 attendees of 4-8 week Dunkin' Training Program; wages not included."
+     },
+     {
+      "category": "Marketing Start-Up Fee",
+      "low": 0,
+      "high": 10000,
+      "recurring": false,
+      "notes": "Freestanding restaurant; minimum $10,000 for standard restaurant; $5,000 for SDO."
+     },
+     {
+      "category": "Additional Funds for First 3 Months of Operation",
+      "low": 0,
+      "high": 108000,
+      "recurring": false,
+      "notes": "Freestanding restaurant; working capital estimate for first 3 months; may be zero if sales cover expenses."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 5.9,
+    "brandFundPct": 5,
+    "localAdPct": null,
+    "flatMonthlyFees": [
+     {
+      "name": "Loyalty Program Contribution Payment (LCP)",
+      "monthlyAmount": null,
+      "source": "Item 6, p. 37"
+     },
+     {
+      "name": "The Center Annual Subscription Fee",
+      "monthlyAmount": 28.33,
+      "source": "Item 6, p. 36 ($340/year per restaurant)"
+     },
+     {
+      "name": "BOH Software",
+      "monthlyAmount": null,
+      "source": "Item 11, p. 66 ($51-$70/restaurant/month)"
+     },
+     {
+      "name": "Store Network / Managed Internet Services",
+      "monthlyAmount": null,
+      "source": "Item 11, p. 66 ($225-$400/restaurant/month)"
+     },
+     {
+      "name": "Digital Menu Board Managed Services",
+      "monthlyAmount": null,
+      "source": "Item 11, p. 67 ($13-$17/panel/month)"
+     },
+     {
+      "name": "Drive-Thru Monitoring System (ongoing)",
+      "monthlyAmount": null,
+      "source": "Item 11, p. 67 ($400-$600/year)"
+     },
+     {
+      "name": "Service Desk Services",
+      "monthlyAmount": null,
+      "source": "Item 11, p. 67 ($570-$825/restaurant/year)"
+     },
+     {
+      "name": "POS System and BOH Technical Maintenance",
+      "monthlyAmount": null,
+      "source": "Item 11, p. 69 ($10-$25/restaurant/month)"
+     },
+     {
+      "name": "Data Availability Services",
+      "monthlyAmount": null,
+      "source": "Item 11, p. 69 ($36/year/restaurant)"
+     },
+     {
+      "name": "In-Restaurant Music Service",
+      "monthlyAmount": null,
+      "source": "Item 11, p. 69 ($25-$50/month)"
+     },
+     {
+      "name": "Frictionless Drive-Thru Program",
+      "monthlyAmount": null,
+      "source": "Item 11, p. 69 ($32-$45/site/month)"
+     },
+     {
+      "name": "Security Patching",
+      "monthlyAmount": null,
+      "source": "Item 11, p. 69 ($5-$10/endpoint/month)"
+     },
+     {
+      "name": "Advance and Remote Ordering (ongoing)",
+      "monthlyAmount": null,
+      "source": "Item 11, p. 68 ($0-$75/month fixed + 2%-15% transaction fee)"
+     },
+     {
+      "name": "NDCP Membership Fee (one-time)",
+      "monthlyAmount": null,
+      "source": "Item 8, p. 56 ($2,500 one-time)"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "NDCP Membership Fee",
+     "description": "One-time fee to join National DCP LLC, the mandatory purchasing and distribution cooperative.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 8, p. 56"
+    },
+    {
+     "name": "Supplier Sample Testing Reimbursement",
+     "description": "Franchisee must reimburse franchisor $1,000\u2013$10,000 to test samples from any proposed unapproved supplier.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 38 / Item 8, p. 53"
+    },
+    {
+     "name": "Government Impact Fees",
+     "description": "Local government utility connection or impact fees estimated at $87,000 or more in some markets; excluded from Item 7 ranges.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 7, p. 50"
+    },
+    {
+     "name": "Delivery Vehicle",
+     "description": "Franchisees may be required to purchase a delivery vehicle meeting franchisor standards; cost not included in Item 7 totals.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 7, p. 52"
+    },
+    {
+     "name": "Remodel / Refurbishment Costs",
+     "description": "Franchisee bears full cost of required refurbishments and remodels at dates specified in the Franchise Agreement.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p. 62"
+    },
+    {
+     "name": "Payment Services Fee (Inspire Payment Services)",
+     "description": "Franchisor may derive 0%\u20136% of invoiced amounts as a service fee for billing and administrative services on vendor payments.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 36 / Item 11, p. 69"
+    },
+    {
+     "name": "Credit Card Processing / Payment Terminal Fees",
+     "description": "Monthly bank and service fees plus fixed and variable transactional fees for approved credit card program; hardware $500\u2013$700/unit.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p. 68"
+    },
+    {
+     "name": "Stored Value Card Transaction Fee",
+     "description": "Fee of $0\u2013$0.02 per in-store SVC activation, reload, or purchase transaction.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p. 68"
+    },
+    {
+     "name": "Fraud Prevention Services",
+     "description": "Fee of $0\u2013$0.02 per online/mobile/remote ordering transaction for required fraud prevention services.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p. 68"
+    },
+    {
+     "name": "Training Cancellation Fee",
+     "description": "$1,000/person if cancelled 8\u201314 days before class; $2,000/person if cancelled 7 or fewer days before class.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 5, p. 32 / Item 6, p. 36"
+    },
+    {
+     "name": "Late Fee and Interest",
+     "description": "1.5% per month (or highest rate permitted by law) on overdue amounts.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 37"
+    },
+    {
+     "name": "Transfer Fee",
+     "description": "For Dunkin' restaurants operated 3+ years: $12,500 base plus $5,000\u2013$20,000 based on trailing 12-month gross sales; plus $2,000 fixed documentation fee per transferee.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, pp. 37-43"
+    },
+    {
+     "name": "Renewal Fee",
+     "description": "Amount varies; due upon signing renewal franchise agreement if all renewal conditions are met.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 37"
+    },
+    {
+     "name": "Site Design Fee / Kitchen Layout Design Fee",
+     "description": "$1,200 for a preliminary site layout (PSL) or new kitchen layout (PKL); $750 for a remodel PKL; optional but commonly used.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 5, p. 33 / Item 6, p. 36"
+    },
+    {
+     "name": "Marketing Start-Up Fee (re-opening/remodel)",
+     "description": "Minimum $10,000 required for re-opening or remodel events, not just initial opening.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 5, p. 32"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 91",
+    "totalUnits": 8780,
+    "openedLastYear": 281,
+    "closedLastYear": null,
+    "transfersLastYear": null
+   },
+   "operationalRisks": [
+    {
+     "title": "No Exclusive Territory",
+     "description": "Franchisees receive no exclusive or protected territory under the Franchise Agreement; franchisor and other franchisees may compete directly.",
+     "severity": "high",
+     "source": "Item 12, p. 75"
+    },
+    {
+     "title": "Mandatory Remodel Obligations",
+     "description": "Franchisees must refurbish and remodel at franchisor-specified dates at their own expense, which can be substantial and unpredictable.",
+     "severity": "high",
+     "source": "Item 11, p. 62"
+    },
+    {
+     "title": "Royalties and Fees Owed Even If Losing Money",
+     "description": "CFF (5.9%) and CAF (5.0%) are due weekly on gross sales regardless of profitability.",
+     "severity": "high",
+     "source": "Item 6, p. 36 / Front Matter"
+    },
+    {
+     "title": "Franchisor Can Change System Standards Unilaterally",
+     "description": "Franchisor may modify manuals, standards, and business model without franchisee consent, potentially requiring additional investment.",
+     "severity": "medium",
+     "source": "Item 17, p. 87 / Front Matter"
+    },
+    {
+     "title": "Restricted Supplier Sourcing (>95% of Purchases)",
+     "description": "More than 95% of purchases must be made from franchisor-designated or approved suppliers, which may be more expensive than open-market alternatives.",
+     "severity": "medium",
+     "source": "Item 8, p. 56"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by mediation, arbitration, and/or litigation in the state where the restaurant is located, which may be costly and less favorable.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4"
+    },
+    {
+     "title": "Non-Compete Covenant Post-Termination",
+     "description": "For 24 months after expiration, termination, or transfer, franchisee and owners may not have any interest in a Competitive Business within 5 miles of the premises or any other Dunkin' restaurant.",
+     "severity": "medium",
+     "source": "Item 17, p. 86"
+    },
+    {
+     "title": "Pending Litigation \u2013 Franchisee Termination Disputes",
+     "description": "Multiple active lawsuits involving franchisee terminations (Minda's Donuts, Shree Krishna Donuts) and international franchise disputes (Phoenix Food Pakistan) create legal uncertainty.",
+     "severity": "medium",
+     "source": "Item 3, pp. 18-20"
+    },
+    {
+     "title": "Technology Upgrade Obligations with No Cost Cap",
+     "description": "Franchisees must upgrade the Restaurant Technology System at their sole cost with no contractual limit on frequency or cost.",
+     "severity": "medium",
+     "source": "Item 11, p. 65"
+    },
+    {
+     "title": "Loyalty Program Contribution Required",
+     "description": "Franchisees must contribute 1.4% of Loyalty Program Sales (2025-2026) to the Loyalty Fund in addition to the 5.9% CFF and 5.0% CAF.",
+     "severity": "medium",
+     "source": "Item 6, p. 37"
+    },
+    {
+     "title": "Securitization Financing Structure",
+     "description": "Franchisor operates under a complex securitization financing structure; management services are performed by Dunkin' Brands under a management agreement, adding a layer of operational dependency.",
+     "severity": "low",
+     "source": "Item 1, p. 4"
+    }
+   ],
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "squareFootage": null,
+    "source": "Item 7, p. 49 \u2014 rent is described as variable and individually negotiated; no specific per-sqft rate is disclosed in Item 7. Building costs estimated at $83\u2013$566/sqft for freestanding (750\u20133,100 sqft) and $59\u2013$378/sqft for shopping center (600\u20132,800 sqft)."
+   },
+   "averageRentMonthly": null,
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "KPMG LLP",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "Inspire Brands, Inc.",
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-28",
+      "revenue": 1398356000,
+      "netIncome": 732910000,
+      "totalAssets": 1571509000,
+      "totalLiabilities": 240752000,
+      "cash": 3002000,
+      "currentAssets": 117440000,
+      "currentLiabilities": 54451000,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 195519000,
+      "netWorth": 1330757000
+     },
+     {
+      "fiscalYearEnd": "2024-12-29",
+      "revenue": 1359143000,
+      "netIncome": 692944000,
+      "totalAssets": 1589816000,
+      "totalLiabilities": 178666000,
+      "cash": 3010000,
+      "currentAssets": 75424000,
+      "currentLiabilities": 39775000,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 147946000,
+      "netWorth": 1411150000
+     },
+     {
+      "fiscalYearEnd": "2023-12-30",
+      "revenue": 1297986000,
+      "netIncome": 661838000,
+      "totalAssets": null,
+      "totalLiabilities": null,
+      "cash": null,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": 1495780000
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "Capital gap of $932,450 is ~3.7x your liquid \u2014 meaningful outside financing required.",
+    "3 high-severity operational tripwires disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Network Average",
+    "monthlyRevenue": 114339,
+    "monthlyVariable": 12462.951,
+    "monthlyFixed": 28.33,
+    "monthlyEbitda": 101847.719,
+    "annualEbitda": 1222172.628,
+    "coversCosts": true,
+    "source": {
+     "basis": "network",
+     "label": "network average of disclosed cohorts",
+     "math": null
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 1182450,
+   "assumedLoan": 945960,
+   "assumedMonthlyDebtService": 12764.310954979614,
+   "dscr": 7.979100427686397,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.9674983491775598,
+   "variableRate": 0.109,
+   "fixedMonthly": 28.33,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 932450,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 932450,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 12582.013774335848,
+   "adjustedMonthlyNetCashFlow": 89265.70522566415,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $1,182,450 mid-point build-out, there is a $932,450 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $89,266/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "food_beverage_qsr",
+   "conceptLabel": "QSR / fast-casual",
+   "conceptRationale": "Dunkin' is a quick-service restaurant chain focused on coffee, donuts, and breakfast items sold through counter and drive-thru service.",
+   "benchmark": {
+    "label": "QSR / fast-casual",
+    "cogsPct": [
+     28,
+     33
+    ],
+    "laborPct": [
+     22,
+     28
+    ],
+    "occupancyPct": [
+     6,
+     10
+    ],
+    "operatingEbitdaPct": [
+     10,
+     18
+    ],
+    "dominantRisk": "Prime cost and throughput per labor hour. Smaller footprint helps fixed costs, but COGS + labor still set the ceiling.",
+    "rampNote": "3\u20136 months to run-rate once open.",
+    "considerations": [
+     "Budget COGS ~28\u201333% and labor ~22\u201328%; target prime cost under ~60%.",
+     "Verify average ticket and daily transaction counts with Item 20 operators, not the franchisor.",
+     "Watch for required remodels and equipment refresh cycles buried in Item 6/Item 11."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201318% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 114339,
+   "marginAfterFeesMonthly": 101847.719,
+   "benchmarkOperatingEbitdaMonthly": [
+    9233,
+    30958
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    22,
+    28
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      101847.719,
+      101847.719
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      6860,
+      11434
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      28,
+      33
+     ],
+     "dollarRange": [
+      32015,
+      37732
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      22,
+      28
+     ],
+     "dollarRange": [
+      25155,
+      32015
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 7.3\u20139.2 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      6860,
+      11434
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      9233,
+      30958
+     ],
+     "note": "\u2248 8% to 27% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cQSR / fast-casual\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 6\u201310% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 28\u201333% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 22\u201328% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": null,
+   "body": [
+    "What we found (2025-12-28, audited by KPMG LLP): Net income of $732.91M on $1.40B of revenue \u2014 roughly 0.5x spent per $1 earned. Positive net worth of $1.33B. Cash of $3.00M against $54.45M of obligations due within a year (a current ratio of 2.16). Note: about 81% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.0x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Inspire Brands, Inc. is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "positive net worth",
+    "the business is profitable"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-28",
+    "netWorth": 1330757000,
+    "netWorthSign": "positive",
+    "netWorthTrend": "worsening",
+    "netIncome": 732910000,
+    "netIncomeTrend": "improving",
+    "revenue": 1398356000,
+    "revenueTrend": "flat",
+    "currentRatio": 2.156801527979284,
+    "workingCapital": 62989000,
+    "liabilitiesToAssets": 0.15319797723080172,
+    "adjLiabilitiesToAssets": 0.028783163189011324,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": 0.8121178640260517,
+    "expenseToRevenue": 0.47587738744640135,
+    "cash": 3002000,
+    "nearTermObligations": 54451000
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

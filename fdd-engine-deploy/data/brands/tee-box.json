@@ -1,0 +1,570 @@
+{
+ "slug": "tee-box",
+ "brandName": "Tee Box",
+ "category": "Indoor golf",
+ "vertical": "Sports & Entertainment",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "tee box",
+ "fileHash": "d9d08def82a824b2",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Franchise Agreement (Exhibit A) is included but only the cover and table of contents pages are visible; no substantive agreement text extracted per rules."
+    ]
+   },
+   "brandName": "Tee Box",
+   "franchisorEntity": "Tee Box Franchising, LLC",
+   "headquarters": "702 W Porter Ln, Centerville, UT 84014",
+   "brandBackground": "Tee Box is an indoor golf training, fitting, driving range, and simulator franchise founded in Utah in 2024, with parent Tee Box Enterprises, L.L.C. operating company-owned locations since 2022.",
+   "leadership": [
+    {
+     "name": "Preston Unck",
+     "role": "Founder / Chief Executive Officer",
+     "background": "CEO of Tee Box Franchising, LLC since June 2024 and CEO of parent Tee Box Enterprises, L.L.C. since February 2021.",
+     "whyItMatters": "Sole founder driving brand strategy and franchise sales."
+    },
+    {
+     "name": "Brian Godfrey",
+     "role": "Chief Operations Officer",
+     "background": "COO of Tee Box Franchising since June 2024, COO of Tee Box Enterprises since March 2024, and owner of Capital View Accounting since February 2021.",
+     "whyItMatters": "Oversees day-to-day operations and also provides accounting expertise."
+    },
+    {
+     "name": "Jeff Hansen",
+     "role": "Chief Technology Officer",
+     "background": "CTO of Tee Box Franchising since September 2024 and founder/CEO of Pangea Squared since 2008.",
+     "whyItMatters": "Leads technology platform including POS, software, and AI tools."
+    },
+    {
+     "name": "Colby Kendell",
+     "role": "Chief Marketing Officer",
+     "background": "CMO of Tee Box Franchising since June 2024 and owner of Kendell Collective since 2012.",
+     "whyItMatters": "Directs brand marketing and advertising fund strategy."
+    },
+    {
+     "name": "Chloe Bennett",
+     "role": "Vice President of Franchise Development",
+     "background": "VP of Franchise Development since January 2025; previously Director of Franchise Development at All Dry Services and multi-unit Crumbl franchisee.",
+     "whyItMatters": "Leads franchisee recruitment and sales pipeline."
+    },
+    {
+     "name": "Devin Harper",
+     "role": "Senior Director of Franchise Development",
+     "background": "Senior Director since January 2026; previously Chief Franchise Officer from June 2024 and VP of Sales at Zerorez Franchising Systems.",
+     "whyItMatters": "Manages franchise development execution and territory expansion."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Projected Franchise Location Gross Sales (2+ years open)",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": null,
+      "annualRevenue": null,
+      "sampleSize": 9,
+      "monthlyValues": [],
+      "basis": "Projected annual gross sales range based on actual 2025 data from 4 franchised and 5 company-owned locations; low end $597,688, high end $904,189 annualized."
+     },
+     {
+      "label": "Projected Franchise Location EBITDA (2+ years open)",
+      "ownership": "mixed",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": null,
+      "annualRevenue": null,
+      "sampleSize": 9,
+      "monthlyValues": [],
+      "basis": "Projected annual EBITDA range based on same 9-location dataset; low end $168,802, high end $260,508 after royalties, marketing, technology, and general operational expenses."
+     }
+    ],
+    "networkAverageMonthly": null,
+    "unitsReported": 9,
+    "notes": "Item 19 discloses a single projected performance table for a location open at least 2 years, covering both gross sales ($597,688\u2013$904,189) and EBITDA ($168,802\u2013$260,508). Company-owned location data was adjusted to include franchise fees for comparability. Projection assumes 4 hitting bays.",
+    "sourcePage": "Item 19, p.63-64"
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 49500,
+      "high": 49500,
+      "recurring": false,
+      "notes": "Lump sum at signing; non-refundable."
+     },
+     {
+      "category": "Opening Demo and Golf Fitting Equipment",
+      "low": 1000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Paid to franchisor or affiliate before opening."
+     },
+     {
+      "category": "Grand Opening Fee",
+      "low": 5500,
+      "high": 10000,
+      "recurring": false,
+      "notes": "Paid to franchisor or affiliate before opening."
+     },
+     {
+      "category": "Initial Training, Travel, Lodging, Food, and Other Expenses",
+      "low": 2500,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Assumes 4 attendees; paid to airlines, hotels, restaurants."
+     },
+     {
+      "category": "Real Estate and Improvements",
+      "low": 275000,
+      "high": 375000,
+      "recurring": false,
+      "notes": "Lease build-out costs; landlord TI allowance of $0\u2013$200,000 not included."
+     },
+     {
+      "category": "Rent \u2013 3 Months",
+      "low": 18000,
+      "high": 42000,
+      "recurring": false,
+      "notes": "3-month pre-opening rent estimate; 4,000\u20135,000 sq ft at $78,000\u2013$175,000/year."
+     },
+     {
+      "category": "Professional Fees",
+      "low": 5000,
+      "high": 10000,
+      "recurring": false,
+      "notes": "Architects, engineers, accountants, attorneys."
+     },
+     {
+      "category": "Equipment, Furniture, Fixtures, D\u00e9cor, and Supplies",
+      "low": 350000,
+      "high": 425000,
+      "recurring": false,
+      "notes": "Includes golf simulators, gym equipment, turf, putting greens, millwork, kitchen equipment, etc."
+     },
+     {
+      "category": "POS System, Computer Hardware, and Software",
+      "low": 6000,
+      "high": 8500,
+      "recurring": false,
+      "notes": "Designated POS, golf simulator software, fitness software, laptop/desktop, TVs."
+     },
+     {
+      "category": "Signs",
+      "low": 7500,
+      "high": 12500,
+      "recurring": false,
+      "notes": "At least 1 exterior and 2 interior signs."
+     },
+     {
+      "category": "Miscellaneous Opening Costs",
+      "low": 2500,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Legal/consulting fees, utilities, insurance, licenses, deposits."
+     },
+     {
+      "category": "Opening Inventory",
+      "low": 0,
+      "high": 1000,
+      "recurring": false,
+      "notes": "Golf balls, apparel, golf clubs, food and drink items."
+     },
+     {
+      "category": "Additional Funds \u2013 3 Months",
+      "low": 7500,
+      "high": 15000,
+      "recurring": false,
+      "notes": "Working capital for first 3 months of operations; minimum $10,000 required at all times."
+     }
+    ],
+    "initialInvestmentLow": 730000,
+    "initialInvestmentHigh": 963500,
+    "sourcePage": "Item 7, p.27-30"
+   },
+   "ongoingFees": {
+    "royaltyPct": 8,
+    "brandFundPct": 2.5,
+    "localAdPct": 3,
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "monthlyAmount": 1000,
+      "source": "Item 6, p.22"
+     },
+     {
+      "name": "Optional Local Advertising Assistance Management Fee",
+      "monthlyAmount": 200,
+      "source": "Item 6, p.16"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Golf Club Product Sales and Fitting Services Royalty",
+     "description": "Separate 5% royalty on golf club product sales and golf club fitting services gross sales, in addition to the general 8% royalty.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.16"
+    },
+    {
+     "name": "Advertising Cooperative Fee",
+     "description": "1%\u20132% of gross sales if a local advertising cooperative is formed; currently not assessed.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.16"
+    },
+    {
+     "name": "QuickBooks Online Subscription",
+     "description": "Required accounting software at approximately $70\u2013$100 per month.",
+     "estimatedAnnualAmount": 1080,
+     "source": "Item 11, p.43"
+    },
+    {
+     "name": "Artificial Intelligence Software",
+     "description": "Required AI software at an estimated $5,500\u2013$6,500 per year.",
+     "estimatedAnnualAmount": 6000,
+     "source": "Item 11, p.43"
+    },
+    {
+     "name": "POS System Ongoing Fee (per hitting bay)",
+     "description": "Clover POS at approximately $20 per month per hitting bay unit.",
+     "estimatedAnnualAmount": 240,
+     "source": "Item 11, p.43"
+    },
+    {
+     "name": "POS Payment Processing Fee",
+     "description": "Clover payment processing fees of approximately 3%\u20134% of transactions.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p.43"
+    },
+    {
+     "name": "Annual Training Fee",
+     "description": "$500 per person per training session, up to twice per year, plus travel and lodging.",
+     "estimatedAnnualAmount": 1000,
+     "source": "Item 6, p.17"
+    },
+    {
+     "name": "Compliance Inspection Fee",
+     "description": "Cost of 2\u20134 required third-party inspections per year plus 5%\u201315% administrative fee.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.23"
+    },
+    {
+     "name": "New Primary Owner Training Fee",
+     "description": "$4,000 per training session if a new primary owner must be trained.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.17"
+    },
+    {
+     "name": "Minimum Local Advertising Spend (Optional Assistance Program)",
+     "description": "If electing optional local advertising assistance, minimum $1,500 per month spend required in addition to $200 management fee.",
+     "estimatedAnnualAmount": 18000,
+     "source": "Item 6, p.16"
+    },
+    {
+     "name": "Operating Account Minimum Balance Requirement",
+     "description": "Franchisee must maintain at least $10,000 in the operating account at all times after paying royalties and fees.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.25"
+    },
+    {
+     "name": "Post-Termination Automatic Debit",
+     "description": "Upon termination, franchisor may automatically debit $10,000 from franchisee's account for post-termination enforcement costs.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.27"
+    }
+   ],
+   "systemScale": {
+    "totalUnits": 9,
+    "openedLastYear": 6,
+    "closedLastYear": 1,
+    "transfersLastYear": 1,
+    "sourcePage": "Item 20, p.65"
+   },
+   "operationalRisks": [
+    {
+     "title": "Franchisor Financial Condition Risk",
+     "description": "The FDD's Special Risks section explicitly states that the franchisor's financial condition calls into question its ability to provide services and support; Virginia addendum confirms stockholders' equity of only $157,052 as of December 31, 2025.",
+     "severity": "high",
+     "source": "Special Risks, p.6; Virginia Addendum, p.93"
+    },
+    {
+     "title": "Short Operating History",
+     "description": "Franchisor was organized June 2024 and began franchising June 2024, giving it less than two years of franchise operating history.",
+     "severity": "high",
+     "source": "Special Risks, p.6; Item 1, p.11"
+    },
+    {
+     "title": "Large Pipeline of Unopened Franchises",
+     "description": "57 franchise agreements signed but outlets not yet opened as of December 31, 2025, creating risk of systemic opening delays.",
+     "severity": "high",
+     "source": "Special Risks, p.6; Item 20, p.71-72"
+    },
+    {
+     "title": "Mandatory Supplier Control / Captive Purchasing",
+     "description": "Franchisee must purchase 70%\u201390% of all goods and services from franchisor-approved sources at prices set by franchisor, which may exceed open-market prices.",
+     "severity": "high",
+     "source": "Special Risks, p.6; Item 8, p.33"
+    },
+    {
+     "title": "Minimum Sales Performance Requirement",
+     "description": "Failure to maintain minimum sales levels can result in loss of territorial rights and franchise termination.",
+     "severity": "medium",
+     "source": "Special Risks, p.6; Item 12, p.46"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "All disputes must be mediated and arbitrated in Utah, potentially increasing costs for franchisees located outside Utah.",
+     "severity": "medium",
+     "source": "Special Risks, p.6; Item 17, p.57"
+    },
+    {
+     "title": "Non-Exclusive Territory",
+     "description": "Franchisee does not receive an exclusive territory; franchisor may compete via non-traditional outlets, national accounts, and other channels within the franchisee's territory.",
+     "severity": "medium",
+     "source": "Item 12, p.47"
+    },
+    {
+     "title": "Trademark Infringement Risk",
+     "description": "Franchisor is aware of at least three third parties with potentially superior rights to the TEE BOX mark, which could require costly rebranding at franchisee's expense.",
+     "severity": "high",
+     "source": "Item 13, p.49-50"
+    },
+    {
+     "title": "Post-Termination Non-Compete",
+     "description": "3-year non-compete within former territory and within 25 miles of any Tee Box location after termination, transfer, or expiration.",
+     "severity": "medium",
+     "source": "Item 17, p.57"
+    },
+    {
+     "title": "Liquidated Damages on Early Termination",
+     "description": "If franchise is terminated early, franchisee owes average monthly royalty multiplied by the lesser of 36 months or remaining term.",
+     "severity": "medium",
+     "source": "Item 6, p.23; Item 17, p.57"
+    }
+   ],
+   "conceptType": "experiential_entertainment",
+   "conceptRationale": "Tee Box is an indoor golf simulator, training, fitting, and driving range venue \u2014 a technology-driven experiential entertainment concept without a disclosed full-service bar or restaurant component.",
+   "staffingModel": "lightly_staffed",
+   "staffingRationale": "Item 15 allows the primary owner to be absent from day-to-day on-premises management after the first 30 days, suggesting a small-crew semi-absentee model rather than a fully staffed or fully automated operation.",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "A+P CPAs",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "Tee Box Enterprises, L.L.C.",
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 2488076,
+      "netIncome": 86634,
+      "totalAssets": 1830770,
+      "totalLiabilities": 1673718,
+      "cash": 127964,
+      "currentAssets": 472740,
+      "currentLiabilities": 336483,
+      "relatedPartyDebt": 200000,
+      "deferredRevenue": null,
+      "netWorth": 157052
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 750000,
+      "netIncome": 108678,
+      "totalAssets": 1530922,
+      "totalLiabilities": 1460504,
+      "cash": 831,
+      "currentAssets": 125831,
+      "currentLiabilities": 88423,
+      "relatedPartyDebt": 0,
+      "deferredRevenue": null,
+      "netWorth": 70418
+     }
+    ]
+   },
+   "rentDetail": {
+    "rawValue": 175000,
+    "unit": "per_year",
+    "squareFootage": 5000,
+    "source": "Item 7, p.29"
+   },
+   "averageRentMonthly": null,
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "Above-market royalty at 8%.",
+    "4 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
+    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+   ],
+   "midCohort": null,
+   "bottomCohort": null,
+   "buildoutMidpoint": 846750,
+   "assumedLoan": 677400,
+   "assumedMonthlyDebtService": 9140.49668157553,
+   "dscr": null,
+   "rentPctOfRevenue": null,
+   "paybackYears": null,
+   "variableRate": 0.135,
+   "fixedMonthly": 1200,
+   "notes": [
+    "Average rent not found; fixed costs may be understated.",
+    "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 596750,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 596750,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 8052.245932580747,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $846,750 mid-point build-out, there is a $596,750 capital gap. An SBA loan or an equity partner is required to do this deal."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "experiential_entertainment",
+   "conceptLabel": "Experiential / entertainment venue",
+   "conceptRationale": "Tee Box is an indoor golf simulator, training, fitting, and driving range venue \u2014 a technology-driven experiential entertainment concept without a disclosed full-service bar or restaurant component.",
+   "benchmark": {
+    "label": "Experiential / entertainment venue",
+    "cogsPct": [
+     8,
+     18
+    ],
+    "laborPct": [
+     22,
+     30
+    ],
+    "occupancyPct": [
+     10,
+     18
+    ],
+    "operatingEbitdaPct": [
+     12,
+     22
+    ],
+    "dominantRisk": "Fixed-cost coverage and utilization \u2014 big-box rent and equipment R&M against variable foot traffic. Slow weeks hurt more than COGS.",
+    "rampNote": "6\u201318 months to a mature traffic/booking base; year-one runs well under the Item 19 average.",
+    "considerations": [
+     "COGS is modest; the real costs are labor (~22\u201330%), big-footprint rent, and equipment maintenance.",
+     "Ask about utilization/occupancy rates and seasonality at Item 20 units \u2014 the model lives or dies on weekday/off-peak traffic.",
+     "Confirm equipment R&M and replacement reserves; experiential gear wears and isn't in the pro forma."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 12\u201322% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": null,
+   "marginAfterFeesMonthly": null,
+   "benchmarkOperatingEbitdaMonthly": null,
+   "trueEbitdaBasis": "none",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 11\u201318% \u2014 the 22\u201330% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    11,
+    18
+   ],
+   "buildup": [],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cExperiential / entertainment venue\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; positive net worth; the business is profitable. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "What we found (2025-12-31, audited by A+P CPAs): Net income of $87K on $2.49M of revenue \u2014 roughly 1.0x spent per $1 earned. Losses are widening, not shrinking. Positive net worth of $157K. Cash of $128K against $336K of obligations due within a year (a current ratio of 1.40).",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Tee Box Enterprises, L.L.C. is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "positive net worth",
+    "the business is profitable"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": 157052,
+    "netWorthSign": "positive",
+    "netWorthTrend": "improving",
+    "netIncome": 86634,
+    "netIncomeTrend": "worsening",
+    "revenue": 2488076,
+    "revenueTrend": "improving",
+    "currentRatio": 1.4049446777400345,
+    "workingCapital": 136257,
+    "liabilitiesToAssets": 0.9142153301616259,
+    "adjLiabilitiesToAssets": 0.9142153301616259,
+    "relatedPartyDebtPct": 0.11949444291093243,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": 0.9651803240737019,
+    "cash": 127964,
+    "nearTermObligations": 336483
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

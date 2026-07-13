@@ -1,0 +1,565 @@
+{
+ "slug": "mold-medics",
+ "brandName": "Mold Medics",
+ "category": "Specialty remediation",
+ "vertical": "Home & Property Services",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "mold medics",
+ "fileHash": "f5c47badd8a17329",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Mold Medics",
+   "franchisorEntity": "Mold Medics Franchising LLC",
+   "headquarters": "17700 Saint Clair Avenue, Cleveland, Ohio 44110",
+   "brandBackground": "Mold Medics offers mold testing and remediation, duct and vent cleaning, water damage dry-outs, and related restoration services.",
+   "leadership": [
+    {
+     "name": "Jordan Lajoie",
+     "role": "Chairman of the Board of Managers",
+     "background": "Joined as Chairman in February 2025 and serves as Chairman for parent company Threshold Brands, LLC.",
+     "whyItMatters": "Provides high-level oversight and strategic direction across the parent portfolio."
+    },
+    {
+     "name": "Theodore DeMarino",
+     "role": "Chief Executive Officer",
+     "background": "CEO since June 2023; previously President of Liberty Tax from October 2019 to May 2023.",
+     "whyItMatters": "Brings extensive executive franchise leadership experience to the brand."
+    },
+    {
+     "name": "William A. Newby III",
+     "role": "Chief Financial Officer",
+     "background": "CFO since November 2024; previously CFO of Building Plastics, Inc. from April 2023 to November 2024.",
+     "whyItMatters": "Directs financial strategy and controls for the franchisor and its affiliates."
+    },
+    {
+     "name": "Lauriena Rideout",
+     "role": "Chief Operating Officer",
+     "background": "COO since December 2025; previously COO of WOWorks, LLC from April 2024 to December 2025.",
+     "whyItMatters": "Oversees daily operations and franchise support systems."
+    },
+    {
+     "name": "Robert G. Huelin",
+     "role": "Chief Legal Officer",
+     "background": "CLO since May 2023; previously VP of Legal and Compliance for Wireless Zone, LLC.",
+     "whyItMatters": "Manages legal affairs, regulatory compliance, and franchise disclosure requirements."
+    },
+    {
+     "name": "Kelli Schroeder",
+     "role": "Vice President, Franchise Development",
+     "background": "Joined in October 2024; previously VP of Franchise Development at WellBiz Brands.",
+     "whyItMatters": "Leads franchise recruitment and system expansion efforts."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Franchised Business No. 1 (Pittsburgh, PA)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 118704,
+      "basis": "Item 19, p. 38-39",
+      "annualRevenue": 1424442,
+      "monthlyValues": [],
+      "sampleSize": 1
+     },
+     {
+      "label": "Franchised Business No. 2 (Beaver, PA)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 19290,
+      "basis": "Item 19, p. 38-39",
+      "annualRevenue": 231477,
+      "monthlyValues": [],
+      "sampleSize": 1
+     },
+     {
+      "label": "Franchised Business No. 3 (Toledo, OH)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 39110,
+      "basis": "Item 19, p. 38-39",
+      "annualRevenue": 469316,
+      "monthlyValues": [],
+      "sampleSize": 1
+     }
+    ],
+    "notes": "Pittsburgh location was operated by predecessor as company-owned until sold to a franchisee in April 2024.",
+    "sourcePage": "Item 19, p. 38-41",
+    "networkAverageMonthly": null,
+    "unitsReported": 3
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Nonrefundable fee for a standard territory.",
+      "high": 52625,
+      "low": 49500
+     },
+     {
+      "category": "Initial Training",
+      "recurring": false,
+      "notes": "Travel and living expenses for training.",
+      "high": 5500,
+      "low": 3000
+     },
+     {
+      "category": "Vehicle",
+      "recurring": false,
+      "notes": "Three months of lease payments for a Ram Promaster truck.",
+      "high": 4800,
+      "low": 3000
+     },
+     {
+      "category": "Vehicle Upfit",
+      "recurring": false,
+      "notes": "Flooring, shelving, hooks, hoses, ramps, and air compressor.",
+      "high": 15000,
+      "low": 13000
+     },
+     {
+      "category": "Vehicle Wrap",
+      "recurring": false,
+      "notes": "Installation of vehicle graphics.",
+      "high": 5300,
+      "low": 4950
+     },
+     {
+      "category": "Air Duct Cleaning Equipment",
+      "recurring": false,
+      "notes": "Vacuum and necessary attachments.",
+      "high": 8000,
+      "low": 7500
+     },
+     {
+      "category": "Initial Equipment & Supplies",
+      "recurring": false,
+      "notes": "Knives, lights, mold test kits, PPE, chemicals, and tools.",
+      "high": 14000,
+      "low": 12000
+     },
+     {
+      "category": "Technology",
+      "recurring": false,
+      "notes": "Accounting and customer management software, computer, and mobile phone.",
+      "high": 3000,
+      "low": 2400
+     },
+     {
+      "category": "Business Licenses",
+      "recurring": false,
+      "notes": "Estimated cost of business and other licenses/certifications.",
+      "high": 1500,
+      "low": 50
+     },
+     {
+      "category": "Initial Marketing",
+      "recurring": false,
+      "notes": "Pre-opening and first three months of local marketing.",
+      "high": 34000,
+      "low": 24000
+     },
+     {
+      "category": "Insurance",
+      "recurring": false,
+      "notes": "Property, general liability, pollution, and auto insurance.",
+      "high": 6000,
+      "low": 3000
+     },
+     {
+      "category": "Professional Fees",
+      "recurring": false,
+      "notes": "Attorney, accountant, and advisor fees.",
+      "high": 2000,
+      "low": 1000
+     },
+     {
+      "category": "Additional Funds - Initial 3 Months",
+      "recurring": false,
+      "notes": "Payroll for two employees, office supplies, and general expenses.",
+      "high": 60000,
+      "low": 25000
+     }
+    ],
+    "sourcePage": "Item 7, p. 16-17",
+    "initialInvestmentHigh": 211725,
+    "initialInvestmentLow": 148400
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p. 11",
+      "monthlyAmount": 650
+     },
+     {
+      "name": "Bookkeeping Software",
+      "source": "Item 6, p. 11",
+      "monthlyAmount": 55
+     },
+     {
+      "name": "Payment Processing Fee",
+      "source": "Item 6, p. 11",
+      "monthlyAmount": 35
+     }
+    ],
+    "brandFundPct": 2,
+    "localAdPct": 6,
+    "royaltyPct": 7
+   },
+   "hiddenCosts": [
+    {
+     "name": "Minimum Royalty",
+     "description": "Minimum royalty of $500/mo for months 1-12, $1,000/mo for months 13-24, and $1,500/mo thereafter.",
+     "source": "Item 6, p. 10",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Local Marketing Minimum",
+     "description": "Must spend a minimum of $3,000 per month on local marketing starting in the fourth month.",
+     "source": "Item 6, p. 18",
+     "estimatedAnnualAmount": 36000
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 50-51",
+    "closedLastYear": 0,
+    "openedLastYear": 12,
+    "totalUnits": 18,
+    "transfersLastYear": 0
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by mediation and arbitration in Ohio, which may cost more and be less favorable.",
+     "severity": "medium",
+     "source": "FDD iv, Risk 1"
+    },
+    {
+     "title": "Short Operating History",
+     "description": "The franchisor is at an early stage of development with a limited operating history.",
+     "severity": "medium",
+     "source": "FDD iv, Risk 2"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "Spouses must sign a personal guaranty, placing personal and marital assets at risk.",
+     "severity": "high",
+     "source": "FDD iv, Risk 3"
+    }
+   ],
+   "conceptType": "home_trade_services",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 47884344,
+      "totalAssets": 89192500,
+      "totalLiabilities": 46396203
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 49009571,
+      "totalAssets": 101442384,
+      "totalLiabilities": 44991911
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 46216249,
+      "totalAssets": 121425933,
+      "totalLiabilities": 48733663
+     }
+    ],
+    "auditorName": "Plante & Moran, PLLC",
+    "parentName": "HS Group Holding Company, LLC"
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "The franchise provides home trade services including mold testing, remediation, and air duct cleaning.",
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p. 17",
+    "squareFootage": null
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "The business requires technicians to perform services and is recommended to open with at least two employees."
+  },
+  "scoring": {
+   "riskLevel": "Low",
+   "riskReasons": [
+    "Pro forma is built on only 1 franchised location \u2014 a very thin sample; treat the modeled franchisee economics as low-confidence.",
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Franchised Business No. 1 (Pittsburgh, PA)",
+    "monthlyRevenue": 118704,
+    "monthlyVariable": 17805.6,
+    "monthlyFixed": 740,
+    "monthlyEbitda": 100158.4,
+    "annualEbitda": 1201900.7999999998,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Franchised Business No. 1 (Pittsburgh, PA)",
+     "math": "$1,424,442/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 1
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 180062.5,
+   "assumedLoan": 144050,
+   "assumedMonthlyDebtService": 1943.7386285517496,
+   "dscr": 51.528738755697056,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.1498147767269978,
+   "variableRate": 0.15,
+   "fixedMonthly": 740,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 100158.4,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $180,063 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $100,158/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "The franchise provides home trade services including mold testing, remediation, and air duct cleaning.",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 118704,
+   "marginAfterFeesMonthly": 100158.4,
+   "benchmarkOperatingEbitdaMonthly": [
+    -7862,
+    37245
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    20,
+    35
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      100158.4,
+      100158.4
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      2,
+      6
+     ],
+     "dollarRange": [
+      2374,
+      7122
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      25,
+      40
+     ],
+     "dollarRange": [
+      29676,
+      47482
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      20,
+      35
+     ],
+     "dollarRange": [
+      23741,
+      41546
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 6.8\u201312 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      7122,
+      11870
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -7862,
+      37245
+     ],
+     "note": "\u2248 -7% to 31% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 2\u20136% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 25\u201340% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 20\u201335% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. HS Group Holding Company, LLC guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 47884344,
+    "revenueTrend": "flat",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.5201805420859377,
+    "adjLiabilitiesToAssets": 0.5201805420859377,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

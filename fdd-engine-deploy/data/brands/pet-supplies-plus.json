@@ -1,0 +1,745 @@
+{
+ "slug": "pet-supplies-plus",
+ "brandName": "Pet Supplies Plus",
+ "category": "Pet retail",
+ "vertical": "Pets",
+ "grade": "READY",
+ "parseQuality": "degraded-fallback",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "petsupply",
+ "fileHash": "931b959ba31df679",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Item 21 financial statements cover only a 29-day period ended January 3, 2026 (entity formed February 2024, began franchising December 2025); full multi-year audited financials not available.",
+     "Financial statements are attached as Exhibit E but not reproduced in the provided pages; financial figures extracted from Item 21 narrative and front-matter disclosures only.",
+     "Special Risk #7 explicitly flags that the franchisor's financial condition calls into question its ability to provide services and support."
+    ]
+   },
+   "brandName": "Pet Supplies Plus",
+   "franchisorEntity": "PSP Franchise Operations SPV, LLC",
+   "headquarters": "Livonia, MI 48152-2369",
+   "brandBackground": "Pet Supplies Plus is a neighborhood pet retail chain founded in 1988 offering pet food, supplies, small animals, and grooming services; the current franchisor entity was formed in 2024 following a securitization restructuring of the predecessor PSP Franchising, LLC, which had franchised since 1991.",
+   "conceptType": "retail_product",
+   "conceptRationale": "Stores are neighborhood retail outlets selling pet food, supplies, live pets, and grooming services \u2014 a product-retail concept with ancillary services.",
+   "staffingModel": "staffed",
+   "staffingRationale": "Item 15 requires the franchisee or a trained Key Manager to be on-site full-time, and stores require multiple employees to operate registers, stock shelves, and provide grooming services.",
+   "leadership": [
+    {
+     "name": "Chris Rowland",
+     "role": "Chief Executive Officer and President",
+     "background": "CEO/President of PSP since December 2025; previously held the same role at predecessor PSP Franchising, LLC from October 2014.",
+     "whyItMatters": "Longest-tenured senior executive with deep system knowledge spanning the predecessor entity."
+    },
+    {
+     "name": "Daniel McNamara",
+     "role": "Chief Financial Officer",
+     "background": "CFO of PSP since December 2025; previously CFO of predecessor PSP Franchising, LLC from February 2020.",
+     "whyItMatters": "Oversees financial reporting and controls during a critical post-bankruptcy restructuring period."
+    },
+    {
+     "name": "Nick Russo",
+     "role": "Chief Development Officer",
+     "background": "CDO of PSP since December 2025; previously held franchise development and marketing leadership roles at the predecessor since 2012.",
+     "whyItMatters": "Leads franchise sales and new store development, directly affecting system growth trajectory."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp. 54-58",
+    "unitsReported": 385,
+    "networkAverageMonthly": 218523,
+    "notes": "Item 19 covers 385 Reporting Franchised Stores open and operating the full measurement period January 1\u2013December 31, 2025 under the same owner; excludes transferred, reacquired, closed, newly opened, and 57 non-reporting stores. Data segmented by years in operation: 1-Year (18 stores), 2 Years (37), 3 Years (39), 4+ Years (291). No company-owned or EBITDA/profitability table is disclosed; only gross sales, gross margin %, rent, and labor expense are provided.",
+    "cohorts": [
+     {
+      "label": "All Reporting Franchised Stores \u2013 Average Annual Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 385,
+      "annualRevenue": 2622279,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual gross sales for all 385 reporting franchised stores open the full 2025 measurement period under the same owner."
+     },
+     {
+      "label": "1-Year Stores \u2013 Average Annual Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 18,
+      "annualRevenue": 1609336,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Stores open less than 1 full year as of January 1, 2025 (18 stores)."
+     },
+     {
+      "label": "2-Year Stores \u2013 Average Annual Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 37,
+      "annualRevenue": 1898015,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Stores open approximately 2 years as of January 1, 2025 (37 stores)."
+     },
+     {
+      "label": "3-Year Stores \u2013 Average Annual Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 39,
+      "annualRevenue": 2277552,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Stores open approximately 3 years as of January 1, 2025 (39 stores)."
+     },
+     {
+      "label": "4+ Year Stores \u2013 Average Annual Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 291,
+      "annualRevenue": 2823225,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Stores open 4 or more years as of January 1, 2025 (291 stores)."
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp. 16-19",
+    "initialInvestmentLow": 520250,
+    "initialInvestmentHigh": 1818900,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 49900,
+      "high": 49900,
+      "recurring": false,
+      "notes": "Lump sum paid at signing; non-refundable. Item 5, p.6."
+     },
+     {
+      "category": "Inventory",
+      "low": 150000,
+      "high": 260000,
+      "recurring": false,
+      "notes": "75-90% must be purchased from affiliate PSP Distribution Operations SPV, LLC prior to opening. Item 7, p.16."
+     },
+     {
+      "category": "Equipment",
+      "low": 187200,
+      "high": 251700,
+      "recurring": false,
+      "notes": "Includes signage, hardware, and accessories; low assumes third-party financing. Item 7, p.16."
+     },
+     {
+      "category": "POS Equipment Installation",
+      "low": 3150,
+      "high": 3300,
+      "recurring": false,
+      "notes": "Paid to designated POS installer prior to opening. Item 7, p.16."
+     },
+     {
+      "category": "Training",
+      "low": 4000,
+      "high": 8000,
+      "recurring": false,
+      "notes": "Travel, meal, and lodging expenses for one trainee attending initial training. Item 7, p.16."
+     },
+     {
+      "category": "Advertising \u2013 Grand Opening",
+      "low": 30000,
+      "high": 30000,
+      "recurring": false,
+      "notes": "Paid to PSP or designated Grand Opening event management company; unspent amounts refunded within 90 days. Item 7, pp.16-17."
+     },
+     {
+      "category": "Insurance",
+      "low": 2000,
+      "high": 7000,
+      "recurring": false,
+      "notes": "Paid to insurer of franchisee's choice prior to opening. Item 7, p.17."
+     },
+     {
+      "category": "Leasehold Improvements",
+      "low": 25000,
+      "high": 825000,
+      "recurring": false,
+      "notes": "Varies by size and condition of leased space; includes architectural and engineering costs. Item 7, p.17."
+     },
+     {
+      "category": "Prepaid Rent / Security Deposit",
+      "low": 0,
+      "high": 24000,
+      "recurring": false,
+      "notes": "Paid to landlord upon lease execution; may be $0 if landlord offers concessions. Item 7, p.17."
+     },
+     {
+      "category": "Legal & Accounting",
+      "low": 4000,
+      "high": 10000,
+      "recurring": false,
+      "notes": "Pre-opening professional fees paid to suppliers of franchisee's choice. Item 7, p.17."
+     },
+     {
+      "category": "Pre-Opening Labor",
+      "low": 10000,
+      "high": 35000,
+      "recurring": false,
+      "notes": "Costs to recruit and hire the management team. Item 7, p.17."
+     },
+     {
+      "category": "Set Up Fee",
+      "low": 15000,
+      "high": 15000,
+      "recurring": false,
+      "notes": "Paid to PSP for on-site advisory role in store set-up; due on 10th day of month when set-up begins. Item 7, p.17."
+     },
+     {
+      "category": "Additional Funds \u2013 Initial Period (6 Months)",
+      "low": 40000,
+      "high": 300000,
+      "recurring": false,
+      "notes": "Working capital for payroll, rent, replacement inventory, and miscellaneous expenses for first 6 months. Item 7, p.17."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 3,
+    "brandFundPct": null,
+    "localAdPct": null,
+    "flatMonthlyFees": [
+     {
+      "name": "Royalty (Year 1)",
+      "monthlyAmount": null,
+      "source": "Item 6, p.8 \u2014 2% of monthly Gross Sales for first 12 months"
+     },
+     {
+      "name": "Royalty (After Year 1)",
+      "monthlyAmount": null,
+      "source": "Item 6, p.8 \u2014 3% of monthly Gross Sales after first 12 months"
+     },
+     {
+      "name": "Technology Fee",
+      "monthlyAmount": 1500,
+      "source": "Item 6, p.8 \u2014 up to $1,500 per month; may increase up to 10% annually"
+     },
+     {
+      "name": "POS Equipment Lease",
+      "monthlyAmount": null,
+      "source": "Item 6, p.8 \u2014 $295\u2013$431 per month plus applicable tax (5-year sublease)"
+     },
+     {
+      "name": "Grooming Scheduling Software",
+      "monthlyAmount": 135,
+      "source": "Item 6, p.8 \u2014 $135/month ($1,620/year) for stores offering grooming; billed by PSP on behalf of 3rd-party vendor"
+     },
+     {
+      "name": "National Advertising Fund (Year 1)",
+      "monthlyAmount": 1000,
+      "source": "Item 6, p.9 \u2014 fixed $1,000/month to NAF during first 12 months"
+     },
+     {
+      "name": "Local Marketing Spend (Year 1)",
+      "monthlyAmount": 3350,
+      "source": "Item 6, p.9 \u2014 fixed $3,350/month LMS during first 12 months"
+     },
+     {
+      "name": "Advertising Contribution (After Year 1)",
+      "monthlyAmount": null,
+      "source": "Item 6, pp.9-10 \u2014 lesser of 3.5% of Gross Sales or $8,333/month (annual cap $100,000); 2/3 to LMS, 1/3 to NAF"
+     },
+     {
+      "name": "3rd Party Courier Delivery Fees",
+      "monthlyAmount": null,
+      "source": "Item 6, p.9 \u2014 $150\u2013$1,700/month for stores using courier delivery; optional if franchisee uses own employees"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Inventory Prepayment Fee",
+     "description": "Fee of $25 per prepaid inventory order if EFT payment is returned and wire not initiated timely.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.12"
+    },
+    {
+     "name": "Audit Fee & Surcharge",
+     "description": "25% surcharge on royalty for unreported Gross Sales plus royalty and late fees; franchisee also pays audit cost if Gross Sales understated by 2% or more.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.12"
+    },
+    {
+     "name": "Renewal Fee",
+     "description": "One-time fee of $2,500 payable upon execution of each renewal term.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.12"
+    },
+    {
+     "name": "Transfer Fee",
+     "description": "One-time fee of $5,000 payable upon approval of a franchise transfer.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.12"
+    },
+    {
+     "name": "Additional Training Fee",
+     "description": "$300 per day for training beyond the initial pre-opening program.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.12"
+    },
+    {
+     "name": "Annual Conference Fee (System Summit)",
+     "description": "Up to $2,000 per person for up to two required attendees; up to $300 per additional attendee.",
+     "estimatedAnnualAmount": 4000,
+     "source": "Item 6, p.12"
+    },
+    {
+     "name": "Additional Set-Up Team Member Fee",
+     "description": "$2,500 per week per additional set-up team member requested by franchisee beyond standard set-up.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 5, p.7"
+    },
+    {
+     "name": "Mandatory Minimum Inventory Maintenance",
+     "description": "Franchisee must maintain $150,000\u2013$260,000 in inventory at cost at all times; failure is a curable default.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 5, p.7; Special Risks, p.iv"
+    },
+    {
+     "name": "Computer Hardware Upgrade Costs",
+     "description": "Franchisor may require hardware/software upgrades; cost not to exceed $2,500 in any given year.",
+     "estimatedAnnualAmount": 2500,
+     "source": "Item 11, p.33"
+    },
+    {
+     "name": "Post-Termination De-Identification Costs",
+     "description": "Franchisee bears all costs of ceasing operations and removing PSP branding upon termination or expiration.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.13"
+    },
+    {
+     "name": "Customer Survey Expenses",
+     "description": "If survey results fall below system minimums, franchisee is charged directly for survey administration costs.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.13"
+    },
+    {
+     "name": "Late Fee / Insufficient Funds Charge",
+     "description": "Lesser of 1.5% per month of the late or rejected amount, or the highest permissible interest rate; applies to PSP and affiliate payments.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.11"
+    },
+    {
+     "name": "Designated Real Estate Representative Fee",
+     "description": "Franchisee must use PSP's designated real estate representative for site search; costs not separately itemized.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 8, p.23"
+    },
+    {
+     "name": "Approved Architect and Contractor Requirement",
+     "description": "Franchisee must use PSP-approved architects and include PSP's designated contractor in all buildout bids.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 8, p.23"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p.59",
+    "totalUnits": 729,
+    "openedLastYear": 18,
+    "closedLastYear": 22,
+    "transfersLastYear": 23
+   },
+   "operationalRisks": [
+    {
+     "title": "Franchisor Financial Condition",
+     "description": "The front-matter Special Risks section explicitly states the franchisor's financial condition calls into question its ability to provide services and support; the entity has only a 29-day audited operating history.",
+     "severity": "high",
+     "source": "Special Risks, p.iv; Item 21, p.70"
+    },
+    {
+     "title": "Short Operating History of Franchisor Entity",
+     "description": "PSP Franchise Operations SPV, LLC was formed February 2024 and began franchising December 2025, giving it a very limited track record as the franchisor.",
+     "severity": "high",
+     "source": "Special Risks, p.iv; Item 1, p.1"
+    },
+    {
+     "title": "Predecessor Bankruptcy",
+     "description": "Parent entity Franchise Group, Inc. filed Chapter 11 in November 2024 and emerged June 2025; the current franchisor entity was created as part of the restructuring.",
+     "severity": "high",
+     "source": "Item 4, pp.5-6"
+    },
+    {
+     "title": "High Turnover Rate",
+     "description": "22 franchised outlets were terminated, not renewed, reacquired, or ceased operations in 2025, flagged as a Special Risk indicating higher-than-normal system attrition.",
+     "severity": "high",
+     "source": "Special Risks, p.v; Item 20, p.65"
+    },
+    {
+     "title": "Mandatory Supplier Control and Pricing Risk",
+     "description": "Franchisees must purchase nearly all inventory from PSP's affiliate PSP Distribution or designated suppliers at prices set by those suppliers, which may exceed open-market prices.",
+     "severity": "high",
+     "source": "Special Risks, p.iv; Item 8, pp.20-21"
+    },
+    {
+     "title": "Mandatory Minimum Inventory Requirement",
+     "description": "Franchisees must maintain $150,000\u2013$260,000 in inventory at all times; failure to do so is a curable default that can lead to termination.",
+     "severity": "high",
+     "source": "Special Risks, p.iv; Item 5, p.7"
+    },
+    {
+     "title": "Mandatory Minimum Royalty and Advertising Payments",
+     "description": "Minimum royalty and advertising fund payments are required regardless of sales levels; non-payment can result in termination.",
+     "severity": "high",
+     "source": "Special Risks, p.iv; Item 6, pp.8-10"
+    },
+    {
+     "title": "Significant Unopened Franchise Pipeline",
+     "description": "81 franchise agreements were signed but outlets not yet opened as of December 31, 2025, creating risk of delays and resource strain.",
+     "severity": "medium",
+     "source": "Special Risks, p.v; Item 20, p.68"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "All disputes must be mediated or litigated in Michigan, which may disadvantage franchisees located in other states.",
+     "severity": "medium",
+     "source": "Special Risks, p.iv; Item 17, p.51"
+    },
+    {
+     "title": "Spousal Personal Guaranty Requirement",
+     "description": "Franchisee's spouse must sign a personal guaranty covering all financial obligations, placing marital assets at risk.",
+     "severity": "medium",
+     "source": "Special Risks, p.iv; Item 15, p.42"
+    },
+    {
+     "title": "Non-Compete Covenant Post-Termination",
+     "description": "A 2-year, 5-mile radius post-termination non-compete applies to franchisees, principals, key managers, and their immediate families.",
+     "severity": "medium",
+     "source": "Item 17, p.50"
+    },
+    {
+     "title": "Franchisor Right to Modify Business Model",
+     "description": "PSP may change the Operations Manual and system standards without franchisee consent, potentially requiring additional investment.",
+     "severity": "medium",
+     "source": "Item 11, p.29; General Franchising Disclosures, p.iii"
+    },
+    {
+     "title": "No Exclusive Territory",
+     "description": "Franchisees receive a protected area but not an exclusive territory; PSP may compete through alternate channels including internet sales within the territory.",
+     "severity": "medium",
+     "source": "Item 12, pp.33-34"
+    },
+    {
+     "title": "Renewal Requires Signing New Agreement",
+     "description": "Renewal requires execution of PSP's then-current franchise agreement, which may contain materially different terms.",
+     "severity": "medium",
+     "source": "Item 17, p.44"
+    }
+   ],
+   "rentDetail": {
+    "rawValue": 184473,
+    "unit": "per_year",
+    "squareFootage": null,
+    "source": "Item 19, p.58 \u2014 average annual rent for all 385 reporting franchised stores; store size typically 5,000\u20138,000 sq ft per Item 7, p.19"
+   },
+   "averageRentMonthly": null,
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": null,
+    "auditOpinion": "unknown",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "PSP Group, LLC / Fusion Parent LLC",
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2026-01-03",
+      "revenue": null,
+      "netIncome": null,
+      "totalAssets": null,
+      "totalLiabilities": null,
+      "cash": null,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": null
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "Capital gap of $919,575 is ~3.7x your liquid \u2014 meaningful outside financing required.",
+    "6 high-severity operational tripwires disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Network Average",
+    "monthlyRevenue": 218523,
+    "monthlyVariable": 6555.69,
+    "monthlyFixed": 5985,
+    "monthlyEbitda": 205982.31,
+    "annualEbitda": 2471787.7199999997,
+    "coversCosts": true,
+    "source": {
+     "basis": "network",
+     "label": "network average of disclosed cohorts",
+     "math": null
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 1169575,
+   "assumedLoan": 935660,
+   "assumedMonthlyDebtService": 12625.327908300798,
+   "dscr": 16.315006746444375,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.47316967817932204,
+   "variableRate": 0.03,
+   "fixedMonthly": 5985,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 919575,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 919575,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 12408.284965987332,
+   "adjustedMonthlyNetCashFlow": 193574.02503401268,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $1,169,575 mid-point build-out, there is a $919,575 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $193,574/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "retail_product",
+   "conceptLabel": "Retail / product",
+   "conceptRationale": "Stores are neighborhood retail outlets selling pet food, supplies, live pets, and grooming services \u2014 a product-retail concept with ancillary services.",
+   "benchmark": {
+    "label": "Retail / product",
+    "cogsPct": [
+     45,
+     65
+    ],
+    "laborPct": [
+     10,
+     18
+    ],
+    "occupancyPct": [
+     8,
+     12
+    ],
+    "operatingEbitdaPct": [
+     5,
+     12
+    ],
+    "dominantRisk": "Gross margin on product (high COGS) and inventory turns. Thin margins amplify any sales miss.",
+    "rampNote": "3\u201312 months to run-rate depending on category.",
+    "considerations": [
+     "Budget COGS at 45\u201365% of sales \u2014 product margin is the whole game here.",
+     "Verify inventory turns and markdown/shrink rates with Item 20 operators.",
+     "Confirm minimum inventory and required reorder commitments in Item 8/Item 11."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 5\u201312% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 218523,
+   "marginAfterFeesMonthly": 205982.31,
+   "benchmarkOperatingEbitdaMonthly": [
+    -23467,
+    55202
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    10,
+    18
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      205982.31,
+      205982.31
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      8,
+      12
+     ],
+     "dollarRange": [
+      17482,
+      26223
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      45,
+      65
+     ],
+     "dollarRange": [
+      98335,
+      142040
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      18
+     ],
+     "dollarRange": [
+      21852,
+      39334
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 6.3\u201311.3 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      13111,
+      21852
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -23467,
+      55202
+     ],
+     "note": "\u2248 -11% to 25% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cRetail / product\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 8\u201312% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 45\u201365% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 10\u201318% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "INSUFFICIENT_DATA",
+   "headline": "We couldn't extract enough of this franchisor's financial statements to assess its condition. Request the audited Item 21 financials and have them reviewed before committing.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so PSP Group, LLC / Fusion Parent LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [],
+   "metrics": {
+    "fiscalYearEnd": "2026-01-03",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": null,
+    "revenueTrend": "unknown",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": null,
+    "adjLiabilitiesToAssets": null,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "missing"
+  }
+ }
+}

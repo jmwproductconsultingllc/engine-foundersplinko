@@ -1,0 +1,909 @@
+{
+ "slug": "the-vital-stretch",
+ "brandName": "The Vital Stretch",
+ "category": "Recovery/wellness",
+ "vertical": "Fitness & Wellness",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "vital-stretch",
+ "fileHash": "a59d2c7e4ecae35c",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Special risk #3 explicitly flags the franchisor's financial condition as calling into question its ability to provide support.",
+     "Special risk #4 flags short operating history.",
+     "Special risk #5 flags significant number of signed but unopened franchises.",
+     "Special risk #6 flags unregistered primary trademark.",
+     "Item 19 Table 1 covers only 4 outlets that operated the full year; Tables 2 and 3 cover additional outlets opened during 2025 \u2014 small sample sizes limit reliability."
+    ]
+   },
+   "brandName": "The Vital Stretch",
+   "franchisorEntity": "The Vital Stretch Franchising, LLC",
+   "headquarters": "112 Main St, Norwalk, CT 06851",
+   "brandBackground": "Founded in 2019 and franchising since October 2022, The Vital Stretch offers one-on-one assisted regenerative stretching services in small studio formats (VS Standard and VS Non-Traditional).",
+   "conceptType": "fitness_studio",
+   "conceptRationale": "The brand operates assisted-stretching studios focused on health, mobility, and recovery \u2014 a fitness/wellness studio model with no food or beverage component.",
+   "staffingModel": "staffed",
+   "staffingRationale": "Item 15 requires an on-site Key Manager at all times during hours of operation, and the VSPc practitioner training requirement implies multiple certified stretch practitioners on staff.",
+   "leadership": [
+    {
+     "name": "Melissa Goldring",
+     "role": "Co-Founder & CEO",
+     "background": "Director of Physical Therapy at Advanced Health Professionals since 1998; co-founded The Vital Stretch in 2019 and the franchising entity in 2022.",
+     "whyItMatters": "Primary decision-maker and clinical credibility anchor for the brand."
+    },
+    {
+     "name": "Robert Goldring",
+     "role": "Co-Founder & COO",
+     "background": "Chiropractic Physician at Advanced Health Professionals since 1994; co-founded The Vital Stretch in 2019 and the franchising entity in 2022.",
+     "whyItMatters": "Oversees operations and co-developed the proprietary VSPc training methodology."
+    },
+    {
+     "name": "Casey Stanton",
+     "role": "Chief Marketing Officer",
+     "background": "CMO for Joshua Tree Experts and The Exercise Coach; founder of CMOx and CTOx; joined The Vital Stretch in November 2025.",
+     "whyItMatters": "Leads brand and franchisee marketing strategy at a critical growth stage."
+    },
+    {
+     "name": "Torin Otis",
+     "role": "Director of Franchise Development",
+     "background": "Previously Director of Franchise Development at Franchise Fastlane (2022\u20132025); joined The Vital Stretch in June 2025.",
+     "whyItMatters": "Drives franchisee recruitment and pipeline growth."
+    },
+    {
+     "name": "Kara Giangreco",
+     "role": "Field Coach",
+     "background": "Former manager at Orange Theory Fitness and European Wax Center; joined The Vital Stretch in May 2023.",
+     "whyItMatters": "Provides on-the-ground franchisee support and operational coaching."
+    },
+    {
+     "name": "Evan Bonenfant",
+     "role": "VSP Training Program Coordinator",
+     "background": "Lead Stretch Practitioner since April 2019; became Training Program Coordinator in January 2024.",
+     "whyItMatters": "Owns the proprietary practitioner certification program critical to service quality."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp. 45-46",
+    "unitsReported": 14,
+    "networkAverageMonthly": 15858,
+    "notes": "Item 19 contains three tables: Table 1 covers 4 outlets open for the full 2025 calendar year (average annual gross revenue $190,291); Table 2 covers 9 outlets that opened during 2025 with monthly ramp data; Table 3 covers active member counts across all 14 franchise outlets during 2025. No profitability (EBITDA/net income) table is disclosed. Sample sizes are small and results may not be representative.",
+    "cohorts": [
+     {
+      "label": "Full-Year Franchise Outlets (2025) - Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 4,
+      "annualRevenue": 190291,
+      "avgMonthlyRevenue": 15858,
+      "basis": "Average annual and monthly gross revenue for 4 franchise outlets open for the entirety of the 2025 measurement period.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Outlet 5 (Opened Feb 2025) - Monthly Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "basis": "Monthly gross revenue for outlet opened February 2025, 11 months of data.",
+      "monthlyValues": [
+       3568,
+       7558,
+       9951,
+       8738,
+       6933,
+       9207,
+       11391,
+       9562,
+       10315,
+       11738,
+       9329
+      ]
+     },
+     {
+      "label": "Outlet 6 (Opened Feb 2025) - Monthly Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "basis": "Monthly gross revenue for outlet opened February 2025, 11 months of data.",
+      "monthlyValues": [
+       6355,
+       7952,
+       11009,
+       10569,
+       12424,
+       11400,
+       13452,
+       14007,
+       12902,
+       12503,
+       10213
+      ]
+     },
+     {
+      "label": "Outlet 7 (Opened Apr 2025) - Monthly Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "basis": "Monthly gross revenue for outlet opened April 2025, 9 months of data.",
+      "monthlyValues": [
+       2009,
+       7454,
+       10687,
+       14662,
+       12897,
+       13336,
+       15321,
+       13617,
+       13570
+      ]
+     },
+     {
+      "label": "Outlet 8 (Opened Apr 2025) - Monthly Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "basis": "Monthly gross revenue for outlet opened April 2025, 9 months of data.",
+      "monthlyValues": [
+       4892,
+       11745,
+       15166,
+       15928,
+       13111,
+       12923,
+       13683,
+       15984,
+       11837
+      ]
+     },
+     {
+      "label": "Outlet 9 (Opened May 2025) - Monthly Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "basis": "Monthly gross revenue for outlet opened May 2025, 8 months of data.",
+      "monthlyValues": [
+       1169,
+       3332,
+       9241,
+       9323,
+       7239,
+       8289,
+       9799,
+       8648
+      ]
+     },
+     {
+      "label": "Outlet 10 (Opened May 2025) - Monthly Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "basis": "Monthly gross revenue for outlet opened May 2025, 8 months of data.",
+      "monthlyValues": [
+       623,
+       2285,
+       4054,
+       4900,
+       5140,
+       5591,
+       5814,
+       6164
+      ]
+     },
+     {
+      "label": "Outlet 11 (Opened Jun 2025) - Monthly Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "basis": "Monthly gross revenue for outlet opened June 2025, 7 months of data.",
+      "monthlyValues": [
+       2463,
+       5293,
+       9639,
+       8414,
+       11071,
+       11400,
+       10898
+      ]
+     },
+     {
+      "label": "Outlet 12 (Opened Aug 2025) - Monthly Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "basis": "Monthly gross revenue for outlet opened August 2025, 5 months of data.",
+      "monthlyValues": [
+       5603,
+       9534,
+       11477,
+       11172,
+       12345
+      ]
+     },
+     {
+      "label": "Outlet 13 (Opened Oct 2025) - Monthly Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "basis": "Monthly gross revenue for outlet opened October 2025, 3 months of data.",
+      "monthlyValues": [
+       2401,
+       5177,
+       3811
+      ]
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp. 16-20",
+    "initialInvestmentLow": 157400,
+    "initialInvestmentHigh": 258100,
+    "lineItems": [
+     {
+      "category": "Franchise Fee",
+      "low": 54500,
+      "high": 54500,
+      "recurring": false,
+      "notes": "Non-refundable, paid at signing; Item 5, p.10"
+     },
+     {
+      "category": "Pre-opening Travel Expense",
+      "low": 500,
+      "high": 6000,
+      "recurring": false,
+      "notes": "Cost for up to 4 people to attend initial training in Norwalk, CT; Item 7, p.16"
+     },
+     {
+      "category": "Rent (2 months)",
+      "low": 5000,
+      "high": 14000,
+      "recurring": false,
+      "notes": "Deposit/pre-opening rent for VS Standard (1,000-1,200 sq ft); Item 7, p.16"
+     },
+     {
+      "category": "Leasehold Improvements",
+      "low": 15000,
+      "high": 75000,
+      "recurring": false,
+      "notes": "Construction and build-out for VS Standard studio; Item 7, p.16"
+     },
+     {
+      "category": "Test Fit",
+      "low": 1000,
+      "high": 1500,
+      "recurring": false,
+      "notes": "Planning and measurement specifications from approved supplier; Item 7, p.16"
+     },
+     {
+      "category": "Signage",
+      "low": 4000,
+      "high": 12000,
+      "recurring": false,
+      "notes": "Exterior and interior signage and brand graphics; Item 7, p.16"
+     },
+     {
+      "category": "Management and Technology System",
+      "low": 2500,
+      "high": 3500,
+      "recurring": false,
+      "notes": "Computer equipment, tablets, phones, functional movement assessment tool; Item 7, p.16"
+     },
+     {
+      "category": "Opening Retail Supplies",
+      "low": 2500,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Initial retail supplies to operate the studio; Item 7, p.16"
+     },
+     {
+      "category": "Furniture and Equipment",
+      "low": 42300,
+      "high": 45900,
+      "recurring": false,
+      "notes": "Stretching tables, chairs, dividers, furniture, fixtures for 4-table VS Standard; Item 7, p.16"
+     },
+     {
+      "category": "Utility Deposits",
+      "low": 0,
+      "high": 800,
+      "recurring": false,
+      "notes": "Utility deposits vary by municipality; Item 7, p.16"
+     },
+     {
+      "category": "Insurance",
+      "low": 1000,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Initial insurance deposit and premiums; Item 7, p.16"
+     },
+     {
+      "category": "Grand Opening Marketing",
+      "low": 15000,
+      "high": 15000,
+      "recurring": false,
+      "notes": "Minimum required grand opening spend including pre- and post-opening digital marketing; Item 7, p.16"
+     },
+     {
+      "category": "Certification Training",
+      "low": 1400,
+      "high": 1400,
+      "recurring": false,
+      "notes": "NASM certification cost for 4 individuals; Item 7, p.16"
+     },
+     {
+      "category": "Professional Fees",
+      "low": 2500,
+      "high": 3500,
+      "recurring": false,
+      "notes": "Attorney and accountant fees for startup review; Item 7, p.16"
+     },
+     {
+      "category": "Business Permits and Licenses",
+      "low": 200,
+      "high": 1000,
+      "recurring": false,
+      "notes": "Licenses and permits to open; Item 7, p.16"
+     },
+     {
+      "category": "Additional Funds \u2013 3 Months",
+      "low": 10000,
+      "high": 30000,
+      "recurring": true,
+      "notes": "Working capital for first 3 months of operations including payroll, marketing, supplies; Item 7, p.16"
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 7,
+    "brandFundPct": 2,
+    "localAdPct": null,
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "monthlyAmount": 350,
+      "source": "Item 6, p.12"
+     },
+     {
+      "name": "Additional Software (POS/Reservation/Functional Movement Tool)",
+      "monthlyAmount": 550,
+      "source": "Item 6, p.13"
+     },
+     {
+      "name": "Bookkeeping Fee",
+      "monthlyAmount": 350,
+      "source": "Item 6, p.13"
+     },
+     {
+      "name": "Marketing and Advertising Management Fee",
+      "monthlyAmount": null,
+      "source": "Item 6, p.12 \u2014 range $690 to $1,050/month"
+     },
+     {
+      "name": "Local Marketing Spending Requirement (post-benchmark)",
+      "monthlyAmount": 1500,
+      "source": "Item 6, p.12 \u2014 minimum after 75 stretch-hours/week benchmark met; $3,000/month before benchmark"
+     },
+     {
+      "name": "Minimum Royalty (from month 13)",
+      "monthlyAmount": 500,
+      "source": "Item 6, p.11 \u2014 greater of 7% of Gross Revenue or $500/month beginning month 13"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Annual Franchise Meeting Registration Fee",
+     "description": "Mandatory annual convention attendance fee of approximately $1,000 per attendee, plus franchisee-paid travel, lodging, and meals.",
+     "estimatedAnnualAmount": 1000,
+     "source": "Item 6, p.13"
+    },
+    {
+     "name": "Renewal Fee",
+     "description": "One-time $10,000 fee due at renewal, plus cost of studio renovation/reimaging to current standards.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.13"
+    },
+    {
+     "name": "Transfer Fee",
+     "description": "One-time $10,000 fee payable prior to any approved transfer of franchise interest.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.13"
+    },
+    {
+     "name": "On-Site Training Fee (additional/refresher)",
+     "description": "$750 per day per instructor for additional or refresher on-site training beyond initial program.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.14"
+    },
+    {
+     "name": "Additional Initial Trainee Fee",
+     "description": "$1,500 per person for more than 4 trainees attending the initial training program.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.14"
+    },
+    {
+     "name": "Step-in Rights Fee",
+     "description": "Greater of 10% of weekly Gross Revenue or $1,500/week if franchisor takes over studio due to franchisee death or disability.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.14"
+    },
+    {
+     "name": "Audit Fee",
+     "description": "All franchisor audit costs (minimum $500) if franchisee understates Gross Revenue by 5% or more.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.13"
+    },
+    {
+     "name": "Operations Manual Replacement Fee",
+     "description": "$10,000 fee if franchisee requires a replacement Operations Manual or provides a copy to a third party.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.14"
+    },
+    {
+     "name": "Relocation Fee",
+     "description": "$5,000 fee payable upon approval of a studio relocation request.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.14"
+    },
+    {
+     "name": "Product Testing and Supplier Evaluation Fee",
+     "description": "$500 plus out-of-pocket expenses to evaluate a proposed unapproved supplier or product.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.14"
+    },
+    {
+     "name": "Insurance Procurement Administrative Fee",
+     "description": "If franchisor obtains insurance on franchisee's behalf, franchisee pays premium plus 25% administrative fee.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.13"
+    },
+    {
+     "name": "Technology Development Fee (potential)",
+     "description": "Up to 1% of monthly Gross Revenue for technology modifications and enhancements; not currently charged but reserved.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6 / Franchise Agreement \u00a74.6, p.10 of FA \u2014 noted as reserved right"
+    },
+    {
+     "name": "Advertising Cooperative Contribution (if established)",
+     "description": "Up to 2% of monthly Gross Revenue if franchisor establishes a local/regional advertising cooperative.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p.29"
+    },
+    {
+     "name": "Grand Opening Marketing (pre-opening)",
+     "description": "Minimum $2,000 in digital marketing spend during the 2 months prior to opening, plus $3,000/month for approximately 2 months post-opening as part of grand opening.",
+     "estimatedAnnualAmount": 15000,
+     "source": "Item 6, p.12; Item 7, p.16"
+    }
+   ],
+   "systemScale": {
+    "totalUnits": 15,
+    "openedLastYear": 11,
+    "closedLastYear": 1,
+    "transfersLastYear": 0,
+    "sourcePage": "Item 20, pp. 47-49"
+   },
+   "operationalRisks": [
+    {
+     "title": "Franchisor Financial Condition",
+     "description": "The franchisor's financial statements show a members' deficit of $1,283,086 and net losses of $673,268 (2025), $446,904 (2024), and $79,723 (2023), explicitly flagged in the Special Risks section as calling into question the franchisor's ability to provide support.",
+     "severity": "high",
+     "source": "Special Risks, p.v; Item 21 / Exhibit A financial statements"
+    },
+    {
+     "title": "Short Operating History",
+     "description": "The franchisor was formed in July 2022 and has only offered franchises since October 2022, making this a very early-stage system with limited track record.",
+     "severity": "high",
+     "source": "Special Risks, p.v; Item 1, p.7"
+    },
+    {
+     "title": "Significant Unopened Franchises",
+     "description": "As of December 31, 2025, 11 franchise agreements were signed but studios not yet opened, indicating potential delays and execution risk across the system.",
+     "severity": "high",
+     "source": "Special Risks, p.v; Item 20, p.49"
+    },
+    {
+     "title": "Unregistered Primary Trademark",
+     "description": "The primary trademark 'The Vital Stretch' is registered (Reg. No. 5,414,633) but the Special Risks section warns that the primary trademark used in the business is not federally registered, creating potential brand identity risk.",
+     "severity": "medium",
+     "source": "Special Risks, p.v; Item 13, p.35"
+    },
+    {
+     "title": "Mandatory Minimum Royalty and Marketing Payments",
+     "description": "Franchisees must pay minimum royalties ($500/month from month 13) and minimum local marketing spend ($1,500\u2013$3,000/month) regardless of revenue, with termination risk for non-compliance.",
+     "severity": "medium",
+     "source": "Special Risks, p.v; Item 6, pp.11-12"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "All disputes must be arbitrated or litigated in Norwalk, Connecticut (franchisor's home county), which may disadvantage franchisees located in other states.",
+     "severity": "medium",
+     "source": "Special Risks, p.v; Item 17, p.42"
+    },
+    {
+     "title": "Supplier Control and Pricing Risk",
+     "description": "Franchisees must purchase 80\u201390% of equipment, inventory, and services from franchisor-designated suppliers at prices set by those suppliers, which may exceed open-market prices.",
+     "severity": "medium",
+     "source": "Special Risks, p.v; Item 8, p.23"
+    },
+    {
+     "title": "Franchisor Right to Modify System",
+     "description": "Franchisor may change the Operations Manual, system standards, and required products/services at any time, potentially requiring franchisees to make additional investments.",
+     "severity": "medium",
+     "source": "Item 17, p.39 (Item 17 general risks)"
+    },
+    {
+     "title": "Non-Compete Covenant Post-Termination",
+     "description": "A 2-year, 20-mile radius non-compete applies after termination or expiration, restricting franchisee's ability to operate in the same industry.",
+     "severity": "medium",
+     "source": "Item 17, p.42"
+    },
+    {
+     "title": "Termination Without Cure for Multiple Defaults",
+     "description": "Franchisor may terminate immediately (no cure period) for 20 enumerated non-curable defaults including 3 written notices within 12 months, bankruptcy, or abandonment.",
+     "severity": "high",
+     "source": "Item 17, p.40"
+    }
+   ],
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "rentDetail": {
+    "rawValue": 5000,
+    "unit": "per_month",
+    "squareFootage": 1100,
+    "source": "Item 7, p.16-18 \u2014 rent (2 months) low estimate $5,000 / high $14,000 for VS Standard (1,000-1,200 sq ft); per-month figure implied by 2-month deposit range"
+   },
+   "averageRentMonthly": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "DA Advisory Group PLLC",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": null,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 359750,
+      "netIncome": -673268,
+      "totalAssets": 766312,
+      "totalLiabilities": 2049398,
+      "cash": 59187,
+      "currentAssets": 195814,
+      "currentLiabilities": 320086,
+      "relatedPartyDebt": 179000,
+      "deferredRevenue": 1657028,
+      "netWorth": -1283086
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 66580,
+      "netIncome": -446904,
+      "totalAssets": 739647,
+      "totalLiabilities": 1321836,
+      "cash": 379420,
+      "currentAssets": 438101,
+      "currentLiabilities": 210076,
+      "relatedPartyDebt": 139000,
+      "deferredRevenue": 961415,
+      "netWorth": -582190
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 204460,
+      "netIncome": -79723,
+      "totalAssets": 356962,
+      "totalLiabilities": 536211,
+      "cash": 291746,
+      "currentAssets": 353940,
+      "currentLiabilities": 97291,
+      "relatedPartyDebt": 150000,
+      "deferredRevenue": 274352,
+      "netWorth": -179249
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "3 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
+    "Franchisor financial distress disclosed (negative net worth) \u2014 confirm its ability to support the system against the audited statements."
+   ],
+   "midCohort": {
+    "label": "Network Average",
+    "monthlyRevenue": 15858,
+    "monthlyVariable": 1427.22,
+    "monthlyFixed": 3250,
+    "monthlyEbitda": 11180.78,
+    "annualEbitda": 134169.36000000002,
+    "coversCosts": true,
+    "source": {
+     "basis": "network",
+     "label": "network average of disclosed cohorts",
+     "math": null
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 207750,
+   "assumedLoan": 166200,
+   "assumedMonthlyDebtService": 2242.6196464095856,
+   "dscr": 4.9855890712008755,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 1.5484161212366219,
+   "variableRate": 0.09,
+   "fixedMonthly": 3250,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 11180.78,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $207,750 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $11,181/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "fitness_studio",
+   "conceptLabel": "Boutique fitness / studio",
+   "conceptRationale": "The brand operates assisted-stretching studios focused on health, mobility, and recovery \u2014 a fitness/wellness studio model with no food or beverage component.",
+   "benchmark": {
+    "label": "Boutique fitness / studio",
+    "cogsPct": [
+     3,
+     10
+    ],
+    "laborPct": [
+     20,
+     30
+    ],
+    "occupancyPct": [
+     12,
+     20
+    ],
+    "operatingEbitdaPct": [
+     15,
+     28
+    ],
+    "dominantRisk": "Member retention/churn and fixed-cost coverage \u2014 NOT cost of goods. The deal is decided by recurring membership against rent and equipment lease.",
+    "rampNote": "9\u201318 months to a mature, retained member base.",
+    "considerations": [
+     "COGS is trivial; the risks are member churn and covering fixed rent + equipment lease.",
+     "Ask Item 20 operators for monthly retention, average membership lifetime, and break-even member count.",
+     "Model CAC and free-trial conversion \u2014 member acquisition cost is the hidden operating line."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 15\u201328% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 15858,
+   "marginAfterFeesMonthly": 11180.78,
+   "benchmarkOperatingEbitdaMonthly": [
+    80,
+    4679
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    20,
+    30
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      11180.78,
+      11180.78
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      12,
+      20
+     ],
+     "dollarRange": [
+      1903,
+      3172
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      3,
+      10
+     ],
+     "dollarRange": [
+      476,
+      1586
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      20,
+      30
+     ],
+     "dollarRange": [
+      3172,
+      4757
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 0.9\u20131.4 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      951,
+      1586
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      80,
+      4679
+     ],
+     "note": "\u2248 1% to 30% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cBoutique fitness / studio\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 12\u201320% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 3\u201310% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 20\u201330% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "HIGH",
+   "headline": "Several stress signals show up together here \u2014 a net-worth deficit of roughly $1.28M alongside operating losses, thin near-term liquidity, and unit closures. Any one of these alone can be normal for a young brand; appearing together is the pattern that separates real distress from ordinary early-stage losses. Treat this as a franchisor-stability question to resolve \u2014 with the specific items below \u2014 before you commit.",
+   "context": null,
+   "body": [
+    "What we found (2025-12-31, audited by DA Advisory Group PLLC): Net loss of $673K on $360K of revenue \u2014 roughly 2.9x spent per $1 earned. Losses are widening, not shrinking. Negative net worth (a members'/stockholders' deficit) of $1.28M, and deepening year over year. Total liabilities are about 2.7x total assets. Cash of $59K against $320K of obligations due within a year (a current ratio of 0.61). Note: about 81% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.5x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "negative net worth that is deepening year over year",
+    "operating losses that are widening",
+    "more due within a year than current assets to cover it"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": -1283086,
+    "netWorthSign": "negative",
+    "netWorthTrend": "worsening",
+    "netIncome": -673268,
+    "netIncomeTrend": "worsening",
+    "revenue": 359750,
+    "revenueTrend": "improving",
+    "currentRatio": 0.6117543410208507,
+    "workingCapital": -124272,
+    "liabilitiesToAssets": 2.6743650105962065,
+    "adjLiabilitiesToAssets": 0.51202382319473,
+    "relatedPartyDebtPct": 0.08734272210668693,
+    "deferredRevenuePct": 0.8085437772458058,
+    "expenseToRevenue": 2.8714885337039613,
+    "cash": 59187,
+    "nearTermObligations": 320086
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

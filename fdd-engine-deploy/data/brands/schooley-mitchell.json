@@ -1,0 +1,483 @@
+{
+ "slug": "schooley-mitchell",
+ "brandName": "Schooley Mitchell",
+ "category": "Cost consulting",
+ "vertical": "B2B & Business Services",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "schooley mitchell",
+ "fileHash": "1a19487a3863a54f",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 11",
+     "Item 12",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Schooley Mitchell",
+   "franchisorEntity": "1073355 Ontario Limited",
+   "headquarters": "Stratford, Ontario, Canada",
+   "brandBackground": "Schooley Mitchell provides professional cost reduction consulting services to business clients.",
+   "leadership": [
+    {
+     "name": "Elizabeth McMillan",
+     "role": "President, Director of Technical Services",
+     "background": "President of Schooley Mitchell in Stratford, Ontario since 2004.",
+     "whyItMatters": "Provides long-term executive leadership and technical oversight."
+    },
+    {
+     "name": "Dennis Schooley",
+     "role": "Franchising and Sales & Marketing Manager",
+     "background": "Franchising and Sales & Marketing Manager since 2004; Chartered Accountant.",
+     "whyItMatters": "Brings financial expertise and foundational brand knowledge as founder."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Full-Time Franchisees Annual Secured Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 18629,
+      "basis": "Annual Secured Revenue of 79 full-time franchisees during the 12 months ending February 28, 2025.",
+      "annualRevenue": 223544,
+      "monthlyValues": [],
+      "sampleSize": 79
+     },
+     {
+      "label": "Part-Time Franchisees Annual Secured Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 1229,
+      "basis": "Annual Secured Revenue of 161 part-time franchisees during the 12 months ending May 31, 2025.",
+      "annualRevenue": 14743,
+      "monthlyValues": [],
+      "sampleSize": 161
+     }
+    ],
+    "notes": "Annual Secured Revenue means the revenue a franchisee has received or expects to receive under customer contracts signed during the Reporting Year.",
+    "sourcePage": "Item 19, p. 33-35",
+    "networkAverageMonthly": null,
+    "unitsReported": 240
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Standard or builder franchise fee is $73,000.",
+      "high": 73000,
+      "low": 73000
+     },
+     {
+      "category": "Training Expenses",
+      "recurring": false,
+      "notes": "Covers travel, lodging, and meals for training.",
+      "high": 2000,
+      "low": 500
+     },
+     {
+      "category": "Equipment and fixtures (home office)",
+      "recurring": false,
+      "notes": "Computer, fax software, telephone line, scanner, and printer.",
+      "high": 2000,
+      "low": 0
+     },
+     {
+      "category": "Equipment and fixtures (Optional office outside of home)",
+      "recurring": false,
+      "notes": "Optional office furniture and equipment.",
+      "high": 2000,
+      "low": 0
+     },
+     {
+      "category": "Security deposits, insurance, utilities, licenses, professional fees, inventory, and other prepaid expenses (home office)",
+      "recurring": false,
+      "notes": "Pre-opening expenses for home office setup.",
+      "high": 1000,
+      "low": 0
+     },
+     {
+      "category": "Security deposits, insurance, utilities, licenses, professional fees, inventory, and other prepaid expenses (Optional office outside of home)",
+      "recurring": false,
+      "notes": "Pre-opening expenses for commercial office setup.",
+      "high": 2000,
+      "low": 0
+     },
+     {
+      "category": "Rent (Optional office outside of home)",
+      "recurring": false,
+      "notes": "Optional commercial office rent.",
+      "high": 750,
+      "low": 0
+     },
+     {
+      "category": "Office supplies (with logo)",
+      "recurring": false,
+      "notes": "Stationery, business cards, and promotional items.",
+      "high": 800,
+      "low": 800
+     },
+     {
+      "category": "Additional Funds - 3 Months",
+      "recurring": false,
+      "notes": "Working capital for the first three months.",
+      "high": 2000,
+      "low": 1000
+     }
+    ],
+    "sourcePage": "Item 7, p. 10-11",
+    "initialInvestmentHigh": 85550,
+    "initialInvestmentLow": 75300
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Software and Marketing Programs Fee",
+      "source": "Item 6, p. 7",
+      "monthlyAmount": 120
+     }
+    ],
+    "brandFundPct": 0.02,
+    "localAdPct": null,
+    "royaltyPct": 0.08
+   },
+   "hiddenCosts": [
+    {
+     "name": "Production Fees",
+     "description": "Franchisees must pay 25% (standard/development) or 30% (builder) of collected revenue for analysis and report services.",
+     "source": "Item 6, p. 9",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Assumed Business Name Registration Late Fee",
+     "description": "$100 per month if not registered within 30 days of opening.",
+     "source": "Item 6, p. 8",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Bank Account Late Opening Fee",
+     "description": "$100 per month if bank account is not established within 30 days of opening.",
+     "source": "Item 6, p. 8",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 41",
+    "closedLastYear": 21,
+    "openedLastYear": 52,
+    "totalUnits": 258,
+    "transfersLastYear": 0
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "The Franchise License Agreement requires you to resolve disputes by arbitration and litigation only in Michigan.",
+     "severity": "medium",
+     "source": "Special Risks, p. iv"
+    },
+    {
+     "title": "Minimum Royalty and Advertising Payments",
+     "description": "You must make minimum royalty or advertising fund payments regardless of your sales levels.",
+     "severity": "high",
+     "source": "Special Risks, p. iv"
+    },
+    {
+     "title": "High Turnover Rate",
+     "description": "During the last 3 years, 71 outlets were terminated, not renewed, reacquired, or ceased operations.",
+     "severity": "high",
+     "source": "Special Risks, p. iv"
+    }
+   ],
+   "conceptType": "other",
+   "staffingModel": "lightly_staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-02-28",
+      "revenue": 11834507,
+      "totalAssets": 14244693,
+      "totalLiabilities": 13504351
+     },
+     {
+      "fiscalYearEnd": "2024-02-29",
+      "revenue": 12541272,
+      "totalAssets": 12215423,
+      "totalLiabilities": 10640933
+     }
+    ],
+    "auditorName": "KPMG LLP",
+    "parentName": null
+   },
+   "averageRentMonthly": 750,
+   "conceptRationale": "Schooley Mitchell is a professional B2B cost reduction consulting business.",
+   "rentDetail": {
+    "rawValue": 750,
+    "unit": "per_month",
+    "source": "Item 7, p. 12",
+    "squareFootage": null
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "The business can be operated as a home-based business with minimal or no initial employees."
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "2 high-severity operational tripwires disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Full-Time Franchisees Annual Secured Revenue",
+    "monthlyRevenue": 18629,
+    "monthlyVariable": 18.629,
+    "monthlyFixed": 870,
+    "monthlyEbitda": 17740.371,
+    "annualEbitda": 212884.452,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Full-Time Franchisees Annual Secured Revenue",
+     "math": "$223,544/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 79
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 80425,
+   "assumedLoan": 64340,
+   "assumedMonthlyDebtService": 868.1717692538672,
+   "dscr": 20.434171702273396,
+   "rentPctOfRevenue": 0.04025980997369692,
+   "paybackYears": 0.3777871011453669,
+   "variableRate": 0.001,
+   "fixedMonthly": 870,
+   "notes": []
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 17740.371,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $80,425 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $17,740/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "other",
+   "conceptLabel": "General franchise (uncategorized)",
+   "conceptRationale": "Schooley Mitchell is a professional B2B cost reduction consulting business.",
+   "benchmark": {
+    "label": "General franchise (uncategorized)",
+    "cogsPct": [
+     15,
+     35
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     6,
+     12
+    ],
+    "operatingEbitdaPct": [
+     8,
+     20
+    ],
+    "dominantRisk": "Cost of goods and labor are not disclosed in any FDD \u2014 model them explicitly before trusting any margin figure.",
+    "rampNote": "Assume 6\u201318 months to a mature run-rate.",
+    "considerations": [
+     "Budget COGS and labor explicitly \u2014 neither is in the FDD, and together they usually run 45\u201365% of sales.",
+     "Use the Item 20 franchisee list to validate real operating costs and ramp before committing capital."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 8\u201320% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 18629,
+   "marginAfterFeesMonthly": 17740.371,
+   "benchmarkOperatingEbitdaMonthly": [
+    5445,
+    11965
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 10\u201321% \u2014 the 20\u201335% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    10,
+    21
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      17740.371,
+      17740.371
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      15,
+      35
+     ],
+     "dollarRange": [
+      2794,
+      6520
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      21
+     ],
+     "dollarRange": [
+      1863,
+      3912
+     ],
+     "note": "lightly staffed \u00b7 \u2248 0.5\u20131.1 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      1118,
+      1863
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      5445,
+      11965
+     ],
+     "note": "\u2248 29% to 64% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cGeneral franchise (uncategorized)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    },
+    {
+     "field": "Rent",
+     "basis": "disclosed",
+     "detail": "Taken from the FDD (~$750/mo); already netted in margin after fees & rent."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 15\u201335% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 10\u201321% lightly staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "elevated unit closures (21 in the last year, about 8% of the system)"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-02-28",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 11834507,
+    "revenueTrend": "worsening",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.948026819532018,
+    "adjLiabilitiesToAssets": 0.948026819532018,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

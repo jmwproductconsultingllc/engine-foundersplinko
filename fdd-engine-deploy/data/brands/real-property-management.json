@@ -1,0 +1,675 @@
+{
+ "slug": "real-property-management",
+ "brandName": "Real Property Management",
+ "category": "Property management",
+ "vertical": "Real Estate",
+ "grade": "READY",
+ "parseQuality": "degraded-fallback",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "real property management",
+ "fileHash": "e98c96ad71e84400",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": []
+   },
+   "brandName": "Real Property Management",
+   "franchisorEntity": "Real Property Management SPV LLC",
+   "headquarters": "1010 North University Parks Drive, Waco, Texas 76707",
+   "brandBackground": "Real Property Management has offered property management franchises since 2005 (through predecessor Property Management Business Solutions, LLC), was acquired by Neighborly in 2018, and restructured under a securitization transaction in 2021; as of December 31, 2025, 450 franchises operate in the U.S.",
+   "conceptType": "home_trade_services",
+   "conceptRationale": "Franchisees operate office-based residential and commercial property management businesses providing tenant screening, leasing, rent collection, maintenance coordination, and evictions \u2014 a home/trade services model with no food or entertainment component.",
+   "staffingModel": "lightly_staffed",
+   "staffingRationale": "Item 15 requires owner or designated manager on-site supervision; Item 1 notes 500\u20131,000 sq ft office with small staff, consistent with a small-crew semi-absentee model.",
+   "leadership": [
+    {
+     "name": "Jeffrey Pepperney",
+     "role": "President",
+     "background": "President of RPM SPV LLC since March 2021; previously President of Predecessor from September 2019.",
+     "whyItMatters": "Top operational leader of the franchise system."
+    },
+    {
+     "name": "Michael Anthony Davis",
+     "role": "Chief Executive Officer (Neighborly/Manager)",
+     "background": "CEO since November 2024; previously CEO of Mathnasium Center Licensing and Valpak Direct Marketing.",
+     "whyItMatters": "Sets strategic direction for the entire Neighborly platform including RPM."
+    },
+    {
+     "name": "Timothy Sedgwick",
+     "role": "Vice President of Operations",
+     "background": "VP of Operations since March 2021; previously Director of National Accounts at Predecessor since 2012.",
+     "whyItMatters": "Oversees day-to-day franchise operations and support."
+    },
+    {
+     "name": "Malia Gelfo",
+     "role": "SVP, Corporate Controller",
+     "background": "SVP Corporate Controller since December 2024; previously CAO at Likewize Corp and VP Controller at Reece Inc.",
+     "whyItMatters": "Responsible for financial reporting across the franchisor and affiliates."
+    },
+    {
+     "name": "Grayson Brown",
+     "role": "EVP, General Counsel and Secretary",
+     "background": "EVP, General Counsel and Secretary of Neighborly since May 2018; Secretary of RPM SPV LLC since March 2021.",
+     "whyItMatters": "Oversees all legal matters including franchise agreement compliance."
+    },
+    {
+     "name": "Bradley Stevenson",
+     "role": "Chief Development Officer (Neighborly)",
+     "background": "Chief Development Officer for Neighborly since October 2019.",
+     "whyItMatters": "Leads franchise sales and development strategy for RPM and all Neighborly brands."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp. 67\u201370",
+    "unitsReported": 421,
+    "networkAverageMonthly": null,
+    "cohorts": [
+     {
+      "label": "Franchises 1\u20133 Years Old \u2013 Annual Revenue per Unit",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 81,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 5377,
+      "basis": "Average Annual Revenue per property unit managed; 81 franchises open 1\u20133 years, FY2025; revenue per unit not per franchise.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Franchises Over 3 Years Old \u2013 Annual Revenue per Unit",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 340,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 4441,
+      "basis": "Average Annual Revenue per property unit managed; 340 franchises open >3 years, FY2025; revenue per unit not per franchise.",
+      "monthlyValues": []
+     },
+     {
+      "label": "All Reporting Franchises \u2013 Annual Revenue per Unit",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 421,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 4552,
+      "basis": "Average Annual Revenue per property unit managed across all 421 reporting franchises, FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "All Reporting Franchises \u2013 Average Units Managed (1\u20133 Years)",
+      "ownership": "franchised",
+      "revenueType": "other",
+      "sampleSize": 81,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": null,
+      "basis": "Average 101 units managed per franchise (1\u20133 years old); median 57 units.",
+      "monthlyValues": []
+     },
+     {
+      "label": "All Reporting Franchises \u2013 Average Units Managed (Over 3 Years)",
+      "ownership": "franchised",
+      "revenueType": "other",
+      "sampleSize": 340,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": null,
+      "basis": "Average 312 units managed per franchise (>3 years old); median 155 units.",
+      "monthlyValues": []
+     },
+     {
+      "label": "All Reporting Franchises \u2013 Average Units Managed (Overall)",
+      "ownership": "franchised",
+      "revenueType": "other",
+      "sampleSize": 421,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": null,
+      "basis": "Average 260 units managed per franchise overall; median 123 units.",
+      "monthlyValues": []
+     }
+    ],
+    "notes": "Item 19 discloses revenue per property unit managed (not per franchise location) and average/median unit counts by franchise age cohort. No EBITDA or profitability table is disclosed. Average monthly rent per managed unit is $1,541 (median $1,496) across 420 reporting franchises. No costs or expenses are included in the Item 19 representation."
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp. 29\u201331",
+    "initialInvestmentLow": 99341,
+    "initialInvestmentHigh": 244302,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 69900,
+      "high": 69900,
+      "recurring": false,
+      "notes": "Paid in lump sum upon signing Franchise Agreement; non-refundable."
+     },
+     {
+      "category": "Marketing",
+      "low": 8000,
+      "high": 32000,
+      "recurring": false,
+      "notes": "Pre-opening and early marketing spend; paid to third parties as incurred."
+     },
+     {
+      "category": "Real Estate/Rent",
+      "low": 2250,
+      "high": 9000,
+      "recurring": false,
+      "notes": "Estimated first 3 months rent for 500\u20131,000 sq ft office; paid to third parties before opening."
+     },
+     {
+      "category": "Vehicle",
+      "low": 3000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Low reflects applying marks to existing vehicle; high reflects vehicle purchase plus marks."
+     },
+     {
+      "category": "Insurance",
+      "low": 6250,
+      "high": 7250,
+      "recurring": false,
+      "notes": "Required insurance coverage before beginning operations; paid to us and third parties."
+     },
+     {
+      "category": "Equipment and Supplies",
+      "low": 2500,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Office equipment, inventory, signage; low assumes existing business; high assumes new start."
+     },
+     {
+      "category": "Training, Travel, Lodging and Food",
+      "low": 1000,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Franchisee responsible for travel and living expenses during training; training cost included in franchise fee."
+     },
+     {
+      "category": "Property Management Software",
+      "low": 1028,
+      "high": 3500,
+      "recurring": false,
+      "notes": "AppFolio setup fee ($200) plus monthly fees; paid to third-party vendor before opening."
+     },
+     {
+      "category": "Software System Fee",
+      "low": 363,
+      "high": 1452,
+      "recurring": true,
+      "notes": "Monthly Software System fee paid via ACH upon commencement and monthly thereafter."
+     },
+     {
+      "category": "Task Management and Lead Management Software",
+      "low": 300,
+      "high": 1200,
+      "recurring": true,
+      "notes": "Monthly LeadSimple fee paid via ACH upon commencement and monthly thereafter."
+     },
+     {
+      "category": "Licenses, Permits, Subscriptions",
+      "low": 750,
+      "high": 2000,
+      "recurring": false,
+      "notes": "State/local permits, real estate/brokerage license fees, Chamber of Commerce memberships."
+     },
+     {
+      "category": "Legal and Accounting",
+      "low": 1500,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Attorney, accountant, and consultant fees for business establishment."
+     },
+     {
+      "category": "Additional Funds (first 12 months)",
+      "low": 2500,
+      "high": 100000,
+      "recurring": false,
+      "notes": "Working capital reserve for first 12 months; covers employees, utilities, lessor, and suppliers."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 7,
+    "brandFundPct": 2,
+    "localAdPct": 5,
+    "flatMonthlyFees": [
+     {
+      "name": "Minimum License Fee (months 1\u20134)",
+      "monthlyAmount": 0,
+      "source": "Item 6, p. 20"
+     },
+     {
+      "name": "Minimum License Fee (months 5\u201312)",
+      "monthlyAmount": 250,
+      "source": "Item 6, p. 20"
+     },
+     {
+      "name": "Minimum License Fee (months 13\u201324)",
+      "monthlyAmount": 500,
+      "source": "Item 6, p. 20"
+     },
+     {
+      "name": "Minimum License Fee (month 25+)",
+      "monthlyAmount": 1000,
+      "source": "Item 6, p. 20"
+     },
+     {
+      "name": "Software System Monthly Fee",
+      "monthlyAmount": 121,
+      "source": "Item 6, p. 20"
+     },
+     {
+      "name": "Task Management and Lead Management Software (up to 110 units)",
+      "monthlyAmount": 100,
+      "source": "Item 6, p. 21"
+     },
+     {
+      "name": "BackOffice Bookkeeping Assistance Fee (minimum)",
+      "monthlyAmount": 400,
+      "source": "Item 6, p. 22"
+     },
+     {
+      "name": "BackOffice HelpDesk Plus Fee",
+      "monthlyAmount": 400,
+      "source": "Item 6, p. 22"
+     },
+     {
+      "name": "Digital Marketing Program (established offices)",
+      "monthlyAmount": 599,
+      "source": "Item 6, p. 20"
+     },
+     {
+      "name": "Digital Marketing Program (new offices, first 12 months)",
+      "monthlyAmount": 499,
+      "source": "Item 6, p. 20"
+     },
+     {
+      "name": "Annual Convention/Reunion Fee (per person)",
+      "monthlyAmount": null,
+      "source": "Item 6, p. 22"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "BackOffice Bookkeeping Assistance Fee (per unit)",
+     "description": "Required for minimum 12 months; currently $17.00 per property unit under management with $400 minimum per month.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 22"
+    },
+    {
+     "name": "Property Management Software (AppFolio) Monthly Fee",
+     "description": "Mandatory third-party software; $258/month minimum (first 200 units), $1.29 per additional unit; one-time $200 setup fee.",
+     "estimatedAnnualAmount": 3096,
+     "source": "Item 6, p. 27; Item 8, p. 33"
+    },
+    {
+     "name": "Quarterly Bank Review Fee",
+     "description": "Optional after HelpDesk Plus; $350 first quarter, $250 each subsequent quarter, paid to BackOffice.",
+     "estimatedAnnualAmount": 1100,
+     "source": "Item 6, p. 22"
+    },
+    {
+     "name": "Annual Convention/Reunion Fee",
+     "description": "Mandatory annual attendance; currently $1,000 per person; $2,000 penalty for non-attendance.",
+     "estimatedAnnualAmount": 1000,
+     "source": "Item 6, p. 22"
+    },
+    {
+     "name": "Minimum Local Marketing Spending",
+     "description": "Greater of $32,000/year or 5% of prior year Non-Maintenance Gross Sales; in addition to MAP Fee.",
+     "estimatedAnnualAmount": 32000,
+     "source": "Item 6, p. 20"
+    },
+    {
+     "name": "Paradox ATS (optional applicant tracking)",
+     "description": "Optional third-party job applicant tracking system; currently $703/year.",
+     "estimatedAnnualAmount": 703,
+     "source": "Item 11, p. 46"
+    },
+    {
+     "name": "Real Estate Brokerage License",
+     "description": "Franchisee must obtain and maintain a real estate license and sponsoring broker before training; costs vary by state.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p. 52"
+    },
+    {
+     "name": "Transfer Fee",
+     "description": "One-time $10,000 fee payable to franchisor upon sale/transfer of the Business.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 23"
+    },
+    {
+     "name": "Renewal Fee",
+     "description": "One-time $3,000 fee payable upon renewal of the Franchise Agreement.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 24"
+    },
+    {
+     "name": "Late Fee (Franchise Agreement)",
+     "description": "$10 per day on overdue fees from due date until paid.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 23"
+    },
+    {
+     "name": "Fine for Marketing Outside Territory",
+     "description": "$500 per violation for marketing, soliciting, or performing services outside Territory without prior written consent.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 22"
+    },
+    {
+     "name": "Supplemental Training Fee",
+     "description": "Currently $250 per day plus travel expenses if franchisee is required to repeat training.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 24"
+    },
+    {
+     "name": "Ongoing Training Fee",
+     "description": "Currently $600\u2013$1,500 per session (up to 2+ sessions per year, up to 4 days each).",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 24"
+    },
+    {
+     "name": "Podium AI Concierge Add-On",
+     "description": "Optional add-on to Software System; currently $50/month.",
+     "estimatedAnnualAmount": 600,
+     "source": "Item 6, p. 21"
+    },
+    {
+     "name": "Additional RPM Intranet Users (beyond 2)",
+     "description": "$7/month per additional user beyond the 2 included in the base Software System fee.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 21"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 71",
+    "totalUnits": 450,
+    "openedLastYear": 31,
+    "closedLastYear": 28,
+    "transfersLastYear": 13
+   },
+   "operationalRisks": [
+    {
+     "title": "Mandatory Minimum License Fee Payments",
+     "description": "Franchisee must pay minimum license fees regardless of sales levels; failure may result in franchise termination and loss of investment.",
+     "severity": "high",
+     "source": "Special Risks, p. v; Item 6, p. 20"
+    },
+    {
+     "title": "Sales Performance Minimum Standards",
+     "description": "Franchisee must maintain annual Gross Sales in the top 90% of the system and a Net Promoter Score within 10 points of system average; failure can result in territory reduction or termination.",
+     "severity": "high",
+     "source": "Special Risks, p. v; Item 12, p. 56"
+    },
+    {
+     "title": "Spousal Liability Guarantee",
+     "description": "Spouse may be required to personally guarantee all financial obligations under the Franchise Agreement, placing marital assets at risk.",
+     "severity": "medium",
+     "source": "Special Risks, p. v; Item 10, p. 41"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution (Texas)",
+     "description": "All disputes must be mediated, arbitrated, or litigated in McLennan County, Texas, which may disadvantage out-of-state franchisees.",
+     "severity": "medium",
+     "source": "Special Risks, p. v; Item 17, p. 67"
+    },
+    {
+     "title": "Non-Exclusive Territory",
+     "description": "Franchisee does not receive an exclusive territory; franchisor may compete via National Accounts, alternative channels, or affiliate brands within the Territory.",
+     "severity": "medium",
+     "source": "Item 12, pp. 54\u201355"
+    },
+    {
+     "title": "Post-Termination Non-Compete (2 Years / 25 Miles)",
+     "description": "For 2 years after termination, franchisee cannot operate a competitive business within the Territory or within 25 miles of its outer boundary.",
+     "severity": "high",
+     "source": "Item 17, p. 66"
+    },
+    {
+     "title": "Mandatory Proprietary Software and BackOffice Programs",
+     "description": "Franchisee must use franchisor-designated software (AppFolio, LeadSimple, BackOffice) for minimum periods; fees can increase up to 30% annually.",
+     "severity": "medium",
+     "source": "Item 6, pp. 21\u201322; Item 8, pp. 32\u201333"
+    },
+    {
+     "title": "Real Estate Brokerage License Requirement",
+     "description": "Franchisee must obtain a state real estate license and sponsoring broker before attending training; licensing timelines vary by state and can delay opening.",
+     "severity": "medium",
+     "source": "Item 11, p. 52"
+    },
+    {
+     "title": "Pending Litigation \u2013 Restrictive Covenant Enforcement",
+     "description": "A pending California lawsuit (Solano Properties) challenges enforceability of post-termination restrictive covenants under California's UCL.",
+     "severity": "medium",
+     "source": "Item 3, p. 15"
+    },
+    {
+     "title": "Franchisor Assignment Without Consent",
+     "description": "Franchisor may assign the Franchise Agreement to any third party without prior notice to or consent of the franchisee.",
+     "severity": "medium",
+     "source": "Item 17, p. 65"
+    },
+    {
+     "title": "Business Model and Fee Changes Without Consent",
+     "description": "Franchisor may change the Operating Manual, System standards, and fees without franchisee consent, potentially requiring additional investment.",
+     "severity": "medium",
+     "source": "Item 4 (general disclosures), p. 4"
+    }
+   ],
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "rentDetail": {
+    "rawValue": 2250,
+    "unit": "per_month",
+    "squareFootage": 750,
+    "source": "Item 7, p. 29\u201330 \u2014 low estimate based on 500 sq ft, high on 1,000 sq ft; $2,250\u2013$9,000 covers first 3 months rent; midpoint office ~750 sq ft implied"
+   },
+   "averageRentMonthly": 1541,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "Ernst & Young LLP",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "Neighborly Assetco LLC",
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 618762000,
+      "netIncome": -185840000,
+      "totalAssets": 3073633000,
+      "totalLiabilities": 1882259000,
+      "cash": 32023000,
+      "currentAssets": 132790000,
+      "currentLiabilities": 123996000,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 90220000,
+      "netWorth": 1191374000
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 625682000,
+      "netIncome": -39118000,
+      "totalAssets": 3336716000,
+      "totalLiabilities": 1978537000,
+      "cash": 18436000,
+      "currentAssets": 122875000,
+      "currentLiabilities": 105538000,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 92933000,
+      "netWorth": 1358179000
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "3 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
+    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+   ],
+   "midCohort": null,
+   "bottomCohort": null,
+   "buildoutMidpoint": 171821.5,
+   "assumedLoan": 137457.2,
+   "assumedMonthlyDebtService": 1854.7786838775671,
+   "dscr": null,
+   "rentPctOfRevenue": null,
+   "paybackYears": null,
+   "variableRate": 0.14,
+   "fixedMonthly": 5410,
+   "notes": [
+    "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $171,822 mid-point build-out without financing, though that leaves little working-capital cushion."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "Franchisees operate office-based residential and commercial property management businesses providing tenant screening, leasing, rent collection, maintenance coordination, and evictions \u2014 a home/trade services model with no food or entertainment component.",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": null,
+   "marginAfterFeesMonthly": null,
+   "benchmarkOperatingEbitdaMonthly": null,
+   "trueEbitdaBasis": "none",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 10\u201321% \u2014 the 20\u201335% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    10,
+    21
+   ],
+   "buildup": [],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "This franchisor is losing money as it grows (a net loss of $185.84M in the most recent year), though it still has positive net worth. Worth understanding how long its runway lasts.",
+   "context": null,
+   "body": [
+    "What we found (2025-12-31, audited by Ernst & Young LLP): Net loss of $185.84M on $618.76M of revenue \u2014 roughly 1.3x spent per $1 earned. Losses are widening, not shrinking. Positive net worth of $1.19B. Cash of $32.02M against $124.00M of obligations due within a year (a current ratio of 1.07).",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. Neighborly Assetco LLC guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "operating losses that are widening",
+    "elevated unit closures (28 in the last year, about 6% of the system)"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "positive net worth",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": 1191374000,
+    "netWorthSign": "positive",
+    "netWorthTrend": "worsening",
+    "netIncome": -185840000,
+    "netIncomeTrend": "worsening",
+    "revenue": 618762000,
+    "revenueTrend": "flat",
+    "currentRatio": 1.0709216426336334,
+    "workingCapital": 8794000,
+    "liabilitiesToAssets": 0.612388987234325,
+    "adjLiabilitiesToAssets": 0.5830361009268186,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": 0.047931767094751575,
+    "expenseToRevenue": 1.3003416499397182,
+    "cash": 32023000,
+    "nearTermObligations": 123996000
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

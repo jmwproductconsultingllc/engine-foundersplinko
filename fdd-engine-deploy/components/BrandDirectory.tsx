@@ -1,19 +1,25 @@
 "use client";
 
-// components/BrandDirectory.tsx — the interactive body of /brands.
-// Server page loads the rows (SSG-friendly); this handles search filtering and
-// renders live cards vs ghosts. THIN store entries (parsed but not sellable —
-// e.g. a broken Item 7) render as ghosts alongside the never-parsed universe.
+// components/BrandDirectory.tsx — the interactive body of /brands (multi-vertical).
+// Rows = verticals in VERTICAL_ORDER. Kids & Family keeps its sub-category
+// sections + ghost universe (unchanged vs. kids-only launch — the acceptance
+// canary); other verticals render flat until they earn sub-sections.
 
 import { useMemo, useState } from "react";
-import type { CategoryRow } from "@/lib/brands";
+import type { VerticalRow } from "@/lib/brands";
 import { LiveBrandCard, GhostBrandCard } from "@/components/BrandCard";
+
+function CardGrid({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">{children}</div>
+  );
+}
 
 export default function BrandDirectory({
   rows,
   refTag,
 }: {
-  rows: CategoryRow[];
+  rows: VerticalRow[];
   refTag?: string | null;
 }) {
   const [q, setQ] = useState("");
@@ -25,9 +31,19 @@ export default function BrandDirectory({
       .map((row) => ({
         ...row,
         cards: row.cards.filter((c) => c.brandName.toLowerCase().includes(t)),
-        ghostNames: row.ghostNames.filter((n) => n.toLowerCase().includes(t)),
+        subsections: row.subsections
+          ? row.subsections
+              .map((s) => ({
+                ...s,
+                cards: s.cards.filter((c) => c.brandName.toLowerCase().includes(t)),
+                ghostNames: s.ghostNames.filter((n) => n.toLowerCase().includes(t)),
+              }))
+              .filter((s) => s.cards.length + s.ghostNames.length > 0)
+          : null,
       }))
-      .filter((row) => row.cards.length + row.ghostNames.length > 0);
+      .filter((row) =>
+        row.subsections ? row.subsections.length > 0 : row.cards.length > 0,
+      );
   }, [rows, t]);
 
   const liveTotal = rows.reduce((a, r) => a + r.liveCount, 0);
@@ -52,25 +68,48 @@ export default function BrandDirectory({
       )}
 
       {filtered.map((row) => (
-        <section key={row.category} className="mt-8">
-          <div className="mb-3.5 flex items-baseline gap-3 border-b border-[#22304C] pb-2">
-            <h2 className="text-base font-extrabold tracking-tight text-[#F1F5F9]">{row.category}</h2>
+        <section key={row.vertical} className="mt-9">
+          <div className="mb-4 flex items-baseline gap-3 border-b-2 border-[#22304C] pb-2">
+            <h2 className="text-lg font-extrabold tracking-tight text-[#F1F5F9]">{row.vertical}</h2>
             <span className="text-[11px] font-semibold uppercase tracking-wider text-[#586A88]">
-              {row.liveCount} live · {row.totalCount - row.liveCount} pending
+              {row.liveCount} live{row.totalCount - row.liveCount > 0 ? ` · ${row.totalCount - row.liveCount} pending` : ""}
             </span>
           </div>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {row.cards.map((c) =>
-              c.live ? (
-                <LiveBrandCard key={c.slug} card={c} refTag={refTag} />
-              ) : (
-                <GhostBrandCard key={c.slug} name={c.brandName} category={row.category} />
-              ),
-            )}
-            {row.ghostNames.map((name) => (
-              <GhostBrandCard key={name} name={name} category={row.category} />
-            ))}
-          </div>
+
+          {row.subsections ? (
+            row.subsections.map((s) => (
+              <div key={s.category} className="mt-4">
+                <div className="mb-3 flex items-baseline gap-3">
+                  <h3 className="text-sm font-bold text-[#CBD5E1]">{s.category}</h3>
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-[#586A88]">
+                    {s.liveCount} live · {s.totalCount - s.liveCount} pending
+                  </span>
+                </div>
+                <CardGrid>
+                  {s.cards.map((c) =>
+                    c.live ? (
+                      <LiveBrandCard key={c.slug} card={c} refTag={refTag} />
+                    ) : (
+                      <GhostBrandCard key={c.slug} name={c.brandName} category={s.category} />
+                    ),
+                  )}
+                  {s.ghostNames.map((name) => (
+                    <GhostBrandCard key={name} name={name} category={s.category} />
+                  ))}
+                </CardGrid>
+              </div>
+            ))
+          ) : (
+            <CardGrid>
+              {row.cards.map((c) =>
+                c.live ? (
+                  <LiveBrandCard key={c.slug} card={c} refTag={refTag} />
+                ) : (
+                  <GhostBrandCard key={c.slug} name={c.brandName} category={row.vertical} />
+                ),
+              )}
+            </CardGrid>
+          )}
         </section>
       ))}
     </>

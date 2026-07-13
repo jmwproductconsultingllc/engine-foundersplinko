@@ -1,0 +1,834 @@
+{
+ "slug": "image-studios",
+ "brandName": "IMAGE Studios",
+ "category": "Salon suites",
+ "vertical": "Beauty & Personal Care",
+ "grade": "READY",
+ "parseQuality": "degraded-fallback",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "imagestudios",
+ "fileHash": "b4cfb0e465418f91",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Financial statements (Exhibit F) are referenced but not included in the provided pages; financial condition fields populated from partial data visible in the document body only.",
+     "Item 21 references audited financials as Exhibit F but the exhibit itself was not provided in the document pages supplied \u2014 auditor name, opinion, and balance sheet figures cannot be confirmed from the text provided."
+    ]
+   },
+   "brandName": "IMAGE Studios",
+   "franchisorEntity": "Image Studios Franchise, LLC",
+   "headquarters": "Salt Lake City, Utah",
+   "brandBackground": "IMAGE Studios is a salon mall franchise offering individual turn-key salon studios leased to independent beauty professionals, operating under the predecessor IMAGE Studios 360 Franchise, LLC since 2015 and re-launched under the current entity in May 2024.",
+   "conceptType": "beauty_personal_care",
+   "conceptRationale": "The franchise leases individual salon studio suites to independent hair stylists, nail artists, massage therapists, and estheticians in a salon mall setting \u2014 a beauty/personal care real-estate-as-a-service model.",
+   "staffingModel": "lightly_staffed",
+   "staffingRationale": "Item 15 allows an owner-operator or a trained manager to run the location; Item 7 note 8 states the franchisor anticipates no payroll costs, indicating a semi-absentee/lightly staffed model.",
+   "leadership": [
+    {
+     "name": "Jason Olsen",
+     "role": "Founder, CEO & President",
+     "background": "President and CEO since September 2014; previously President of Prestman Auto (2004\u20132022).",
+     "whyItMatters": "Founding operator with over a decade leading the IMAGE Studios system."
+    },
+    {
+     "name": "Mark (Taylor) Lamont",
+     "role": "Chief Operations Officer",
+     "background": "COO since January 2020.",
+     "whyItMatters": "Oversees day-to-day franchise operations and franchisee support."
+    },
+    {
+     "name": "Elizabeth (Lizzie) Webb",
+     "role": "Vice President of Operations",
+     "background": "VP of Operations since November 2021; previously Director of Marketing (Jan\u2013Nov 2021).",
+     "whyItMatters": "Leads operational standards and franchisee coaching programs."
+    },
+    {
+     "name": "Marcia Carter",
+     "role": "Vice President of Real Estate & Construction",
+     "background": "VP of Real Estate & Construction since November 2022; Director of Real Estate March 2021\u2013November 2022.",
+     "whyItMatters": "Manages site selection, lease negotiation support, and build-out oversight."
+    },
+    {
+     "name": "Brandon Campbell",
+     "role": "Director of Franchise Development",
+     "background": "Director of Franchise Development since December 2018.",
+     "whyItMatters": "Drives franchise sales and candidate qualification."
+    },
+    {
+     "name": "Blake Steinvorth",
+     "role": "Controller",
+     "background": "Controller since February 2025; previously Controller at ATA Services, LLC (2020\u20132024).",
+     "whyItMatters": "Responsible for franchisor financial reporting and franchisee accounting oversight."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp. 44\u201355",
+    "unitsReported": 82,
+    "networkAverageMonthly": 31527.92,
+    "notes": "Item 19 covers 82 Reporting Salons open for all of 2025 (out of 129 total open by Dec 31, 2025). Tables 1\u20134 break out estimated earnings by occupancy cohort; Tables 5\u20137 provide studio-level weekly rent rates, monthly revenue ramp by opening year, and year-over-year average unit volume. Royalty expense in Tables 1\u20134 was imputed at 5.5%+2% (historical rate); new franchisees pay 6%+2%. Key Operating Expenses do not include all expenses (e.g., personal travel, home office). Two company-owned outlets are included in the data.",
+    "cohorts": [
+     {
+      "label": "90%+ Occupancy \u2014 Total Revenue",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "sampleSize": 32,
+      "annualRevenue": 531385,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average total 2025 revenue for 32 Reporting Salons that achieved 90%+ occupancy by Dec 31, 2025; highest $792,387, lowest $301,347. Item 19, p.45."
+     },
+     {
+      "label": "90%+ Occupancy \u2014 Estimated Earnings After Key Expenses",
+      "ownership": "mixed",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 32,
+      "annualRevenue": 227742,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average 2025 estimated earnings after key operating expenses and royalties (5.5%+2%) for 32 salons at 90%+ occupancy. Item 19, p.45."
+     },
+     {
+      "label": "80\u201389% Occupancy \u2014 Total Revenue",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "sampleSize": 21,
+      "annualRevenue": 461865,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average total 2025 revenue for 21 Reporting Salons at 80\u201389% occupancy; highest $861,839, lowest $261,565. Item 19, p.47."
+     },
+     {
+      "label": "80\u201389% Occupancy \u2014 Estimated Earnings After Key Expenses",
+      "ownership": "mixed",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 21,
+      "annualRevenue": 142444,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average 2025 estimated earnings after key operating expenses and royalties for 21 salons at 80\u201389% occupancy. Item 19, p.47."
+     },
+     {
+      "label": "70\u201379% Occupancy \u2014 Total Revenue",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "sampleSize": 11,
+      "annualRevenue": 353871,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average total 2025 revenue for 11 Reporting Salons at 70\u201379% occupancy; highest $503,309, lowest $248,615. Item 19, p.49."
+     },
+     {
+      "label": "70\u201379% Occupancy \u2014 Estimated Earnings After Key Expenses",
+      "ownership": "mixed",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 11,
+      "annualRevenue": 101774,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average 2025 estimated earnings after key operating expenses and royalties for 11 salons at 70\u201379% occupancy. Item 19, p.49."
+     },
+     {
+      "label": "<70% Occupancy \u2014 Total Revenue",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "sampleSize": 18,
+      "annualRevenue": 327883,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average total 2025 revenue for 18 Reporting Salons below 70% occupancy; highest $632,804, lowest $166,531; lowest occupancy 30%. Item 19, p.51."
+     },
+     {
+      "label": "<70% Occupancy \u2014 Estimated Earnings After Key Expenses",
+      "ownership": "mixed",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 18,
+      "annualRevenue": 31440,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average 2025 estimated earnings after key operating expenses and royalties for 18 salons below 70% occupancy. Item 19, p.51."
+     },
+     {
+      "label": "All 129 Locations \u2014 Year-Over-Year Average Unit Volume (All Years Combined)",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "sampleSize": 129,
+      "annualRevenue": 378335,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average unit volume across all opening-year cohorts (2019\u20132025), all years of operation combined. Item 19, Table 7, p.54."
+     },
+     {
+      "label": "All 129 Locations \u2014 Average Monthly Revenue Ramp (First 12 Months, All Cohorts)",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "sampleSize": 129,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": 25532,
+      "monthlyValues": [
+       6129,
+       14914,
+       19866,
+       22221,
+       25559,
+       27848,
+       28338,
+       30523,
+       30748,
+       32417,
+       32846,
+       34975
+      ],
+      "basis": "Average monthly revenue by month of operation (Month 1\u201312) across all opening-year cohorts combined. Item 19, Table 6, p.53."
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp. 16\u201318",
+    "initialInvestmentLow": 773392,
+    "initialInvestmentHigh": 1734462,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 64500,
+      "high": 64500,
+      "recurring": false,
+      "notes": "Paid to franchisor at signing; non-refundable. Item 7, p.16."
+     },
+     {
+      "category": "Business Formation",
+      "low": 1000,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Third-party legal/filing costs. Item 7, p.16."
+     },
+     {
+      "category": "Lease Costs and Rent/Real Estate (first month's rent & security deposit)",
+      "low": 21028,
+      "high": 71578,
+      "recurring": false,
+      "notes": "First month's rent plus security deposit; includes legal fees for lease review. Item 7, p.16."
+     },
+     {
+      "category": "Initial Floor Plan Layout",
+      "low": 500,
+      "high": 1000,
+      "recurring": false,
+      "notes": "Paid to designated architect for preliminary test fit floor plan. Item 7, p.16."
+     },
+     {
+      "category": "Site Development Fee",
+      "low": 6500,
+      "high": 6500,
+      "recurring": false,
+      "notes": "Paid to franchisor at signing; non-refundable. Item 7, p.16."
+     },
+     {
+      "category": "Utility Deposits",
+      "low": 0,
+      "high": 3500,
+      "recurring": false,
+      "notes": "Includes utility, telephone, internet, and incorporation fees. Item 7, p.16."
+     },
+     {
+      "category": "Architectural Plans & Engineering",
+      "low": 23750,
+      "high": 50500,
+      "recurring": false,
+      "notes": "Full construction documents and engineering from approved architect. Item 7, p.16."
+     },
+     {
+      "category": "Licensing & Permits",
+      "low": 500,
+      "high": 35000,
+      "recurring": false,
+      "notes": "Local municipality permits and licenses. Item 7, p.16."
+     },
+     {
+      "category": "Leasehold Improvements",
+      "low": 484831,
+      "high": 1135081,
+      "recurring": false,
+      "notes": "Reflects cost after tenant improvement allowance; typical location 4,000\u20138,500 sq ft, 20\u201345 studios. Item 7, p.16."
+     },
+     {
+      "category": "Furniture, Fixtures & Equipment",
+      "low": 122783,
+      "high": 241803,
+      "recurring": false,
+      "notes": "Purchased from approved suppliers. Item 7, p.16."
+     },
+     {
+      "category": "Initial Training Expenses",
+      "low": 0,
+      "high": 2500,
+      "recurring": false,
+      "notes": "Travel/lodging for training; initial training for 2 people included in franchise fee. Item 7, p.16."
+     },
+     {
+      "category": "Computer Equipment",
+      "low": 1500,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Hardware and required software licenses. Item 7, p.16."
+     },
+     {
+      "category": "Insurance (annual basis)",
+      "low": 3000,
+      "high": 16000,
+      "recurring": true,
+      "notes": "Annual insurance premiums; required coverage types per Item 8. Item 7, p.16."
+     },
+     {
+      "category": "Additional Funds for 3 Months",
+      "low": 35000,
+      "high": 75000,
+      "recurring": false,
+      "notes": "Working capital for initial 3-month period; no payroll costs anticipated. Item 7, p.18."
+     },
+     {
+      "category": "Miscellaneous Opening Costs and Grand Opening",
+      "low": 1500,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Includes minimum $1,500 grand opening event spend. Item 7, p.17."
+     },
+     {
+      "category": "Advertising & Marketing for First 3 Months",
+      "low": 6000,
+      "high": 18000,
+      "recurring": false,
+      "notes": "Includes minimum $2,000/month local marketing requirement until 70% occupancy. Item 7, p.17."
+     },
+     {
+      "category": "Operating Supplies",
+      "low": 1000,
+      "high": 2500,
+      "recurring": false,
+      "notes": "Initial inventory of cleaning and operating supplies. Item 7, p.17."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 6,
+    "brandFundPct": 2,
+    "localAdPct": null,
+    "flatMonthlyFees": [
+     {
+      "name": "Minimum Weekly Royalty",
+      "monthlyAmount": 1300,
+      "source": "Item 6, p.7 \u2014 $300/week minimum, inflation-adjusted annually"
+     },
+     {
+      "name": "Minimum Weekly Brand Development Fund",
+      "monthlyAmount": 477,
+      "source": "Item 6, p.7 \u2014 $110/week minimum, inflation-adjusted annually"
+     },
+     {
+      "name": "Local Marketing Requirement (pre-70% occupancy)",
+      "monthlyAmount": 2000,
+      "source": "Item 6, p.7 \u2014 $2,000/month minimum until >70% occupancy"
+     },
+     {
+      "name": "Local Marketing Requirement (post-70% occupancy)",
+      "monthlyAmount": 400,
+      "source": "Item 6, p.7 \u2014 reduces to $400/month after >70% occupancy"
+     },
+     {
+      "name": "Accounting Software Fee",
+      "monthlyAmount": 120,
+      "source": "Item 6, p.9 \u2014 $120/month per location (plus $99 activation)"
+     },
+     {
+      "name": "Accounting Services (first 2 years)",
+      "monthlyAmount": 500,
+      "source": "Item 6, p.9 \u2014 $500/month per location, mandatory first 2 years"
+     },
+     {
+      "name": "Operating Software Account Fee",
+      "monthlyAmount": 50,
+      "source": "Item 6, p.13 \u2014 $50/month per operating software account"
+     },
+     {
+      "name": "Music, Media, and IMAGE Scent License Fee",
+      "monthlyAmount": 90,
+      "source": "Item 6, p.13 \u2014 $90/month per location, paid to third party"
+     },
+     {
+      "name": "Customer Relationship & Project Management Software",
+      "monthlyAmount": 50,
+      "source": "Item 6, p.13 \u2014 $50/month per location"
+     },
+     {
+      "name": "Lead Generation Services",
+      "monthlyAmount": 250,
+      "source": "Item 6, p.14 \u2014 estimated $250/month if required"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "EFT Payment Processing Fee",
+     "description": "Per-tenant weekly transaction fee of $1.95 per salon professional, collected via ACH; cost scales with number of tenants.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.10"
+    },
+    {
+     "name": "Technology Fee (future)",
+     "description": "Franchisor reserves right to charge up to $300/month or 0.75% of monthly revenue for proprietary software; not currently charged.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.10"
+    },
+    {
+     "name": "Periodic Regional or National Conference Fee",
+     "description": "$750 per attendee conference fee plus travel/lodging ($750\u2013$2,500 per person); $1,250 charged if location not represented.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.10"
+    },
+    {
+     "name": "Renewal and/or Mid-Term Renovation Requirement",
+     "description": "Up to 25% of then-current estimated initial investment required for renovation approximately 5 years after signing and/or at renewal.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.12"
+    },
+    {
+     "name": "Professional Video & Photography Services",
+     "description": "One-time $1,200\u2013$1,800 fee to third-party vendor for on-site professional video and photography at opening.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.14"
+    },
+    {
+     "name": "Preliminary Test Fit Floor Plan Fee",
+     "description": "$500 per test fit paid directly to designated architect before construction plans begin; additional test fits billed at same rate.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Lease Review Fee",
+     "description": "$250\u2013$600 per hour for franchisor-approved attorney to review commercial lease.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Supplier/Vendor Review Fee",
+     "description": "$500 non-refundable fee per request to propose an alternative supplier not on the approved list.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.11"
+    },
+    {
+     "name": "In-Person Assistance at Location",
+     "description": "$500/day plus travel expenses for additional on-site training or support beyond initial training.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Refresher Training Fee",
+     "description": "$250 per person per module for periodic refresher training courses required by franchisor.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.9"
+    },
+    {
+     "name": "Franchisor Supplier Rebates (revenue to franchisor)",
+     "description": "Franchisor receives approximately 5% rebates from designated suppliers based on franchisee purchases; $490,029 received in FY2025.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 8, p.20"
+    }
+   ],
+   "systemScale": {
+    "totalUnits": 129,
+    "openedLastYear": 34,
+    "closedLastYear": 0,
+    "transfersLastYear": 3,
+    "sourcePage": "Item 20, p.56"
+   },
+   "operationalRisks": [
+    {
+     "title": "Mandatory Minimum Royalty & Ad Fund Payments",
+     "description": "Franchisee must pay minimum royalty ($300/week) and brand fund ($110/week) regardless of revenue; failure may result in termination and loss of investment.",
+     "severity": "high",
+     "source": "Special Risks, p.4; Item 6, p.7"
+    },
+    {
+     "title": "Spousal Liability Guarantee",
+     "description": "Spouse must sign a guarantee making them personally liable for all financial obligations under the franchise agreement, placing marital assets at risk.",
+     "severity": "high",
+     "source": "Special Risks, p.4"
+    },
+    {
+     "title": "Significant Number of Unopened Franchises",
+     "description": "31 franchise agreements signed as of Dec 31, 2025 with outlets not yet opened; delays experienced by others may affect new franchisees.",
+     "severity": "medium",
+     "source": "Special Risks, p.4; Item 20, p.60"
+    },
+    {
+     "title": "Supplier Control / Mandatory Designated Suppliers",
+     "description": "Franchisee must purchase nearly all inventory and supplies from franchisor-designated suppliers at prices set by franchisor, which may exceed open-market prices.",
+     "severity": "medium",
+     "source": "Special Risks, p.4; Item 8, p.19\u201320"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution (Utah)",
+     "description": "All disputes must be mediated/arbitrated in Salt Lake City, Utah, which may disadvantage out-of-state franchisees and increase settlement costs.",
+     "severity": "medium",
+     "source": "Special Risks, p.4; Item 17, p.40"
+    },
+    {
+     "title": "Mid-Term and Renewal Renovation Requirement",
+     "description": "Franchisor may require up to 25% of the then-current estimated initial investment in renovations approximately 5 years after signing and/or at renewal.",
+     "severity": "medium",
+     "source": "Item 6, p.12; Item 17, p.38"
+    },
+    {
+     "title": "Non-Compete Covenant Post-Termination",
+     "description": "2-year non-compete within 5 miles of the Protected Territory or any IMAGE Studios salon applies after termination or expiration.",
+     "severity": "medium",
+     "source": "Item 17, p.40"
+    },
+    {
+     "title": "Franchisor Entity Newly Formed (2024)",
+     "description": "Image Studios Franchise, LLC was formed February 2024 and has offered franchises only since May 2024; limited operating history as the current franchisor entity.",
+     "severity": "medium",
+     "source": "Item 1, p.2"
+    },
+    {
+     "title": "High Build-Out Cost Variability",
+     "description": "Leasehold improvement costs range from $484,831 to $1,135,081 and may be significantly higher due to location, supply chain, and market conditions.",
+     "severity": "medium",
+     "source": "Item 7, p.17"
+    },
+    {
+     "title": "Franchisor Receives Supplier Rebates",
+     "description": "Franchisor receives approximately 5% rebates from designated suppliers based on franchisee purchases, creating a potential conflict of interest in supplier selection.",
+     "severity": "low",
+     "source": "Item 8, p.20"
+    }
+   ],
+   "rentDetail": {
+    "rawValue": 21028,
+    "unit": "unknown",
+    "squareFootage": null,
+    "source": "Item 7, p.16 \u2014 'Lease Costs and Rent/Real Estate \u2013 first month's rent & security deposit' low $21,028 / high $71,578; per-sqft rate not separately disclosed in Item 7. Typical location 4,000\u20138,500 sq ft per Item 1, p.3."
+   },
+   "averageRentMonthly": null,
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": null,
+    "auditOpinion": "unknown",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "IMAGE Studios HOLDCO, LLC",
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 7043871.69,
+      "netIncome": null,
+      "totalAssets": null,
+      "totalLiabilities": null,
+      "cash": null,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": null
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": null,
+      "netIncome": null,
+      "totalAssets": null,
+      "totalLiabilities": null,
+      "cash": null,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": null
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "Capital gap of $1,003,927 is ~4.0x your liquid \u2014 heavy reliance on outside financing.",
+    "2 high-severity operational tripwires disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Network Average",
+    "monthlyRevenue": 31527.92,
+    "monthlyVariable": 2522.2336,
+    "monthlyFixed": 5237,
+    "monthlyEbitda": 23768.6864,
+    "annualEbitda": 285224.23679999996,
+    "coversCosts": true,
+    "source": {
+     "basis": "network",
+     "label": "network average of disclosed cohorts",
+     "math": null
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 1253927,
+   "assumedLoan": 1003141.6000000001,
+   "assumedMonthlyDebtService": 13535.890856141672,
+   "dscr": 1.7559750335320838,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 4.396284881215257,
+   "variableRate": 0.08,
+   "fixedMonthly": 5237,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 1003927,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 1003927,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 13546.488650788426,
+   "adjustedMonthlyNetCashFlow": 10222.197749211573,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $1,253,927 mid-point build-out, there is a $1,003,927 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $10,222/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "beauty_personal_care",
+   "conceptLabel": "Beauty / personal care",
+   "conceptRationale": "The franchise leases individual salon studio suites to independent hair stylists, nail artists, massage therapists, and estheticians in a salon mall setting \u2014 a beauty/personal care real-estate-as-a-service model.",
+   "benchmark": {
+    "label": "Beauty / personal care",
+    "cogsPct": [
+     8,
+     18
+    ],
+    "laborPct": [
+     35,
+     50
+    ],
+    "occupancyPct": [
+     8,
+     15
+    ],
+    "operatingEbitdaPct": [
+     8,
+     18
+    ],
+    "dominantRisk": "Commission/booth-rent labor and chair utilization. Labor structure dominates economics.",
+    "rampNote": "6\u201312 months to mature chair utilization.",
+    "considerations": [
+     "Labor (commission or booth-rent) is the big line at ~35\u201350%; COGS on product is modest.",
+     "Verify chair/room utilization and stylist retention with Item 20 operators.",
+     "Confirm whether labor runs on commission, hourly, or booth rent \u2014 it changes the model entirely."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 8\u201318% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 31527.92,
+   "marginAfterFeesMonthly": 23768.6864,
+   "benchmarkOperatingEbitdaMonthly": [
+    754,
+    11158
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 18\u201330% \u2014 the 35\u201350% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    18,
+    30
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      23768.6864,
+      23768.6864
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      8,
+      15
+     ],
+     "dollarRange": [
+      2522,
+      4729
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      8,
+      18
+     ],
+     "dollarRange": [
+      2522,
+      5675
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      18,
+      30
+     ],
+     "dollarRange": [
+      5675,
+      9458
+     ],
+     "note": "lightly staffed \u00b7 \u2248 1.6\u20132.7 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      1892,
+      3153
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      754,
+      11158
+     ],
+     "note": "\u2248 2% to 35% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cBeauty / personal care\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 8\u201315% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 8\u201318% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 18\u201330% lightly staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so IMAGE Studios HOLDCO, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 7043871.69,
+    "revenueTrend": "unknown",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": null,
+    "adjLiabilitiesToAssets": null,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

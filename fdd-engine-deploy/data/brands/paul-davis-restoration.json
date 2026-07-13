@@ -1,0 +1,550 @@
+{
+ "slug": "paul-davis-restoration",
+ "brandName": "Paul Davis Restoration",
+ "category": "Restoration",
+ "vertical": "Home & Property Services",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "paul davis restoration",
+ "fileHash": "c7e602b464a90f86",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 11",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Paul Davis Restoration",
+   "franchisorEntity": "Paul Davis Restoration, Inc.",
+   "headquarters": "Jacksonville, Florida",
+   "brandBackground": "Paul Davis Restoration provides structural reconstruction and emergency services primarily in the insurance restoration market.",
+   "leadership": [
+    {
+     "name": "Brian M. McDonough",
+     "role": "Chief Executive Officer and President",
+     "background": "Appointed CEO and President in January 2026, previously serving as Secretary, Treasurer, and Director since 2022.",
+     "whyItMatters": "He holds the top executive and administrative authority for the brand."
+    },
+    {
+     "name": "Barry Floyd",
+     "role": "Chief Financial Officer",
+     "background": "Named Chief Financial Officer of PDRI in March 2013.",
+     "whyItMatters": "He manages the financial strategy and oversight of the franchise system."
+    },
+    {
+     "name": "Mike Hopkins",
+     "role": "Chief Operating Officer",
+     "background": "Served as Chief Operating Officer since January 2019.",
+     "whyItMatters": "He oversees the daily operations and support network for franchisees."
+    },
+    {
+     "name": "Jacqueline M. Fairfax",
+     "role": "Vice President of Franchise Development",
+     "background": "Named VP of Franchise Development in 2023, with the company since 1998.",
+     "whyItMatters": "She leads the recruitment and expansion of the franchise network."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "2025 Gross Sales of Operational PDR Businesses in Operation At Least Two Years",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 403110,
+      "basis": "Item 19, Table 1, p. 45-56",
+      "annualRevenue": 4837325,
+      "monthlyValues": [],
+      "sampleSize": 231
+     },
+     {
+      "label": "2025 Gross Sales of Operational PDR Businesses in Operation Less Than Two Years",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 109843,
+      "basis": "Item 19, Table 2, p. 57-60",
+      "annualRevenue": 1318117,
+      "monthlyValues": [],
+      "sampleSize": 54
+     }
+    ],
+    "notes": "The highest performing franchisee reported sales of $64,400,470 and the lowest reporting territory had sales of $3,181.",
+    "sourcePage": "Item 19, p. 44-62",
+    "networkAverageMonthly": null,
+    "unitsReported": 285
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Franchise Fee",
+      "recurring": false,
+      "notes": "Based on population of territory.",
+      "high": 208000,
+      "low": 65000
+     },
+     {
+      "category": "Real Property and Improvements",
+      "recurring": false,
+      "notes": "Rent for start-up office.",
+      "high": 6000,
+      "low": 1800
+     },
+     {
+      "category": "Marketing and Advertising",
+      "recurring": false,
+      "notes": "Grand opening marketing.",
+      "high": 72000,
+      "low": 12000
+     },
+     {
+      "category": "Equipment, Computer, Copier",
+      "recurring": false,
+      "notes": "Office equipment and computer hardware.",
+      "high": 30000,
+      "low": 13000
+     },
+     {
+      "category": "Computer Software Licensing",
+      "recurring": false,
+      "notes": "Initial software setup and licensing.",
+      "high": 12000,
+      "low": 7000
+     },
+     {
+      "category": "Office Furniture",
+      "recurring": false,
+      "notes": "Standard office setup.",
+      "high": 6000,
+      "low": 2000
+     },
+     {
+      "category": "Branded or Compliant Vehicle",
+      "recurring": false,
+      "notes": "Lease or purchase of service van.",
+      "high": 121000,
+      "low": 10000
+     },
+     {
+      "category": "Equipment & Chemical Package",
+      "recurring": false,
+      "notes": "Start-up kit of chemicals and tools.",
+      "high": 54000,
+      "low": 5000
+     },
+     {
+      "category": "Travel and Living Expenses While Training",
+      "recurring": false,
+      "notes": "Expenses for three-week training program.",
+      "high": 7500,
+      "low": 5000
+     },
+     {
+      "category": "Insurance",
+      "recurring": false,
+      "notes": "Initial insurance premiums.",
+      "high": 63500,
+      "low": 20500
+     },
+     {
+      "category": "Phone Installation and Utility Deposits",
+      "recurring": false,
+      "notes": "Standard utility deposits.",
+      "high": 2900,
+      "low": 1000
+     },
+     {
+      "category": "Rent Deposit",
+      "recurring": false,
+      "notes": "Security deposit for commercial lease.",
+      "high": 18000,
+      "low": 5000
+     },
+     {
+      "category": "CPA Fees - Initial Work",
+      "recurring": false,
+      "notes": "Accounting setup.",
+      "high": 2200,
+      "low": 1000
+     },
+     {
+      "category": "Legal Fees - Incorporation",
+      "recurring": false,
+      "notes": "Business entity formation.",
+      "high": 1800,
+      "low": 500
+     },
+     {
+      "category": "Additional Funds - 3 Months",
+      "recurring": false,
+      "notes": "Working capital for initial operations.",
+      "high": 200000,
+      "low": 150000
+     }
+    ],
+    "sourcePage": "Item 7, p. 25-26",
+    "initialInvestmentHigh": 804900,
+    "initialInvestmentLow": 298800
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Computer Software Support Fee",
+      "source": "Item 6, p. 10",
+      "monthlyAmount": 75
+     },
+     {
+      "name": "Call Center Fee (AnswerNet)",
+      "source": "Item 6, p. 10",
+      "monthlyAmount": 50
+     },
+     {
+      "name": "ProAssist/Engage",
+      "source": "Item 6, p. 11",
+      "monthlyAmount": 50
+     },
+     {
+      "name": "Joint Quality Business Review",
+      "source": "Item 6, p. 11",
+      "monthlyAmount": 50
+     },
+     {
+      "name": "Common Software Fee - RMS (Primary Office)",
+      "source": "Item 6, p. 15",
+      "monthlyAmount": 495
+     }
+    ],
+    "brandFundPct": null,
+    "localAdPct": null,
+    "royaltyPct": 4
+   },
+   "hiddenCosts": [
+    {
+     "name": "Strategic Marketing Plan Fee",
+     "description": "$500 per month plus 0.75% of Invoiced Sales.",
+     "source": "Item 6, p. 11",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Guarantee Fund Contribution",
+     "description": "0.5% of Gross Sales until fund balance requirements are met.",
+     "source": "Item 6, p. 9",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Indemnity Fund Fee",
+     "description": "Sliding scale from 0.10% to 0.04% of Gross Sales.",
+     "source": "Item 6, p. 10",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 70",
+    "closedLastYear": 0,
+    "openedLastYear": 19,
+    "totalUnits": 277,
+    "transfersLastYear": 16
+   },
+   "operationalRisks": [
+    {
+     "title": "Dispute Resolution",
+     "description": "Arbitration must be conducted in the location designated by the arbitrators, who are fellow franchisees.",
+     "severity": "medium",
+     "source": "Special Risks, p. 6"
+    },
+    {
+     "title": "Personal Guaranty",
+     "description": "All shareholders, partners, members, and managers must personally guarantee the franchise obligations.",
+     "severity": "high",
+     "source": "Special Risks, p. 6"
+    }
+   ],
+   "conceptType": "home_trade_services",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 888597127,
+      "totalAssets": 655396303,
+      "totalLiabilities": 288072242
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 850365665,
+      "totalAssets": 591191911,
+      "totalLiabilities": 281262019
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 782199246,
+      "totalAssets": 544168844,
+      "totalLiabilities": 262284061
+     }
+    ],
+    "auditorName": "PricewaterhouseCoopers LLP",
+    "parentName": "FS Brands, Inc."
+   },
+   "averageRentMonthly": 15000,
+   "conceptRationale": "The franchise operates a general contracting business specializing in structural reconstruction, emergency services, and mold remediation.",
+   "rentDetail": {
+    "rawValue": 15000,
+    "unit": "per_month",
+    "source": "Item 7, Note 2, p. 27",
+    "squareFootage": 11000
+   },
+   "requiredLiquidCapital": 500000,
+   "requiredNetWorth": null,
+   "staffingRationale": "Requires a full-time General Manager, Restoration Project Supervisor, Mitigation Technician, and Job Cost Accountant at opening."
+  },
+  "scoring": {
+   "riskLevel": "Low",
+   "riskReasons": [
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "2025 Gross Sales of Operational PDR Businesses in Operation At Least Two Years",
+    "monthlyRevenue": 403110,
+    "monthlyVariable": 16124.4,
+    "monthlyFixed": 15720,
+    "monthlyEbitda": 371265.6,
+    "annualEbitda": 4455187.199999999,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "2025 Gross Sales of Operational PDR Businesses in Operation At Least Two Years",
+     "math": "$4,837,325/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 231
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 551850,
+   "assumedLoan": 441480,
+   "assumedMonthlyDebtService": 5957.110237646834,
+   "dscr": 62.32310385222223,
+   "rentPctOfRevenue": 0.037210686909280345,
+   "paybackYears": 0.1238668489620369,
+   "variableRate": 0.04,
+   "fixedMonthly": 15720,
+   "notes": []
+  },
+  "underwriting": {
+   "capitalGap": 301850,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 301850,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": false,
+   "adjustedMonthlyDebtService": 4073.0128776698757,
+   "adjustedMonthlyNetCashFlow": 367192.5871223301,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $551,850 mid-point build-out, there is a $301,850 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $367,193/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "The franchise operates a general contracting business specializing in structural reconstruction, emergency services, and mold remediation.",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 403110,
+   "marginAfterFeesMonthly": 371265.6,
+   "benchmarkOperatingEbitdaMonthly": [
+    28622,
+    165679
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    20,
+    35
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      371265.6,
+      371265.6
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      25,
+      40
+     ],
+     "dollarRange": [
+      100778,
+      161244
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      20,
+      35
+     ],
+     "dollarRange": [
+      80622,
+      141089
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 23.3\u201340.7 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      24187,
+      40311
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      28622,
+      165679
+     ],
+     "note": "\u2248 7% to 41% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Rent",
+     "basis": "disclosed",
+     "detail": "Taken from the FDD (~$15,000/mo); already netted in margin after fees & rent."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 25\u201340% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 20\u201335% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. FS Brands, Inc. guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 888597127,
+    "revenueTrend": "flat",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.4395390097279813,
+    "adjLiabilitiesToAssets": 0.4395390097279813,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

@@ -1,0 +1,831 @@
+{
+ "slug": "vavia",
+ "brandName": "VaVia",
+ "category": "Waste/dumpster",
+ "vertical": "B2B & Business Services",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "vavia-dumpsters",
+ "fileHash": "9593bbdd7c255cd9",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Financial statements for 2025 are audited by Kezos & Dunlavy LLC; 2024 and 2023 are audited by Reese CPA LLC \u2014 two different auditors across the three-year period.",
+     "Special Risk #4 explicitly flags that the franchisor's financial condition calls into question its ability to provide services and support.",
+     "Brand Development Fund ended 2025 with a negative balance of -$109,274.44, indicating overspending relative to collections.",
+     "Members' equity was negative (deficit) at start of 2025 (-$360,693) and only turned slightly positive ($58,787) after a strong 2025 net income year.",
+     "Franchise agreement and exhibits are included in the document but per extraction rules, fees and costs are drawn only from Items 1-23 and financial statements."
+    ]
+   },
+   "brandName": "VaVia",
+   "franchisorEntity": "VaVia, LLC",
+   "headquarters": "Nashville, Tennessee",
+   "brandBackground": "VaVia is a dumpster rental, waste removal, and waste disposal franchise founded in 2018 and began franchising in March 2019, operating primarily in the Southeast U.S.",
+   "conceptType": "home_trade_services",
+   "conceptRationale": "VaVia provides dumpster rentals and waste removal services to residential and commercial customers, a field-service/trade-services model with no retail storefront.",
+   "staffingModel": "lightly_staffed",
+   "staffingRationale": "Operations require drivers/haulers and a managing owner or approved manager, but the back-office can be home-based and the model is described as owner-operated with a small crew.",
+   "leadership": [
+    {
+     "name": "Tim Wells",
+     "role": "Chief Executive Officer",
+     "background": "CEO since April 2020; previously held VP-level roles at Waste Management in Franklin, TN from 1998\u20132019.",
+     "whyItMatters": "Deep industry operating experience at the largest waste company in North America."
+    },
+    {
+     "name": "Phillip C. Nappi",
+     "role": "President and Chief Financial Officer",
+     "background": "Co-founder; President and CFO since September 2018.",
+     "whyItMatters": "Leads financial management and oversees initial training as primary trainer."
+    },
+    {
+     "name": "Michael M. Ampe",
+     "role": "Chairman of the Board, Vice President, and Chief Technology Officer",
+     "background": "Co-founder; Chairman, VP, and CTO since September 2018.",
+     "whyItMatters": "Responsible for technology platform and system development."
+    },
+    {
+     "name": "John G. Crawford",
+     "role": "Director, Vice President, Secretary, and Chief Strategy Officer",
+     "background": "Co-founder; Director, VP, Secretary, and CSO since September 2018.",
+     "whyItMatters": "Shapes long-term growth and franchise system strategy."
+    },
+    {
+     "name": "Eric Gustafsson",
+     "role": "Vice President of Franchise Development",
+     "background": "VP of Franchise Development since September 2025; previously VP of Franchise Development at Won Life Brands.",
+     "whyItMatters": "Drives franchisee recruitment and system expansion."
+    },
+    {
+     "name": "Allison Pulk",
+     "role": "Director of Operations",
+     "background": "Director of Operations since February 2023; previously Office Manager for VaVia Nashville franchise.",
+     "whyItMatters": "Oversees day-to-day operational standards across the franchise network."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp.37-43",
+    "unitsReported": 16,
+    "networkAverageMonthly": 118273,
+    "notes": "Item 19 discloses four tables: (1) Company Owned Outlet P&L for 2025 (Nashville, TN \u2014 6 territories, ~1.87M population); (2) Operational Franchise Outlet summary descriptions (16 outlets); (3) Gross Sales, containers, hauls, and disposal fees for 16 Operational Franchise Outlets in 2025; (4) Dumpster inventory growth over first 8 quarters for all 16 outlets. No separate EBITDA or net-income table is disclosed for franchised outlets. The company-owned outlet table includes an Adjusted Profit figure. Data is not GAAP-prepared and is unaudited for franchisee outlets.",
+    "cohorts": [
+     {
+      "label": "Company Owned Outlet \u2013 Nashville, TN (Gross Sales)",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 11975332,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "2025 Calendar Year actual gross sales for the single company-owned outlet operating across ~6 territories (1.87M population), per Item 19 Table 1."
+     },
+     {
+      "label": "Company Owned Outlet \u2013 Nashville, TN (Adjusted Profit)",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 1,
+      "annualRevenue": 3408800,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "2025 Adjusted Profit = Gross Margin less Disclosed Operating Expenses and Adjusted Franchise-Related Fees (royalty 8%, BDF 1%, local marketing 1.5%); not equal to net profit per Item 19 Table 1 notes."
+     },
+     {
+      "label": "Operational Franchise Outlets \u2013 Average Gross Sales (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 16,
+      "annualRevenue": 1419280,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average of 16 Operational Franchise Outlets for 2025 Calendar Year per Item 19 Table 3; 7 above average, 9 below."
+     },
+     {
+      "label": "Operational Franchise Outlets \u2013 Median Gross Sales (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 16,
+      "annualRevenue": 1217675,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Median gross sales across 16 Operational Franchise Outlets for 2025 per Item 19 Table 3."
+     },
+     {
+      "label": "Dumpster Inventory Growth \u2013 Average Containers at Q1",
+      "ownership": "franchised",
+      "revenueType": "other",
+      "sampleSize": 16,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average container count at end of Q1 across 16 outlets = 46 per Item 19 Table 4."
+     },
+     {
+      "label": "Dumpster Inventory Growth \u2013 Average Containers at Q8",
+      "ownership": "franchised",
+      "revenueType": "other",
+      "sampleSize": 16,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average container count at end of Q8 across 16 outlets = 147 per Item 19 Table 4."
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp.12-15",
+    "initialInvestmentLow": 436049,
+    "initialInvestmentHigh": 857992,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 49500,
+      "high": 49500,
+      "recurring": false,
+      "notes": "Single territory; paid to franchisor at signing. Item 7, p.12."
+     },
+     {
+      "category": "Construction and Leasehold Improvements",
+      "low": 1000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Build-out of Operations Center (non-retail back-office). Item 7, p.12."
+     },
+     {
+      "category": "Waste Containers and Equipment \u2013 Initial Dumpster Inventory",
+      "low": 128000,
+      "high": 178000,
+      "recurring": false,
+      "notes": "40\u201350 dumpsters required at opening; $3,250\u2013$5,650 per unit. Item 7, p.12."
+     },
+     {
+      "category": "Waste Containers and Equipment \u2013 Supplemental Dumpster Inventory",
+      "low": 200000,
+      "high": 280000,
+      "recurring": false,
+      "notes": "50\u201370 additional dumpsters recommended within first year. Item 7, p.12."
+     },
+     {
+      "category": "Waste Container Freight and Sales Tax",
+      "low": 650,
+      "high": 19053,
+      "recurring": false,
+      "notes": "Freight and tax on dumpster purchases. Item 7, p.12."
+     },
+     {
+      "category": "Service Vehicle with Vehicle Wrap Lease",
+      "low": 15499,
+      "high": 248000,
+      "recurring": true,
+      "notes": "Low = 3 months lease payments for 2 vehicles; high = purchase of 2 new vehicles. Item 7, p.12."
+     },
+     {
+      "category": "Vehicle Freight, Registration and Sales Tax",
+      "low": 1900,
+      "high": 14939,
+      "recurring": false,
+      "notes": "One-time costs to ready vehicles for service. Item 7, p.12."
+     },
+     {
+      "category": "Office Furniture, Signs, Supplies and Uniforms",
+      "low": 2000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Initial inventory of desks, chairs, uniforms, and supplies. Item 7, p.12."
+     },
+     {
+      "category": "Computer, Software, and Business Management System",
+      "low": 4000,
+      "high": 5500,
+      "recurring": false,
+      "notes": "Desktop computer, mobile device, and initial BMS license. Item 7, p.12."
+     },
+     {
+      "category": "Start-Up Marketing",
+      "low": 5000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Minimum spend prior to and during first 3 months. Item 7, p.12."
+     },
+     {
+      "category": "Lease Payments \u2013 Three Months",
+      "low": 3000,
+      "high": 6000,
+      "recurring": true,
+      "notes": "Estimated 3 months of Operations Center lease payments (deposit assumed = 2 months rent). Item 7, p.13."
+     },
+     {
+      "category": "Insurance Deposits \u2013 Three Months",
+      "low": 5000,
+      "high": 10000,
+      "recurring": true,
+      "notes": "Initial deposit equal to 3 months of insurance premiums. Item 7, p.13."
+     },
+     {
+      "category": "Travel for Initial Training",
+      "low": 2000,
+      "high": 3500,
+      "recurring": false,
+      "notes": "Travel and lodging to attend pre-opening training in Nashville, TN. Item 7, p.13."
+     },
+     {
+      "category": "Professional Fees",
+      "low": 2000,
+      "high": 5500,
+      "recurring": false,
+      "notes": "Attorneys, accountants, and advisors for start-up. Item 7, p.13."
+     },
+     {
+      "category": "Licenses and Permits",
+      "low": 1500,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Varies by local, county, and state regulations. Item 7, p.13."
+     },
+     {
+      "category": "Additional Funds \u2013 Three Months",
+      "low": 15000,
+      "high": 20000,
+      "recurring": false,
+      "notes": "Working capital for first 3 months (salaries, inventory, rent, utilities); excludes owner compensation. Item 7, p.13."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 8,
+    "brandFundPct": 1,
+    "localAdPct": 1.5,
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "monthlyAmount": null,
+      "source": "Item 6, p.6 \u2014 currently $0, cap $500/month"
+     },
+     {
+      "name": "Business Management Software System Monthly License Fee",
+      "monthlyAmount": null,
+      "source": "Item 6, p.7 \u2014 up to $500/month"
+     },
+     {
+      "name": "Minimum Monthly Royalty (1 Territory, Months 7\u201312)",
+      "monthlyAmount": 1100,
+      "source": "Item 6, p.10"
+     },
+     {
+      "name": "Minimum Monthly Royalty (1 Territory, Months 12+)",
+      "monthlyAmount": 1650,
+      "source": "Item 6, p.10"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Out-of-Territory Royalty Rate",
+     "description": "Royalty rate increases to 12% of Gross Sales for Out of Territory Customers above the 10% Out of Territory Threshold.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.6"
+    },
+    {
+     "name": "Annual Conference Attendance Fee",
+     "description": "Up to $1,000 per year for mandatory annual system conference attendance.",
+     "estimatedAnnualAmount": 1000,
+     "source": "Item 6, p.7"
+    },
+    {
+     "name": "Additional Employee Initial Training Fee",
+     "description": "Currently $500 per person per day for individuals beyond the two included in initial training.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.7"
+    },
+    {
+     "name": "Supplemental Training Fee",
+     "description": "Currently $500 per trainer per day plus travel expenses if franchisor requires or franchisee requests additional training.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.7"
+    },
+    {
+     "name": "Non-Compliance: Customer Reviews Fee",
+     "description": "$250\u2013$750 per month if aggregate customer review rating falls below 4.5 stars or 90% approval.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.7"
+    },
+    {
+     "name": "Reporting Non-Compliance Fee",
+     "description": "$500 per occurrence for failure to timely submit royalty and activity reports.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.7"
+    },
+    {
+     "name": "Operations Non-Compliance Fee",
+     "description": "$450\u2013$1,000 per occurrence for failure to comply with operational standards, plus inspection/re-inspection costs.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.7"
+    },
+    {
+     "name": "Payment Non-Compliance Fee",
+     "description": "$150 per occurrence for failure to timely pay fees, plus interest, costs, and legal fees.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Interest on Overdue Amounts",
+     "description": "18% per annum on all overdue fees and payments.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "NSF / Failed EFT Fee",
+     "description": "5% of amount or $30 (whichever is greater) for insufficient funds or failed electronic transfers.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Audit Fee",
+     "description": "Costs of financial audit if underreporting of 2% or greater is found, including audit, legal, travel, and accommodations.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Quality Assurance Audit Fee",
+     "description": "Reimbursement of actual costs if franchisor engages a third party for periodic QA audits or mystery shopper programs.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Supplier and Product Review Fee",
+     "description": "$250 per supplier or item plus franchisor's costs to evaluate a proposed new supplier.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Transfer Fee",
+     "description": "$20,000 upon approved transfer of the franchise.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.9"
+    },
+    {
+     "name": "Renewal Fee",
+     "description": "25% of the then-current initial franchise fee per territory being renewed.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.9"
+    },
+    {
+     "name": "Computer System Maintenance and Repair",
+     "description": "Estimated $1,000\u2013$2,000 per year for maintenance, repair, and updates to required computer systems.",
+     "estimatedAnnualAmount": 1500,
+     "source": "Item 11, p.24"
+    },
+    {
+     "name": "Credit Card Processing Fees",
+     "description": "Percentage-based fee on all credit card processed Gross Sales; franchisee must use designated processor.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 8, p.17"
+    },
+    {
+     "name": "Opening Assistance Fee",
+     "description": "Reimbursement of franchisor's travel, lodging, and meals for up to 3 days of on-site opening assistance if requested.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.7"
+    },
+    {
+     "name": "Customer Service and Refunds",
+     "description": "Franchisee must reimburse franchisor for any customer refunds or credits paid on franchisee's behalf.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.6"
+    },
+    {
+     "name": "Local and Regional Advertising Cooperative Contributions",
+     "description": "Up to 2% of monthly Gross Sales if franchisor establishes a cooperative in franchisee's market; currently not assessed.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.6"
+    }
+   ],
+   "systemScale": {
+    "totalUnits": 20,
+    "openedLastYear": 3,
+    "closedLastYear": 0,
+    "transfersLastYear": 1,
+    "sourcePage": "Item 20, p.44"
+   },
+   "rentDetail": {
+    "rawValue": 3000,
+    "unit": "per_month",
+    "squareFootage": 750,
+    "source": "Item 7, p.13 \u2014 lease payments estimated at $3,000\u2013$6,000 for 3 months; Operations Center typically ~750 sq ft office plus half-acre lot in industrial park."
+   },
+   "averageRentMonthly": null,
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "operationalRisks": [
+    {
+     "title": "Franchisor Financial Condition Risk",
+     "description": "The FDD's Special Risks section explicitly states that the franchisor's financial condition calls into question its ability to provide services and support; members' equity was negative through end of 2024.",
+     "severity": "high",
+     "source": "Special Risks, p.iv; Item 21 / Exhibit D financial statements"
+    },
+    {
+     "title": "Mandatory Minimum Royalty Payments",
+     "description": "Franchisees must pay minimum monthly royalties regardless of sales levels (e.g., $1,650/month after month 12 for 1 territory), and failure to pay may result in termination.",
+     "severity": "high",
+     "source": "Special Risks, p.iv; Item 6, p.10"
+    },
+    {
+     "title": "Spousal Liability Guarantee",
+     "description": "Each owner's spouse must personally guarantee all financial obligations under the franchise agreement, placing marital and personal assets at risk.",
+     "severity": "high",
+     "source": "Special Risks, p.iv; Item 15, p.31"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "All disputes must be mediated and arbitrated in Davidson County, Tennessee, which may be costly and disadvantageous for out-of-state franchisees.",
+     "severity": "medium",
+     "source": "Special Risks, p.iv; Item 17, p.36"
+    },
+    {
+     "title": "Non-Exclusive Territory",
+     "description": "Franchisees do not receive an exclusive territory; franchisor retains broad reserved rights including competing via alternative channels within the franchisee's territory.",
+     "severity": "medium",
+     "source": "Item 12, pp.26-28"
+    },
+    {
+     "title": "High Capital Requirement for Dumpster Inventory",
+     "description": "Franchisees must purchase 40\u201350 dumpsters at opening ($128K\u2013$178K) and are recommended to add 50\u201370 more within year one ($200K\u2013$280K), creating significant upfront capital exposure.",
+     "severity": "high",
+     "source": "Item 7, p.12-13"
+    },
+    {
+     "title": "Brand Development Fund Deficit",
+     "description": "The Brand Development Fund ended 2025 with a negative balance of -$109,274.44, indicating the fund spent more than it collected and may require higher future contributions.",
+     "severity": "medium",
+     "source": "Item 11, p.23"
+    },
+    {
+     "title": "Franchisor Can Unilaterally Change System and Manuals",
+     "description": "Franchisor may modify the operations manual and system requirements without franchisee consent, potentially requiring additional investments.",
+     "severity": "medium",
+     "source": "Item 3 (general franchising risks), p.iii"
+    },
+    {
+     "title": "Termination for Non-Curable Defaults",
+     "description": "Multiple categories of non-curable defaults (e.g., three prior curable defaults, abandonment, insolvency) allow immediate termination with no cure period.",
+     "severity": "high",
+     "source": "Item 17, p.33"
+    },
+    {
+     "title": "Post-Termination Non-Compete",
+     "description": "24-month non-compete covering the franchisee's operating territory plus a 50-mile radius and all other VaVia territories after termination or expiration.",
+     "severity": "medium",
+     "source": "Item 17, p.35"
+    },
+    {
+     "title": "Renewal Requires Signing New Agreement",
+     "description": "Renewal requires signing the then-current franchise agreement, which may contain materially different terms, plus paying a renewal fee of 25% of the then-current initial franchise fee.",
+     "severity": "medium",
+     "source": "Item 17, p.32"
+    },
+    {
+     "title": "Concentration of Royalty Revenue Risk",
+     "description": "In 2024, five franchisee groups accounted for 65% of total franchise royalty revenue, indicating high revenue concentration risk for the franchisor.",
+     "severity": "medium",
+     "source": "Item 21 / Exhibit D, 2024 financial statements notes"
+    }
+   ],
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "Kezos & Dunlavy, LLC (2025); Reese CPA LLC (2024, 2023)",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": null,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 3046943,
+      "netIncome": 1197407,
+      "totalAssets": 3099564,
+      "totalLiabilities": 3040777,
+      "cash": 1108199,
+      "currentAssets": 2141699,
+      "currentLiabilities": 321087,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 2722955,
+      "netWorth": 58787
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 2709656,
+      "netIncome": 548368,
+      "totalAssets": 2405367,
+      "totalLiabilities": 2766061,
+      "cash": 1037124,
+      "currentAssets": 1528740,
+      "currentLiabilities": 309214,
+      "relatedPartyDebt": 39459,
+      "deferredRevenue": 2377664,
+      "netWorth": -360694
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 1921599,
+      "netIncome": 191965,
+      "totalAssets": 1925749,
+      "totalLiabilities": 2444811,
+      "cash": 585717,
+      "currentAssets": 1238236,
+      "currentLiabilities": 307047,
+      "relatedPartyDebt": 4304,
+      "deferredRevenue": 1997736,
+      "netWorth": -519062
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "Above-market royalty at 8%.",
+    "4 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
+    "Franchisor financial distress disclosed (negative net worth) \u2014 confirm its ability to support the system against the audited statements."
+   ],
+   "midCohort": {
+    "label": "Network Average",
+    "monthlyRevenue": 118273,
+    "monthlyVariable": 12418.664999999999,
+    "monthlyFixed": 2750,
+    "monthlyEbitda": 103104.335,
+    "annualEbitda": 1237252.02,
+    "coversCosts": true,
+    "source": {
+     "basis": "network",
+     "label": "network average of disclosed cohorts",
+     "math": null
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 647020.5,
+   "assumedLoan": 517616.4,
+   "assumedMonthlyDebtService": 6984.456726497009,
+   "dscr": 14.761969189221542,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.5229496412541723,
+   "variableRate": 0.105,
+   "fixedMonthly": 2750,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 397020.5,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 397020.5,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 5357.195988732593,
+   "adjustedMonthlyNetCashFlow": 97747.13901126741,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $647,021 mid-point build-out, there is a $397,021 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $97,747/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "VaVia provides dumpster rentals and waste removal services to residential and commercial customers, a field-service/trade-services model with no retail storefront.",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 118273,
+   "marginAfterFeesMonthly": 103104.335,
+   "benchmarkOperatingEbitdaMonthly": [
+    12035,
+    52248
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 10\u201321% \u2014 the 20\u201335% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    10,
+    21
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      103104.335,
+      103104.335
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      2,
+      6
+     ],
+     "dollarRange": [
+      2365,
+      7096
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      25,
+      40
+     ],
+     "dollarRange": [
+      29568,
+      47309
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      21
+     ],
+     "dollarRange": [
+      11827,
+      24837
+     ],
+     "note": "lightly staffed \u00b7 \u2248 3.4\u20137.2 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      7096,
+      11827
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      12035,
+      52248
+     ],
+     "note": "\u2248 10% to 44% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 2\u20136% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 25\u201340% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 10\u201321% lightly staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; positive net worth; the business is profitable. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "What we found (2025-12-31, audited by Kezos & Dunlavy, LLC (2025); Reese CPA LLC (2024, 2023)): Net income of $1.20M on $3.05M of revenue \u2014 roughly 0.6x spent per $1 earned. Positive net worth of $59K. Cash of $1.11M against $321K of obligations due within a year (a current ratio of 6.67). Note: about 90% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.1x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "positive net worth",
+    "the business is profitable"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": 58787,
+    "netWorthSign": "positive",
+    "netWorthTrend": "improving",
+    "netIncome": 1197407,
+    "netIncomeTrend": "improving",
+    "revenue": 3046943,
+    "revenueTrend": "improving",
+    "currentRatio": 6.670151703432403,
+    "workingCapital": 1820612,
+    "liabilitiesToAssets": 0.9810337841064098,
+    "adjLiabilitiesToAssets": 0.10253764723038467,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": 0.8954800039595143,
+    "expenseToRevenue": 0.607013652700428,
+    "cash": 1108199,
+    "nearTermObligations": 321087
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

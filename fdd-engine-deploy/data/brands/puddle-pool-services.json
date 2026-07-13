@@ -1,0 +1,645 @@
+{
+ "slug": "puddle-pool-services",
+ "brandName": "Puddle Pool Services",
+ "category": "Exterior",
+ "vertical": "Home & Property Services",
+ "grade": "READY",
+ "parseQuality": "degraded-fallback",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "puddle-pools",
+ "fileHash": "17ad9e615b80c0ee",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Item 19 discloses only a single franchised outlet (The Villages, FL) with 1-year data; 42 of 43 franchised outlets were excluded for being open less than 12 months, making the sample size extremely small and potentially unrepresentative.",
+     "No auditor name or audit opinion details are visible in the provided pages; financialCondition audit fields set to unknown/null."
+    ]
+   },
+   "brandName": "Puddle Pool Services",
+   "franchisorEntity": "Puddle Pool Services USA, Inc.",
+   "headquarters": "Orlando, Florida 32809",
+   "brandBackground": "Puddle Pool Services USA, Inc. was incorporated in Wyoming on September 29, 2021, and began offering U.S. franchises on January 24, 2023; it is affiliated with Puddle Pool Services Ltd. (Canada, est. 2018) and Feels Like Friday Service Brands, Inc., which owns the marks and provides proprietary CRM software.",
+   "conceptType": "home_trade_services",
+   "conceptRationale": "Mobile, territory-based residential and commercial pool, spa, hot tub, and water-feature cleaning and maintenance service \u2014 a home/trade services model with no retail storefront.",
+   "staffingModel": "lightly_staffed",
+   "staffingRationale": "Franchisee may appoint a non-owner general manager and hire technicians but can operate from a home office; Item 15 does not require the owner's full-time on-site presence.",
+   "leadership": [
+    {
+     "name": "Mark Amery",
+     "role": "CEO / Founder",
+     "background": "Founder and CEO since July 2018, with 22+ years building and franchising home-service brands.",
+     "whyItMatters": "Sole decision-maker and primary trainer; short tenure of U.S. entity increases key-person risk."
+    },
+    {
+     "name": "Steff Shields",
+     "role": "Franchise Partner Head of Coaching (Pre/Post Onboarding)",
+     "background": "Pre- and post-onboarding specialist since January 2012.",
+     "whyItMatters": "Primary franchisee support contact for launch and ongoing coaching."
+    },
+    {
+     "name": "Tyler Nerada",
+     "role": "Chief Marketing Officer",
+     "background": "CMO and leadership team member since March 2012.",
+     "whyItMatters": "Controls all in-house marketing and franchisee advertising spend."
+    },
+    {
+     "name": "Ryan Purita",
+     "role": "Chief Technology Officer",
+     "background": "CTO since March 2022; previously Senior Forensic Analyst at Sherlock Forensics (2008\u20132023).",
+     "whyItMatters": "Oversees proprietary PuddlePower CRM and technology fee structure."
+    },
+    {
+     "name": "Michael Terry",
+     "role": "Director of Field Operations",
+     "background": "With Puddle Pool since January 2022; prior Head Pool Technician at Pools Plus (2021) and plumber at Milani's Plumbing (2018\u20132020).",
+     "whyItMatters": "Leads field training and operational standards for franchisees."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, p.30-32",
+    "unitsReported": 1,
+    "networkAverageMonthly": null,
+    "cohorts": [
+     {
+      "label": "The Villages FL Franchised Outlet \u2013 Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 1664617.08,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Single franchised outlet in The Villages, FL; January 1 \u2013 December 31, 2025; total income per P&L reported to franchisor."
+     },
+     {
+      "label": "The Villages FL Franchised Outlet \u2013 Net Income",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 1,
+      "annualRevenue": 555403.25,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Net income after all expenses and other expenses for the same single franchised outlet, January 1 \u2013 December 31, 2025."
+     }
+    ],
+    "notes": "42 of 43 franchised outlets were excluded because they had been open less than 12 months; 1 corporate (California) outlet was not included in Item 19 disclosures. The single reported outlet had an unusually large Route Purchase/Acquisition expense of $225,000 which inflates costs and may not be typical. Item 19 notes figures exclude initial franchise fees, build-out/equipment costs, and owner compensation."
+   },
+   "item17": {
+    "sourcePage": "Item 7, p.9-11",
+    "initialInvestmentLow": 101800,
+    "initialInvestmentHigh": 135700,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 49500,
+      "high": 49500,
+      "recurring": false,
+      "notes": "Single territory up to 10,000 households with pools; increases $5.00 per pool over 10,000. Item 7, p.9"
+     },
+     {
+      "category": "Training Expenses",
+      "low": 2000,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Travel, lodging, and meals for franchisee to attend initial training in Florida or California. Item 7, p.9"
+     },
+     {
+      "category": "Initial Marketing Launch",
+      "low": 10000,
+      "high": 10000,
+      "recurring": false,
+      "notes": "Required grand-opening marketing blitz for first territory; paid to franchisor. Item 7, p.9"
+     },
+     {
+      "category": "Initial Inventory of Tools, Equipment and Chemicals",
+      "low": 7500,
+      "high": 7500,
+      "recurring": false,
+      "notes": "Must be purchased from franchisor prior to opening; covers first 3 months of supplies. Item 7, p.9"
+     },
+     {
+      "category": "Business Licenses and Permits",
+      "low": 500,
+      "high": 1500,
+      "recurring": false,
+      "notes": "Paid to government agencies before opening. Item 7, p.10"
+     },
+     {
+      "category": "Leak Detection Package (optional)",
+      "low": 0,
+      "high": 11500,
+      "recurring": false,
+      "notes": "Optional add-on equipment; paid to suppliers. Item 7, p.10"
+     },
+     {
+      "category": "Pressure Washing/Surface Cleaning and Soft Washing (optional)",
+      "low": 0,
+      "high": 6000,
+      "recurring": false,
+      "notes": "Optional add-on equipment; paid to suppliers. Item 7, p.10"
+     },
+     {
+      "category": "Computer/Phone System",
+      "low": 1000,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Computer, mobile devices, and other required technology. Item 7, p.10"
+     },
+     {
+      "category": "CRM Setup",
+      "low": 1000,
+      "high": 1000,
+      "recurring": false,
+      "notes": "Required CRM system setup cost; paid to suppliers before opening. Item 7, p.10"
+     },
+     {
+      "category": "Vehicle Lease",
+      "low": 1800,
+      "high": 3200,
+      "recurring": true,
+      "notes": "Estimate for leasing a brand-standard vehicle; paid to vendor/lessor/lender. Item 7, p.10"
+     },
+     {
+      "category": "Vehicle Wrap",
+      "low": 2500,
+      "high": 4000,
+      "recurring": false,
+      "notes": "Branded vehicle wrap; paid to suppliers. Item 7, p.10"
+     },
+     {
+      "category": "Professional Fees",
+      "low": 2000,
+      "high": 4000,
+      "recurring": false,
+      "notes": "Legal, accounting, and entity formation fees; paid to professional service providers. Item 7, p.10"
+     },
+     {
+      "category": "Uniform, Business Card, Other Physical Marketing Materials",
+      "low": 2500,
+      "high": 2500,
+      "recurring": false,
+      "notes": "Required branded materials; paid to suppliers. Item 7, p.10"
+     },
+     {
+      "category": "Liability Insurance",
+      "low": 1500,
+      "high": 4000,
+      "recurring": true,
+      "notes": "First quarterly premium for required minimum insurance coverage; paid to insurer. Item 7, p.10"
+     },
+     {
+      "category": "Operating Expenses / Additional Funds \u2013 3 months",
+      "low": 20000,
+      "high": 25000,
+      "recurring": false,
+      "notes": "Working capital for first 3 months including rent, utilities, payroll, royalties, and miscellaneous; does not include owner compensation or debt service. Item 7, p.10-11"
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 7,
+    "brandFundPct": 2,
+    "localAdPct": null,
+    "flatMonthlyFees": [
+     {
+      "name": "Royalty Fee Minimum",
+      "monthlyAmount": 600,
+      "source": "Item 6, p.4"
+     },
+     {
+      "name": "Technology Fee",
+      "monthlyAmount": 199,
+      "source": "Item 6, p.5"
+     },
+     {
+      "name": "Call Center Fee (first territory)",
+      "monthlyAmount": 249,
+      "source": "Item 6, p.5"
+     },
+     {
+      "name": "Call Center Fee (each additional territory)",
+      "monthlyAmount": 99,
+      "source": "Item 6, p.5"
+     },
+     {
+      "name": "Required Third-Party Bookkeeping/Accounting Fee",
+      "monthlyAmount": null,
+      "source": "Item 6, p.5 (estimated $100\u2013$200/month)"
+     },
+     {
+      "name": "Year 1 Local Advertising (months 4\u201312)",
+      "monthlyAmount": 1000,
+      "source": "Item 6, p.4"
+     },
+     {
+      "name": "Year 2+ Local Advertising Minimum",
+      "monthlyAmount": 600,
+      "source": "Item 6, p.4"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Brand Development Fund Contribution (if established)",
+     "description": "2% of monthly gross revenue (up to 3%) payable to the Brand Development Fund once established; currently not active.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.5; Item 11, p.18"
+    },
+    {
+     "name": "Late Fee",
+     "description": "$75 per late royalty, brand fund, or gross revenue report submission.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.5"
+    },
+    {
+     "name": "Interest on Overdue Amounts",
+     "description": "18% per annum or highest lawful rate on any unpaid balance.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.5"
+    },
+    {
+     "name": "Non-Sufficient Funds Fee",
+     "description": "$250 per returned check or denied ACH transfer.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.5"
+    },
+    {
+     "name": "Successor Agreement Fee",
+     "description": "10% of then-current initial franchise fee due at renewal.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.5"
+    },
+    {
+     "name": "Transfer Fee",
+     "description": "10% of then-current initial franchise fee for most transfers; $1,500 for intra-entity or family transfers.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.6"
+    },
+    {
+     "name": "Additional Trainee Fee",
+     "description": "$1,000 per additional person attending initial training beyond the first three.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.6"
+    },
+    {
+     "name": "Remedial Training Fee",
+     "description": "Franchisor's then-current per-diem rate plus travel expenses for in-territory remedial training.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.6"
+    },
+    {
+     "name": "Audit/Examination of Books Fee",
+     "description": "Cost of audit plus related expenses if gross revenue understated by 2% or more.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.7"
+    },
+    {
+     "name": "Customer Dispute Resolution Reimbursement",
+     "description": "Franchisee must reimburse franchisor for any refunds issued to customers on franchisee's behalf within 10 days.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.7"
+    },
+    {
+     "name": "Insurance Reimbursement + 10% Admin Fee",
+     "description": "If franchisee fails to maintain required insurance, franchisor may procure it and charge franchisee cost plus 10% administrative fee.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Liquidated Damages on Default Termination",
+     "description": "Greater of $50,000 or up to 24 months of rolling 12-month average royalty fees and brand fund contributions.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Relocation Fee",
+     "description": "$5,000 payable to franchisor if franchisee is approved to relocate the franchised business.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 7 footnote / Franchise Agreement Section 8.3.7"
+    },
+    {
+     "name": "Ongoing Vehicle Lease Payments",
+     "description": "Estimated $1,800\u2013$3,200 per month for required branded vehicle lease beyond initial period.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 7, p.10"
+    },
+    {
+     "name": "State Licensing and Certification Fees",
+     "description": "Some states require pool/spa technician licenses or certifications with associated fees.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 1, p.2; Item 8, p.12"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p.33-35",
+    "totalUnits": 44,
+    "openedLastYear": 43,
+    "closedLastYear": 1,
+    "transfersLastYear": 0
+   },
+   "operationalRisks": [
+    {
+     "title": "General Financial Condition of Franchisor",
+     "description": "The Special Risks section explicitly states the franchisor's financial condition calls into question its ability to provide services and support to franchisees.",
+     "severity": "high",
+     "source": "Special Risks, p.iv; Item 21"
+    },
+    {
+     "title": "Short Operating History",
+     "description": "Franchisor incorporated in 2021 and began franchising in January 2023, giving it a very limited track record.",
+     "severity": "high",
+     "source": "Special Risks, p.iv; Item 1, p.1"
+    },
+    {
+     "title": "Mandatory Minimum Royalty and Advertising Payments",
+     "description": "Franchisee must pay minimum royalty ($600/month) and local advertising fees regardless of sales level; failure can result in termination.",
+     "severity": "high",
+     "source": "Special Risks, p.iv; Item 6, p.4"
+    },
+    {
+     "title": "Spouse Liability Guarantee",
+     "description": "Married franchisees must have their spouse sign a personal guaranty making the spouse liable for all financial obligations under the franchise agreement.",
+     "severity": "medium",
+     "source": "Special Risks, p.iv; Item 9, p.15"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution (Wyoming)",
+     "description": "All disputes must be mediated and litigated in Wyoming, which may disadvantage franchisees located in other states.",
+     "severity": "medium",
+     "source": "Special Risks, p.iv; Item 17, p.30"
+    },
+    {
+     "title": "Extremely Small Item 19 Sample",
+     "description": "Only 1 of 44 outlets is reported in Item 19; 42 franchised outlets were excluded for being open less than 12 months, making financial performance data highly unreliable.",
+     "severity": "high",
+     "source": "Item 19, p.30"
+    },
+    {
+     "title": "Rapid System Growth with Unproven Franchisees",
+     "description": "43 new franchised outlets opened in 2025 alone, with 17 additional agreements signed but not yet open, creating significant execution and support risk for a young franchisor.",
+     "severity": "high",
+     "source": "Item 20, p.33-35"
+    },
+    {
+     "title": "Franchisor Controls All Marketing and Social Media",
+     "description": "Franchisees cannot create their own social media profiles or advertising; all marketing is conducted in-house by franchisor, limiting franchisee autonomy.",
+     "severity": "medium",
+     "source": "Item 6, p.9; Item 11, p.17"
+    },
+    {
+     "title": "Franchisor Owns All Customer Data",
+     "description": "All customer data collected by franchisee is owned exclusively by franchisor and the license to use it terminates immediately upon agreement expiration or termination.",
+     "severity": "medium",
+     "source": "Item 11, p.21"
+    },
+    {
+     "title": "Non-Competition Covenant (24 months / 25 miles post-termination)",
+     "description": "After termination or expiration, franchisee cannot operate a competing pool cleaning business within 25 miles of the territory or any Puddle Pool Services location for 24 months.",
+     "severity": "medium",
+     "source": "Item 17, p.29"
+    },
+    {
+     "title": "Liquidated Damages for Confidentiality/Non-Compete Violation",
+     "description": "$100,000 per violation plus attorney's fees if franchisee breaches confidentiality or non-competition covenants.",
+     "severity": "medium",
+     "source": "Item 17 / Franchise Agreement Section 19.9"
+    },
+    {
+     "title": "Franchisor May Change System Standards Unilaterally",
+     "description": "Franchisor can modify the operations manual and system standards at any time without franchisee consent, potentially requiring additional investment.",
+     "severity": "medium",
+     "source": "Item 17, p.29"
+    }
+   ],
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "squareFootage": null,
+    "source": "Item 7, p.9-11 \u2014 franchise operates from a home-based or shared office; no commercial lease rent figure is disclosed in Item 7."
+   },
+   "averageRentMonthly": null,
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "DA Advisory Group PLLC",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": null,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 3403132,
+      "netIncome": 751847,
+      "totalAssets": 6045014,
+      "totalLiabilities": 5470002,
+      "cash": 836477,
+      "currentAssets": 2907185,
+      "currentLiabilities": 1303916,
+      "relatedPartyDebt": 128923,
+      "deferredRevenue": 5081885,
+      "netWorth": 575012
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 103909,
+      "netIncome": -141718,
+      "totalAssets": 975006,
+      "totalLiabilities": 1151841,
+      "cash": 185395,
+      "currentAssets": 703761,
+      "currentLiabilities": 501316,
+      "relatedPartyDebt": 126114,
+      "deferredRevenue": 825800,
+      "netWorth": -176835
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 52114,
+      "netIncome": -35217,
+      "totalAssets": 49054,
+      "totalLiabilities": 84171,
+      "cash": 34448,
+      "currentAssets": 49054,
+      "currentLiabilities": 70921,
+      "relatedPartyDebt": 35656,
+      "deferredRevenue": 15000,
+      "netWorth": -35117
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "4 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
+    "Franchisor financial distress disclosed (negative net worth) \u2014 confirm its ability to support the system against the audited statements.",
+    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+   ],
+   "midCohort": null,
+   "bottomCohort": null,
+   "buildoutMidpoint": 118750,
+   "assumedLoan": 95000,
+   "assumedMonthlyDebtService": 1281.8824693676934,
+   "dscr": null,
+   "rentPctOfRevenue": null,
+   "paybackYears": null,
+   "variableRate": 0.09,
+   "fixedMonthly": 2747,
+   "notes": [
+    "Average rent not found; fixed costs may be understated.",
+    "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $118,750 mid-point build-out without financing, though that leaves little working-capital cushion."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "Mobile, territory-based residential and commercial pool, spa, hot tub, and water-feature cleaning and maintenance service \u2014 a home/trade services model with no retail storefront.",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": null,
+   "marginAfterFeesMonthly": null,
+   "benchmarkOperatingEbitdaMonthly": null,
+   "trueEbitdaBasis": "none",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 10\u201321% \u2014 the 20\u201335% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    10,
+    21
+   ],
+   "buildup": [],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; positive net worth; the business is profitable. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "What we found (2025-12-31, audited by DA Advisory Group PLLC): Net income of $752K on $3.40M of revenue \u2014 roughly 0.8x spent per $1 earned. Positive net worth of $575K. Cash of $836K against $1.30M of obligations due within a year (a current ratio of 2.23). Note: about 93% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.1x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "positive net worth",
+    "the business is profitable"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": 575012,
+    "netWorthSign": "positive",
+    "netWorthTrend": "improving",
+    "netIncome": 751847,
+    "netIncomeTrend": "improving",
+    "revenue": 3403132,
+    "revenueTrend": "improving",
+    "currentRatio": 2.2295799729430423,
+    "workingCapital": 1603269,
+    "liabilitiesToAssets": 0.9048783013571184,
+    "adjLiabilitiesToAssets": 0.06420448323196605,
+    "relatedPartyDebtPct": 0.023569095587167976,
+    "deferredRevenuePct": 0.9290462782280519,
+    "expenseToRevenue": 0.7790720430474045,
+    "cash": 836477,
+    "nearTermObligations": 1303916
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

@@ -1,0 +1,605 @@
+{
+ "slug": "wetfuel",
+ "brandName": "WetFuel",
+ "category": "Mobile fueling",
+ "vertical": "B2B & Business Services",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "wetfuel",
+ "fileHash": "35147c0960ca4b01",
+ "result": {
+  "extracted": {
+   "brandName": "WetFuel",
+   "franchisorEntity": "WetFuel Franchising, LLC",
+   "headquarters": "Meridian, ID",
+   "brandBackground": "Certified disabled Veteran-owned mobile fuel delivery company founded in 2023, specializing in on-site delivery of diesel, gasoline, and DEF to fleets, equipment, and generators across commercial and industrial markets.",
+   "conceptType": "home_trade_services",
+   "conceptRationale": "Mobile on-demand fuel delivery to commercial fleets and job sites is a B2B trade/field-service business with no retail storefront.",
+   "staffingModel": "lightly_staffed",
+   "staffingRationale": "Item 15 allows absentee ownership with a designated manager; Item 11 describes a small-crew driver/dispatch model with one to a few vehicles per territory.",
+   "leadership": [
+    {
+     "name": "Cory Albertson",
+     "role": "Member / Founder-CEO",
+     "background": "Co-founded WetFuel, LLC in 2023 and WetFuel Franchising, LLC in July 2025; previously co-owned Craftsman Unlimited Haircuts (2017\u20132021).",
+     "whyItMatters": "Primary decision-maker and face of the franchise system with direct operating experience in the affiliate unit."
+    },
+    {
+     "name": "Stephen Thomas",
+     "role": "Member / Founder-Director of Training",
+     "background": "Co-founded WetFuel, LLC in 2023; prior fuel and oil delivery experience at Co-Energy Fuel Delivery (2014\u20132023).",
+     "whyItMatters": "Brings direct wet-hose fueling industry expertise and leads franchisee training programs."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp.56-60",
+    "unitsReported": 1,
+    "networkAverageMonthly": null,
+    "notes": "Single affiliate-owned outlet (WetFuel, LLC) in Boise, ID MSA (~845,000 people), period April 20, 2025 \u2013 April 10, 2026. Franchisor warns results may not be representative of franchisee results and that smaller markets may produce lower sales. No franchised outlet data disclosed. Adjusted Net Income deducts estimated royalty, brand fund, local advertising, and tech fees that the affiliate did not actually pay.",
+    "cohorts": [
+     {
+      "label": "Affiliate-Owned Outlet \u2013 Gross Sales",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 4966615.15,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Total income for the period April 20, 2025 \u2013 April 10, 2026 from single affiliate outlet in Boise, ID."
+     },
+     {
+      "label": "Affiliate-Owned Outlet \u2013 Gross Profit",
+      "ownership": "affiliate",
+      "revenueType": "other",
+      "sampleSize": 1,
+      "annualRevenue": 1086585.28,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Total revenue minus cost of goods sold (fuel, DEF, oils) for the same period."
+     },
+     {
+      "label": "Affiliate-Owned Outlet \u2013 Net Income",
+      "ownership": "affiliate",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 1,
+      "annualRevenue": 589035.82,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Gross Profit minus total operating expenses plus other income minus other expenses for the period."
+     },
+     {
+      "label": "Affiliate-Owned Outlet \u2013 Adjusted Net Income (after estimated franchise fees)",
+      "ownership": "affiliate",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 1,
+      "annualRevenue": 441779.72,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Net Income minus estimated royalty ($97,792.68), brand fund ($21,731.71), local advertising ($21,731.71), and tech fees ($6,000); does not include owner compensation."
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp.17-19",
+    "initialInvestmentLow": 172000,
+    "initialInvestmentHigh": 490500,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 60000,
+      "high": 60000,
+      "recurring": false,
+      "notes": "Paid to franchisor upon signing; non-refundable except partial refund if training not completed."
+     },
+     {
+      "category": "Rent",
+      "low": 1000,
+      "high": 3000,
+      "recurring": true,
+      "notes": "One month rent plus security deposit estimate; Item 7, p.17."
+     },
+     {
+      "category": "Leasehold Improvements",
+      "low": 0,
+      "high": 7500,
+      "recurring": false,
+      "notes": "Build-out/remodel of office or storage location; Item 7, p.17."
+     },
+     {
+      "category": "Market Introduction Program and Opening Advertising",
+      "low": 6500,
+      "high": 14500,
+      "recurring": false,
+      "notes": "Includes opening advertising minimum $750/month for first 6 months; Item 7, p.17."
+     },
+     {
+      "category": "Furniture, Fixtures, and Equipment",
+      "low": 7750,
+      "high": 25000,
+      "recurring": false,
+      "notes": "Furniture, fixtures, design elements, and equipment; Item 7, p.17."
+     },
+     {
+      "category": "Computer Systems",
+      "low": 2500,
+      "high": 12000,
+      "recurring": false,
+      "notes": "Hardware and software; $1,500\u2013$4,000 of this paid to franchisor for tech setup; Item 7, p.17."
+     },
+     {
+      "category": "Insurance",
+      "low": 2000,
+      "high": 15000,
+      "recurring": true,
+      "notes": "Commercial general liability, auto, pollution, umbrella, workers comp; Item 7, p.17."
+     },
+     {
+      "category": "Equipment and/or Vehicle \u2013 fully outfitted",
+      "low": 30000,
+      "high": 170000,
+      "recurring": false,
+      "notes": "$30K = tank/pump in own truck bed; $60K = fuel trailer; $170K = F550 fully outfitted; Item 7, p.17."
+     },
+     {
+      "category": "Signage",
+      "low": 1500,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Exterior and interior signage and vehicle wrap; Item 7, p.17."
+     },
+     {
+      "category": "Office Expenses",
+      "low": 500,
+      "high": 1000,
+      "recurring": false,
+      "notes": "Basic office supplies; Item 7, p.17."
+     },
+     {
+      "category": "Inventory and Storage Tank",
+      "low": 27250,
+      "high": 95500,
+      "recurring": false,
+      "notes": "Fuel inventory plus two fuel storage tanks ($16,000\u2013$60,000 of total); Item 7, p.18."
+     },
+     {
+      "category": "Licenses and Permits",
+      "low": 1000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Motor fuel transporter, mobile fueling, and other regulatory permits; Item 7, p.18."
+     },
+     {
+      "category": "Professional Fees",
+      "low": 1000,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Attorney, CPA, franchise attorney review; Item 7, p.18."
+     },
+     {
+      "category": "Travel, Lodging and Meals for Initial Training",
+      "low": 1000,
+      "high": 4000,
+      "recurring": false,
+      "notes": "Franchisee responsible for travel/lodging to Boise, ID training; Item 7, p.18."
+     },
+     {
+      "category": "Additional Funds (first 3 months)",
+      "low": 30000,
+      "high": 70000,
+      "recurring": false,
+      "notes": "Working capital for payroll, inventory, rent, and operating expenses; does not include owner salary; Item 7, p.18."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 9,
+    "brandFundPct": 1,
+    "localAdPct": 1,
+    "flatMonthlyFees": [
+     {
+      "name": "Royalty Fee Minimum \u2013 Months 7-12",
+      "monthlyAmount": 750,
+      "source": "Item 6, p.7"
+     },
+     {
+      "name": "Royalty Fee Minimum \u2013 Months 13-24",
+      "monthlyAmount": 1500,
+      "source": "Item 6, p.7"
+     },
+     {
+      "name": "Royalty Fee Minimum \u2013 Month 25+",
+      "monthlyAmount": 2500,
+      "source": "Item 6, p.7"
+     },
+     {
+      "name": "Brand Fund Contribution Minimum",
+      "monthlyAmount": 500,
+      "source": "Item 6, p.7"
+     },
+     {
+      "name": "Software Subscription",
+      "monthlyAmount": 625,
+      "source": "Item 6, p.11 (range $500\u2013$750/month)"
+     },
+     {
+      "name": "System Technology Fee",
+      "monthlyAmount": 350,
+      "source": "Item 6, p.12 (range $200\u2013$500/month)"
+     },
+     {
+      "name": "Centralized Local Marketing Service (optional)",
+      "monthlyAmount": 500,
+      "source": "Item 6, p.8"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Technology Setup and Onboarding Fee",
+     "description": "One-time fee for technology implementation and configuration paid to franchisor prior to opening.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.12 (range $1,500\u2013$4,000)"
+    },
+    {
+     "name": "Refresher / On-site Training Fee",
+     "description": "Per-trainer daily fee plus travel/per diem for additional on-site training requested by franchisee.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.9 (currently $500/trainer/day)"
+    },
+    {
+     "name": "Supplier Evaluation Fee",
+     "description": "Non-refundable fee to evaluate an alternative supplier request, up to $1,500 per request not to exceed $2,500.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.11"
+    },
+    {
+     "name": "Non-Compliance Fee",
+     "description": "$500 per compliance violation not cured within 30 days, then $250/week until cured.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.12"
+    },
+    {
+     "name": "Management Fee",
+     "description": "15%\u201325% of Gross Profit if franchisor must step in to operate the business due to franchisee default, death, or abandonment.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.11"
+    },
+    {
+     "name": "Environmental Response Fee",
+     "description": "Franchisor's actual costs plus 10% administrative fee if franchisor must respond to a spill, regulatory investigation, or safety violation caused by franchisee.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.16"
+    },
+    {
+     "name": "Renewal Fee",
+     "description": "One-time fee payable upon execution of successor franchise agreement at end of each term.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.13 ($10,000)"
+    },
+    {
+     "name": "Transfer Fee",
+     "description": "50% of then-current initial franchise fee plus broker, training, legal, and administrative costs upon transfer.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.15"
+    },
+    {
+     "name": "Annual Software Maintenance / Upgrade Costs",
+     "description": "Estimated annual cost of required software maintenance, updating, and support contracts.",
+     "estimatedAnnualAmount": 7500,
+     "source": "Item 11, p.42 (range $6,000\u2013$9,000/year)"
+    },
+    {
+     "name": "Pollution / Environmental Liability Insurance",
+     "description": "Required pollution liability coverage with minimum $1,000,000 per occurrence; cost varies by market and volume.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 8, p.23"
+    },
+    {
+     "name": "SPCC Plan Consultant",
+     "description": "Franchisee must engage a designated Spill Prevention, Control, and Countermeasure plan consultant if above-ground petroleum storage exceeds 1,320 gallons.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 8, p.22"
+    },
+    {
+     "name": "Opening Advertising (Initial 6 Months)",
+     "description": "Minimum $750/month up to $10,000 aggregate during the opening advertising window, in addition to ongoing local marketing.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.9"
+    },
+    {
+     "name": "Breach of Territory Fee",
+     "description": "Greater of $500 or 75% of amount paid by customer served outside territory without prior written permission.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.13"
+    }
+   ],
+   "systemScale": {
+    "totalUnits": 1,
+    "openedLastYear": 0,
+    "closedLastYear": 0,
+    "transfersLastYear": 0,
+    "sourcePage": "Item 20, pp.61-62"
+   },
+   "operationalRisks": [
+    {
+     "title": "Brand-New Franchisor with No Franchised Units",
+     "description": "WetFuel Franchising, LLC was formed July 2025 and has zero franchised outlets; all Item 19 data comes from a single affiliate unit, making performance projections highly uncertain.",
+     "severity": "high",
+     "source": "Item 1, p.8; Item 20, p.61"
+    },
+    {
+     "title": "Extensive Regulatory and Licensing Burden",
+     "description": "Franchisees must independently obtain motor fuel transporter licenses, environmental permits, fire marshal approvals, HazMat compliance, and state fuel tax registrations that vary significantly by state.",
+     "severity": "high",
+     "source": "Item 1, pp.2-3"
+    },
+    {
+     "title": "Environmental and Spill Liability Exposure",
+     "description": "Mobile fuel delivery operations carry significant pollution, spill, and environmental liability risk requiring specialized insurance and SPCC plans; franchisor can charge back response costs plus 10%.",
+     "severity": "high",
+     "source": "Item 6, p.16; Item 8, p.22"
+    },
+    {
+     "title": "Royalty on Gross Profit (Not Gross Sales) with Narrow COGS Definition",
+     "description": "Royalty is 9% of Gross Profit where COGS excludes labor, vehicle costs, insurance, and overhead \u2014 meaning the royalty base is broader than typical fuel-delivery margins suggest.",
+     "severity": "high",
+     "source": "Item 6, p.7; Item 19, p.58"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution in Idaho",
+     "description": "All disputes must be arbitrated or litigated in Boise, Idaho, which may disadvantage franchisees located in other states.",
+     "severity": "medium",
+     "source": "Special Risks, p.iv; Item 17, p.55"
+    },
+    {
+     "title": "Franchisor Retains All Customer Data",
+     "description": "All customer data generated by the franchisee is owned exclusively by the franchisor, including post-termination, with real-time read access granted to franchisor at all times.",
+     "severity": "medium",
+     "source": "Item 11, pp.33-34"
+    },
+    {
+     "title": "Unilateral Operations Manual Changes",
+     "description": "Franchisor may amend the Operations Manual at any time; franchisee must implement changes within 30 days (90 days if capital expenditure exceeds $10,000 in 12 months).",
+     "severity": "medium",
+     "source": "Item 11, p.34"
+    },
+    {
+     "title": "No Financing Offered; High Capital Requirement",
+     "description": "Franchisor provides no direct or indirect financing; total investment ranges $172,000\u2013$490,500 with significant vehicle and equipment costs.",
+     "severity": "medium",
+     "source": "Item 10, p.32; Item 7, p.18"
+    },
+    {
+     "title": "Liquidated Damages on Termination",
+     "description": "If franchisor terminates for franchisee default, franchisee owes royalties and brand fund contributions for the lesser of 2 years or the remaining term.",
+     "severity": "medium",
+     "source": "Item 6, p.15; Item 17, p.55"
+    },
+    {
+     "title": "Territory Can Be Reduced for Underperformance",
+     "description": "Franchisor may reduce, modify, or reallocate territory if franchisee fails to meet minimum operational or performance standards.",
+     "severity": "medium",
+     "source": "Item 12, p.44"
+    },
+    {
+     "title": "Franchisor May Compete via National Accounts",
+     "description": "Franchisor reserves the right to service national/regional accounts and government contracts within franchisee's territory without compensation to franchisee.",
+     "severity": "medium",
+     "source": "Item 12, p.45"
+    },
+    {
+     "title": "Broad Non-Compete (In-Term and Post-Term)",
+     "description": "In-term non-compete covers franchisee, all owners, and their spouses; post-term 2-year non-compete covers all WetFuel territories operating at termination date.",
+     "severity": "medium",
+     "source": "Item 17, p.54"
+    }
+   ],
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "rentDetail": {
+    "rawValue": 1000,
+    "unit": "per_month",
+    "squareFootage": null,
+    "source": "Item 7, p.17 (range $1,000\u2013$3,000/month estimated for one month rent plus security deposit)"
+   },
+   "averageRentMonthly": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": null,
+    "auditOpinion": "unknown",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": null,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": null,
+      "netIncome": null,
+      "totalAssets": null,
+      "totalLiabilities": null,
+      "cash": null,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": null
+     }
+    ]
+   },
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Item 21 discloses only an audited opening balance sheet dated 12/31/2025; no income statement or multi-year financials are available because the franchisor has been in business less than 3 years \u2014 auditor name and opinion could not be confirmed from the provided pages.",
+     "Item 19 is based on a single affiliate-owned outlet for approximately one year; no franchised outlet performance data exists.",
+     "Audited financial statements (Exhibit D) were referenced but not fully reproduced in the provided document pages, so balance sheet figures could not be extracted.",
+     "System has zero franchised units as of the FDD issuance date (March 10, 2026), making this a pre-launch franchise offering with no franchisee track record."
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "Above-market royalty at 9%.",
+    "4 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
+    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+   ],
+   "midCohort": null,
+   "bottomCohort": null,
+   "buildoutMidpoint": 331250,
+   "assumedLoan": 265000,
+   "assumedMonthlyDebtService": 3575.7774145519866,
+   "dscr": null,
+   "rentPctOfRevenue": null,
+   "paybackYears": null,
+   "variableRate": 0.11,
+   "fixedMonthly": 6725,
+   "notes": [
+    "Average rent not found; fixed costs may be understated.",
+    "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 81250,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 81250,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 1096.3468488013166,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $331,250 mid-point build-out, there is a $81,250 capital gap. An SBA loan or an equity partner is required to do this deal."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "Mobile on-demand fuel delivery to commercial fleets and job sites is a B2B trade/field-service business with no retail storefront.",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": null,
+   "marginAfterFeesMonthly": null,
+   "benchmarkOperatingEbitdaMonthly": null,
+   "trueEbitdaBasis": "none",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 10\u201321% \u2014 the 20\u201335% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    10,
+    21
+   ],
+   "buildup": [],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "INSUFFICIENT_DATA",
+   "headline": "We couldn't extract enough of this franchisor's financial statements to assess its condition. Request the audited Item 21 financials and have them reviewed before committing.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [],
+   "mitigants": [],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": null,
+    "revenueTrend": "unknown",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": null,
+    "adjLiabilitiesToAssets": null,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "missing"
+  }
+ }
+}

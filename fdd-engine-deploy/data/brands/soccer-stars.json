@@ -1,0 +1,922 @@
+{
+ "slug": "soccer-stars",
+ "brandName": "Soccer Stars",
+ "category": "Sports & Athletics",
+ "vertical": "Kids & Family",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "soccer-stars",
+ "fileHash": "3bf8b34850c45c21",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": []
+   },
+   "brandName": "Soccer Stars",
+   "franchisorEntity": "Soccer Stars, LLC",
+   "headquarters": "14 George Street, Budd Lake, New Jersey 07828",
+   "brandBackground": "Soccer Stars is a Delaware LLC formed January 7, 2022, offering developmental soccer training and physical fitness programs for children ages 1\u201318 under the trademarks \"Soccer Stars,\" \"Super Soccer Stars,\" and \"Soccer Stars United,\" with franchising begun in August 2022 under parent Super Sports Holdings, LLC (d/b/a Youth Athletes United).",
+   "conceptType": "education_childcare",
+   "conceptRationale": "The franchise delivers structured developmental soccer and fitness curricula to children at schools, parks, and community venues \u2014 a youth enrichment/education service model.",
+   "staffingModel": "lightly_staffed",
+   "staffingRationale": "Franchisees are expected to operate from home, hire part-time coaches per session, and personally manage the business \u2014 a semi-absentee/small-crew model with no brick-and-mortar location requirement.",
+   "leadership": [
+    {
+     "name": "Adam Geisler",
+     "role": "Chief Executive Officer",
+     "background": "CEO of Soccer Stars, LLC since formation (Jan 2022) and simultaneously CEO of Amazing Athletes Franchise Systems, TGA Franchise Systems, and Little Rookies Baseball.",
+     "whyItMatters": "Leads the entire Youth Athletes United franchise portfolio, giving Soccer Stars access to a multi-brand franchise infrastructure."
+    },
+    {
+     "name": "John Erlandson",
+     "role": "President",
+     "background": "President of Soccer Stars since formation (Jan 2022) and concurrently president of Amazing Athletes, JumpBunch, Little Rookies Baseball, and TGA Franchise Systems.",
+     "whyItMatters": "Primary franchisee contact and operational head across the YAU brand family."
+    },
+    {
+     "name": "Khalil A. Haddad",
+     "role": "Chief Financial Officer",
+     "background": "CFO of Soccer Stars since formation and CFO of TGA Franchise Systems, LMS Franchise Systems, Little Rookies Baseball, and JumpBunch.",
+     "whyItMatters": "Oversees financial reporting and controls across all YAU brands."
+    },
+    {
+     "name": "Annie Spaulding",
+     "role": "Chief Operations Officer",
+     "background": "COO of Soccer Stars since January 2024, previously VP of Operations at Super Soccer Stars LLC (2018\u20132022) and Amazing Athletes.",
+     "whyItMatters": "Drives day-to-day franchise operations and system standards."
+    },
+    {
+     "name": "Carmen Bellavia",
+     "role": "Chief Technology Officer",
+     "background": "CTO of Soccer Stars since formation and COO/CTO of Amazing Athletes, TGA, JumpBunch, and Little Rookies Baseball.",
+     "whyItMatters": "Manages the Back Office Platform and all technology infrastructure franchisees depend on."
+    },
+    {
+     "name": "Bob Gibson",
+     "role": "President (Soccer Stars brand) / Training Lead",
+     "background": "President of Soccer Stars since January 2023, previously VP of Operations at Super Soccer Stars LLC (2019\u20132023).",
+     "whyItMatters": "Conducts and supervises the franchisee training program."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp. 62\u201383",
+    "unitsReported": 55,
+    "networkAverageMonthly": 18340.38,
+    "notes": "Item 19 covers January 1\u2013December 31, 2025 for 'Reporting Soccer Stars Outlets' (open at least 1 year, same owner all year). Affiliate-owned outlets (4) reported separately from franchised outlets (55 owners). Data sourced from Royalty Reporting Sheets; not independently audited. Averages are per-owner, not per-unit. Some owners operate multiple units.",
+    "cohorts": [
+     {
+      "label": "Affiliate-Owned Outlets \u2014 Average P&L (4 outlets)",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "sampleSize": 4,
+      "annualRevenue": 1693000,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average of 4 affiliate-owned outlets for FY2025; figures in thousands per Table 1 (Operating Revenue $1,681K + Other Revenue $13K = $1,693K total revenue average per outlet)."
+     },
+     {
+      "label": "Affiliate-Owned Outlets \u2014 Net Income After Royalties (4 outlets)",
+      "ownership": "affiliate",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 4,
+      "annualRevenue": 202000,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average Net Income After Royalties per affiliate outlet per Table 1 FY2025 P&L ($202K, 11.9% net margin)."
+     },
+     {
+      "label": "All Affiliate Outlets \u2014 NY (Gross Revenue)",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 11197607,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Table 2: NY affiliate outlet gross revenue FY2025."
+     },
+     {
+      "label": "All Affiliate Outlets \u2014 CA (Gross Revenue)",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 1486349,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Table 2: CA affiliate outlet gross revenue FY2025."
+     },
+     {
+      "label": "All Affiliate Outlets \u2014 MA (Gross Revenue)",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 1041729,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Table 2: MA affiliate outlet gross revenue FY2025."
+     },
+     {
+      "label": "All Affiliate Outlets \u2014 CA #2 (Gross Revenue)",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 861693,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Table 2: second CA affiliate outlet gross revenue FY2025."
+     },
+     {
+      "label": "All Reporting Franchise Outlets \u2014 Average P&L (Table 3A)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 55,
+      "annualRevenue": 221325,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Table 3A: average total revenue for all reporting franchise outlets FY2025 ($221,325)."
+     },
+     {
+      "label": "All Reporting Franchise Outlets \u2014 Net Income After Royalties (Table 3A)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 55,
+      "annualRevenue": 55871,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Table 3A: average Net Income After Royalties for all reporting franchise outlets FY2025 ($55,871, 25% of revenue)."
+     },
+     {
+      "label": "Multi-Unit Franchise Outlets \u2014 Average P&L (Table 3B)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 23,
+      "annualRevenue": 327600,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Table 3B: average total revenue for multi-unit franchise owners FY2025 ($327,600)."
+     },
+     {
+      "label": "Multi-Unit Franchise Outlets \u2014 Net Income After Royalties (Table 3B)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 23,
+      "annualRevenue": 69198,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Table 3B: average Net Income After Royalties for multi-unit franchise owners FY2025 ($69,198, 21% of revenue)."
+     },
+     {
+      "label": "Single-Unit Franchise Outlets \u2014 Average P&L (Table 3C)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 32,
+      "annualRevenue": 144940,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Table 3C: average total revenue for single-unit franchise owners FY2025 ($144,940)."
+     },
+     {
+      "label": "Single-Unit Franchise Outlets \u2014 Net Income After Royalties (Table 3C)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 32,
+      "annualRevenue": 46291,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Table 3C: average Net Income After Royalties for single-unit franchise owners FY2025 ($46,291, 32% of revenue)."
+     },
+     {
+      "label": "All Franchise Owners \u2014 Average Gross Revenue (Table 4)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 55,
+      "annualRevenue": 220084.6,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Table 4: per-owner average gross revenue FY2025; 20 of 55 owners (36.4%) exceeded the average."
+     },
+     {
+      "label": "All Franchise Owners \u2014 Average Net Income After Royalties (Table 4)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 55,
+      "annualRevenue": 54674.8,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Table 4: per-owner average Net Income After Royalties FY2025; 24 of 55 owners (43.6%) exceeded the average."
+     },
+     {
+      "label": "Top 25% Franchise Owners \u2014 Gross Revenue (Table 5)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 14,
+      "annualRevenue": 456321,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Table 5: top 25% of franchise owners by gross revenue FY2025, average $456,321."
+     },
+     {
+      "label": "Bottom 25% Franchise Owners \u2014 Gross Revenue (Table 5)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 14,
+      "annualRevenue": 74592.79,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Table 5: bottom 25% of franchise owners by gross revenue FY2025, average $74,593."
+     },
+     {
+      "label": "Top 25% Franchise Owners \u2014 Net Income After Royalties (Table 7)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 14,
+      "annualRevenue": 115238.43,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Table 7: top 25% of franchise owners by net income after royalties FY2025, average $115,238."
+     },
+     {
+      "label": "Bottom 25% Franchise Owners \u2014 Net Income After Royalties (Table 7)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 14,
+      "annualRevenue": 7487.71,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Table 7: bottom 25% of franchise owners by net income after royalties FY2025, average $7,488."
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp. 20\u201327",
+    "initialInvestmentLow": 70350,
+    "initialInvestmentHigh": 102250,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 49500,
+      "high": 49500,
+      "recurring": false,
+      "notes": "Lump sum at signing; non-refundable. Veteran/educator discount of $4,950 available."
+     },
+     {
+      "category": "Training Expenses (travel/lodging)",
+      "low": 0,
+      "high": 2000,
+      "recurring": false,
+      "notes": "Franchisee's own out-of-pocket travel to training location."
+     },
+     {
+      "category": "Enhanced Business Coaching and Training Fee",
+      "low": 5750,
+      "high": 5750,
+      "recurring": false,
+      "notes": "Required for first Soccer Stars franchise; paid at signing; applied against coaching visits and calls."
+     },
+     {
+      "category": "Furniture, Fixtures and Equipment",
+      "low": 0,
+      "high": 500,
+      "recurring": false,
+      "notes": "Phone, printer/copier, table and chair if not already owned."
+     },
+     {
+      "category": "Starter Kit and Initial Uniforms and Marketing Materials",
+      "low": 3600,
+      "high": 4000,
+      "recurring": false,
+      "notes": "Purchased from an Affiliate before opening."
+     },
+     {
+      "category": "Computer System",
+      "low": 0,
+      "high": 1000,
+      "recurring": false,
+      "notes": "Off-the-shelf hardware and software if not already owned."
+     },
+     {
+      "category": "Insurance and Professional Services",
+      "low": 1500,
+      "high": 3500,
+      "recurring": false,
+      "notes": "Insurance deposit plus attorney/accountant fees at startup."
+     },
+     {
+      "category": "Permits, Licenses and Certifications",
+      "low": 0,
+      "high": 1000,
+      "recurring": false,
+      "notes": "Varies by state; $0 if already held."
+     },
+     {
+      "category": "Additional Funds \u2014 3 Months",
+      "low": 10000,
+      "high": 20000,
+      "recurring": false,
+      "notes": "Working capital for first 3 months including minimum royalties, payroll, advertising, and misc. Does not include owner salary."
+     },
+     {
+      "category": "Territory Overage Fee",
+      "low": 0,
+      "high": null,
+      "recurring": false,
+      "notes": "$0.13 per person over 400,000 population in Territory; lump sum at signing."
+     },
+     {
+      "category": "Plus Program (Optional)",
+      "low": 0,
+      "high": 15000,
+      "recurring": false,
+      "notes": "Optional; includes training fee up to $10,000 for travel soccer, Spirit League, and/or Shining Soccer Stars programs."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 8,
+    "brandFundPct": 1,
+    "localAdPct": 1,
+    "flatMonthlyFees": [
+     {
+      "name": "Minimum Royalty \u2014 Core Program",
+      "monthlyAmount": 700,
+      "source": "Item 6, p. 10"
+     },
+     {
+      "name": "Minimum Royalty \u2014 Plus Program",
+      "monthlyAmount": 800,
+      "source": "Item 6, p. 10"
+     },
+     {
+      "name": "Minimum National Brand Fund Contribution",
+      "monthlyAmount": 200,
+      "source": "Item 6, p. 10"
+     },
+     {
+      "name": "Technology Fee (first Soccer Stars franchise)",
+      "monthlyAmount": 200,
+      "source": "Item 6, p. 14"
+     },
+     {
+      "name": "Technology Fee (second YAU Brand franchise)",
+      "monthlyAmount": 150,
+      "source": "Item 6, p. 14"
+     },
+     {
+      "name": "Technology Fee (third+ YAU Brand franchise)",
+      "monthlyAmount": 100,
+      "source": "Item 6, p. 14"
+     },
+     {
+      "name": "Credit Card Processing Fee (base)",
+      "monthlyAmount": 20,
+      "source": "Item 6, p. 13"
+     },
+     {
+      "name": "Recruiting Services and Applicant Tracking System Software",
+      "monthlyAmount": 20,
+      "source": "Item 6, p. 16"
+     },
+     {
+      "name": "Sales CRM",
+      "monthlyAmount": 10,
+      "source": "Item 6, p. 17"
+     },
+     {
+      "name": "Bookkeeping (up to)",
+      "monthlyAmount": 150,
+      "source": "Item 6, p. 17"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Grand Opening Marketing Spend",
+     "description": "Franchisee must spend $5,000 per franchised business on grand opening marketing within the first 12 months.",
+     "estimatedAnnualAmount": 5000,
+     "source": "Item 11, p. 41"
+    },
+    {
+     "name": "Annual Conference Fee (per owner)",
+     "description": "Mandatory annual conference attendance fee of $600 per owner plus $400 for second attendee.",
+     "estimatedAnnualAmount": 600,
+     "source": "Item 6, p. 12"
+    },
+    {
+     "name": "Annual Conference Travel Expenses",
+     "description": "Mandatory conference travel, lodging, and meals estimated at $1,000\u2013$2,000 per person.",
+     "estimatedAnnualAmount": 1000,
+     "source": "Item 6, p. 12"
+    },
+    {
+     "name": "Mandatory Non-Attendance Fee",
+     "description": "$1,000 per owner charged if franchisee fails to attend the annual conference.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 12"
+    },
+    {
+     "name": "Equipment Replacement (every 2 years)",
+     "description": "Sports equipment must be replaced at least every 2 years; purchased exclusively from an Affiliate.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 14; Item 8, p. 29"
+    },
+    {
+     "name": "Learning Management System",
+     "description": "Annual fee of $50 for the Learning Management System software.",
+     "estimatedAnnualAmount": 50,
+     "source": "Item 6, p. 17"
+    },
+    {
+     "name": "Merchant Processing Fees (variable)",
+     "description": "Credit card merchant processing fees up to 4% of amounts charged, via Fiserv (exclusive supplier).",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 13"
+    },
+    {
+     "name": "Post-Opening Enhanced Business Coaching (if requested)",
+     "description": "$550 per day per staff member in-person or $80/hour by phone/video for additional coaching after initial period.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 12"
+    },
+    {
+     "name": "Transfer Fee",
+     "description": "$8,750 total transfer fee (split 50/50 between transferor and transferee) if franchisee sells the business.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 12"
+    },
+    {
+     "name": "Successor Franchise Agreement Fee",
+     "description": "$7,500 fee payable at renewal to sign a new franchise agreement.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 12"
+    },
+    {
+     "name": "Default Notice Fee",
+     "description": "$500 fee charged each time franchisor sends a default notice.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 13"
+    },
+    {
+     "name": "Audit Costs (if underreporting >2%)",
+     "description": "Franchisee pays full audit cost including travel, lodging, wages, and legal fees if underreporting exceeds 2% of gross revenues.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 14"
+    },
+    {
+     "name": "Plus Program Training Fee",
+     "description": "One-time $15,000 fee (all three Plus Programs) or $5,000 (one Plus Program) to add optional travel soccer, Spirit League, or Shining Soccer Stars.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 16"
+    },
+    {
+     "name": "Transferee Lead Generation Fee",
+     "description": "$4,500 commission payable to franchisor if it introduces the buyer who purchases the franchised business.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 15"
+    },
+    {
+     "name": "Data Security Safeguard Reimbursement",
+     "description": "Franchisee must reimburse franchisor for all costs of responding to a cyber event caused by the franchisee.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 16"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 84",
+    "totalUnits": 170,
+    "openedLastYear": 22,
+    "closedLastYear": 5,
+    "transfersLastYear": 5
+   },
+   "operationalRisks": [
+    {
+     "title": "Mandatory Minimum Royalty Payments Regardless of Revenue",
+     "description": "Franchisee must pay minimum royalties ($700\u2013$800/month) and minimum brand fund contributions ($200/month) even if generating no revenue, with non-payment risking termination.",
+     "severity": "high",
+     "source": "Item 6, p. 10; Special Risks, p. 5"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution (New York)",
+     "description": "All disputes must be arbitrated in New York, NY, which may increase costs and disadvantage franchisees located in other states.",
+     "severity": "medium",
+     "source": "Item 17, p. 61; Special Risks, p. 5"
+    },
+    {
+     "title": "Spousal Liability Guarantee",
+     "description": "Franchisee's spouse must personally guarantee all financial obligations under the franchise agreement, putting marital assets at risk.",
+     "severity": "high",
+     "source": "Special Risks, p. 5"
+    },
+    {
+     "title": "Non-Exclusive Territory",
+     "description": "Franchisee does not receive an exclusive territory and may face competition from other franchisees, company-owned, or affiliate-owned outlets.",
+     "severity": "medium",
+     "source": "Item 12, p. 48"
+    },
+    {
+     "title": "Franchisor Reservation of Rights to Compete",
+     "description": "Franchisor and affiliates retain broad rights to operate competing businesses, sell through alternate channels, and use other trademarks within or near the franchisee's territory.",
+     "severity": "medium",
+     "source": "Item 12, pp. 49\u201350"
+    },
+    {
+     "title": "Unregistered Trademark (Shining Soccer Stars)",
+     "description": "The 'Shining Soccer Stars' mark is not federally registered; if challenged, franchisee may need to rebrand at their own expense.",
+     "severity": "medium",
+     "source": "Item 13, p. 51"
+    },
+    {
+     "title": "Mandatory Exclusive Supplier Restrictions",
+     "description": "Starter kits, uniforms, equipment, and the Back Office Platform must be purchased exclusively from the franchisor's affiliate; franchisee cannot source independently.",
+     "severity": "medium",
+     "source": "Item 8, pp. 28\u201329"
+    },
+    {
+     "title": "Franchisor Receives Rebates from Suppliers",
+     "description": "Franchisor and affiliates receive 2%\u20135% rebates from designated suppliers (including YAU Sports Store and Fiserv) on franchisee purchases, creating a potential conflict of interest.",
+     "severity": "medium",
+     "source": "Item 8, p. 30"
+    },
+    {
+     "title": "Renewal Requires Signing New Agreement with Potentially Different Terms",
+     "description": "Renewal requires executing the then-current franchise agreement, which may contain materially different and less favorable terms.",
+     "severity": "medium",
+     "source": "Item 17, p. 55"
+    },
+    {
+     "title": "Post-Termination Non-Compete (10-Mile Radius)",
+     "description": "After termination or expiration, franchisee and owners are prohibited from operating a similar business within the territory and within 10 miles of any Soccer Stars territory.",
+     "severity": "high",
+     "source": "Item 17, p. 60"
+    },
+    {
+     "title": "Student List Owned by Franchisor",
+     "description": "All customer/student lists generated during operation are the sole property of the franchisor and must be surrendered upon termination.",
+     "severity": "medium",
+     "source": "Item 14, p. 53"
+    },
+    {
+     "title": "Franchisor Can Modify Business Model Without Consent",
+     "description": "Franchisor may change the Confidential Operating Manual, system standards, and required products/services at any time, potentially requiring additional franchisee investment.",
+     "severity": "medium",
+     "source": "Item 8, p. 28; Item 11, p. 36"
+    },
+    {
+     "title": "Young Franchise System with Limited Track Record",
+     "description": "Soccer Stars, LLC was formed in January 2022 and began franchising in August 2022; the system has limited operating history as a franchisor.",
+     "severity": "medium",
+     "source": "Item 1, p. 8"
+    },
+    {
+     "title": "Prior Litigation \u2014 Franchisee Termination Dispute",
+     "description": "A 2025 arbitration (Nurture Nexus Soccer LLC v. Soccer Stars, LLC) over alleged improper termination was settled in February 2026 with Soccer Stars paying $22,616.80.",
+     "severity": "low",
+     "source": "Item 3, p. 7"
+    }
+   ],
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "squareFootage": null,
+    "source": "Item 7, p. 22 \u2014 FDD states franchisees are expected to operate from home; no lease or office space is required, so no rent figure is disclosed."
+   },
+   "averageRentMonthly": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "CohnReznick LLP",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "Super Sports Holdings, LLC",
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 3135893,
+      "netIncome": 848988,
+      "totalAssets": 6966184,
+      "totalLiabilities": 4630025,
+      "cash": 22775,
+      "currentAssets": 2487384,
+      "currentLiabilities": 1274785,
+      "relatedPartyDebt": 454120,
+      "deferredRevenue": 3940860,
+      "netWorth": 2336159
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 3016296,
+      "netIncome": 1116775,
+      "totalAssets": 6285288,
+      "totalLiabilities": 4563057,
+      "cash": 50320,
+      "currentAssets": 1840586,
+      "currentLiabilities": 578624,
+      "relatedPartyDebt": 575450,
+      "deferredRevenue": 3871251,
+      "netWorth": 1722231
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 1740515,
+      "netIncome": 668807,
+      "totalAssets": 3956741,
+      "totalLiabilities": 3351285,
+      "cash": 153235,
+      "currentAssets": 1663799,
+      "currentLiabilities": 1199572,
+      "relatedPartyDebt": 576431,
+      "deferredRevenue": 2553315,
+      "netWorth": 605456
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "Above-market royalty at 8%.",
+    "3 high-severity operational tripwires disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Network Average",
+    "monthlyRevenue": 18340.38,
+    "monthlyVariable": 1834.0380000000002,
+    "monthlyFixed": 2350,
+    "monthlyEbitda": 14156.342,
+    "annualEbitda": 169876.104,
+    "coversCosts": true,
+    "source": {
+     "basis": "network",
+     "label": "network average of disclosed cohorts",
+     "math": null
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 86300,
+   "assumedLoan": 69040,
+   "assumedMonthlyDebtService": 931.5912177383741,
+   "dscr": 15.195873179619898,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.5080173018331055,
+   "variableRate": 0.1,
+   "fixedMonthly": 2350,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 14156.342,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $86,300 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $14,156/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "education_childcare",
+   "conceptLabel": "Education / childcare",
+   "conceptRationale": "The franchise delivers structured developmental soccer and fitness curricula to children at schools, parks, and community venues \u2014 a youth enrichment/education service model.",
+   "benchmark": {
+    "label": "Education / childcare",
+    "cogsPct": [
+     5,
+     12
+    ],
+    "laborPct": [
+     40,
+     55
+    ],
+    "occupancyPct": [
+     10,
+     18
+    ],
+    "operatingEbitdaPct": [
+     10,
+     20
+    ],
+    "dominantRisk": "Regulated staff ratios and enrollment/utilization. Labor dominates and ratios cap how lean you can run.",
+    "rampNote": "12\u201324 months to mature enrollment.",
+    "considerations": [
+     "Labor is the dominant line at ~40\u201355% and is floored by regulated student/staff ratios.",
+     "Validate enrollment ramp and capacity-utilization curves with Item 20 operators.",
+     "Confirm licensing, facility, and compliance costs specific to your state \u2014 not in the FDD."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201320% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 18340.38,
+   "marginAfterFeesMonthly": 14156.342,
+   "benchmarkOperatingEbitdaMonthly": [
+    768,
+    6637
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 20\u201333% \u2014 the 40\u201355% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    20,
+    33
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      14156.342,
+      14156.342
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      18
+     ],
+     "dollarRange": [
+      1834,
+      3301
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      5,
+      12
+     ],
+     "dollarRange": [
+      917,
+      2201
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      20,
+      33
+     ],
+     "dollarRange": [
+      3668,
+      6052
+     ],
+     "note": "lightly staffed \u00b7 \u2248 1.1\u20131.7 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      1100,
+      1834
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      768,
+      6637
+     ],
+     "note": "\u2248 4% to 36% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cEducation / childcare\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 10\u201318% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 5\u201312% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 20\u201333% lightly staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": null,
+   "body": [
+    "What we found (2025-12-31, audited by CohnReznick LLP): Net income of $849K on $3.14M of revenue \u2014 roughly 0.7x spent per $1 earned. Losses are widening, not shrinking. Positive net worth of $2.34M. Cash of $23K against $1.27M of obligations due within a year (a current ratio of 1.95). Note: about 85% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.1x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Super Sports Holdings, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "positive net worth",
+    "the business is profitable"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": 2336159,
+    "netWorthSign": "positive",
+    "netWorthTrend": "improving",
+    "netIncome": 848988,
+    "netIncomeTrend": "worsening",
+    "revenue": 3135893,
+    "revenueTrend": "flat",
+    "currentRatio": 1.9512184407566766,
+    "workingCapital": 1212599,
+    "liabilitiesToAssets": 0.6646429379413463,
+    "adjLiabilitiesToAssets": 0.09893005984338053,
+    "relatedPartyDebtPct": 0.09808154383615639,
+    "deferredRevenuePct": 0.8511530715276915,
+    "expenseToRevenue": 0.7292675483506612,
+    "cash": 22775,
+    "nearTermObligations": 1274785
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

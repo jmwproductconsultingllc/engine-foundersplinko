@@ -1,0 +1,808 @@
+{
+ "slug": "the-little-gym",
+ "brandName": "The Little Gym",
+ "category": "Fitness & Gym",
+ "vertical": "Kids & Family",
+ "grade": "READY",
+ "parseQuality": "degraded-fallback",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "little-gym",
+ "fileHash": "9a59ecfc59fa129d",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": []
+   },
+   "brandName": "The Little Gym",
+   "franchisorEntity": "TLGI, LLC",
+   "headquarters": "Bedford, Texas 76022",
+   "brandBackground": "The Little Gym is a children's physical fitness and recreational gymnastics franchise founded in 1992, now a subsidiary of Unleashed Brands, offering motor skills development and enrichment programs for children in a non-threatening, motivational environment.",
+   "conceptType": "education_childcare",
+   "conceptRationale": "The brand provides structured physical fitness, gymnastics, and motor skills development programs exclusively for children, placing it squarely in the education/childcare enrichment category.",
+   "staffingModel": "staffed",
+   "staffingRationale": "Item 15 requires a full-time Designated Manager and gym director on-site daily, and Item 11 describes a staffed class-instruction model requiring trained instructors.",
+   "leadership": [
+    {
+     "name": "Samantha Musonda",
+     "role": "President, TLGI LLC",
+     "background": "President since January 2025; previously VP of Operations and Director of Consulting at The Little Gym since 2016.",
+     "whyItMatters": "Direct operational leader of the franchise system."
+    },
+    {
+     "name": "Michael Browning, Jr.",
+     "role": "Chief Executive Officer, Unleashed Brands / Unleashed Services",
+     "background": "CEO of Unleashed Brands since July 2021; co-founder and former CEO of UATP (Urban Air).",
+     "whyItMatters": "Sets overall strategic direction for the parent platform."
+    },
+    {
+     "name": "Jon Shell",
+     "role": "Chief Financial Officer, Unleashed Services",
+     "background": "CFO at Unleashed Services since December 2024; previously CFO and interim CEO at Neighborly.",
+     "whyItMatters": "Oversees financial health of the parent entity guaranteeing franchisee obligations."
+    },
+    {
+     "name": "Joshua Wall",
+     "role": "Chief Operating Officer, Unleashed Services",
+     "background": "COO since January 2025; previously Chief Growth Officer and UATP's Chief Franchise Officer.",
+     "whyItMatters": "Primary franchisor contact for franchisee support and operations."
+    },
+    {
+     "name": "Stephen Polozola",
+     "role": "Chief Legal Officer, Unleashed Services",
+     "background": "CLO since July 2021; co-founder and former General Counsel of UATP.",
+     "whyItMatters": "Oversees all legal and compliance matters affecting franchisees."
+    },
+    {
+     "name": "Ryan Slemons",
+     "role": "Chief Development Officer, Unleashed Services",
+     "background": "CDO since April 2023; previously VP of Global Real Estate at GameStop and Head of Real Estate at Amazon.",
+     "whyItMatters": "Leads site selection and real estate strategy for new franchise locations."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp. 57-62",
+    "unitsReported": 166,
+    "networkAverageMonthly": null,
+    "cohorts": [
+     {
+      "label": "Top Quartile \u2013 All Franchised Units (Gross Sales)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 41,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 1043656,
+      "basis": "Average annual gross sales for top quartile of 166 franchised units open full year in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Top Quartile \u2013 All Franchised Units (EBITDA)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 41,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 372316,
+      "basis": "Average EBITDA for top quartile of 166 franchised units open full year in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "2nd Quartile \u2013 All Franchised Units (Gross Sales)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 41,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 749539,
+      "basis": "Average annual gross sales for 2nd quartile of 166 franchised units open full year in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "2nd Quartile \u2013 All Franchised Units (EBITDA)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 41,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 217415,
+      "basis": "Average EBITDA for 2nd quartile of 166 franchised units open full year in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "3rd Quartile \u2013 All Franchised Units (Gross Sales)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 42,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 530861,
+      "basis": "Average annual gross sales for 3rd quartile of 166 franchised units open full year in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "3rd Quartile \u2013 All Franchised Units (EBITDA)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 42,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 105011,
+      "basis": "Average EBITDA for 3rd quartile of 166 franchised units open full year in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "4th Quartile \u2013 All Franchised Units (Gross Sales)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 42,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 321067,
+      "basis": "Average annual gross sales for 4th quartile of 166 franchised units open full year in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "4th Quartile \u2013 All Franchised Units (EBITDA)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 42,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": -10654,
+      "basis": "Average EBITDA for 4th quartile of 166 franchised units open full year in FY2025 (negative average).",
+      "monthlyValues": []
+     },
+     {
+      "label": "Top Quartile \u2013 Non-PE-Backed Units (Gross Sales)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 36,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 1038088,
+      "basis": "Average annual gross sales for top quartile of non-private-equity-backed franchised units in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Top Quartile \u2013 Non-PE-Backed Units (EBITDA)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 36,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 356346,
+      "basis": "Average EBITDA for top quartile of non-PE-backed franchised units in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "2nd Quartile \u2013 Non-PE-Backed Units (Gross Sales)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 36,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 710336,
+      "basis": "Average annual gross sales for 2nd quartile of non-PE-backed franchised units in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "2nd Quartile \u2013 Non-PE-Backed Units (EBITDA)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 36,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 204542,
+      "basis": "Average EBITDA for 2nd quartile of non-PE-backed franchised units in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "3rd Quartile \u2013 Non-PE-Backed Units (Gross Sales)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 37,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 493695,
+      "basis": "Average annual gross sales for 3rd quartile of non-PE-backed franchised units in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "3rd Quartile \u2013 Non-PE-Backed Units (EBITDA)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 37,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 87306,
+      "basis": "Average EBITDA for 3rd quartile of non-PE-backed franchised units in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "4th Quartile \u2013 Non-PE-Backed Units (Gross Sales)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 37,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 310507,
+      "basis": "Average annual gross sales for 4th quartile of non-PE-backed franchised units in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "4th Quartile \u2013 Non-PE-Backed Units (EBITDA)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 37,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": -8097,
+      "basis": "Average EBITDA for 4th quartile of non-PE-backed franchised units in FY2025 (negative average).",
+      "monthlyValues": []
+     },
+     {
+      "label": "Top Quartile \u2013 PE-Backed Units (Gross Sales)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 5,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 973509,
+      "basis": "Average annual gross sales for top quartile of private-equity-backed franchised units in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Top Quartile \u2013 PE-Backed Units (EBITDA)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 5,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 396853,
+      "basis": "Average EBITDA for top quartile of PE-backed franchised units in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "2nd Quartile \u2013 PE-Backed Units (Gross Sales)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 5,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 860635,
+      "basis": "Average annual gross sales for 2nd quartile of PE-backed franchised units in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "2nd Quartile \u2013 PE-Backed Units (EBITDA)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 5,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 275352,
+      "basis": "Average EBITDA for 2nd quartile of PE-backed franchised units in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "3rd Quartile \u2013 PE-Backed Units (Gross Sales)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 5,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 767482,
+      "basis": "Average annual gross sales for 3rd quartile of PE-backed franchised units in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "3rd Quartile \u2013 PE-Backed Units (EBITDA)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 5,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 238521,
+      "basis": "Average EBITDA for 3rd quartile of PE-backed franchised units in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "4th Quartile \u2013 PE-Backed Units (Gross Sales)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 5,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 497426,
+      "basis": "Average annual gross sales for 4th quartile of PE-backed franchised units in FY2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "4th Quartile \u2013 PE-Backed Units (EBITDA)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 5,
+      "avgMonthlyRevenue": null,
+      "annualRevenue": 93120,
+      "basis": "Average EBITDA for 4th quartile of PE-backed franchised units in FY2025.",
+      "monthlyValues": []
+     }
+    ],
+    "notes": "Item 19 presents three tables: Table 1 (all 166 reporting franchised units), Table 2 (non-PE-backed subset), and Table 3 (PE-backed subset), each broken into four revenue quartiles with corresponding EBITDA data. 89 of 255 open units were excluded (39 not open full year, 50 incomplete data). Data is self-reported and unaudited."
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp. 17-20",
+    "initialInvestmentLow": 420324,
+    "initialInvestmentHigh": 722773,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 59500,
+      "high": 59500,
+      "recurring": false,
+      "notes": "Lump sum due on signing Franchise Agreement; non-refundable."
+     },
+     {
+      "category": "Lease Payments (one month rent and security deposit)",
+      "low": 12000,
+      "high": 30000,
+      "recurring": false,
+      "notes": "One month rent plus one month security deposit paid to landlord on lease signing."
+     },
+     {
+      "category": "Leasehold and Tenant Improvements",
+      "low": 135240,
+      "high": 325644,
+      "recurring": false,
+      "notes": "Build-out costs for 2,800\u20134,200 sq ft space; assumes at least $20/sqft landlord allowance for second-generation space."
+     },
+     {
+      "category": "Architectural & Construction Management Fees",
+      "low": 16700,
+      "high": 25000,
+      "recurring": false,
+      "notes": "Architectural, MEP plans, permits, bonds, and construction management."
+     },
+     {
+      "category": "Signage (interior and exterior)",
+      "low": 24000,
+      "high": 35000,
+      "recurring": false,
+      "notes": "Exterior channel letters, monument sign, window graphics, and interior signage."
+     },
+     {
+      "category": "Initial Inventory and Equipment Package",
+      "low": 65000,
+      "high": 75000,
+      "recurring": false,
+      "notes": "Purchased from franchisor; includes gym equipment, marketing materials, uniforms, POS hardware/software, and technology package."
+     },
+     {
+      "category": "Furniture, Fixtures and Equipment",
+      "low": 15000,
+      "high": 18000,
+      "recurring": false,
+      "notes": "Lobby furniture, office furniture, shelving, appliances, and miscellaneous equipment not in the equipment package."
+     },
+     {
+      "category": "Computer Systems, A/V, Security Surveillance System, Other Systems",
+      "low": 7000,
+      "high": 9000,
+      "recurring": false,
+      "notes": "Computer systems, security cameras, audio/visual equipment not in the Start-Up Package."
+     },
+     {
+      "category": "Training Related Expenses",
+      "low": 17500,
+      "high": 22500,
+      "recurring": false,
+      "notes": "Pre-opening payroll (3 months gym director salary), travel, lodging, and meals for training."
+     },
+     {
+      "category": "Legal, Accounting and other Professional Fees",
+      "low": 5000,
+      "high": 11000,
+      "recurring": false,
+      "notes": "Attorney, CPA, and other professional fees for franchise review and start-up."
+     },
+     {
+      "category": "Technology Fees and Call Center",
+      "low": 244,
+      "high": 289,
+      "recurring": true,
+      "notes": "Monthly technology stack and call center fees paid to franchisor or affiliate."
+     },
+     {
+      "category": "Insurance Deposit and Premium",
+      "low": 2440,
+      "high": 2840,
+      "recurring": false,
+      "notes": "Initial deposit (approx. 20% of annual premium) plus three months of premium payments."
+     },
+     {
+      "category": "Business Licenses and Permits",
+      "low": 500,
+      "high": 1000,
+      "recurring": false,
+      "notes": "Local and state business licenses and permits required before opening."
+     },
+     {
+      "category": "Grand Opening Marketing",
+      "low": 20000,
+      "high": 25000,
+      "recurring": false,
+      "notes": "Advertising and promotional expenses for grand opening; paid to franchisor, affiliate, or designated suppliers."
+     },
+     {
+      "category": "Initial Supplies",
+      "low": 1200,
+      "high": 2000,
+      "recurring": false,
+      "notes": "Initial operating supplies purchased from approved suppliers before opening."
+     },
+     {
+      "category": "Additional Funds \u2013 3 Months",
+      "low": 39000,
+      "high": 81000,
+      "recurring": false,
+      "notes": "Working capital for first three months of operations, excluding owner salary and debt service."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 8,
+    "brandFundPct": 1,
+    "localAdPct": 5,
+    "flatMonthlyFees": [
+     {
+      "name": "Minimum Royalty",
+      "monthlyAmount": 2500,
+      "source": "Item 6, p. 9"
+     },
+     {
+      "name": "Technology Fee (base stack)",
+      "monthlyAmount": 119,
+      "source": "Item 6, p. 9"
+     },
+     {
+      "name": "Call Center Fee (Service Fee)",
+      "monthlyAmount": null,
+      "source": "Item 6, p. 10 \u2014 currently $80\u2013$120 per month per Gym plus pro-rata e-commerce variable cost"
+     },
+     {
+      "name": "Conference Fee (annual)",
+      "monthlyAmount": null,
+      "source": "Item 6, p. 10 \u2014 currently $950\u2013$1,350 per attendee per year, up to $1,500"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Call Center Fee \u2013 E-commerce Variable Cost",
+     "description": "Pro-rata share of hosting, merchant fees, sales tax administration, fraud prevention, and chargeback costs for the e-commerce platform, in addition to the base Service Fee.",
+     "source": "Item 6, p. 16",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Compliance Review / Mystery Shop Fee",
+     "description": "Per-audit fee of $1,500\u2013$3,500 payable to franchisor or designated supplier for mystery shops or operations audits.",
+     "source": "Item 6, p. 11",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Audit Costs",
+     "description": "Actual cost of financial audit ($4,800\u2013$5,500 per audit) if franchisee fails to provide records or understates gross sales by more than 2%.",
+     "source": "Item 6, p. 13",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Annual Conference Fee",
+     "description": "Mandatory annual conference attendance fee of $950\u2013$1,350 per attendee (up to $1,500 if late), plus travel, hotel, and wages.",
+     "source": "Item 6, p. 10",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Additional On-Site Assistance Fee",
+     "description": "Per-day fee of $500\u2013$2,500 plus travel and accommodations if franchisee requests or franchisor requires on-site training for second or subsequent locations.",
+     "source": "Item 6, p. 10",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Supplier Review Fee",
+     "description": "Reimbursement of franchisor's costs for evaluating an alternative supplier or product proposed by franchisee.",
+     "source": "Item 6, p. 11",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Gift Card / Loyalty Program Administrative Fee",
+     "description": "Up to 7% administrative fee retained by vendor or affiliate on gift card redemptions; currently $0 but subject to institution.",
+     "source": "Item 6, p. 11",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Dashboard Access License Fee",
+     "description": "First license waived; $10 per month per additional license for dashboard access.",
+     "source": "Item 6, p. 11",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Internet Service Provider (ISP) Fee",
+     "description": "Monthly ISP fee of $80\u2013$120 plus $50\u2013$250 in monthly online costs required by franchisor.",
+     "source": "Item 11, p. 35",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Membership Program Fee (NAF deduction)",
+     "description": "Franchisor collects all membership dues and disburses to franchisee less NAF Contribution and Membership Program Fee; exact fee amount not separately stated.",
+     "source": "Item 6, p. 17 (Note 11)",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Resale Program Fee",
+     "description": "4% of purchase price or then-current initial franchise fee ($59,500), whichever is greater, if franchisee elects to use the Resale Program upon sale.",
+     "source": "Item 6, p. 13",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "totalUnits": 256,
+    "openedLastYear": 43,
+    "closedLastYear": 6,
+    "transfersLastYear": 4,
+    "sourcePage": "Item 20, p. 63"
+   },
+   "rentDetail": {
+    "rawValue": 34.5,
+    "unit": "per_sqft_per_year",
+    "squareFootage": null,
+    "source": "Item 7, p. 19 (Note 2) \u2014 rent ranges from $24 to $45 gross per square foot; midpoint used; site size 2,800\u20134,200 sq ft"
+   },
+   "averageRentMonthly": null,
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "operationalRisks": [
+    {
+     "title": "Mandatory Minimum Royalty Regardless of Sales",
+     "description": "Franchisee must pay $2,500/month minimum royalty even if gross sales are insufficient to cover it, risking termination and loss of investment.",
+     "severity": "high",
+     "source": "Item 6, p. 9; Special Risks, p. iv"
+    },
+    {
+     "title": "Significant Number of Unopened Franchise Agreements",
+     "description": "93 franchise agreements signed but not yet open as of December 31, 2025; delays experienced by others may affect new franchisee openings.",
+     "severity": "medium",
+     "source": "Item 20, p. 68; Special Risks, p. iv"
+    },
+    {
+     "title": "Mandatory Multi-Unit Development (Minimum 2 Units)",
+     "description": "Franchisees must commit to develop at least two locations under a Development Agreement, doubling capital exposure before the first unit is proven.",
+     "severity": "high",
+     "source": "Item 1, p. 3; Item 5, p. 8"
+    },
+    {
+     "title": "Supplier Control and Restricted Purchasing",
+     "description": "Franchisee must purchase nearly all supplies, equipment, and services from franchisor-designated suppliers at prices set by the franchisor, which may exceed open-market prices.",
+     "severity": "medium",
+     "source": "Item 8, pp. 21-24; Special Risks, p. iv"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution (Texas)",
+     "description": "All disputes must be arbitrated or litigated in Texas, which may be costly and disadvantageous for franchisees located in other states.",
+     "severity": "medium",
+     "source": "Item 17, p. 52; Special Risks, p. iv"
+    },
+    {
+     "title": "Franchisor Access to Member Data Upon Termination",
+     "description": "Upon termination, franchisor and affiliates may use all member information in any manner, including to compete with or solicit former franchisee's customers.",
+     "severity": "medium",
+     "source": "Item 16, p. 45"
+    },
+    {
+     "title": "Broad Non-Compete During and After Term",
+     "description": "In-term non-compete covers all competitive businesses in the US; post-term 2-year non-compete covers former Protected Area and 25-mile radius of any other The Little Gym.",
+     "severity": "medium",
+     "source": "Item 17, pp. 52-53"
+    },
+    {
+     "title": "Tariff Risk on Build-Out and Equipment Costs",
+     "description": "U.S. government tariffs on imported goods (including from China) may materially increase initial investment costs for build-out, fixtures, equipment, and supplies.",
+     "severity": "medium",
+     "source": "Item 7, p. 20 (Note 13)"
+    },
+    {
+     "title": "Childcare and Health Club Regulatory Complexity",
+     "description": "Franchised gyms may be subject to daycare, health club, or amusement ride regulations varying by jurisdiction, requiring additional licensing, bonding, and compliance costs.",
+     "severity": "medium",
+     "source": "Item 1, pp. 3-4"
+    },
+    {
+     "title": "Franchisor Can Modify Business Model Without Consent",
+     "description": "Franchisor may change the Manual, system standards, and technology requirements at any time, potentially requiring additional franchisee investment.",
+     "severity": "medium",
+     "source": "Item 3 (general franchising risks), p. iii"
+    }
+   ],
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "Deloitte & Touche LLP",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "UA Holdings, LLC",
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 194710000,
+      "netIncome": -68667000,
+      "totalAssets": 883138000,
+      "totalLiabilities": 532132000,
+      "cash": 13144000,
+      "currentAssets": 69632000,
+      "currentLiabilities": 60143000,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 70156000,
+      "netWorth": 351006000
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 151487000,
+      "netIncome": -59616000,
+      "totalAssets": 781616000,
+      "totalLiabilities": 419045000,
+      "cash": 16048000,
+      "currentAssets": 64898000,
+      "currentLiabilities": 61350000,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 70657000,
+      "netWorth": 362571000
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "Above-market royalty at 8%.",
+    "2 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
+    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+   ],
+   "midCohort": null,
+   "bottomCohort": null,
+   "buildoutMidpoint": 571548.5,
+   "assumedLoan": 457238.80000000005,
+   "assumedMonthlyDebtService": 6169.751600365484,
+   "dscr": null,
+   "rentPctOfRevenue": null,
+   "paybackYears": null,
+   "variableRate": 0.14,
+   "fixedMonthly": 2619,
+   "notes": [
+    "Average rent not found; fixed costs may be understated.",
+    "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 321548.5,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 321548.5,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 4338.814581068186,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $571,549 mid-point build-out, there is a $321,549 capital gap. An SBA loan or an equity partner is required to do this deal."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "education_childcare",
+   "conceptLabel": "Education / childcare",
+   "conceptRationale": "The brand provides structured physical fitness, gymnastics, and motor skills development programs exclusively for children, placing it squarely in the education/childcare enrichment category.",
+   "benchmark": {
+    "label": "Education / childcare",
+    "cogsPct": [
+     5,
+     12
+    ],
+    "laborPct": [
+     40,
+     55
+    ],
+    "occupancyPct": [
+     10,
+     18
+    ],
+    "operatingEbitdaPct": [
+     10,
+     20
+    ],
+    "dominantRisk": "Regulated staff ratios and enrollment/utilization. Labor dominates and ratios cap how lean you can run.",
+    "rampNote": "12\u201324 months to mature enrollment.",
+    "considerations": [
+     "Labor is the dominant line at ~40\u201355% and is floored by regulated student/staff ratios.",
+     "Validate enrollment ramp and capacity-utilization curves with Item 20 operators.",
+     "Confirm licensing, facility, and compliance costs specific to your state \u2014 not in the FDD."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201320% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": null,
+   "marginAfterFeesMonthly": null,
+   "benchmarkOperatingEbitdaMonthly": null,
+   "trueEbitdaBasis": "none",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    40,
+    55
+   ],
+   "buildup": [],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cEducation / childcare\u201d from the FDD (Item 1 / brand description)."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "This franchisor is losing money as it grows (a net loss of $68.67M in the most recent year), though it still has positive net worth. Worth understanding how long its runway lasts.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; positive net worth; the parent guarantees the franchisor's performance. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "What we found (2024-12-31, audited by Deloitte & Touche LLP): Net loss of $68.67M on $194.71M of revenue \u2014 roughly 1.4x spent per $1 earned. Losses are widening, not shrinking. Positive net worth of $351.01M. Cash of $13.14M against $60.14M of obligations due within a year (a current ratio of 1.16). Note: about 13% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.5x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. UA Holdings, LLC guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "operating losses that are widening"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "positive net worth",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2024-12-31",
+    "netWorth": 351006000,
+    "netWorthSign": "positive",
+    "netWorthTrend": "flat",
+    "netIncome": -68667000,
+    "netIncomeTrend": "worsening",
+    "revenue": 194710000,
+    "revenueTrend": "improving",
+    "currentRatio": 1.1577739720333207,
+    "workingCapital": 9489000,
+    "liabilitiesToAssets": 0.6025468273361582,
+    "adjLiabilitiesToAssets": 0.5231073739324998,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": 0.1318394684025768,
+    "expenseToRevenue": 1.352662934620718,
+    "cash": 13144000,
+    "nearTermObligations": 60143000
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

@@ -1,0 +1,703 @@
+{
+ "slug": "story-time-chess",
+ "brandName": "Story Time Chess",
+ "category": "Education & STEM",
+ "vertical": "Kids & Family",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "story time chess",
+ "fileHash": "e76ee3b8a71cfb81",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Exhibit C (Financial Statements) page is present but the actual financial statement figures are not rendered in the extracted text \u2014 only the cover page is visible; financial condition fields populated from what is disclosed in Item 21 narrative only.",
+     "Franchisor entity was formed March 31, 2026 \u2014 only an audited opening balance sheet (April 14, 2026) and predecessor audited statements are available; no multi-year income statement data for the franchisor itself.",
+     "Only 2 franchised outlets exist as of December 31, 2025; Item 19 data is based on company-owned/affiliate locations only, limiting comparability to franchisee performance."
+    ]
+   },
+   "brandName": "Story Time Chess",
+   "franchisorEntity": "Story Time Chess Franchising LLC",
+   "headquarters": "Nashville, Tennessee",
+   "brandBackground": "Story Time Chess is a children's chess and games education brand founded through affiliate Thinking Cup Games LLC (est. 2017), operating since 2011 in Hong Kong and offering U.S. franchises since May 2025.",
+   "conceptType": "education_childcare",
+   "conceptRationale": "The franchise delivers chess and games instruction to children ages 3\u20138 at schools, community venues, and homes \u2014 a children's educational enrichment service.",
+   "staffingModel": "lightly_staffed",
+   "staffingRationale": "Franchisee operates from a home-based office, travels to venues to teach, and may hire instructors; Item 15 requires owner/manager full-time involvement but no brick-and-mortar staff.",
+   "leadership": [
+    {
+     "name": "Paul Levy",
+     "role": "Chief Executive Officer",
+     "background": "CEO of Story Time Chess Franchising LLC and parent Thinking Cup Inc. since April 2024; prior COO/co-founder of Burst.it Inc. for 12 years.",
+     "whyItMatters": "Top executive responsible for overall franchise strategy and operations."
+    },
+    {
+     "name": "Jon Sieber",
+     "role": "Co-Founder and President of Franchising",
+     "background": "Co-founder of Thinking Cup Learning since 2015 and President of franchising since inception; helped write the chess curriculum and trained hundreds of tutors.",
+     "whyItMatters": "Leads franchise development and conducts initial training."
+    },
+    {
+     "name": "Harlan J. Alford",
+     "role": "Co-Founder and President of Owned and Operated Units",
+     "background": "Co-founder of Thinking Cup Learning since 2015; oversees company-owned locations and curriculum tutoring.",
+     "whyItMatters": "Oversees the company-owned unit operations that generate the Item 19 data."
+    },
+    {
+     "name": "Edward Huang",
+     "role": "President of Curriculum Licensing",
+     "background": "General counsel and technology product manager at Thinking Cup Inc. since January 2023; prior founder/COO of Seed & Stone Inc.",
+     "whyItMatters": "Manages curriculum IP and technology systems franchisees must use."
+    },
+    {
+     "name": "Jessica Finney",
+     "role": "Vice President of Curriculum & Training",
+     "background": "VP of Curriculum & Training at Thinking Cup Inc. since January 2024; built the mentorship and tutor training program over 10+ years.",
+     "whyItMatters": "Designs and delivers the franchisee training program."
+    },
+    {
+     "name": "Nicholas Nieves",
+     "role": "Senior Director of Growth and Tutor Operations",
+     "background": "Senior Director at Thinking Cup Inc. since January 2024; previously Tutor Director at Chess at Three.",
+     "whyItMatters": "Manages tutor operations and growth initiatives supporting franchisees."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, p.37-39",
+    "unitsReported": 1,
+    "networkAverageMonthly": 41775,
+    "notes": "Item 19 discloses data for one company-owned affiliate location in Los Angeles, CA (representative of 2 territories, open since 2022). A separate gross-sales breakdown for two New York company-owned locations (without retail) is also disclosed. No franchisee financial performance data is included. The LA P&L includes a pro-forma adjustment for franchise-related expenses not incurred by the company-owned outlet. Data is unaudited.",
+    "cohorts": [
+     {
+      "label": "LA Company-Owned Location \u2013 Gross Sales",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 501298,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [
+       30940,
+       45296,
+       48498,
+       45893,
+       52416,
+       39424,
+       35033,
+       32752,
+       40142,
+       52980,
+       45663,
+       32261
+      ],
+      "basis": "2025 full-year gross sales for the Los Angeles, CA company-owned affiliate location (representative of 2 territories); unaudited."
+     },
+     {
+      "label": "LA Company-Owned Location \u2013 Net Profit Less Disclosed Expenses",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 1,
+      "annualRevenue": 284091,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "2025 gross profit less disclosed expenses (direct labor, legal/professional, merchant processing, advertising, software, insurance) for LA location; excludes royalty, brand fund, and technology fees."
+     },
+     {
+      "label": "LA Company-Owned Location \u2013 Net Profit Less Disclosed and Franchise Expenses",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 1,
+      "annualRevenue": 233961,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "2025 pro-forma net profit after adding estimated franchise-related expenses (7% royalty, 2% brand fund, 1% technology fee) not incurred by the company-owned outlet; unaudited."
+     },
+     {
+      "label": "New York Company-Owned Locations (UWS + Tribeca) \u2013 Gross Sales",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "sampleSize": 2,
+      "annualRevenue": 688265,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "2025 combined gross sales for two NY company-owned locations (UWS: $385,001; Tribeca: $303,264), excluding retail offerings; comingled bookkeeping prevents unit-level P&L."
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, p.16-17",
+    "initialInvestmentLow": 65579,
+    "initialInvestmentHigh": 87227,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 49500,
+      "high": 49500,
+      "recurring": false,
+      "notes": "Lump sum due on signing; non-refundable. Item 5, p.10"
+     },
+     {
+      "category": "Starter Kit",
+      "low": 2720,
+      "high": 5750,
+      "recurring": false,
+      "notes": "Branded signage, printing, and equipment for approximately 3 months. Item 7, p.16"
+     },
+     {
+      "category": "Equipment",
+      "low": 669,
+      "high": 2267,
+      "recurring": false,
+      "notes": "Board games, lesson books, and marketing materials (backpacks, flyers); paid to franchisor. Item 7, p.16"
+     },
+     {
+      "category": "Computer System and Point of Sale System",
+      "low": 360,
+      "high": 2650,
+      "recurring": false,
+      "notes": "Hardware and software meeting minimum specs; includes desktop, iPad, and initial software license. Item 7, p.16"
+     },
+     {
+      "category": "Business Permits and Licenses",
+      "low": 0,
+      "high": 1000,
+      "recurring": false,
+      "notes": "Local business licenses; cost varies by location. Item 7, p.17"
+     },
+     {
+      "category": "Professional Fees",
+      "low": 2000,
+      "high": 4000,
+      "recurring": false,
+      "notes": "Attorney and accountant fees for evaluating the offering and entity formation. Item 7, p.17"
+     },
+     {
+      "category": "Insurance",
+      "low": 1000,
+      "high": 2000,
+      "recurring": false,
+      "notes": "Quarterly premium estimate; multiple coverage types required. Item 7, p.17"
+     },
+     {
+      "category": "Training Expenses",
+      "low": 1330,
+      "high": 5060,
+      "recurring": false,
+      "notes": "Out-of-pocket travel, lodging, meals for up to 2 trainees attending initial training. Item 7, p.17"
+     },
+     {
+      "category": "Opening Advertising Campaign",
+      "low": 1000,
+      "high": 1000,
+      "recurring": false,
+      "notes": "Minimum required opening advertising spend. Item 7, p.17"
+     },
+     {
+      "category": "Additional Funds \u2013 3 Months",
+      "low": 7000,
+      "high": 14000,
+      "recurring": true,
+      "notes": "Estimated working capital for first 3 months; excludes payroll, royalties, and brand fund fees. Item 7, p.17"
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 7,
+    "brandFundPct": 2,
+    "localAdPct": null,
+    "flatMonthlyFees": [
+     {
+      "name": "Internal Systems Fee",
+      "monthlyAmount": 200,
+      "source": "Item 6, p.12"
+     },
+     {
+      "name": "Minimum Local Advertising Spend",
+      "monthlyAmount": null,
+      "source": "Item 6, p.11 \u2014 $500 to $2,000 per month"
+     },
+     {
+      "name": "Minimum Monthly Royalty (Year 1)",
+      "monthlyAmount": 350,
+      "source": "Item 6, p.15"
+     },
+     {
+      "name": "Minimum Monthly Royalty (Year 2)",
+      "monthlyAmount": 436.16,
+      "source": "Item 6, p.15"
+     },
+     {
+      "name": "Minimum Monthly Royalty (Year 3)",
+      "monthlyAmount": 581.52,
+      "source": "Item 6, p.15"
+     },
+     {
+      "name": "Minimum Monthly Royalty (Year 4)",
+      "monthlyAmount": 726.92,
+      "source": "Item 6, p.15"
+     },
+     {
+      "name": "Minimum Monthly Royalty (Year 5+)",
+      "monthlyAmount": 872.32,
+      "source": "Item 6, p.15"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Tutor Cruncher Business Management System",
+     "description": "Required ongoing subscription to the designated POS/business management system; estimated $360\u2013$960 per year.",
+     "estimatedAnnualAmount": 660,
+     "source": "Item 11, p.27"
+    },
+    {
+     "name": "Other Required Software and Applications",
+     "description": "Additional required third-party software subscriptions beyond the POS system; estimated $30\u2013$80 per month.",
+     "estimatedAnnualAmount": 660,
+     "source": "Item 6, p.12"
+    },
+    {
+     "name": "Annual Conference / Business Meeting Registration",
+     "description": "Up to $500 per person registration fee for mandatory annual business meeting (up to 3 days), plus travel and lodging at franchisee's expense.",
+     "estimatedAnnualAmount": 500,
+     "source": "Item 6, p.12"
+    },
+    {
+     "name": "Additional Training Fee",
+     "description": "$500 per trainer per day for remedial or additional in-territory training, plus trainer travel expenses.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.12"
+    },
+    {
+     "name": "Background Check Fees",
+     "description": "Some states require mandatory background checks for individuals providing instructional services to children; fees paid to state agencies.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 1, p.9"
+    },
+    {
+     "name": "Credit Card Processing Fees (Stripe)",
+     "description": "Percentage-based fees on all credit card processed gross revenue through the required Stripe integration.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 8, p.19"
+    },
+    {
+     "name": "Operations Standard Violation Fee",
+     "description": "$250\u2013$750 per occurrence for failure to comply with contractual or operations manual requirements.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.14"
+    },
+    {
+     "name": "Liquidated Damages on Termination",
+     "description": "Greater of $50,000 or average monthly royalty and brand fund fees multiplied by up to 24 months remaining in term, due upon franchisee-default termination.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.14"
+    },
+    {
+     "name": "Interim Management Support Fee",
+     "description": "20% of gross revenue plus costs if franchisor provides on-site or virtual management of the franchised business.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.14"
+    },
+    {
+     "name": "Transfer Fee",
+     "description": "$10,000 flat fee payable upon submission of a transfer application.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.13"
+    },
+    {
+     "name": "Successor Agreement Fee",
+     "description": "$10,000 fee due before signing a renewal/successor franchise agreement.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.13"
+    },
+    {
+     "name": "Advertising Cooperative Contribution",
+     "description": "If formed, up to 2% of gross revenue per month; creditable up to 50% against local advertising requirement.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.12"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p.40-41",
+    "totalUnits": 7,
+    "openedLastYear": 2,
+    "closedLastYear": 0,
+    "transfersLastYear": 0
+   },
+   "operationalRisks": [
+    {
+     "title": "Unregistered Primary Trademark",
+     "description": "The primary logo/design mark used in the business is not federally registered; a successful challenge could require rebranding at franchisee's expense.",
+     "severity": "high",
+     "source": "Special Risks, p.iv; Item 13, p.30-31"
+    },
+    {
+     "title": "Very Early-Stage Franchise System",
+     "description": "Only 2 franchised outlets existed as of December 31, 2025, and the franchisor entity was formed March 31, 2026 \u2014 extremely limited franchisee track record.",
+     "severity": "high",
+     "source": "Item 20, p.40; Item 1, p.8"
+    },
+    {
+     "title": "Supplier Control / Captive Purchasing",
+     "description": "Franchisee must purchase nearly all supplies and classroom materials exclusively from the franchisor or designated suppliers at prices set by the franchisor, which may exceed market rates.",
+     "severity": "high",
+     "source": "Special Risks, p.iv; Item 8, p.18-19"
+    },
+    {
+     "title": "Spousal Liability Guarantee",
+     "description": "Franchisee's spouse must personally guarantee all financial obligations under the franchise agreement, putting marital assets at risk.",
+     "severity": "medium",
+     "source": "Special Risks, p.iv; Item 17, p.34"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "All disputes must be resolved by mediation, arbitration, or litigation in Tennessee, which may disadvantage franchisees located in other states.",
+     "severity": "medium",
+     "source": "Special Risks, p.iv; Item 17, p.36"
+    },
+    {
+     "title": "Non-Exclusive Territory",
+     "description": "Franchisee receives no exclusive territory; franchisor reserves rights to sell through alternate distribution channels, commercial accounts, and internet within the territory without compensation to franchisee.",
+     "severity": "medium",
+     "source": "Item 12, p.29-30"
+    },
+    {
+     "title": "Mandatory Background Checks and Child Safety Compliance",
+     "description": "State laws may require background checks for all instructors working with children, adding regulatory compliance costs and potential hiring delays.",
+     "severity": "medium",
+     "source": "Item 1, p.9"
+    },
+    {
+     "title": "Liquidated Damages on Default Termination",
+     "description": "Upon termination for franchisee default, franchisee owes the greater of $50,000 or up to 24 months of average royalty and brand fund fees as liquidated damages.",
+     "severity": "high",
+     "source": "Item 6, p.14; Item 17, p.35"
+    },
+    {
+     "title": "Franchisor May Change Business Model Without Consent",
+     "description": "Franchisor may modify the operations manual, system standards, and marks at any time, requiring franchisee to implement changes at franchisee's own cost.",
+     "severity": "medium",
+     "source": "Item 17, p.36"
+    },
+    {
+     "title": "Territory May Be Reduced at Renewal",
+     "description": "At renewal, franchisor may re-evaluate and reduce the franchisee's territory based on population shifts, potentially shrinking the franchisee's market.",
+     "severity": "medium",
+     "source": "Item 12, p.29-30; Item 17, p.34"
+    }
+   ],
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": null,
+    "auditOpinion": "unknown",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "Thinking Cup, Inc.",
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2026-04-14",
+      "revenue": null,
+      "netIncome": null,
+      "totalAssets": null,
+      "totalLiabilities": null,
+      "cash": null,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": null
+     }
+    ]
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "squareFootage": null,
+    "source": "Item 7, p.16-17 \u2014 no lease/rent line item; franchisee operates from a home-based office with no required commercial lease."
+   },
+   "averageRentMonthly": null
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "4 high-severity operational tripwires disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Network Average",
+    "monthlyRevenue": 41775,
+    "monthlyVariable": 3759.75,
+    "monthlyFixed": 3166.92,
+    "monthlyEbitda": 34848.33,
+    "annualEbitda": 418179.96,
+    "coversCosts": true,
+    "source": {
+     "basis": "network",
+     "label": "network average of disclosed cohorts",
+     "math": null
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 76403,
+   "assumedLoan": 61122.4,
+   "assumedMonthlyDebtService": 824.7550846913673,
+   "dscr": 42.25294350630241,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.18270363792659983,
+   "variableRate": 0.09,
+   "fixedMonthly": 3166.92,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 34848.33,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $76,403 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $34,848/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "education_childcare",
+   "conceptLabel": "Education / childcare",
+   "conceptRationale": "The franchise delivers chess and games instruction to children ages 3\u20138 at schools, community venues, and homes \u2014 a children's educational enrichment service.",
+   "benchmark": {
+    "label": "Education / childcare",
+    "cogsPct": [
+     5,
+     12
+    ],
+    "laborPct": [
+     40,
+     55
+    ],
+    "occupancyPct": [
+     10,
+     18
+    ],
+    "operatingEbitdaPct": [
+     10,
+     20
+    ],
+    "dominantRisk": "Regulated staff ratios and enrollment/utilization. Labor dominates and ratios cap how lean you can run.",
+    "rampNote": "12\u201324 months to mature enrollment.",
+    "considerations": [
+     "Labor is the dominant line at ~40\u201355% and is floored by regulated student/staff ratios.",
+     "Validate enrollment ramp and capacity-utilization curves with Item 20 operators.",
+     "Confirm licensing, facility, and compliance costs specific to your state \u2014 not in the FDD."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201320% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 41775,
+   "marginAfterFeesMonthly": 34848.33,
+   "benchmarkOperatingEbitdaMonthly": [
+    4351,
+    17719
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 20\u201333% \u2014 the 40\u201355% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    20,
+    33
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      34848.33,
+      34848.33
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      18
+     ],
+     "dollarRange": [
+      4178,
+      7520
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      5,
+      12
+     ],
+     "dollarRange": [
+      2089,
+      5013
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      20,
+      33
+     ],
+     "dollarRange": [
+      8355,
+      13786
+     ],
+     "note": "lightly staffed \u00b7 \u2248 2.4\u20134 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      2507,
+      4178
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      4351,
+      17719
+     ],
+     "note": "\u2248 10% to 42% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cEducation / childcare\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 10\u201318% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 5\u201312% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 20\u201333% lightly staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "INSUFFICIENT_DATA",
+   "headline": "We couldn't extract enough of this franchisor's financial statements to assess its condition. Request the audited Item 21 financials and have them reviewed before committing.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Thinking Cup, Inc. is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [],
+   "metrics": {
+    "fiscalYearEnd": "2026-04-14",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": null,
+    "revenueTrend": "unknown",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": null,
+    "adjLiabilitiesToAssets": null,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "missing"
+  }
+ }
+}

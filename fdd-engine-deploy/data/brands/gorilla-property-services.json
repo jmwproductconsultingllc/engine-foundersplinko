@@ -1,0 +1,546 @@
+{
+ "slug": "gorilla-property-services",
+ "brandName": "Gorilla Property Services",
+ "category": "Exterior",
+ "vertical": "Home & Property Services",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "gorillaservices",
+ "fileHash": "bc057831b544c521",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 11",
+     "Item 12",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Gorilla Property Services",
+   "franchisorEntity": "Gorilla Franchising USA, Inc.",
+   "headquarters": "Sorrento, BC, Canada",
+   "brandBackground": "Gorilla Property Services operates a commercial and residential property maintenance service business.",
+   "leadership": [
+    {
+     "name": "Andrew Edwards",
+     "role": "President",
+     "background": "President of Gorilla Franchising USA, Inc. and Gorilla Franchise Services Ltd. since March 2021.",
+     "whyItMatters": "He is the primary executive leader and owner of the brand."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Canadian Franchisees Gross Revenue Table 1",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 835748,
+      "basis": "32 Canadian-based franchisees open and operating for the full 2024 calendar year.",
+      "annualRevenue": 10028981.01,
+      "monthlyValues": [],
+      "sampleSize": 32
+     },
+     {
+      "label": "Canadian Franchisees Multi-Unit Combined Table 2",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 33953,
+      "basis": "2 multi-unit franchisees owning two territories each.",
+      "annualRevenue": 407430.76,
+      "monthlyValues": [],
+      "sampleSize": 2
+     },
+     {
+      "label": "Canadian Franchisees Profit and Loss Table 4 Average",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 15070,
+      "basis": "Historical representation based on data for 6 Canadian franchisees who provided complete information.",
+      "annualRevenue": 180834,
+      "monthlyValues": [],
+      "sampleSize": 6
+     },
+     {
+      "label": "Canadian Franchisees Profit and Loss Table 4 Median",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 11431,
+      "basis": "Historical representation based on data for 6 Canadian franchisees who provided complete information.",
+      "annualRevenue": 137176,
+      "monthlyValues": [],
+      "sampleSize": 6
+     }
+    ],
+    "notes": "All dollar amounts in Item 19 are presented in CAD and not USD.",
+    "sourcePage": "Item 19, p. 36-39",
+    "networkAverageMonthly": null,
+    "unitsReported": 32
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial franchise fee",
+      "recurring": false,
+      "notes": "Non-refundable fee for the first territory.",
+      "high": 49500,
+      "low": 49500
+     },
+     {
+      "category": "Initial training fees, travel, lodging, food, and other expenses while training",
+      "recurring": false,
+      "notes": "Estimated cost per attendee.",
+      "high": 30000,
+      "low": 1000
+     },
+     {
+      "category": "Set-up fee",
+      "recurring": false,
+      "notes": "Includes equipment and tools.",
+      "high": 55000,
+      "low": 50000
+     },
+     {
+      "category": "IT Set-up fee",
+      "recurring": false,
+      "notes": "One-time IT setup fee.",
+      "high": 2500,
+      "low": 2500
+     },
+     {
+      "category": "Vehicle",
+      "recurring": false,
+      "notes": "Requires a wrapped van.",
+      "high": 60000,
+      "low": 1850
+     },
+     {
+      "category": "Additional Equipment and Tools",
+      "recurring": false,
+      "notes": "Estimated cost for ladder and compressor.",
+      "high": 1500,
+      "low": 100
+     },
+     {
+      "category": "Tablet and smartphone",
+      "recurring": false,
+      "notes": "Purchase or lease of compatible hardware.",
+      "high": 3500,
+      "low": 2000
+     },
+     {
+      "category": "Misc. opening costs",
+      "recurring": false,
+      "notes": "Utility setup fees, deposits, licenses.",
+      "high": 1000,
+      "low": 500
+     },
+     {
+      "category": "Professional Fees",
+      "recurring": false,
+      "notes": "Legal, entity organization, and accounting fees.",
+      "high": 3000,
+      "low": 1000
+     },
+     {
+      "category": "Insurance Premiums",
+      "recurring": false,
+      "notes": "Monthly premium costs for required insurances.",
+      "high": 4000,
+      "low": 2000
+     },
+     {
+      "category": "Grand Opening Advertising",
+      "recurring": false,
+      "notes": "Includes pre-opening, grand opening, and first 3 months.",
+      "high": 15000,
+      "low": 15000
+     },
+     {
+      "category": "Additional funds \u2013 3 months",
+      "recurring": true,
+      "notes": "Estimated operating expenses for the first 3 months.",
+      "high": 16500,
+      "low": 3500
+     }
+    ],
+    "sourcePage": "Item 7, p. 14-15",
+    "initialInvestmentHigh": 214500,
+    "initialInvestmentLow": 128950
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Call Center Fee",
+      "source": "Item 6, p. 11",
+      "monthlyAmount": 249
+     },
+     {
+      "name": "CRM/Software Fee",
+      "source": "Item 6, p. 11",
+      "monthlyAmount": 199
+     }
+    ],
+    "brandFundPct": 2,
+    "localAdPct": null,
+    "royaltyPct": 6
+   },
+   "hiddenCosts": [
+    {
+     "name": "Minimum Royalty Fee",
+     "description": "A minimum monthly royalty of $500 applies after 6 months of opening.",
+     "source": "Item 6, p. 10",
+     "estimatedAnnualAmount": 6000
+    },
+    {
+     "name": "Minimum National Advertising Fund Fee",
+     "description": "The National Advertising Fund Fee is the greater of $429 plus taxes or 2% of monthly gross sales.",
+     "source": "Item 6, p. 10",
+     "estimatedAnnualAmount": 5148
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 41",
+    "closedLastYear": 0,
+    "openedLastYear": 0,
+    "totalUnits": 1,
+    "transfersLastYear": 0
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by mediation, arbitration, and/or litigation only in Vancouver, British Columbia, Canada.",
+     "severity": "high",
+     "source": "Special Risks, p. 4"
+    },
+    {
+     "title": "Short Operating History",
+     "description": "The franchisor is at an early stage of development and has a limited operating history in the US.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4"
+    },
+    {
+     "title": "Mandatory Minimum Payments",
+     "description": "You must make minimum royalty or advertising fund payments regardless of sales levels.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4"
+    },
+    {
+     "title": "Minimum Sales Performance Required",
+     "description": "You must maintain minimum sales performance levels or risk losing territorial rights or termination.",
+     "severity": "high",
+     "source": "Special Risks, p. 4"
+    }
+   ],
+   "conceptType": "home_trade_services",
+   "staffingModel": "lightly_staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-09-30",
+      "revenue": 0,
+      "totalAssets": 24669,
+      "totalLiabilities": 74823
+     },
+     {
+      "fiscalYearEnd": "2024-09-30",
+      "revenue": 0,
+      "totalAssets": 24969,
+      "totalLiabilities": 73150
+     },
+     {
+      "fiscalYearEnd": "2023-09-30",
+      "revenue": 0,
+      "totalAssets": 24969,
+      "totalLiabilities": 69925
+     }
+    ],
+    "auditorName": "DA Advisory Group PLLC",
+    "parentName": null
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "The franchise offers commercial and residential property maintenance services, which falls under home and trade services.",
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p. 20",
+    "squareFootage": null
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "The business is typically operated from a home office with mobile service vans, requiring a small crew."
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "2 high-severity operational tripwires disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Canadian Franchisees Profit and Loss Table 4 Median",
+    "monthlyRevenue": 11431,
+    "monthlyVariable": 914.48,
+    "monthlyFixed": 448,
+    "monthlyEbitda": 10068.52,
+    "annualEbitda": 120822.24,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Canadian Franchisees Profit and Loss Table 4 Median",
+     "math": "$137,176/yr \u00f7 12",
+     "revenueType": "net_or_ebitda",
+     "ownership": "franchised",
+     "sample": 6
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 171725,
+   "assumedLoan": 137380,
+   "assumedMonthlyDebtService": 1853.7369857024598,
+   "dscr": 5.431471712360861,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 1.421302899201339,
+   "variableRate": 0.08,
+   "fixedMonthly": 448,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 10068.52,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $171,725 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $10,069/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "The franchise offers commercial and residential property maintenance services, which falls under home and trade services.",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 11431,
+   "marginAfterFeesMonthly": 10068.52,
+   "benchmarkOperatingEbitdaMonthly": [
+    1267,
+    5153
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 10\u201321% \u2014 the 20\u201335% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    10,
+    21
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      10068.52,
+      10068.52
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      2,
+      6
+     ],
+     "dollarRange": [
+      229,
+      686
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      25,
+      40
+     ],
+     "dollarRange": [
+      2858,
+      4572
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      21
+     ],
+     "dollarRange": [
+      1143,
+      2401
+     ],
+     "note": "lightly staffed \u00b7 \u2248 0.3\u20130.7 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      686,
+      1143
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      1267,
+      5153
+     ],
+     "note": "\u2248 11% to 45% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 2\u20136% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 25\u201340% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 10\u201321% lightly staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "liabilities far exceed assets"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-09-30",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 0,
+    "revenueTrend": "flat",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 3.0330779520856135,
+    "adjLiabilitiesToAssets": 3.0330779520856135,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

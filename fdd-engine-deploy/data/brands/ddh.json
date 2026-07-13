@@ -1,0 +1,704 @@
+{
+ "slug": "ddh",
+ "brandName": "DDH",
+ "category": "Interior services",
+ "vertical": "Home & Property Services",
+ "grade": "READY",
+ "parseQuality": "degraded-fallback",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "ddh home organizing",
+ "fileHash": "7463267698a0fc9c",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Franchisor has only one fiscal period (inception March 6, 2025 to December 31, 2025); no multi-year financial comparison available.",
+     "No franchised outlets exist yet; Item 19 data is based solely on one affiliate-owned company location.",
+     "Trademarks are pending (not yet federally registered), creating potential brand risk.",
+     "Auditor emphasis-of-matter paragraph notes extensive affiliate transactions that may make financials non-indicative of standalone operations."
+    ]
+   },
+   "brandName": "DDH",
+   "franchisorEntity": "DDH Franchising, LLC",
+   "headquarters": "543 Valley Road, Suite 7, Montclair, NJ 07042",
+   "brandBackground": "DDH (Doctors of Domestic Harmony) is a home organizing and move management franchise launched in March 2025, built on the operating history of affiliate Done and Done NYC LLC, which has operated in the New York metropolitan area since October 2014.",
+   "conceptType": "home_trade_services",
+   "conceptRationale": "DDH provides professional home organizing, estate clean-out, move management, and home sale preparation services delivered at clients' residences \u2014 a home/trade services model with no retail storefront required.",
+   "staffingModel": "lightly_staffed",
+   "staffingRationale": "Item 15 allows an absentee owner with an approved Operating Manager; the affiliate's Item 19 data shows only 2.63 FTE home organizers supporting $1.36M in revenue, indicating a small-crew model.",
+   "leadership": [
+    {
+     "name": "Kate Pawlowski",
+     "role": "Co-Chief Executive Officer",
+     "background": "Co-CEO of DDH Franchising, LLC and DDH IP, LLC since March 2025; Co-Founder of Done and Done NYC since October 2014.",
+     "whyItMatters": "Primary franchisor contact and co-architect of the DDH system with over a decade of operating experience."
+    },
+    {
+     "name": "Ann Lightfoot",
+     "role": "Co-Chief Executive Officer",
+     "background": "Co-CEO of DDH Franchising, LLC and DDH IP, LLC since March 2025; Co-Founder of Done and Done NYC since October 2014.",
+     "whyItMatters": "Oversees initial franchisee training and co-leads system development alongside Kate Pawlowski."
+    },
+    {
+     "name": "Josh Cohen",
+     "role": "Advisory Board Member",
+     "background": "Franchise Coach at SMB Franchise Advisors since February 2026; previously Founder/CEO of The Junkluggers (2004\u20132024).",
+     "whyItMatters": "Brings direct franchise scaling experience from a comparable home-services brand."
+    },
+    {
+     "name": "Steven J. Berger",
+     "role": "Advisory Board Member",
+     "background": "Venture capital investor since July 2021; previously Co-Founder, Vice Chairman and CFO of Imagine Learning Inc. (2010\u20132021).",
+     "whyItMatters": "Provides financial and capital-markets advisory perspective to the early-stage franchisor."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp. 28-32",
+    "unitsReported": 1,
+    "networkAverageMonthly": 113033.42,
+    "notes": "All Item 19 data is from a single affiliate-owned outlet (Done and Done NYC LLC) for the 12-month period ending December 31, 2025; no franchised outlet data exists. The affiliate operates in the NYC metro area with ~200,000 qualifying households, which may not be representative of other markets.",
+    "cohorts": [
+     {
+      "label": "Company-Owned Outlet \u2013 Gross Revenue (12 months ending Dec 31, 2025)",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 1356401,
+      "avgMonthlyRevenue": null,
+      "basis": "Actual gross revenue reported by Done and Done NYC LLC for the 12-month period ending December 31, 2025.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Company-Owned Outlet \u2013 Gross Profit Less Disclosed Expenses and Franchisee-Related Expenses",
+      "ownership": "affiliate",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 1,
+      "annualRevenue": 278873,
+      "avgMonthlyRevenue": null,
+      "basis": "Gross profit ($717,887) less disclosed operating expenses ($269,511) and pro-forma franchisee-related adjustments ($169,503) including royalty, brand fund, local advertising, technology fee, sales support, and back office fees.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Average Gross Revenue by All Clients",
+      "ownership": "affiliate",
+      "revenueType": "other",
+      "sampleSize": 179,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "basis": "Average gross revenue per client engagement across all 179 clients in 2025; average $7,577.66 per client, median $5,522, highest $105,706, lowest $400.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Average Gross Revenue by Repeat Clients",
+      "ownership": "affiliate",
+      "revenueType": "other",
+      "sampleSize": 71,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "basis": "Average gross revenue per repeat client engagement; average $8,965.18, median $5,382, highest $31,816, lowest $740.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Average Gross Revenue by First-Time Clients",
+      "ownership": "affiliate",
+      "revenueType": "other",
+      "sampleSize": 108,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "basis": "Average gross revenue per first-time client engagement; average $6,665.49, median $5,913, highest $105,706, lowest $400.",
+      "monthlyValues": []
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp. 7-10",
+    "initialInvestmentLow": 79800,
+    "initialInvestmentHigh": 99245,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 49500,
+      "high": 49500,
+      "recurring": false,
+      "notes": "Paid to franchisor at signing; non-refundable. Item 7, p.7"
+     },
+     {
+      "category": "Initial Training Fee",
+      "low": 5000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Paid to franchisor at signing; non-refundable. Item 7, p.7"
+     },
+     {
+      "category": "Construction, Leasehold Improvements",
+      "low": 0,
+      "high": 1000,
+      "recurring": false,
+      "notes": "Low assumes home office; high assumes separate leased office. Item 7, p.7"
+     },
+     {
+      "category": "Furniture and Fixtures",
+      "low": 0,
+      "high": 500,
+      "recurring": false,
+      "notes": "Basic office furniture; varies if separate office established. Item 7, p.7"
+     },
+     {
+      "category": "Equipment and Supplies",
+      "low": 0,
+      "high": 2500,
+      "recurring": false,
+      "notes": "Includes organizing equipment and supplies. Item 7, p.7"
+     },
+     {
+      "category": "Signage",
+      "low": 0,
+      "high": 200,
+      "recurring": false,
+      "notes": "Includes vehicle magnets; local sign codes may vary. Item 7, p.7"
+     },
+     {
+      "category": "Computer, Software and Point of Sales System",
+      "low": 900,
+      "high": 1320,
+      "recurring": false,
+      "notes": "Includes hardware and Technology Fees for three months. Item 7, p.7"
+     },
+     {
+      "category": "Opening Inventory",
+      "low": 1000,
+      "high": 1000,
+      "recurring": false,
+      "notes": "Required organizing inventory (bins, baskets, label makers). Item 7, p.7"
+     },
+     {
+      "category": "Rent Deposits",
+      "low": 0,
+      "high": 4500,
+      "recurring": false,
+      "notes": "Estimated one month's rent deposit if separate office leased. Item 7, p.7"
+     },
+     {
+      "category": "Utility Deposits",
+      "low": 0,
+      "high": 75,
+      "recurring": false,
+      "notes": "Item 7, p.8"
+     },
+     {
+      "category": "Insurance Deposits and Premium",
+      "low": 1250,
+      "high": 2250,
+      "recurring": false,
+      "notes": "Reflects 3 months of insurance costs. Item 7, p.8"
+     },
+     {
+      "category": "Pre-Opening Travel Expenses",
+      "low": 1650,
+      "high": 4400,
+      "recurring": false,
+      "notes": "Travel and accommodation for 1-2 people attending Initial Training Program. Item 7, p.8"
+     },
+     {
+      "category": "Pre-Opening/Grand Opening Marketing Program",
+      "low": 15000,
+      "high": 15000,
+      "recurring": false,
+      "notes": "Minimum required spend per Protected Territory for grand opening marketing. Item 7, p.8"
+     },
+     {
+      "category": "Professional Fees (accounting, attorney, bookkeeping)",
+      "low": 3000,
+      "high": 7000,
+      "recurring": false,
+      "notes": "Item 7, p.8"
+     },
+     {
+      "category": "Business Licenses and Permits",
+      "low": 500,
+      "high": 1000,
+      "recurring": false,
+      "notes": "Varies by local requirements. Item 7, p.8"
+     },
+     {
+      "category": "Printing, Stationery and Office Supplies",
+      "low": 500,
+      "high": 1000,
+      "recurring": false,
+      "notes": "Includes business cards and branded materials. Item 7, p.8"
+     },
+     {
+      "category": "Additional Funds \u2013 3 Months",
+      "low": 1500,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Estimated operating expenses for first 3 months including fuel, consumables, and professional fees. Item 7, p.8"
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 7,
+    "brandFundPct": 1,
+    "localAdPct": null,
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "monthlyAmount": 250,
+      "source": "Item 6, p.4"
+     },
+     {
+      "name": "Accounting Fee (Back Office)",
+      "monthlyAmount": 500,
+      "source": "Item 8, p.11"
+     },
+     {
+      "name": "Minimum Local Advertising Spend Requirement",
+      "monthlyAmount": 2250,
+      "source": "Item 6, p.4"
+     },
+     {
+      "name": "Sales Support Fee",
+      "monthlyAmount": null,
+      "source": "Item 6, p.4"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Sales Support Fee",
+     "description": "2.5% of Gross Revenue paid weekly to franchisor for sales support center services; debited automatically via ACH.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.4"
+    },
+    {
+     "name": "Accounting Fee (Mandatory Designated Vendor)",
+     "description": "$500/month paid to franchisor's designated accounting vendor (currently QMK Consulting); mandatory for all franchisees.",
+     "estimatedAnnualAmount": 6000,
+     "source": "Item 8, p.11"
+    },
+    {
+     "name": "Third-Party Software Licenses (QBOE, Google Suite, Slack, MailChimp)",
+     "description": "Estimated $300/month for required software licenses designated by franchisor.",
+     "estimatedAnnualAmount": 3600,
+     "source": "Item 11, p.17"
+    },
+    {
+     "name": "Convention/Conference Fee",
+     "description": "Up to $1,500 per attendee; franchisee must pay for two attendees even if absent.",
+     "estimatedAnnualAmount": 3000,
+     "source": "Item 6, p.4"
+    },
+    {
+     "name": "Computer System Upgrades",
+     "description": "Estimated $0\u2013$2,000/year for required updates and modifications to the Computer System.",
+     "estimatedAnnualAmount": 2000,
+     "source": "Item 11, p.17"
+    },
+    {
+     "name": "Post-Termination Fee",
+     "description": "Non-refundable fee equal to 3% of total Gross Revenue in the last 24 months, payable upon termination or expiration.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 17, p.26"
+    },
+    {
+     "name": "Pre-Mailer Marketing Materials",
+     "description": "Franchisor sends marketing pre-mailers to customers before each appointment and charges franchisee for the cost.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 17 / Franchise Agreement Section 11(F)"
+    },
+    {
+     "name": "Non-Compliance Fees",
+     "description": "Up to $1,000 per occurrence for reporting, operations, or payment non-compliance.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.6"
+    }
+   ],
+   "systemScale": {
+    "totalUnits": 1,
+    "openedLastYear": 0,
+    "closedLastYear": 0,
+    "transfersLastYear": 0,
+    "sourcePage": "Item 20, pp. 33-34"
+   },
+   "operationalRisks": [
+    {
+     "title": "Short Operating History",
+     "description": "Franchisor was formed in March 2025 and has zero franchised outlets; the system is entirely unproven at scale.",
+     "severity": "high",
+     "source": "Item 1, p.1; Special Risks, p.vii"
+    },
+    {
+     "title": "Minimum Sales Performance Requirements",
+     "description": "Franchisee must achieve $100K (Year 3), $150K (Year 4), and $200K+ (Year 5+) annual gross revenue per territory or risk territory reduction or termination.",
+     "severity": "high",
+     "source": "Item 12, p.22; Special Risks, p.vii"
+    },
+    {
+     "title": "Spousal Personal Guarantee",
+     "description": "Married franchisees must have their spouse sign a personal guarantee making both jointly and severally liable for all franchise obligations.",
+     "severity": "high",
+     "source": "Special Risks, p.vii"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "All disputes must be litigated or arbitrated in Montclair, New Jersey, which may disadvantage out-of-state franchisees.",
+     "severity": "medium",
+     "source": "Item 17, p.28; Special Risks, p.vii"
+    },
+    {
+     "title": "Unregistered Trademarks",
+     "description": "DDH and DOCTORS OF DOMESTIC HARMONY marks are pending (not federally registered), reducing legal protections and creating potential rebranding risk.",
+     "severity": "medium",
+     "source": "Item 13, p.22"
+    },
+    {
+     "title": "Extensive Affiliate Transactions",
+     "description": "Auditor's emphasis-of-matter notes extensive transactions with affiliates, meaning franchisor financials may not reflect standalone operations.",
+     "severity": "medium",
+     "source": "Auditor's Report, Attachment A"
+    },
+    {
+     "title": "Franchisor Has No Franchise Revenue Yet",
+     "description": "Franchisor generated $0 revenue in its first operating period (March\u2013December 2025), relying on member contributions to fund operations.",
+     "severity": "high",
+     "source": "Item 21 / Financial Statements, p.6"
+    },
+    {
+     "title": "Item 19 Based on Single Affiliate Location",
+     "description": "Financial performance data comes from one affiliate-owned NYC metro location; results may not be representative of franchisee markets.",
+     "severity": "medium",
+     "source": "Item 19, p.28"
+    },
+    {
+     "title": "Mandatory Designated Accounting Vendor",
+     "description": "Franchisees must use franchisor's designated accounting vendor (QMK Consulting) at $500/month with no competitive bidding allowed.",
+     "severity": "low",
+     "source": "Item 8, p.11"
+    },
+    {
+     "title": "Franchisor Right to Modify Business Model",
+     "description": "Franchisor may modify manuals, marks, system, and approved goods/services without franchisee consent, potentially requiring additional investment.",
+     "severity": "medium",
+     "source": "Item 17, p.27"
+    }
+   ],
+   "rentDetail": {
+    "rawValue": 4500,
+    "unit": "per_month",
+    "squareFootage": null,
+    "source": "Item 7, p.7 \u2014 rent deposit estimated at one month's rent; no per-sqft rate disclosed. Item 11 notes minimum 100 sq ft required."
+   },
+   "averageRentMonthly": null,
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "Metwally CPA PLLC",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": null,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 0,
+      "netIncome": -60413,
+      "totalAssets": 250606,
+      "totalLiabilities": 144352,
+      "cash": 250606,
+      "currentAssets": 250606,
+      "currentLiabilities": 144352,
+      "relatedPartyDebt": 142333,
+      "deferredRevenue": null,
+      "netWorth": 106254
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "4 high-severity operational tripwires disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Network Average",
+    "monthlyRevenue": 113033.42,
+    "monthlyVariable": 9042.6736,
+    "monthlyFixed": 3000,
+    "monthlyEbitda": 100990.7464,
+    "annualEbitda": 1211888.9568,
+    "coversCosts": true,
+    "source": {
+     "basis": "network",
+     "label": "network average of disclosed cohorts",
+     "math": null
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 89522.5,
+   "assumedLoan": 71618,
+   "assumedMonthlyDebtService": 966.37745990711,
+   "dscr": 104.50445151080761,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.07387021681952173,
+   "variableRate": 0.08,
+   "fixedMonthly": 3000,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 100990.7464,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $89,523 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $100,991/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "DDH provides professional home organizing, estate clean-out, move management, and home sale preparation services delivered at clients' residences \u2014 a home/trade services model with no retail storefront required.",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 113033.42,
+   "marginAfterFeesMonthly": 100990.7464,
+   "benchmarkOperatingEbitdaMonthly": [
+    13956,
+    52387
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 10\u201321% \u2014 the 20\u201335% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    10,
+    21
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      100990.7464,
+      100990.7464
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      2,
+      6
+     ],
+     "dollarRange": [
+      2261,
+      6782
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      25,
+      40
+     ],
+     "dollarRange": [
+      28258,
+      45213
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      21
+     ],
+     "dollarRange": [
+      11303,
+      23737
+     ],
+     "note": "lightly staffed \u00b7 \u2248 3.3\u20136.8 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      6782,
+      11303
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      13956,
+      52387
+     ],
+     "note": "\u2248 12% to 46% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 2\u20136% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 25\u201340% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 10\u201321% lightly staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "This franchisor is losing money as it grows (a net loss of $60K in the most recent year), though it still has positive net worth. Worth understanding how long its runway lasts.",
+   "context": null,
+   "body": [
+    "What we found (2025-12-31, audited by Metwally CPA PLLC): Net loss of $60K on $0 of revenue. Positive net worth of $106K. About 99% of liabilities is money owed to related parties \u2014 the entity is kept alive largely by insider loans, not profit. Cash of $251K against $144K of obligations due within a year (a current ratio of 1.74).",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "operating losses",
+    "heavy dependence on related-party loans to stay funded"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "positive net worth"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": 106254,
+    "netWorthSign": "positive",
+    "netWorthTrend": "unknown",
+    "netIncome": -60413,
+    "netIncomeTrend": "unknown",
+    "revenue": 0,
+    "revenueTrend": "unknown",
+    "currentRatio": 1.7360757038350698,
+    "workingCapital": 106254,
+    "liabilitiesToAssets": 0.5760117475240019,
+    "adjLiabilitiesToAssets": 0.5760117475240019,
+    "relatedPartyDebtPct": 0.9860133562403015,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": 250606,
+    "nearTermObligations": 144352
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

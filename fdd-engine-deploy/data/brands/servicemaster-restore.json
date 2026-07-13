@@ -1,0 +1,780 @@
+{
+ "slug": "servicemaster-restore",
+ "brandName": "ServiceMaster Restore",
+ "category": "Restoration",
+ "vertical": "Home & Property Services",
+ "grade": "READY",
+ "parseQuality": "degraded-fallback",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "servicemaster restore",
+ "fileHash": "bb4d15b25160d34c",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": []
+   },
+   "brandName": "ServiceMaster Restore",
+   "franchisorEntity": "ServiceMaster Clean/Restore SPE LLC",
+   "headquarters": "One Glenlake Parkway, 14th Floor, Atlanta, Georgia 30328",
+   "brandBackground": "ServiceMaster Restore traces its roots to professional cleaning services begun in 1929; the current franchisor entity was formed in October 2020 following a securitization transaction and has offered Restore Franchises since March 2021, operating a network of approximately 1,910 disaster restoration franchises across the U.S.",
+   "conceptType": "home_trade_services",
+   "conceptRationale": "Franchisees provide disaster restoration services (water mitigation, fire/smoke cleanup, mold remediation, structural drying) to residential and commercial customers \u2014 a skilled trade service delivered on-site.",
+   "staffingModel": "staffed",
+   "staffingRationale": "Item 15 requires full-time owner/manager involvement, at least one dedicated salesperson, and field technicians to deliver 24/7 emergency restoration services.",
+   "leadership": [
+    {
+     "name": "Jon Nobis",
+     "role": "Chief Executive Officer",
+     "background": "CEO since September 2024; previously Chief Information Officer for SM Manager (2021\u20132024) and CEO of Two Men and a Truck/International (2018\u20132022).",
+     "whyItMatters": "Top executive accountable for overall franchise system strategy and performance."
+    },
+    {
+     "name": "John Tovar",
+     "role": "Group President \u2013 ServiceMaster",
+     "background": "Group President since March 2023, overseeing ServiceMaster Clean and Restore; previously President of ServiceMaster Restore (2020\u20132023).",
+     "whyItMatters": "Direct operational leader for the Restore brand."
+    },
+    {
+     "name": "Sunil Doshi",
+     "role": "Chief Financial Officer & Treasurer",
+     "background": "CFO & Treasurer since August 2024; previously EVP/CFO of Fossil Group (2021\u20132024).",
+     "whyItMatters": "Oversees financial health and reporting for the franchisor entity."
+    },
+    {
+     "name": "Austin Yoder",
+     "role": "Chief Operating Officer",
+     "background": "COO since March 2025; previously President North America of ServiceMaster Clean and VP Franchise Operations of ServiceMaster Restore.",
+     "whyItMatters": "Responsible for day-to-day franchise operations and franchisee support."
+    },
+    {
+     "name": "Josh Burnette",
+     "role": "General Counsel & Chief Human Resources Officer",
+     "background": "General Counsel since July 2023 and CHRO since June 2024; previously General Counsel North America for DS Smith Plc.",
+     "whyItMatters": "Manages legal risk, compliance, and HR across the SM franchise system."
+    },
+    {
+     "name": "Jeff Todd",
+     "role": "Chief Franchise Development Officer",
+     "background": "Chief Franchise Development Officer since September 2025; previously Chief Development Officer at Launch Franchising and VP Development at Driven Brands.",
+     "whyItMatters": "Leads franchise sales and network growth strategy."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp. 77\u201388",
+    "unitsReported": 1755,
+    "networkAverageMonthly": null,
+    "cohorts": [
+     {
+      "label": "All Single-FOGs \u2013 Annual Gross Service Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 126,
+      "annualRevenue": 1024401,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average Annual Gross Service Sales for 126 Single-Franchise Ownership Groups with one Active Franchise throughout Fiscal Year 2025 (Table 1, all single-FOGs column)."
+     },
+     {
+      "label": "Single-FOGs QRV Program \u2013 Annual Gross Service Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 83,
+      "annualRevenue": 1230755,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average Annual Gross Service Sales for 83 Single-FOGs participating in the QRV Program (Table 1, QRV Program column)."
+     },
+     {
+      "label": "Single-FOGs CRT Program \u2013 Annual Gross Service Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 5,
+      "annualRevenue": 3106288,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average Annual Gross Service Sales for 5 Single-FOGs participating in the CRT Program (Table 1, CRT Program column)."
+     },
+     {
+      "label": "Single-FOGs No Optional Programs \u2013 Annual Gross Service Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 38,
+      "annualRevenue": 299748,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average Annual Gross Service Sales for 38 Single-FOGs with no Optional Program participation (Table 1, No Optional Programs column)."
+     },
+     {
+      "label": "All FOGs \u2013 Annual Gross Service Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 428,
+      "annualRevenue": 3146371,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average Annual Gross Service Sales for all 428 Franchise Ownership Groups with at least one Active Franchise throughout Fiscal Year 2025 (Table 2, All FOGs column)."
+     },
+     {
+      "label": "All FOGs SRM Program \u2013 Annual Gross Service Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 20,
+      "annualRevenue": 23093004,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average Annual Gross Service Sales for 20 FOGs in the SRM Program (Table 2, SRM Program column)."
+     },
+     {
+      "label": "All FOGs CRT Program \u2013 Annual Gross Service Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 47,
+      "annualRevenue": 5765888,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average Annual Gross Service Sales for 47 FOGs in the CRT Program (Table 2, CRT Program column)."
+     },
+     {
+      "label": "All FOGs QRV Program \u2013 Annual Gross Service Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 308,
+      "annualRevenue": 1926188,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average Annual Gross Service Sales for 308 FOGs in the QRV Program (Table 2, QRV Program column)."
+     },
+     {
+      "label": "All FOGs No Optional Programs \u2013 Annual Gross Service Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 53,
+      "annualRevenue": 387244,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average Annual Gross Service Sales for 53 FOGs with no Optional Program participation (Table 2, No Optional Programs column)."
+     },
+     {
+      "label": "QRV Single-FOGs Top Quartile \u2013 Annual Gross Service Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 20,
+      "annualRevenue": 3064260,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average Annual Gross Service Sales for top-quartile Single-FOGs in QRV Program (Table 3)."
+     },
+     {
+      "label": "QRV Single-FOGs 2nd Quartile \u2013 Annual Gross Service Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 21,
+      "annualRevenue": 1165309,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average Annual Gross Service Sales for 2nd-quartile Single-FOGs in QRV Program (Table 3)."
+     },
+     {
+      "label": "QRV Single-FOGs 3rd Quartile \u2013 Annual Gross Service Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 21,
+      "annualRevenue": 590160,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average Annual Gross Service Sales for 3rd-quartile Single-FOGs in QRV Program (Table 3)."
+     },
+     {
+      "label": "QRV Single-FOGs Bottom Quartile \u2013 Annual Gross Service Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 21,
+      "annualRevenue": 190601,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average Annual Gross Service Sales for bottom-quartile Single-FOGs in QRV Program (Table 3)."
+     },
+     {
+      "label": "All QRV FOGs Top Quartile \u2013 Annual Gross Service Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 77,
+      "annualRevenue": 4533594,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average Annual Gross Service Sales for top-quartile all FOGs in QRV Program (Table 4)."
+     },
+     {
+      "label": "All QRV FOGs 2nd Quartile \u2013 Annual Gross Service Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 77,
+      "annualRevenue": 1854563,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average Annual Gross Service Sales for 2nd-quartile all FOGs in QRV Program (Table 4)."
+     },
+     {
+      "label": "All QRV FOGs 3rd Quartile \u2013 Annual Gross Service Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 77,
+      "annualRevenue": 954063,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average Annual Gross Service Sales for 3rd-quartile all FOGs in QRV Program (Table 4)."
+     },
+     {
+      "label": "All QRV FOGs Bottom Quartile \u2013 Annual Gross Service Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 77,
+      "annualRevenue": 362531,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average Annual Gross Service Sales for bottom-quartile all FOGs in QRV Program (Table 4)."
+     }
+    ],
+    "notes": "Item 19 discloses gross service sales only \u2014 no EBITDA, net income, or profitability table is provided. Data covers Fiscal Year 2025 (ended December 31, 2025). Figures do not reflect costs of sales or operating expenses. No company-owned units operated in FY2025."
+   },
+   "item17": {
+    "sourcePage": "Item 7, p. 44",
+    "initialInvestmentLow": 287800,
+    "initialInvestmentHigh": 474340,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 72500,
+      "high": 72500,
+      "recurring": false,
+      "notes": "Non-refundable upon signing; includes AOS Training for two and Restore 365 Plus setup."
+     },
+     {
+      "category": "Equipment and Supplies",
+      "low": 85000,
+      "high": 150000,
+      "recurring": false,
+      "notes": "Truck mount, extractors, air movers, dehumidifiers, and other required restoration equipment."
+     },
+     {
+      "category": "Truck",
+      "low": 9000,
+      "high": 13500,
+      "recurring": false,
+      "notes": "Down payment and first month's payment on a 20' box truck (estimated $40,000\u2013$80,000 total cost)."
+     },
+     {
+      "category": "Technology System",
+      "low": 1800,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Laptop, high-speed internet, and one month of service."
+     },
+     {
+      "category": "Travel and Other Expenses During AOS Training",
+      "low": 4000,
+      "high": 7000,
+      "recurring": false,
+      "notes": "Travel and living expenses for one to two people attending 12-day AOS Training in Memphis, TN."
+     },
+     {
+      "category": "Insurance",
+      "low": 10000,
+      "high": 26000,
+      "recurring": false,
+      "notes": "Down payment on annual premiums for required coverage; varies by market and service offerings."
+     },
+     {
+      "category": "Certifications",
+      "low": 0,
+      "high": 340,
+      "recurring": false,
+      "notes": "IICRC testing fees (WRT, ASD, FSRT, HST); low assumes already certified."
+     },
+     {
+      "category": "Grand Opening Advertising",
+      "low": 10000,
+      "high": 12000,
+      "recurring": false,
+      "notes": "Minimum $10,000 required pre-opening Eligible Local Marketing spend including grand opening event."
+     },
+     {
+      "category": "Miscellaneous Opening Expenses",
+      "low": 1000,
+      "high": 10000,
+      "recurring": false,
+      "notes": "Background checks, security/utility deposits, contractor's license, business licenses."
+     },
+     {
+      "category": "Real Estate Expenses",
+      "low": 8000,
+      "high": 25000,
+      "recurring": false,
+      "notes": "First and last month's rent for a Dispatch Office (3,500\u20135,000 sq ft); varies by market."
+     },
+     {
+      "category": "Professional Fees",
+      "low": 5000,
+      "high": 15000,
+      "recurring": false,
+      "notes": "Legal and accounting fees for entity formation, lease review, and FDD review."
+     },
+     {
+      "category": "Additional Funds \u2013 First 3 Months",
+      "low": 80000,
+      "high": 135000,
+      "recurring": true,
+      "notes": "Working capital for payroll, rent, vehicle payments, advertising, and other operating costs for first 3 months assuming 3 employees."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 10,
+    "brandFundPct": 2,
+    "localAdPct": 2,
+    "flatMonthlyFees": [
+     {
+      "name": "Minimum Royalty",
+      "monthlyAmount": 750,
+      "source": "Item 6, p. 30"
+     },
+     {
+      "name": "Initial Local Advertising Fee (Year 1 only)",
+      "monthlyAmount": 5000,
+      "source": "Item 6, p. 31"
+     },
+     {
+      "name": "Restore 365 Plus Technology Fee (primary location)",
+      "monthlyAmount": 650,
+      "source": "Item 6, p. 33"
+     },
+     {
+      "name": "Restore 365 Plus Technology Fee (additional location)",
+      "monthlyAmount": 50,
+      "source": "Item 6, p. 33"
+     },
+     {
+      "name": "Annual Convention Fee",
+      "monthlyAmount": null,
+      "source": "Item 6, p. 32 \u2014 currently $1,000 per attendee annually"
+     },
+     {
+      "name": "Construction Services Fee",
+      "monthlyAmount": null,
+      "source": "Item 6, p. 35 \u2014 3% of monthly Gross Service Sales from Construction Services"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Restore 365 Plus Audit Fee",
+     "description": "$15 per insurance claim audited through the Validate component of the software.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 33"
+    },
+    {
+     "name": "Xactimate Software License",
+     "description": "$174.21 per month to license Xactimate estimating software from Xactware.",
+     "estimatedAnnualAmount": 2090,
+     "source": "Item 11, p. 60"
+    },
+    {
+     "name": "Cotality Subscription",
+     "description": "$135\u2013$209 per month for Cotality subscription to submit invoices and documents to insurance carriers.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p. 60"
+    },
+    {
+     "name": "Cotality Mitigate Fee",
+     "description": "$7 per insurance claim documented through Mitigate software.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p. 60"
+    },
+    {
+     "name": "Claims Workspace Fee",
+     "description": "$15 per job processed through Cotality's Claims Workspace platform.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p. 60"
+    },
+    {
+     "name": "XactAnalysis Processing Fee",
+     "description": "$6.13\u2013$36.98 per job processed through Xactware's XactAnalysis platform.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p. 61"
+    },
+    {
+     "name": "Business Intelligence Software Fee",
+     "description": "$450 per quarter for designated business intelligence software.",
+     "estimatedAnnualAmount": 1800,
+     "source": "Item 6, p. 33"
+    },
+    {
+     "name": "Time and Materials Estimating Software",
+     "description": "$1,099 per year for designated time and materials estimating software.",
+     "estimatedAnnualAmount": 1099,
+     "source": "Item 6, p. 33"
+    },
+    {
+     "name": "Optional Sketching Software",
+     "description": "$95 per month plus $5\u2013$45 per job for optional sketching program.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 33"
+    },
+    {
+     "name": "Optional Weather Forecasting Software",
+     "description": "$417 per month for optional weather forecasting program.",
+     "estimatedAnnualAmount": 5004,
+     "source": "Item 6, p. 33"
+    },
+    {
+     "name": "Credentialing and Background Check Fee",
+     "description": "Currently $165 per year for credential management and background check services for employees.",
+     "estimatedAnnualAmount": 165,
+     "source": "Item 6, p. 35"
+    },
+    {
+     "name": "Optional Program Referral Fee \u2013 Commercial Jobs",
+     "description": "Currently 5% of total invoiced amount per commercial job referred through Optional Programs.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 33"
+    },
+    {
+     "name": "Optional Program Referral Fee \u2013 Residential Jobs",
+     "description": "Currently $125 per residential job referred through Optional Programs.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 34"
+    },
+    {
+     "name": "Estimating as a Service Fee",
+     "description": "$125\u2013$325 per water damage job (\u2264$50,000) or up to 5% of invoice for larger or other damage jobs.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 34"
+    },
+    {
+     "name": "Non-Compliance Fee",
+     "description": "$1,000 per single violation per day (up to $2,000) for failure to comply with Franchise Agreement or Manual standards.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 39"
+    },
+    {
+     "name": "Liquidated Damages",
+     "description": "Average monthly royalties/fees over prior 12 months multiplied by the lesser of remaining term or 24 months, due within 7 days of termination.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 39"
+    },
+    {
+     "name": "AOS Training \u2013 Additional/Replacement Trainees",
+     "description": "Currently $6,310 per person (up to $8,110) for additional or replacement trainees beyond the two included in the Initial Franchise Fee.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 31"
+    },
+    {
+     "name": "Ongoing Training and Regional Meeting Fees",
+     "description": "$300\u2013$2,500 per attendee for training programs; $1,000 per attendee for regional meetings.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 32"
+    },
+    {
+     "name": "ContentsTrack Inventory Software Fee",
+     "description": "$31.84 per job for Xactware's ContentsTrack inventory management software.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p. 60"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 89",
+    "totalUnits": 1910,
+    "openedLastYear": 26,
+    "closedLastYear": 48,
+    "transfersLastYear": 51
+   },
+   "operationalRisks": [
+    {
+     "title": "Mandatory Minimum Royalty and Advertising Payments",
+     "description": "Franchisees must pay minimum royalty and advertising fund payments regardless of sales levels; failure may result in franchise termination and loss of investment.",
+     "severity": "high",
+     "source": "Special Risks, p. 4; Item 6, p. 30"
+    },
+    {
+     "title": "Minimum Monthly Sales Performance Requirement",
+     "description": "Beginning in month 13, franchisees must achieve at least $7,500 in monthly Gross Service Sales; failure three times in any nine-month period can result in termination.",
+     "severity": "high",
+     "source": "Item 12, p. 67; Special Risks, p. 4"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution (Georgia)",
+     "description": "All disputes must be mediated, arbitrated, or litigated in Atlanta, Georgia, which may increase costs and reduce settlement leverage for out-of-state franchisees.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4; Item 17, p. 77"
+    },
+    {
+     "title": "Non-Exclusive Territory",
+     "description": "Franchisees receive no exclusive territory and may face competition from other franchisees, company-owned units, or other channels within their designated area.",
+     "severity": "medium",
+     "source": "Item 12, p. 65"
+    },
+    {
+     "title": "Shrinking System Scale",
+     "description": "The network has declined from 2,071 to 1,910 units over three years (2023\u20132025), indicating net unit contraction that may affect brand support and resale value.",
+     "severity": "high",
+     "source": "Item 20, p. 89"
+    },
+    {
+     "title": "Franchisor Right to Modify Business Model",
+     "description": "Franchisor may unilaterally modify the Manual and system standards, potentially requiring additional investments or operational changes without franchisee consent.",
+     "severity": "medium",
+     "source": "Item 17, p. 76; Item 3 (general franchising risks), p. 3"
+    },
+    {
+     "title": "Significant Litigation Settlement",
+     "description": "Franchisor settled a franchisee lawsuit in January 2026 for $1,795,000 involving claims of improper termination and territory violations, indicating legal exposure.",
+     "severity": "medium",
+     "source": "Item 3, p. 25"
+    },
+    {
+     "title": "Post-Termination Non-Compete",
+     "description": "Two-year non-compete within the Territory, a 25-mile radius, and a 5-mile radius of any customer location served in the prior 24 months restricts post-exit business options.",
+     "severity": "medium",
+     "source": "Item 17, p. 76"
+    },
+    {
+     "title": "Mandatory Minimum Sales Visit Requirement",
+     "description": "Salespeople must make at least 50 in-person or videoconference visits per month per 300,000 territory residents; failure three times in nine months can trigger termination.",
+     "severity": "medium",
+     "source": "Item 12, p. 67"
+    },
+    {
+     "title": "High Initial Investment with No Franchisor Financing",
+     "description": "Total initial investment of $287,800\u2013$474,340 with no direct or indirect financing offered by the franchisor or its affiliates.",
+     "severity": "medium",
+     "source": "Item 7, p. 44; Item 10, p. 53"
+    }
+   ],
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "rentDetail": {
+    "rawValue": 8000,
+    "unit": "unknown",
+    "squareFootage": 4250,
+    "source": "Item 7, p. 44 \u2014 Real Estate Expenses estimated at $8,000\u2013$25,000 representing first and last month's rent for a Dispatch Office of 3,500\u20135,000 sq ft; no per-sqft rate disclosed."
+   },
+   "averageRentMonthly": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "PricewaterhouseCoopers LLP",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "ServiceMaster Systems LLC",
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 367.3,
+      "netIncome": 68.4,
+      "totalAssets": 1774,
+      "totalLiabilities": 1012.9,
+      "cash": 67.9,
+      "currentAssets": 154.6,
+      "currentLiabilities": 42.3,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 1.5,
+      "netWorth": 761.1
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 344.1,
+      "netIncome": 52.1,
+      "totalAssets": 1751,
+      "totalLiabilities": 1021.2,
+      "cash": 28.4,
+      "currentAssets": 108.6,
+      "currentLiabilities": 47.6,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 1.7,
+      "netWorth": 729.8
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 361.2,
+      "netIncome": 64,
+      "totalAssets": null,
+      "totalLiabilities": null,
+      "cash": null,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": 716.7
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "Above-market royalty at 10%.",
+    "3 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
+    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+   ],
+   "midCohort": null,
+   "bottomCohort": null,
+   "buildoutMidpoint": 381070,
+   "assumedLoan": 304856,
+   "assumedMonthlyDebtService": 4113.574337700606,
+   "dscr": null,
+   "rentPctOfRevenue": null,
+   "paybackYears": null,
+   "variableRate": 0.14,
+   "fixedMonthly": 6450,
+   "notes": [
+    "Average rent not found; fixed costs may be understated.",
+    "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 131070,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 131070,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 1768.5930027370903,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $381,070 mid-point build-out, there is a $131,070 capital gap. An SBA loan or an equity partner is required to do this deal."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "Franchisees provide disaster restoration services (water mitigation, fire/smoke cleanup, mold remediation, structural drying) to residential and commercial customers \u2014 a skilled trade service delivered on-site.",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": null,
+   "marginAfterFeesMonthly": null,
+   "benchmarkOperatingEbitdaMonthly": null,
+   "trueEbitdaBasis": "none",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    20,
+    35
+   ],
+   "buildup": [],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; positive net worth; the business is profitable; the parent guarantees the franchisor's performance. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "What we found (2025-12-31, audited by PricewaterhouseCoopers LLP): Net income of $68 on $367 of revenue \u2014 roughly 0.8x spent per $1 earned. Positive net worth of $761. Cash of $68 against $42 of obligations due within a year (a current ratio of 3.65).",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. ServiceMaster Systems LLC guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "positive net worth",
+    "the business is profitable",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": 761.1,
+    "netWorthSign": "positive",
+    "netWorthTrend": "flat",
+    "netIncome": 68.4,
+    "netIncomeTrend": "improving",
+    "revenue": 367.3,
+    "revenueTrend": "improving",
+    "currentRatio": 3.6548463356973997,
+    "workingCapital": 112.3,
+    "liabilitiesToAssets": 0.5709695603156708,
+    "adjLiabilitiesToAssets": 0.5701240135287485,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": 0.0014808964359759107,
+    "expenseToRevenue": 0.8137762047372719,
+    "cash": 67.9,
+    "nearTermObligations": 42.3
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

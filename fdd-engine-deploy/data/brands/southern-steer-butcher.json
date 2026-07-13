@@ -1,0 +1,727 @@
+{
+ "slug": "southern-steer-butcher",
+ "brandName": "Southern Steer Butcher",
+ "category": "Specialty retail",
+ "vertical": "Food & Beverage",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "steer-butcher",
+ "fileHash": "b1770dc7b7089470",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": []
+   },
+   "brandName": "Southern Steer Butcher",
+   "franchisorEntity": "Southern Steer Franchising International, LLC",
+   "headquarters": "Palm Harbor, FL 34684",
+   "brandBackground": "Full-service butcher shop and grocery franchise specializing in marinated meats, specialty cuts, homemade prepared foods, fine cheeses, wine and beer, and food preparation classes, founded in 2020 with one affiliate-owned location operating since 2013.",
+   "conceptType": "retail_product",
+   "conceptRationale": "Primarily a retail butcher shop and specialty grocery selling marinated meats, prepared foods, cheeses, and wine/beer \u2014 a product-retail concept, not a restaurant or entertainment venue.",
+   "staffingModel": "staffed",
+   "staffingRationale": "Item 15 requires the franchisee or a designated manager to be on-site daily, and Item 11 training covers hiring, scheduling, and managing hourly employees, managers, and assistant managers.",
+   "leadership": [
+    {
+     "name": "Greg Snyder",
+     "role": "Managing Member / Founder",
+     "background": "Founder and Managing Member since inception (June 2020); also founder and President of affiliate Southern Steer Butcher, LLC since September 2012 with over 25 years in restaurant and hospitality.",
+     "whyItMatters": "Sole operator of the only proven affiliate location and primary architect of the system."
+    },
+    {
+     "name": "Jacques Lapointe",
+     "role": "Managing Member",
+     "background": "Managing Member since inception (June 2020); previously Founder and Chairman of JAN-PRO Franchising International from 2005 to 2020.",
+     "whyItMatters": "Brings large-scale franchise system-building experience from a major commercial cleaning franchise."
+    },
+    {
+     "name": "Wali Bacdayan",
+     "role": "Managing Member",
+     "background": "Managing Member since June 2022; serves on multiple corporate boards and is a venture partner and founding investor in several companies.",
+     "whyItMatters": "Provides capital markets and board-level governance experience to the growing franchise."
+    },
+    {
+     "name": "Matt Kenagy",
+     "role": "Fractional Chief Marketing Officer",
+     "background": "Fractional CMO since May 2024 via House of Hardway, LLC; prior CMO at GamePlus, Inc. and Director of Loyalty Marketing at Open Network Exchange.",
+     "whyItMatters": "Leads brand marketing and loyalty strategy for franchisee growth."
+    },
+    {
+     "name": "Meghan Reynolds",
+     "role": "Franchise Support Manager",
+     "background": "Franchise Support Manager since August 2022; previously Administrator at Southern Steer Butcher, LLC from 2013 to 2022.",
+     "whyItMatters": "Primary franchisee onboarding and operational support contact with deep brand history."
+    },
+    {
+     "name": "John O'Brien",
+     "role": "Director of Operations and Business Coaching",
+     "background": "Director of Operations and Business Coaching since July 2020; previously Strategic Implementation and Productivity Lead since inception.",
+     "whyItMatters": "Oversees operational standards and franchisee business coaching across the system."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp. 44-51",
+    "unitsReported": 5,
+    "networkAverageMonthly": null,
+    "notes": "Five locations met reporting conditions (operated full calendar year 2025, at least one year open, financials submitted): one affiliate-owned (Clearwater, FL) and four franchised (Sarasota, Ocoee, St. Petersburg, Jacksonville). Net Income figures are before owner's compensation and exclude income taxes, payroll taxes, travel, owner benefits, bonuses, amortization, interest, and disability/health insurance. Imputed royalty adjustments shown separately in Charts 1B, 2B, 2C.",
+    "cohorts": [
+     {
+      "label": "Affiliate Location - Clearwater (Gross Sales)",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 2118554.99,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Total gross sales for the Clearwater affiliate location for the full year January 1 \u2013 December 31, 2025."
+     },
+     {
+      "label": "Affiliate Location - Clearwater (Net Income Before Owner Compensation)",
+      "ownership": "affiliate",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 1,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Net income before owner compensation after deducting COGS, labor, occupancy, marketing, technology, operating, insurance, and miscellaneous expenses; royalty not paid (imputed separately in Chart 1B at $109,451.30, yielding adjusted net income of $214,467.07)."
+     },
+     {
+      "label": "Franchised Locations - Sarasota (Gross Sales)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 2032143.71,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Total gross sales for the Sarasota franchised location for full year 2025."
+     },
+     {
+      "label": "Franchised Locations - Ocoee (Gross Sales)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 1780433.44,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Total gross sales for the Ocoee franchised location for full year 2025."
+     },
+     {
+      "label": "Franchised Locations - St. Petersburg (Gross Sales)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 1615821.62,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Total gross sales for the St. Petersburg franchised location for full year 2025."
+     },
+     {
+      "label": "Franchised Locations - Jacksonville (Gross Sales)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 1127486.42,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Total gross sales for the Jacksonville franchised location for full year 2025."
+     },
+     {
+      "label": "Franchised Locations - Sarasota (Net Income Before Owner Compensation)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 1,
+      "annualRevenue": 353421.64,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Net income before owner compensation for Sarasota 2025; adjusted figure after imputed additional royalty is $314,390.68."
+     },
+     {
+      "label": "Franchised Locations - Ocoee (Net Income Before Owner Compensation)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 1,
+      "annualRevenue": 162923.33,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Net income before owner compensation for Ocoee 2025; adjusted figure after imputed additional royalty is $142,108.05."
+     },
+     {
+      "label": "Franchised Locations - St. Petersburg (Net Income Before Owner Compensation)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 1,
+      "annualRevenue": 182134.96,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Net income before owner compensation for St. Petersburg 2025; no separate imputed adjustment disclosed."
+     },
+     {
+      "label": "Franchised Locations - Jacksonville (Net Income Before Owner Compensation)",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 1,
+      "annualRevenue": -46118.19,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Net loss before owner compensation for Jacksonville 2025; negative result at -4.1% net margin."
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp. 11-14",
+    "initialInvestmentLow": 376223,
+    "initialInvestmentHigh": 797343,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 59500,
+      "high": 59500,
+      "recurring": false,
+      "notes": "Paid to franchisor at signing; non-refundable."
+     },
+     {
+      "category": "Travel and Living Expenses for Initial Training (Two Weeks)",
+      "low": 4000,
+      "high": 7000,
+      "recurring": false,
+      "notes": "Paid to airlines, car rental, hotels, restaurants during training."
+     },
+     {
+      "category": "On-Site Assistance Fee",
+      "low": 12500,
+      "high": 12500,
+      "recurring": false,
+      "notes": "Paid to franchisor after completing Initial Training Program."
+     },
+     {
+      "category": "Architectural, Mechanical and Electrical Design",
+      "low": 12000,
+      "high": 18000,
+      "recurring": false,
+      "notes": "Paid to architect."
+     },
+     {
+      "category": "Lease Deposit",
+      "low": 5000,
+      "high": 8000,
+      "recurring": false,
+      "notes": "Paid to landlord."
+     },
+     {
+      "category": "Utility Deposits",
+      "low": 0,
+      "high": 1000,
+      "recurring": false,
+      "notes": "Paid to utility and phone companies."
+     },
+     {
+      "category": "Leasehold Improvements/Construction",
+      "low": 100000,
+      "high": 270000,
+      "recurring": false,
+      "notes": "Build-out of 1,500\u20132,000 sq ft space to meet Southern Steer standards."
+     },
+     {
+      "category": "Rent for Three Months",
+      "low": 10500,
+      "high": 25500,
+      "recurring": true,
+      "notes": "Estimated lease rates $3,500\u2013$8,500/month; three months shown here."
+     },
+     {
+      "category": "Inventory and Supplies for Three Months",
+      "low": 35000,
+      "high": 55000,
+      "recurring": true,
+      "notes": "Initial inventory for first three months of operation."
+     },
+     {
+      "category": "Furnishings, Fixtures, and Equipment",
+      "low": 35000,
+      "high": 200000,
+      "recurring": false,
+      "notes": "Includes refrigeration, display cases, prep/cooking equipment, freezers, smallwares."
+     },
+     {
+      "category": "Exterior Signage",
+      "low": 8000,
+      "high": 13000,
+      "recurring": false,
+      "notes": "Includes digital menu signage for first year."
+     },
+     {
+      "category": "POS Set Up",
+      "low": 37500,
+      "high": 42500,
+      "recurring": false,
+      "notes": "Hardware, software, wireless network, POS scales, printers, modems; 50% due on order, 50% after installation."
+     },
+     {
+      "category": "POS System Fee \u2013 Three Months",
+      "low": 2160,
+      "high": 2160,
+      "recurring": true,
+      "notes": "$720/month for cloud-based support; three months shown."
+     },
+     {
+      "category": "Permits and Licenses",
+      "low": 500,
+      "high": 2000,
+      "recurring": false,
+      "notes": "Includes liquor license, manager and food handler certifications."
+     },
+     {
+      "category": "Technology Fees for Three Months",
+      "low": 933,
+      "high": 933,
+      "recurring": true,
+      "notes": "$311/month for IFX, email, social media, Google Business; three months shown."
+     },
+     {
+      "category": "Direct Ad TV Subscription Fee for First Year",
+      "low": 540,
+      "high": 540,
+      "recurring": true,
+      "notes": "Annual fee covering three direct TV ads."
+     },
+     {
+      "category": "Legal and Accounting Fees",
+      "low": 1500,
+      "high": 2620,
+      "recurring": false,
+      "notes": "Includes initial IIF Importer App annual subscription."
+     },
+     {
+      "category": "Recipe/Safety Fee for First Quarter",
+      "low": 90,
+      "high": 90,
+      "recurring": true,
+      "notes": "$30/month billed quarterly by vendor."
+     },
+     {
+      "category": "Insurance for Three Months",
+      "low": 1500,
+      "high": 2000,
+      "recurring": true,
+      "notes": "Three months of required general liability, workers comp, and property insurance."
+     },
+     {
+      "category": "Grand Opening Kit",
+      "low": 5000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Paid to franchisor; includes tent, business cards, rack cards, giveaways."
+     },
+     {
+      "category": "Grand Opening Advertising",
+      "low": 15000,
+      "high": 20000,
+      "recurring": false,
+      "notes": "Must be spent within first 90 days of operations."
+     },
+     {
+      "category": "Additional Funds \u2013 Three Months",
+      "low": 30000,
+      "high": 50000,
+      "recurring": false,
+      "notes": "Working capital for payroll, benefits, admin, janitorial, maintenance, additional inventory, utilities."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 6,
+    "brandFundPct": 2,
+    "localAdPct": 1,
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "monthlyAmount": 311,
+      "source": "Item 6, p. 6"
+     },
+     {
+      "name": "POS System Fee",
+      "monthlyAmount": 720,
+      "source": "Item 6, p. 6"
+     },
+     {
+      "name": "Recipe/Safety Fee",
+      "monthlyAmount": 30,
+      "source": "Item 6, p. 7"
+     },
+     {
+      "name": "Direct Ad TV Subscription Fee",
+      "monthlyAmount": 45,
+      "source": "Item 6, p. 7 ($540/year \u00f7 12)"
+     },
+     {
+      "name": "IIF Importer App Fee",
+      "monthlyAmount": 10,
+      "source": "Item 6, p. 7 ($120/year \u00f7 12)"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "QuickBooks Subscription",
+     "description": "Required accounting software estimated at $80/month, not listed as a named fee in Item 6 but disclosed in Item 11.",
+     "estimatedAnnualAmount": 960,
+     "source": "Item 11, p. 26"
+    },
+    {
+     "name": "Customer Loyalty Program Cost",
+     "description": "Mandatory participation in franchisor-designated loyalty/gift card program; Clearwater affiliate spent $129,529 and franchised locations spent $54,133\u2013$130,865 in 2025.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 19, pp. 46-48"
+    },
+    {
+     "name": "Minimum Grand Opening Marketing Spend",
+     "description": "Franchisee must spend at least $15,000 on grand opening advertising within first 90 days, in addition to ongoing local advertising obligation.",
+     "estimatedAnnualAmount": 15000,
+     "source": "Item 11, p. 24; Item 7, p. 12"
+    },
+    {
+     "name": "Local Advertising Requirement (1% of Gross Revenue)",
+     "description": "Annual obligation to spend 1% of gross revenue on local advertising, separate from Brand Fund Contribution.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p. 23"
+    },
+    {
+     "name": "Brand Conference Fee",
+     "description": "Mandatory annual conference attendance; up to $1,500 per attendee plus travel and living expenses.",
+     "estimatedAnnualAmount": 1500,
+     "source": "Item 6, p. 7"
+    },
+    {
+     "name": "POS System Upgrade Costs",
+     "description": "Ongoing technology upgrades estimated at $1,000\u2013$5,000 with no contractual frequency cap.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p. 26"
+    },
+    {
+     "name": "Minimum Royalty Payment",
+     "description": "Franchisee must pay minimum royalty regardless of sales level; failure may result in termination.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 6 (Special Risks, p. iii)"
+    },
+    {
+     "name": "Management Fee (Step-In)",
+     "description": "50% of gross revenues payable if franchisee dies, becomes permanently disabled, or abandons the business \u2014 in addition to royalty and brand fund.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 9"
+    },
+    {
+     "name": "Liquidated Damages for Unauthorized Products",
+     "description": "$250 per day for each day unauthorized products or services are offered or sold.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 9"
+    }
+   ],
+   "systemScale": {
+    "totalUnits": 9,
+    "openedLastYear": 2,
+    "closedLastYear": 0,
+    "transfersLastYear": 0,
+    "sourcePage": "Item 20, p. 52"
+   },
+   "operationalRisks": [
+    {
+     "title": "Franchisor Financial Condition Risk",
+     "description": "The FDD's Special Risks section explicitly states the franchisor's financial condition calls into question its ability to provide services and support to franchisees.",
+     "severity": "high",
+     "source": "Special Risks, p. iii; Item 21, p. 54"
+    },
+    {
+     "title": "Mandatory Minimum Sales Requirements",
+     "description": "Franchisee must achieve $1,000,000 in Year 1 rising to $1,700,000 by Year 5+; failure can result in territory reduction, additional competition in Protected Area, or termination.",
+     "severity": "high",
+     "source": "Item 12, p. 30; Item 17, p. 37"
+    },
+    {
+     "title": "Mandatory Minimum Royalty Payments",
+     "description": "Royalties must be paid regardless of sales levels; inability to pay may result in franchise termination and loss of investment.",
+     "severity": "high",
+     "source": "Special Risks, p. iii; Item 6, p. 6"
+    },
+    {
+     "title": "Spousal Liability Guarantee",
+     "description": "Franchisee's spouse must sign a personal guarantee making them liable for all financial obligations under the franchise agreement even without an ownership interest.",
+     "severity": "medium",
+     "source": "Special Risks, p. iii; Item 15, p. 36"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "All disputes must be resolved by mediation, arbitration, and/or litigation exclusively in Florida, which may disadvantage out-of-state franchisees.",
+     "severity": "medium",
+     "source": "Special Risks, p. iii; Item 17, p. 41"
+    },
+    {
+     "title": "Non-Exclusive Territory",
+     "description": "Franchisee does not receive an exclusive territory; franchisor reserves broad rights to compete via alternative channels, wholesale, internet, food trailers, and other brands within the Protected Area.",
+     "severity": "medium",
+     "source": "Item 12, pp. 29-32"
+    },
+    {
+     "title": "Small and Early-Stage System",
+     "description": "Only 9 total units open as of fiscal year-end 2025 (8 franchised, 1 affiliate), with limited franchisee validation data and only 5 locations meeting Item 19 reporting conditions.",
+     "severity": "medium",
+     "source": "Item 20, p. 52; Item 19, p. 44"
+    },
+    {
+     "title": "Liquor License Risk",
+     "description": "Failure to obtain or retain a liquor license could adversely affect the business, as wine and beer sales are a component of the concept.",
+     "severity": "medium",
+     "source": "Item 1, p. 3; Item 7, p. 14"
+    },
+    {
+     "title": "Franchisor Right to Modify System Without Consent",
+     "description": "Franchisor may change the Brand Manual, system standards, and required products at any time, potentially requiring additional franchisee expenditures.",
+     "severity": "medium",
+     "source": "Item 11, p. 27; General Risks, p. ii"
+    },
+    {
+     "title": "No Franchisee Right to Terminate",
+     "description": "Franchisee has no contractual right to terminate the Franchise Agreement for any reason.",
+     "severity": "medium",
+     "source": "Item 17, p. 38"
+    },
+    {
+     "title": "Marks Owned by Affiliate, Not Franchisor",
+     "description": "The trademarks are owned by affiliate Southern Steer Butcher, LLC under a license agreement; if that license is disrupted, franchisee rights could be affected.",
+     "severity": "medium",
+     "source": "Item 13, p. 33"
+    },
+    {
+     "title": "One Jacksonville Location Reported a Net Loss",
+     "description": "The Jacksonville franchised location reported a net loss of $46,118 before owner compensation in 2025, demonstrating that not all locations are profitable.",
+     "severity": "high",
+     "source": "Item 19, p. 49"
+    }
+   ],
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "rentDetail": {
+    "rawValue": 3500,
+    "unit": "per_month",
+    "squareFootage": 1750,
+    "source": "Item 7, p. 13 (estimated lease rates $3,500\u2013$8,500/month for 1,500\u20132,000 sq ft)"
+   },
+   "averageRentMonthly": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "RPF CPA Accounting Services (Ferland and Company CPAs)",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": null,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-09-30",
+      "revenue": 617505,
+      "netIncome": -548646,
+      "totalAssets": 1027597,
+      "totalLiabilities": 1139418,
+      "cash": 99589,
+      "currentAssets": 598797,
+      "currentLiabilities": 594768,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 1123650,
+      "netWorth": -111821
+     },
+     {
+      "fiscalYearEnd": "2024-09-30",
+      "revenue": 323356,
+      "netIncome": -306454,
+      "totalAssets": 184765,
+      "totalLiabilities": 191940,
+      "cash": 23494,
+      "currentAssets": 145165,
+      "currentLiabilities": 142440,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 184241,
+      "netWorth": -7175
+     },
+     {
+      "fiscalYearEnd": "2023-09-30",
+      "revenue": 146254,
+      "netIncome": -600483,
+      "totalAssets": 68832,
+      "totalLiabilities": 229083,
+      "cash": 43717,
+      "currentAssets": 68832,
+      "currentLiabilities": 229083,
+      "relatedPartyDebt": 3500,
+      "deferredRevenue": 221075,
+      "netWorth": -160251
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "3 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
+    "Franchisor financial distress disclosed (negative net worth) \u2014 confirm its ability to support the system against the audited statements.",
+    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+   ],
+   "midCohort": null,
+   "bottomCohort": null,
+   "buildoutMidpoint": 586783,
+   "assumedLoan": 469426.4,
+   "assumedMonthlyDebtService": 6334.204977035648,
+   "dscr": null,
+   "rentPctOfRevenue": null,
+   "paybackYears": null,
+   "variableRate": 0.09,
+   "fixedMonthly": 1116,
+   "notes": [
+    "Average rent not found; fixed costs may be understated.",
+    "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 336783,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 336783,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 4544.381301905893,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $586,783 mid-point build-out, there is a $336,783 capital gap. An SBA loan or an equity partner is required to do this deal."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "retail_product",
+   "conceptLabel": "Retail / product",
+   "conceptRationale": "Primarily a retail butcher shop and specialty grocery selling marinated meats, prepared foods, cheeses, and wine/beer \u2014 a product-retail concept, not a restaurant or entertainment venue.",
+   "benchmark": {
+    "label": "Retail / product",
+    "cogsPct": [
+     45,
+     65
+    ],
+    "laborPct": [
+     10,
+     18
+    ],
+    "occupancyPct": [
+     8,
+     12
+    ],
+    "operatingEbitdaPct": [
+     5,
+     12
+    ],
+    "dominantRisk": "Gross margin on product (high COGS) and inventory turns. Thin margins amplify any sales miss.",
+    "rampNote": "3\u201312 months to run-rate depending on category.",
+    "considerations": [
+     "Budget COGS at 45\u201365% of sales \u2014 product margin is the whole game here.",
+     "Verify inventory turns and markdown/shrink rates with Item 20 operators.",
+     "Confirm minimum inventory and required reorder commitments in Item 8/Item 11."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 5\u201312% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": null,
+   "marginAfterFeesMonthly": null,
+   "benchmarkOperatingEbitdaMonthly": null,
+   "trueEbitdaBasis": "none",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    10,
+    18
+   ],
+   "buildup": [],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cRetail / product\u201d from the FDD (Item 1 / brand description)."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "This franchisor is carrying a deficit and running a net loss as it grows \u2014 net worth is roughly $112K in the red. Its audit is clean and revenue is rising, so the question is runway: understand how the gap is funded, and for how long, before you commit.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "What we found (2025-09-30, audited by RPF CPA Accounting Services (Ferland and Company CPAs)): Net loss of $549K on $618K of revenue \u2014 roughly 1.9x spent per $1 earned. Losses are widening, not shrinking. Negative net worth (a members'/stockholders' deficit) of $112K, and deepening year over year. Total liabilities are about 1.1x total assets. Cash of $100K against $595K of obligations due within a year (a current ratio of 1.01). Note: about 99% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.0x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "negative net worth that is deepening year over year",
+    "operating losses that are widening"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-09-30",
+    "netWorth": -111821,
+    "netWorthSign": "negative",
+    "netWorthTrend": "worsening",
+    "netIncome": -548646,
+    "netIncomeTrend": "worsening",
+    "revenue": 617505,
+    "revenueTrend": "improving",
+    "currentRatio": 1.0067740698894359,
+    "workingCapital": 4029,
+    "liabilitiesToAssets": 1.1088179510060852,
+    "adjLiabilitiesToAssets": 0.015344536817448864,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": 0.9861613560607257,
+    "expenseToRevenue": 1.8884883523210338,
+    "cash": 99589,
+    "nearTermObligations": 594768
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

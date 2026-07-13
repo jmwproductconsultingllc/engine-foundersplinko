@@ -1,0 +1,772 @@
+{
+ "slug": "lawn-doctor",
+ "brandName": "Lawn Doctor",
+ "category": "Lawn care",
+ "vertical": "Home & Property Services",
+ "grade": "READY",
+ "parseQuality": "degraded-fallback",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "lawn-doctor",
+ "fileHash": "309762fc4c71d8b3",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Item 19 does not include any EBITDA or net income profitability table \u2014 only gross Net Revenues and gross profit margin (pre-royalty/marketing) are disclosed."
+    ]
+   },
+   "brandName": "Lawn Doctor",
+   "franchisorEntity": "Lawn Doctor, Inc.",
+   "headquarters": "Holmdel, New Jersey",
+   "brandBackground": "Lawn Doctor has offered lawn care franchises since 1967 (originally incorporated as Auto-Lawn of America, Inc.) and added holiday lighting and d\u00e9cor services under the Holiday Lighting Heroes mark beginning in early 2024.",
+   "conceptType": "home_trade_services",
+   "conceptRationale": "Lawn Doctor is a mobile, territory-based lawn care and holiday lighting service business operating at residential and commercial customer locations \u2014 a classic home/trade services model.",
+   "staffingModel": "lightly_staffed",
+   "staffingRationale": "Item 15 requires the owner's full-time personal involvement, and the mobile service model typically operates with the owner plus a small crew of field technicians rather than a large fixed-location staff.",
+   "leadership": [
+    {
+     "name": "Scott D. Frith",
+     "role": "Chief Executive Officer, Treasurer and Director",
+     "background": "Appointed CEO in December 2011 after serving as VP of Marketing and Franchise Development and Marketing Director since 1995.",
+     "whyItMatters": "Longest-tenured executive with deep brand and franchise development knowledge."
+    },
+    {
+     "name": "John (Jack) Miskin",
+     "role": "Chief Financial Officer and Secretary",
+     "background": "Became CFO and Secretary in November 2016, also serving in the same role for affiliated brands.",
+     "whyItMatters": "Controls financial reporting and compliance across the LDI family of brands."
+    },
+    {
+     "name": "Christina Schmidt",
+     "role": "Vice President of Marketing",
+     "background": "Promoted to VP of Marketing in March 2025 after serving as Senior Director of Digital Marketing and Analytics since April 2015.",
+     "whyItMatters": "Leads all marketing strategy including the national and regional Marketing Funds."
+    },
+    {
+     "name": "David Newman",
+     "role": "Vice President of Operations",
+     "background": "VP of Operations since October 2012, with LDI since 1998 in field support and consulting roles.",
+     "whyItMatters": "Oversees franchisee training, field support, and operational standards."
+    },
+    {
+     "name": "Eric Martin",
+     "role": "Senior Vice President of Franchise Development",
+     "background": "SVP of Franchise Development since May 2017, based in Omaha, Nebraska.",
+     "whyItMatters": "Drives new franchise sales and system growth."
+    },
+    {
+     "name": "Greg Flaster",
+     "role": "Director/Manager",
+     "background": "Director of LDI since January 2020; Managing Director of Levine Leichtman Capital Partners since May 2019.",
+     "whyItMatters": "Represents the private equity ownership (LLCP) at the board level."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp. 43-47",
+    "unitsReported": 202,
+    "networkAverageMonthly": 97529.67,
+    "notes": "Item 19 discloses four tables: Table A (2025 Net Revenues by number of territories operated, for 202 franchisees with 2+ full years); Table B (2025 customer data for 193 franchisees); Table C (2024 gross profit margin for 81 franchisees); Table D (historical Net Revenues 2009-2025). No EBITDA or net income profitability table is disclosed. All data is from internal unaudited reports. Holiday lighting revenues are excluded from all tables.",
+    "cohorts": [
+     {
+      "label": "All Franchisees (1-3 Territories) - 2025 Net Revenues",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 141,
+      "annualRevenue": 639509,
+      "avgMonthlyRevenue": null,
+      "basis": "Average 2025 Net Revenues for 141 franchisees operating 1-3 territories with 2+ full years of experience as of Dec 31, 2025; Item 19 Table A.",
+      "monthlyValues": []
+     },
+     {
+      "label": "All Franchisees (4-6 Territories) - 2025 Net Revenues",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 42,
+      "annualRevenue": 1723081,
+      "avgMonthlyRevenue": null,
+      "basis": "Average 2025 Net Revenues for 42 franchisees operating 4-6 territories with 2+ full years of experience as of Dec 31, 2025; Item 19 Table A.",
+      "monthlyValues": []
+     },
+     {
+      "label": "All Franchisees (7+ Territories) - 2025 Net Revenues",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 19,
+      "annualRevenue": 3887991,
+      "avgMonthlyRevenue": null,
+      "basis": "Average 2025 Net Revenues for 19 franchisees operating 7+ territories with 2+ full years of experience as of Dec 31, 2025; Item 19 Table A.",
+      "monthlyValues": []
+     },
+     {
+      "label": "All Franchisees (All Territories Combined) - 2025 Net Revenues",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 202,
+      "annualRevenue": 1170356,
+      "avgMonthlyRevenue": null,
+      "basis": "Average 2025 Net Revenues per franchisee (all territories combined) for all 202 franchisees with 2+ full years of experience as of Dec 31, 2025; Item 19 Table A.",
+      "monthlyValues": []
+     },
+     {
+      "label": "All Franchisees - 2024 Gross Profit Margin",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 81,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "basis": "Average gross profit margin of 86.6% (median 86.1%) of Net Revenues after subtracting material/treatment product costs only, for 81 of 196 franchisees with 1+ full year as of Dec 31, 2024; does NOT deduct royalties or marketing spend; Item 19 Table C.",
+      "monthlyValues": []
+     },
+     {
+      "label": "All Franchisees - 2024 Net Revenues (Historical)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 205,
+      "annualRevenue": 1130477,
+      "avgMonthlyRevenue": null,
+      "basis": "Average 2024 Net Revenues for 205 franchisees with 2+ full years of experience as of Dec 31, 2024; Item 19 Table D.",
+      "monthlyValues": []
+     },
+     {
+      "label": "All Franchisees - 2023 Net Revenues (Historical)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 192,
+      "annualRevenue": 1114402,
+      "avgMonthlyRevenue": null,
+      "basis": "Average 2023 Net Revenues for 192 franchisees with 2+ full years of experience as of Dec 31, 2023; Item 19 Table D.",
+      "monthlyValues": []
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp. 13-16",
+    "initialInvestmentLow": 135820,
+    "initialInvestmentHigh": 163902,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee (Total)",
+      "low": 114950,
+      "high": 118000,
+      "recurring": false,
+      "notes": "Includes initial license fee ($50,000), initial marketing/training/supply/support fee ($61,600), Turf Tamer Stand-On Applicator lease deposit ($3,350), and Turf Tamer Power Seeder lease deposit ($0-$3,050; not applicable in certain agronomic areas). Item 7, p.13."
+     },
+     {
+      "category": "Service Vehicle (first month lease)",
+      "low": 1800,
+      "high": 2500,
+      "recurring": true,
+      "notes": "First month of a typical 72-month lease for the ProMaster van or Reddick Spray Truck from LDI's approved supplier. Item 7, p.13."
+     },
+     {
+      "category": "Shipping of Turf Tamer Power Seeder",
+      "low": 0,
+      "high": 1000,
+      "recurring": false,
+      "notes": "Cost to pack and ship the Turf Tamer Power Seeder from LDI's manufacturing facility; not applicable in certain agronomic areas. Item 7, p.13."
+     },
+     {
+      "category": "Computer Software",
+      "low": 225,
+      "high": 500,
+      "recurring": true,
+      "notes": "Initial payment and monthly license/support fees for designated lawn care and holiday lighting software programs. Item 7, p.13."
+     },
+     {
+      "category": "Computers",
+      "low": 0,
+      "high": 2000,
+      "recurring": false,
+      "notes": "Computer hardware and peripherals meeting LDI's standards; may already be available. Item 7, p.13."
+     },
+     {
+      "category": "Opening Inventory for Lawn Care Products/Materials",
+      "low": 2000,
+      "high": 2000,
+      "recurring": false,
+      "notes": "Initial lawn care chemical and product inventory. Item 7, p.13."
+     },
+     {
+      "category": "Rental Space",
+      "low": 0,
+      "high": 1000,
+      "recurring": true,
+      "notes": "First month's rent for office/storage space (approx. 12'x20'); $0 if operating from home. Item 7, p.13."
+     },
+     {
+      "category": "Bookkeeper",
+      "low": 325,
+      "high": 400,
+      "recurring": true,
+      "notes": "Monthly bookkeeping services from LDI's designated franchise accounting provider (required in year 1). Item 7, p.13."
+     },
+     {
+      "category": "Training Expenses (per attendee)",
+      "low": 2500,
+      "high": 4000,
+      "recurring": false,
+      "notes": "Travel and living expenses for up to 2 attendees at LDI's mandatory training program in Holmdel, NJ. Item 7, p.13."
+     },
+     {
+      "category": "Sales Support Resources",
+      "low": 200,
+      "high": 450,
+      "recurring": true,
+      "notes": "Monthly sales support resource costs. Item 7, p.13."
+     },
+     {
+      "category": "Insurance",
+      "low": 800,
+      "high": 1000,
+      "recurring": true,
+      "notes": "Monthly cost for required general liability, workers compensation, and motor vehicle liability insurance. Item 7, p.13."
+     },
+     {
+      "category": "Opening Holiday Lighting Inventory",
+      "low": 0,
+      "high": 5000,
+      "recurring": false,
+      "notes": "$0 if not starting Holiday Lighting Heroes services immediately; up to $5,000 if launching at opening. Item 7, p.14."
+     },
+     {
+      "category": "Start-Up Equipment Package for Holiday Lighting (tools, ladders, safety equipment)",
+      "low": 0,
+      "high": 2800,
+      "recurring": false,
+      "notes": "$0 if not starting Holiday Lighting Heroes services immediately. Item 7, p.14."
+     },
+     {
+      "category": "Uniforms",
+      "low": 250,
+      "high": 600,
+      "recurring": false,
+      "notes": "Initial uniform purchase. Item 7, p.14."
+     },
+     {
+      "category": "Vehicle Tracking and Telematics",
+      "low": 50,
+      "high": 100,
+      "recurring": true,
+      "notes": "Monthly vehicle tracking and telematics fee. Item 7, p.14."
+     },
+     {
+      "category": "Additional Funds - 3 Months",
+      "low": 12720,
+      "high": 22552,
+      "recurring": false,
+      "notes": "Working capital for pre-opening and first 3 months of operations including labor, vehicle lease payments (months 2-3), software fees, rent, Technology Fees, and miscellaneous expenses. Item 7, p.14."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 10,
+    "brandFundPct": 5,
+    "localAdPct": 10,
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "monthlyAmount": 150,
+      "source": "Item 6, p.7 (increases to $250/month after cumulative Net Revenues reach $1,000,000; LDI may increase up to $500/month)"
+     },
+     {
+      "name": "Turf Tamer Stand-On Applicator Lease",
+      "monthlyAmount": 335.4,
+      "source": "Item 6, p.9 (84-month term; or lump sum $22,350)"
+     },
+     {
+      "name": "Turf Tamer Power Seeder Lease",
+      "monthlyAmount": 339.2,
+      "source": "Item 6, p.9 (72-month term; or lump sum $19,750; not applicable in certain agronomic areas)"
+     },
+     {
+      "name": "Call Center Fee (if operational)",
+      "monthlyAmount": null,
+      "source": "Item 6, p.10 (currently $0; may be charged up to $1,000/month when Call Center becomes operational)"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Annual Advertising/Marketing Commitment (Lawn Care)",
+     "description": "Franchisee must spend the greater of $30,000 or 10% of Net Revenues annually on local marketing; unspent amounts paid to LDI.",
+     "estimatedAnnualAmount": 30000,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Holiday Lighting Heroes Advertising/Marketing",
+     "description": "Beginning in 2nd full year, franchisee must pay LDI the greater of $6,000 or 5% of prior year's Holiday Lighting Heroes Net Revenues annually, in two installments.",
+     "estimatedAnnualAmount": 6000,
+     "source": "Item 6, p.9"
+    },
+    {
+     "name": "National Marketing Fund Contribution",
+     "description": "Required weekly contribution to national Marketing Fund; approximately $106/week ($5,500/year) for franchisees with prior-year Net Revenues over $175,000, or 2% of Net Revenues if under $175,000.",
+     "estimatedAnnualAmount": 5500,
+     "source": "Item 6, pp.12-13"
+    },
+    {
+     "name": "Lawn Care Software Monthly License Fee",
+     "description": "Monthly license and support fee for designated lawn care business management software (Service Assistant, Routing Assistant, etc.).",
+     "estimatedAnnualAmount": 2700,
+     "source": "Item 11, p.28 ($225/month)"
+    },
+    {
+     "name": "Holiday Lighting Software Monthly License Fees",
+     "description": "Monthly license fees for Holiday Home Concepts (~$130/month) and Serviceminder (~$54-$189/month depending on season).",
+     "estimatedAnnualAmount": 3828,
+     "source": "Item 11, p.28 (approximately $319/month combined)"
+    },
+    {
+     "name": "QuickBooks Online Monthly Fee",
+     "description": "Required ongoing monthly fee for QuickBooks Online accounting software.",
+     "estimatedAnnualAmount": 1020,
+     "source": "Item 7, p.15 ($85/month)"
+    },
+    {
+     "name": "Convention/Conference Fee",
+     "description": "Mandatory attendance fee for LDI-conducted conventions/conferences; payable even if franchisee does not attend.",
+     "estimatedAnnualAmount": 2000,
+     "source": "Item 6, p.10 (not to exceed $2,000 annually)"
+    },
+    {
+     "name": "Out-of-Territory Royalty Fee",
+     "description": "Additional 15% royalty on Net Revenues derived from customers outside the franchisee's Territory, on top of the standard 10% royalty.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Centrally Managed Media Boost Program (optional)",
+     "description": "Optional one-time $5,000 payment to LDI for supplemental corporate-directed media if franchisee opens after the optimal season starting point.",
+     "estimatedAnnualAmount": 5000,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Transfer Fee",
+     "description": "75% of the then-current initial license fee component payable by a new franchisee, due upon sale or transfer of the business.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.10"
+    },
+    {
+     "name": "Broker Fee",
+     "description": "$25,000 fee payable to LDI if LDI engages a third-party broker or consultant to assist in selling the franchisee's business.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.10"
+    }
+   ],
+   "systemScale": {
+    "totalUnits": 675,
+    "openedLastYear": 27,
+    "closedLastYear": 5,
+    "transfersLastYear": 18,
+    "sourcePage": "Item 20, p.48 (Table No. 1 and Table No. 3; as of December 31, 2025; 672 franchised + 3 company-owned = 675 total; 4 terminations + 1 ceased other reasons = 5 closed)"
+   },
+   "operationalRisks": [
+    {
+     "title": "High Royalty and Mandatory Marketing Burden",
+     "description": "Combined royalty (10%), marketing fund (up to 5%), and local advertising commitment (greater of $30,000 or 10% of Net Revenues) can consume 25%+ of Net Revenues before any other operating costs.",
+     "severity": "high",
+     "source": "Item 6, pp. 7-8"
+    },
+    {
+     "title": "Seasonal Revenue Concentration",
+     "description": "Lawn care revenues are highly seasonal in cold-weather markets, creating cash flow risk during off-season months when fixed fees (royalties, technology, equipment leases) continue.",
+     "severity": "high",
+     "source": "Item 1, p.2"
+    },
+    {
+     "title": "Mandatory Equipment Leases with Acceleration Clause",
+     "description": "Franchisees must lease proprietary Turf Tamer equipment exclusively from LDI; default accelerates all remaining payments and can trigger franchise termination.",
+     "severity": "high",
+     "source": "Item 10, pp. 21-22"
+    },
+    {
+     "title": "Territory Reduction Risk After Year 4",
+     "description": "LDI may unilaterally reduce the franchisee's territory if Market Share falls below 70% of the system average after 4 years of operation.",
+     "severity": "medium",
+     "source": "Item 12, p.33"
+    },
+    {
+     "title": "Affiliate Competition in Territory (Mosquito Hunters / Sparkle Squad / Holiday Lighting)",
+     "description": "LDI's affiliates (Mosquito Hunters/Pest Hunters and Sparkle Squad) may solicit customers for pest control and holiday lighting services within the franchisee's territory using different trademarks.",
+     "severity": "medium",
+     "source": "Item 12, pp. 34-35"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution Requirement",
+     "description": "All disputes must be mediated and arbitrated in New Jersey, which may disadvantage franchisees located in other states and increase resolution costs.",
+     "severity": "medium",
+     "source": "Special Risks, p.4; Item 17, p.42"
+    },
+    {
+     "title": "Mandatory Holiday Lighting Marketing Fee Regardless of Participation",
+     "description": "Beginning in year 2, franchisees must pay LDI the greater of $6,000 or 5% of prior-year Holiday Lighting Heroes revenues annually even if they have not yet begun offering those services.",
+     "severity": "medium",
+     "source": "Item 6, p.9"
+    },
+    {
+     "title": "Pesticide Licensing and Regulatory Compliance",
+     "description": "Franchisees must comply with federal (FIFRA) and state pesticide applicator licensing requirements; loss of a required license is a non-curable termination event.",
+     "severity": "medium",
+     "source": "Item 1, p.3; Item 17, p.40"
+    },
+    {
+     "title": "Renewal Requires Signing New Agreement with Potentially Different Terms",
+     "description": "Renewal requires execution of LDI's then-current franchise agreement, which may have materially different fees, royalties, and territorial rights than the original agreement.",
+     "severity": "medium",
+     "source": "Item 17, p.39"
+    },
+    {
+     "title": "Restricted Supplier Sources (90-95% of Establishment Costs)",
+     "description": "LDI estimates 90-95% of establishment costs and 50-60% of ongoing costs must be purchased from LDI or designated suppliers, limiting franchisee purchasing flexibility and potentially increasing costs.",
+     "severity": "medium",
+     "source": "Item 8, p.16"
+    },
+    {
+     "title": "Post-Termination Non-Compete (18 Months, 50-Mile Radius)",
+     "description": "After termination or expiration, franchisees are prohibited from operating any competitive lawn care or holiday lighting business within their territory or within 50 miles of any Lawn Doctor territory for 18 months.",
+     "severity": "medium",
+     "source": "Item 17, p.42"
+    },
+    {
+     "title": "Technology Fee Subject to Unilateral Increase",
+     "description": "LDI may increase the monthly Technology Fee up to $500/month at its sole discretion during the franchise term with no cap on frequency of increases.",
+     "severity": "low",
+     "source": "Item 6, p.7"
+    }
+   ],
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "rentDetail": {
+    "rawValue": 1000,
+    "unit": "per_month",
+    "squareFootage": 240,
+    "source": "Item 7, p.15 (footnote 7): estimated monthly rental of $0-$1,000 for approximately 12'x20' (240 sq ft) office/storage space; many franchisees operate from home at $0."
+   },
+   "averageRentMonthly": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "BDO USA, P.C.",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "LD Parent, Inc.",
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 47832998,
+      "netIncome": 3410731,
+      "totalAssets": 97932922,
+      "totalLiabilities": 72847410,
+      "cash": 4191903,
+      "currentAssets": 9866971,
+      "currentLiabilities": 10181137,
+      "relatedPartyDebt": 18000000,
+      "deferredRevenue": 10119606,
+      "netWorth": 25085512
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 45264052,
+      "netIncome": 3128963,
+      "totalAssets": 98719046,
+      "totalLiabilities": 71381370,
+      "cash": 4604289,
+      "currentAssets": 10386844,
+      "currentLiabilities": 8821196,
+      "relatedPartyDebt": 18000000,
+      "deferredRevenue": 8687188,
+      "netWorth": 27337676
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "Above-market royalty at 10%.",
+    "3 high-severity operational tripwires disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Network Average",
+    "monthlyRevenue": 97529.67,
+    "monthlyVariable": 24382.4175,
+    "monthlyFixed": 824.5999999999999,
+    "monthlyEbitda": 72322.6525,
+    "annualEbitda": 867871.83,
+    "coversCosts": true,
+    "source": {
+     "basis": "network",
+     "label": "network average of disclosed cohorts",
+     "math": null
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 149861,
+   "assumedLoan": 119888.8,
+   "assumedMonthlyDebtService": 1617.719484142416,
+   "dscr": 44.70654721596534,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.17267641928186564,
+   "variableRate": 0.25,
+   "fixedMonthly": 824.5999999999999,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 72322.6525,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $149,861 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $72,323/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "Lawn Doctor is a mobile, territory-based lawn care and holiday lighting service business operating at residential and commercial customer locations \u2014 a classic home/trade services model.",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 97529.67,
+   "marginAfterFeesMonthly": 72322.6525,
+   "benchmarkOperatingEbitdaMonthly": [
+    -2775,
+    30385
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 10\u201321% \u2014 the 20\u201335% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    10,
+    21
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      72322.6525,
+      72322.6525
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      2,
+      6
+     ],
+     "dollarRange": [
+      1951,
+      5852
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      25,
+      40
+     ],
+     "dollarRange": [
+      24382,
+      39012
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      21
+     ],
+     "dollarRange": [
+      9753,
+      20481
+     ],
+     "note": "lightly staffed \u00b7 \u2248 2.8\u20135.9 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      5852,
+      9753
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -2775,
+      30385
+     ],
+     "note": "\u2248 -3% to 31% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 2\u20136% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 25\u201340% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 10\u201321% lightly staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; positive net worth; the business is profitable; the parent guarantees the franchisor's performance. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "What we found (2025-12-31, audited by BDO USA, P.C.): Net income of $3.41M on $47.83M of revenue \u2014 roughly 0.9x spent per $1 earned. Positive net worth of $25.09M. Cash of $4.19M against $10.18M of obligations due within a year (a current ratio of 0.97). Note: about 14% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.6x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. LD Parent, Inc. guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "more due within a year than current assets to cover it"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "positive net worth",
+    "the business is profitable",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": 25085512,
+    "netWorthSign": "positive",
+    "netWorthTrend": "worsening",
+    "netIncome": 3410731,
+    "netIncomeTrend": "improving",
+    "revenue": 47832998,
+    "revenueTrend": "improving",
+    "currentRatio": 0.969142346282149,
+    "workingCapital": -314166,
+    "liabilitiesToAssets": 0.743850060963156,
+    "adjLiabilitiesToAssets": 0.6405180476489816,
+    "relatedPartyDebtPct": 0.24709183209121643,
+    "deferredRevenuePct": 0.1389151103656259,
+    "expenseToRevenue": 0.9286950192835498,
+    "cash": 4191903,
+    "nearTermObligations": 10181137
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

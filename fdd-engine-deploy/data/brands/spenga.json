@@ -1,0 +1,780 @@
+{
+ "slug": "spenga",
+ "brandName": "SPENGA",
+ "category": "Gym/studio",
+ "vertical": "Fitness & Wellness",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "spenga-fitness",
+ "fileHash": "ae0b133dbb7ea841",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Item 19 does not disclose a full profit/EBITDA table for franchised studios \u2014 only the affiliate studio's cost breakdown is provided; no franchisee-level net income or EBITDA cohort exists.",
+     "Special Risk #4 explicitly flags the franchisor's financial condition as calling into question its ability to provide support."
+    ]
+   },
+   "brandName": "SPENGA",
+   "franchisorEntity": "Spenga Holdings LLC",
+   "headquarters": "Homer Glen, Illinois",
+   "brandBackground": "SPENGA is a fitness studio franchise founded in 2015 combining spin, strength, and yoga into a single 24-station class session with aromatherapy and DJ-inspired music.",
+   "conceptType": "fitness_studio",
+   "conceptRationale": "SPENGA operates boutique fitness studios offering structured group workout classes (spin, strength, yoga) on a membership model \u2014 a classic fitness_studio concept.",
+   "staffingModel": "staffed",
+   "staffingRationale": "Item 15 and Item 16 require at least one trained instructor on-site at all times classes are offered, and Item 11 describes a full front-desk and instructor staffing model.",
+   "leadership": [
+    {
+     "name": "Roger McGreal",
+     "role": "Chief Executive Officer",
+     "background": "Co-founder and CEO since March 2015; previously Director of Personal Training at Cardinal Fitness and Charter Fitness.",
+     "whyItMatters": "Longest-tenured leader and primary franchisor contact for all franchise sales and support."
+    },
+    {
+     "name": "Nancy Vrdolyak",
+     "role": "Executive Vice President",
+     "background": "Co-founder and EVP since January 2018; over 20 years in the fitness industry and President of Spenga Inc.",
+     "whyItMatters": "Oversees brand strategy and holds the Spenga Inc. IP entity presidency."
+    },
+    {
+     "name": "Heather Ruff",
+     "role": "Vice President of Operations",
+     "background": "Co-founder and VP of Operations since March 2015; previously Assistant Director of Personal Training at Cardinal Fitness and Charter Fitness.",
+     "whyItMatters": "Leads day-to-day franchise operations standards and compliance."
+    },
+    {
+     "name": "Amy Nielsen",
+     "role": "Vice President of Fitness",
+     "background": "Co-founder and VP of Fitness since March 2015; previously Assistant Director of Personal Training at Cardinal Fitness and Charter Fitness.",
+     "whyItMatters": "Responsible for fitness programming, instructor standards, and training curriculum."
+    },
+    {
+     "name": "Joseph Vrdolyak",
+     "role": "Vice President of Construction and Development",
+     "background": "Co-founder and VP since December 2018; over 20 years in fitness facility development at Cardinal Fitness and Charter Fitness.",
+     "whyItMatters": "Manages studio build-out, site development, and construction supplier relationships."
+    },
+    {
+     "name": "Emily Hileman",
+     "role": "Director of Operations",
+     "background": "Director of Operations since March 2022; previously General Manager of Spenga Fort Collins and Operations Support Specialist.",
+     "whyItMatters": "Primary operational support contact for franchisees post-opening."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp. 58-70",
+    "unitsReported": 44,
+    "networkAverageMonthly": null,
+    "notes": "Item 19 is divided into 10 Parts. Part I covers the single affiliate studio's full P&L for 2025. Parts II-VIII cover operational metrics (leads, conversion, membership pricing, package revenue, no-show revenue, retail revenue, aggregator revenue) for franchised and affiliate studios. Part IX discloses NCI (gross revenue) by performance tier for 35 franchised studios open the full year meeting marketing minimums. Part X covers one new studio's presale and first-30-day NCI. No franchisee-level EBITDA or net income table is disclosed. Nine franchised studios were excluded from Part IX for not meeting minimum marketing spend.",
+    "cohorts": [
+     {
+      "label": "Affiliate Studio - Full P&L (2025)",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 836381.97,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Total NCI (Net Cash In) for the single affiliate-owned studio (Spenga of Mokena) for calendar year 2025; Item 19 Part I, p.60"
+     },
+     {
+      "label": "Affiliate Studio - Net After Disclosed Costs (2025)",
+      "ownership": "affiliate",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 1,
+      "annualRevenue": 351486.65,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Total NCI less payroll, COGS, estimated royalty, advertising, and rent/occupancy for the affiliate studio in 2025; Item 19 Part I, p.60"
+     },
+     {
+      "label": "Franchised Studios - NCI Tier 1 Highest Performing (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 8,
+      "annualRevenue": 809902,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual NCI for the top 8 of 35 qualifying franchised studios open the full 2025 year meeting marketing minimums; Item 19 Part IX, p.69"
+     },
+     {
+      "label": "Franchised Studios - NCI Tier 2 (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 9,
+      "annualRevenue": 614051,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual NCI for the second-tier 9 of 35 qualifying franchised studios in 2025; Item 19 Part IX, p.69"
+     },
+     {
+      "label": "Franchised Studios - NCI Tier 3 (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 9,
+      "annualRevenue": 503976,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual NCI for the third-tier 9 of 35 qualifying franchised studios in 2025; Item 19 Part IX, p.69"
+     },
+     {
+      "label": "Franchised Studios - NCI Tier 4 Lowest Performing (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 9,
+      "annualRevenue": 414401,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual NCI for the bottom 9 of 35 qualifying franchised studios in 2025; Item 19 Part IX, p.69"
+     },
+     {
+      "label": "Franchised Studios - Package Sessions & Challenge Revenue (2025)",
+      "ownership": "franchised",
+      "revenueType": "other",
+      "sampleSize": 44,
+      "annualRevenue": 27098,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual package session and challenge revenue for all 44 franchised studios in 2025; Item 19 Part V, p.65"
+     },
+     {
+      "label": "Franchised Studios - No Show & Late Cancel Revenue (2025)",
+      "ownership": "franchised",
+      "revenueType": "other",
+      "sampleSize": 38,
+      "annualRevenue": 21424,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual no-show and late-cancel fee revenue for 38 of 44 franchised studios participating in auto-billing in 2025; Item 19 Part VI, p.66"
+     },
+     {
+      "label": "Franchised Studios - Retail Revenue Active Participants (2025)",
+      "ownership": "franchised",
+      "revenueType": "other",
+      "sampleSize": 17,
+      "annualRevenue": 18515,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual retail revenue for 17 franchised studios actively participating in the retail program with at least $7,500 COGS in 2025; Item 19 Part VII, p.67"
+     },
+     {
+      "label": "Franchised Studios - Third-Party Aggregator Revenue (2025)",
+      "ownership": "franchised",
+      "revenueType": "other",
+      "sampleSize": 37,
+      "annualRevenue": 28105,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual third-party aggregator revenue for 37 of 44 franchised studios using multiple aggregators in 2025; Item 19 Part VIII, p.68"
+     },
+     {
+      "label": "New Franchised Studio - Presale & First 30 Days NCI (2025)",
+      "ownership": "franchised",
+      "revenueType": "pre_sale_only",
+      "sampleSize": 1,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "One new franchised studio conducted presales in 2025: 305 presale members and $75,469 NCI in first 30 days of operation; Item 19 Part X, p.70"
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp. 15-20",
+    "initialInvestmentLow": 552267,
+    "initialInvestmentHigh": 789595,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 49500,
+      "high": 49500,
+      "recurring": false,
+      "notes": "Paid to franchisor upon signing Franchise Agreement; non-refundable"
+     },
+     {
+      "category": "Lease - Security Deposit",
+      "low": 5425,
+      "high": 19966,
+      "recurring": false,
+      "notes": "Traditional model; paid to landlord upon signing lease"
+     },
+     {
+      "category": "Lease Expenses - 3 Months",
+      "low": 0,
+      "high": 59898,
+      "recurring": false,
+      "notes": "Traditional model; low end assumes rent abatement for first 3 months"
+     },
+     {
+      "category": "Leasehold Improvements",
+      "low": 379829,
+      "high": 469656,
+      "recurring": false,
+      "notes": "Traditional model; includes architectural, engineering, and bid assistance fees; net of tenant improvement allowance"
+     },
+     {
+      "category": "Fitness Equipment - Ongoing Payments (3 months)",
+      "low": 13031,
+      "high": 15706,
+      "recurring": true,
+      "notes": "Assumes leased/financed equipment at 10.2%-10.8% interest over 48-60 months; purchase price approximately $203,299"
+     },
+     {
+      "category": "Other Equipment, Furniture, Fixtures, and Equipment",
+      "low": 7832,
+      "high": 12669,
+      "recurring": false,
+      "notes": "Decor, retail display, bathroom stands/racks, storage shelving"
+     },
+     {
+      "category": "Grand Opening Marketing Expense and Pre-Opening Activity Expenses",
+      "low": 20000,
+      "high": 30000,
+      "recurring": false,
+      "notes": "Mandatory pre-opening and grand opening marketing spend; excludes labor"
+     },
+     {
+      "category": "Signage",
+      "low": 13500,
+      "high": 24000,
+      "recurring": false,
+      "notes": "One illuminated exterior sign and all interior signage from Required Supplier"
+     },
+     {
+      "category": "Computer Hardware and Software",
+      "low": 4000,
+      "high": 6000,
+      "recurring": false,
+      "notes": "POS system and other required computer hardware/software from Required Supplier"
+     },
+     {
+      "category": "Opening Supplies",
+      "low": 1700,
+      "high": 2100,
+      "recurring": false,
+      "notes": "Initial supplies from Required Suppliers"
+     },
+     {
+      "category": "Insurance",
+      "low": 1200,
+      "high": 4000,
+      "recurring": false,
+      "notes": "Estimated one-year insurance cost; general liability $1M per occurrence, $2M aggregate, $2M umbrella"
+     },
+     {
+      "category": "Other Deposits (Utilities, Banks, Alarm, etc.)",
+      "low": 1000,
+      "high": 2000,
+      "recurring": false,
+      "notes": "Deposits for utilities, banks/credit card companies, lease equipment, vendors, alarm company, telephone"
+     },
+     {
+      "category": "Professional Fees",
+      "low": 2500,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Lawyers, accountants, and other professional advisors"
+     },
+     {
+      "category": "Initial Training Expenses",
+      "low": 1000,
+      "high": 4000,
+      "recurring": false,
+      "notes": "Travel, lodging, meals, and wages for attending Corporate Initial Training in Illinois"
+     },
+     {
+      "category": "Additional Permits, Approvals and Qualifications",
+      "low": 250,
+      "high": 1000,
+      "recurring": false,
+      "notes": "State/local permits and licenses including AED and CPR requirements"
+     },
+     {
+      "category": "Initial Inventory of Retail Items",
+      "low": 4000,
+      "high": 6500,
+      "recurring": false,
+      "notes": "Branded clothing, accessories, and optional non-branded items from Required Supplier or affiliate"
+     },
+     {
+      "category": "Audio Video Package",
+      "low": 35500,
+      "high": 39500,
+      "recurring": false,
+      "notes": "Mandatory AV package purchased from Required Supplier"
+     },
+     {
+      "category": "Employee Recruiting",
+      "low": 2000,
+      "high": 7500,
+      "recurring": false,
+      "notes": "Recruiting costs; must use Required Supplier for all recruiting"
+     },
+     {
+      "category": "Construction Design and Review Compliance",
+      "low": 0,
+      "high": 5600,
+      "recurring": false,
+      "notes": "Required Supplier for construction design and review compliance"
+     },
+     {
+      "category": "Additional Funds - 3 Months",
+      "low": 10000,
+      "high": 25000,
+      "recurring": false,
+      "notes": "Working capital for first 3 months; excludes owner salary and debt service"
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 7,
+    "brandFundPct": 2,
+    "localAdPct": null,
+    "flatMonthlyFees": [
+     {
+      "name": "Minimum Royalty",
+      "monthlyAmount": 1000,
+      "source": "Item 6, p.7"
+     },
+     {
+      "name": "Local Marketing Requirement",
+      "monthlyAmount": 3500,
+      "source": "Item 6, p.8 (range $3,000-$4,000/month)"
+     },
+     {
+      "name": "Search Engine Optimization Fee",
+      "monthlyAmount": 169,
+      "source": "Item 6, p.8"
+     },
+     {
+      "name": "POS System and Payment Processing Fee",
+      "monthlyAmount": 228,
+      "source": "Item 6, p.8"
+     },
+     {
+      "name": "Customer Review Software",
+      "monthlyAmount": 150,
+      "source": "Item 6, p.8"
+     },
+     {
+      "name": "SPENGA Application Fee",
+      "monthlyAmount": 134,
+      "source": "Item 6, p.9"
+     },
+     {
+      "name": "Technology Fee",
+      "monthlyAmount": 400,
+      "source": "Item 6, p.9 (range $350-$450/month)"
+     },
+     {
+      "name": "Customer Relations Management (CRM) Fee",
+      "monthlyAmount": 249,
+      "source": "Item 6, p.10"
+     },
+     {
+      "name": "Phone System Integration Fee",
+      "monthlyAmount": 99,
+      "source": "Item 6, p.10"
+     },
+     {
+      "name": "Music Licensing Fee",
+      "monthlyAmount": 250,
+      "source": "Item 6, p.11"
+     },
+     {
+      "name": "Aromatherapy Fee",
+      "monthlyAmount": 220,
+      "source": "Item 6, p.13"
+     },
+     {
+      "name": "Fitness Technology Fee",
+      "monthlyAmount": 249,
+      "source": "Item 6, p.13"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Instructor Training Fee (new/replacement instructors)",
+     "description": "4-day live instructor training fee of $2,500 per new instructor hired after opening; 2-day virtual option at $1,500.",
+     "estimatedAnnualAmount": 2500,
+     "source": "Item 6, p.10"
+    },
+    {
+     "name": "Audition Fee",
+     "description": "Per-person fee of $75 for each training audition session required.",
+     "estimatedAnnualAmount": 75,
+     "source": "Item 6, p.10"
+    },
+    {
+     "name": "Convention/Conference Fee",
+     "description": "Mandatory annual convention attendance fee expected to be $1,500-$2,000 per studio.",
+     "estimatedAnnualAmount": 2000,
+     "source": "Item 6, p.11"
+    },
+    {
+     "name": "Transfer Fee",
+     "description": "One-time $10,000 fee payable to franchisor upon any transfer of the Franchise Agreement.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.11"
+    },
+    {
+     "name": "Renewal Fee",
+     "description": "One-time $10,000 fee payable upon renewal of the Franchise Agreement.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.11"
+    },
+    {
+     "name": "Relocation Fee",
+     "description": "20% of then-current Initial Franchise Fee (up to $15,000 maximum) payable upon requesting studio relocation.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.11"
+    },
+    {
+     "name": "Audit Fee",
+     "description": "Actual cost of audit payable if franchisee underreports gross sales by 2% or more.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.12"
+    },
+    {
+     "name": "Interest on Late Payments",
+     "description": "1.5% per month (or highest permissible rate) on all delinquent payments outstanding more than 30 days.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.12"
+    },
+    {
+     "name": "Collateral Assignment of Lease Negotiation Fee",
+     "description": "Estimated $400-$700 in attorney fees if franchisor must assist negotiating the Collateral Assignment of Lease with landlord.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p.28"
+    },
+    {
+     "name": "Computer System Annual Maintenance/Upgrade",
+     "description": "Estimated $1,000-$1,800 per year for optional or required maintenance, updating, and support contracts beyond the Technology Fee.",
+     "estimatedAnnualAmount": 1400,
+     "source": "Item 11, p.40"
+    },
+    {
+     "name": "Pre-Sale Membership Requirement (150 memberships)",
+     "description": "Franchisee must sell at least 150 pre-sale memberships before opening; represents a mandatory pre-opening revenue/sales obligation.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p.29"
+    },
+    {
+     "name": "Rebates Received by Franchisor from Required Suppliers",
+     "description": "Franchisor receives rebates of less than 1% to 10% from required suppliers including POS, equipment, AV, construction, and marketing vendors, which may inflate franchisee costs.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 8, p.22"
+    }
+   ],
+   "systemScale": {
+    "totalUnits": 45,
+    "openedLastYear": 1,
+    "closedLastYear": 6,
+    "transfersLastYear": 3,
+    "sourcePage": "Item 20, p.71"
+   },
+   "operationalRisks": [
+    {
+     "title": "Franchisor Financial Condition Risk",
+     "description": "The FDD's Special Risks section explicitly states the franchisor's financial condition calls into question its ability to provide services and support; the balance sheet shows a members' deficit of $424,117 and an SBA EIDL loan of $485,252.",
+     "severity": "high",
+     "source": "Special Risks, p.v; Item 21 financial statements"
+    },
+    {
+     "title": "Shrinking System Scale",
+     "description": "The franchised outlet count has declined from 66 to 44 over three years (2023-2025), with net losses of 9, 8, and 5 units respectively and only 1 new opening in 2025.",
+     "severity": "high",
+     "source": "Item 20, p.71"
+    },
+    {
+     "title": "Significant Unopened Franchises",
+     "description": "Four franchise agreements are signed but studios not yet open as of December 31, 2025, flagged as a Special Risk that delays may cascade to new franchisees.",
+     "severity": "medium",
+     "source": "Special Risks, p.v; Item 20, p.74"
+    },
+    {
+     "title": "Mandatory Minimum Royalty and Advertising Payments",
+     "description": "Franchisees must pay a minimum royalty of $1,000/month and local marketing of $3,000-$4,000/month regardless of sales levels; failure may result in termination.",
+     "severity": "high",
+     "source": "Special Risks, p.v; Item 6, pp.7-8"
+    },
+    {
+     "title": "Spousal Liability Guarantee",
+     "description": "Spouses of individual franchisees must sign the Franchise Agreement or personal guaranty, placing marital and personal assets at risk.",
+     "severity": "medium",
+     "source": "Special Risks, p.v; Item 15, p.48"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "All disputes must be mediated and litigated in Will County, Illinois, which may disadvantage out-of-state franchisees.",
+     "severity": "medium",
+     "source": "Special Risks, p.v; Item 17, p.53"
+    },
+    {
+     "title": "Affiliate and Franchisor Competition in Territory",
+     "description": "Franchisor and affiliates may operate competing fitness concepts (including Charter Fitness) within the franchisee's designated territory under different marks.",
+     "severity": "medium",
+     "source": "Item 1, p.2; Item 12, p.42"
+    },
+    {
+     "title": "Broad Termination Rights with Short Cure Periods",
+     "description": "Franchisor may terminate with only 15-day cure periods for many defaults and immediately for a broad list of non-curable defaults.",
+     "severity": "medium",
+     "source": "Item 17, pp.50-51"
+    },
+    {
+     "title": "Post-Term Non-Compete (2 Years, 15-Mile Radius)",
+     "description": "A 2-year post-termination non-compete applies within the designated territory and a 15-mile radius of any open or developing studio.",
+     "severity": "medium",
+     "source": "Item 17, p.53"
+    },
+    {
+     "title": "Required Supplier Restrictions and Franchisor Rebates",
+     "description": "Franchisees must purchase from a long list of required suppliers; franchisor receives rebates of up to 10% from those suppliers, creating a potential cost conflict.",
+     "severity": "medium",
+     "source": "Item 8, pp.21-22"
+    },
+    {
+     "title": "Pre-Sale Membership Obligation Before Opening",
+     "description": "Franchisees must sell at least 150 pre-sale memberships before being permitted to open, creating a significant pre-revenue sales burden.",
+     "severity": "medium",
+     "source": "Item 11, p.29; Item 16, p.48"
+    },
+    {
+     "title": "Renewal on Then-Current Terms",
+     "description": "Renewal requires signing the then-current franchise agreement, which may contain materially different terms, and paying a $10,000 renewal fee.",
+     "severity": "low",
+     "source": "Item 17, p.49"
+    }
+   ],
+   "rentDetail": {
+    "rawValue": 309000,
+    "unit": "unknown",
+    "squareFootage": 3250,
+    "source": "Item 7, p.15 \u2014 leasehold improvements for combo model listed at $309,000; lease expenses for traditional model range $0-$59,898 for 3 months; no per-sqft rent rate explicitly stated in Item 7. Studios are 3,000-3,500 sq ft (combo) or 3,500-4,000 sq ft (traditional)."
+   },
+   "averageRentMonthly": null,
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "CBIZ CPAs P.C.",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "Spenga Ventures LLC",
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 3358401,
+      "netIncome": 248051,
+      "totalAssets": 3850081,
+      "totalLiabilities": 4274198,
+      "cash": 1058456,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 3641599,
+      "netWorth": -424117
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 4385454,
+      "netIncome": 629542,
+      "totalAssets": 4757281,
+      "totalLiabilities": 5452824,
+      "cash": 1074740,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 4825814,
+      "netWorth": -695543
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 3977983,
+      "netIncome": 554079,
+      "totalAssets": 6130553,
+      "totalLiabilities": 7233688,
+      "cash": 984395,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 6592426,
+      "netWorth": -1103135
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "2 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
+    "Franchisor financial distress disclosed (negative net worth) \u2014 confirm its ability to support the system against the audited statements.",
+    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+   ],
+   "midCohort": null,
+   "bottomCohort": null,
+   "buildoutMidpoint": 670931,
+   "assumedLoan": 536744.8,
+   "assumedMonthlyDebtService": 7242.565785729145,
+   "dscr": null,
+   "rentPctOfRevenue": null,
+   "paybackYears": null,
+   "variableRate": 0.09,
+   "fixedMonthly": 6648,
+   "notes": [
+    "Average rent not found; fixed costs may be understated.",
+    "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 420931,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 420931,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 5679.832312772764,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $670,931 mid-point build-out, there is a $420,931 capital gap. An SBA loan or an equity partner is required to do this deal."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "fitness_studio",
+   "conceptLabel": "Boutique fitness / studio",
+   "conceptRationale": "SPENGA operates boutique fitness studios offering structured group workout classes (spin, strength, yoga) on a membership model \u2014 a classic fitness_studio concept.",
+   "benchmark": {
+    "label": "Boutique fitness / studio",
+    "cogsPct": [
+     3,
+     10
+    ],
+    "laborPct": [
+     20,
+     30
+    ],
+    "occupancyPct": [
+     12,
+     20
+    ],
+    "operatingEbitdaPct": [
+     15,
+     28
+    ],
+    "dominantRisk": "Member retention/churn and fixed-cost coverage \u2014 NOT cost of goods. The deal is decided by recurring membership against rent and equipment lease.",
+    "rampNote": "9\u201318 months to a mature, retained member base.",
+    "considerations": [
+     "COGS is trivial; the risks are member churn and covering fixed rent + equipment lease.",
+     "Ask Item 20 operators for monthly retention, average membership lifetime, and break-even member count.",
+     "Model CAC and free-trial conversion \u2014 member acquisition cost is the hidden operating line."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 15\u201328% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": null,
+   "marginAfterFeesMonthly": null,
+   "benchmarkOperatingEbitdaMonthly": null,
+   "trueEbitdaBasis": "none",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    20,
+    30
+   ],
+   "buildup": [],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cBoutique fitness / studio\u201d from the FDD (Item 1 / brand description)."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "This franchisor has negative net worth (about $424K in the red) \u2014 it owes more than it owns \u2014 though the trend isn't worsening. Understand what's funding the gap before you commit.",
+   "context": null,
+   "body": [
+    "What we found (2025-12-31, audited by CBIZ CPAs P.C.): Net income of $248K on $3.36M of revenue \u2014 roughly 0.9x spent per $1 earned. Losses are widening, not shrinking. Negative net worth (a members'/stockholders' deficit) of $424K. Total liabilities are about 1.1x total assets. Note: about 85% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.2x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Spenga Ventures LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "negative net worth \u2014 it owes more than it owns",
+    "no parent guarantee backing the franchisor's obligations to you",
+    "elevated unit closures (6 in the last year, about 13% of the system)"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "the business is profitable"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": -424117,
+    "netWorthSign": "negative",
+    "netWorthTrend": "improving",
+    "netIncome": 248051,
+    "netIncomeTrend": "worsening",
+    "revenue": 3358401,
+    "revenueTrend": "worsening",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 1.110157942131607,
+    "adjLiabilitiesToAssets": 0.16430797170241354,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": 0.8519958598080857,
+    "expenseToRevenue": 0.9261401482431669,
+    "cash": 1058456,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

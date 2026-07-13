@@ -1,0 +1,756 @@
+{
+ "slug": "vs-barbershop",
+ "brandName": "V's Barbershop",
+ "category": "Barbershop",
+ "vertical": "Beauty & Personal Care",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "v'sbarbershop",
+ "fileHash": "7b900548438cc546",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Financial statements for years ended December 31, 2025 and 2024 are present; a separate set for 2024 and 2023 is also included, providing three years of data.",
+     "Item 19 discloses only gross sales figures; no EBITDA or profitability table is disclosed."
+    ]
+   },
+   "brandName": "V's Barbershop",
+   "franchisorEntity": "V's Barbershop Franchise, LLC",
+   "headquarters": "Phoenix, Arizona",
+   "brandBackground": "V's Barbershop is an upscale men's barbershop concept founded in 1999 that provides high-quality haircuts, old-fashioned shaves, and men's facial services in a uniquely masculine environment; franchising began in 2007.",
+   "conceptType": "beauty_personal_care",
+   "conceptRationale": "V's Barbershop is a personal care services franchise focused on men's grooming (haircuts, shaves, facials), classifying it as beauty/personal care.",
+   "staffingModel": "staffed",
+   "staffingRationale": "The business requires licensed barbers on-site at all times and a full-time manager or owner-operator, per Items 1 and 15.",
+   "leadership": [
+    {
+     "name": "Diego Valenzuela II (Jim Valenzuela)",
+     "role": "Managing Member and CEO",
+     "background": "Has led V's Barbershop Franchise, LLC since its founding in 2006 and V's Ventures, Inc. since 1999.",
+     "whyItMatters": "Founder with over 25 years of brand stewardship and franchising experience."
+    },
+    {
+     "name": "Chris Mitchell",
+     "role": "Chief Financial Officer",
+     "background": "CFO of V's Barbershop Franchise since 2007 and previously VP/Treasurer of predecessor V's Franchising Corporation.",
+     "whyItMatters": "Long-tenured finance lead overseeing royalty collection, reporting, and financial controls."
+    },
+    {
+     "name": "Emily Brown",
+     "role": "Chief Operating Officer",
+     "background": "Joined as Director of Operations in 2007 and was promoted to COO in April 2018.",
+     "whyItMatters": "Oversees day-to-day franchise operations and compliance across the system."
+    },
+    {
+     "name": "Renae Germinaro",
+     "role": "Director of Franchise Relations",
+     "background": "Served as Franchisee Support Manager from 2014 before becoming Director of Franchise Relations in December 2023.",
+     "whyItMatters": "Primary franchisee support contact managing ongoing franchisee relationships."
+    },
+    {
+     "name": "Amanda Vogt",
+     "role": "Chief Digital Officer",
+     "background": "Digital Brand Manager from 2017 before being elevated to CDO in December 2023.",
+     "whyItMatters": "Leads digital marketing, social media, and technology brand strategy."
+    },
+    {
+     "name": "Patrick Butler",
+     "role": "Director of Barbershop Experiences",
+     "background": "Joined V's in January 2025 after 10 years as National Director of Creative and Technical Education at Floyd's 99 Barbershop.",
+     "whyItMatters": "Brings deep industry expertise in barbershop service standards and technical education."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, p.45-47",
+    "unitsReported": 58,
+    "networkAverageMonthly": 48199.58,
+    "notes": "Two tables disclosed: (1) 50 franchised units open at least 3 calendar years as of 12/31/2025; (2) 58 franchised units open at least 1 calendar year as of 12/31/2025. No EBITDA or profitability table is disclosed. All data is unaudited and franchised-only; no company-owned locations exist.",
+    "cohorts": [
+     {
+      "label": "Franchised Units Open 3+ Years (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 50,
+      "annualRevenue": 581838,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Unaudited average annual gross sales for 50 franchised locations open at least 3 calendar years as of December 31, 2025."
+     },
+     {
+      "label": "Franchised Units Open 3+ Years (2024)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 50,
+      "annualRevenue": 556111,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Unaudited average annual gross sales for 50 franchised locations open at least 3 calendar years as of December 31, 2024."
+     },
+     {
+      "label": "Franchised Units Open 3+ Years (2023)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 50,
+      "annualRevenue": 530215,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Unaudited average annual gross sales for 50 franchised locations open at least 3 calendar years as of December 31, 2023."
+     },
+     {
+      "label": "Franchised Units Open 1+ Year (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 58,
+      "annualRevenue": 578395,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Unaudited average annual gross sales for 58 franchised locations open at least 1 calendar year as of December 31, 2025."
+     },
+     {
+      "label": "Franchised Units Open 1+ Year (2024)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 57,
+      "annualRevenue": 533557,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Unaudited average annual gross sales for 57 franchised locations open at least 1 calendar year as of December 31, 2024."
+     },
+     {
+      "label": "Franchised Units Open 1+ Year (2023)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 53,
+      "annualRevenue": 523463,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Unaudited average annual gross sales for 53 franchised locations open at least 1 calendar year as of December 31, 2023."
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, p.12-13",
+    "initialInvestmentLow": 290000,
+    "initialInvestmentHigh": 690000,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 40000,
+      "high": 40000,
+      "recurring": false,
+      "notes": "Payable lump sum upon signing Franchise Agreement; $36,000 for veterans or subsequent units."
+     },
+     {
+      "category": "Initial Training Fee",
+      "low": 0,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Applicable only for transfer, renewal, or non-first unit; $1,000 per person."
+     },
+     {
+      "category": "Initial Real Estate Expenses",
+      "low": 2500,
+      "high": 14500,
+      "recurring": false,
+      "notes": "Security deposit and related lease costs; paid to landlord upon signing lease."
+     },
+     {
+      "category": "Travel & Living Expenses While Training",
+      "low": 0,
+      "high": 2000,
+      "recurring": false,
+      "notes": "Airfare, hotels, and meals during training; paid as incurred."
+     },
+     {
+      "category": "Your Attorneys' Lease Review Fee",
+      "low": 5000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Paid to approved attorney before signing lease."
+     },
+     {
+      "category": "Space Planner Fee",
+      "low": 1500,
+      "high": 2000,
+      "recurring": false,
+      "notes": "Paid to approved space planner upon order of millwork."
+     },
+     {
+      "category": "Architect Fees",
+      "low": 8000,
+      "high": 15000,
+      "recurring": false,
+      "notes": "Paid to V's-approved architect as incurred."
+     },
+     {
+      "category": "Project Management Fees",
+      "low": 0,
+      "high": 30000,
+      "recurring": false,
+      "notes": "Paid to approved project management firm as incurred; optional."
+     },
+     {
+      "category": "Leasehold Improvements",
+      "low": 60000,
+      "high": 250000,
+      "recurring": false,
+      "notes": "Includes estimated $25/sqft tenant allowance from landlord; paid to approved contractor."
+     },
+     {
+      "category": "Furniture, Fixtures, Equipment, In-Store Artwork and Signage",
+      "low": 145000,
+      "high": 259000,
+      "recurring": false,
+      "notes": "Paid lump sum to approved vendors prior to ordering/shipment."
+     },
+     {
+      "category": "Computer Hardware and Software",
+      "low": 3500,
+      "high": 6500,
+      "recurring": false,
+      "notes": "POS system hardware and software; paid lump sum to approved vendors."
+     },
+     {
+      "category": "Initial Barber Supplies and Inventory",
+      "low": 15000,
+      "high": 20000,
+      "recurring": false,
+      "notes": "Grooming supplies, retail products, uniforms, branded merchandise; paid to V's or affiliates."
+     },
+     {
+      "category": "Grand Opening Advertising",
+      "low": 5000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Required marketing campaign within one month prior to and three months after opening."
+     },
+     {
+      "category": "Initial Insurance Premiums",
+      "low": 500,
+      "high": 1500,
+      "recurring": false,
+      "notes": "Paid lump sum to insurance carrier before opening."
+     },
+     {
+      "category": "Permits and Licenses",
+      "low": 500,
+      "high": 2000,
+      "recurring": false,
+      "notes": "Paid lump sum to state barber board and other governmental entities before opening."
+     },
+     {
+      "category": "Utility Deposits & Installation",
+      "low": 500,
+      "high": 1500,
+      "recurring": false,
+      "notes": "Paid lump sum to utility companies before opening."
+     },
+     {
+      "category": "Miscellaneous",
+      "low": 1500,
+      "high": 6000,
+      "recurring": false,
+      "notes": "Legal fees, non-barber supplies, initial store cash, initial marketing kits."
+     },
+     {
+      "category": "Additional Funds/Working Capital - 3 Months",
+      "low": 1500,
+      "high": 25000,
+      "recurring": false,
+      "notes": "Covers additional inventory, barber salaries not covered by revenue, rent, insurance, utilities; does not include owner compensation."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 6,
+    "brandFundPct": 3,
+    "localAdPct": 3,
+    "flatMonthlyFees": [
+     {
+      "name": "Computer Software Maintenance Fee",
+      "monthlyAmount": 287.5,
+      "source": "Item 6, p.4-5"
+     },
+     {
+      "name": "Technology Fee",
+      "monthlyAmount": 150,
+      "source": "Item 6, p.5"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Credit Card Processing Fees",
+     "description": "Estimated 2%-3% of gross sales for credit card and gift card transaction processing.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p.29"
+    },
+    {
+     "name": "Remediation Fee",
+     "description": "$50/hr per person plus travel expenses if franchisor must assist with compliance deficiencies.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.6"
+    },
+    {
+     "name": "Meeting Attendance Fee",
+     "description": "Up to $2,500 per year per person for mandatory franchise meetings.",
+     "estimatedAnnualAmount": 2500,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Meeting Non-Attendance Fee",
+     "description": "Up to $1,000 per year per person if franchisee fails to attend mandatory meetings.",
+     "estimatedAnnualAmount": 1000,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Document Late Fee",
+     "description": "$100 per week for failure to deliver required reports or documents by deadline.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.6"
+    },
+    {
+     "name": "Technology Communication Fee",
+     "description": "$100 per week if POS system or digital menu board is not maintained with current approved software and internet connection.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.7"
+    },
+    {
+     "name": "Advertising Cooperative Assessment",
+     "description": "Additional fees may be assessed by local advertising cooperatives if established in franchisee's marketing area.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.10"
+    },
+    {
+     "name": "Social Media / Digital Marketing Designated Supplier Fee",
+     "description": "Franchisor may require franchisee to retain a designated supplier for social media and digital marketing services at franchisee's expense.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p.31"
+    },
+    {
+     "name": "Video Camera System",
+     "description": "Franchisee must purchase and install approved video cameras with secure internet access; cost included in FF&E estimate but ongoing maintenance is franchisee's responsibility.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p.30"
+    },
+    {
+     "name": "Accounting Software",
+     "description": "Franchisee must purchase an approved accounting software program (e.g., QuickBooks) from an approved vendor.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p.30"
+    }
+   ],
+   "systemScale": {
+    "totalUnits": 62,
+    "openedLastYear": 4,
+    "closedLastYear": 1,
+    "transfersLastYear": 3,
+    "sourcePage": "Item 20, p.48-51"
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "All disputes must be resolved by mediation, arbitration, or litigation only in Arizona, which may disadvantage franchisees located in other states.",
+     "severity": "medium",
+     "source": "Special Risks, p.ii; Item 17, p.44-45"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "Franchisee's spouse must personally guarantee all financial obligations under the Franchise Agreement, putting marital assets at risk.",
+     "severity": "high",
+     "source": "Special Risks, p.ii; Item 6, p.9"
+    },
+    {
+     "title": "Mandatory Supplier Control",
+     "description": "Franchisee must purchase nearly all inventory and supplies from franchisor, its affiliate VBP, or designated suppliers at prices set by franchisor, which may exceed open-market prices.",
+     "severity": "high",
+     "source": "Special Risks, p.ii; Item 8, p.16-19"
+    },
+    {
+     "title": "Significant Unopened Franchise Pipeline",
+     "description": "22 franchise agreements are signed but outlets not yet opened as of 12/31/2025, indicating potential systemic delays in opening.",
+     "severity": "medium",
+     "source": "Special Risks, p.ii; Item 20, p.52"
+    },
+    {
+     "title": "No Exclusive Territory",
+     "description": "Franchisee receives only a 5-mile or 50,000-population Applicable Radius with a right of first refusal, not an exclusive territory; franchisor may compete via other channels.",
+     "severity": "medium",
+     "source": "Item 12, p.31-33"
+    },
+    {
+     "title": "Royalty Escalation on Default",
+     "description": "Royalties increase to up to 15% of gross sales during any period of financial default, charged for a minimum 14-day period.",
+     "severity": "high",
+     "source": "Item 6, p.9"
+    },
+    {
+     "title": "Franchisor May Modify Business Model Without Consent",
+     "description": "Franchisor may amend the Operations Manual and change fees (except royalties) without franchisee approval.",
+     "severity": "medium",
+     "source": "Item 17, p.44"
+    },
+    {
+     "title": "Post-Termination Non-Compete",
+     "description": "Franchisee and all principals, managers, and employees are subject to non-competition covenants after the franchise term ends.",
+     "severity": "medium",
+     "source": "Item 17, p.44"
+    },
+    {
+     "title": "Trademark Held by Parent, Not Franchisor",
+     "description": "All trademarks are owned by parent V's Barbershop Holdings, LLC and licensed to franchisor; termination of that license could impair franchisee's right to use the marks.",
+     "severity": "high",
+     "source": "Item 13, p.36-37"
+    },
+    {
+     "title": "Related-Party Receivable Concentration",
+     "description": "Franchisor carries a large and growing 'Due from Related Party' balance ($837,902 in 2025) representing amounts owed by the parent/member, creating a liquidity dependency.",
+     "severity": "medium",
+     "source": "Item 21 / Financial Statements, Note 3"
+    }
+   ],
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "averageRentMonthly": null,
+   "rentDetail": {
+    "rawValue": 3500,
+    "unit": "per_month",
+    "squareFootage": 1250,
+    "source": "Item 7, p.14 (Note 3) \u2014 rental rates typically $3,500 to $7,500 per month; typical space 1,000\u20131,500 sq ft"
+   },
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "CliftonLarsonAllen LLP",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "V's Barbershop Holdings, LLC",
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 2326838,
+      "netIncome": 194730,
+      "totalAssets": 2173246,
+      "totalLiabilities": 707194,
+      "cash": 954167,
+      "currentAssets": 1112560,
+      "currentLiabilities": 59695,
+      "relatedPartyDebt": 837902,
+      "deferredRevenue": 681833,
+      "netWorth": 1466052
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 2077379,
+      "netIncome": 108021,
+      "totalAssets": 1967122,
+      "totalLiabilities": 695800,
+      "cash": 881796,
+      "currentAssets": 1009621,
+      "currentLiabilities": 57800,
+      "relatedPartyDebt": 702975,
+      "deferredRevenue": 662000,
+      "netWorth": 1271322
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 2026494,
+      "netIncome": 316016,
+      "totalAssets": 1780192,
+      "totalLiabilities": 616891,
+      "cash": 811096,
+      "currentAssets": 952006,
+      "currentLiabilities": 616891,
+      "relatedPartyDebt": 542513,
+      "deferredRevenue": 592000,
+      "netWorth": 1163301
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "4 high-severity operational tripwires disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Network Average",
+    "monthlyRevenue": 48199.58,
+    "monthlyVariable": 5783.9496,
+    "monthlyFixed": 437.5,
+    "monthlyEbitda": 41978.1304,
+    "annualEbitda": 503737.56480000005,
+    "coversCosts": true,
+    "source": {
+     "basis": "network",
+     "label": "network average of disclosed cohorts",
+     "math": null
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 490000,
+   "assumedLoan": 392000,
+   "assumedMonthlyDebtService": 5289.451873601429,
+   "dscr": 7.936196680322257,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.9727287267022575,
+   "variableRate": 0.12,
+   "fixedMonthly": 437.5,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 240000,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 240000,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 3238.4399226131204,
+   "adjustedMonthlyNetCashFlow": 38739.69047738688,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $490,000 mid-point build-out, there is a $240,000 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $38,740/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "beauty_personal_care",
+   "conceptLabel": "Beauty / personal care",
+   "conceptRationale": "V's Barbershop is a personal care services franchise focused on men's grooming (haircuts, shaves, facials), classifying it as beauty/personal care.",
+   "benchmark": {
+    "label": "Beauty / personal care",
+    "cogsPct": [
+     8,
+     18
+    ],
+    "laborPct": [
+     35,
+     50
+    ],
+    "occupancyPct": [
+     8,
+     15
+    ],
+    "operatingEbitdaPct": [
+     8,
+     18
+    ],
+    "dominantRisk": "Commission/booth-rent labor and chair utilization. Labor structure dominates economics.",
+    "rampNote": "6\u201312 months to mature chair utilization.",
+    "considerations": [
+     "Labor (commission or booth-rent) is the big line at ~35\u201350%; COGS on product is modest.",
+     "Verify chair/room utilization and stylist retention with Item 20 operators.",
+     "Confirm whether labor runs on commission, hourly, or booth rent \u2014 it changes the model entirely."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 8\u201318% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 48199.58,
+   "marginAfterFeesMonthly": 41978.1304,
+   "benchmarkOperatingEbitdaMonthly": [
+    -2848,
+    14504
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    35,
+    50
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      41978.1304,
+      41978.1304
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      8,
+      15
+     ],
+     "dollarRange": [
+      3856,
+      7230
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      8,
+      18
+     ],
+     "dollarRange": [
+      3856,
+      8676
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      35,
+      50
+     ],
+     "dollarRange": [
+      16870,
+      24100
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 4.9\u20137 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      2892,
+      4820
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -2848,
+      14504
+     ],
+     "note": "\u2248 -6% to 30% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cBeauty / personal care\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 8\u201315% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 8\u201318% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 35\u201350% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; positive net worth; the business is profitable. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "What we found (2025-12-31, audited by CliftonLarsonAllen LLP): Net income of $195K on $2.33M of revenue \u2014 roughly 0.9x spent per $1 earned. Positive net worth of $1.47M. About 118% of liabilities is money owed to related parties \u2014 the entity is kept alive largely by insider loans, not profit. Cash of $954K against $60K of obligations due within a year (a current ratio of 18.64). Note: about 96% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.0x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so V's Barbershop Holdings, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "heavy dependence on related-party loans to stay funded",
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "positive net worth",
+    "the business is profitable"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": 1466052,
+    "netWorthSign": "positive",
+    "netWorthTrend": "improving",
+    "netIncome": 194730,
+    "netIncomeTrend": "improving",
+    "revenue": 2326838,
+    "revenueTrend": "improving",
+    "currentRatio": 18.637406817991458,
+    "workingCapital": 1052865,
+    "liabilitiesToAssets": 0.32540908852472294,
+    "adjLiabilitiesToAssets": 0.01166964071255624,
+    "relatedPartyDebtPct": 1.184826228729316,
+    "deferredRevenuePct": 0.9641385532117072,
+    "expenseToRevenue": 0.9163113203411668,
+    "cash": 954167,
+    "nearTermObligations": 59695
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

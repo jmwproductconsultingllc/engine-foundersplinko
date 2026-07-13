@@ -1,0 +1,767 @@
+{
+ "slug": "stretchlab",
+ "brandName": "StretchLab",
+ "category": "Recovery/wellness",
+ "vertical": "Fitness & Wellness",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "stretchlab",
+ "fileHash": "79dafb3839bf4238",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Item 19 Part B monthly data table is partially cut off on page 78 (columns truncated); values extracted where legible."
+    ]
+   },
+   "brandName": "StretchLab",
+   "franchisorEntity": "Stretch Lab Franchise SPV, LLC",
+   "headquarters": "Irvine, California 92614",
+   "brandBackground": "StretchLab is a fitness studio franchise offering one-on-one and group assisted stretching services using trained Flexologists; franchises were first offered in December 2017 by a predecessor entity and the current franchisor began selling franchises in April 2023 following an internal reorganization under Xponential Fitness, Inc.",
+   "conceptType": "fitness_studio",
+   "conceptRationale": "StretchLab operates boutique fitness studios providing specialized assisted-stretch and flexibility services, fitting squarely within the fitness_studio category.",
+   "staffingModel": "staffed",
+   "staffingRationale": "Studios must have at least one certified Authorized Instructor (Flexologist) on-site at all times plus a manager, requiring conventional staffing.",
+   "leadership": [
+    {
+     "name": "Michael Nuzzo",
+     "role": "Chief Executive Officer",
+     "background": "CEO since August 2025; previously CEO of Eyemart Express and EVP/COO at Petco Health & Wellness.",
+     "whyItMatters": "Top executive responsible for overall strategy across all Xponential brands."
+    },
+    {
+     "name": "Danielle Porto Parra",
+     "role": "President",
+     "background": "President since May 2026; previously Chief Brand Officer and SVP at GoTo Foods.",
+     "whyItMatters": "Leads brand operations and execution across Xponential's franchise portfolio."
+    },
+    {
+     "name": "Robert Julian",
+     "role": "Interim Chief Financial Officer",
+     "background": "Interim CFO since March 2026; previously CFO at The RealReal and Sportsman's Warehouse.",
+     "whyItMatters": "Oversees financial reporting and capital structure for the franchisor."
+    },
+    {
+     "name": "Gavin O'Connor",
+     "role": "Chief Legal Counsel, Chief Administrative Officer, and Secretary",
+     "background": "In role since November 2025; previously CAO and General Counsel at European Wax Center.",
+     "whyItMatters": "Manages legal risk and franchise compliance across all SPV franchisors."
+    },
+    {
+     "name": "Eric Simon",
+     "role": "Chief Development Officer",
+     "background": "CDO since February 2025; previously SVP Franchise Sales & Development at The Joint Corp.",
+     "whyItMatters": "Drives franchise sales and new studio development pipeline."
+    },
+    {
+     "name": "Brandon Ruiz",
+     "role": "Senior Vice President, Brand",
+     "background": "SVP Brand since December 2025; previously held director-level roles at Petco.",
+     "whyItMatters": "Primary brand contact for franchisees and oversees brand standards."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp. 67-74",
+    "unitsReported": 448,
+    "networkAverageMonthly": 42608,
+    "notes": "Measurement Period is January 1 \u2013 December 31, 2025. 'Qualified Studios' operated for the full year; 448 of 486 total US studios qualified. Part A-1 reports annual Gross Revenue by quartile. Part A-2 reports Monthly Active Members. Part A-3 reports Monthly New Memberships. Part B reports monthly ramp data for 38 New Studios (soft-opened in 2025). Part C reports Monthly Membership Attrition Rate. Part D reports average revenue mix. No EBITDA or net income table is disclosed.",
+    "cohorts": [
+     {
+      "label": "All Qualified Studios \u2013 Annual Gross Revenue (Total)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 448,
+      "annualRevenue": 511300,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual Gross Revenue for all 448 Qualified Studios during the 2025 Measurement Period; Item 19 Part A-1, p.68."
+     },
+     {
+      "label": "Top Quartile Qualified Studios \u2013 Annual Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 112,
+      "annualRevenue": 776600,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual Gross Revenue for top-quartile studios; Item 19 Part A-1, p.68."
+     },
+     {
+      "label": "2nd Quartile Qualified Studios \u2013 Annual Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 112,
+      "annualRevenue": 547500,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual Gross Revenue for 2nd-quartile studios; Item 19 Part A-1, p.68."
+     },
+     {
+      "label": "3rd Quartile Qualified Studios \u2013 Annual Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 112,
+      "annualRevenue": 432500,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual Gross Revenue for 3rd-quartile studios; Item 19 Part A-1, p.68."
+     },
+     {
+      "label": "Bottom Quartile Qualified Studios \u2013 Annual Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 112,
+      "annualRevenue": 288500,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average annual Gross Revenue for bottom-quartile studios; Item 19 Part A-1, p.68."
+     },
+     {
+      "label": "New Studios \u2013 Monthly Gross Revenue Ramp (Months 1\u201312, 2025 Soft Opens)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 38,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [
+       14555,
+       30907,
+       35341,
+       36550,
+       36270,
+       35431,
+       37148,
+       36199,
+       35009,
+       37363,
+       35256,
+       25343
+      ],
+      "basis": "Average monthly Gross Revenue for studios that soft-opened in 2025, by month after opening; Item 19 Part B, p.71."
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp. 22-26",
+    "initialInvestmentLow": 271037,
+    "initialInvestmentHigh": 814192,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 50000,
+      "high": 60000,
+      "recurring": false,
+      "notes": "Non-refundable; $60,000 standard, reduced to $50,000 for 2nd studio or $45,000 for 3rd+ or VetFran."
+     },
+     {
+      "category": "Sourcing Fee",
+      "low": 0,
+      "high": 28000,
+      "recurring": false,
+      "notes": "Payable only if a franchise broker is owed a commission on an additional franchise purchase."
+     },
+     {
+      "category": "Travel & Living Expenses While Training",
+      "low": 0,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Costs for franchisee/Operating Principal to attend Initial Training Program."
+     },
+     {
+      "category": "Real Estate/Lease and Professional Fees",
+      "low": 16200,
+      "high": 50000,
+      "recurring": false,
+      "notes": "Includes 3 months base rent plus 1 month security deposit estimate, plus legal/professional fees."
+     },
+     {
+      "category": "Leasehold Improvements",
+      "low": 59438,
+      "high": 386000,
+      "recurring": false,
+      "notes": "Includes construction, finishes, HVAC, architect, sound consultant, and permitting fees."
+     },
+     {
+      "category": "Signage",
+      "low": 7500,
+      "high": 24000,
+      "recurring": false,
+      "notes": "Permanent interior and exterior signage and graphics only."
+     },
+     {
+      "category": "Insurance",
+      "low": 3300,
+      "high": 15035,
+      "recurring": false,
+      "notes": "Annual premium for minimum required insurance coverage."
+     },
+     {
+      "category": "Fitness Equipment & Initial FF&E Package",
+      "low": 61553,
+      "high": 89561,
+      "recurring": false,
+      "notes": "Purchased from franchisor; includes stretch beds, millwork, Hyperice equipment, rollers, straps, and shipping."
+     },
+     {
+      "category": "Pre-Sales and Soft Opening Retail Inventory Kit",
+      "low": 12100,
+      "high": 13300,
+      "recurring": false,
+      "notes": "Branded merchandise, apparel, and accessories for pre-sales and soft opening; includes freight."
+     },
+     {
+      "category": "Computer System, Audio/Visual Equipment, and Related Components",
+      "low": 5500,
+      "high": 6000,
+      "recurring": false,
+      "notes": "POS system, tablets, wireless speakers, security cameras, and related hardware."
+     },
+     {
+      "category": "Initial Marketing & Advertising Spend",
+      "low": 15000,
+      "high": 45000,
+      "recurring": false,
+      "notes": "Minimum $15,000 required; covers pre-sales phase and first 3 months post-soft opening."
+     },
+     {
+      "category": "Initial Instructor Training Fees",
+      "low": 3400,
+      "high": 4250,
+      "recurring": false,
+      "notes": "$850 per trainee for 8\u201310 Flexologist Training Program participants."
+     },
+     {
+      "category": "Technology and Software Fees",
+      "low": 4399,
+      "high": 4399,
+      "recurring": true,
+      "notes": "Covers Technology Fee ($675/mo, reduced to $150/mo during pre-sales) and Software Fee ($203/mo) for 7 months."
+     },
+     {
+      "category": "Additional Funds \u2013 3 Months",
+      "low": 33000,
+      "high": 86000,
+      "recurring": false,
+      "notes": "Working capital for first 3 months of operations and pre-sales phase expenses, net of estimated revenue."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 8,
+    "brandFundPct": 2,
+    "localAdPct": 2,
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "monthlyAmount": 675,
+      "source": "Item 6, p.18"
+     },
+     {
+      "name": "Software Fee (Studio Management)",
+      "monthlyAmount": 203,
+      "source": "Item 7, p.25 (note 13)"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Music Licensing Fee",
+     "description": "Franchisee must directly clear music with ASCAP, BMI, SESAC, and GMR or pay an approved vendor; amounts vary.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.18; Item 7, p.25"
+    },
+    {
+     "name": "Successor Franchise Fee",
+     "description": "$10,000 fee due prior to expiration of initial 10-year term to renew for one additional 10-year period.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.17"
+    },
+    {
+     "name": "Transfer Fee",
+     "description": "$10,000 standard transfer fee (reduced to $750 for transfer to wholly-owned entity or $1,500 to immediate family member).",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.18"
+    },
+    {
+     "name": "Relocation Fee",
+     "description": "$5,000 fee assessed upon submission of a proposal to relocate the studio.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.18"
+    },
+    {
+     "name": "Non-Compliance Fee",
+     "description": "$100 per day for each day franchisee fails to comply with material obligations under the Franchise Agreement.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.19"
+    },
+    {
+     "name": "Audit Fee",
+     "description": "Franchisor's audit costs ($500\u2013$2,500 plus travel) payable if audit reveals \u22652% understatement of Gross Sales or franchisee failed to submit required reports.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.19"
+    },
+    {
+     "name": "Additional Training Fee",
+     "description": "Up to $500 per day per trainer for additional training requested by franchisee or required on-site.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.17"
+    },
+    {
+     "name": "Alternative Supplier Approval Fee",
+     "description": "$500 per day for personnel evaluating a proposed alternative supplier, plus reimbursement of travel and meals.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.19"
+    },
+    {
+     "name": "Mystery Shopper / Quality Control Fee",
+     "description": "Up to $500 per year if franchisor establishes a mystery shopper or quality control program.",
+     "estimatedAnnualAmount": 500,
+     "source": "Item 6, p.19"
+    },
+    {
+     "name": "Local Advertising Requirement Minimum",
+     "description": "Greater of $1,500 or 2% of prior month's Gross Sales must be spent monthly on local advertising.",
+     "estimatedAnnualAmount": 18000,
+     "source": "Item 6, p.16"
+    },
+    {
+     "name": "Lost Revenue Damages",
+     "description": "Upon early termination, franchisee owes net present value of up to 36 months of royalty and fund contributions based on average monthly Gross Sales.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.20"
+    },
+    {
+     "name": "Ongoing Flexologist Training Fee",
+     "description": "$850 per instructor for any new instructors hired after opening who must complete the Flexologist Training Program.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.17"
+    }
+   ],
+   "systemScale": {
+    "totalUnits": 486,
+    "openedLastYear": 38,
+    "closedLastYear": 37,
+    "transfersLastYear": 32,
+    "sourcePage": "Item 20, p.75 (Table 1) and p.82 (Table 3)"
+   },
+   "operationalRisks": [
+    {
+     "title": "Extensive Regulatory and FTC Enforcement History",
+     "description": "Xponential and its brand franchisors have entered into consent orders with California DFPI, Washington DFI, Maryland, Virginia, and the FTC (paying $17M in redress) for material misrepresentations and omissions in FDDs.",
+     "severity": "high",
+     "source": "Item 3, pp. 12-13"
+    },
+    {
+     "title": "Multiple Pending Securities and Franchise Lawsuits",
+     "description": "XFI and affiliates face multiple pending securities class actions, shareholder derivative suits, and franchisee fraud/rescission lawsuits involving the Xponential brand portfolio.",
+     "severity": "high",
+     "source": "Item 3, pp. 6-13"
+    },
+    {
+     "title": "Short Operating History of Franchisor Entity",
+     "description": "Stretch Lab Franchise SPV, LLC was formed March 6, 2023 and began selling franchises April 4, 2023, giving it a limited track record as the contracting franchisor.",
+     "severity": "high",
+     "source": "Special Risks, p.4; Item 1, p.8"
+    },
+    {
+     "title": "Significant Number of Unopened Franchises",
+     "description": "As of December 31, 2025, 47 franchise agreements were signed but studios had not yet opened, indicating potential systemic delays.",
+     "severity": "medium",
+     "source": "Item 20, p.83 (Table 5)"
+    },
+    {
+     "title": "Mandatory Minimum Sales Quotas with Termination Risk",
+     "description": "Franchisees must achieve trailing 12-month average monthly Gross Sales of $20,000 by year 1 and $30,000 by year 2+; failure can result in termination.",
+     "severity": "high",
+     "source": "Item 12, p.50; Special Risks, p.4"
+    },
+    {
+     "title": "Mandatory Minimum Royalty and Advertising Payments",
+     "description": "Royalties and brand fund contributions are owed regardless of sales levels; non-payment can result in franchise termination.",
+     "severity": "medium",
+     "source": "Special Risks, p.4; Item 6, p.16"
+    },
+    {
+     "title": "Cross-Default Across Multiple Agreements",
+     "description": "A default under any one franchise or multi-unit agreement with Xponential affiliates constitutes a default under all other agreements, risking loss of all franchises.",
+     "severity": "high",
+     "source": "Special Risks, p.4; Item 17, p.58"
+    },
+    {
+     "title": "Supplier Control and Potential Higher Costs",
+     "description": "Franchisees must purchase 75\u201391% of ongoing supplies from franchisor-designated suppliers at prices set by those suppliers, which may exceed open-market prices.",
+     "severity": "medium",
+     "source": "Special Risks, p.4; Item 8, p.28"
+    },
+    {
+     "title": "Spousal Liability Guarantee Required",
+     "description": "Franchisee's spouse must sign a guarantee making them personally liable for all financial obligations under the franchise agreement.",
+     "severity": "medium",
+     "source": "Special Risks, p.4"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution in California",
+     "description": "All disputes must be mediated and arbitrated in Irvine, California, which may disadvantage franchisees located in other states.",
+     "severity": "medium",
+     "source": "Special Risks, p.4; Item 17, p.62"
+    },
+    {
+     "title": "System Growth Stalled in 2025",
+     "description": "Net franchised unit growth was only +1 in 2025 (485 to 486) versus +57 in 2024 and +145 in 2023, with 37 studios ceasing operations in 2025.",
+     "severity": "high",
+     "source": "Item 20, p.75 (Table 1)"
+    },
+    {
+     "title": "Franchisor May Modify Business Model Without Consent",
+     "description": "Franchisor can change the Learning Management System and System Standards at any time, potentially requiring additional franchisee investment.",
+     "severity": "medium",
+     "source": "Item 3 (general risks), p.3"
+    }
+   ],
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "squareFootage": 1300,
+    "source": "Item 7, p.23 note 1 states typical studio is approximately 1,100 to 1,500 sq ft; no per-sqft rent rate disclosed \u2014 Item 7 lease line is a 3-month deposit+rent estimate of $16,200\u2013$50,000."
+   },
+   "averageRentMonthly": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "Deloitte & Touche LLP",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "XPOF Assetco, LLC",
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 227836000,
+      "netIncome": 151663000,
+      "totalAssets": 105774000,
+      "totalLiabilities": 80246000,
+      "cash": 5923000,
+      "currentAssets": 12150000,
+      "currentLiabilities": 14223000,
+      "relatedPartyDebt": 320310000,
+      "deferredRevenue": 78813000,
+      "netWorth": 25528000
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 204554000,
+      "netIncome": 150109000,
+      "totalAssets": 150390000,
+      "totalLiabilities": 111249000,
+      "cash": 8593000,
+      "currentAssets": 18509000,
+      "currentLiabilities": 15184000,
+      "relatedPartyDebt": 155034000,
+      "deferredRevenue": 110372000,
+      "netWorth": 39141000
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 521000,
+      "netIncome": -4476000,
+      "totalAssets": null,
+      "totalLiabilities": null,
+      "cash": 8000000,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": 11690000,
+      "deferredRevenue": null,
+      "netWorth": 35446000
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "Above-market royalty at 8%.",
+    "6 high-severity operational tripwires disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Network Average",
+    "monthlyRevenue": 42608,
+    "monthlyVariable": 5112.96,
+    "monthlyFixed": 878,
+    "monthlyEbitda": 36617.04,
+    "annualEbitda": 439404.48,
+    "coversCosts": true,
+    "source": {
+     "basis": "network",
+     "label": "network average of disclosed cohorts",
+     "math": null
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 542614.5,
+   "assumedLoan": 434091.60000000003,
+   "assumedMonthlyDebtService": 5857.41486462919,
+   "dscr": 6.251399439216277,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 1.23488613497978,
+   "variableRate": 0.12,
+   "fixedMonthly": 878,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 292614.5,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 292614.5,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 3948.3936613978203,
+   "adjustedMonthlyNetCashFlow": 32668.64633860218,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $542,615 mid-point build-out, there is a $292,615 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $32,669/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "fitness_studio",
+   "conceptLabel": "Boutique fitness / studio",
+   "conceptRationale": "StretchLab operates boutique fitness studios providing specialized assisted-stretch and flexibility services, fitting squarely within the fitness_studio category.",
+   "benchmark": {
+    "label": "Boutique fitness / studio",
+    "cogsPct": [
+     3,
+     10
+    ],
+    "laborPct": [
+     20,
+     30
+    ],
+    "occupancyPct": [
+     12,
+     20
+    ],
+    "operatingEbitdaPct": [
+     15,
+     28
+    ],
+    "dominantRisk": "Member retention/churn and fixed-cost coverage \u2014 NOT cost of goods. The deal is decided by recurring membership against rent and equipment lease.",
+    "rampNote": "9\u201318 months to a mature, retained member base.",
+    "considerations": [
+     "COGS is trivial; the risks are member churn and covering fixed rent + equipment lease.",
+     "Ask Item 20 operators for monthly retention, average membership lifetime, and break-even member count.",
+     "Model CAC and free-trial conversion \u2014 member acquisition cost is the hidden operating line."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 15\u201328% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 42608,
+   "marginAfterFeesMonthly": 36617.04,
+   "benchmarkOperatingEbitdaMonthly": [
+    6791,
+    19148
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    20,
+    30
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      36617.04,
+      36617.04
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      12,
+      20
+     ],
+     "dollarRange": [
+      5113,
+      8522
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      3,
+      10
+     ],
+     "dollarRange": [
+      1278,
+      4261
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      20,
+      30
+     ],
+     "dollarRange": [
+      8522,
+      12782
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 2.5\u20133.7 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      2556,
+      4261
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      6791,
+      19148
+     ],
+     "note": "\u2248 16% to 45% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cBoutique fitness / studio\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 12\u201320% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 3\u201310% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 20\u201330% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; positive net worth; the business is profitable; the parent guarantees the franchisor's performance. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "What we found (2025-12-31, audited by Deloitte & Touche LLP): Net income of $151.66M on $227.84M of revenue \u2014 roughly 0.3x spent per $1 earned. Positive net worth of $25.53M. About 399% of liabilities is money owed to related parties \u2014 the entity is kept alive largely by insider loans, not profit. Cash of $5.92M against $14.22M of obligations due within a year (a current ratio of 0.85). Note: about 98% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.0x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. XPOF Assetco, LLC guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "more due within a year than current assets to cover it",
+    "heavy dependence on related-party loans to stay funded",
+    "elevated unit closures (37 in the last year, about 8% of the system)"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "positive net worth",
+    "the business is profitable",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": 25528000,
+    "netWorthSign": "positive",
+    "netWorthTrend": "worsening",
+    "netIncome": 151663000,
+    "netIncomeTrend": "flat",
+    "revenue": 227836000,
+    "revenueTrend": "improving",
+    "currentRatio": 0.8542501581944737,
+    "workingCapital": -2073000,
+    "liabilitiesToAssets": 0.7586552460907218,
+    "adjLiabilitiesToAssets": 0.013547752755875735,
+    "relatedPartyDebtPct": 3.9916008274555743,
+    "deferredRevenuePct": 0.9821424120828453,
+    "expenseToRevenue": 0.33433259010867467,
+    "cash": 5923000,
+    "nearTermObligations": 14223000
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

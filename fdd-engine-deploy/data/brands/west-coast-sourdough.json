@@ -1,0 +1,374 @@
+{
+ "slug": "west-coast-sourdough",
+ "brandName": "West Coast Sourdough",
+ "category": "QSR/fast casual",
+ "vertical": "Food & Beverage",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "sourdoughCo",
+ "fileHash": "667d34474db2c382",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 15",
+     "Item 17",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "West Coast Sourdough",
+   "franchisorEntity": "WCSD, Inc.",
+   "headquarters": "Sacramento, California",
+   "brandBackground": "West Coast Sourdough operates a fast casual restaurant franchise system serving specialty sandwiches, soups, and salads.",
+   "leadership": [
+    {
+     "name": "Manjinder Deol",
+     "role": "Chief Executive Officer",
+     "background": "Served as CFO, Director, and Secretary of WCSD, Inc. from 2020 to 2024, and has managed West Coast Sourdough restaurants since 2018.",
+     "whyItMatters": "He has direct operational and executive experience with the brand since its inception."
+    },
+    {
+     "name": "Damon Bhatia",
+     "role": "Chief Financial Officer and Secretary",
+     "background": "Served as Director of WCSD, Inc. from 2020 to 2023, and was Assistant Manager of a West Coast Sourdough restaurant from 2018 to 2023.",
+     "whyItMatters": "Brings hands-on restaurant management and long-term corporate familiarity to the financial lead role."
+    }
+   ],
+   "item19": {
+    "hasItem19": false,
+    "cohorts": [],
+    "notes": "The franchisor does not make any representations about a franchisee's future financial performance or the past financial performance of company-owned or franchised outlets.",
+    "sourcePage": "Item 19, p.30",
+    "networkAverageMonthly": null,
+    "unitsReported": null
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Area Representative Fee",
+      "recurring": false,
+      "notes": "Calculated at $10,000 per Unit Franchise authorized for potential development.",
+      "high": 1000000,
+      "low": 50000
+     },
+     {
+      "category": "Leasehold Improvements",
+      "recurring": false,
+      "notes": "Cost to configure and build-out an office for administrative operations.",
+      "high": 25000,
+      "low": 0
+     },
+     {
+      "category": "Furniture, Fixtures and Equipment",
+      "recurring": false,
+      "notes": "Required purchase of office furniture and interior signs.",
+      "high": 5000,
+      "low": 500
+     },
+     {
+      "category": "Lease Deposits",
+      "recurring": false,
+      "notes": "Initial lease deposit and estimated three months of lease payments.",
+      "high": 5000,
+      "low": 0
+     },
+     {
+      "category": "Computer, Software and Point of Sales System",
+      "recurring": false,
+      "notes": "Required purchase of a computer and specified software.",
+      "high": 2500,
+      "low": 250
+     },
+     {
+      "category": "Insurance Deposits",
+      "recurring": false,
+      "notes": "Estimated deposit equal to three months of monthly insurance premium payments.",
+      "high": 3000,
+      "low": 1000
+     },
+     {
+      "category": "Travel for Initial Training",
+      "recurring": false,
+      "notes": "Estimated travel and lodging expenses to attend the pre-opening initial training program.",
+      "high": 15000,
+      "low": 5000
+     },
+     {
+      "category": "Professional Fees",
+      "recurring": false,
+      "notes": "Costs associated with engaging attorneys, accountants, and other advisors.",
+      "high": 15000,
+      "low": 5000
+     },
+     {
+      "category": "Business Licenses and Permits",
+      "recurring": false,
+      "notes": "Permits and licenses necessary to operate the Area Representative Business.",
+      "high": 1000,
+      "low": 500
+     },
+     {
+      "category": "Office Supplies",
+      "recurring": false,
+      "notes": "Initial office supplies purchased from third parties.",
+      "high": 2500,
+      "low": 1000
+     },
+     {
+      "category": "Additional Funds \u2013 Three Months",
+      "recurring": true,
+      "notes": "Minimum recommended levels of additional funds to cover operating expenses like salaries, rent, and utilities.",
+      "high": 35000,
+      "low": 10000
+     }
+    ],
+    "sourcePage": "Item 7, p.9",
+    "initialInvestmentHigh": 1109000,
+    "initialInvestmentLow": 73250
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Local Marketing",
+      "source": "Item 6, p.7",
+      "monthlyAmount": 250
+     }
+    ],
+    "brandFundPct": null,
+    "localAdPct": null,
+    "royaltyPct": null
+   },
+   "hiddenCosts": [
+    {
+     "name": "Supplemental Training (Management)",
+     "description": "$300 per person per day plus expenses for additional training of new or replacement managers.",
+     "source": "Item 6, p.7",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Supplemental Training (Field Consultant)",
+     "description": "$300 per person per day plus expenses for additional training of Restaurant field consultants.",
+     "source": "Item 6, p.7",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Computer and POS Maintenance",
+     "description": "Estimated costs for the maintenance, repair, and updates for the computer and point of sale systems is $500 per year.",
+     "source": "Item 11, p.19",
+     "estimatedAnnualAmount": 500
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p.37-38",
+    "closedLastYear": 0,
+    "openedLastYear": 0,
+    "totalUnits": 1,
+    "transfersLastYear": 0
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by mediation, arbitration, and/or litigation only in California, which may cost more and force less favorable settlements.",
+     "severity": "medium",
+     "source": "Special Risks, p.iv"
+    },
+    {
+     "title": "Unregistered Trademark",
+     "description": "The primary trademark is not federally registered, which could lead to expensive brand changes if challenged.",
+     "severity": "high",
+     "source": "Special Risks, p.iv"
+    },
+    {
+     "title": "Sales Performance Required",
+     "description": "Failure to maintain minimum sales performance levels (Development Quota) may result in loss of territorial rights or termination.",
+     "severity": "high",
+     "source": "Special Risks, p.iv"
+    }
+   ],
+   "conceptType": "food_beverage_qsr",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 2154467,
+      "totalAssets": 1202356,
+      "totalLiabilities": 102959
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 1507173,
+      "totalAssets": 553998,
+      "totalLiabilities": 80779
+     }
+    ],
+    "auditorName": "Velez & Hardy, LLC",
+    "parentName": null
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "West Coast Sourdough is a fast casual restaurant system specializing in sandwiches, soups, and salads.",
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p.10",
+    "squareFootage": 750
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "The Area Representative Business requires staff to handle administrative, training, and support operations for unit franchisees."
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "No Item 19 financial performance representation \u2014 earnings are undisclosed, which is itself a caution.",
+    "2 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
+    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+   ],
+   "midCohort": null,
+   "bottomCohort": null,
+   "buildoutMidpoint": 591125,
+   "assumedLoan": 472900,
+   "assumedMonthlyDebtService": 6381.0759975156025,
+   "dscr": null,
+   "rentPctOfRevenue": null,
+   "paybackYears": null,
+   "variableRate": 0,
+   "fixedMonthly": 250,
+   "notes": [
+    "Royalty % not found; variable costs may be understated.",
+    "Average rent not found; fixed costs may be understated.",
+    "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 341125,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 341125,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 4602.970077505835,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $591,125 mid-point build-out, there is a $341,125 capital gap. An SBA loan or an equity partner is required to do this deal."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "food_beverage_qsr",
+   "conceptLabel": "QSR / fast-casual",
+   "conceptRationale": "West Coast Sourdough is a fast casual restaurant system specializing in sandwiches, soups, and salads.",
+   "benchmark": {
+    "label": "QSR / fast-casual",
+    "cogsPct": [
+     28,
+     33
+    ],
+    "laborPct": [
+     22,
+     28
+    ],
+    "occupancyPct": [
+     6,
+     10
+    ],
+    "operatingEbitdaPct": [
+     10,
+     18
+    ],
+    "dominantRisk": "Prime cost and throughput per labor hour. Smaller footprint helps fixed costs, but COGS + labor still set the ceiling.",
+    "rampNote": "3\u20136 months to run-rate once open.",
+    "considerations": [
+     "Budget COGS ~28\u201333% and labor ~22\u201328%; target prime cost under ~60%.",
+     "Verify average ticket and daily transaction counts with Item 20 operators, not the franchisor.",
+     "Watch for required remodels and equipment refresh cycles buried in Item 6/Item 11."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201318% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": null,
+   "marginAfterFeesMonthly": null,
+   "benchmarkOperatingEbitdaMonthly": null,
+   "trueEbitdaBasis": "none",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    22,
+    28
+   ],
+   "buildup": [],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cQSR / fast-casual\u201d from the FDD (Item 1 / brand description)."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 2154467,
+    "revenueTrend": "improving",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.08563104438286165,
+    "adjLiabilitiesToAssets": 0.08563104438286165,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

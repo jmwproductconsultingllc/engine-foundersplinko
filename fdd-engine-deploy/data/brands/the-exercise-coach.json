@@ -1,0 +1,729 @@
+{
+ "slug": "the-exercise-coach",
+ "brandName": "The Exercise Coach",
+ "category": "Gym/studio",
+ "vertical": "Fitness & Wellness",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "excercise coach usa",
+ "fileHash": "a2598042cb2be3e1",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "The Exercise Coach",
+   "franchisorEntity": "Exercise Coach USA, LLC",
+   "headquarters": "531 Telser Rd., Lake Zurich, Illinois 60084",
+   "brandBackground": "",
+   "leadership": [
+    {
+     "name": "Brian R. Cygan",
+     "role": "Chief Executive Officer and Manager",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Brad Bundy",
+     "role": "Chief Operating Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Gerianne M. Cygan",
+     "role": "Wellness Director",
+     "background": "",
+     "whyItMatters": ""
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "All Franchised Studios Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 25360,
+      "basis": "Item 19, p. 42",
+      "annualRevenue": 304317,
+      "monthlyValues": [],
+      "sampleSize": 206
+     },
+     {
+      "label": "Franchised Studios Quartile 1 Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 38292,
+      "basis": "Item 19, p. 42",
+      "annualRevenue": 459507,
+      "monthlyValues": [],
+      "sampleSize": 52
+     },
+     {
+      "label": "Franchised Studios Quartile 2 Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 27243,
+      "basis": "Item 19, p. 42",
+      "annualRevenue": 326912,
+      "monthlyValues": [],
+      "sampleSize": 52
+     },
+     {
+      "label": "Franchised Studios Quartile 3 Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 21152,
+      "basis": "Item 19, p. 43",
+      "annualRevenue": 253825,
+      "monthlyValues": [],
+      "sampleSize": 51
+     },
+     {
+      "label": "Franchised Studios Quartile 4 Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 14461,
+      "basis": "Item 19, p. 43",
+      "annualRevenue": 173537,
+      "monthlyValues": [],
+      "sampleSize": 51
+     },
+     {
+      "label": "Company-Owned Studios Gross Sales",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 41354,
+      "basis": "Item 19, p. 43",
+      "annualRevenue": 496251,
+      "monthlyValues": [],
+      "sampleSize": 4
+     },
+     {
+      "label": "All Qualifying Studios Combined Gross Sales",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 25664,
+      "basis": "Item 19, p. 43",
+      "annualRevenue": 307973,
+      "monthlyValues": [],
+      "sampleSize": 210
+     },
+     {
+      "label": "Franchised Strength Plus Studios 2025 Baseline Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 32613,
+      "basis": "Item 19, p. 44",
+      "annualRevenue": 391361,
+      "monthlyValues": [],
+      "sampleSize": 56
+     },
+     {
+      "label": "Company-Owned Strength Plus Studios 2025 Baseline Gross Sales",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 41354,
+      "basis": "Item 19, p. 44",
+      "annualRevenue": 496251,
+      "monthlyValues": [],
+      "sampleSize": 4
+     },
+     {
+      "label": "All Strength Plus Studios Combined 2025 Baseline Gross Sales",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 33196,
+      "basis": "Item 19, p. 44",
+      "annualRevenue": 398354,
+      "monthlyValues": [],
+      "sampleSize": 60
+     },
+     {
+      "label": "All Reporting Studios Marketing Expense",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 3153,
+      "basis": "Item 19, p. 45",
+      "annualRevenue": 37831,
+      "monthlyValues": [],
+      "sampleSize": 126
+     },
+     {
+      "label": "All Reporting Studios Payroll Expense",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 10821,
+      "basis": "Item 19, p. 45",
+      "annualRevenue": 129852,
+      "monthlyValues": [],
+      "sampleSize": 126
+     },
+     {
+      "label": "All Reporting Studios Rent Expense",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 3321,
+      "basis": "Item 19, p. 45",
+      "annualRevenue": 39846,
+      "monthlyValues": [],
+      "sampleSize": 126
+     },
+     {
+      "label": "All Reporting Studios Utilities Expense",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 419,
+      "basis": "Item 19, p. 45",
+      "annualRevenue": 5028,
+      "monthlyValues": [],
+      "sampleSize": 126
+     }
+    ],
+    "notes": "",
+    "sourcePage": "Item 19, pp. 41-45",
+    "networkAverageMonthly": null,
+    "unitsReported": 210
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 49500,
+      "low": 49500
+     },
+     {
+      "category": "Initial Training Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 5000,
+      "low": 5000
+     },
+     {
+      "category": "Initial Training Expenses",
+      "recurring": false,
+      "notes": "",
+      "high": 10000,
+      "low": 1500
+     },
+     {
+      "category": "Legal Fee Reimbursement (lease review)",
+      "recurring": false,
+      "notes": "",
+      "high": 5000,
+      "low": 3500
+     },
+     {
+      "category": "Lease Deposit & Rent (3 Months)",
+      "recurring": false,
+      "notes": "",
+      "high": 24000,
+      "low": 8000
+     },
+     {
+      "category": "Utilities Deposits",
+      "recurring": false,
+      "notes": "",
+      "high": 1000,
+      "low": 100
+     },
+     {
+      "category": "Construction",
+      "recurring": false,
+      "notes": "",
+      "high": 85000,
+      "low": 0
+     },
+     {
+      "category": "Interior & Exterior Signage",
+      "recurring": false,
+      "notes": "",
+      "high": 8000,
+      "low": 2300
+     },
+     {
+      "category": "Decorating, Cleaning Station, Furniture, Fans & Furnishings",
+      "recurring": false,
+      "notes": "",
+      "high": 6315,
+      "low": 4200
+     },
+     {
+      "category": "Equipment Package",
+      "recurring": false,
+      "notes": "",
+      "high": 156089,
+      "low": 106540
+     },
+     {
+      "category": "Technology Systems",
+      "recurring": false,
+      "notes": "",
+      "high": 6850,
+      "low": 2850
+     },
+     {
+      "category": "First Aid Equipment",
+      "recurring": false,
+      "notes": "",
+      "high": 2100,
+      "low": 1350
+     },
+     {
+      "category": "Opening Inventory",
+      "recurring": false,
+      "notes": "",
+      "high": 4250,
+      "low": 2550
+     },
+     {
+      "category": "Uniforms",
+      "recurring": false,
+      "notes": "",
+      "high": 1000,
+      "low": 600
+     },
+     {
+      "category": "Grand Opening Marketing Commitment",
+      "recurring": false,
+      "notes": "",
+      "high": 43275,
+      "low": 29195
+     },
+     {
+      "category": "Business Licenses",
+      "recurring": false,
+      "notes": "",
+      "high": 750,
+      "low": 250
+     },
+     {
+      "category": "Professional Fees",
+      "recurring": false,
+      "notes": "",
+      "high": 5240,
+      "low": 4000
+     },
+     {
+      "category": "Insurance",
+      "recurring": false,
+      "notes": "",
+      "high": 1500,
+      "low": 800
+     },
+     {
+      "category": "Pre-opening Payroll",
+      "recurring": false,
+      "notes": "",
+      "high": 20000,
+      "low": 10000
+     },
+     {
+      "category": "Surety Bond Premium (Initial)",
+      "recurring": false,
+      "notes": "",
+      "high": 1500,
+      "low": 500
+     },
+     {
+      "category": "Additional Funds (3 months)",
+      "recurring": false,
+      "notes": "",
+      "high": 45000,
+      "low": 30000
+     }
+    ],
+    "sourcePage": "Item 7, pp. 11-12",
+    "initialInvestmentHigh": 481369,
+    "initialInvestmentLow": 262735
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Royalty Fee Minimum",
+      "source": "Item 6, p. 6",
+      "monthlyAmount": 1000
+     },
+     {
+      "name": "Digital Marketing Fee",
+      "source": "Item 6, p. 6",
+      "monthlyAmount": 790
+     },
+     {
+      "name": "Local Marketing Commitment",
+      "source": "Item 6, p. 7",
+      "monthlyAmount": 4000
+     },
+     {
+      "name": "Technology Fee (proprietary technology)",
+      "source": "Item 6, p. 7",
+      "monthlyAmount": 518
+     },
+     {
+      "name": "Technology Fee (third-party technology)",
+      "source": "Item 6, p. 7",
+      "monthlyAmount": 596
+     },
+     {
+      "name": "EXERBOTICS Balance Tracker Rental",
+      "source": "Item 6, p. 7",
+      "monthlyAmount": 799
+     }
+    ],
+    "brandFundPct": 0.01,
+    "localAdPct": null,
+    "royaltyPct": 0.06
+   },
+   "hiddenCosts": [
+    {
+     "name": "Balance Tracker Rental",
+     "description": "",
+     "source": "Item 5, p. 5",
+     "estimatedAnnualAmount": 9588
+    },
+    {
+     "name": "Proprietary Technology Fee",
+     "description": "",
+     "source": "Item 6, p. 7",
+     "estimatedAnnualAmount": 6216
+    },
+    {
+     "name": "Third-Party Technology Fee",
+     "description": "",
+     "source": "Item 6, p. 7",
+     "estimatedAnnualAmount": 7152
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 46",
+    "closedLastYear": 5,
+    "openedLastYear": 11,
+    "totalUnits": 221,
+    "transfersLastYear": 12
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p. iv"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p. iv"
+    },
+    {
+     "title": "Minimum Payments Required",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p. iv"
+    },
+    {
+     "title": "Unopened Franchises Delay Risk",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p. iv"
+    }
+   ],
+   "conceptType": "fitness_studio",
+   "staffingModel": "lightly_staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": true,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 8631672,
+      "totalAssets": 3329293,
+      "totalLiabilities": 1450361
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 7467367,
+      "totalAssets": 3830836,
+      "totalLiabilities": 1869289
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 6908362,
+      "totalAssets": 3284529,
+      "totalLiabilities": 1372481
+     }
+    ],
+    "auditorName": "CYGAN HAYES Ltd.",
+    "parentName": null
+   },
+   "averageRentMonthly": 4000,
+   "conceptRationale": "",
+   "rentDetail": {
+    "rawValue": 4000,
+    "unit": "per_month",
+    "source": "Item 7, p. 13",
+    "squareFootage": 1400
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": ""
+  },
+  "scoring": {
+   "riskLevel": "Low",
+   "riskReasons": [
+    "Economics were assessable and no major stress flags triggered."
+   ],
+   "midCohort": {
+    "label": "All Franchised Studios Gross Sales",
+    "monthlyRevenue": 25360,
+    "monthlyVariable": 17.751999999999995,
+    "monthlyFixed": 11703,
+    "monthlyEbitda": 13639.248,
+    "annualEbitda": 163670.976,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "All Franchised Studios Gross Sales",
+     "math": "$304,317/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 206
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 372052,
+   "assumedLoan": 297641.60000000003,
+   "assumedMonthlyDebtService": 4016.2268336268553,
+   "dscr": 3.396035275149803,
+   "rentPctOfRevenue": 0.15772870662460567,
+   "paybackYears": 2.2731702901313424,
+   "variableRate": 0.0006999999999999999,
+   "fixedMonthly": 11703,
+   "notes": []
+  },
+  "underwriting": {
+   "capitalGap": 122052,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 122052,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 1646.9086226449022,
+   "adjustedMonthlyNetCashFlow": 11992.339377355098,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $372,052 mid-point build-out, there is a $122,052 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $11,992/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "fitness_studio",
+   "conceptLabel": "Boutique fitness / studio",
+   "conceptRationale": "",
+   "benchmark": {
+    "label": "Boutique fitness / studio",
+    "cogsPct": [
+     3,
+     10
+    ],
+    "laborPct": [
+     20,
+     30
+    ],
+    "occupancyPct": [
+     12,
+     20
+    ],
+    "operatingEbitdaPct": [
+     15,
+     28
+    ],
+    "dominantRisk": "Member retention/churn and fixed-cost coverage \u2014 NOT cost of goods. The deal is decided by recurring membership against rent and equipment lease.",
+    "rampNote": "9\u201318 months to a mature, retained member base.",
+    "considerations": [
+     "COGS is trivial; the risks are member churn and covering fixed rent + equipment lease.",
+     "Ask Item 20 operators for monthly retention, average membership lifetime, and break-even member count.",
+     "Model CAC and free-trial conversion \u2014 member acquisition cost is the hidden operating line."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 15\u201328% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 25360,
+   "marginAfterFeesMonthly": 13639.248,
+   "benchmarkOperatingEbitdaMonthly": [
+    4002,
+    8820
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 10\u201318% \u2014 the 20\u201330% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    10,
+    18
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      13639.248,
+      13639.248
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      3,
+      10
+     ],
+     "dollarRange": [
+      761,
+      2536
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      18
+     ],
+     "dollarRange": [
+      2536,
+      4565
+     ],
+     "note": "lightly staffed \u00b7 \u2248 0.7\u20131.3 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      1522,
+      2536
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      4002,
+      8820
+     ],
+     "note": "\u2248 16% to 35% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cBoutique fitness / studio\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    },
+    {
+     "field": "Rent",
+     "basis": "disclosed",
+     "detail": "Taken from the FDD (~$4,000/mo); already netted in margin after fees & rent."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 3\u201310% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 10\u201318% lightly staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "prior-year financials were restated"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 8631672,
+    "revenueTrend": "improving",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.4356363348014128,
+    "adjLiabilitiesToAssets": 0.4356363348014128,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

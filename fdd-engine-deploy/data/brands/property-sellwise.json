@@ -1,0 +1,646 @@
+{
+ "slug": "property-sellwise",
+ "brandName": "Property Sellwise",
+ "category": "Resale services",
+ "vertical": "Real Estate",
+ "grade": "READY",
+ "parseQuality": "degraded-fallback",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "property-sellwise",
+ "fileHash": "b495077e4b93283c",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": []
+   },
+   "brandName": "Property Sellwise",
+   "franchisorEntity": "Property Sellwise Franchising, LLC",
+   "headquarters": "South Jordan, Utah",
+   "brandBackground": "Property Sellwise is a Utah-based wholesale real estate franchise founded in March 2024, focused primarily on assigning real estate contracts for single-family and multi-family properties, with secondary activities in flipping and rental acquisitions.",
+   "conceptType": "other",
+   "conceptRationale": "Wholesale real estate contract assignment does not fit any food/beverage, fitness, retail, or home-services category; it is a real estate services business classified as \"other.\"",
+   "staffingModel": "staffed",
+   "staffingRationale": "Item 15 requires a full-time qualified operator (40 hrs/week) plus a home buying specialist, disposition/acquisition manager, and intake manager, indicating a conventionally staffed operation.",
+   "leadership": [
+    {
+     "name": "Bryan Martineau",
+     "role": "CEO and Founder",
+     "background": "Founded Property Sellwise Franchising in March 2024; previously CEO of Utah House Buyers, LLC (2017\u20132023) and founder of Sellwise, LLC (2023\u2013present), completing over 500 wholesale transactions.",
+     "whyItMatters": "Sole trainer and primary decision-maker with the deepest operational track record in the system."
+    },
+    {
+     "name": "Brandy Hoffman",
+     "role": "Chief Operations Officer",
+     "background": "COO since March 2024; previously co-owned Blink Homebuyers and served as disposition/acquisition manager at Sellwise, LLC, completing 300+ wholesale transactions.",
+     "whyItMatters": "Oversees day-to-day franchise operations and franchisee support."
+    },
+    {
+     "name": "Brenon Bollwinkel",
+     "role": "Sales Director",
+     "background": "Sales Director since March 2024; previously Director of Sales at Blink Home Buyers (2018\u20132023) and acquisition/disposition manager at Sellwise, LLC.",
+     "whyItMatters": "Leads franchisee sales training and acquisition/disposition coaching."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp. 48-52",
+    "unitsReported": 2,
+    "networkAverageMonthly": null,
+    "notes": "Item 19 discloses two outlets: one company-owned unit (Sellwise, LLC affiliate) operating across ~6.4 franchise territories statewide in Utah for 2024 and 2025, and one franchised unit operating for the full 12 months of 2025. The franchised unit signed under an original 12% royalty model; figures have been adjusted to reflect the current 8% royalty. The company unit's 2025 revenue includes significant flip income ($552,319). Franchisee 2025 revenue includes $192,072 from flips/listings. Both gross-sales and net-profit tables are disclosed for each unit/year.",
+    "cohorts": [
+     {
+      "label": "Corporate Unit 2024 - Gross Sales",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 1606091,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Total revenue of Sellwise LLC company-owned outlet, January 1 \u2013 December 31, 2024; includes $1,581,291 from assigned contracts and $24,800 from flips."
+     },
+     {
+      "label": "Corporate Unit 2024 - Net Profit (Franchisee-Adjusted)",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 1,
+      "annualRevenue": 454377,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Adjusted net profit after deducting hypothetical royalties ($120,690 + $9,000 flips) and tech fees ($6,000); unadjusted net profit was $590,067."
+     },
+     {
+      "label": "Corporate Unit 2025 - Gross Sales",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 1737838,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Total revenue of Sellwise LLC company-owned outlet, January 1 \u2013 December 31, 2025; includes assigned contracts $1,169,994, flips $552,319, listings $15,525."
+     },
+     {
+      "label": "Corporate Unit 2025 - Net Profit (Franchisee-Adjusted)",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 1,
+      "annualRevenue": 562617,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Adjusted net profit after deducting hypothetical royalties ($81,900 + $42,000 flips + $1,553 listings) and tech fees ($6,000); unadjusted net profit was $694,070."
+     },
+     {
+      "label": "Franchised Unit 2025 - Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 357572,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Total revenue of the one franchised unit operating full 12 months in 2025; includes $165,500 from assigned contracts and $192,072 from flips/listings."
+     },
+     {
+      "label": "Franchised Unit 2025 - Net Profit",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 1,
+      "annualRevenue": 60144,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Net profit after all operating expenses, royalties ($23,400 assigned + $6,000 flips/listings), and tech fees ($6,000); net profit margin 16.8%."
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp. 19-21",
+    "initialInvestmentLow": 116570,
+    "initialInvestmentHigh": 251840,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee (1 territory)",
+      "low": 49500,
+      "high": 49500,
+      "recurring": false,
+      "notes": "Lump sum due upon signing; non-refundable."
+     },
+     {
+      "category": "Initial Training",
+      "low": 0,
+      "high": 500,
+      "recurring": false,
+      "notes": "No fee for up to 4 attendees; $250/person for up to 2 additional trainees."
+     },
+     {
+      "category": "Real Estate Improvements",
+      "low": 0,
+      "high": 10000,
+      "recurring": false,
+      "notes": "Required only when 4+ people in company; cost varies by location and lease terms."
+     },
+     {
+      "category": "Rent (3 months + security deposit)",
+      "low": 0,
+      "high": 24000,
+      "recurring": false,
+      "notes": "Required when 4+ people in company; estimated 1,000\u20133,000 sq ft at $18\u2013$28/sq ft/year."
+     },
+     {
+      "category": "Equipment, Furniture, Fixtures, D\u00e9cor, and Supplies",
+      "low": 700,
+      "high": 2000,
+      "recurring": false,
+      "notes": "Desks, chairs, and office supplies."
+     },
+     {
+      "category": "Computer Hardware and Software",
+      "low": 2000,
+      "high": 6000,
+      "recurring": false,
+      "notes": "Apple laptops/computers, lead generation, email marketing, accounting software."
+     },
+     {
+      "category": "Additional Signs",
+      "low": 0,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Exterior signage required if leasing commercial space."
+     },
+     {
+      "category": "Vehicle",
+      "low": 0,
+      "high": 50000,
+      "recurring": false,
+      "notes": "Must be approved by franchisor; own vehicle may be used at $0 upfront cost."
+     },
+     {
+      "category": "Startup Package",
+      "low": 5520,
+      "high": 8740,
+      "recurring": false,
+      "notes": "Uniforms, books, marketing setup, signs, technology setup fee; paid to franchisor or affiliate."
+     },
+     {
+      "category": "Demographic List and Leads (3 months)",
+      "low": 1500,
+      "high": 4500,
+      "recurring": true,
+      "notes": "Monthly fee paid to franchisor or designated supplier."
+     },
+     {
+      "category": "Technology Fee (3 months, first month included in startup package)",
+      "low": 1000,
+      "high": 1000,
+      "recurring": true,
+      "notes": "Currently $500/month for CRM, email accounts, and Delightree; first month included in startup package."
+     },
+     {
+      "category": "Professional Fees",
+      "low": 1500,
+      "high": 3500,
+      "recurring": false,
+      "notes": "Legal, entity formation, and accounting fees."
+     },
+     {
+      "category": "Insurance (3 months)",
+      "low": 850,
+      "high": 1100,
+      "recurring": true,
+      "notes": "General liability and commercial auto insurance premiums."
+     },
+     {
+      "category": "Miscellaneous Opening Costs",
+      "low": 1000,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Utility setup fees, deposits, licenses, and other startup costs."
+     },
+     {
+      "category": "Grand Opening Marketing",
+      "low": 12000,
+      "high": 18000,
+      "recurring": false,
+      "notes": "Advertising costs for first 3 months of operations."
+     },
+     {
+      "category": "Marketing Management Fee (3 months)",
+      "low": 6000,
+      "high": 12000,
+      "recurring": true,
+      "notes": "$2,000\u2013$3,000/month depending on chosen marketing package."
+     },
+     {
+      "category": "Additional Funds (3 months working capital)",
+      "low": 35000,
+      "high": 55000,
+      "recurring": false,
+      "notes": "Operating expenses for first 3 months including payroll; must maintain $20,000 minimum in operating account."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 8,
+    "brandFundPct": 2,
+    "localAdPct": 20,
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "monthlyAmount": 500,
+      "source": "Item 6, p. 14"
+     },
+     {
+      "name": "Marketing Management Fee - Package 1 (Steady/Launch)",
+      "monthlyAmount": 2000,
+      "source": "Item 6, p. 13"
+     },
+     {
+      "name": "Marketing Management Fee - Package 2 (Balanced/Growth)",
+      "monthlyAmount": 2500,
+      "source": "Item 6, p. 18"
+     },
+     {
+      "name": "Marketing Management Fee - Package 3 (Market Leader)",
+      "monthlyAmount": 3000,
+      "source": "Item 6, p. 18"
+     },
+     {
+      "name": "Target Data List Fee (per territory, if running mailer/SMS/cold-call campaigns)",
+      "monthlyAmount": 500,
+      "source": "Item 6, p. 15"
+     },
+     {
+      "name": "Demographic List and Leads (per territory)",
+      "monthlyAmount": null,
+      "source": "Item 6, p. 15"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Royalty on Flips and Purchase-and-Hold Transactions",
+     "description": "$3,000 flat fee per flip or purchase-and-hold transaction, payable monthly by the 10th.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 13"
+    },
+    {
+     "name": "Royalty on Closed Listings (20% of commission)",
+     "description": "20% of commissions received for closed real estate listings, payable monthly.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 13"
+    },
+    {
+     "name": "Referral Fee (wholesale assignment)",
+     "description": "7% of earned assignment fee paid to referring party (franchisor, affiliate, or other franchisee) within 10 days of closing.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 14"
+    },
+    {
+     "name": "Referral Fee (flip/rental/listing)",
+     "description": "$1,500 flat fee plus 10% of commission for closed listings referred by another party.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 14"
+    },
+    {
+     "name": "Replacement Training Fee",
+     "description": "$1,000 per day per person for any new operating principal, qualified operator, or manager hired after initial training.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 15"
+    },
+    {
+     "name": "Additional Training Fee",
+     "description": "$1,000 per day per person for optional or franchisor-required additional training.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 15"
+    },
+    {
+     "name": "Conference or Seminar Fee",
+     "description": "$750\u2013$1,200 per team for bi-annual conferences; attendance mandatory for operating principal, qualified operator, and home buying specialist.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 15"
+    },
+    {
+     "name": "Minimum Local Marketing Spend",
+     "description": "Must spend 20% of gross sales or at least $4,000/month per territory on local marketing, in addition to the marketing management fee.",
+     "estimatedAnnualAmount": 48000,
+     "source": "Item 6, p. 13; Item 11, p. 30"
+    },
+    {
+     "name": "System Non-Compliance Fine",
+     "description": "$250 per violation of the operations manual; not the sole remedy.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 14"
+    },
+    {
+     "name": "Interim Management Fee",
+     "description": "20% of earned assignment fee (wholesale) or $10,000 (other real estate transactions) if franchisor steps in to manage during default or unapproved absence.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 16"
+    },
+    {
+     "name": "Early Termination Liquidated Damages",
+     "description": "$8,500 multiplied by the lesser of 24 months or remaining term, payable upon early termination.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 16"
+    },
+    {
+     "name": "Minimum Operating Account Balance",
+     "description": "Must maintain $20,000 minimum in operating account (or $20,000 line of credit) at all times as a liquidity reserve.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 7, p. 23 (Note 17)"
+    },
+    {
+     "name": "Ad Spend Overage Management Fee",
+     "description": "10% management fee on any ad spend exceeding the package threshold ($15,000/$25,000/$40,000 depending on package).",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 13"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, pp. 53-54",
+    "totalUnits": 2,
+    "openedLastYear": 0,
+    "closedLastYear": 0,
+    "transfersLastYear": 0
+   },
+   "operationalRisks": [
+    {
+     "title": "Franchisor Financial Condition",
+     "description": "The Special Risks section explicitly states the franchisor's financial condition calls into question its ability to provide services and support; multiple states (CA, IL, MD, SD, WA) imposed fee-deferral or surety-bond conditions as a result.",
+     "severity": "high",
+     "source": "Special Risks, p. 5; Item 21, p. 55; State Addenda pp. 57, 62, 64, 70, 74"
+    },
+    {
+     "title": "Short Operating History",
+     "description": "Franchisor was organized March 2024 and began selling franchises March 2024, giving it less than two years of franchising history and only one franchised unit operating for a full year.",
+     "severity": "high",
+     "source": "Special Risks, p. 5; Item 1, p. 9"
+    },
+    {
+     "title": "Unregistered Primary Logo Trademark",
+     "description": "The primary logo used in the business has only common-law rights and is not federally registered, creating risk that franchisees may need to rebrand if the mark is challenged.",
+     "severity": "high",
+     "source": "Special Risks, p. 5; Item 13, p. 40"
+    },
+    {
+     "title": "Mandatory Minimum Royalty/Advertising Payments",
+     "description": "Franchisees must pay minimum royalty and advertising fund payments regardless of sales levels; failure may result in termination.",
+     "severity": "medium",
+     "source": "Special Risks, p. 5; Item 6, p. 13"
+    },
+    {
+     "title": "Spousal Liability Guarantee",
+     "description": "Spouses of franchisee owners must sign a personal guarantee making them liable for all financial obligations under the franchise agreement.",
+     "severity": "medium",
+     "source": "Special Risks, p. 5; Item 6 (Note 2), p. 17"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution (Utah)",
+     "description": "All disputes must be resolved by mediation, arbitration, and/or litigation in Salt Lake County, Utah, which may be costly and disadvantageous for out-of-state franchisees.",
+     "severity": "medium",
+     "source": "Special Risks, p. 5; Item 17, p. 48"
+    },
+    {
+     "title": "Real Estate Licensing Regulatory Risk",
+     "description": "State-specific real estate licensing laws may restrict or prohibit certain wholesale, listing, or closing activities without a license, varying by jurisdiction.",
+     "severity": "medium",
+     "source": "Item 1, p. 10"
+    },
+    {
+     "title": "Franchisor Competition Within Territory",
+     "description": "Franchisor and affiliates reserve the right to market, sell, and distribute services within the franchisee's territory using any channel, without compensating the franchisee.",
+     "severity": "medium",
+     "source": "Item 12, p. 38"
+    },
+    {
+     "title": "Post-Termination Non-Compete (3 Years / 50 Miles)",
+     "description": "After termination or expiration, franchisee cannot operate a competing business for 3 years within the former territory or within 50 miles of it, or within 30 miles of any other Property Sellwise unit.",
+     "severity": "medium",
+     "source": "Item 17, p. 47"
+    },
+    {
+     "title": "Very Small System Scale (2 Total Units)",
+     "description": "With only 1 franchised unit and 1 company unit as of year-end 2025, there is minimal peer validation, limited brand recognition, and high dependence on the franchisor's continued viability.",
+     "severity": "high",
+     "source": "Item 20, p. 53"
+    },
+    {
+     "title": "Franchisor Data Ownership",
+     "description": "All customer data, CRM data, and business data collected through the franchise is owned exclusively by the franchisor and the license to use it expires automatically upon termination.",
+     "severity": "medium",
+     "source": "Item 11, p. 34; Item 14, p. 41"
+    }
+   ],
+   "rentDetail": {
+    "rawValue": 23,
+    "unit": "per_sqft_per_year",
+    "squareFootage": 2000,
+    "source": "Item 7, p. 22 (Note 4) \u2014 estimated $18\u2013$28/sq ft/year; midpoint $23; estimated 1,000\u20133,000 sq ft"
+   },
+   "averageRentMonthly": null,
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "Kezos & Dunlavy",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "Property Sellwise, LLC",
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 50878,
+      "netIncome": -252088,
+      "totalAssets": 560210,
+      "totalLiabilities": 682593,
+      "cash": 91833,
+      "currentAssets": 245515,
+      "currentLiabilities": 332929,
+      "relatedPartyDebt": 55926,
+      "deferredRevenue": 493138,
+      "netWorth": -122383
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 36320,
+      "netIncome": -8819,
+      "totalAssets": 34861,
+      "totalLiabilities": 43680,
+      "cash": 33541,
+      "currentAssets": 34861,
+      "currentLiabilities": 43680,
+      "relatedPartyDebt": 39610,
+      "deferredRevenue": 0,
+      "netWorth": -8819
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "Above-market royalty at 8%.",
+    "3 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
+    "Franchisor financial distress disclosed (negative net worth) \u2014 confirm its ability to support the system against the audited statements.",
+    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+   ],
+   "midCohort": null,
+   "bottomCohort": null,
+   "buildoutMidpoint": 184205,
+   "assumedLoan": 147364,
+   "assumedMonthlyDebtService": 1988.456086483166,
+   "dscr": null,
+   "rentPctOfRevenue": null,
+   "paybackYears": null,
+   "variableRate": 0.3,
+   "fixedMonthly": 8500,
+   "notes": [
+    "Average rent not found; fixed costs may be understated.",
+    "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $184,205 mid-point build-out without financing, though that leaves little working-capital cushion."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "other",
+   "conceptLabel": "General franchise (uncategorized)",
+   "conceptRationale": "Wholesale real estate contract assignment does not fit any food/beverage, fitness, retail, or home-services category; it is a real estate services business classified as \"other.\"",
+   "benchmark": {
+    "label": "General franchise (uncategorized)",
+    "cogsPct": [
+     15,
+     35
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     6,
+     12
+    ],
+    "operatingEbitdaPct": [
+     8,
+     20
+    ],
+    "dominantRisk": "Cost of goods and labor are not disclosed in any FDD \u2014 model them explicitly before trusting any margin figure.",
+    "rampNote": "Assume 6\u201318 months to a mature run-rate.",
+    "considerations": [
+     "Budget COGS and labor explicitly \u2014 neither is in the FDD, and together they usually run 45\u201365% of sales.",
+     "Use the Item 20 franchisee list to validate real operating costs and ramp before committing capital."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 8\u201320% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": null,
+   "marginAfterFeesMonthly": null,
+   "benchmarkOperatingEbitdaMonthly": null,
+   "trueEbitdaBasis": "none",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    20,
+    35
+   ],
+   "buildup": [],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cGeneral franchise (uncategorized)\u201d from the FDD (Item 1 / brand description)."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "HIGH",
+   "headline": "Several stress signals show up together here \u2014 a net-worth deficit of roughly $122K alongside operating losses, thin near-term liquidity, and unit closures. Any one of these alone can be normal for a young brand; appearing together is the pattern that separates real distress from ordinary early-stage losses. Treat this as a franchisor-stability question to resolve \u2014 with the specific items below \u2014 before you commit.",
+   "context": null,
+   "body": [
+    "What we found (2025-12-31, audited by Kezos & Dunlavy): Net loss of $252K on $51K of revenue \u2014 roughly 6.0x spent per $1 earned. Losses are widening, not shrinking. Negative net worth (a members'/stockholders' deficit) of $122K, and deepening year over year. Total liabilities are about 1.2x total assets. Cash of $92K against $333K of obligations due within a year (a current ratio of 0.74). Note: about 72% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.3x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Property Sellwise, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "negative net worth that is deepening year over year",
+    "operating losses that are widening",
+    "more due within a year than current assets to cover it",
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": -122383,
+    "netWorthSign": "negative",
+    "netWorthTrend": "worsening",
+    "netIncome": -252088,
+    "netIncomeTrend": "worsening",
+    "revenue": 50878,
+    "revenueTrend": "improving",
+    "currentRatio": 0.7374395141306405,
+    "workingCapital": -87414,
+    "liabilitiesToAssets": 1.2184591492476036,
+    "adjLiabilitiesToAssets": 0.3381856803698613,
+    "relatedPartyDebtPct": 0.0819316928242745,
+    "deferredRevenuePct": 0.7224480766723362,
+    "expenseToRevenue": 5.954754510790519,
+    "cash": 91833,
+    "nearTermObligations": 332929
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

@@ -1,0 +1,812 @@
+{
+ "slug": "five-star-bath-solutions",
+ "brandName": "Five Star Bath Solutions",
+ "category": "Interior/remodel",
+ "vertical": "Home & Property Services",
+ "grade": "READY",
+ "parseQuality": "degraded-fallback",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "fivestar-bath",
+ "fileHash": "ebbb5d3b19b6fe83",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Item 19 discloses a controlled-location P&L (Macomb, 2024) and multiple franchisee gross-sales tables but no separate EBITDA/profitability table for franchised outlets.",
+     "The multi-location Item 7 table on pages 28-29 appears to have some line items with mismatched descriptions (e.g., 'Quick Start Package' and 'Annual Conference Registration Deposit' appear to be re-used labels for different line items), suggesting a possible formatting error in the source document."
+    ]
+   },
+   "brandName": "Five Star Bath Solutions",
+   "franchisorEntity": "Five Star Bath, LLC",
+   "headquarters": "Springville, UT 84663",
+   "brandBackground": "Five Star Bath Solutions is a bathroom renovation franchise founded in 2014 under parent Five Star Franchising, L.L.C. (owned by private equity firm Princeton Equity Group via FS PEP Holdco, LLC), offering quality bath remodeling products and services to residential and commercial customers across the US and Canada.",
+   "conceptType": "home_trade_services",
+   "conceptRationale": "Franchisees sell and install bathroom renovation products (wall systems, fixtures) directly to homeowners, operating as a home-services trade contractor.",
+   "staffingModel": "lightly_staffed",
+   "staffingRationale": "Item 15 permits semi-absentee ownership via a designated manager, and the single-location model assumes the owner acts as salesperson with a small crew of installers/helpers.",
+   "leadership": [
+    {
+     "name": "Dean Hartley",
+     "role": "Brand President",
+     "background": "Brand President since August 2014 with bath industry experience since 2007.",
+     "whyItMatters": "Longest-tenured executive and primary trainer; directly controls the company-controlled Macomb location used in Item 19."
+    },
+    {
+     "name": "J. Andrew Mengason",
+     "role": "Chief Revenue Officer",
+     "background": "CRO since January 2026; previously COO of Mesa Systems and COO of BELFOR Franchise Group.",
+     "whyItMatters": "Leads revenue strategy across the franchise system."
+    },
+    {
+     "name": "Colt Florence",
+     "role": "Chief Growth Officer",
+     "background": "CGO since January 2026; previously VP of Franchise Development at Authority Brands.",
+     "whyItMatters": "Drives new franchise sales and territory expansion."
+    },
+    {
+     "name": "Dominic Ortman",
+     "role": "Vice President of Operations",
+     "background": "VP of Operations since June 2023; prior roles at Bob's Discount Furniture and Men's Wearhouse.",
+     "whyItMatters": "Oversees franchisee operational compliance and training delivery."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp. 57-65",
+    "unitsReported": 62,
+    "networkAverageMonthly": 162254,
+    "notes": "Item 19 discloses: (1) a controlled-location (Macomb, 6 territories, company-controlled) P&L for Jan-Dec 2024 showing $11,650,642 revenue and $1,202,303 adjusted EBITDA (10.32%); (2) average overall performance for all franchisees in 2025 calendar year (62 non-company-controlled reporting); (3) first full year franchisees (12-24 months, 30 reporters); (4) established franchisees (25-36 months, 15 reporters); (5) mature franchisees (37+ months, 17 reporters); and (6) a system-wide performance by experience table. No separate EBITDA/profitability table is disclosed for franchised outlets. Data does not account for franchisee expenses.",
+    "cohorts": [
+     {
+      "label": "Controlled Location (Macomb) - Gross Revenue 2024",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "annualRevenue": 11650642,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "Full-year Jan-Dec 2024 P&L for Dean Hartley's 6-territory controlled location; owner-level expenses removed.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Controlled Location (Macomb) - Adjusted EBITDA 2024",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "annualRevenue": 1202303,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "Adjusted EBITDA (10.32% of revenue) from Macomb P&L Jan-Dec 2024; owner add-backs removed.",
+      "monthlyValues": []
+     },
+     {
+      "label": "All Non-Company-Controlled Franchisees - 2025 Full Year",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "annualRevenue": 1947044,
+      "avgMonthlyRevenue": 162254,
+      "sampleSize": 62,
+      "basis": "62 franchisees with full 2025 calendar year of operations; 21 of 62 (33.87%) met or exceeded average; median $1,375,385.",
+      "monthlyValues": []
+     },
+     {
+      "label": "First Full Year Franchisees (12-24 months) - All Locations 2025",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "annualRevenue": 1514005,
+      "avgMonthlyRevenue": 126167,
+      "sampleSize": 30,
+      "basis": "30 franchisees with 12-24 months of reported operations in 2025; 11 of 30 (36.67%) met or exceeded average; median $1,292,350.",
+      "monthlyValues": []
+     },
+     {
+      "label": "First Full Year Franchisees (12-24 months) - 1-Location Owners 2025",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "annualRevenue": 1646156,
+      "avgMonthlyRevenue": 137180,
+      "sampleSize": null,
+      "basis": "Subset of 30 first-year franchisees who are single-location owners.",
+      "monthlyValues": []
+     },
+     {
+      "label": "First Full Year Franchisees (12-24 months) - Multi-Location Owners 2025",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "annualRevenue": 1504566,
+      "avgMonthlyRevenue": 125380,
+      "sampleSize": null,
+      "basis": "Subset of 30 first-year franchisees who are multi-location owners.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Established Franchisees (25-36 months) - All Locations 2025",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "annualRevenue": 1947012,
+      "avgMonthlyRevenue": 162251,
+      "sampleSize": 15,
+      "basis": "15 franchisees with 25-36 months of reported operations in 2025; 6 of 15 (40%) met or exceeded average; median $1,538,992.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Established Franchisees (25-36 months) - 1-Location Owners 2025",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "annualRevenue": 784088,
+      "avgMonthlyRevenue": 65341,
+      "sampleSize": null,
+      "basis": "Subset of 15 established franchisees who are single-location owners.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Established Franchisees (25-36 months) - Multi-Location Owners 2025",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "annualRevenue": 2125923,
+      "avgMonthlyRevenue": 177160,
+      "sampleSize": null,
+      "basis": "Subset of 15 established franchisees who are multi-location owners.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Mature Franchisees (37+ months) - Non-Company-Controlled 2025",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "annualRevenue": 2711258,
+      "avgMonthlyRevenue": 225938,
+      "sampleSize": 17,
+      "basis": "17 non-company-controlled franchisees with 37+ months of reported operations in 2025; 6 of 17 (35.29%) met or exceeded average; median $1,717,406.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Mature Franchisees (37+ months) - 1-Location Owners 2025",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "annualRevenue": 407062,
+      "avgMonthlyRevenue": 33922,
+      "sampleSize": null,
+      "basis": "Subset of mature non-company-controlled franchisees who are single-location owners.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Mature Franchisees (37+ months) - Multi-Location Owners 2025",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "annualRevenue": 3018484,
+      "avgMonthlyRevenue": 251540,
+      "sampleSize": null,
+      "basis": "Subset of mature non-company-controlled franchisees who are multi-location owners.",
+      "monthlyValues": []
+     },
+     {
+      "label": "System-Wide Under 12 Months Experience 2025",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "annualRevenue": 474228,
+      "avgMonthlyRevenue": null,
+      "sampleSize": null,
+      "basis": "Franchisees operational for under 12 months in 2025; median $293,995.",
+      "monthlyValues": []
+     },
+     {
+      "label": "System-Wide 37+ Months Experience (All incl. Company-Controlled) 2025",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "annualRevenue": 3561914,
+      "avgMonthlyRevenue": null,
+      "sampleSize": null,
+      "basis": "All franchisees (including company-controlled) with 37+ months in 2025; median $1,958,579.",
+      "monthlyValues": []
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp. 26-27",
+    "initialInvestmentLow": 162000,
+    "initialInvestmentHigh": 333500,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 59500,
+      "high": 59500,
+      "recurring": false,
+      "notes": "Single territory up to ~150,000 households; paid in full at signing."
+     },
+     {
+      "category": "Quick Start Package (QSP)",
+      "low": 25000,
+      "high": 25000,
+      "recurring": false,
+      "notes": "Mandatory package including demo items, sales supplies, consumables, and marketing/storage items; paid prior to in-person training."
+     },
+     {
+      "category": "Optional QSP Add-on: Trailer",
+      "low": 0,
+      "high": 40000,
+      "recurring": false,
+      "notes": "Optional trailer add-on to QSP."
+     },
+     {
+      "category": "Annual Conference Registration Deposit",
+      "low": 1000,
+      "high": 1000,
+      "recurring": false,
+      "notes": "Due within 7 days of signing; applied to first annual conference attendance fee."
+     },
+     {
+      "category": "Marketing",
+      "low": 35000,
+      "high": 65000,
+      "recurring": false,
+      "notes": "Initial marketing spend; paid to approved suppliers as incurred."
+     },
+     {
+      "category": "Business Licenses and Permits",
+      "low": 2000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Required prior to opening; varies by jurisdiction."
+     },
+     {
+      "category": "Warehouse/Premises and Show Displays",
+      "low": 1500,
+      "high": 4500,
+      "recurring": false,
+      "notes": "Minimum 1,000 sq ft warehouse recommended; show displays optional."
+     },
+     {
+      "category": "Supplies, Inventory, and Equipment",
+      "low": 7500,
+      "high": 32500,
+      "recurring": false,
+      "notes": "Initial equipment and supplies for office and warehouse operations."
+     },
+     {
+      "category": "Computer Equipment and Software/License Fees",
+      "low": 1000,
+      "high": 2000,
+      "recurring": false,
+      "notes": "Required before initial training; QuickBooks Online and ServiceMinder CRM required."
+     },
+     {
+      "category": "Travel and Living Expenses to Attend Training",
+      "low": 1500,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Airfare, hotel, meals for franchisee and employees to attend training in Warren, MI."
+     },
+     {
+      "category": "Vehicle/Trailer (and wrap)",
+      "low": 500,
+      "high": 32500,
+      "recurring": false,
+      "notes": "Low assumes existing vehicle needing only wrap/signs; high assumes full new vehicle purchase with wrap."
+     },
+     {
+      "category": "Insurance",
+      "low": 5000,
+      "high": 7000,
+      "recurring": false,
+      "notes": "Auto and commercial general liability premiums for first three months."
+     },
+     {
+      "category": "Professional Services",
+      "low": 500,
+      "high": 1500,
+      "recurring": false,
+      "notes": "Legal, accounting, administrative, and permitting fees pre-opening."
+     },
+     {
+      "category": "Recruiting and Personnel",
+      "low": 2000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Costs to attract and hire initial employees."
+     },
+     {
+      "category": "Working Capital (Additional Funds and Living Expenses \u2013 3 Months)",
+      "low": 20000,
+      "high": 50000,
+      "recurring": false,
+      "notes": "Covers payroll, royalties, repairs, marketing, taxes, utilities for approximately 3 months."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 6,
+    "brandFundPct": 2.5,
+    "localAdPct": 10,
+    "flatMonthlyFees": [
+     {
+      "name": "Operations Software \u2013 Hosting and Maintenance Monthly Software Support Fee",
+      "monthlyAmount": null,
+      "source": "Item 6, pp. 21-22 (range $1,100\u2013$2,500/month)"
+     },
+     {
+      "name": "Call Center Monthly Fee",
+      "monthlyAmount": 250,
+      "source": "Item 6, p. 17 (base $250/month plus $1.50/min for call handling)"
+     },
+     {
+      "name": "Accounting Software Fee",
+      "monthlyAmount": null,
+      "source": "Item 6, p. 21 (range $0\u2013$250/month)"
+     },
+     {
+      "name": "Bookkeeping Service Fee",
+      "monthlyAmount": null,
+      "source": "Item 6, p. 21 (range $0\u2013$300/month)"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Operations Software Monthly Support Fee",
+     "description": "Mandatory monthly fee for proprietary software hosting and maintenance, payable to franchisor or designated vendor.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 21 ($1,100\u2013$2,500/month)"
+    },
+    {
+     "name": "Call Center Per-Minute Fee",
+     "description": "Per-minute charge of $1.50 for call handling services through designated vendor (ProNexis), beyond the $250 base monthly fee.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 17"
+    },
+    {
+     "name": "Text/Chat Conversation Fee",
+     "description": "Mandatory $2.50 per chat or text conversation through designated vendor for customer inquiry management.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 17"
+    },
+    {
+     "name": "Annual Convention and Trade Show Fee",
+     "description": "Mandatory annual conference registration fee (currently $1,000), non-refundable even if not attended.",
+     "estimatedAnnualAmount": 1000,
+     "source": "Item 6, p. 19"
+    },
+    {
+     "name": "Territory Marketing Requirement (10% of Gross Revenue)",
+     "description": "Franchisee must spend at least 10% of annual gross revenue on territory advertising (inclusive of National Marketing Fee); shortfall is remitted as additional National Marketing Fees.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 16"
+    },
+    {
+     "name": "Minimum Monthly Royalty (3+ Years)",
+     "description": "Minimum monthly royalty of $2,500 applies from year 3 onward regardless of sales.",
+     "estimatedAnnualAmount": 30000,
+     "source": "Item 6, p. 24"
+    },
+    {
+     "name": "Minimum Monthly Marketing Fee (3+ Years)",
+     "description": "Minimum monthly National Marketing Fee of $1,200 applies from year 3 onward regardless of sales.",
+     "estimatedAnnualAmount": 14400,
+     "source": "Item 6, p. 25"
+    },
+    {
+     "name": "Non-Reporting Fee",
+     "description": "Penalty of $250 per day for each day a required report is not delivered.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 20"
+    },
+    {
+     "name": "Warranty Escrow on Transfer",
+     "description": "Up to 5% of gross transfer price held in escrow for 12 months post-sale to cover warranty claims.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, pp. 22-23"
+    },
+    {
+     "name": "Transferee Commission",
+     "description": "10% of transaction amount if franchisor finds the buyer, or actual broker commission if franchise broker is used.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 24"
+    },
+    {
+     "name": "Mandatory $20,000/Month Marketing Spend by Month 3",
+     "description": "Franchisee is required to spend a minimum of $20,000 per month on marketing by month three of operations.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 7, p. 31 (Note 13)"
+    }
+   ],
+   "systemScale": {
+    "totalUnits": 348,
+    "openedLastYear": 76,
+    "closedLastYear": 31,
+    "transfersLastYear": 25,
+    "sourcePage": "Item 20, p. 66 (Table No. 1 and Table No. 3, as of December 31, 2025)"
+   },
+   "operationalRisks": [
+    {
+     "title": "Mandatory Minimum Payments Regardless of Sales",
+     "description": "Franchisee must pay minimum royalties and advertising fund contributions even if losing money; failure may result in termination and loss of investment.",
+     "severity": "high",
+     "source": "Special Risks, p. 5; Item 6, pp. 15-25"
+    },
+    {
+     "title": "Minimum Sales Performance / Territory Reduction",
+     "description": "Failure to meet annual minimum revenue targets ($1.50\u2013$3.00 per household depending on year) can result in territory reduction or franchise termination.",
+     "severity": "high",
+     "source": "Special Risks, p. 5; Item 12, pp. 46-48"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution (Utah)",
+     "description": "All disputes must be arbitrated or litigated in Utah, which may force franchisees to accept less favorable settlements or incur higher costs.",
+     "severity": "medium",
+     "source": "Special Risks, p. 5; Item 17, p. 56"
+    },
+    {
+     "title": "Parent Company Sustained Net Losses",
+     "description": "FS PEP Holdco, LLC (parent) reported net losses of $13.7M (2023) and $10.4M (2022) with significant long-term debt (~$46M), raising questions about financial stability.",
+     "severity": "high",
+     "source": "Item 21 / Exhibit A, pp. 87-88"
+    },
+    {
+     "title": "Principal Trademark Not Federally Registered",
+     "description": "The primary Five Star Bath Solutions logo is not registered on the USPTO Principal Register, limiting legal protections and potentially requiring a costly rebrand if challenged.",
+     "severity": "medium",
+     "source": "Item 13, p. 49"
+    },
+    {
+     "title": "Competing 'Bath Solutions' Marks in Use",
+     "description": "Multiple third parties use 'Bath Solutions' in their names and franchisor does not plan immediate action, creating potential brand confusion.",
+     "severity": "medium",
+     "source": "Item 13, p. 50"
+    },
+    {
+     "title": "Franchisor Revenue from Required Purchases",
+     "description": "Franchisor and affiliates (including ProNexis) derive significant revenue from franchisee required purchases and supplier rebates ($2.45M in 2025), creating a potential conflict of interest.",
+     "severity": "medium",
+     "source": "Item 8, p. 33"
+    },
+    {
+     "title": "Franchisor May Compete in Territory via Other Channels",
+     "description": "Franchisor, parent, and affiliates reserve the right to use internet, catalogues, telemarketing, and direct marketing within the franchisee's territory without compensation.",
+     "severity": "medium",
+     "source": "Item 12, p. 47"
+    },
+    {
+     "title": "Business Model / Operations Manual Changes Without Consent",
+     "description": "Franchisor may unilaterally amend the Operations Manual, potentially requiring additional investments or operational changes at franchisee's cost.",
+     "severity": "medium",
+     "source": "Item 8, p. 32; Item 17, p. 56"
+    },
+    {
+     "title": "Non-Competition Covenant Post-Termination (720 Days)",
+     "description": "After termination, franchisee cannot compete for 720 days within the territory, within 100 miles of the territory, or within 100 miles of any Five Star Bath Solutions location in the US.",
+     "severity": "medium",
+     "source": "Item 17, p. 55-56"
+    }
+   ],
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "rentDetail": {
+    "rawValue": 59281,
+    "unit": "per_year",
+    "squareFootage": null,
+    "source": "Item 19, p. 59 (Macomb controlled location P&L shows 6450 Office Rent of $59,281 for Jan-Dec 2024; no per-sqft rate disclosed in Item 7)"
+   },
+   "averageRentMonthly": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "Tanner LLC",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": true,
+    "parentName": "FS PEP Holdco, LLC",
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 47493372,
+      "netIncome": -12250006,
+      "totalAssets": 129577381,
+      "totalLiabilities": 82249343,
+      "cash": 3690691,
+      "currentAssets": 14214643,
+      "currentLiabilities": 8793496,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 24221876,
+      "netWorth": 47328038
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 38119222,
+      "netIncome": -15967953,
+      "totalAssets": 138406777,
+      "totalLiabilities": 77113904,
+      "cash": 1455349,
+      "currentAssets": 8781085,
+      "currentLiabilities": 6994472,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 19911235,
+      "netWorth": 61292873
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "3 high-severity operational tripwires disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Network Average",
+    "monthlyRevenue": 162254,
+    "monthlyVariable": 30016.989999999998,
+    "monthlyFixed": 250,
+    "monthlyEbitda": 131987.01,
+    "annualEbitda": 1583844.12,
+    "coversCosts": true,
+    "source": {
+     "basis": "network",
+     "label": "network average of disclosed cohorts",
+     "math": null
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 247750,
+   "assumedLoan": 198200,
+   "assumedMonthlyDebtService": 2674.411636091335,
+   "dscr": 49.35179320147576,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.15642322174987774,
+   "variableRate": 0.185,
+   "fixedMonthly": 250,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 131987.01,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $247,750 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $131,987/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "Franchisees sell and install bathroom renovation products (wall systems, fixtures) directly to homeowners, operating as a home-services trade contractor.",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 162254,
+   "marginAfterFeesMonthly": 131987.01,
+   "benchmarkOperatingEbitdaMonthly": [
+    7052,
+    62218
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 10\u201321% \u2014 the 20\u201335% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    10,
+    21
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      131987.01,
+      131987.01
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      2,
+      6
+     ],
+     "dollarRange": [
+      3245,
+      9735
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      25,
+      40
+     ],
+     "dollarRange": [
+      40564,
+      64902
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      21
+     ],
+     "dollarRange": [
+      16225,
+      34073
+     ],
+     "note": "lightly staffed \u00b7 \u2248 4.7\u20139.8 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      9735,
+      16225
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      7052,
+      62218
+     ],
+     "note": "\u2248 4% to 38% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 2\u20136% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 25\u201340% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 10\u201321% lightly staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "This franchisor is losing money as it grows (a net loss of $12.25M in the most recent year), though it still has positive net worth. Worth understanding how long its runway lasts.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; positive net worth; the parent guarantees the franchisor's performance. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "What we found (2024-12-31, audited by Tanner LLC): Net loss of $12.25M on $47.49M of revenue \u2014 roughly 1.3x spent per $1 earned. Positive net worth of $47.33M. Cash of $3.69M against $8.79M of obligations due within a year (a current ratio of 1.62). Note: about 29% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.4x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. FS PEP Holdco, LLC guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "operating losses",
+    "prior-year financials were restated",
+    "elevated unit closures (31 in the last year, about 9% of the system)"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "positive net worth",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2024-12-31",
+    "netWorth": 47328038,
+    "netWorthSign": "positive",
+    "netWorthTrend": "worsening",
+    "netIncome": -12250006,
+    "netIncomeTrend": "improving",
+    "revenue": 47493372,
+    "revenueTrend": "improving",
+    "currentRatio": 1.6164950777256282,
+    "workingCapital": 5421147,
+    "liabilitiesToAssets": 0.6347507749056913,
+    "adjLiabilitiesToAssets": 0.44782095881379175,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": 0.29449324598252413,
+    "expenseToRevenue": 1.2579308540147454,
+    "cash": 3690691,
+    "nearTermObligations": 8793496
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

@@ -43,8 +43,11 @@ export default function BrandDetail({
   const [emailSent, setEmailSent] = useState(false);
 
   const tone = RISK_TONE[card.risk ?? ""] ?? RISK_TONE.Medium;
-  const lo = card.lo ?? 0;
-  const hi = card.hi ?? 0;
+  // Item 7 range preferred; engine mid-point build-out as last resort
+  // (batch2 brief §data-2 — dormant on current data, all records carry Item 7).
+  const hasRange = card.lo != null && card.hi != null;
+  const lo = card.lo ?? card.buildoutMid ?? 0;
+  const hi = card.hi ?? card.buildoutMid ?? 0;
   const scaleMax = hi * 1.15;
 
   const fit = useMemo(() => {
@@ -65,7 +68,7 @@ export default function BrandDetail({
   const heroKind = card.moKind === "profit" ? "profit" : "revenue";
 
   return (
-    <main className="min-h-screen bg-[#0B1220] px-5 pb-16 text-[#F1F5F9]">
+    <main className="min-h-screen bg-[#0B1220] px-5 pb-16 text-[#F1F5F9]" data-parse-quality={card.parseQuality}>
       <div className="mx-auto max-w-[820px]">
         <div className="flex items-center justify-between border-b border-[#27344F] py-4">
           <Link href="/" className="text-[15px] font-extrabold">
@@ -88,8 +91,13 @@ export default function BrandDetail({
           cost to open, the earnings picture, and the risks a salesperson has no incentive to mention.
         </p>
         <span className="mt-3.5 inline-block rounded-full border border-[#27344F] bg-[#16223B] px-2.5 py-0.5 text-xs font-semibold text-[#CBD5E1]">
-          {card.category}
+          {card.vertical}
         </span>
+        {card.category !== card.vertical && (
+          <span className="ml-2 mt-3.5 inline-block rounded-full border border-[#27344F] px-2.5 py-0.5 text-xs font-semibold text-[#8194B0]">
+            {card.category}
+          </span>
+        )}
 
         {/* Item 19 hero — number labeled by its own revenueType, always */}
         {card.mo != null ? (
@@ -178,7 +186,11 @@ export default function BrandDetail({
 
             <div className="mt-5">
               <div className="mb-1.5 flex justify-between text-xs text-[#8194B0]">
-                <span>Estimated cost to open (Item 7{card.costSource === "summed" ? ", summed" : ""})</span>
+                <span>
+                  {hasRange
+                    ? `Estimated cost to open (Item 7${card.costSource === "summed" ? ", summed" : ""})`
+                    : "Estimated mid-point build-out (engine model)"}
+                </span>
                 <span>your capital ▎</span>
               </div>
               <div className="relative h-3.5 rounded-lg bg-[#16223B]">
@@ -246,7 +258,7 @@ export default function BrandDetail({
                 {card.royaltyPct != null ? `${card.royaltyPct}%` : "—"}
               </div>
               <div className="mt-0.5 text-[11px] text-[#5A6B88]">
-                {card.royaltyPct != null ? "of gross" : "see fee model in report"}
+                {card.royaltyPct != null ? "ongoing royalty" : "see fee model in report"}
               </div>
             </div>
           </div>

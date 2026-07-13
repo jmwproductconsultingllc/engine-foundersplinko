@@ -1,0 +1,710 @@
+{
+ "slug": "degree-wellness",
+ "brandName": "Degree Wellness",
+ "category": "Recovery/wellness",
+ "vertical": "Fitness & Wellness",
+ "grade": "READY",
+ "parseQuality": "degraded-fallback",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "degree wellness",
+ "fileHash": "72c2bb8f23a8e153",
+ "result": {
+  "extracted": {
+   "brandName": "Degree Wellness",
+   "franchisorEntity": "Degree Wellness Franchise, LLC",
+   "headquarters": "Jacksonville, FL 32202",
+   "brandBackground": "Female-founded wellness studio brand offering cryotherapy, cold plunge, infrared sauna, light therapy, IV/injectables, oxygen therapy, compression massage, and halotherapy; franchising since May 2024.",
+   "conceptType": "health_wellness",
+   "conceptRationale": "Degree Wellness studios provide medical-adjacent self-care services (IV therapy, cryotherapy, infrared sauna, etc.) targeting physical and mental health recovery and enhancement.",
+   "staffingModel": "staffed",
+   "staffingRationale": "Studios require front-desk staff, licensed nurses for IV services, and a general manager; Item 15 requires active owner or GM participation in daily operations.",
+   "leadership": [
+    {
+     "name": "Amanda Watts",
+     "role": "Board Member and President",
+     "background": "President since inception (Feb 2024); previously President of affiliate Degree Wellness LLC (Aug 2022) and CEO of Rito, LLC and Sheau, LLC.",
+     "whyItMatters": "Founder-operator with direct wellness studio experience and serves as the primary training instructor."
+    },
+    {
+     "name": "Tyler Moore",
+     "role": "Senior Vice President of Operations",
+     "background": "SVP Operations since Dec 2025; prior COO of Glo30 and 12-year SVP Operations at Wellbiz Brands (Drybar, Elements Massage, etc.).",
+     "whyItMatters": "Deep multi-brand franchise operations experience directly applicable to scaling Degree Wellness."
+    },
+    {
+     "name": "Tom Lightcap",
+     "role": "Board Member",
+     "background": "Managing Partner of Atlantic Coast Investment Group since Sep 2025; prior Investment Manager at Southpoint Capital (2016\u20132025).",
+     "whyItMatters": "Provides capital markets and investment oversight at the board level."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, p.58-60",
+    "unitsReported": 3,
+    "networkAverageMonthly": 50115.75,
+    "notes": "Item 19 discloses 3 affiliate-owned locations open for all of calendar year 2025 in Jacksonville, FL; one affiliate location was excluded due to temporary closure for relocation. Data includes gross revenue, operating expenses, net operating income, and estimated franchise fees. Two adjusted net income figures are provided: owner-operator (OO) and investor (with general manager cost).",
+    "cohorts": [
+     {
+      "label": "Affiliate Studios - Gross Revenue (2025)",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "sampleSize": 3,
+      "annualRevenue": 601389,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average gross revenue of 3 affiliate-owned studios open for full calendar year 2025 in Jacksonville, FL area."
+     },
+     {
+      "label": "Affiliate Studios - Net Operating Income (2025)",
+      "ownership": "affiliate",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 3,
+      "annualRevenue": 261970,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average net operating income (gross profit less all operating expenses, before estimated franchise fees) of 3 affiliate studios for calendar year 2025."
+     },
+     {
+      "label": "Affiliate Studios - Net Income Adjusted, Owner-Operator (2025)",
+      "ownership": "affiliate",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 3,
+      "annualRevenue": 213858,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average net income after estimated royalties (7%) and brand fund (1%) but excluding general manager cost; represents owner-operator scenario."
+     },
+     {
+      "label": "Affiliate Studios - Net Income Adjusted, Investor (2025)",
+      "ownership": "affiliate",
+      "revenueType": "net_or_ebitda",
+      "sampleSize": 3,
+      "annualRevenue": 161855,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "Average net income after estimated royalties, brand fund, and general manager payroll (~$52,004 avg); represents passive investor scenario."
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, p.20-24",
+    "initialInvestmentLow": 335800,
+    "initialInvestmentHigh": 848500,
+    "lineItems": [
+     {
+      "category": "Franchise License Fee",
+      "low": 49500,
+      "high": 49500,
+      "recurring": false,
+      "notes": "Paid at signing; non-refundable. Item 7, p.20"
+     },
+     {
+      "category": "Initial Training Fee",
+      "low": 8000,
+      "high": 8000,
+      "recurring": false,
+      "notes": "Paid at signing; non-refundable. Item 7, p.20"
+     },
+     {
+      "category": "Training Program Expenses",
+      "low": 1000,
+      "high": 2500,
+      "recurring": false,
+      "notes": "Travel, lodging, meals for up to 2 attendees. Item 7, p.20"
+     },
+     {
+      "category": "Studio Layout, Architect, Engineer, Drawings, and Permits",
+      "low": 16800,
+      "high": 23700,
+      "recurring": false,
+      "notes": "Architect fees and construction permits. Item 7, p.20"
+     },
+     {
+      "category": "R/E & Construction Management Fee",
+      "low": 16500,
+      "high": 16500,
+      "recurring": false,
+      "notes": "Paid to approved supplier for real estate and construction project management. Item 7, p.20"
+     },
+     {
+      "category": "Lease - Security Deposit (3 months)",
+      "low": 12000,
+      "high": 37700,
+      "recurring": false,
+      "notes": "Security deposit for premises; 1,800\u20132,400 sq ft expected. Item 7, p.20"
+     },
+     {
+      "category": "Initial Equipment Package",
+      "low": 13600,
+      "high": 158500,
+      "recurring": false,
+      "notes": "New equipment; low assumes full financing, high assumes only cryo machine financed. Item 7, p.20"
+     },
+     {
+      "category": "Leasehold Improvements",
+      "low": 134300,
+      "high": 413400,
+      "recurring": false,
+      "notes": "Build-out of 1,800\u20132,400 sq ft premises; net of tenant improvement allowances. Item 7, p.21"
+     },
+     {
+      "category": "Furniture, Fixtures, and Equipment (FFE)",
+      "low": 27800,
+      "high": 35300,
+      "recurring": false,
+      "notes": "Required before on-site training or opening. Item 7, p.21"
+     },
+     {
+      "category": "Point of Sale System, Hardware, Software and Installation",
+      "low": 5700,
+      "high": 7500,
+      "recurring": false,
+      "notes": "POS hardware and software from approved supplier. Item 7, p.21"
+     },
+     {
+      "category": "Initial Inventory & Supplies",
+      "low": 11600,
+      "high": 15500,
+      "recurring": false,
+      "notes": "Opening supply of consumables for services. Item 7, p.21"
+     },
+     {
+      "category": "Professional Fees & Licenses",
+      "low": 2700,
+      "high": 6000,
+      "recurring": false,
+      "notes": "Attorney/accountant fees for entity formation and pre-opening obligations. Item 7, p.21"
+     },
+     {
+      "category": "Presale Marketing",
+      "low": 12000,
+      "high": 15000,
+      "recurring": false,
+      "notes": "Required pre-opening marketing spend; begins 4 months prior to opening. Item 7, p.21"
+     },
+     {
+      "category": "Insurance",
+      "low": 1000,
+      "high": 2400,
+      "recurring": false,
+      "notes": "Initial insurance premiums. Item 7, p.21"
+     },
+     {
+      "category": "Exterior Signage",
+      "low": 3300,
+      "high": 12000,
+      "recurring": false,
+      "notes": "One exterior storefront sign per brand requirements. Item 7, p.21"
+     },
+     {
+      "category": "Additional Funds (3 Months)",
+      "low": 20000,
+      "high": 45000,
+      "recurring": false,
+      "notes": "Working capital for first 3 months including payroll and local marketing; based on affiliate historical data. Item 7, p.21"
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 7,
+    "brandFundPct": 1,
+    "localAdPct": null,
+    "flatMonthlyFees": [
+     {
+      "name": "Local Marketing Requirement",
+      "monthlyAmount": 2500,
+      "source": "Item 6, p.13"
+     },
+     {
+      "name": "Technology Fee",
+      "monthlyAmount": 275,
+      "source": "Item 6, p.14"
+     },
+     {
+      "name": "POS and Text Messaging System",
+      "monthlyAmount": 709.4,
+      "source": "Item 6, p.14"
+     },
+     {
+      "name": "Medical Director Fee (if using preferred provider)",
+      "monthlyAmount": 200,
+      "source": "Item 6, p.14"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Presale Marketing Plan",
+     "description": "Mandatory minimum $12,000 presale marketing spend beginning 4 months before opening, in addition to ongoing local marketing requirement.",
+     "estimatedAnnualAmount": 12000,
+     "source": "Item 6, p.14"
+    },
+    {
+     "name": "Annual Conference Fee",
+     "description": "Mandatory annual conference attendance; franchisor charges $1,000 plus third-party costs (travel, lodging, meals).",
+     "estimatedAnnualAmount": 1000,
+     "source": "Item 6, p.15"
+    },
+    {
+     "name": "Late Opening Monthly Fee (12\u201315 months)",
+     "description": "$500/month assessed if studio not open within 12 months of franchise agreement signing.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.13"
+    },
+    {
+     "name": "Late Opening Monthly Fee (15\u201318 months)",
+     "description": "$1,000/month assessed if studio not open within 15 months of franchise agreement signing.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.13"
+    },
+    {
+     "name": "Late Opening Monthly Fee (18+ months)",
+     "description": "$2,000/month assessed if studio not open within 18 months of franchise agreement signing.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.13"
+    },
+    {
+     "name": "Additional Training Fee",
+     "description": "$300 per person per day for any training beyond the standard initial program, plus travel, lodging, and dining.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.15"
+    },
+    {
+     "name": "Renewal Fee",
+     "description": "$10,000 due upon signing renewal franchise agreement at end of 10-year term.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.16"
+    },
+    {
+     "name": "Transfer Fee",
+     "description": "$10,000 due before any transfer of the franchise agreement or controlling interest.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.16"
+    },
+    {
+     "name": "Administrative Default Fee",
+     "description": "$500 per occurrence plus $100/week until cured for breaches of franchise agreement or operations manual.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.16"
+    },
+    {
+     "name": "Audit Expenses",
+     "description": "Cost of audit (~$1,200) plus accounting and legal expenses if royalties understated by 2% or more.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.15"
+    },
+    {
+     "name": "Local/Regional Advertising Cooperative",
+     "description": "Currently $0 but may be established; minimum $1,000/month contribution if cooperative is formed, capped at $5,000/month.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.14"
+    },
+    {
+     "name": "Affiliate Equipment Financing Interest",
+     "description": "DW Financial Services may finance up to $151,000 of equipment at Prime + 7% over 5 years; interest cost not included in Item 7 estimates.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 10, p.29"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p.61-63",
+    "totalUnits": 6,
+    "openedLastYear": 2,
+    "closedLastYear": 0,
+    "transfersLastYear": 0
+   },
+   "operationalRisks": [
+    {
+     "title": "Short Operating History / Early-Stage Franchisor",
+     "description": "Franchisor was organized February 2024 and has been offering franchises only since May 2024; limited track record increases investment risk.",
+     "severity": "high",
+     "source": "Special Risks, p.iii; Item 1, p.8"
+    },
+    {
+     "title": "Franchisor Financial Condition Raises Support Concerns",
+     "description": "The FDD's Special Risks section explicitly states the franchisor's financial condition calls into question its ability to provide services and support.",
+     "severity": "high",
+     "source": "Special Risks, p.iii; Item 21, p.63"
+    },
+    {
+     "title": "Large Pipeline of Unopened Franchises",
+     "description": "80 franchise agreements signed but outlets not yet opened as of Dec 31, 2025, creating risk of systemic opening delays.",
+     "severity": "high",
+     "source": "Special Risks, p.iii; Item 20, p.62-63"
+    },
+    {
+     "title": "Mandatory Supplier Control / Higher Input Costs",
+     "description": "Franchisees must purchase nearly all inventory and supplies from franchisor-designated suppliers at set prices, which may exceed open-market prices.",
+     "severity": "medium",
+     "source": "Special Risks, p.iii; Item 8, p.24-27"
+    },
+    {
+     "title": "Healthcare Licensing and Corporate Practice of Medicine Risk",
+     "description": "State laws prohibiting corporate practice of medicine may restrict ownership structure; non-licensed franchisees must use a Studio Management Business model with a licensed provider.",
+     "severity": "high",
+     "source": "Item 1, p.9-11"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution (Florida)",
+     "description": "All disputes must be arbitrated in Duval County, Florida, which may disadvantage franchisees located in other states.",
+     "severity": "medium",
+     "source": "Special Risks, p.iii; Item 17, p.54"
+    },
+    {
+     "title": "Item 19 Data Based Solely on Affiliate Locations in One Market",
+     "description": "All three disclosed locations are affiliate-owned in Jacksonville, FL, where the brand has established goodwill; franchisee results in new markets may differ materially.",
+     "severity": "high",
+     "source": "Item 19, p.60"
+    },
+    {
+     "title": "Termination Fee on Early Exit",
+     "description": "If franchise is terminated early, franchisee owes half the then-current initial franchise fee plus discounted remaining royalties and fees for the balance of the term.",
+     "severity": "medium",
+     "source": "Item 6, p.18; Item 17, p.47"
+    },
+    {
+     "title": "Franchisor May Unilaterally Change Operations Manual and System Standards",
+     "description": "Franchisor can modify the Operations Manual and System at any time, potentially requiring additional franchisee investment without consent.",
+     "severity": "medium",
+     "source": "Item 11, p.32; Item 17, p.54"
+    }
+   ],
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "rentDetail": {
+    "rawValue": 1800,
+    "unit": "unknown",
+    "squareFootage": 2100,
+    "source": "Item 7, p.22 \u2014 premises expected to be 1,800\u20132,400 sq ft; security deposit based on 1 month rent; exact per-sqft rate not disclosed"
+   },
+   "averageRentMonthly": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "Doeren Mayhew Assurance",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "Everyday Holdings, LLC",
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 1645481,
+      "netIncome": -1583131,
+      "totalAssets": 6822255,
+      "totalLiabilities": 8245650,
+      "cash": 165976,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": 0,
+      "deferredRevenue": 7698023,
+      "netWorth": -1423395
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 116204,
+      "netIncome": -887276,
+      "totalAssets": 2704360,
+      "totalLiabilities": 3144624,
+      "cash": 428587,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": 124859,
+      "deferredRevenue": 2698796,
+      "netWorth": -440264
+     }
+    ]
+   },
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Item 21 notes franchisor has not been in business 3 years and cannot provide all required financial statements.",
+     "Special Risks section explicitly flags franchisor financial condition as calling into question ability to support franchisees.",
+     "Item 19 data is based entirely on 3 affiliate-owned locations in one market (Jacksonville, FL); no franchisee performance data is available.",
+     "80 franchise agreements signed but no outlets opened as of Dec 31, 2025 \u2014 significant pipeline risk disclosed.",
+     "Rent per-square-foot rate is not explicitly stated in Item 7; only security deposit range and square footage range are disclosed."
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "4 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
+    "Franchisor financial distress disclosed (negative net worth) \u2014 confirm its ability to support the system against the audited statements."
+   ],
+   "midCohort": {
+    "label": "Network Average",
+    "monthlyRevenue": 50115.75,
+    "monthlyVariable": 4009.26,
+    "monthlyFixed": 3684.4,
+    "monthlyEbitda": 42422.09,
+    "annualEbitda": 509065.07999999996,
+    "coversCosts": true,
+    "source": {
+     "basis": "network",
+     "label": "network average of disclosed cohorts",
+     "math": null
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 592150,
+   "assumedLoan": 473720,
+   "assumedMonthlyDebtService": 6392.140667251197,
+   "dscr": 6.6366014467329775,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 1.1632108020451923,
+   "variableRate": 0.08,
+   "fixedMonthly": 3684.4,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 342150,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 342150,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 4616.800914675329,
+   "adjustedMonthlyNetCashFlow": 37805.289085324664,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $592,150 mid-point build-out, there is a $342,150 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $37,805/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "health_wellness",
+   "conceptLabel": "Health & wellness (med-spa, IV, longevity, recovery)",
+   "conceptRationale": "Degree Wellness studios provide medical-adjacent self-care services (IV therapy, cryotherapy, infrared sauna, etc.) targeting physical and mental health recovery and enhancement.",
+   "benchmark": {
+    "label": "Health & wellness (med-spa, IV, longevity, recovery)",
+    "cogsPct": [
+     15,
+     25
+    ],
+    "laborPct": [
+     25,
+     35
+    ],
+    "occupancyPct": [
+     8,
+     14
+    ],
+    "operatingEbitdaPct": [
+     12,
+     25
+    ],
+    "dominantRisk": "Licensed clinical labor plus regulatory/insurance load and equipment depreciation. These concepts frequently disclose NO Item 19, so benchmarks matter most precisely where extraction gives you the least.",
+    "rampNote": "6\u201318 months to mature treatment-room utilization.",
+    "considerations": [
+     "Product/consumables run ~15\u201325%; clinical/licensed labor is expensive at ~25\u201335%.",
+     "Factor heavy equipment depreciation, malpractice/liability insurance, and regulatory compliance \u2014 none of it is in the FDD.",
+     "With little or no Item 19, validate revenue per treatment room and ramp directly with Item 20 franchisees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 12\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 50115.75,
+   "marginAfterFeesMonthly": 42422.09,
+   "benchmarkOperatingEbitdaMonthly": [
+    324,
+    15360
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    25,
+    35
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      42422.09,
+      42422.09
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      8,
+      14
+     ],
+     "dollarRange": [
+      4009,
+      7016
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      15,
+      25
+     ],
+     "dollarRange": [
+      7517,
+      12529
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      25,
+      35
+     ],
+     "dollarRange": [
+      12529,
+      17541
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 3.6\u20135.1 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      3007,
+      5012
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      324,
+      15360
+     ],
+     "note": "\u2248 1% to 31% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHealth & wellness (med-spa, IV, longevity, recovery)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 8\u201314% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 15\u201325% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 25\u201335% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "This franchisor is carrying a deficit and running a net loss as it grows \u2014 net worth is roughly $1.42M in the red. Its audit is clean and revenue is rising, so the question is runway: understand how the gap is funded, and for how long, before you commit.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "What we found (2025-12-31, audited by Doeren Mayhew Assurance): Net loss of $1.58M on $1.65M of revenue \u2014 roughly 2.0x spent per $1 earned. Losses are widening, not shrinking. Negative net worth (a members'/stockholders' deficit) of $1.42M, and deepening year over year. Total liabilities are about 1.2x total assets. Note: about 93% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.1x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Everyday Holdings, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "negative net worth that is deepening year over year",
+    "operating losses that are widening",
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": -1423395,
+    "netWorthSign": "negative",
+    "netWorthTrend": "worsening",
+    "netIncome": -1583131,
+    "netIncomeTrend": "worsening",
+    "revenue": 1645481,
+    "revenueTrend": "improving",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 1.2086399584887988,
+    "adjLiabilitiesToAssets": 0.0802706729666364,
+    "relatedPartyDebtPct": 0,
+    "deferredRevenuePct": 0.9335859513804249,
+    "expenseToRevenue": 1.9621083440039722,
+    "cash": 165976,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

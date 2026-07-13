@@ -1,0 +1,627 @@
+{
+ "slug": "dakota-london",
+ "brandName": "Dakota London",
+ "category": "Salon services",
+ "vertical": "Beauty & Personal Care",
+ "grade": "READY",
+ "parseQuality": "degraded-fallback",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "dakota-london-hair-extensions",
+ "fileHash": "4bf245369500b11d",
+ "result": {
+  "extracted": {
+   "brandName": "Dakota London",
+   "franchisorEntity": "DKL Franchising, LLC",
+   "headquarters": "Scottsdale, Arizona",
+   "brandBackground": "Upscale hair-extension-only salon concept founded in 2011 as AZ Strands in Scottsdale, AZ, rebranded to Dakota London in 2019, began franchising December 2024.",
+   "conceptType": "beauty_personal_care",
+   "conceptRationale": "Exclusively offers hair extension installation, maintenance, and removal services plus related retail products \u2014 a specialty beauty/personal-care salon.",
+   "staffingModel": "staffed",
+   "staffingRationale": "Requires a full-time Managing Owner or trained manager on-site during all business hours plus multiple licensed cosmetologist Stylists per location.",
+   "leadership": [
+    {
+     "name": "Scott Cotten",
+     "role": "Co-Founder & Chief Executive Officer",
+     "background": "Co-founded the concept in 2011 (originally AZ Strands) and has served as CEO of DKL Franchising, LLC since its formation in November 2024.",
+     "whyItMatters": "Sole executive with full operational and supply-chain authority over the franchise system."
+    },
+    {
+     "name": "Katy Cotten",
+     "role": "Co-Founder & Chief Operating Officer",
+     "background": "Co-founded the concept in 2011, 28 years of industry experience, one of Arizona's first certified hair extension artists.",
+     "whyItMatters": "Leads day-to-day operations and serves as a primary trainer for the system."
+    },
+    {
+     "name": "Jenni Johnson",
+     "role": "VP of Franchise Operations",
+     "background": "Served as SVP of Franchise Operations at Sit Still Franchising, LLC (2018\u20132021) before joining Dakota London as Franchise Consultant in July 2024 and VP in January 2025.",
+     "whyItMatters": "Primary franchise support and operations contact for franchisees."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp. 30-34",
+    "unitsReported": 3,
+    "networkAverageMonthly": null,
+    "notes": "Item 19 is based solely on 3 company-owned salons (Scottsdale, Desert Ridge, Chandler) during the Measuring Year January 1\u2013December 31, 2025. No franchised salons were in operation during the Measuring Year. Data sourced from POS system and unaudited financial statements. Excluded Expenses (amortization, depreciation, professional fees, taxes, owner draws) are not reflected. Imputed Fees & Costs (royalty 7%, technology fee ~$960/year, LMC if applicable) are shown separately.",
+    "cohorts": [
+     {
+      "label": "Scottsdale Company Salon \u2013 Gross Sales",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "annualRevenue": 1336934,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "Full-year 2025 gross sales for the Scottsdale company-owned salon (1,150 sq ft, 6 stations, open since 2011).",
+      "monthlyValues": []
+     },
+     {
+      "label": "Desert Ridge Company Salon \u2013 Gross Sales",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "annualRevenue": 969247,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "Full-year 2025 gross sales for the Desert Ridge company-owned salon (1,350 sq ft, 6 stations, open since 2022).",
+      "monthlyValues": []
+     },
+     {
+      "label": "Chandler Company Salon \u2013 Gross Sales",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "annualRevenue": 1161827,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "Full-year 2025 gross sales for the Chandler company-owned salon (1,600 sq ft, 6 stations, open since 2019).",
+      "monthlyValues": []
+     },
+     {
+      "label": "Scottsdale Company Salon \u2013 Adjusted Net Profit",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "annualRevenue": 309041,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "2025 Adjusted Net Profit (Net Profit minus Imputed Fees & Costs of $94,545) for Scottsdale; equals 23.12% of Gross Sales. Excludes amortization, depreciation, professional fees, taxes, owner draws.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Desert Ridge Company Salon \u2013 Adjusted Net Profit",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "annualRevenue": 212210,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "2025 Adjusted Net Profit (Net Profit minus Imputed Fees & Costs of $68,807) for Desert Ridge; equals 21.89% of Gross Sales. Excludes amortization, depreciation, professional fees, taxes, owner draws.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Chandler Company Salon \u2013 Adjusted Net Profit",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "annualRevenue": 264123,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "2025 Adjusted Net Profit (Net Profit minus Imputed Fees & Costs of $82,288) for Chandler; equals 22.73% of Gross Sales. Excludes amortization, depreciation, professional fees, taxes, owner draws.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Scottsdale Company Salon \u2013 Net Profit (pre-imputation)",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "annualRevenue": 403586,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "2025 Net Profit before Imputed Fees & Costs for Scottsdale; equals 30.19% of Gross Sales.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Desert Ridge Company Salon \u2013 Net Profit (pre-imputation)",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "annualRevenue": 281018,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "2025 Net Profit before Imputed Fees & Costs for Desert Ridge; equals 28.99% of Gross Sales.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Chandler Company Salon \u2013 Net Profit (pre-imputation)",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "annualRevenue": 346422,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "2025 Net Profit before Imputed Fees & Costs for Chandler; equals 29.82% of Gross Sales.",
+      "monthlyValues": []
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, p. 8",
+    "initialInvestmentLow": 372350,
+    "initialInvestmentHigh": 523350,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 49500,
+      "high": 49500,
+      "recurring": false,
+      "notes": "Nonrefundable lump sum at signing; $44,550 for qualified veterans."
+     },
+     {
+      "category": "Initial Training Expenses",
+      "low": 1500,
+      "high": 4000,
+      "recurring": false,
+      "notes": "Travel, lodging, meals for 2\u20134 people attending 5-day training in Phoenix, AZ."
+     },
+     {
+      "category": "Lease Deposit & Rent (3 months)",
+      "low": 20000,
+      "high": 40000,
+      "recurring": false,
+      "notes": "Includes 1 month security deposit plus 3 months rent; paid to landlord."
+     },
+     {
+      "category": "Architect Fees",
+      "low": 3000,
+      "high": 5500,
+      "recurring": false,
+      "notes": "Initial design and construction plans; paid to architect prior to construction."
+     },
+     {
+      "category": "Construction",
+      "low": 45000,
+      "high": 80000,
+      "recurring": false,
+      "notes": "Leasehold improvements; assumes no TI Allowance from landlord."
+     },
+     {
+      "category": "Signage",
+      "low": 4500,
+      "high": 15000,
+      "recurring": false,
+      "notes": "Exterior and interior signage per franchisor specifications."
+     },
+     {
+      "category": "Technology Systems",
+      "low": 3200,
+      "high": 6000,
+      "recurring": false,
+      "notes": "Initial purchase/setup of computer/POS system ($1,700\u2013$3,000) and sound system ($1,500\u2013$3,000)."
+     },
+     {
+      "category": "Professional Tools/Supplies",
+      "low": 8000,
+      "high": 9000,
+      "recurring": false,
+      "notes": "Pliers, beads, thread, and other tools used in hair extension services."
+     },
+     {
+      "category": "Opening Inventory Package",
+      "low": 120100,
+      "high": 130250,
+      "recurring": false,
+      "notes": "$30,000 due at signing; balance due when lease/purchase contract signed; paid to affiliate DKL Products."
+     },
+     {
+      "category": "Fixtures, Furniture & D\u00e9cor",
+      "low": 60000,
+      "high": 95000,
+      "recurring": false,
+      "notes": "Salon furnishings and d\u00e9cor per system standards."
+     },
+     {
+      "category": "Preopening Advertising",
+      "low": 5000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Minimum required spend on preopening digital marketing campaign."
+     },
+     {
+      "category": "Utility Deposits",
+      "low": 100,
+      "high": 1000,
+      "recurring": false,
+      "notes": "Deposits paid to utility companies before opening."
+     },
+     {
+      "category": "Business Licenses & Permits",
+      "low": 1000,
+      "high": 2500,
+      "recurring": false,
+      "notes": "Government agency fees for required licenses and permits."
+     },
+     {
+      "category": "Professional Fees",
+      "low": 1000,
+      "high": 10000,
+      "recurring": false,
+      "notes": "Optional but recommended legal, accounting, and advisory fees."
+     },
+     {
+      "category": "Insurance Premium (3 months)",
+      "low": 450,
+      "high": 600,
+      "recurring": false,
+      "notes": "Initial 3-month insurance premium paid before opening."
+     },
+     {
+      "category": "Additional Funds (3 months)",
+      "low": 50000,
+      "high": 70000,
+      "recurring": false,
+      "notes": "Working capital for first 3 months: payroll (excl. owner), marketing, tech fees, inventory replenishment, utilities."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 7,
+    "brandFundPct": 2,
+    "localAdPct": null,
+    "flatMonthlyFees": [
+     {
+      "name": "Local Marketing Commitment",
+      "monthlyAmount": 3000,
+      "source": "Item 6, p. 4"
+     },
+     {
+      "name": "Technology Fee",
+      "monthlyAmount": 503,
+      "source": "Item 6, p. 5 (current range $386\u2013$503/month; cap $750/month)"
+     },
+     {
+      "name": "Communication Management Program (SMS)",
+      "monthlyAmount": 75,
+      "source": "Item 6, p. 5 (current SMS program; cap $3,000/month)"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Ongoing Product Purchases (hair extension & hair care)",
+     "description": "Must purchase all hair extension and hair care products exclusively from affiliate DKL Products; estimated at 25%\u201328% of Gross Sales on an ongoing basis.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 5"
+    },
+    {
+     "name": "Stylist Training Fee (per new Stylist post-opening)",
+     "description": "$1,250 per Stylist trained at franchisor's training center, or $750/day plus Travel Expenses for onsite training (covers up to 4 Stylists per day).",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 4"
+    },
+    {
+     "name": "Conference Registration Fee",
+     "description": "Up to $500 per person per day for mandatory franchisee conferences; fee owed even if franchisee fails to attend without a waiver.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 5"
+    },
+    {
+     "name": "System Program Fees (loyalty/gift card/membership)",
+     "description": "Up to $150 per month per program if franchisor implements loyalty, gift card, or membership programs (not currently charged).",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 5"
+    },
+    {
+     "name": "Reimbursement of Quality Assurance / Reinspection Costs",
+     "description": "Franchisee must reimburse all Travel Expenses and costs franchisor incurs to reinspect the salon after a health/safety or standards breach.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 6"
+    },
+    {
+     "name": "Noncompliance Fee",
+     "description": "$100 per incident per day for uncured breaches of mandatory standards or operating procedures, with an additional $100 every 24 hours the breach remains uncured.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 6"
+    },
+    {
+     "name": "Liquidated Damages",
+     "description": "2 years of average monthly royalty and brand fund fees if franchisor terminates for default or franchisee wrongfully terminates.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 6"
+    },
+    {
+     "name": "Renewal Fee",
+     "description": "$10,000 flat fee due at signing of each renewal franchise agreement.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 5"
+    },
+    {
+     "name": "Remodeling / Renovation (periodic)",
+     "description": "Franchisor may require salon remodel up to once per 5-year period (also required at renewal/transfer); no contractual cost cap.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 11, p. 18"
+    },
+    {
+     "name": "New Product or Supplier Testing Fee",
+     "description": "Actual cost of testing (up to $1,000 per test) if franchisee proposes a new product or supplier for approval.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 5"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 35",
+    "totalUnits": 3,
+    "openedLastYear": 0,
+    "closedLastYear": 0,
+    "transfersLastYear": 0
+   },
+   "operationalRisks": [
+    {
+     "title": "Franchisor Financial Condition Risk",
+     "description": "The FDD's Special Risks section explicitly states the franchisor's financial condition calls into question its ability to provide services and support to franchisees.",
+     "severity": "high",
+     "source": "Special Risks, p. 4; Item 21"
+    },
+    {
+     "title": "Short Operating History as Franchisor",
+     "description": "DKL Franchising, LLC was formed November 2024 and began franchising December 2024, giving it essentially no track record as a franchisor.",
+     "severity": "high",
+     "source": "Special Risks, p. 4; Item 1, p. 1"
+    },
+    {
+     "title": "Exclusive Affiliate Supplier Dependency",
+     "description": "Franchisees must purchase 100% of hair extension and hair care products from affiliate DKL Products at prices set by the affiliate, with no alternative sourcing permitted for proprietary items.",
+     "severity": "high",
+     "source": "Special Risks, p. 4; Item 8, pp. 10\u201311"
+    },
+    {
+     "title": "Mandatory Minimum Advertising Payments",
+     "description": "Franchisees must spend at least $3,000/month on local marketing regardless of sales levels; failure to pay can result in franchise termination.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4; Item 6, p. 4"
+    },
+    {
+     "title": "Spousal Liability Guarantee",
+     "description": "Spouses of owners must personally guarantee all financial obligations under the franchise agreement even without an ownership interest, placing marital assets at risk.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4; Item 15"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "All disputes must be mediated and/or litigated exclusively in Maricopa County, Arizona, regardless of franchisee's home state.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4; Item 17, p. 30"
+    },
+    {
+     "title": "No Franchised Unit Performance Data",
+     "description": "Item 19 is based entirely on 3 company-owned salons; no franchised outlet data exists, making financial projections highly uncertain.",
+     "severity": "high",
+     "source": "Item 19, p. 32"
+    },
+    {
+     "title": "Liquidated Damages on Termination",
+     "description": "If terminated for default or wrongful early termination, franchisee owes up to 24 months of average royalty and brand fund fees as liquidated damages.",
+     "severity": "medium",
+     "source": "Item 17, p. 29; Item 6, p. 6"
+    },
+    {
+     "title": "Unlimited Remodeling Obligation",
+     "description": "Franchisor may require salon remodeling up to once per 5-year period with no contractual cap on cost, and always at renewal or transfer.",
+     "severity": "medium",
+     "source": "Item 17; Item 11, p. 18"
+    },
+    {
+     "title": "Franchisor Right to Compete via Alternative Channels",
+     "description": "Franchisor reserves the right to sell identical goods and services through alternative channels of distribution (internet, wholesale, department stores) within the franchisee's exclusive territory.",
+     "severity": "medium",
+     "source": "Item 12, p. 23"
+    }
+   ],
+   "rentDetail": {
+    "rawValue": 5000,
+    "unit": "per_month",
+    "squareFootage": 1400,
+    "source": "Item 7, p. 9 \u2014 most salons 1,200\u20131,600 sq ft; rent $5,000\u2013$10,000/month; midpoint of size range used for squareFootage"
+   },
+   "averageRentMonthly": null,
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": null,
+    "auditOpinion": "unknown",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "AZ Strands, LLC",
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": null,
+      "netIncome": null,
+      "totalAssets": null,
+      "totalLiabilities": null,
+      "cash": null,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": null
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": null,
+      "netIncome": null,
+      "totalAssets": null,
+      "totalLiabilities": null,
+      "cash": null,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": null
+     }
+    ]
+   },
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Exhibit H (audited financial statements for DKL Franchising, LLC) is referenced but not included in the provided document pages; financial condition figures (revenue, net income, assets, liabilities, net worth, auditor name, audit opinion) could not be extracted and are set to null.",
+     "Item 19 is based solely on 3 company-owned salons with no franchised outlet data; financial projections for franchisees are highly speculative.",
+     "The Special Risks section explicitly flags the franchisor's financial condition as calling into question its ability to support franchisees \u2014 a significant red flag for a nascent system.",
+     "Franchisor was formed November 2024 and began franchising December 2024; only 1 franchise agreement signed as of December 31, 2025 (Utah, not yet open)."
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "3 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
+    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+   ],
+   "midCohort": null,
+   "bottomCohort": null,
+   "buildoutMidpoint": 447850,
+   "assumedLoan": 358280,
+   "assumedMonthlyDebtService": 4834.451064474287,
+   "dscr": null,
+   "rentPctOfRevenue": null,
+   "paybackYears": null,
+   "variableRate": 0.09,
+   "fixedMonthly": 3578,
+   "notes": [
+    "Average rent not found; fixed costs may be understated.",
+    "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 197850,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 197850,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 2669.688911204191,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $447,850 mid-point build-out, there is a $197,850 capital gap. An SBA loan or an equity partner is required to do this deal."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "beauty_personal_care",
+   "conceptLabel": "Beauty / personal care",
+   "conceptRationale": "Exclusively offers hair extension installation, maintenance, and removal services plus related retail products \u2014 a specialty beauty/personal-care salon.",
+   "benchmark": {
+    "label": "Beauty / personal care",
+    "cogsPct": [
+     8,
+     18
+    ],
+    "laborPct": [
+     35,
+     50
+    ],
+    "occupancyPct": [
+     8,
+     15
+    ],
+    "operatingEbitdaPct": [
+     8,
+     18
+    ],
+    "dominantRisk": "Commission/booth-rent labor and chair utilization. Labor structure dominates economics.",
+    "rampNote": "6\u201312 months to mature chair utilization.",
+    "considerations": [
+     "Labor (commission or booth-rent) is the big line at ~35\u201350%; COGS on product is modest.",
+     "Verify chair/room utilization and stylist retention with Item 20 operators.",
+     "Confirm whether labor runs on commission, hourly, or booth rent \u2014 it changes the model entirely."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 8\u201318% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": null,
+   "marginAfterFeesMonthly": null,
+   "benchmarkOperatingEbitdaMonthly": null,
+   "trueEbitdaBasis": "none",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    35,
+    50
+   ],
+   "buildup": [],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cBeauty / personal care\u201d from the FDD (Item 1 / brand description)."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "INSUFFICIENT_DATA",
+   "headline": "We couldn't extract enough of this franchisor's financial statements to assess its condition. Request the audited Item 21 financials and have them reviewed before committing.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so AZ Strands, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": null,
+    "revenueTrend": "unknown",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": null,
+    "adjLiabilitiesToAssets": null,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "missing"
+  }
+ }
+}

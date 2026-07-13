@@ -6,19 +6,19 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
-import { listDirectory } from "@/lib/brands";
+import { listVerticalDirectory, VERTICAL_ORDER, KIDS_VERTICAL } from "@/lib/brands";
 import BrandDirectory from "@/components/BrandDirectory";
 
 export const revalidate = 3600; // store changes at converter cadence, not per-request
 
 export const metadata: Metadata = {
-  title: "Kids Franchise Diligence — Browse by Category | Franchise Edge",
+  title: "Franchise Diligence Library — Browse by Vertical | Franchise Edge",
   description:
-    "Browse kids franchises by category. Every brand's FDD read by AI — real cost to open, Item 19 numbers, and risk level, before you talk to a salesperson.",
+    "Browse franchises across 11 verticals — kids, home services, fitness, food, B2B and more. Every brand's FDD read by AI: real cost to open, Item 19 numbers, and risk level.",
   openGraph: {
-    title: "Kids Franchise Diligence — Browse by Category | Franchise Edge",
+    title: "Franchise Diligence Library — Browse by Vertical | Franchise Edge",
     description:
-      "Every kids franchise, read by AI. Real cost to open, Item 19 numbers, and risk — free, before a salesperson spins you.",
+      "Every franchise, read by AI. Real cost to open, Item 19 numbers, and risk — free, before a salesperson spins you.",
   },
 };
 
@@ -29,7 +29,7 @@ export default async function BrandsPage({
 }) {
   const { ref } = await searchParams;
   const refTag = ref?.toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 32) || null;
-  const rows = await listDirectory("revenue");
+  const rows = await listVerticalDirectory("revenue");
 
   return (
     <main className="min-h-screen bg-[#0B1220] px-4 pb-16 text-[#F1F5F9] md:px-8">
@@ -51,22 +51,19 @@ export default async function BrandsPage({
             The diligence library
           </p>
           <h1 className="mt-2 max-w-[20ch] text-[31px] font-extrabold leading-tight tracking-tight">
-            Every kids franchise, read by AI.
+            Every franchise, read by AI.
           </h1>
           <p className="mt-2.5 max-w-[60ch] text-[15px] text-[#8194B0]">
             Pick a brand and see what it actually earns — the Item 19 monthly numbers, the real cost,
             and the risk — free, before a salesperson spins you.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
-            <span className="rounded-full border border-[#34D399]/50 bg-[#34D399]/[0.08] px-3 py-1.5 text-xs font-bold text-[#34D399]">
-              Kids · live
-            </span>
-            {["Food & Beverage", "Fitness", "Home Services"].map((v) => (
+            {VERTICAL_ORDER.map((v) => (
               <span
                 key={v}
-                className="rounded-full border border-[#22304C] px-3 py-1.5 text-xs font-bold text-[#8194B0] opacity-45"
+                className="rounded-full border border-[#34D399]/50 bg-[#34D399]/[0.08] px-3 py-1.5 text-xs font-bold text-[#34D399]"
               >
-                {v} · soon
+                {v === KIDS_VERTICAL ? "Kids & Family" : v}
               </span>
             ))}
           </div>

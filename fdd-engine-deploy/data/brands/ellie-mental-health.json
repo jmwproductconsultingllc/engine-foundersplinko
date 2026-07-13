@@ -1,0 +1,645 @@
+{
+ "slug": "ellie-mental-health",
+ "brandName": "Ellie Mental Health",
+ "category": "Health services",
+ "vertical": "Fitness & Wellness",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "ellie mental health",
+ "fileHash": "d68597ea65135a01",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 11",
+     "Item 15",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Ellie Mental Health",
+   "franchisorEntity": "Ellie Fam LLC",
+   "headquarters": "Mendota Heights, Minnesota",
+   "brandBackground": "Ellie Mental Health operates outpatient counseling and therapy clinics providing counseling, medication management, and therapeutic services.",
+   "leadership": [
+    {
+     "name": "Michael DiMarco",
+     "role": "Chief Executive Officer",
+     "background": "CEO since January 2025; former Chief Revenue Officer and President of Omega Healthcare.",
+     "whyItMatters": "Brings extensive healthcare executive leadership and revenue cycle management experience."
+    },
+    {
+     "name": "Emily Undajon",
+     "role": "Chief Operations Officer",
+     "background": "COO since March 2025; former Senior Vice President of Franchise Operations and VP at Right at Home.",
+     "whyItMatters": "Provides deep operational expertise in home care and healthcare franchise systems."
+    },
+    {
+     "name": "Stefanie Nelson",
+     "role": "Vice President of Franchise Development",
+     "background": "VP since February 2026; former development director at Valenta and sales manager at Xponential Fitness.",
+     "whyItMatters": "Experienced in scaling franchise networks across multiple concepts."
+    },
+    {
+     "name": "Jesse Leuer",
+     "role": "Vice President of Operational Excellence",
+     "background": "VP since January 2025; former Senior Director of Enterprise Planning and Strategic Execution.",
+     "whyItMatters": "Focuses on strategic execution and system-wide operational efficiency."
+    },
+    {
+     "name": "Amy Mottola-Camodeca",
+     "role": "Vice President of Field Operations",
+     "background": "VP since June 2025; former operations executive at Smart Pick Dental and US Radiology.",
+     "whyItMatters": "Brings clinical operations and dental/medical franchise management experience."
+    },
+    {
+     "name": "Rachel Schwegman",
+     "role": "Vice President of Finance",
+     "background": "VP since April 2025; former Director of Financial Planning and Analysis.",
+     "whyItMatters": "Manages financial planning, analysis, and corporate fiscal strategy."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Franchised Clinics New Patients",
+      "ownership": "franchised",
+      "revenueType": "other",
+      "avgMonthlyRevenue": 33,
+      "basis": "Average new patients per clinic in 2025 across 188 clinics open the full year.",
+      "annualRevenue": 400,
+      "monthlyValues": [],
+      "sampleSize": 188
+     },
+     {
+      "label": "Franchised Clinics Patient Appointments",
+      "ownership": "franchised",
+      "revenueType": "other",
+      "avgMonthlyRevenue": 594,
+      "basis": "Average patient appointments scheduled per clinic in 2025 across 188 clinics.",
+      "annualRevenue": 7129,
+      "monthlyValues": [],
+      "sampleSize": 188
+     },
+     {
+      "label": "Franchised Clinics Collected Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 68173,
+      "basis": "Average Collected Revenue per clinic in 2025 across 188 clinics.",
+      "annualRevenue": 818077,
+      "monthlyValues": [],
+      "sampleSize": 188
+     },
+     {
+      "label": "2024 Clinics Collected Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 55142,
+      "basis": "Average Collected Revenue per clinic in 2025 for clinics opened in 2024.",
+      "annualRevenue": 661706,
+      "monthlyValues": [],
+      "sampleSize": 61
+     },
+     {
+      "label": "2023 Clinics Collected Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 75087,
+      "basis": "Average Collected Revenue per clinic in 2025 for clinics opened in 2023.",
+      "annualRevenue": 901046,
+      "monthlyValues": [],
+      "sampleSize": 107
+     },
+     {
+      "label": "2022 Clinics Collected Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 71759,
+      "basis": "Average Collected Revenue per clinic in 2025 for clinics opened in 2022.",
+      "annualRevenue": 861107,
+      "monthlyValues": [],
+      "sampleSize": 20
+     }
+    ],
+    "notes": "Item 19 represents 188 franchised clinics open and operating for the entire 12-month period ended December 31, 2025.",
+    "sourcePage": "Item 19, p. 59-61",
+    "networkAverageMonthly": null,
+    "unitsReported": 188
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Standard initial fee for a single startup clinic.",
+      "high": 60000,
+      "low": 60000
+     },
+     {
+      "category": "Onboarding Package Fee",
+      "recurring": false,
+      "notes": "Paid to franchisor for pre-opening setup and vendor connections.",
+      "high": 10000,
+      "low": 10000
+     },
+     {
+      "category": "Credentialing Services Costs",
+      "recurring": false,
+      "notes": "Paid to approved vendor for insurance credentialing.",
+      "high": 8000,
+      "low": 3100
+     },
+     {
+      "category": "Lease Deposit and Payments - 3 Months",
+      "recurring": false,
+      "notes": "Includes security deposit and first 3 months of rent.",
+      "high": 84668,
+      "low": 17167
+     },
+     {
+      "category": "Utility Deposits",
+      "recurring": false,
+      "notes": "Deposits for electricity, gas, water, and internet.",
+      "high": 2500,
+      "low": 1000
+     },
+     {
+      "category": "Local Pre-Opening Marketing",
+      "recurring": false,
+      "notes": "Recommended local marketing spend prior to opening.",
+      "high": 20000,
+      "low": 5000
+     },
+     {
+      "category": "Furniture, Fixtures, & Equipment",
+      "recurring": false,
+      "notes": "Minimum furniture and clinical equipment required.",
+      "high": 40000,
+      "low": 16000
+     },
+     {
+      "category": "Computers and Office Equipment",
+      "recurring": false,
+      "notes": "Minimum technology hardware including computers and tablets.",
+      "high": 10600,
+      "low": 3700
+     },
+     {
+      "category": "Leasehold Improvements/Buildout",
+      "recurring": false,
+      "notes": "Remodeling costs to conform space to brand standards.",
+      "high": 60000,
+      "low": 5000
+     },
+     {
+      "category": "Architectural and Engineering Services",
+      "recurring": false,
+      "notes": "Fees for layout design and permitting drawings.",
+      "high": 10000,
+      "low": 0
+     },
+     {
+      "category": "Project Management Services Fee",
+      "recurring": false,
+      "notes": "Optional fee if using approved construction project manager.",
+      "high": 13250,
+      "low": 0
+     },
+     {
+      "category": "Exterior Signage, Interior Signage, and Graphics",
+      "recurring": false,
+      "notes": "Branded signage meeting specifications.",
+      "high": 10000,
+      "low": 1000
+     },
+     {
+      "category": "Insurance",
+      "recurring": false,
+      "notes": "Initial deposit for 6 months of required coverages.",
+      "high": 6000,
+      "low": 2000
+     },
+     {
+      "category": "Permits, Licenses, and Accreditation",
+      "recurring": false,
+      "notes": "Local business and clinical licensing fees.",
+      "high": 5000,
+      "low": 1000
+     },
+     {
+      "category": "Accounting and Legal Fees",
+      "recurring": false,
+      "notes": "Fees to validate business structure and review contracts.",
+      "high": 10000,
+      "low": 3500
+     },
+     {
+      "category": "Training Expenses",
+      "recurring": false,
+      "notes": "Travel and living expenses for attending Ellie Academy.",
+      "high": 3000,
+      "low": 1000
+     },
+     {
+      "category": "Additional Funds - 3 Months",
+      "recurring": false,
+      "notes": "Working capital for initial three months of operations.",
+      "high": 92000,
+      "low": 60000
+     }
+    ],
+    "sourcePage": "Item 7, p. 24-25",
+    "initialInvestmentHigh": 445018,
+    "initialInvestmentLow": 189467
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Marketing Fee",
+      "source": "Item 6, p. 17",
+      "monthlyAmount": null
+     },
+     {
+      "name": "Local Marketing Spend",
+      "source": "Item 6, p. 18",
+      "monthlyAmount": null
+     },
+     {
+      "name": "Technology Fees",
+      "source": "Item 6, p. 18",
+      "monthlyAmount": null
+     }
+    ],
+    "brandFundPct": null,
+    "localAdPct": null,
+    "royaltyPct": null
+   },
+   "hiddenCosts": [
+    {
+     "name": "Qualified Clinician System Fee",
+     "description": "7.5% of Collected Revenue per Qualified Clinician, capped at $1,000 per month per clinician.",
+     "source": "Item 6, p. 17"
+    },
+    {
+     "name": "Qualified Prescriber System Fee",
+     "description": "7.5% of Collected Revenue per Qualified Prescriber, capped at $3,000 per month per prescriber.",
+     "source": "Item 6, p. 17"
+    },
+    {
+     "name": "Shared Services Fees",
+     "description": "3.5% of Collected Revenue in the prior month for call center and administrative support.",
+     "source": "Item 6, p. 18"
+    },
+    {
+     "name": "Annual National Conference Registration Fee",
+     "description": "Mandatory registration fee of $2,000 per Franchised Business.",
+     "source": "Item 6, p. 18"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 63-64",
+    "closedLastYear": 29,
+    "openedLastYear": 43,
+    "totalUnits": 249,
+    "transfersLastYear": 7
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by mediation, arbitration, and/or litigation only in Minnesota.",
+     "severity": "medium",
+     "source": "Special Risks, p. iv"
+    },
+    {
+     "title": "Mandatory Minimum Payments",
+     "description": "Franchisees must pay system fees and marketing fees regardless of sales levels.",
+     "severity": "medium",
+     "source": "Special Risks, p. iv"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "Spouses must sign a personal guaranty making them personally liable for all franchise obligations.",
+     "severity": "high",
+     "source": "Special Risks, p. iv"
+    },
+    {
+     "title": "Unopened Franchises",
+     "description": "A significant number of signed franchise agreements have not yet opened, indicating potential delays.",
+     "severity": "medium",
+     "source": "Special Risks, p. iv"
+    }
+   ],
+   "conceptType": "health_wellness",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 28530994,
+      "totalAssets": 22293560,
+      "totalLiabilities": 22265006
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 21532207,
+      "totalAssets": 26243317,
+      "totalLiabilities": 23923035
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 8178427,
+      "totalAssets": 23355674,
+      "totalLiabilities": 42833204
+     }
+    ],
+    "auditorName": "Boyum & Barenscheer, PLLP",
+    "parentName": "EMH PEP Holdco, LLC"
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "Ellie Mental Health is an outpatient counseling and therapy clinic providing mental health and wellness services.",
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p. 28",
+    "squareFootage": 4000
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "Clinics require 5 to 15 Licensed Providers plus administrative and clinical support staff."
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "Debt-service coverage is thin: mid-cohort DSCR \u2248 0.01 (below 1.25).",
+    "Long payback: ~801.1 years on the build-out before financing.",
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Franchised Clinics New Patients",
+    "monthlyRevenue": 33,
+    "monthlyVariable": 0,
+    "monthlyFixed": 0,
+    "monthlyEbitda": 33,
+    "annualEbitda": 396,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Franchised Clinics New Patients",
+     "math": "$400/yr \u00f7 12",
+     "revenueType": "other",
+     "ownership": "franchised",
+     "sample": 188
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 317242.5,
+   "assumedLoan": 253794,
+   "assumedMonthlyDebtService": 3424.569257165309,
+   "dscr": 0.00963624839268568,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 801.1174242424242,
+   "variableRate": 0,
+   "fixedMonthly": 0,
+   "notes": [
+    "Royalty % not found; variable costs may be understated.",
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 67242.5,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 67242.5,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 907.3366520679697,
+   "adjustedMonthlyNetCashFlow": -874.3366520679697,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $317,243 mid-point build-out, there is a $67,243 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, monthly cash flow after debt service is negative (-$874/mo) before payroll \u2014 this deal does not cash-flow at the typical performance tier."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "health_wellness",
+   "conceptLabel": "Health & wellness (med-spa, IV, longevity, recovery)",
+   "conceptRationale": "Ellie Mental Health is an outpatient counseling and therapy clinic providing mental health and wellness services.",
+   "benchmark": {
+    "label": "Health & wellness (med-spa, IV, longevity, recovery)",
+    "cogsPct": [
+     15,
+     25
+    ],
+    "laborPct": [
+     25,
+     35
+    ],
+    "occupancyPct": [
+     8,
+     14
+    ],
+    "operatingEbitdaPct": [
+     12,
+     25
+    ],
+    "dominantRisk": "Licensed clinical labor plus regulatory/insurance load and equipment depreciation. These concepts frequently disclose NO Item 19, so benchmarks matter most precisely where extraction gives you the least.",
+    "rampNote": "6\u201318 months to mature treatment-room utilization.",
+    "considerations": [
+     "Product/consumables run ~15\u201325%; clinical/licensed labor is expensive at ~25\u201335%.",
+     "Factor heavy equipment depreciation, malpractice/liability insurance, and regulatory compliance \u2014 none of it is in the FDD.",
+     "With little or no Item 19, validate revenue per treatment room and ramp directly with Item 20 franchisees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 12\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 33,
+   "marginAfterFeesMonthly": 33,
+   "benchmarkOperatingEbitdaMonthly": [
+    5,
+    15
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    25,
+    35
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      33,
+      33
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      8,
+      14
+     ],
+     "dollarRange": [
+      3,
+      5
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      15,
+      25
+     ],
+     "dollarRange": [
+      5,
+      8
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      25,
+      35
+     ],
+     "dollarRange": [
+      8,
+      12
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 0\u20130 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      2,
+      3
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      5,
+      15
+     ],
+     "note": "\u2248 15% to 45% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHealth & wellness (med-spa, IV, longevity, recovery)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 8\u201314% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 15\u201325% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 25\u201335% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so EMH PEP Holdco, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you",
+    "elevated unit closures (29 in the last year, about 12% of the system)"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 28530994,
+    "revenueTrend": "improving",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.9987191816829614,
+    "adjLiabilitiesToAssets": 0.9987191816829614,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

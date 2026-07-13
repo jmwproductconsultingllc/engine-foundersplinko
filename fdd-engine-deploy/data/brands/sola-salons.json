@@ -1,0 +1,579 @@
+{
+ "slug": "sola-salons",
+ "brandName": "Sola Salons",
+ "category": "Salon suites",
+ "vertical": "Beauty & Personal Care",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "solaSalon",
+ "fileHash": "7d8c6d7ab5f5d056",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 11",
+     "Item 12",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Sola Salons",
+   "franchisorEntity": "Sola Franchise, LLC",
+   "headquarters": "Lakewood, Colorado",
+   "brandBackground": "Sola Salons licenses turn-key salon studios to independent beauty professionals.",
+   "leadership": [
+    {
+     "name": "Ben Jones",
+     "role": "Chief Executive Officer",
+     "background": "Served as Chief Legal Counsel and Chief Development Officer of Sola and affiliates.",
+     "whyItMatters": "Provides deep legal and development continuity for the brand."
+    },
+    {
+     "name": "Robert Michael Bell Jr.",
+     "role": "Chief Financial Officer",
+     "background": "Previously served as President and CFO of WellBiz Brands, Inc.",
+     "whyItMatters": "Brings extensive franchise financial leadership experience."
+    },
+    {
+     "name": "B. Keith Sizemore",
+     "role": "Chief Development Officer",
+     "background": "Previously served as Senior VP of Development for Shipley Donuts.",
+     "whyItMatters": "Brings strong multi-unit development and operations experience."
+    },
+    {
+     "name": "Daryl Hurst",
+     "role": "Chief Operating Officer & Brand President",
+     "background": "Previously served as President and COO for Maaco Paint & Autobody.",
+     "whyItMatters": "Brings extensive franchise operations and brand management experience."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Sola Salons Franchised Locations Occupancy",
+      "ownership": "franchised",
+      "revenueType": "other",
+      "avgMonthlyRevenue": null,
+      "basis": "Occupancy percentage of 653 franchised locations open at least 13 months as of December 31, 2025.",
+      "annualRevenue": null,
+      "monthlyValues": [],
+      "sampleSize": 653
+     },
+     {
+      "label": "Sola Salons Franchised Locations Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 37296,
+      "basis": "Gross revenue of 653 franchised locations open at least 13 months as of December 31, 2025.",
+      "annualRevenue": 447549,
+      "monthlyValues": [],
+      "sampleSize": 653
+     },
+     {
+      "label": "Sola Salons Company-Owned Locations Performance",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 43750,
+      "basis": "Average performance of 62 company-owned locations open at least 18 months as of December 31, 2025.",
+      "annualRevenue": 525003,
+      "monthlyValues": [],
+      "sampleSize": 62
+     },
+     {
+      "label": "Sola Salons Company-Owned Locations EBITDA",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 13837,
+      "basis": "Average estimated earnings after operating expenses of 62 company-owned locations open at least 18 months as of December 31, 2025.",
+      "annualRevenue": 166040,
+      "monthlyValues": [],
+      "sampleSize": 62
+     }
+    ],
+    "notes": "Item 19 provides occupancy data, gross revenue data for franchised locations, and detailed P&L data for company-owned locations.",
+    "sourcePage": "Item 19, p. 49-57",
+    "networkAverageMonthly": null,
+    "unitsReported": 653
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Paid upon signing the Franchise Agreement.",
+      "high": 60000,
+      "low": 60000
+     },
+     {
+      "category": "Property Management Software",
+      "recurring": true,
+      "notes": "Rent Manager sublicense fee.",
+      "high": 546,
+      "low": 447
+     },
+     {
+      "category": "Market Introduction Fee",
+      "recurring": false,
+      "notes": "Paid to direct a marketing campaign.",
+      "high": 20000,
+      "low": 20000
+     },
+     {
+      "category": "Business Licenses and Fees",
+      "recurring": false,
+      "notes": "Varies by state and local requirements.",
+      "high": 9500,
+      "low": 8500
+     },
+     {
+      "category": "Permits",
+      "recurring": false,
+      "notes": "Varies by jurisdiction.",
+      "high": 15000,
+      "low": 5000
+     },
+     {
+      "category": "Site Evaluation Services",
+      "recurring": false,
+      "notes": "Paid to approved service providers.",
+      "high": 3500,
+      "low": 2000
+     },
+     {
+      "category": "Architectural Fees",
+      "recurring": false,
+      "notes": "For adapting prototype designs.",
+      "high": 35000,
+      "low": 12500
+     },
+     {
+      "category": "Rent or Real Estate",
+      "recurring": true,
+      "notes": "Prepayment of first month's rent and security deposit.",
+      "high": 51666,
+      "low": 12084
+     },
+     {
+      "category": "Improvements/Conversions",
+      "recurring": false,
+      "notes": "Net of tenant improvement allowance.",
+      "high": 1146784,
+      "low": 566633
+     },
+     {
+      "category": "Furniture & Fixtures",
+      "recurring": false,
+      "notes": "For common areas and individual studios.",
+      "high": 295000,
+      "low": 211000
+     },
+     {
+      "category": "Utility Deposits",
+      "recurring": false,
+      "notes": "Estimated pre-paid utility deposit costs.",
+      "high": 5000,
+      "low": 0
+     },
+     {
+      "category": "Signage",
+      "recurring": false,
+      "notes": "Exterior and interior signage.",
+      "high": 25000,
+      "low": 15000
+     },
+     {
+      "category": "Travel and Living Expenses",
+      "recurring": false,
+      "notes": "Expenses incurred during training.",
+      "high": 4000,
+      "low": 2500
+     },
+     {
+      "category": "Insurance",
+      "recurring": true,
+      "notes": "Estimated six months of payments.",
+      "high": 5000,
+      "low": 3250
+     },
+     {
+      "category": "Computer Equipment and Software",
+      "recurring": false,
+      "notes": "Hardware and software meeting minimum standards.",
+      "high": 2300,
+      "low": 1300
+     },
+     {
+      "category": "Additional Funds for Initial 3 Months",
+      "recurring": false,
+      "notes": "Working capital for initial operations.",
+      "high": 70000,
+      "low": 30000
+     }
+    ],
+    "sourcePage": "Item 7, p. 20-21",
+    "initialInvestmentHigh": 1748296,
+    "initialInvestmentLow": 950214
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p. 16",
+      "monthlyAmount": 215
+     },
+     {
+      "name": "Property Management Software",
+      "source": "Item 6, p. 17",
+      "monthlyAmount": 99
+     }
+    ],
+    "brandFundPct": 1.5,
+    "localAdPct": null,
+    "royaltyPct": 5.5
+   },
+   "hiddenCosts": [
+    {
+     "name": "Market Introduction Fee",
+     "description": "Mandatory fee of $20,000 due 60 days after signing lease.",
+     "source": "Item 5, p. 15",
+     "estimatedAnnualAmount": 20000
+    },
+    {
+     "name": "Technology Fee",
+     "description": "Monthly fee of $185 to $250 per location.",
+     "source": "Item 6, p. 16",
+     "estimatedAnnualAmount": 2580
+    },
+    {
+     "name": "Property Management Software",
+     "description": "Rent Manager sublicense fee of $99 per month plus $150 setup fee.",
+     "source": "Item 6, p. 15",
+     "estimatedAnnualAmount": 1338
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 57",
+    "closedLastYear": 4,
+    "openedLastYear": 21,
+    "totalUnits": 744,
+    "transfersLastYear": 8
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved in Colorado, which may increase costs.",
+     "severity": "medium",
+     "source": "Item 17, p. 4"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "Spouses must sign a personal guarantee, placing personal assets at risk.",
+     "severity": "high",
+     "source": "Item 17, p. 4"
+    },
+    {
+     "title": "Mandatory Minimum Payments",
+     "description": "Franchisees must pay a minimum royalty of $500 per month regardless of sales.",
+     "severity": "medium",
+     "source": "Item 17, p. 4"
+    }
+   ],
+   "conceptType": "beauty_personal_care",
+   "staffingModel": "lightly_staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 93650693,
+      "totalAssets": 404614508,
+      "totalLiabilities": 269412269
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 86270998,
+      "totalAssets": 440117311,
+      "totalLiabilities": 269779266
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 77642205,
+      "totalAssets": 458895790,
+      "totalLiabilities": 245588870
+     }
+    ],
+    "auditorName": "Plante & Moran, PLLC",
+    "parentName": "Radiance Intermediate, LLC"
+   },
+   "averageRentMonthly": 14604,
+   "conceptRationale": "Sola Salons operates as a turn-key salon studio rental business for beauty professionals.",
+   "rentDetail": {
+    "rawValue": 28,
+    "unit": "per_sqft_per_year",
+    "source": "Item 7, p. 22",
+    "squareFootage": 6259
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "The business model relies on a single manager to oversee multiple independent salon professionals."
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "Rent is heavy: ~39% of mid-cohort revenue (above 25%).",
+    "Long payback: ~5.7 years on the build-out before financing.",
+    "Capital gap of $1,099,255 is ~4.4x your liquid \u2014 heavy reliance on outside financing.",
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Sola Salons Franchised Locations Gross Revenue",
+    "monthlyRevenue": 37296,
+    "monthlyVariable": 2610.7200000000003,
+    "monthlyFixed": 14918,
+    "monthlyEbitda": 19767.28,
+    "annualEbitda": 237207.36,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Sola Salons Franchised Locations Gross Revenue",
+     "math": "$447,549/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 653
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 1349255,
+   "assumedLoan": 1079404,
+   "assumedMonthlyDebtService": 14564.937525951218,
+   "dscr": 1.3571826150836181,
+   "rentPctOfRevenue": 0.3915701415701416,
+   "paybackYears": 5.688082359670459,
+   "variableRate": 0.07,
+   "fixedMonthly": 14918,
+   "notes": []
+  },
+  "underwriting": {
+   "capitalGap": 1099255,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 1099255,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 14832.796988050353,
+   "adjustedMonthlyNetCashFlow": 4934.4830119496455,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $1,349,255 mid-point build-out, there is a $1,099,255 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $4,934/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "beauty_personal_care",
+   "conceptLabel": "Beauty / personal care",
+   "conceptRationale": "Sola Salons operates as a turn-key salon studio rental business for beauty professionals.",
+   "benchmark": {
+    "label": "Beauty / personal care",
+    "cogsPct": [
+     8,
+     18
+    ],
+    "laborPct": [
+     35,
+     50
+    ],
+    "occupancyPct": [
+     8,
+     15
+    ],
+    "operatingEbitdaPct": [
+     8,
+     18
+    ],
+    "dominantRisk": "Commission/booth-rent labor and chair utilization. Labor structure dominates economics.",
+    "rampNote": "6\u201312 months to mature chair utilization.",
+    "considerations": [
+     "Labor (commission or booth-rent) is the big line at ~35\u201350%; COGS on product is modest.",
+     "Verify chair/room utilization and stylist retention with Item 20 operators.",
+     "Confirm whether labor runs on commission, hourly, or booth rent \u2014 it changes the model entirely."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 8\u201318% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 37296,
+   "marginAfterFeesMonthly": 19767.28,
+   "benchmarkOperatingEbitdaMonthly": [
+    -1865,
+    7832
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 18\u201330% \u2014 the 35\u201350% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    18,
+    30
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      19767.28,
+      19767.28
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      8,
+      18
+     ],
+     "dollarRange": [
+      2984,
+      6713
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      18,
+      30
+     ],
+     "dollarRange": [
+      6713,
+      11189
+     ],
+     "note": "lightly staffed \u00b7 \u2248 1.9\u20133.2 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      2238,
+      3730
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -1865,
+      7832
+     ],
+     "note": "\u2248 -5% to 21% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cBeauty / personal care\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    },
+    {
+     "field": "Rent",
+     "basis": "disclosed",
+     "detail": "Taken from the FDD (~$14,604/mo); already netted in margin after fees & rent."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 8\u201318% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 18\u201330% lightly staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. Radiance Intermediate, LLC guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 93650693,
+    "revenueTrend": "improving",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.6658492557068666,
+    "adjLiabilitiesToAssets": 0.6658492557068666,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

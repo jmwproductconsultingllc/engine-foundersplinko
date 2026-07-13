@@ -1,0 +1,858 @@
+{
+ "slug": "d1-training",
+ "brandName": "D1 Training",
+ "category": "Sports & Athletics",
+ "vertical": "Kids & Family",
+ "grade": "READY",
+ "parseQuality": "degraded-fallback",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "d1-training",
+ "fileHash": "68618bcb2c02f8f8",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Special Risk #3 explicitly flags the franchisor's financial condition as calling into question its ability to provide services and support."
+    ]
+   },
+   "brandName": "D1 Training",
+   "franchisorEntity": "D1 Sports Franchise, LLC",
+   "headquarters": "Franklin, Tennessee 37067",
+   "brandBackground": "D1 Sports Franchise, LLC was formed in Tennessee in 2014 to franchise athletic-based scholastic and adult group training, coaching, and personal training facilities under the \"D1\" mark, operating compact 3,700\u20135,000 sq ft facilities since refining its model shortly after its 2015 franchise launch.",
+   "conceptType": "fitness_studio",
+   "conceptRationale": "D1 Training facilities are dedicated fitness studios offering athletic-based group training, personal coaching, and strength/cardio programming \u2014 a pure fitness-studio model with no meaningful food/beverage component.",
+   "staffingModel": "lightly_staffed",
+   "staffingRationale": "Item 15 permits semi-absentee ownership provided a full-time D1-approved General Manager and Head Coach are on-site, indicating a small-crew model rather than owner-operated or fully automated.",
+   "leadership": [
+    {
+     "name": "Will Bartholomew",
+     "role": "Chief Executive Officer",
+     "background": "CEO since the franchisor's inception in November 2014; also President of predecessor D1 Sports Parent, LLC since 2012.",
+     "whyItMatters": "Founder-level executive with over a decade of direct control over the D1 franchise system."
+    },
+    {
+     "name": "Dan Murphy",
+     "role": "Chief Operating Officer",
+     "background": "COO since November 2016; previously served as President from inception through 2016.",
+     "whyItMatters": "Longest-tenured operator responsible for day-to-day system execution and franchisee support."
+    },
+    {
+     "name": "Elliot Capner",
+     "role": "Chief Commercial Officer",
+     "background": "CCO since January 2025; previously CCO and COO at F45 Training (2016\u20132023).",
+     "whyItMatters": "Brings large-scale boutique-fitness franchise commercialization experience to D1's growth phase."
+    },
+    {
+     "name": "Austin Clark",
+     "role": "Vice President of Operations",
+     "background": "VP of Operations since December 2023; also owner of 45 Sports Training and former GM of D1 Training Cool Springs.",
+     "whyItMatters": "Dual role as franchisor VP and franchisee operator creates a potential conflict of interest disclosed in Item 19."
+    },
+    {
+     "name": "Julie Bauer",
+     "role": "Vice President of Franchise Development",
+     "background": "VP of Franchise Development since January 2024; previously Franchise Development Director at D1 since 2022.",
+     "whyItMatters": "Leads franchise sales pipeline; named defendant in pending franchisee litigation (Item 3)."
+    },
+    {
+     "name": "Elliot Capner",
+     "role": "Chief Commercial Officer",
+     "background": "Joined January 2025 from F45 Training where he served as CCO and COO.",
+     "whyItMatters": "Key hire to drive revenue and marketing strategy as the system scales."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp. 58\u201366",
+    "unitsReported": 83,
+    "networkAverageMonthly": 46027.42,
+    "cohorts": [
+     {
+      "label": "All Facilities \u2013 Blended Network (2025)",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "sampleSize": 83,
+      "annualRevenue": 552329,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "83 facilities open and operating the full 2025 calendar year under the same ownership and substantially in accordance with the D1 operating model; blended franchised and company-owned."
+     },
+     {
+      "label": "Franchised Facilities Only (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 75,
+      "annualRevenue": 534745,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "75 franchised facilities meeting full-year, same-ownership, and operating-model inclusion criteria for 2025."
+     },
+     {
+      "label": "Company-Owned Facilities (2025)",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "sampleSize": 8,
+      "annualRevenue": 717183,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "8 company/affiliate-owned facilities (4 D1 corporate + 4 owned by 45 Sports LLC) meeting inclusion criteria for 2025; two were reacquired mid-year but included per D1's stated rationale."
+     },
+     {
+      "label": "Small Facilities <8,000 sqft (2025)",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "sampleSize": 66,
+      "annualRevenue": 483930,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "66 facilities under 8,000 sq ft; avg operating history 3.1 years; most representative of the prototypical franchise model."
+     },
+     {
+      "label": "Medium Facilities 8,000\u201314,999 sqft (2025)",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "sampleSize": 10,
+      "annualRevenue": 670424,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "10 facilities 8,000\u201314,999 sq ft; avg operating history 6.4 years."
+     },
+     {
+      "label": "Large Facilities 15,000\u201319,999 sqft (2025)",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "sampleSize": 4,
+      "annualRevenue": 929997,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "4 facilities 15,000\u201319,999 sq ft; avg operating history 10.4 years."
+     },
+     {
+      "label": "Extra Large Facilities 20,000+ sqft (2025)",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "sampleSize": 3,
+      "annualRevenue": 1159895,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "3 facilities 20,000+ sq ft; avg operating history 16.2 years."
+     },
+     {
+      "label": "Facilities Under 2 Years Old (2025)",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "sampleSize": 26,
+      "annualRevenue": 492532,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "26 facilities operating less than 2 years as of December 31, 2025."
+     },
+     {
+      "label": "Facilities 2 Years and Over (2025)",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "sampleSize": 57,
+      "annualRevenue": 579605,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "57 facilities operating 2 or more years as of December 31, 2025."
+     },
+     {
+      "label": "Month 1 Revenue \u2013 2025 Openings (pre-sale + first 30 days)",
+      "ownership": "franchised",
+      "revenueType": "pre_sale_only",
+      "sampleSize": 46,
+      "annualRevenue": null,
+      "avgMonthlyRevenue": 45978,
+      "monthlyValues": [],
+      "basis": "46 facilities that opened January 1\u2013December 15, 2025 with a complete 30-day revenue window; Month 1 Revenue includes all pre-opening presales revenue treated as earned on opening date \u2014 not representative of ongoing monthly revenue."
+     },
+     {
+      "label": "Excluded \u2013 Operating Model Non-Conformance (for comparison only)",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "sampleSize": 20,
+      "annualRevenue": 281609,
+      "avgMonthlyRevenue": null,
+      "monthlyValues": [],
+      "basis": "20 facilities excluded from main analysis because they operated without a general manager or otherwise deviated from the D1 standard operating model for a material portion of 2025; provided for comparison only."
+     }
+    ],
+    "notes": "No profitability (EBITDA/net income) table is disclosed in Item 19; only gross revenue figures are provided. The franchisor explicitly states figures represent Gross Revenue only and do not reflect costs or expenses. Gross Revenue is sourced from Mindbody Online POS reports and has not been independently audited."
+   },
+   "item17": {
+    "sourcePage": "Item 7, p. 22",
+    "initialInvestmentLow": 401776,
+    "initialInvestmentHigh": 837381,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 62500,
+      "high": 62500,
+      "recurring": false,
+      "notes": "Lump sum due on signing; non-refundable except as described in Item 5."
+     },
+     {
+      "category": "Opening Support Fee",
+      "low": 29500,
+      "high": 29500,
+      "recurring": false,
+      "notes": "Due 4 months from Effective Date; uniform and non-refundable."
+     },
+     {
+      "category": "Initial Marketing Spend",
+      "low": 25000,
+      "high": 35000,
+      "recurring": false,
+      "notes": "Pre-opening digital marketing; minimum $5,000/month for 4+ months plus ~$1,000/month agency fees."
+     },
+     {
+      "category": "Leasehold Improvements",
+      "low": 201521,
+      "high": 432413,
+      "recurring": false,
+      "notes": "Includes architectural design, permitting, construction, D1 CPM project management fee, flooring, and signage; net of tenant improvement allowance."
+     },
+     {
+      "category": "Real Estate Services Fee",
+      "low": 5000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Lump sum due on signing; uniform and non-refundable."
+     },
+     {
+      "category": "Furniture and Fixtures",
+      "low": 1500,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Office furniture, retail display units, storage shelves."
+     },
+     {
+      "category": "Strength & Cardio Equipment",
+      "low": 4700,
+      "high": 90065,
+      "recurring": false,
+      "notes": "Low assumes financing; high is full outright purchase from affiliate D1 Equipment; excludes taxes."
+     },
+     {
+      "category": "Opening Inventory and Supplies",
+      "low": 2500,
+      "high": 2500,
+      "recurring": false,
+      "notes": "Cleaning equipment, printers, stationery, first aid kit, AED."
+     },
+     {
+      "category": "Grand Opening Kit \u2013 Merchandise & Apparel",
+      "low": 5000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Required tent, tablecloth, backdrop, t-shirts, banners, water bottles, and promotional items."
+     },
+     {
+      "category": "Computer Equipment and Software",
+      "low": 8555,
+      "high": 9740,
+      "recurring": false,
+      "notes": "2x TVs, Sonos speakers, 2x iPads, iMac desktop; includes ~4 months of Tech Shared Services, GPS, and accounting software pre-opening."
+     },
+     {
+      "category": "Pre-Opening Salaries & Wages",
+      "low": 29000,
+      "high": 46200,
+      "recurring": false,
+      "notes": "General manager (~5 months pre-open), head coach (~1 month), recruiter (~2 weeks)."
+     },
+     {
+      "category": "Training Expenses",
+      "low": 1000,
+      "high": 4000,
+      "recurring": false,
+      "notes": "Travel and expenses for franchisee, GM, and head coach to attend mandatory 1-week training in Nashville, TN."
+     },
+     {
+      "category": "Security Deposit",
+      "low": 5000,
+      "high": 39463,
+      "recurring": false,
+      "notes": "1\u20133 months' rent; 2025 average was $16,372."
+     },
+     {
+      "category": "Three Months' Rent",
+      "low": 0,
+      "high": 33000,
+      "recurring": false,
+      "notes": "Low assumes rent-free period through first 3 months; high based on average rent (inclusive of NNN) for 2025 openings."
+     },
+     {
+      "category": "Professional Fees, Permits and Licenses",
+      "low": 4000,
+      "high": 6000,
+      "recurring": false,
+      "notes": "Legal/accounting fees, entity formation, licenses, permits, and possible bonds."
+     },
+     {
+      "category": "Insurance Premium",
+      "low": 2000,
+      "high": 4000,
+      "recurring": false,
+      "notes": "Pre-opening construction-phase insurance only; ongoing premiums included in Additional Funds."
+     },
+     {
+      "category": "Additional Funds (3 months)",
+      "low": 15000,
+      "high": 30000,
+      "recurring": false,
+      "notes": "Estimated operating shortfall for first 3 months post-opening; includes payroll, royalties, brand fund, GPS fees, tech fees, insurance, and marketing."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 7,
+    "brandFundPct": 2,
+    "localAdPct": 1.5,
+    "flatMonthlyFees": [
+     {
+      "name": "Minimum Royalty Fee (Year 1)",
+      "monthlyAmount": 1950,
+      "source": "Item 6, p. 15"
+     },
+     {
+      "name": "Minimum Royalty Fee (Year 2)",
+      "monthlyAmount": 2450,
+      "source": "Item 6, p. 15"
+     },
+     {
+      "name": "Minimum Royalty Fee (Year 3+)",
+      "monthlyAmount": 2950,
+      "source": "Item 6, p. 15"
+     },
+     {
+      "name": "Brand Fund Minimum",
+      "monthlyAmount": 250,
+      "source": "Item 6, p. 15"
+     },
+     {
+      "name": "GPS CRM Software Fee",
+      "monthlyAmount": 320,
+      "source": "Item 6, p. 16"
+     },
+     {
+      "name": "GPS Lead Generation / Marketing Administrative Fee",
+      "monthlyAmount": 999,
+      "source": "Item 6, p. 16"
+     },
+     {
+      "name": "GPS Usage Fee (estimated)",
+      "monthlyAmount": 175,
+      "source": "Item 6, p. 16"
+     },
+     {
+      "name": "Tech Shared Services Fee (low)",
+      "monthlyAmount": 700,
+      "source": "Item 6, p. 16"
+     },
+     {
+      "name": "Tech Shared Services Fee (high)",
+      "monthlyAmount": 750,
+      "source": "Item 6, p. 16"
+     },
+     {
+      "name": "Local Marketing Requirement (minimum daily spend)",
+      "monthlyAmount": null,
+      "source": "Item 6, p. 16 \u2014 $100/day minimum, subject to 10\u201320% annual increases"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "D1 CPM Construction Management Fee",
+     "description": "Mandatory flat fee to affiliate D1 Sports CPM, LLC for construction project management during build-out, plus $500 PROCORE technology pass-through.",
+     "estimatedAnnualAmount": 30500,
+     "source": "Item 5, p. 14; Item 6, p. 17"
+    },
+    {
+     "name": "GPS Usage-Based Communication Costs",
+     "description": "Volume-based charges for outbound text and email delivery through the GPS platform, estimated at ~$175/month but variable by usage.",
+     "estimatedAnnualAmount": 2100,
+     "source": "Item 6, p. 16"
+    },
+    {
+     "name": "Annual Conference Fee",
+     "description": "Estimated registration fee for 2 attendees at the mandatory annual franchisee conference.",
+     "estimatedAnnualAmount": 1000,
+     "source": "Item 6, p. 20"
+    },
+    {
+     "name": "Operator Training Fee (replacement staff)",
+     "description": "Per-individual fee of $499 per training session for any replacement or additional GM or Head Coach after initial opening.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 19"
+    },
+    {
+     "name": "Music Licensing (FitRadio + ASCAP/BMI/SESAC)",
+     "description": "Required music subscription (~$44.99/month) plus add-on licensing package (~$120.01/month) for a total of ~$165/month.",
+     "estimatedAnnualAmount": 1980,
+     "source": "Item 11, p. 40"
+    },
+    {
+     "name": "Inventory Replenishment (D1-branded apparel)",
+     "description": "Ongoing required purchases of D1-branded apparel and merchandise from franchisor or designee at variable amounts.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 18"
+    },
+    {
+     "name": "Non-Compliance Fee (3rd infraction)",
+     "description": "$1,000 fee charged per third compliance infraction; $5,000 per fourth and subsequent infractions.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 19"
+    },
+    {
+     "name": "Traveling General Manager Fee",
+     "description": "Variable daily-rate fee if franchisor deploys a temporary GM during a vacancy period; includes compensation markup and travel expenses.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 20"
+    },
+    {
+     "name": "Dead Rent (pre-opening)",
+     "description": "Rent payable before opening if permitting or construction is delayed; 2025 range was $470\u2013$21,928 across 16 facilities.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 7, p. 25"
+    },
+    {
+     "name": "Vendor/Equipment Testing Fee",
+     "description": "Reimbursement of franchisor's costs to evaluate a proposed alternative vendor or non-sanctioned equipment, estimated $1,500\u2013$2,000.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p. 20"
+    },
+    {
+     "name": "Third-Party Supplier Rebates Retained by Franchisor",
+     "description": "Franchisor retains 5\u201347% rebates from approved vendors (apparel, recruiting, bookkeeping, background checks) on franchisee required purchases; $960,617 received in 2025.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 8, p. 30"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 67",
+    "totalUnits": 160,
+    "openedLastYear": 51,
+    "closedLastYear": 13,
+    "transfersLastYear": 6
+   },
+   "operationalRisks": [
+    {
+     "title": "Franchisor Financial Condition Risk",
+     "description": "The Special Risks page explicitly states the franchisor's financial condition calls into question its ability to provide services and support to franchisees.",
+     "severity": "high",
+     "source": "Special Risks, p. 4; Item 21"
+    },
+    {
+     "title": "Significant Pending Franchisee Litigation",
+     "description": "Multiple active arbitrations and lawsuits filed in 2025 by franchisees alleging fraud, misrepresentation of financial performance, semi-absentee viability, and failure to provide promised support \u2014 with claimed damages exceeding $4 million.",
+     "severity": "high",
+     "source": "Item 3, pp. 6\u201312"
+    },
+    {
+     "title": "Mandatory Minimum Royalty Payments",
+     "description": "Franchisees must pay minimum royalties ($1,950\u2013$2,950/month) regardless of sales levels; failure to meet minimums can result in termination and loss of investment.",
+     "severity": "high",
+     "source": "Special Risks, p. 4; Item 6, p. 15"
+    },
+    {
+     "title": "Significant Unopened Franchisees",
+     "description": "As of December 31, 2025, 96 franchise agreements were signed but the businesses had not yet opened, indicating systemic delays in opening.",
+     "severity": "high",
+     "source": "Special Risks, p. 4; Item 20, p. 79"
+    },
+    {
+     "title": "Spousal Liability Guarantee",
+     "description": "Franchisee's spouse must sign a personal guarantee making marital assets liable for all financial obligations under the franchise agreement.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4; Item 15"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "All disputes must be arbitrated or litigated within 50 miles of Franklin, Tennessee, regardless of franchisee's home state.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4; Item 17, p. 57"
+    },
+    {
+     "title": "Mandatory Affiliate Vendor Lock-In",
+     "description": "Franchisees must purchase equipment, construction management, software, and marketing exclusively from franchisor affiliates (D1 Equipment, D1 CPM, GPS) with no competitive bidding allowed.",
+     "severity": "medium",
+     "source": "Item 8, pp. 29\u201330"
+    },
+    {
+     "title": "High Closure and Non-Conformance Rate",
+     "description": "In 2025, 13 franchised outlets ceased operations and 20 additional facilities were excluded from Item 19 analysis for failing to conform to the D1 operating model.",
+     "severity": "high",
+     "source": "Item 20, p. 71; Item 19, p. 65"
+    },
+    {
+     "title": "Non-Exclusive Territory",
+     "description": "Franchisees do not receive an exclusive territory; franchisor retains broad rights to operate competing concepts (including personal-training-only brands) within the franchisee's designated territory.",
+     "severity": "medium",
+     "source": "Item 12, pp. 43\u201345"
+    },
+    {
+     "title": "Franchisor Has Never Operated a D1 Facility",
+     "description": "The franchisor entity itself has never operated a D1 Training Facility; operational experience resides in affiliate entities and key personnel.",
+     "severity": "medium",
+     "source": "Item 1, p. 1"
+    }
+   ],
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "rentDetail": {
+    "rawValue": 11000,
+    "unit": "per_month",
+    "squareFootage": 4307,
+    "source": "Item 7, p. 25 \u2014 Three Months' Rent high end of $33,000 divided by 3 months implies ~$11,000/month average rent (inclusive of NNN) for 2025 openings at the standard 4,307 sq ft facility size."
+   },
+   "averageRentMonthly": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "Citrin Cooperman & Company, LLP",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "D1 New HoldCo, LLC",
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 11707957,
+      "netIncome": -5368863,
+      "totalAssets": 8540980,
+      "totalLiabilities": 22959901,
+      "cash": 499307,
+      "currentAssets": 4780836,
+      "currentLiabilities": 4777138,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 20275577,
+      "netWorth": -14418921
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 9630239,
+      "netIncome": -936821,
+      "totalAssets": 7616205,
+      "totalLiabilities": 18978178,
+      "cash": 466404,
+      "currentAssets": 3814369,
+      "currentLiabilities": 2644912,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 17987445,
+      "netWorth": -11361973
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 7354335,
+      "netIncome": -225079,
+      "totalAssets": null,
+      "totalLiabilities": null,
+      "cash": 1071341,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": -7860102
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "4 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
+    "Franchisor financial distress disclosed (negative net worth) \u2014 confirm its ability to support the system against the audited statements."
+   ],
+   "midCohort": {
+    "label": "Network Average",
+    "monthlyRevenue": 46027.42,
+    "monthlyVariable": 4832.879099999999,
+    "monthlyFixed": 10544,
+    "monthlyEbitda": 30650.5409,
+    "annualEbitda": 367806.4908,
+    "coversCosts": true,
+    "source": {
+     "basis": "network",
+     "label": "network average of disclosed cohorts",
+     "math": null
+    }
+   },
+   "bottomCohort": {
+    "label": "Month 1 Revenue \u2013 2025 Openings (pre-sale + first 30 days)",
+    "monthlyRevenue": 45978,
+    "monthlyVariable": 4827.69,
+    "monthlyFixed": 10544,
+    "monthlyEbitda": 30606.309999999998,
+    "annualEbitda": 367275.72,
+    "coversCosts": true
+   },
+   "buildoutMidpoint": 619578.5,
+   "assumedLoan": 495662.80000000005,
+   "assumedMonthlyDebtService": 6688.225831975845,
+   "dscr": 4.582761059511828,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 1.684523018210966,
+   "variableRate": 0.105,
+   "fixedMonthly": 10544,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 369578.5,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 369578.5,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 4986.907370581137,
+   "adjustedMonthlyNetCashFlow": 25663.63352941886,
+   "survivesBottomCohort": true,
+   "assessment": "With $250,000 liquid against a $619,579 mid-point build-out, there is a $369,579 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $25,664/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "fitness_studio",
+   "conceptLabel": "Boutique fitness / studio",
+   "conceptRationale": "D1 Training facilities are dedicated fitness studios offering athletic-based group training, personal coaching, and strength/cardio programming \u2014 a pure fitness-studio model with no meaningful food/beverage component.",
+   "benchmark": {
+    "label": "Boutique fitness / studio",
+    "cogsPct": [
+     3,
+     10
+    ],
+    "laborPct": [
+     20,
+     30
+    ],
+    "occupancyPct": [
+     12,
+     20
+    ],
+    "operatingEbitdaPct": [
+     15,
+     28
+    ],
+    "dominantRisk": "Member retention/churn and fixed-cost coverage \u2014 NOT cost of goods. The deal is decided by recurring membership against rent and equipment lease.",
+    "rampNote": "9\u201318 months to a mature, retained member base.",
+    "considerations": [
+     "COGS is trivial; the risks are member churn and covering fixed rent + equipment lease.",
+     "Ask Item 20 operators for monthly retention, average membership lifetime, and break-even member count.",
+     "Model CAC and free-trial conversion \u2014 member acquisition cost is the hidden operating line."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 15\u201328% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 46027.42,
+   "marginAfterFeesMonthly": 30650.5409,
+   "benchmarkOperatingEbitdaMonthly": [
+    3955,
+    16382
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 10\u201318% \u2014 the 20\u201330% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    10,
+    18
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      30650.5409,
+      30650.5409
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      12,
+      20
+     ],
+     "dollarRange": [
+      5523,
+      9205
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      3,
+      10
+     ],
+     "dollarRange": [
+      1381,
+      4603
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      18
+     ],
+     "dollarRange": [
+      4603,
+      8285
+     ],
+     "note": "lightly staffed \u00b7 \u2248 1.3\u20132.4 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      2762,
+      4603
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      3955,
+      16382
+     ],
+     "note": "\u2248 9% to 36% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cBoutique fitness / studio\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 12\u201320% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 3\u201310% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 10\u201318% lightly staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "HIGH",
+   "headline": "Several stress signals show up together here \u2014 a net-worth deficit of roughly $14.42M alongside operating losses, thin near-term liquidity, and unit closures. Any one of these alone can be normal for a young brand; appearing together is the pattern that separates real distress from ordinary early-stage losses. Treat this as a franchisor-stability question to resolve \u2014 with the specific items below \u2014 before you commit.",
+   "context": null,
+   "body": [
+    "What we found (2025-12-31, audited by Citrin Cooperman & Company, LLP): Net loss of $5.37M on $11.71M of revenue \u2014 roughly 1.5x spent per $1 earned. Losses are widening, not shrinking. Negative net worth (a members'/stockholders' deficit) of $14.42M, and deepening year over year. Total liabilities are about 2.7x total assets. Cash of $499K against $4.78M of obligations due within a year (a current ratio of 1.00). Note: about 88% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.3x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so D1 New HoldCo, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "negative net worth that is deepening year over year",
+    "operating losses that are widening",
+    "no parent guarantee backing the franchisor's obligations to you",
+    "elevated unit closures (13 in the last year, about 8% of the system)"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": -14418921,
+    "netWorthSign": "negative",
+    "netWorthTrend": "worsening",
+    "netIncome": -5368863,
+    "netIncomeTrend": "worsening",
+    "revenue": 11707957,
+    "revenueTrend": "improving",
+    "currentRatio": 1.0007741036578806,
+    "workingCapital": 3698,
+    "liabilitiesToAssets": 2.688204515172732,
+    "adjLiabilitiesToAssets": 0.31428758760704273,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": 0.8830864296845182,
+    "expenseToRevenue": 1.4585653158787653,
+    "cash": 499307,
+    "nearTermObligations": 4777138
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

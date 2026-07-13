@@ -1,0 +1,546 @@
+{
+ "slug": "menchies",
+ "brandName": "MENCHIE'S",
+ "category": "Frozen dessert",
+ "vertical": "Food & Beverage",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "menchiessoftserve",
+ "fileHash": "8ea04841dbb8abc2",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "MENCHIE'S",
+   "franchisorEntity": "MENCHIE\u2019S GROUP, INC.",
+   "headquarters": "Woodland Hills, CA",
+   "brandBackground": "Menchie's is a California-based franchisor of retail soft-serve frozen yogurt, ice cream, and desserts founded in 2008.",
+   "leadership": [
+    {
+     "name": "Amit Y. Kleinberger",
+     "role": "Chief Executive Officer",
+     "background": "Has served as CEO of Menchie's since July 2008 and CEO of MidiCi since August 2014.",
+     "whyItMatters": "Provides long-term executive leadership and continuity for the brand."
+    },
+    {
+     "name": "Tom Regev",
+     "role": "Chief Operations Officer",
+     "background": "Has served as COO since March 2017 and VP of Operations since March 2009.",
+     "whyItMatters": "Oversees all operational systems and training programs."
+    },
+    {
+     "name": "Yogi Tanna",
+     "role": "Vice President Operations",
+     "background": "Has served as VP of Operations since December 2017, previously holding other operations roles since 2011.",
+     "whyItMatters": "Manages day-to-day franchise support and operational standards."
+    },
+    {
+     "name": "Elizabeth Berry",
+     "role": "Vice President Marketing",
+     "background": "Has served as VP of Marketing since March 2020, previously holding marketing roles since 2009.",
+     "whyItMatters": "Directs national marketing campaigns and brand development fund expenditures."
+    },
+    {
+     "name": "MJ Kwon",
+     "role": "Senior Director Business Development",
+     "background": "Has served as Senior Director since March 2017, previously holding franchise development roles since 2014.",
+     "whyItMatters": "Leads franchise sales, recruitment, and system expansion."
+    },
+    {
+     "name": "Diana Vasquez",
+     "role": "Controller",
+     "background": "Has served as Controller since April 2017, previously holding director roles since 2012.",
+     "whyItMatters": "Manages financial reporting, accounting, and fee collections."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Traditional Franchised Stores Average Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 53258,
+      "basis": "Item 19, p.37",
+      "annualRevenue": 639093,
+      "monthlyValues": [],
+      "sampleSize": 278
+     },
+     {
+      "label": "Traditional Franchised Stores Median Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 49613,
+      "basis": "Item 19, p.37",
+      "annualRevenue": 595357,
+      "monthlyValues": [],
+      "sampleSize": 278
+     }
+    ],
+    "notes": "Data represents 278 franchised stores open and operating for the entire 2025 measurement period in traditional locations.",
+    "sourcePage": "Item 19, p.37",
+    "networkAverageMonthly": null,
+    "unitsReported": 278
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Non-refundable fee paid to us.",
+      "high": 53900,
+      "low": 53900
+     },
+     {
+      "category": "Travel and Living Expenses While Training",
+      "recurring": false,
+      "notes": "Covers travel, lodging, and meals for training.",
+      "high": 3000,
+      "low": 664
+     },
+     {
+      "category": "Lease Deposit and Rent",
+      "recurring": false,
+      "notes": "Typically covers security deposit and first month's rent.",
+      "high": 9370,
+      "low": 2295
+     },
+     {
+      "category": "Leasehold improvements",
+      "recurring": false,
+      "notes": "Build-out costs for the store location.",
+      "high": 201440,
+      "low": 35000
+     },
+     {
+      "category": "Furniture, Fixtures, and Equipment",
+      "recurring": false,
+      "notes": "Includes yogurt-making machines and other equipment.",
+      "high": 172140,
+      "low": 63000
+     },
+     {
+      "category": "Computer (POS) System",
+      "recurring": false,
+      "notes": "Point of sale hardware and software.",
+      "high": 4760,
+      "low": 155
+     },
+     {
+      "category": "Signage",
+      "recurring": false,
+      "notes": "Interior and exterior signs.",
+      "high": 13660,
+      "low": 6500
+     },
+     {
+      "category": "Opening Inventory",
+      "recurring": false,
+      "notes": "Initial food, beverage, and paper supplies.",
+      "high": 8020,
+      "low": 6750
+     },
+     {
+      "category": "Uniforms, Merchandise, Equipment and Sales",
+      "recurring": false,
+      "notes": "Supplies purchased from us.",
+      "high": 1500,
+      "low": 600
+     },
+     {
+      "category": "Grand Opening Marketing",
+      "recurring": false,
+      "notes": "Initial marketing campaign for first 14 days.",
+      "high": 5000,
+      "low": 3500
+     },
+     {
+      "category": "Utility Deposits, Professional Fees, Business Licenses, etc.",
+      "recurring": false,
+      "notes": "Deposits and professional services.",
+      "high": 3700,
+      "low": 200
+     },
+     {
+      "category": "Insurance (3 months)",
+      "recurring": false,
+      "notes": "Estimated 25% of annual premium.",
+      "high": 1500,
+      "low": 1000
+     },
+     {
+      "category": "Inspection Fee",
+      "recurring": false,
+      "notes": "Pre-opening inspection fee.",
+      "high": 1500,
+      "low": 0
+     },
+     {
+      "category": "Additional Funds\u20143 Months",
+      "recurring": false,
+      "notes": "Working capital for initial operations.",
+      "high": 36000,
+      "low": 6000
+     }
+    ],
+    "sourcePage": "Item 7, p.16",
+    "initialInvestmentHigh": 515420,
+    "initialInvestmentLow": 179564
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p.14",
+      "monthlyAmount": 80
+     }
+    ],
+    "brandFundPct": 2,
+    "localAdPct": null,
+    "royaltyPct": 6
+   },
+   "hiddenCosts": [
+    {
+     "name": "Local Marketing Requirement",
+     "description": "Franchisees must spend at least $10,000 per year on approved local marketing.",
+     "source": "Item 11, p.24",
+     "estimatedAnnualAmount": 10000
+    },
+    {
+     "name": "POS Service Contract",
+     "description": "Suggested annual cost of a service contract for the POS system.",
+     "source": "Item 11, p.25",
+     "estimatedAnnualAmount": 1116
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p.40",
+    "closedLastYear": 7,
+    "openedLastYear": 8,
+    "totalUnits": 296,
+    "transfersLastYear": 15
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by mediation, arbitration, and/or litigation only in California.",
+     "severity": "medium",
+     "source": "Special Risks, p.4"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "Spouses must sign a personal guarantee making them liable for all financial obligations.",
+     "severity": "high",
+     "source": "Special Risks, p.4"
+    },
+    {
+     "title": "Mandatory Minimum Payments",
+     "description": "Franchisees must pay a minimum weekly royalty of $125 regardless of sales levels.",
+     "severity": "medium",
+     "source": "Special Risks, p.4"
+    }
+   ],
+   "conceptType": "food_beverage_qsr",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": true,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 20611182,
+      "totalAssets": 14048221,
+      "totalLiabilities": 5845632
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 18773148,
+      "totalAssets": 13636110,
+      "totalLiabilities": 5656991
+     }
+    ],
+    "auditorName": "Gursey | Schneider LLP",
+    "parentName": null
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "Menchie's is a quick-service frozen yogurt and dessert concept.",
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p.17",
+    "squareFootage": 1700
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "Requires on-site staff to manage customer service, toppings bar, and sanitation."
+  },
+  "scoring": {
+   "riskLevel": "Low",
+   "riskReasons": [
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Traditional Franchised Stores Median Gross Sales",
+    "monthlyRevenue": 49613,
+    "monthlyVariable": 3969.04,
+    "monthlyFixed": 80,
+    "monthlyEbitda": 45563.96,
+    "annualEbitda": 546767.52,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Traditional Franchised Stores Median Gross Sales",
+     "math": "$595,357/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 278
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 347492,
+   "assumedLoan": 277993.60000000003,
+   "assumedMonthlyDebtService": 3751.1065519622616,
+   "dscr": 12.146805047743788,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.6355388483939207,
+   "variableRate": 0.08,
+   "fixedMonthly": 80,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 97492,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 97492,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 1315.5082705641596,
+   "adjustedMonthlyNetCashFlow": 44248.45172943584,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $347,492 mid-point build-out, there is a $97,492 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $44,248/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "food_beverage_qsr",
+   "conceptLabel": "QSR / fast-casual",
+   "conceptRationale": "Menchie's is a quick-service frozen yogurt and dessert concept.",
+   "benchmark": {
+    "label": "QSR / fast-casual",
+    "cogsPct": [
+     28,
+     33
+    ],
+    "laborPct": [
+     22,
+     28
+    ],
+    "occupancyPct": [
+     6,
+     10
+    ],
+    "operatingEbitdaPct": [
+     10,
+     18
+    ],
+    "dominantRisk": "Prime cost and throughput per labor hour. Smaller footprint helps fixed costs, but COGS + labor still set the ceiling.",
+    "rampNote": "3\u20136 months to run-rate once open.",
+    "considerations": [
+     "Budget COGS ~28\u201333% and labor ~22\u201328%; target prime cost under ~60%.",
+     "Verify average ticket and daily transaction counts with Item 20 operators, not the franchisor.",
+     "Watch for required remodels and equipment refresh cycles buried in Item 6/Item 11."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201318% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 49613,
+   "marginAfterFeesMonthly": 45563.96,
+   "benchmarkOperatingEbitdaMonthly": [
+    5378,
+    14803
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    22,
+    28
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      45563.96,
+      45563.96
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      2977,
+      4961
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      28,
+      33
+     ],
+     "dollarRange": [
+      13892,
+      16372
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      22,
+      28
+     ],
+     "dollarRange": [
+      10915,
+      13892
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 3.1\u20134 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      2977,
+      4961
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      5378,
+      14803
+     ],
+     "note": "\u2248 11% to 30% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cQSR / fast-casual\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 6\u201310% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 28\u201333% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 22\u201328% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "prior-year financials were restated"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 20611182,
+    "revenueTrend": "improving",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.4161119048454605,
+    "adjLiabilitiesToAssets": 0.4161119048454605,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

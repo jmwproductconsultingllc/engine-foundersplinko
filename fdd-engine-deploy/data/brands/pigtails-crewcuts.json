@@ -1,0 +1,719 @@
+{
+ "slug": "pigtails-crewcuts",
+ "brandName": "Pigtails & Crewcuts",
+ "category": "Hair & Personal Care",
+ "vertical": "Kids & Family",
+ "grade": "READY",
+ "parseQuality": "degraded-fallback",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "pigtails&crewcuts",
+ "fileHash": "2a507a7d9df0f830",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Financial statements cover only 2025 and 2024 in the primary set; 2023 balance sheet data is available from the second audit report (Dec 31, 2024 and 2023). The FDD states audited statements for 2025, 2024, and 2023 are included per Item 21, and all three years are present across the two audit packages.",
+     "The Special Risks page explicitly flags the franchisor's financial condition as calling into question its ability to provide services and support.",
+     "Members' equity turned to a deficit of ($17,849) in 2025 after distributions of $44,800 despite a net loss of ($26,541)."
+    ]
+   },
+   "brandName": "Pigtails & Crewcuts",
+   "franchisorEntity": "Pigtails & Crewcuts Franchise, LLC",
+   "headquarters": "Atlanta, GA 30305",
+   "brandBackground": "Children's specialty hair salon franchise offering haircuts, nail/toe polishes, up-dos, birthday parties, and private-label hair care products, founded in 2002 and franchising since December 2005.",
+   "conceptType": "beauty_personal_care",
+   "conceptRationale": "Children's specialty hair salon providing haircuts and related personal-care services in a themed retail environment.",
+   "staffingModel": "staffed",
+   "staffingRationale": "Each salon requires licensed stylists, a front-desk/receptionist, and an on-site Operating Manager present for significant periods during required operating hours of at least 8 hours/day, 6 days/week.",
+   "leadership": [
+    {
+     "name": "Wade H. Brannon, Jr.",
+     "role": "Chief Executive Officer, President and Manager",
+     "background": "Has served as CEO, President, and Manager since November 2004 with more than 40 years of franchise experience.",
+     "whyItMatters": "Sole majority owner and primary decision-maker for the entire franchise system."
+    },
+    {
+     "name": "Michelle Holliman",
+     "role": "Vice President of Franchise Development",
+     "background": "Has led franchise development since October 2017 (Director since 2014) with more than 25 years of franchise experience.",
+     "whyItMatters": "Oversees franchise sales, human resources, and office management."
+    },
+    {
+     "name": "Theresa Vona",
+     "role": "Vice President of Franchise Support",
+     "background": "Has led franchise support since October 2017 with more than 30 years of franchise experience.",
+     "whyItMatters": "Directly manages the franchise support team and oversees franchisee training."
+    },
+    {
+     "name": "Benjamin Rigel",
+     "role": "Director of Real Estate",
+     "background": "Promoted to Director of Real Estate in April 2024 after serving as Franchise Support Specialist since January 2016.",
+     "whyItMatters": "Assists franchisees with site selection and lease negotiations."
+    },
+    {
+     "name": "Hannah Swanson",
+     "role": "Franchise Development Coordinator",
+     "background": "Has served as Franchise Development Coordinator since December 2018, previously Franchise Development Assistant.",
+     "whyItMatters": "Supports franchise development pipeline and prospect management."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, p.43-44",
+    "unitsReported": 77,
+    "networkAverageMonthly": 27354.17,
+    "notes": "Item 19 discloses average gross sales only (no EBITDA or profitability table). Data covers 77 franchised salons open and operating for all of 2025 out of 84 total as of December 31, 2025. Figures are gross sales before deductions for royalties, rent, labor, or other operating expenses. All salons are located in strip centers. Data sourced from franchisee-submitted financial reports.",
+    "cohorts": [
+     {
+      "label": "All Franchised Salons (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 77,
+      "annualRevenue": 328250,
+      "avgMonthlyRevenue": null,
+      "basis": "Average annual gross sales for all 77 franchised salons open for all of 2025; 32/77 (42%) at or above average; median $304,170; low $116,358; high $688,504.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Franchised Salons >$500K Gross Sales (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 13,
+      "annualRevenue": 567286,
+      "avgMonthlyRevenue": null,
+      "basis": "Average annual gross sales for 13 franchised salons with gross sales greater than $500,000; 4/13 (31%) at or above average; median $526,094; low $502,792; high $688,504.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Franchised Salons $350,001-$500,000 Gross Sales (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 14,
+      "annualRevenue": 413921,
+      "avgMonthlyRevenue": null,
+      "basis": "Average annual gross sales for 14 franchised salons with gross sales between $350,001 and $500,000; 8/14 (57%) at or above average; median $417,824; low $358,255; high $468,633.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Franchised Salons $275,001-$350,000 Gross Sales (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 22,
+      "annualRevenue": 308580,
+      "avgMonthlyRevenue": null,
+      "basis": "Average annual gross sales for 22 franchised salons with gross sales between $275,001 and $350,000; 10/22 (45%) at or above average; median $305,181; low $276,571; high $341,964.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Franchised Salons $225,000-$275,000 Gross Sales (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 7,
+      "annualRevenue": 250091,
+      "avgMonthlyRevenue": null,
+      "basis": "Average annual gross sales for 7 franchised salons with gross sales between $225,000 and $275,000; 5/7 (71%) at or above average; median $251,087; low $232,645; high $262,747.",
+      "monthlyValues": []
+     },
+     {
+      "label": "Franchised Salons <$225,000 Gross Sales (2025)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 21,
+      "annualRevenue": 175969,
+      "avgMonthlyRevenue": null,
+      "basis": "Average annual gross sales for 21 franchised salons with gross sales less than $225,000; 11/21 (52%) at or above average; median $180,819; low $116,358; high $224,960.",
+      "monthlyValues": []
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, p.12-13",
+    "initialInvestmentLow": 159500,
+    "initialInvestmentHigh": 384600,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 45000,
+      "high": 45000,
+      "recurring": false,
+      "notes": "Non-refundable lump sum paid upon signing Franchise Agreement; may be reduced under Development Addendum."
+     },
+     {
+      "category": "Leasehold Improvements",
+      "low": 58000,
+      "high": 205600,
+      "recurring": false,
+      "notes": "Costs vary by size, condition, and location of premises; assumes leased space."
+     },
+     {
+      "category": "Rent (3 months)",
+      "low": 7500,
+      "high": 18000,
+      "recurring": true,
+      "notes": "Pre-opening and ongoing rent deposit/advance; typical salon is 1,200-1,500 sq ft."
+     },
+     {
+      "category": "Initial Training Fee",
+      "low": 1250,
+      "high": 1250,
+      "recurring": false,
+      "notes": "Non-refundable fee paid before attending initial training program."
+     },
+     {
+      "category": "Travel and Living Expenses While Training",
+      "low": 1250,
+      "high": 2500,
+      "recurring": false,
+      "notes": "Hotels, restaurants, airlines during 5-day training in Atlanta, GA."
+     },
+     {
+      "category": "Furnishings, Fixtures, Equipment and Decorating",
+      "low": 18000,
+      "high": 38000,
+      "recurring": false,
+      "notes": "Purchased from franchisor and approved suppliers before opening."
+     },
+     {
+      "category": "Exterior Signage",
+      "low": 1500,
+      "high": 11000,
+      "recurring": false,
+      "notes": "Paid to suppliers and possibly landlord before opening."
+     },
+     {
+      "category": "Interior Graphics/Signage",
+      "low": 2000,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Purchased from franchisor before opening."
+     },
+     {
+      "category": "Opening Inventory",
+      "low": 5000,
+      "high": 10000,
+      "recurring": false,
+      "notes": "Branded hair care products and supplies from franchisor and approved suppliers."
+     },
+     {
+      "category": "Opening Supplies",
+      "low": 3000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Purchased from suppliers before opening."
+     },
+     {
+      "category": "Initial Supply of Marketing and Promotional Materials",
+      "low": 500,
+      "high": 750,
+      "recurring": false,
+      "notes": "Lump sum paid to franchisor before opening."
+     },
+     {
+      "category": "Computer Hardware/Software",
+      "low": 3500,
+      "high": 4000,
+      "recurring": false,
+      "notes": "POS system and hardware from approved supplier; ongoing monthly software fee is separate."
+     },
+     {
+      "category": "Marketing Launch Plan",
+      "low": 5000,
+      "high": 15000,
+      "recurring": false,
+      "notes": "Minimum $5,000 required; spent before opening and up to 30 days after."
+     },
+     {
+      "category": "Professional Fees",
+      "low": 1000,
+      "high": 5500,
+      "recurring": false,
+      "notes": "Accountants, attorneys, real estate broker, architect; before opening and ongoing."
+     },
+     {
+      "category": "Miscellaneous Opening Costs",
+      "low": 2000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Security deposits, utility costs, insurance premiums, business licenses, and permits."
+     },
+     {
+      "category": "Additional Funds \u2013 3 months",
+      "low": 5000,
+      "high": 15000,
+      "recurring": false,
+      "notes": "Working capital for first three months including payroll (excluding owner salary) and miscellaneous expenses."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 5,
+    "brandFundPct": 2,
+    "localAdPct": null,
+    "flatMonthlyFees": [
+     {
+      "name": "Computer System Monthly Software Fee",
+      "monthlyAmount": 400,
+      "source": "Item 11, p.26 (range $300-$500/month to approved supplier for POS software and QuickBooks Online)"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Refresher/Advanced Training Fee",
+     "description": "Currently $250 per day per salon; franchisor may require periodic attendance.",
+     "estimatedAnnualAmount": 250,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Annual Conference / Regional Meeting Fee",
+     "description": "Currently $300-$500 per person per conference; non-attendance penalty $750 per required person (up to $1,000).",
+     "estimatedAnnualAmount": 500,
+     "source": "Item 6, p.9"
+    },
+    {
+     "name": "Late Report Fee",
+     "description": "$150 per applicable report for failure to submit required financial statements or operating data on time.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.11"
+    },
+    {
+     "name": "Late Fee and Interest",
+     "description": "Currently $100 late fee plus 18% per annum (or highest rate allowed by law) on overdue amounts.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.7"
+    },
+    {
+     "name": "Audit Expenses",
+     "description": "Franchisee reimburses actual audit costs plus $2,500 overhead if royalties understated by 2% or more.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.8"
+    },
+    {
+     "name": "Transfer/Assignment Fee",
+     "description": "$10,000 payable upon transfer or sale of franchise (no charge for transfer to entity franchisee controls).",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.7"
+    },
+    {
+     "name": "Renewal Fee",
+     "description": "$2,500 payable before each renewal of the Franchise Agreement.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.6"
+    },
+    {
+     "name": "Liquidated Damages (Early Termination)",
+     "description": "$100,000 if salon operated less than 2 years or never opened; otherwise 36 months or remaining term (whichever shorter) times average monthly royalty + ad fund fees; 150% if non-compete violated.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.10-11"
+    },
+    {
+     "name": "Supplier Mark-Up / Handling Fee",
+     "description": "0%-10% mark-up on all products, furniture, and equipment purchased through franchisor.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 8, p.17"
+    },
+    {
+     "name": "Testing of New Supplier Fee",
+     "description": "Fee not to exceed reasonable cost of evaluation, testing, and inspections; due only if franchisee requests supplier approval.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.11"
+    }
+   ],
+   "systemScale": {
+    "totalUnits": 85,
+    "openedLastYear": 9,
+    "closedLastYear": 3,
+    "transfersLastYear": 7,
+    "sourcePage": "Item 20, p.45-50"
+   },
+   "operationalRisks": [
+    {
+     "title": "Franchisor Financial Condition",
+     "description": "The Special Risks page explicitly states the franchisor's financial condition calls into question its ability to provide services and support; members' equity turned to a deficit of ($17,849) in 2025 after a net loss of ($26,541) and $44,800 in distributions.",
+     "severity": "high",
+     "source": "Special Risks page, p.4; Item 21 / Exhibit D financial statements"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "All disputes must be arbitrated or litigated exclusively in Georgia, which may increase costs and reduce settlement leverage for out-of-state franchisees.",
+     "severity": "medium",
+     "source": "Special Risks page, p.4; Item 17, p.42"
+    },
+    {
+     "title": "Non-Compete Restrictions Post-Termination",
+     "description": "Two-year non-compete within 10-mile radius of franchisee's salon and any other P&C salon in the county after expiration or termination.",
+     "severity": "medium",
+     "source": "Item 17, p.41"
+    },
+    {
+     "title": "Liquidated Damages on Early Termination",
+     "description": "Substantial liquidated damages ($100,000 or multi-month royalty formula, up to 150%) are owed if franchisor terminates for cause or franchisee terminates without cause.",
+     "severity": "high",
+     "source": "Item 6, p.10-11"
+    },
+    {
+     "title": "Franchisor as Sole Approved Supplier",
+     "description": "Franchisor is the only approved supplier for certain shampoos, conditioners, printed materials, and selected furniture, with a 0%-10% mark-up on purchases.",
+     "severity": "medium",
+     "source": "Item 8, p.17"
+    },
+    {
+     "title": "Operations Manual Changes Without Consent",
+     "description": "Franchisor may modify the Operations Manual at any time, potentially requiring additional capital expenditures by franchisee.",
+     "severity": "medium",
+     "source": "Item 11, p.22"
+    },
+    {
+     "title": "No Financing Offered",
+     "description": "Franchisor provides no direct or indirect financing for any initial investment items, and does not guarantee franchisee notes or leases.",
+     "severity": "low",
+     "source": "Item 10, p.22"
+    },
+    {
+     "title": "Renewal on New Terms",
+     "description": "Renewal requires signing the then-current Franchise Agreement, which may differ materially from the original agreement.",
+     "severity": "medium",
+     "source": "Item 17, p.39"
+    }
+   ],
+   "rentDetail": {
+    "rawValue": 7500,
+    "unit": "unknown",
+    "squareFootage": 1350,
+    "source": "Item 7, p.12 \u2014 3-month rent estimate $7,500-$18,000; typical salon 1,200-1,500 sq ft. Per-sqft rate not explicitly stated; figure represents 3-month cash outlay, not monthly rent."
+   },
+   "averageRentMonthly": null,
+   "requiredLiquidCapital": 150000,
+   "requiredNetWorth": 250000,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "Symphona LLP",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": null,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 2160161,
+      "netIncome": -26541,
+      "totalAssets": 841276,
+      "totalLiabilities": 859125,
+      "cash": 290941,
+      "currentAssets": 530134,
+      "currentLiabilities": 109895,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 692952,
+      "netWorth": -17849
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 2001136,
+      "netIncome": 123566,
+      "totalAssets": 1152652,
+      "totalLiabilities": 1099160,
+      "cash": 571757,
+      "currentAssets": 728670,
+      "currentLiabilities": 116300,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 856529,
+      "netWorth": 53492
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": null,
+      "netIncome": null,
+      "totalAssets": 826572,
+      "totalLiabilities": 800495,
+      "cash": 389952,
+      "currentAssets": 565334,
+      "currentLiabilities": 64906,
+      "relatedPartyDebt": null,
+      "deferredRevenue": 735589,
+      "netWorth": 26077
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section.",
+    "Franchisor financial distress disclosed (negative net worth) \u2014 confirm its ability to support the system against the audited statements."
+   ],
+   "midCohort": {
+    "label": "Network Average",
+    "monthlyRevenue": 27354.17,
+    "monthlyVariable": 1914.7919000000002,
+    "monthlyFixed": 400,
+    "monthlyEbitda": 25039.378099999998,
+    "annualEbitda": 300472.53719999996,
+    "coversCosts": true,
+    "source": {
+     "basis": "network",
+     "label": "network average of disclosed cohorts",
+     "math": null
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 272050,
+   "assumedLoan": 217640,
+   "assumedMonthlyDebtService": 2936.725269822998,
+   "dscr": 8.526292315218566,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.9054072047154132,
+   "variableRate": 0.07,
+   "fixedMonthly": 400,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 22050,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 22050,
+   "meetsNetWorthRequirement": true,
+   "meetsLiquidRequirement": true,
+   "adjustedMonthlyDebtService": 297.5316678900804,
+   "adjustedMonthlyNetCashFlow": 24741.846432109916,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $272,050 mid-point build-out, there is a $22,050 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $24,742/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "beauty_personal_care",
+   "conceptLabel": "Beauty / personal care",
+   "conceptRationale": "Children's specialty hair salon providing haircuts and related personal-care services in a themed retail environment.",
+   "benchmark": {
+    "label": "Beauty / personal care",
+    "cogsPct": [
+     8,
+     18
+    ],
+    "laborPct": [
+     35,
+     50
+    ],
+    "occupancyPct": [
+     8,
+     15
+    ],
+    "operatingEbitdaPct": [
+     8,
+     18
+    ],
+    "dominantRisk": "Commission/booth-rent labor and chair utilization. Labor structure dominates economics.",
+    "rampNote": "6\u201312 months to mature chair utilization.",
+    "considerations": [
+     "Labor (commission or booth-rent) is the big line at ~35\u201350%; COGS on product is modest.",
+     "Verify chair/room utilization and stylist retention with Item 20 operators.",
+     "Confirm whether labor runs on commission, hourly, or booth rent \u2014 it changes the model entirely."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 8\u201318% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 27354.17,
+   "marginAfterFeesMonthly": 25039.378099999998,
+   "benchmarkOperatingEbitdaMonthly": [
+    -400,
+    9448
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    35,
+    50
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      25039.378099999998,
+      25039.378099999998
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      8,
+      15
+     ],
+     "dollarRange": [
+      2188,
+      4103
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      8,
+      18
+     ],
+     "dollarRange": [
+      2188,
+      4924
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      35,
+      50
+     ],
+     "dollarRange": [
+      9574,
+      13677
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 2.8\u20133.9 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      1641,
+      2735
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -400,
+      9448
+     ],
+     "note": "\u2248 -1% to 35% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cBeauty / personal care\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 8\u201315% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 8\u201318% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 35\u201350% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "This franchisor is carrying a deficit and running a net loss as it grows \u2014 net worth is roughly $18K in the red. Its audit is clean and revenue is rising, so the question is runway: understand how the gap is funded, and for how long, before you commit.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "body": [
+    "What we found (2025-12-31, audited by Symphona LLP): Net loss of $27K on $2.16M of revenue \u2014 roughly 1.0x spent per $1 earned. Losses are widening, not shrinking. Negative net worth (a members'/stockholders' deficit) of $18K, and deepening year over year. Total liabilities are about 1.0x total assets. Cash of $291K against $110K of obligations due within a year (a current ratio of 4.82). Note: about 81% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.2x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "negative net worth that is deepening year over year",
+    "operating losses that are widening"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": -17849,
+    "netWorthSign": "negative",
+    "netWorthTrend": "worsening",
+    "netIncome": -26541,
+    "netIncomeTrend": "worsening",
+    "revenue": 2160161,
+    "revenueTrend": "improving",
+    "currentRatio": 4.824004731789436,
+    "workingCapital": 420239,
+    "liabilitiesToAssets": 1.0212165805276747,
+    "adjLiabilitiesToAssets": 0.19752495019470423,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": 0.8065787865560891,
+    "expenseToRevenue": 1.0122865841944189,
+    "cash": 290941,
+    "nearTermObligations": 109895
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

@@ -1,0 +1,619 @@
+{
+ "slug": "floor-coverings-international",
+ "brandName": "Floor Coverings International",
+ "category": "Interior/remodel",
+ "vertical": "Home & Property Services",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "floor-coverings",
+ "fileHash": "a671b41de219fe27",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Floor Coverings International",
+   "franchisorEntity": "Floorcoverings International, Ltd.",
+   "headquarters": "5390 Triangle Parkway, Suite 125, Norcross, Georgia 30092",
+   "brandBackground": "Floor Coverings International operates a mobile retail floor covering business offering soft and hard flooring products directly to consumers.",
+   "leadership": [
+    {
+     "name": "Thomas W. Wood",
+     "role": "President, CEO and Director",
+     "background": "Has served as President, CEO and Director of FCI since January 2005.",
+     "whyItMatters": "Provides long-term executive leadership and stability to the franchise system."
+    },
+    {
+     "name": "Brian McDonough",
+     "role": "Treasurer, Secretary and Director",
+     "background": "Served as Treasurer, Secretary and Director since 2021; previously VP of Finance at FS Brands.",
+     "whyItMatters": "Oversees financial controls and corporate governance across the brand portfolio."
+    },
+    {
+     "name": "Charles E. Chase",
+     "role": "Director",
+     "background": "Director of FCI since August 2010 and President of FS Brands, Inc.",
+     "whyItMatters": "Connects the franchise to parent company resources and strategic alignment."
+    },
+    {
+     "name": "Chad Schloerke",
+     "role": "Chief Operations Officer",
+     "background": "Joined FCI in August 2006 as a trainer and operations manager, currently COO.",
+     "whyItMatters": "Directs franchisee support, training, and operational execution."
+    },
+    {
+     "name": "Benjamin Pace",
+     "role": "Chief Financial Officer",
+     "background": "Joined FCI in February 2020; previously Director of Accounting and Finance at Ballentine.",
+     "whyItMatters": "Manages the financial strategy and accounting systems for the franchisor."
+    },
+    {
+     "name": "Albert Hermans",
+     "role": "Chief Development Officer",
+     "background": "Joined FCI in June 2015 as Director of Emerging Operations, currently CDO.",
+     "whyItMatters": "Leads franchise system expansion and recruitment efforts."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Top 10% Franchisees Gross Revenue Installed",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 267588,
+      "basis": "Average Gross Revenue Installed for the top 10% of reporting U.S. franchisees open over 24 months.",
+      "annualRevenue": 3211059,
+      "monthlyValues": [],
+      "sampleSize": 16
+     },
+     {
+      "label": "Top 25% Franchisees Gross Revenue Installed",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 193454,
+      "basis": "Average Gross Revenue Installed for the top 25% of reporting U.S. franchisees open over 24 months.",
+      "annualRevenue": 2321450,
+      "monthlyValues": [],
+      "sampleSize": 40
+     },
+     {
+      "label": "Top 50% Franchisees Gross Revenue Installed",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 146190,
+      "basis": "Average Gross Revenue Installed for the top 50% of reporting U.S. franchisees open over 24 months.",
+      "annualRevenue": 1754279,
+      "monthlyValues": [],
+      "sampleSize": 80
+     },
+     {
+      "label": "Bottom 50% Franchisees Gross Revenue Installed",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 55957,
+      "basis": "Average Gross Revenue Installed for the bottom 50% of reporting U.S. franchisees open over 24 months.",
+      "annualRevenue": 671479,
+      "monthlyValues": [],
+      "sampleSize": 80
+     },
+     {
+      "label": "Bottom 25% Franchisees Gross Revenue Installed",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 42740,
+      "basis": "Average Gross Revenue Installed for the bottom 25% of reporting U.S. franchisees open over 24 months.",
+      "annualRevenue": 512879,
+      "monthlyValues": [],
+      "sampleSize": 40
+     },
+     {
+      "label": "Bottom 10% Franchisees Gross Revenue Installed",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 31364,
+      "basis": "Average Gross Revenue Installed for the bottom 10% of reporting U.S. franchisees open over 24 months.",
+      "annualRevenue": 376369,
+      "monthlyValues": [],
+      "sampleSize": 16
+     },
+     {
+      "label": "All Reporting Franchisees Gross Revenue Installed",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 101182,
+      "basis": "Average Gross Revenue Installed for all reporting U.S. franchisees open over 24 months.",
+      "annualRevenue": 1214185,
+      "monthlyValues": [],
+      "sampleSize": 159
+     }
+    ],
+    "notes": "Data represents U.S. franchisees open and operating for more than 24 months as of December 31, 2024, with complete sales data.",
+    "sourcePage": "Item 19, p. 41-52",
+    "networkAverageMonthly": null,
+    "unitsReported": 159
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Non-refundable fee paid to FCI.",
+      "high": 55000,
+      "low": 55000
+     },
+     {
+      "category": "InspireNet / InspireNet Mobile Software",
+      "recurring": false,
+      "notes": "Proprietary software license fee.",
+      "high": 7500,
+      "low": 7500
+     },
+     {
+      "category": "Software Access Fee (2 Months)",
+      "recurring": true,
+      "notes": "Ongoing monthly access fee.",
+      "high": 800,
+      "low": 450
+     },
+     {
+      "category": "Training Related Expenses",
+      "recurring": false,
+      "notes": "Travel, lodging, and meals for training.",
+      "high": 7000,
+      "low": 5000
+     },
+     {
+      "category": "Opening Package",
+      "recurring": false,
+      "notes": "Samples, measuring devices, marketing materials.",
+      "high": 45000,
+      "low": 39000
+     },
+     {
+      "category": "Personnel/Staffing",
+      "recurring": true,
+      "notes": "Initial staffing costs.",
+      "high": 5000,
+      "low": 2500
+     },
+     {
+      "category": "Initial Advertising Expenses",
+      "recurring": false,
+      "notes": "Local marketing within first 6 months.",
+      "high": 60000,
+      "low": 40000
+     },
+     {
+      "category": "Insurance",
+      "recurring": true,
+      "notes": "Liability, vehicle, and cyber insurance.",
+      "high": 7500,
+      "low": 2150
+     },
+     {
+      "category": "Miscellaneous Opening Costs",
+      "recurring": false,
+      "notes": "Licenses, utilities, phone setup.",
+      "high": 5000,
+      "low": 2000
+     },
+     {
+      "category": "FCI Vehicle",
+      "recurring": false,
+      "notes": "Lease or purchase of branded vehicle.",
+      "high": 10000,
+      "low": 5000
+     },
+     {
+      "category": "Office Equipment",
+      "recurring": false,
+      "notes": "Computers, printers, local hardware.",
+      "high": 5000,
+      "low": 2000
+     },
+     {
+      "category": "Real Estate and Improvements",
+      "recurring": false,
+      "notes": "Studio office/warehouse setup.",
+      "high": 8500,
+      "low": 5000
+     },
+     {
+      "category": "Additional Startup Funds - 6 months",
+      "recurring": false,
+      "notes": "Working capital for initial operations.",
+      "high": 65000,
+      "low": 35000
+     }
+    ],
+    "sourcePage": "Item 7, p. 18-19",
+    "initialInvestmentHigh": 281300,
+    "initialInvestmentLow": 200600
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Software Access Fee",
+      "source": "Item 6, p. 10",
+      "monthlyAmount": 400
+     },
+     {
+      "name": "Central Telephone Service Fee",
+      "source": "Item 6, p. 11",
+      "monthlyAmount": 450
+     }
+    ],
+    "brandFundPct": 3,
+    "localAdPct": 6,
+    "royaltyPct": 5
+   },
+   "hiddenCosts": [
+    {
+     "name": "Software Annual Maintenance and Upgrade Fee",
+     "description": "Annual fee for proprietary software maintenance.",
+     "source": "Item 6, p. 11",
+     "estimatedAnnualAmount": 1000
+    },
+    {
+     "name": "Product Sample Update Costs",
+     "description": "Annual cost to update flooring and window treatment samples.",
+     "source": "Item 6, p. 11",
+     "estimatedAnnualAmount": 1750
+    },
+    {
+     "name": "Annual Convention Attendance Fee",
+     "description": "Mandatory registration fee for annual franchisee convention.",
+     "source": "Item 6, p. 11",
+     "estimatedAnnualAmount": 2500
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 56",
+    "closedLastYear": 25,
+    "openedLastYear": 61,
+    "totalUnits": 309,
+    "transfersLastYear": 17
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by mediation or litigation only in Georgia.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4"
+    },
+    {
+     "title": "Mandatory Minimum Payments",
+     "description": "Franchisees must pay minimum royalty and advertising fees regardless of sales.",
+     "severity": "high",
+     "source": "Special Risks, p. 4"
+    },
+    {
+     "title": "Sales Performance Required",
+     "description": "Failure to maintain minimum sales levels can result in loss of territory or termination.",
+     "severity": "high",
+     "source": "Special Risks, p. 4"
+    }
+   ],
+   "conceptType": "home_trade_services",
+   "staffingModel": "lightly_staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 888597127,
+      "totalAssets": 655396303,
+      "totalLiabilities": 288072242
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 850365665,
+      "totalAssets": 591191911,
+      "totalLiabilities": 281262019
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 782199246,
+      "totalAssets": 544168844,
+      "totalLiabilities": 262284061
+     }
+    ],
+    "auditorName": "PricewaterhouseCoopers LLP",
+    "parentName": "FS Brands, Inc."
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "The franchise operates as a mobile retail floor covering business providing home-based design consultations and installation services.",
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p. 20",
+    "squareFootage": null
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "The business is mobile-based and can be operated directly by the owner or with a small team of design associates and contracted installers."
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "2 high-severity operational tripwires disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Top 10% Franchisees Gross Revenue Installed",
+    "monthlyRevenue": 267588,
+    "monthlyVariable": 37462.32000000001,
+    "monthlyFixed": 850,
+    "monthlyEbitda": 229275.68,
+    "annualEbitda": 2751308.16,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Top 10% Franchisees Gross Revenue Installed",
+     "math": "$3,211,059/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 16
+    }
+   },
+   "bottomCohort": {
+    "label": "Bottom 50% Franchisees Gross Revenue Installed",
+    "monthlyRevenue": 55957,
+    "monthlyVariable": 7833.9800000000005,
+    "monthlyFixed": 850,
+    "monthlyEbitda": 47273.02,
+    "annualEbitda": 567276.24,
+    "coversCosts": true
+   },
+   "buildoutMidpoint": 240950,
+   "assumedLoan": 192760,
+   "assumedMonthlyDebtService": 2601.0069978454376,
+   "dscr": 88.14881320577842,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.08757652214428789,
+   "variableRate": 0.14,
+   "fixedMonthly": 850,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 229275.68,
+   "survivesBottomCohort": true,
+   "assessment": "$250,000 liquid covers the $240,950 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $229,276/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "The franchise operates as a mobile retail floor covering business providing home-based design consultations and installation services.",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 267588,
+   "marginAfterFeesMonthly": 229275.68,
+   "benchmarkOperatingEbitdaMonthly": [
+    23234,
+    114213
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 10\u201321% \u2014 the 20\u201335% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    10,
+    21
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      229275.68,
+      229275.68
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      2,
+      6
+     ],
+     "dollarRange": [
+      5352,
+      16055
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      25,
+      40
+     ],
+     "dollarRange": [
+      66897,
+      107035
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      21
+     ],
+     "dollarRange": [
+      26759,
+      56193
+     ],
+     "note": "lightly staffed \u00b7 \u2248 7.7\u201316.2 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      16055,
+      26759
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      23234,
+      114213
+     ],
+     "note": "\u2248 9% to 43% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 2\u20136% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 25\u201340% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 10\u201321% lightly staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. FS Brands, Inc. guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "elevated unit closures (25 in the last year, about 8% of the system)"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 888597127,
+    "revenueTrend": "flat",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.4395390097279813,
+    "adjLiabilitiesToAssets": 0.4395390097279813,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

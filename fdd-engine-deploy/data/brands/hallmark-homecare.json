@@ -1,0 +1,574 @@
+{
+ "slug": "hallmark-homecare",
+ "brandName": "Hallmark Homecare",
+ "category": "In-home care",
+ "vertical": "Senior Care",
+ "grade": "READY",
+ "parseQuality": "clean",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "hallmark-homecare",
+ "fileHash": "5871a1e33319d445",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Hallmark Homecare",
+   "franchisorEntity": "Hallmark Homecare, LLC",
+   "headquarters": "Incline Village, Nevada",
+   "brandBackground": "Offers franchises for the operation of a domestic referral agency providing caregiver search, recruitment, and placement services to the elderly.",
+   "leadership": [
+    {
+     "name": "Steve Everhart",
+     "role": "Chief Executive Officer and Managing Member",
+     "background": "CEO and Managing Member since formation in December 2022, and founder of predecessor HHI in 2011.",
+     "whyItMatters": "Provides long-term brand continuity and executive leadership."
+    },
+    {
+     "name": "Tony Fulton",
+     "role": "President",
+     "background": "President since May 2023, and founder of Guardian Angels Homecare since 2003.",
+     "whyItMatters": "Brings extensive hands-on senior care franchise experience."
+    },
+    {
+     "name": "Julie-Ann Parrott",
+     "role": "Chief Operating Officer",
+     "background": "COO since January 2023, and co-founder of RetireEASE Senior Services.",
+     "whyItMatters": "Oversees daily operations with over 22 years of senior care experience."
+    },
+    {
+     "name": "Mike McLain",
+     "role": "Chief Growth Officer",
+     "background": "CGO since January 2023, and President of Altus Recruiting since 1996.",
+     "whyItMatters": "Leads franchise development and recruitment strategies."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Represented Franchisee #1 (McKinney, TX)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 240714,
+      "basis": "Item 19, p. 29",
+      "annualRevenue": 2888568,
+      "monthlyValues": [],
+      "sampleSize": 1
+     },
+     {
+      "label": "Represented Franchisee #2 (San Antonio, TX)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 115888,
+      "basis": "Item 19, p. 29",
+      "annualRevenue": 1390655,
+      "monthlyValues": [],
+      "sampleSize": 1
+     },
+     {
+      "label": "Represented Franchisee #3 (Charlotte, NC)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 151561,
+      "basis": "Item 19, p. 29",
+      "annualRevenue": 1818727,
+      "monthlyValues": [],
+      "sampleSize": 1
+     },
+     {
+      "label": "Represented Franchisee #4 (Greensboro, NC)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 168416,
+      "basis": "Item 19, p. 29",
+      "annualRevenue": 2020997,
+      "monthlyValues": [],
+      "sampleSize": 1
+     },
+     {
+      "label": "Represented Franchisee #5 (Louisville, KY)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 206168,
+      "basis": "Item 19, p. 29",
+      "annualRevenue": 2474018,
+      "monthlyValues": [],
+      "sampleSize": 1
+     },
+     {
+      "label": "Represented Franchisee #6 (St. George, UT)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 106328,
+      "basis": "Item 19, p. 29",
+      "annualRevenue": 1275936,
+      "monthlyValues": [],
+      "sampleSize": 1
+     },
+     {
+      "label": "Represented Franchisee #7 (Henderson, NV)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 44406,
+      "basis": "Item 19, p. 29",
+      "annualRevenue": 532867,
+      "monthlyValues": [],
+      "sampleSize": 1
+     },
+     {
+      "label": "Represented Franchisee #8 (Dawsonville, GA)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 47200,
+      "basis": "Item 19, p. 29",
+      "annualRevenue": 566394,
+      "monthlyValues": [],
+      "sampleSize": 1
+     },
+     {
+      "label": "Represented Franchisee #9 (Bayport, MN)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 28518,
+      "basis": "Item 19, p. 29",
+      "annualRevenue": 342216,
+      "monthlyValues": [],
+      "sampleSize": 1
+     }
+    ],
+    "notes": "The represented franchisees were selected from the top performing 50th percentile of all franchisees launched between 2022 and 2025.",
+    "sourcePage": "Item 19, p. 29",
+    "networkAverageMonthly": null,
+    "unitsReported": 9
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Franchise Fee",
+      "recurring": false,
+      "notes": "For one protected territory.",
+      "high": 59500,
+      "low": 59500
+     },
+     {
+      "category": "Equipment and Supplies",
+      "recurring": false,
+      "notes": "Includes computer, software, office furniture, and supplies.",
+      "high": 4000,
+      "low": 1500
+     },
+     {
+      "category": "Initial Marketing",
+      "recurring": false,
+      "notes": "Brochures, business cards, sponsorships, and networking.",
+      "high": 6000,
+      "low": 2500
+     },
+     {
+      "category": "Travel and Living Expenses During Training",
+      "recurring": false,
+      "notes": "For training in Irvine, California.",
+      "high": 2000,
+      "low": 1500
+     },
+     {
+      "category": "Miscellaneous Opening Costs",
+      "recurring": false,
+      "notes": "Business licenses and other start-up expenses.",
+      "high": 2000,
+      "low": 1000
+     },
+     {
+      "category": "Professional Fees",
+      "recurring": false,
+      "notes": "Attorneys and accountants.",
+      "high": 2500,
+      "low": 500
+     },
+     {
+      "category": "Insurance",
+      "recurring": true,
+      "notes": "First year premium estimate.",
+      "high": 3500,
+      "low": 3000
+     },
+     {
+      "category": "Additional Funds - 3 Months",
+      "recurring": false,
+      "notes": "Operating funds for the first three months.",
+      "high": 55000,
+      "low": 40000
+     }
+    ],
+    "sourcePage": "Item 7, p. 9",
+    "initialInvestmentHigh": 134500,
+    "initialInvestmentLow": 109500
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Required Systems Fees",
+      "source": "Item 6, p. 7",
+      "monthlyAmount": 375
+     }
+    ],
+    "brandFundPct": 0.01,
+    "localAdPct": null,
+    "royaltyPct": 0.06
+   },
+   "hiddenCosts": [
+    {
+     "name": "HallmarkXL Franchise Operating Platform Fee",
+     "description": "3.25% of Gross Sales paid weekly.",
+     "source": "Item 6, p. 7",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Level 2 Live Training Fee for Additional Trainees",
+     "description": "$1,500 per additional trainee.",
+     "source": "Item 6, p. 7",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 40",
+    "closedLastYear": 7,
+    "openedLastYear": 32,
+    "totalUnits": 59,
+    "transfersLastYear": 0
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by litigation only in Nevada.",
+     "severity": "medium",
+     "source": "Special Risks, p. iv"
+    },
+    {
+     "title": "Sales Performance Required",
+     "description": "Failure to maintain minimum sales performance levels can lead to termination.",
+     "severity": "high",
+     "source": "Special Risks, p. iv"
+    },
+    {
+     "title": "Mandatory Minimum Payments",
+     "description": "Minimum royalty and marketing fee payments are required regardless of sales levels starting three months after signing.",
+     "severity": "medium",
+     "source": "Special Risks, p. iv"
+    }
+   ],
+   "conceptType": "other",
+   "staffingModel": "lightly_staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 5796812,
+      "totalAssets": 2530350,
+      "totalLiabilities": 79056
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 3781958,
+      "totalAssets": 1426532,
+      "totalLiabilities": 352679
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 4291190,
+      "totalAssets": 1705666,
+      "totalLiabilities": 326495
+     }
+    ],
+    "auditorName": "Edward A. Rose, Jr., CPA, PC",
+    "parentName": "Hallmark Homecare, Inc."
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "The franchise operates as a domestic referral agency matching caregivers with clients, which does not fit standard food, retail, or fitness categories.",
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p. 10",
+    "squareFootage": null
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "The business is operated from a home office with no initial employees anticipated during the first few months."
+  },
+  "scoring": {
+   "riskLevel": "Low",
+   "riskReasons": [
+    "Pro forma is built on only 1 franchised location \u2014 a very thin sample; treat the modeled franchisee economics as low-confidence.",
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Represented Franchisee #1 (McKinney, TX)",
+    "monthlyRevenue": 240714,
+    "monthlyVariable": 168.49979999999996,
+    "monthlyFixed": 375,
+    "monthlyEbitda": 240170.5002,
+    "annualEbitda": 2882046.0024,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Represented Franchisee #1 (McKinney, TX)",
+     "math": "$2,888,568/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 1
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 122000,
+   "assumedLoan": 97600,
+   "assumedMonthlyDebtService": 1316.9655685293355,
+   "dscr": 182.36657505647628,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.04233103840063812,
+   "variableRate": 0.0006999999999999999,
+   "fixedMonthly": 375,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 240170.5002,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $122,000 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, modeled cash flow after debt service is about $240,171/mo before payroll and maintenance \u2014 a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "other",
+   "conceptLabel": "General franchise (uncategorized)",
+   "conceptRationale": "The franchise operates as a domestic referral agency matching caregivers with clients, which does not fit standard food, retail, or fitness categories.",
+   "benchmark": {
+    "label": "General franchise (uncategorized)",
+    "cogsPct": [
+     15,
+     35
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     6,
+     12
+    ],
+    "operatingEbitdaPct": [
+     8,
+     20
+    ],
+    "dominantRisk": "Cost of goods and labor are not disclosed in any FDD \u2014 model them explicitly before trusting any margin figure.",
+    "rampNote": "Assume 6\u201318 months to a mature run-rate.",
+    "considerations": [
+     "Budget COGS and labor explicitly \u2014 neither is in the FDD, and together they usually run 45\u201365% of sales.",
+     "Use the Item 20 franchisee list to validate real operating costs and ramp before committing capital."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 8\u201320% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 240714,
+   "marginAfterFeesMonthly": 240170.5002,
+   "benchmarkOperatingEbitdaMonthly": [
+    52414,
+    151107
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "lightly_staffed",
+   "staffingLabel": "lightly staffed",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 10\u201321% \u2014 the 20\u201335% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "laborPctEffective": [
+    10,
+    21
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      240170.5002,
+      240170.5002
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      12
+     ],
+     "dollarRange": [
+      14443,
+      28886
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      15,
+      35
+     ],
+     "dollarRange": [
+      36107,
+      84250
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      10,
+      21
+     ],
+     "dollarRange": [
+      24071,
+      50550
+     ],
+     "note": "lightly staffed \u00b7 \u2248 6.9\u201314.6 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      14443,
+      24071
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      52414,
+      151107
+     ],
+     "note": "\u2248 22% to 63% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cGeneral franchise (uncategorized)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating model",
+     "basis": "inferred",
+     "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 6\u201312% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 15\u201335% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 10\u201321% lightly staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. Hallmark Homecare, Inc. guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "elevated unit closures (7 in the last year, about 12% of the system)"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 5796812,
+    "revenueTrend": "improving",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.031243108660857194,
+    "adjLiabilitiesToAssets": 0.031243108660857194,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

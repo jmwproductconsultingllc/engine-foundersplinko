@@ -1,0 +1,949 @@
+{
+ "slug": "the-original-rainbow-cone",
+ "brandName": "The Original Rainbow Cone",
+ "category": "Frozen dessert",
+ "vertical": "Food & Beverage",
+ "grade": "READY",
+ "parseQuality": "degraded-fallback",
+ "sourceFddYear": null,
+ "generatedAt": "2026-07-13T00:14:33.873108+00:00",
+ "sourceStem": "rainbowCones",
+ "fileHash": "8f5faea54eb4ba3c",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 4",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 9",
+     "Item 10",
+     "Item 11",
+     "Item 12",
+     "Item 13",
+     "Item 14",
+     "Item 15",
+     "Item 16",
+     "Item 17",
+     "Item 18",
+     "Item 19",
+     "Item 20",
+     "Item 21",
+     "Item 22",
+     "Item 23"
+    ],
+    "warnings": [
+     "Only 4 of 21 affiliate-owned units have full P&L disclosure; remaining units show gross sales only.",
+     "Franchisor has a short operating history (franchising since 2019) and the Special Risks section flags financial condition concerns."
+    ]
+   },
+   "brandName": "The Original Rainbow Cone",
+   "franchisorEntity": "Five Flavors Franchising LLC",
+   "headquarters": "Burr Ridge, IL",
+   "brandBackground": "Chicago-origin ice cream brand established in 1926, acquired by affiliate Rainbow Cone LLC in 2018, now franchising three formats (Free Standing, In-Line, Express) plus Food Truck add-on.",
+   "conceptType": "food_beverage_qsr",
+   "conceptRationale": "Quick-service ice cream shop selling cones, cakes, sundaes, shakes, and related products with counter/drive-through service and no full table-service dining.",
+   "staffingModel": "staffed",
+   "staffingRationale": "Item 15 requires a full-time Operating Manager (40+ hrs/week) plus crew; Item 19 P&L shows substantial salaries and wages line items consistent with a conventionally staffed QSR.",
+   "leadership": [
+    {
+     "name": "Joseph Buonavolanto Jr.",
+     "role": "Manager",
+     "background": "Co-Manager of Five Flavors Franchising LLC since 2018; long-tenured Co-Manager of The Buona Companies and Buona Beef entities since 1999.",
+     "whyItMatters": "Founding manager with decades of multi-unit restaurant operating experience backing the system."
+    },
+    {
+     "name": "Joseph Buonavolanto III",
+     "role": "Executive Vice President",
+     "background": "EVP since January 2024; previously VP of Franchising from 2022; prior Director of Operations for Buona Beef LLC.",
+     "whyItMatters": "Primary franchise development and support executive driving franchisee growth."
+    },
+    {
+     "name": "Mike Buonavolanto",
+     "role": "Manager and Vice President of Real Estate",
+     "background": "Manager of Five Flavors Franchising LLC since 2018; Director of Real Estate for The Buona Companies since 2014.",
+     "whyItMatters": "Controls site selection and real estate approval process critical to franchisee location success."
+    },
+    {
+     "name": "Nick Arajuo",
+     "role": "Chief Financial Officer",
+     "background": "CFO of The Buona Companies LLC since 2019; Director of Finance from 2001\u20132019.",
+     "whyItMatters": "Oversees financial reporting and controls for the franchisor and affiliated entities."
+    },
+    {
+     "name": "Laurie Cairns",
+     "role": "Senior Vice President of Marketing",
+     "background": "SVP of Marketing for The Buona Companies LLC since September 2024; previously self-employed at Cairns Communications.",
+     "whyItMatters": "Leads brand marketing fund strategy and franchisee advertising programs."
+    },
+    {
+     "name": "Brie Craft",
+     "role": "Learning and Development Manager",
+     "background": "Learning and Development Manager since May 2024; Franchise Onboarding and Training Manager from 2022\u20132024 at The Buona Companies.",
+     "whyItMatters": "Manages initial and ongoing franchisee training programs."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, pp.61-71",
+    "unitsReported": 26,
+    "networkAverageMonthly": null,
+    "notes": "Item 19 covers 21 affiliate-owned units and 5 franchised units for the period March 24, 2025 to March 24, 2026. Full P&L is provided for 4 affiliate Free Standing units and 1 affiliate Express stand-alone unit; all other units show gross sales only. Affiliate units do not pay franchisor fees, but fees are imputed in the P&L tables. Franchised unit data is gross sales from POS only \u2014 no P&L. Data is unaudited.",
+    "cohorts": [
+     {
+      "label": "Affiliate Free Standing Unit #1 (No Drive-Through) \u2014 Gross Sales",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "annualRevenue": 1038760,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "Unaudited internal P&L, March 24, 2025 \u2013 March 24, 2026; original 1926 Chicago location, no drive-through."
+     },
+     {
+      "label": "Affiliate Free Standing Unit #1 (No Drive-Through) \u2014 Income (Pre-Rent/Tax/D&A)",
+      "ownership": "affiliate",
+      "revenueType": "net_or_ebitda",
+      "annualRevenue": 264664,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "Unaudited internal P&L; income is after imputed royalty (6%), brand fund (3%), local ad (2%), tech fee, and operating expenses but before rent, taxes, depreciation, and amortization."
+     },
+     {
+      "label": "Affiliate Free Standing Unit #2 (With Drive-Through) \u2014 Gross Sales",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "annualRevenue": 944679,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "Unaudited internal P&L, March 24, 2025 \u2013 March 24, 2026; suburban Chicago, opened May 2021, has drive-through."
+     },
+     {
+      "label": "Affiliate Free Standing Unit #2 (With Drive-Through) \u2014 Income (Pre-Rent/Tax/D&A)",
+      "ownership": "affiliate",
+      "revenueType": "net_or_ebitda",
+      "annualRevenue": 158116,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "Unaudited internal P&L; income before rent, taxes, depreciation, and amortization."
+     },
+     {
+      "label": "Affiliate Free Standing Unit #3 (With Drive-Through) \u2014 Gross Sales",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "annualRevenue": 1295415,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "Unaudited internal P&L, March 24, 2025 \u2013 March 24, 2026; suburban Chicago, opened May 2023, has drive-through."
+     },
+     {
+      "label": "Affiliate Free Standing Unit #3 (With Drive-Through) \u2014 Income (Pre-Rent/Tax/D&A)",
+      "ownership": "affiliate",
+      "revenueType": "net_or_ebitda",
+      "annualRevenue": 297665,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "Unaudited internal P&L; income before rent, taxes, depreciation, and amortization."
+     },
+     {
+      "label": "Affiliate Express Stand-Alone Seasonal Kiosk \u2014 Gross Sales",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "annualRevenue": 444568,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "Unaudited internal P&L; seasonal captive tourist/entertainment venue, open May\u2013September 2025 only."
+     },
+     {
+      "label": "Affiliate Express Stand-Alone Seasonal Kiosk \u2014 Income (Pre-Rent/Tax/D&A)",
+      "ownership": "affiliate",
+      "revenueType": "net_or_ebitda",
+      "annualRevenue": 241250,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "Unaudited internal P&L; income before rent, taxes, depreciation, and amortization; seasonal unit."
+     },
+     {
+      "label": "Affiliate Express Units Inside Buona Beef Restaurants (11 units) \u2014 Gross Sales",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 11,
+      "monthlyValues": [],
+      "basis": "POS-sourced gross sales only (unaudited); individual unit annual sales range from $129,994 to $392,465; units #2\u2013#12 inside affiliate Buona Beef restaurants, open year-round, 1\u201318 years in operation."
+     },
+     {
+      "label": "Affiliate Express Seasonal Outdoor Kiosk Next to Buona Beef (Unit #13) \u2014 Gross Sales",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "annualRevenue": 83315,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "POS-sourced gross sales only (unaudited); seasonal May\u2013September 2025; opened May 2022."
+     },
+     {
+      "label": "Affiliate Food Trucks (3 seasonal units) \u2014 Gross Sales",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 3,
+      "monthlyValues": [],
+      "basis": "POS-sourced gross sales only (unaudited); seasonal May\u2013September 2025; individual truck sales: $226,614, $376,200, $307,897."
+     },
+     {
+      "label": "Franchised Express Unit #1 \u2014 Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "annualRevenue": 256792,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 1,
+      "basis": "POS-sourced gross sales (unaudited); opened June 2023; period March 24, 2025 \u2013 March 24, 2026."
+     },
+     {
+      "label": "Franchised In-Line Units (3 units) \u2014 Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "annualRevenue": null,
+      "avgMonthlyRevenue": null,
+      "sampleSize": 3,
+      "monthlyValues": [],
+      "basis": "POS-sourced gross sales (unaudited); individual unit annual sales: $254,308, $492,390, $287,496; opened May 2024, February 2025, March 2025."
+     }
+    ]
+   },
+   "item17": {
+    "sourcePage": "Item 7, pp.16-31",
+    "initialInvestmentLow": 209354,
+    "initialInvestmentHigh": 4969378,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee \u2014 Free Standing / In-Line",
+      "low": 40000,
+      "high": 40000,
+      "recurring": false,
+      "notes": "Item 5, p.6; $40,000 lump sum at signing; non-refundable except 10% if franchisor terminates for training failure."
+     },
+     {
+      "category": "Initial Franchise Fee \u2014 Express",
+      "low": 20000,
+      "high": 20000,
+      "recurring": false,
+      "notes": "Item 5, p.6; $20,000 lump sum at signing."
+     },
+     {
+      "category": "Land Acquisition (Free Standing Ground-Up)",
+      "low": 500000,
+      "high": 1200000,
+      "recurring": false,
+      "notes": "Item 7, p.16; cost to purchase land; 20,000\u201340,000 sq ft estimated."
+     },
+     {
+      "category": "Site Work (Free Standing Ground-Up)",
+      "low": 474861,
+      "high": 712292,
+      "recurring": false,
+      "notes": "Item 7, p.16; site development for new building construction."
+     },
+     {
+      "category": "Construction of Building (Free Standing Ground-Up)",
+      "low": 1778965,
+      "high": 2405835,
+      "recurring": false,
+      "notes": "Item 7, p.16; 1,800\u20132,800 sq ft building including all finishes, MEP, and architectural/engineering fees."
+     },
+     {
+      "category": "Design and Architect Fees \u2014 Free Standing Leased",
+      "low": 25000,
+      "high": 60000,
+      "recurring": false,
+      "notes": "Item 7, p.20; mandatory purchase from affiliate Keystone Planning + Design PLLC; $5,000 deposit at site approval."
+     },
+     {
+      "category": "Design and Architect Fees \u2014 In-Line",
+      "low": 18000,
+      "high": 26000,
+      "recurring": false,
+      "notes": "Item 7, p.24; mandatory purchase from affiliate Keystone Planning + Design PLLC."
+     },
+     {
+      "category": "Design and Architect Fees \u2014 Express",
+      "low": 3500,
+      "high": 7500,
+      "recurring": false,
+      "notes": "Item 7, p.26; mandatory purchase from affiliate Keystone Planning + Design PLLC."
+     },
+     {
+      "category": "Lease, Utility and Security Deposits \u2014 Free Standing Leased",
+      "low": 24500,
+      "high": 38500,
+      "recurring": false,
+      "notes": "Item 7, p.20; security deposit typically 1\u20132 months rent; 2,200\u20132,800 sq ft premises."
+     },
+     {
+      "category": "Lease, Utility and Security Deposits \u2014 In-Line",
+      "low": 6000,
+      "high": 20000,
+      "recurring": false,
+      "notes": "Item 7, p.24; 800\u20131,800 sq ft premises."
+     },
+     {
+      "category": "Lease, Utility and Security Deposits \u2014 Express",
+      "low": 1500,
+      "high": 6500,
+      "recurring": false,
+      "notes": "Item 7, p.26; 200\u2013600 sq ft premises."
+     },
+     {
+      "category": "Lease Rental Payments \u2013 First 3 Months \u2014 Free Standing Leased",
+      "low": 24500,
+      "high": 52500,
+      "recurring": false,
+      "notes": "Item 7, p.20; 3 months rent including CAM, taxes, and insurance."
+     },
+     {
+      "category": "Lease Rental Payments \u2013 First 3 Months \u2014 In-Line",
+      "low": 8750,
+      "high": 24500,
+      "recurring": false,
+      "notes": "Item 7, p.24."
+     },
+     {
+      "category": "Lease Rental Payments \u2013 First 3 Months \u2014 Express",
+      "low": 2500,
+      "high": 10000,
+      "recurring": false,
+      "notes": "Item 7, p.26."
+     },
+     {
+      "category": "Leasehold Improvements \u2014 Free Standing Leased",
+      "low": 282600,
+      "high": 560000,
+      "recurring": false,
+      "notes": "Item 7, p.20; varies by size, configuration, and landlord TI allowance."
+     },
+     {
+      "category": "Leasehold Improvements \u2014 In-Line",
+      "low": 116310,
+      "high": 355165,
+      "recurring": false,
+      "notes": "Item 7, p.24."
+     },
+     {
+      "category": "Leasehold Improvements \u2014 Express",
+      "low": 70000,
+      "high": 115000,
+      "recurring": false,
+      "notes": "Item 7, p.26."
+     },
+     {
+      "category": "Travel and Living Costs While Training \u2014 Free Standing Ground-Up",
+      "low": 62268,
+      "high": 87068,
+      "recurring": false,
+      "notes": "Item 7, p.16; owner and managers' travel, lodging, meals for ~15-day training in Chicago area."
+     },
+     {
+      "category": "Travel and Living Costs While Training \u2014 Free Standing Leased",
+      "low": 11786,
+      "high": 13230,
+      "recurring": false,
+      "notes": "Item 7, p.20."
+     },
+     {
+      "category": "Travel and Living Costs While Training \u2014 In-Line",
+      "low": 7454,
+      "high": 8798,
+      "recurring": false,
+      "notes": "Item 7, p.24."
+     },
+     {
+      "category": "Travel and Living Costs While Training \u2014 Express",
+      "low": 7454,
+      "high": 8226,
+      "recurring": false,
+      "notes": "Item 7, p.26; ~10-day training."
+     },
+     {
+      "category": "Initial Inventory and Supplies \u2014 Free Standing Ground-Up",
+      "low": 25000,
+      "high": 40000,
+      "recurring": false,
+      "notes": "Item 7, p.16; food, beverages, paper, cleaning supplies, merchandise."
+     },
+     {
+      "category": "Initial Inventory and Supplies \u2014 Free Standing Leased",
+      "low": 15000,
+      "high": 20000,
+      "recurring": false,
+      "notes": "Item 7, p.20."
+     },
+     {
+      "category": "Initial Inventory and Supplies \u2014 In-Line",
+      "low": 10000,
+      "high": 12000,
+      "recurring": false,
+      "notes": "Item 7, p.24."
+     },
+     {
+      "category": "Initial Inventory and Supplies \u2014 Express",
+      "low": 6000,
+      "high": 10000,
+      "recurring": false,
+      "notes": "Item 7, p.26."
+     },
+     {
+      "category": "Furniture, Fixtures and Equipment (excl. Sign Package and POS) \u2014 Free Standing",
+      "low": 196001,
+      "high": 247580,
+      "recurring": false,
+      "notes": "Item 7, p.16; all equipment, furniture, fixtures, beverage systems."
+     },
+     {
+      "category": "Furniture, Fixtures and Equipment (excl. Sign Package and POS) \u2014 In-Line",
+      "low": 84455,
+      "high": 124252,
+      "recurring": false,
+      "notes": "Item 7, p.24."
+     },
+     {
+      "category": "Furniture, Fixtures and Equipment (excl. Sign Package and POS) \u2014 Express",
+      "low": 46975,
+      "high": 60024,
+      "recurring": false,
+      "notes": "Item 7, p.26."
+     },
+     {
+      "category": "Sign Package \u2014 Free Standing",
+      "low": 52000,
+      "high": 71500,
+      "recurring": false,
+      "notes": "Item 7, p.16; interior and exterior signs; excludes sales tax."
+     },
+     {
+      "category": "Sign Package \u2014 In-Line",
+      "low": 26834,
+      "high": 40000,
+      "recurring": false,
+      "notes": "Item 7, p.24."
+     },
+     {
+      "category": "Sign Package \u2014 Express",
+      "low": 13500,
+      "high": 16500,
+      "recurring": false,
+      "notes": "Item 7, p.26."
+     },
+     {
+      "category": "POS System \u2014 Free Standing",
+      "low": 5200,
+      "high": 9000,
+      "recurring": false,
+      "notes": "Item 7, p.16; required Toast POS system; excludes sales tax."
+     },
+     {
+      "category": "POS System \u2014 In-Line",
+      "low": 3400,
+      "high": 5600,
+      "recurring": false,
+      "notes": "Item 7, p.24."
+     },
+     {
+      "category": "POS System \u2014 Express",
+      "low": 2500,
+      "high": 3125,
+      "recurring": false,
+      "notes": "Item 7, p.26."
+     },
+     {
+      "category": "Miscellaneous Expenses \u2014 Free Standing",
+      "low": 9000,
+      "high": 37500,
+      "recurring": false,
+      "notes": "Item 7, p.16; attorneys' fees, accounting fees, licenses, utility deposits."
+     },
+     {
+      "category": "Miscellaneous Expenses \u2014 In-Line",
+      "low": 9500,
+      "high": 39500,
+      "recurring": false,
+      "notes": "Item 7, p.24."
+     },
+     {
+      "category": "Miscellaneous Expenses \u2014 Express",
+      "low": 7500,
+      "high": 35000,
+      "recurring": false,
+      "notes": "Item 7, p.26."
+     },
+     {
+      "category": "Grand Opening Advertising and Marketing \u2014 Free Standing",
+      "low": 15000,
+      "high": 25000,
+      "recurring": false,
+      "notes": "Item 7, p.17; mandatory minimum $15,000; spent 60 days pre-opening through first 90 days."
+     },
+     {
+      "category": "Grand Opening Advertising and Marketing \u2014 In-Line",
+      "low": 15000,
+      "high": 20000,
+      "recurring": false,
+      "notes": "Item 7, p.25."
+     },
+     {
+      "category": "Grand Opening Advertising and Marketing \u2014 Express",
+      "low": 5000,
+      "high": 10000,
+      "recurring": false,
+      "notes": "Item 7, p.27; mandatory minimum $5,000."
+     },
+     {
+      "category": "On-Site Training Fee \u2014 Free Standing",
+      "low": 12684,
+      "high": 18603,
+      "recurring": false,
+      "notes": "Item 7, p.17; $10,000 deposit at signing; balance up to $10,000 paid in two installments around opening; $250/trainer/day."
+     },
+     {
+      "category": "On-Site Training Fee \u2014 In-Line",
+      "low": 7925,
+      "high": 9687,
+      "recurring": false,
+      "notes": "Item 7, p.25."
+     },
+     {
+      "category": "On-Site Training Fee \u2014 Express",
+      "low": 7925,
+      "high": 9687,
+      "recurring": false,
+      "notes": "Item 7, p.27."
+     },
+     {
+      "category": "Additional Funds \u2013 3 Months \u2014 Free Standing",
+      "low": 35000,
+      "high": 75000,
+      "recurring": false,
+      "notes": "Item 7, p.17; working capital for first 3 months; excludes debt service."
+     },
+     {
+      "category": "Additional Funds \u2013 3 Months \u2014 In-Line",
+      "low": 35000,
+      "high": 75000,
+      "recurring": false,
+      "notes": "Item 7, p.25."
+     },
+     {
+      "category": "Additional Funds \u2013 3 Months \u2014 Express",
+      "low": 15000,
+      "high": 45000,
+      "recurring": false,
+      "notes": "Item 7, p.27."
+     },
+     {
+      "category": "Food Truck Fee",
+      "low": 10000,
+      "high": 10000,
+      "recurring": false,
+      "notes": "Item 7, p.30; paid at signing of Food Truck Amendment; non-refundable."
+     },
+     {
+      "category": "Vehicle Purchase Including Delivery Fees (Food Truck)",
+      "low": 54690,
+      "high": 96000,
+      "recurring": false,
+      "notes": "Item 7, p.30; new Dodge ProMaster (low) to new 14-ft Step Van (high)."
+     },
+     {
+      "category": "Outfitting of Truck (Food Truck)",
+      "low": 64170,
+      "high": 94116,
+      "recurring": false,
+      "notes": "Item 7, p.30; equipment, fixtures, installation, and vehicle wrap."
+     },
+     {
+      "category": "Opening Inventory (Food Truck)",
+      "low": 1000,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Item 7, p.30."
+     },
+     {
+      "category": "Insurance (Food Truck)",
+      "low": 2500,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Item 7, p.30; additional coverage for food truck operations."
+     },
+     {
+      "category": "POS System (Food Truck)",
+      "low": 1500,
+      "high": 3000,
+      "recurring": false,
+      "notes": "Item 7, p.30."
+     },
+     {
+      "category": "Professional Fees, Licenses and Permits (Food Truck)",
+      "low": 1500,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Item 7, p.30; government permits and professional services."
+     },
+     {
+      "category": "Additional Funds \u2013 3 Months (Food Truck)",
+      "low": 2500,
+      "high": 5000,
+      "recurring": false,
+      "notes": "Item 7, p.30."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 6,
+    "brandFundPct": 2,
+    "localAdPct": 2,
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "monthlyAmount": 325,
+      "source": "Item 6, p.9; currently $75/week (~$325/month)"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Required Software and Applications (Monthly)",
+     "description": "Estimated $1,000/month for required third-party software and applications (online ordering, loyalty, delivery, inventory, labor, accounting, security) paid directly to providers.",
+     "estimatedAnnualAmount": 12000,
+     "source": "Item 11, p.42"
+    },
+    {
+     "name": "PCI DSS Compliance",
+     "description": "Estimated $125/month for payment card industry data security standards compliance.",
+     "estimatedAnnualAmount": 1500,
+     "source": "Item 11, p.42"
+    },
+    {
+     "name": "POS and Computer System Annual Maintenance",
+     "description": "Estimated $1,200/year to maintain POS and computer systems.",
+     "estimatedAnnualAmount": 1200,
+     "source": "Item 11, p.42"
+    },
+    {
+     "name": "Mandatory Affiliate Architect/Design Fee (Deposit)",
+     "description": "$5,000 non-refundable deposit to affiliate Keystone Planning + Design PLLC required at site approval; total design fees $3,500\u2013$60,000 depending on format.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 5, p.7; Item 7, pp.20-26"
+    },
+    {
+     "name": "Supplier Rebates to Franchisor",
+     "description": "Approved suppliers pay rebates to franchisor based on franchisee purchase volume; amount not disclosed.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 8, p.33"
+    },
+    {
+     "name": "Customer Satisfaction Reimbursement",
+     "description": "Franchisee must reimburse franchisor for any customer refunds issued at franchisor's sole discretion; amount varies.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.9"
+    },
+    {
+     "name": "Non-Compliance Fee",
+     "description": "$100\u2013$1,000 per day from first date of default until cured, depending on nature of default.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.14"
+    },
+    {
+     "name": "Supplemental / Additional Training Fees",
+     "description": "Up to 10 mandatory training days per year at $300/day per trainer plus travel; tuition for supplemental seminars not yet determined.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, pp.11-12"
+    },
+    {
+     "name": "Re-inspection Fee",
+     "description": "Franchisee reimburses franchisor's actual costs for a second quality-assurance inspection if deficiencies are found.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6, p.13"
+    },
+    {
+     "name": "Mandatory Remodel at Renewal",
+     "description": "Franchisee must remodel, reimage, renovate, and modernize to then-current standards within 6 months of signing renewal agreement; cost not specified.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 17, p.55"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, pp.72-74",
+    "totalUnits": 27,
+    "openedLastYear": 3,
+    "closedLastYear": 3,
+    "transfersLastYear": 0
+   },
+   "operationalRisks": [
+    {
+     "title": "Franchisor Financial Condition Risk",
+     "description": "The Special Risks section explicitly states the franchisor's financial condition calls into question its ability to provide services and support; financial statements are audited but the front-matter risk disclosure flags this concern.",
+     "severity": "high",
+     "source": "Special Risks, p.v; Item 21, p.76"
+    },
+    {
+     "title": "Short Operating History",
+     "description": "Franchisor began offering franchises in 2019 and is at an early stage of development, making this a riskier investment than a more established system.",
+     "severity": "high",
+     "source": "Special Risks, p.v; Item 1, p.4"
+    },
+    {
+     "title": "Spousal Liability Guarantee",
+     "description": "Franchisee's spouse must sign a guarantee making them personally liable for all financial obligations under the Franchise Agreement, placing marital and personal assets at risk.",
+     "severity": "high",
+     "source": "Special Risks, p.v; Item 15, p.54"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "All disputes must be arbitrated or litigated in Illinois, which may increase costs and reduce leverage for franchisees located in other states.",
+     "severity": "medium",
+     "source": "Special Risks, p.v; Item 17, p.59"
+    },
+    {
+     "title": "Seasonal Revenue Concentration",
+     "description": "Ice cream sales are highly seasonal; several affiliate units are only open May\u2013September, creating significant cash flow risk during winter months.",
+     "severity": "high",
+     "source": "Item 1, p.3; Item 19, pp.67-69"
+    },
+    {
+     "title": "Affiliate Competition Within Protected Area",
+     "description": "Franchisor retains the right to establish Express franchises at captive sites (airports, malls, stadiums, etc.) within the franchisee's Protected Area without compensation.",
+     "severity": "medium",
+     "source": "Item 12, p.48"
+    },
+    {
+     "title": "Mandatory Affiliate Supplier for Architecture",
+     "description": "Franchisees must use affiliate Keystone Planning + Design PLLC as the sole designated architect, limiting competitive bidding on design costs.",
+     "severity": "medium",
+     "source": "Item 8, p.32"
+    },
+    {
+     "title": "High Termination Rate in 2025",
+     "description": "Three franchised outlets were terminated in 2025 against only three openings, resulting in zero net franchised unit growth for the year.",
+     "severity": "high",
+     "source": "Item 20, p.73"
+    },
+    {
+     "title": "Liquidated Damages on Early Termination",
+     "description": "If franchisee is terminated for material breach or abandons the business, franchisor may collect a lump-sum equal to the net present value of all remaining royalties for the unexpired term.",
+     "severity": "high",
+     "source": "Item 6, p.14; Item 17, p.57"
+    },
+    {
+     "title": "No Financing Offered",
+     "description": "Franchisor provides no direct or indirect financing; franchisees must secure all capital independently, which is challenging given the franchisor's limited track record.",
+     "severity": "medium",
+     "source": "Item 10, p.36"
+    }
+   ],
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "squareFootage": null,
+    "source": "Item 7 discloses lease deposits and 3-month rent payments but does not state a per-sqft or monthly rent rate; Item 11 notes franchisor will not approve a site with estimated occupancy cost exceeding 12% of projected AUV (Item 11, p.39). No specific $/sqft rent rate is disclosed."
+   },
+   "averageRentMonthly": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "R.J. Augustine & Associates, Ltd.",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": null,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-30",
+      "revenue": 509038,
+      "netIncome": -234106,
+      "totalAssets": 873354,
+      "totalLiabilities": 1195252,
+      "cash": 485651,
+      "currentAssets": 525021,
+      "currentLiabilities": 221205,
+      "relatedPartyDebt": 600000,
+      "deferredRevenue": 418490,
+      "netWorth": -321898
+     },
+     {
+      "fiscalYearEnd": "2024-12-29",
+      "revenue": 741292,
+      "netIncome": -220884,
+      "totalAssets": 1025926,
+      "totalLiabilities": 1263718,
+      "cash": 484151,
+      "currentAssets": 563593,
+      "currentLiabilities": 162573,
+      "relatedPartyDebt": 600000,
+      "deferredRevenue": 550478,
+      "netWorth": -237792
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 582219,
+      "netIncome": 102495,
+      "totalAssets": 1305773,
+      "totalLiabilities": 1322679,
+      "cash": 565409,
+      "currentAssets": 729440,
+      "currentLiabilities": 332522,
+      "relatedPartyDebt": 600000,
+      "deferredRevenue": 503657,
+      "netWorth": -16906
+     }
+    ]
+   }
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "Capital gap of $2,339,366 is ~9x your liquid \u2014 extreme leverage; the deal rests almost entirely on outside capital.",
+    "5 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
+    "Franchisor financial distress disclosed (negative net worth) \u2014 confirm its ability to support the system against the audited statements.",
+    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+   ],
+   "midCohort": null,
+   "bottomCohort": null,
+   "buildoutMidpoint": 2589366,
+   "assumedLoan": 2071492.8,
+   "assumedMonthlyDebtService": 27951.687428856814,
+   "dscr": null,
+   "rentPctOfRevenue": null,
+   "paybackYears": null,
+   "variableRate": 0.1,
+   "fixedMonthly": 325,
+   "notes": [
+    "Average rent not found; fixed costs may be understated.",
+    "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 2339366,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 2339366,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 31566.23436668235,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $2,589,366 mid-point build-out, there is a $2,339,366 capital gap. An SBA loan or an equity partner is required to do this deal."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "food_beverage_qsr",
+   "conceptLabel": "QSR / fast-casual",
+   "conceptRationale": "Quick-service ice cream shop selling cones, cakes, sundaes, shakes, and related products with counter/drive-through service and no full table-service dining.",
+   "benchmark": {
+    "label": "QSR / fast-casual",
+    "cogsPct": [
+     28,
+     33
+    ],
+    "laborPct": [
+     22,
+     28
+    ],
+    "occupancyPct": [
+     6,
+     10
+    ],
+    "operatingEbitdaPct": [
+     10,
+     18
+    ],
+    "dominantRisk": "Prime cost and throughput per labor hour. Smaller footprint helps fixed costs, but COGS + labor still set the ceiling.",
+    "rampNote": "3\u20136 months to run-rate once open.",
+    "considerations": [
+     "Budget COGS ~28\u201333% and labor ~22\u201328%; target prime cost under ~60%.",
+     "Verify average ticket and daily transaction counts with Item 20 operators, not the franchisor.",
+     "Watch for required remodels and equipment refresh cycles buried in Item 6/Item 11."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201318% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": null,
+   "marginAfterFeesMonthly": null,
+   "benchmarkOperatingEbitdaMonthly": null,
+   "trueEbitdaBasis": "none",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    22,
+    28
+   ],
+   "buildup": [],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cQSR / fast-casual\u201d from the FDD (Item 1 / brand description)."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "HIGH",
+   "headline": "Several stress signals show up together here \u2014 a net-worth deficit of roughly $322K alongside operating losses, thin near-term liquidity, and unit closures. Any one of these alone can be normal for a young brand; appearing together is the pattern that separates real distress from ordinary early-stage losses. Treat this as a franchisor-stability question to resolve \u2014 with the specific items below \u2014 before you commit.",
+   "context": null,
+   "body": [
+    "What we found (2025-12-30, audited by R.J. Augustine & Associates, Ltd.): Net loss of $234K on $509K of revenue \u2014 roughly 1.5x spent per $1 earned. Losses are widening, not shrinking. Negative net worth (a members'/stockholders' deficit) of $322K, and deepening year over year. Total liabilities are about 1.4x total assets. About 50% of liabilities is money owed to related parties \u2014 the entity is kept alive largely by insider loans, not profit. Cash of $486K against $221K of obligations due within a year (a current ratio of 2.37). Note: about 35% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.9x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "negative net worth that is deepening year over year",
+    "operating losses that are widening",
+    "heavy dependence on related-party loans to stay funded"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-30",
+    "netWorth": -321898,
+    "netWorthSign": "negative",
+    "netWorthTrend": "worsening",
+    "netIncome": -234106,
+    "netIncomeTrend": "worsening",
+    "revenue": 509038,
+    "revenueTrend": "worsening",
+    "currentRatio": 2.373459008611921,
+    "workingCapital": 303816,
+    "liabilitiesToAssets": 1.368576774137406,
+    "adjLiabilitiesToAssets": 0.8894010905085452,
+    "relatedPartyDebtPct": 0.5019861920331444,
+    "deferredRevenuePct": 0.3501270025065844,
+    "expenseToRevenue": 1.4598988680609306,
+    "cash": 485651,
+    "nearTermObligations": 221205
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}
