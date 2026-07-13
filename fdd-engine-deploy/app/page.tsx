@@ -70,7 +70,7 @@ export default function Page() {
               onClick={() => track("brands_library_clicked", { source: "home_hero" })}
               className="rounded-full border border-[#38BDF8]/30 bg-[#38BDF8]/[0.06] px-4 py-1.5 text-xs font-bold text-[#38BDF8] transition-colors hover:bg-[#38BDF8]/[0.12]"
             >
-              Browse the kids franchise library →
+              Browse the franchise library →
             </Link>
           </div>
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#38BDF8]">
