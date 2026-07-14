@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Script from "next/script";
+import AdsConversion from "@/components/AdsConversion";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
@@ -17,8 +18,13 @@ const display = Space_Grotesk({
 // PostHog loads via the official snippet below (no npm dependency). It stays
 // completely inert until NEXT_PUBLIC_POSTHOG_KEY is set in Vercel, so this is
 // safe to deploy before the project key exists. Host defaults to US cloud.
-// GA4 / Google Ads (P0-2). Inert until NEXT_PUBLIC_GA4_MEASUREMENT_ID is set.
+// Google tags (P0-2 / spec Fix 3). One gtag.js load configures both:
+//  - Ads account tag (AW-…): live conversion tracking — defaults to the account
+//    tag from the Jul-14 spec, override via NEXT_PUBLIC_ADS_TAG_ID
+//  - GA4 property (G-…): optional analytics depth, inert until env is set
+const ADS_ID = process.env.NEXT_PUBLIC_ADS_TAG_ID || "AW-18323298547";
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID;
+const TAG_IDS = [ADS_ID, GA4_ID].filter(Boolean) as string[];
 
 const PH_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY;
 const PH_HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com";
@@ -37,6 +43,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   return (
     <html lang="en" className={display.variable}>
       <body className="antialiased">
+        <AdsConversion />
         {children}
         {PH_KEY && (
           <Script
@@ -45,11 +52,12 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             dangerouslySetInnerHTML={{ __html: POSTHOG_SNIPPET }}
           />
         )}
-        {GA4_ID && (
+        {TAG_IDS.length > 0 && (
           <>
-            <Script src={"https://www.googletagmanager.com/gtag/js?id=" + GA4_ID} strategy="afterInteractive" />
-            <Script id="ga4-init" strategy="afterInteractive">
-              {"window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" + GA4_ID + "');"}
+            <Script src={"https://www.googletagmanager.com/gtag/js?id=" + TAG_IDS[0]} strategy="afterInteractive" />
+            <Script id="gtag-init" strategy="afterInteractive">
+              {"window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); " +
+                TAG_IDS.map((id) => "gtag('config', '" + id + "');").join(" ")}
             </Script>
           </>
         )}
