@@ -12,6 +12,10 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { track } from "@/lib/analytics";
+import EmailCapture from "@/components/EmailCapture";
+import TeaserViewedBeacon from "@/components/TeaserViewedBeacon";
+import LeadVerifyBeacon from "@/components/LeadVerifyBeacon";
+import { Suspense } from "react";
 import type { BrandCard } from "@/lib/brands";
 
 const PRICE_LABEL = "$199"; // display only; charged amount lives in /api/checkout PRICE_CENTS
@@ -69,6 +73,7 @@ export default function BrandDetail({
 
   return (
     <main className="min-h-screen bg-[#0B1220] px-5 pb-16 text-[#F1F5F9]" data-parse-quality={card.parseQuality}>
+      <Suspense fallback={null}><LeadVerifyBeacon /></Suspense>
       <div className="mx-auto max-w-[820px]">
         <div className="flex items-center justify-between border-b border-[#27344F] py-4">
           <Link href="/" className="text-[15px] font-extrabold">
@@ -104,6 +109,7 @@ export default function BrandDetail({
           </span>
         )}
 
+        <TeaserViewedBeacon brandSlug={card.slug} />
         {/* Item 19 hero — number labeled by its own revenueType, always */}
         {card.mo != null ? (
           <div className="mt-6 rounded-2xl border border-[#34D399]/35 bg-gradient-to-b from-[#34D399]/[0.08] to-transparent px-6 py-5">
@@ -366,40 +372,16 @@ export default function BrandDetail({
           </div>
         </section>
 
-        {/* email capture — TODO(A2): persist + send via sendReportEmail. Until
-            A2 lands this only records the demand signal. */}
+        {/* email capture — delivery-framed nurture (spec §1-9). Replaces the old
+            client-only facade; carries over only this slot. Renders BELOW the
+            unlock, never gates the free teaser. */}
         <section className="mt-3">
-          <div className="rounded-2xl border border-dashed border-[#3A496A] bg-[#16223B] p-5">
-            <h3 className="text-base font-extrabold">Not ready to buy? Get this snapshot + your link.</h3>
-            <p className="mt-1 text-[13px] text-[#8194B0]">
-              We&apos;ll email you this {card.brandName} snapshot and a link to run your own FDD when
-              you&apos;re ready.
-            </p>
-            {emailSent ? (
-              <p className="mt-3 text-sm font-semibold text-[#34D399]">
-                On its way — check your inbox in a minute. ✓
-              </p>
-            ) : (
-              <div className="mt-3 flex flex-wrap gap-2">
-                <input
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@email.com"
-                  className="min-w-[200px] flex-1 rounded-lg border border-[#27344F] bg-[#0B1220] px-3.5 py-3 text-sm outline-none focus:border-[#38BDF8]"
-                />
-                <button
-                  onClick={() => {
-                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
-                    track("snapshot_email_submitted", { slug: card.slug, ref: refTag ?? "none" });
-                    setEmailSent(true);
-                  }}
-                  className="rounded-lg bg-[#38BDF8] px-4 py-3 text-sm font-bold text-[#0B1220]"
-                >
-                  Email me the snapshot
-                </button>
-              </div>
-            )}
-          </div>
+          <EmailCapture
+            brandName={card.brandName}
+            brandSlug={card.slug}
+            capitalEntered={cap}
+            refTag={refTag}
+          />
         </section>
 
         <p className="mt-5 text-[11px] leading-relaxed text-[#586A88]">

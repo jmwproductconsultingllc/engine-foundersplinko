@@ -36,7 +36,11 @@ export type AnalyticsEvent =
   | "brands_library_clicked" // home hero pill → /brands             { source }
   | "brand_card_clicked" // live card → /franchise/[slug]            { slug, risk, mo }
   | "brand_requested" // ghost card demand signal — "which FDD next" { brand, category }
-  | "snapshot_email_submitted"; // detail-page email capture, pre-A2 { slug, ref }
+  | "snapshot_email_submitted" // detail-page email capture, pre-A2 (superseded by lead_email_submitted) { slug, ref }
+  // ── email capture v2: "Send me my analysis" nurture (delivery-framed) ──
+  | "lead_email_submitted" // capture submitted        { brandSlug, capitalEntered, device, ref }
+  | "lead_email_sent" // teaser email dispatched        { brandSlug, device }
+  | "lead_email_link_clicked"; // emailed link opened = verification { token }
 
 interface PostHogLike {
   capture: (event: string, props?: Props) => void;
