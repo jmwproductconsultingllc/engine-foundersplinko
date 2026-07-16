@@ -1,0 +1,676 @@
+{
+ "slug": "wingstop",
+ "brandName": "Wingstop",
+ "category": "QSR/chicken",
+ "vertical": "Food & Beverage",
+ "grade": "READY",
+ "parseQuality": "manual-verified-chunked",
+ "sourceFddYear": 2026,
+ "generatedAt": "2026-07-15T21:31:07.972Z",
+ "sourceStem": "wingstop",
+ "fileHash": "0de1de70222fdc99",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 11",
+     "Item 12",
+     "Item 17",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": [
+     "Item 7 investment range EXCLUDES all real estate (purchase or lease) — the single largest un-estimated cost. Franchisor equity is thin/declining because nearly all net income is distributed to affiliates; on-balance-sheet cash is restricted (securitization)."
+    ]
+   },
+   "brandName": "Wingstop",
+   "franchisorEntity": "Wingstop Franchising LLC",
+   "headquarters": "2801 North Central Expressway, Suite 1600, Dallas, Texas 75204",
+   "brandBackground": "Wingstop is a QSR chicken-wing brand serving cooked-to-order wings, tenders, chicken sandwiches, and seasoned fries; system had 2,586 outlets at year-end 2025 (2,529 franchised). Ultimate parent is Wingstop Inc. (NASDAQ: WING).",
+   "conceptType": "food_beverage_qsr",
+   "conceptRationale": "Cooked-to-order chicken QSR, heavily off-premises/delivery, small-footprint kitchens.",
+   "staffingModel": "staffed",
+   "staffingRationale": "Crew-based kitchen operation; owner or manager supervision required.",
+   "leadership": [
+    {
+     "name": "Michael Skipworth",
+     "role": "President (Franchising LLC) & President/CEO of WRI",
+     "background": "Joined Wingstop Dec 2014 as VP Finance; prior CFO and COO.",
+     "whyItMatters": "Top operating executive across the franchisor and company-owned restaurants."
+    },
+    {
+     "name": "Alex Kaleida",
+     "role": "SVP, Chief Financial Officer",
+     "background": "CFO since Oct 2021; prior VP Financial Planning & Analysis.",
+     "whyItMatters": "Controls financial strategy and the securitization capital structure."
+    },
+    {
+     "name": "Bradley Brewer",
+     "role": "SVP, Chief Commercial Officer",
+     "background": "Since Jan 2026; ex-YETI Holdings, ex-Boston Consulting Group.",
+     "whyItMatters": "Owns commercial and marketing strategy."
+    },
+    {
+     "name": "Rajneesh Kapoor",
+     "role": "SVP, Chief Operating Officer",
+     "background": "Since Jan 2026; prior President of International; ex-7-Eleven Foodservice.",
+     "whyItMatters": "Runs U.S. restaurant operations and franchisee support."
+    },
+    {
+     "name": "Donnie Upshaw",
+     "role": "SVP, Chief Brand and People Officer",
+     "background": "Since Jan 2026; long-tenured WRI people/HR leader.",
+     "whyItMatters": "Owns brand and workforce strategy."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, printed pp. 57-59",
+    "unitsReported": 2116,
+    "networkAverageMonthly": 167302,
+    "cohorts": [
+     {
+      "label": "Franchised Restaurants – Average",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 2116,
+      "annualRevenue": 2007626,
+      "avgMonthlyRevenue": 167302,
+      "monthlyValues": [],
+      "basis": "Average annual net sales (as defined in the FDD) for 2,116 franchised restaurants open the full 2025 measured period (Dec 29, 2024 - Dec 27, 2025); 914 (43%) exceeded the average."
+     },
+     {
+      "label": "Franchised Restaurants – Median",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 2116,
+      "annualRevenue": 1890866,
+      "avgMonthlyRevenue": 157572,
+      "monthlyValues": [],
+      "basis": "Median annual net sales, franchised."
+     },
+     {
+      "label": "Company-Owned (WRI) – Average",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "sampleSize": 55,
+      "annualRevenue": 2496111,
+      "avgMonthlyRevenue": 208009,
+      "monthlyValues": [],
+      "basis": "Company-owned restaurants averaged ~$490K/yr above the franchised average — a gap worth diligence."
+     },
+     {
+      "label": "Franchised Restaurants – High",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 5042476,
+      "avgMonthlyRevenue": 420206,
+      "monthlyValues": [],
+      "basis": "Highest-volume single franchised unit."
+     },
+     {
+      "label": "Franchised Restaurants – Low",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 584584,
+      "avgMonthlyRevenue": 48715,
+      "monthlyValues": [],
+      "basis": "Lowest-volume single franchised unit."
+     }
+    ],
+    "notes": "Top-line net sales only; NO cost/expense/profit data. Unaudited (weekly royalty reports / POS). Company-owned average ($2,496,111) materially exceeds franchised average ($2,007,626)."
+   },
+   "item17": {
+    "sourcePage": "Item 7, printed pp. 14-17",
+    "initialInvestmentLow": 310400,
+    "initialInvestmentHigh": 1048500,
+    "lineItems": [
+     {
+      "category": "Development Fee",
+      "low": 25000,
+      "high": 25000,
+      "recurring": false,
+      "notes": "Per restaurant at Development Agreement signing."
+     },
+     {
+      "category": "Initial Franchise Fee",
+      "low": 25000,
+      "high": 25000,
+      "recurring": false,
+      "notes": "Per restaurant at Franchise Agreement signing; NOT credited against the development fee."
+     },
+     {
+      "category": "Leasehold Improvements / Buildout",
+      "low": 103000,
+      "high": 581000,
+      "recurring": false,
+      "notes": "Includes 10% contingency; no landlord TI allowance assumed."
+     },
+     {
+      "category": "A/V, Equipment & Smallwares",
+      "low": 59400,
+      "high": 179300,
+      "recurring": false,
+      "notes": null
+     },
+     {
+      "category": "POS / Back-Office Software & Hardware",
+      "low": 28000,
+      "high": 40000,
+      "recurring": false,
+      "notes": null
+     },
+     {
+      "category": "Decor, Furniture & Fixtures",
+      "low": 11300,
+      "high": 39400,
+      "recurring": false,
+      "notes": null
+     },
+     {
+      "category": "Signs",
+      "low": 4400,
+      "high": 31800,
+      "recurring": false,
+      "notes": null
+     },
+     {
+      "category": "Architectural / Engineering",
+      "low": 7300,
+      "high": 30000,
+      "recurring": false,
+      "notes": null
+     },
+     {
+      "category": "Opening Inventory",
+      "low": 10000,
+      "high": 16000,
+      "recurring": false,
+      "notes": null
+     },
+     {
+      "category": "Security Deposits",
+      "low": 0,
+      "high": 10000,
+      "recurring": false,
+      "notes": "Landlord/utilities/insurers."
+     },
+     {
+      "category": "Additional Funds – first 3 months",
+      "low": 25000,
+      "high": 40000,
+      "recurring": false,
+      "notes": "Working capital."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 6,
+    "brandFundPct": 5.5,
+    "localAdPct": 0,
+    "flatMonthlyFees": [
+     {
+      "name": "Website Maintenance Fee",
+      "monthlyAmount": 50,
+      "source": "Item 6 ($25 setup / up to $50/mo)"
+     },
+     {
+      "name": "Intranet Maintenance & Development Fee",
+      "monthlyAmount": 50,
+      "source": "Item 6 (up to $50/mo)"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Ad Fund",
+     "description": "5.5% of Gross Sales (5% floor / 5.5% cap; funds digital and technology costs).",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "Non-Reporting Fee",
+     "description": "$250 debited weekly if you don't report weekly Gross Sales.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "Transfer Fee",
+     "description": "$15,000 before transfer effective date; plus $5,000 minimum transfer marketing expenditure.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "Renewal Fee",
+     "description": "$25,000 per 10-year renewal term.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "Relocation Fee",
+     "description": "$5,000.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "Audit Fees",
+     "description": "Reimburse auditor costs if records inadequate or Gross Sales understated by 1% or more.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "National Gift Card Program Charges",
+     "description": "~5% of value of gift cards issued/sold by third parties; royalty + ad fund still owed on 100% of redemption value though franchisee nets ~90%.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6/11"
+    },
+    {
+     "name": "Supplemental Training",
+     "description": "Up to $1,000/trainer + out-of-pocket; annual convention registration fees vary (owed even if you don't attend).",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6/11"
+    },
+    {
+     "name": "Post-Term Liquidated Damages",
+     "description": "150% of royalty for holdover use after termination; unlimited indemnification.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20 (fiscal year-end 2025)",
+    "totalUnits": 2586,
+    "openedLastYear": 387,
+    "closedLastYear": 5,
+    "transfersLastYear": 52
+   },
+   "operationalRisks": [
+    {
+     "title": "Real Estate Excluded From the Investment Range",
+     "description": "Item 7's $310K-$1.05M excludes purchase or lease of the space — the single largest cost — because it is 'not estimable.'",
+     "severity": "high",
+     "source": "Item 7"
+    },
+    {
+     "title": "Royalties & Ad Fund Due Regardless of Profit",
+     "description": "6% royalty + 5.5% ad fund debited weekly on gross sales whether or not profitable.",
+     "severity": "high",
+     "source": "Item 6"
+    },
+    {
+     "title": "No Exclusive Territory",
+     "description": "Only a 'Trade Area' (generally <=3-mile radius); brand may compete via non-traditional venues, e-commerce, and delivery into your area.",
+     "severity": "high",
+     "source": "Item 12"
+    },
+    {
+     "title": "Development-Agreement / Multi-Unit Commitment",
+     "description": "Model expects a committed build schedule; missing the schedule is a default that can forfeit development rights.",
+     "severity": "medium",
+     "source": "Item 5/17"
+    },
+    {
+     "title": "Thin, Distributed Franchisor Equity + Securitization",
+     "description": "Franchisor operates under a securitization structure; near-all net income distributed to affiliates (accumulated deficit); on-balance-sheet cash is restricted. Ultimate parent WRI does not guarantee obligations to franchisees.",
+     "severity": "medium",
+     "source": "Item 21"
+    },
+    {
+     "title": "Company-Owned Units Outperform Franchisees",
+     "description": "WRI company-owned average ($2.50M) exceeds franchised average ($2.01M) by ~$490K/yr — diligence the drivers.",
+     "severity": "medium",
+     "source": "Item 19"
+    },
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Texas governing law; disputes resolved by arbitration/litigation in Texas.",
+     "severity": "medium",
+     "source": "Item 17"
+    },
+    {
+     "title": "Pending Franchisee Encroachment Claim",
+     "description": "Sweet Adeline v. WRI (AAA, filed Apr 2026) alleges encroachment/breach; ~$499,000 plus punitive claimed.",
+     "severity": "low",
+     "source": "Item 3"
+    }
+   ],
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "squareFootage": "1200-2000",
+    "source": "Item 7 — real estate explicitly excluded; ~1,200-2,000 sq ft leased in-line/strip space; rent not estimable."
+   },
+   "averageRentMonthly": null,
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditorName": "KPMG LLP",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "Wingstop Funding LLC / Wingstop Inc. (ultimate)",
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-27",
+      "revenue": 331049000,
+      "netIncome": 325113000,
+      "totalAssets": 65983000,
+      "totalLiabilities": 57642000,
+      "cash": 10405000,
+      "currentAssets": 28091000,
+      "currentLiabilities": 9921000,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": 8341000
+     },
+     {
+      "fiscalYearEnd": "2024-12-28",
+      "revenue": 297514000,
+      "netIncome": 293060000,
+      "totalAssets": 67252000,
+      "totalLiabilities": 46920000,
+      "cash": 11807000,
+      "currentAssets": 28074000,
+      "currentLiabilities": 8043000,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": 20332000
+     },
+     {
+      "fiscalYearEnd": "2023-12-30",
+      "revenue": 214548000,
+      "netIncome": 211192000,
+      "totalAssets": null,
+      "totalLiabilities": null,
+      "cash": 4640000,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": 21216000
+     }
+    ]
+   },
+   "fddYear": 2026,
+   "investment": {
+    "lowTotal": 310400,
+    "highTotal": 1048500,
+    "initialFranchiseFee": 25000,
+    "notes": "EXCLUDES all real estate. $25,000 development fee + $25,000 franchise fee, separate and non-crediting = $50,000 to franchisor."
+   },
+   "territory": {
+    "definition": "'Trade Area', generally <=3-mile radius; Development Area under the Development Agreement",
+    "exclusive": false,
+    "notes": "No exclusive territory; brand may compete via non-traditional venues, e-commerce, and delivery."
+   }
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "3 high-severity operational tripwires disclosed — see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Franchised Restaurants – Median",
+    "monthlyRevenue": 157572,
+    "monthlyVariable": 18120.780000000002,
+    "monthlyFixed": 100,
+    "monthlyEbitda": 139351.22,
+    "annualEbitda": 1672214.6400000001,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Franchised Restaurants – Median",
+     "math": "$1,890,866/yr ÷ 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 2116
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 679450,
+   "assumedLoan": 543560,
+   "assumedMonthlyDebtService": 7334.526684731615,
+   "dscr": 18.999347332131105,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.40631745695038285,
+   "variableRate": 0.115,
+   "fixedMonthly": 100,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 679450,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 679450,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 9168.158355914518,
+   "adjustedMonthlyNetCashFlow": 130183.06164408548,
+   "survivesBottomCohort": null,
+   "assessment": "With $0 liquid against a $679,450 mid-point build-out, there is a $679,450 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $130,183/mo before payroll and maintenance — a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": null,
+   "netWorth": null
+  },
+  "insights": {
+   "conceptType": "food_beverage_qsr",
+   "conceptLabel": "QSR / fast-casual",
+   "conceptRationale": "Cooked-to-order chicken QSR, heavily off-premises/delivery, small-footprint kitchens.",
+   "benchmark": {
+    "label": "QSR / fast-casual",
+    "cogsPct": [
+     28,
+     33
+    ],
+    "laborPct": [
+     22,
+     28
+    ],
+    "occupancyPct": [
+     6,
+     10
+    ],
+    "operatingEbitdaPct": [
+     10,
+     18
+    ],
+    "dominantRisk": "Prime cost and throughput per labor hour. Smaller footprint helps fixed costs, but COGS + labor still set the ceiling.",
+    "rampNote": "3–6 months to run-rate once open.",
+    "considerations": [
+     "Budget COGS ~28–33% and labor ~22–28%; target prime cost under ~60%.",
+     "Verify average ticket and daily transaction counts with Item 20 operators, not the franchisor.",
+     "Watch for required remodels and equipment refresh cycles buried in Item 6/Item 11."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10–18% band below is an industry estimate for this concept — validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 157572,
+   "marginAfterFeesMonthly": 139351.22,
+   "benchmarkOperatingEbitdaMonthly": [
+    11718,
+    41657
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    22,
+    28
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      139351.22,
+      139351.22
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "− Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      9454,
+      15757
+     ],
+     "note": "Item 7 disclosed no rent figure — benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "− Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      28,
+      33
+     ],
+     "dollarRange": [
+      44120,
+      51999
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "− Labor",
+     "kind": "subtract",
+     "pctRange": [
+      22,
+      28
+     ],
+     "dollarRange": [
+      34666,
+      44120
+     ],
+     "note": "conventionally staffed · ≈ 10–12.7 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "− Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      9454,
+      15757
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      11718,
+      41657
+     ],
+     "note": "≈ 7% to 26% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as “QSR / fast-casual” from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent — occupancy estimated at the 6–10% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 28–33% category band — COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 22–28% conventionally staffed band — labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6–10% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation — the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line — your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 — general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions — NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for — positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "What we found (2025-12-27, audited by KPMG LLP): Net income of $325.11M on $331.05M of revenue — roughly 0.0x spent per $1 earned. Positive net worth of $8.34M. Cash of $10.40M against $9.92M of obligations due within a year (a current ratio of 2.83).",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Wingstop Funding LLC / Wingstop Inc. (ultimate) is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 — unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "positive net worth",
+    "the business is profitable"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-27",
+    "netWorth": 8341000,
+    "netWorthSign": "positive",
+    "netWorthTrend": "worsening",
+    "netIncome": 325113000,
+    "netIncomeTrend": "improving",
+    "revenue": 331049000,
+    "revenueTrend": "improving",
+    "currentRatio": 2.8314686019554482,
+    "workingCapital": 18170000,
+    "liabilitiesToAssets": 0.8735886516223876,
+    "adjLiabilitiesToAssets": 0.8735886516223876,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": 0.01793088032285251,
+    "cash": 10405000,
+    "nearTermObligations": 9921000
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

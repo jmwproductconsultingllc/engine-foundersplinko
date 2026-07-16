@@ -1,0 +1,682 @@
+{
+ "slug": "crumbl",
+ "brandName": "Crumbl",
+ "category": "Bakery/dessert",
+ "vertical": "Food & Beverage",
+ "grade": "READY",
+ "parseQuality": "manual-verified-chunked",
+ "sourceFddYear": 2026,
+ "generatedAt": "2026-07-15T21:31:07.973Z",
+ "sourceStem": "crumbl",
+ "fileHash": "03a553f3523520f8",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 11",
+     "Item 12",
+     "Item 17",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": [
+     "Franchisor has NEGATIVE net worth (member's deficit) and negative working capital in all three audited years — disclosed as a Financial Condition special risk (CA/HI/MD addenda). Prior-period restatement identified by Deloitte (litigation-accrual misstatement). PDF text layer is a decoy (Jersey Mike's); figures read from rendered pages."
+    ]
+   },
+   "brandName": "Crumbl",
+   "franchisorEntity": "Crumbl Franchising, LLC",
+   "headquarters": "1712 South East Bay Boulevard, Suite 200, Provo, Utah 84060",
+   "brandBackground": "Crumbl is a gourmet cookie bakery-and-delivery franchise founded 2018, with a weekly-rotating menu; system had 1,101 outlets at year-end 2025, all franchised (last company-owned unit sold to a franchisee in 2025).",
+   "conceptType": "food_beverage_qsr",
+   "conceptRationale": "Dessert/bakery QSR — cookie baking and delivery, heavily off-premises and app-driven.",
+   "staffingModel": "staffed",
+   "staffingRationale": "Crew-based baking operation; manager/owner supervision.",
+   "leadership": [
+    {
+     "name": "Jason McGowan",
+     "role": "Founder & CEO",
+     "background": "Co-founded Crumbl in 2018 (Logan/Orem, UT); CEO since inception.",
+     "whyItMatters": "Sets brand and expansion strategy."
+    },
+    {
+     "name": "Sawyer Hemsley",
+     "role": "Founder & Chief Branding Officer",
+     "background": "Co-founder; prior COO 2018-2022; CBO since Nov 2022.",
+     "whyItMatters": "Owns the brand/social engine central to Crumbl's demand."
+    },
+    {
+     "name": "Bryce Redd",
+     "role": "Chief Technology Officer",
+     "background": "Since Mar 2018.",
+     "whyItMatters": "Owns the app/tech stack franchisees depend on."
+    },
+    {
+     "name": "Courtney Dursteler",
+     "role": "Chief People Officer",
+     "background": "Since Nov 2021; prior VP Franchise Partner Success.",
+     "whyItMatters": "Owns franchisee support and workforce."
+    },
+    {
+     "name": "Nate Whitaker",
+     "role": "Chief Legal Officer / General Counsel",
+     "background": "Since Oct 2022; also attorney at Franchise & Business Law Group.",
+     "whyItMatters": "Owns legal/franchise compliance."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, printed p. 70",
+    "unitsReported": 776,
+    "networkAverageMonthly": 94930,
+    "cohorts": [
+     {
+      "label": "Franchised Bakeries – Average",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 776,
+      "annualRevenue": 1139162,
+      "avgMonthlyRevenue": 94930,
+      "monthlyValues": [],
+      "basis": "Average 2025 gross sales for 776 of 1,048 franchised bakeries open all year with complete reporting (~74%); only 346 (45%) met or exceeded the average."
+     },
+     {
+      "label": "Franchised Bakeries – Median",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 776,
+      "annualRevenue": 1093071,
+      "avgMonthlyRevenue": 91089,
+      "monthlyValues": [],
+      "basis": "Median 2025 gross sales — the more representative middle since the majority fell below the average."
+     },
+     {
+      "label": "Franchised Bakeries – High",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 3421762,
+      "avgMonthlyRevenue": 285147,
+      "monthlyValues": [],
+      "basis": "Highest-volume single bakery."
+     },
+     {
+      "label": "Franchised Bakeries – Low",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 365129,
+      "avgMonthlyRevenue": 30427,
+      "monthlyValues": [],
+      "basis": "Lowest-volume single bakery."
+     }
+    ],
+    "notes": "Top-line GROSS sales only; NO cost/expense/profit data. Only 45% of bakeries met or beat the average, so the median ($1.09M) is the honest middle. Heavy ongoing cost load (8% royalty + 2% marketing + up to 2% co-op + tech + processing) sits underneath these figures."
+   },
+   "item17": {
+    "sourcePage": "Item 7, printed pp. 28-30",
+    "initialInvestmentLow": 848566,
+    "initialInvestmentHigh": 1472533,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 50000,
+      "high": 50000,
+      "recurring": false,
+      "notes": "Flat, uniform, non-refundable. ADA minimum 3 units at $50,000/unit ($2.55M-$4.42M for the required three-unit deal)."
+     },
+     {
+      "category": "Real Estate & Improvements (Buildout)",
+      "low": 350000,
+      "high": 700000,
+      "recurring": false,
+      "notes": "Largest single item; ~1,600-2,000 sq ft leased."
+     },
+     {
+      "category": "Equipment, Furniture, Fixtures, Decor, Supplies",
+      "low": 268000,
+      "high": 306000,
+      "recurring": false,
+      "notes": null
+     },
+     {
+      "category": "Opening Tech Equipment Package",
+      "low": 12000,
+      "high": 15000,
+      "recurring": false,
+      "notes": "Paid to franchisor/affiliate."
+     },
+     {
+      "category": "Opening Box & Ingredient Package",
+      "low": 11000,
+      "high": 16000,
+      "recurring": false,
+      "notes": "Paid to franchisor/affiliate."
+     },
+     {
+      "category": "Signs",
+      "low": 12000,
+      "high": 32000,
+      "recurring": false,
+      "notes": null
+     },
+     {
+      "category": "POS / Computer Hardware & Software",
+      "low": 5500,
+      "high": 18000,
+      "recurring": false,
+      "notes": null
+     },
+     {
+      "category": "Rent (first 3 months)",
+      "low": 16666,
+      "high": 83333,
+      "recurring": false,
+      "notes": null
+     },
+     {
+      "category": "Initial Training + Travel",
+      "low": 25000,
+      "high": 35000,
+      "recurring": false,
+      "notes": "Assumes 4 attendees; includes $8,000 training fee."
+     },
+     {
+      "category": "Opening Inventory",
+      "low": 12000,
+      "high": 22000,
+      "recurring": false,
+      "notes": null
+     },
+     {
+      "category": "Professional Fees",
+      "low": 10000,
+      "high": 50000,
+      "recurring": false,
+      "notes": null
+     },
+     {
+      "category": "Additional Funds – first 3 months",
+      "low": 61400,
+      "high": 100200,
+      "recurring": false,
+      "notes": "Working capital; must maintain >=$30,000 in operating account at all times."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 8,
+    "brandFundPct": 2,
+    "localAdPct": 0,
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "monthlyAmount": 650,
+      "source": "Item 6 (currently $650/mo)"
+     },
+     {
+      "name": "QuickBooks Online (mandatory)",
+      "monthlyAmount": 70,
+      "source": "Item 8 (~$70/mo)"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Transaction Processing Fee",
+     "description": "2.4%-4% of each transaction (merchant processor ~2.36%; Crumbl retains the spread).",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "Advertising Co-op + Local Marketing",
+     "description": "1%-2% co-op if formed; 0%-2%/month local marketing (currently 0%, cap 2%).",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "Centralized Billing & Store Inspection Fees",
+     "description": "Cost of services + 5%-15% admin fee each (2-4 inspections/yr).",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "Transfer / Successor / Relocation Fees",
+     "description": "Transfer $10,000 (majority) / $500 (minority) / $20,000 (ADA); successor renewal $2,500; relocation $2,500.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "Gift Card Program Fee",
+     "description": "5%-15% of gift-card redemption value.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "Training Fees",
+     "description": "New owner/manager $4,000/person/session; annual training $500/person; additional $500/day.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "Supplier Evaluation Fee",
+     "description": "$2,000 + expenses to approve unapproved suppliers; mandatory Apple-based POS (~$9,000-$15,000) from designated supplier.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 8"
+    },
+    {
+     "name": "Post-Termination Liquidated Damages",
+     "description": "Avg royalty of prior 12 months x lesser of 36 months or remaining term, PV-discounted at 5%; de-identification $10,000 + $500/day.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6/17"
+    },
+    {
+     "name": "$30,000 Operating-Balance Covenant",
+     "description": "Must keep at least $30,000 working capital in the operating account at all times; falling below is a default.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "Compliance Fines / Late Fees",
+     "description": "System non-compliance fines $250-$1,000; late $25/day + 18% interest; audit charge if >=2% understatement; insurance procurement fee cost + 10%.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20 (year-end 2025)",
+    "totalUnits": 1101,
+    "openedLastYear": 52,
+    "closedLastYear": 9,
+    "transfersLastYear": 82
+   },
+   "operationalRisks": [
+    {
+     "title": "Negative Franchisor Net Worth",
+     "description": "Franchisor reports a member's deficit (~-$16.9M FY2025, -$23.4M FY2024, -$13.9M FY2023) and negative working capital every year; disclosed as a Financial Condition special risk.",
+     "severity": "high",
+     "source": "Item 21 / Special Risks"
+    },
+    {
+     "title": "Heaviest Ongoing Cost Load",
+     "description": "8% royalty + 2% marketing fund + up to 2% co-op + $650/mo tech + 2.4-4% processing — all recurring on gross sales.",
+     "severity": "high",
+     "source": "Item 6"
+    },
+    {
+     "title": "Cannot Buy a Single Unit",
+     "description": "Area Development Agreement requires a minimum of 3 bakeries at $50,000/unit up front ($2.5M-$4.4M all-in commitment).",
+     "severity": "medium",
+     "source": "Item 5"
+    },
+    {
+     "title": "Affiliate Competitor in Your Territory",
+     "description": "Non-exclusive ~1-2 mile territory; franchisor's affiliated brand 'Crust Club' reserved to operate within it; territory may be redrawn at >=100,000 population.",
+     "severity": "medium",
+     "source": "Item 12"
+    },
+    {
+     "title": "Minimum Sales Requirement",
+     "description": "Must achieve at least $100,000 annual gross sales from year 1; failure can trigger a performance plan or termination.",
+     "severity": "medium",
+     "source": "Item 12"
+    },
+    {
+     "title": "Prior-Period Restatement",
+     "description": "Deloitte identified litigation-accrual misstatements after the FY2024 statements were issued; beginning-2025 equity restated by +$14.2M (unaudited).",
+     "severity": "medium",
+     "source": "Item 21"
+    },
+    {
+     "title": "Discretionary Mandatory Remodel",
+     "description": "Franchisor may require remodel/refurbishment 'at any time and at your expense' with no fixed dollar cap.",
+     "severity": "medium",
+     "source": "Item 11"
+    },
+    {
+     "title": "Pending Consumer Class Action",
+     "description": "Watson & Keers v. Crumbl (E.D. Cal., 2023) alleges service fees displayed/charged in a misleading way; trial set for 2026.",
+     "severity": "low",
+     "source": "Item 3"
+    }
+   ],
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "squareFootage": "1600-2000",
+    "source": "Item 7 — real estate purchase excluded; ~1,600-2,000 sq ft leased; lease $50,000-$250,000/yr. Franchisor recommends leasing, not buying."
+   },
+   "averageRentMonthly": null,
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditorName": "Deloitte & Touche LLP (FY2025); Tanner LLC (FY2024/2023)",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": true,
+    "parentName": "Crumbl Enterprises, LLC / Crumbl Holdings Parent LLC",
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 155690730,
+      "netIncome": 33931017,
+      "totalAssets": 25779187,
+      "totalLiabilities": 42680826,
+      "cash": 6392131,
+      "currentAssets": 17215923,
+      "currentLiabilities": 32434056,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": -16901639
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 158265633,
+      "netIncome": 91187380,
+      "totalAssets": 39626748,
+      "totalLiabilities": 63074098,
+      "cash": 24799142,
+      "currentAssets": 35509277,
+      "currentLiabilities": 56049640,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": -23447350
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 122315185,
+      "netIncome": 30693925,
+      "totalAssets": 32232907,
+      "totalLiabilities": 46107503,
+      "cash": 22476604,
+      "currentAssets": 26111743,
+      "currentLiabilities": 32575133,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": -13874596
+     }
+    ]
+   },
+   "fddYear": 2026,
+   "investment": {
+    "lowTotal": 848566,
+    "highTotal": 1472533,
+    "initialFranchiseFee": 50000,
+    "notes": "Per location; 3-unit ADA minimum = $2,545,698-$4,417,599 all-in. ~$81K-$89K to franchisor upfront incl. tech + ingredient packages + training."
+   },
+   "territory": {
+    "definition": "~1-2 mile designated area; franchisor may redraw at >=100,000 population",
+    "exclusive": false,
+    "notes": "No exclusive territory. Affiliated brand 'Crust Club' reserved to operate within it. Minimum $100,000 annual sales required."
+   }
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "Above-market royalty at 8%.",
+    "2 high-severity operational tripwires disclosed — see the tripwires section.",
+    "Franchisor financial distress disclosed (negative net worth) — confirm its ability to support the system against the audited statements."
+   ],
+   "midCohort": {
+    "label": "Franchised Bakeries – Median",
+    "monthlyRevenue": 91089,
+    "monthlyVariable": 9108.9,
+    "monthlyFixed": 720,
+    "monthlyEbitda": 81260.1,
+    "annualEbitda": 975121.2000000001,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Franchised Bakeries – Median",
+     "math": "$1,093,071/yr ÷ 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 776
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 1160549.5,
+   "assumedLoan": 928439.6000000001,
+   "assumedMonthlyDebtService": 12527.899443228984,
+   "dscr": 6.486330798569672,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 1.1901592335393794,
+   "variableRate": 0.1,
+   "fixedMonthly": 720,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 1160549.5,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 1160549.5,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 15659.87430403623,
+   "adjustedMonthlyNetCashFlow": 65600.22569596377,
+   "survivesBottomCohort": null,
+   "assessment": "With $0 liquid against a $1,160,550 mid-point build-out, there is a $1,160,550 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $65,600/mo before payroll and maintenance — a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": null,
+   "netWorth": null
+  },
+  "insights": {
+   "conceptType": "food_beverage_qsr",
+   "conceptLabel": "QSR / fast-casual",
+   "conceptRationale": "Dessert/bakery QSR — cookie baking and delivery, heavily off-premises and app-driven.",
+   "benchmark": {
+    "label": "QSR / fast-casual",
+    "cogsPct": [
+     28,
+     33
+    ],
+    "laborPct": [
+     22,
+     28
+    ],
+    "occupancyPct": [
+     6,
+     10
+    ],
+    "operatingEbitdaPct": [
+     10,
+     18
+    ],
+    "dominantRisk": "Prime cost and throughput per labor hour. Smaller footprint helps fixed costs, but COGS + labor still set the ceiling.",
+    "rampNote": "3–6 months to run-rate once open.",
+    "considerations": [
+     "Budget COGS ~28–33% and labor ~22–28%; target prime cost under ~60%.",
+     "Verify average ticket and daily transaction counts with Item 20 operators, not the franchisor.",
+     "Watch for required remodels and equipment refresh cycles buried in Item 6/Item 11."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10–18% band below is an industry estimate for this concept — validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 91089,
+   "marginAfterFeesMonthly": 81260.1,
+   "benchmarkOperatingEbitdaMonthly": [
+    7478,
+    24785
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    22,
+    28
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      81260.1,
+      81260.1
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "− Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      5465,
+      9109
+     ],
+     "note": "Item 7 disclosed no rent figure — benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "− Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      28,
+      33
+     ],
+     "dollarRange": [
+      25505,
+      30059
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "− Labor",
+     "kind": "subtract",
+     "pctRange": [
+      22,
+      28
+     ],
+     "dollarRange": [
+      20040,
+      25505
+     ],
+     "note": "conventionally staffed · ≈ 5.8–7.4 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "− Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      5465,
+      9109
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      7478,
+      24785
+     ],
+     "note": "≈ 8% to 27% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as “QSR / fast-casual” from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent — occupancy estimated at the 6–10% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 28–33% category band — COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 22–28% conventionally staffed band — labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6–10% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation — the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line — your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 — general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions — NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "HIGH",
+   "headline": "Several stress signals show up together here — a net-worth deficit of roughly $16.90M alongside operating losses, thin near-term liquidity, and unit closures. Any one of these alone can be normal for a young brand; appearing together is the pattern that separates real distress from ordinary early-stage losses. Treat this as a franchisor-stability question to resolve — with the specific items below — before you commit.",
+   "context": null,
+   "body": [
+    "What we found (2025-12-31, audited by Deloitte & Touche LLP (FY2025); Tanner LLC (FY2024/2023)): Net income of $33.93M on $155.69M of revenue — roughly 0.8x spent per $1 earned. Losses are widening, not shrinking. Negative net worth (a members'/stockholders' deficit) of $16.90M. Total liabilities are about 1.7x total assets. Cash of $6.39M against $32.43M of obligations due within a year (a current ratio of 0.53).",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Crumbl Enterprises, LLC / Crumbl Holdings Parent LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 — unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "negative net worth — it owes more than it owns",
+    "more due within a year than current assets to cover it",
+    "no parent guarantee backing the franchisor's obligations to you",
+    "prior-year financials were restated"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "the business is profitable"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": -16901639,
+    "netWorthSign": "negative",
+    "netWorthTrend": "improving",
+    "netIncome": 33931017,
+    "netIncomeTrend": "worsening",
+    "revenue": 155690730,
+    "revenueTrend": "flat",
+    "currentRatio": 0.5307977207660984,
+    "workingCapital": -15218133,
+    "liabilitiesToAssets": 1.655631188058801,
+    "adjLiabilitiesToAssets": 1.655631188058801,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": 0.782061417529483,
+    "cash": 6392131,
+    "nearTermObligations": 32434056
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

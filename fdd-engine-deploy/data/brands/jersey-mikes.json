@@ -1,0 +1,670 @@
+{
+ "slug": "jersey-mikes",
+ "brandName": "Jersey Mike's",
+ "category": "QSR/sandwiches",
+ "vertical": "Food & Beverage",
+ "grade": "READY",
+ "parseQuality": "manual-verified-chunked",
+ "sourceFddYear": 2026,
+ "generatedAt": "2026-07-15T21:31:07.970Z",
+ "sourceStem": "jersey-mikes",
+ "fileHash": "8e7b07bcb30bc1d3",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 2",
+     "Item 3",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 8",
+     "Item 11",
+     "Item 12",
+     "Item 15",
+     "Item 17",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": [
+     "FY2025 balance sheet reflects Blackstone acquisition (Jan 15, 2025) pushdown accounting: total assets/equity (~$7.44B) are inflated by acquisition intangibles (Trade name $5.71B + Franchise agreements $1.67B). Income and cash figures are operating-real."
+    ]
+   },
+   "brandName": "Jersey Mike's",
+   "franchisorEntity": "A Sub Above, LLC",
+   "headquarters": "1 Commvault Way, Suite 400, Tinton Falls, New Jersey 07724",
+   "brandBackground": "Jersey Mike's is a fast-casual submarine sandwich franchise offering made-to-order subs and related products for on- and off-premises consumption; system had 3,227 outlets at year-end 2025 (3,201 franchised). Acquired by Blackstone in January 2025.",
+   "conceptType": "food_beverage_qsr",
+   "conceptRationale": "Made-to-order sandwich QSR/fast-casual with counter and off-premises (delivery/pickup) service.",
+   "staffingModel": "staffed",
+   "staffingRationale": "Owner-operator or approved full-time manager must directly supervise; crew-based operation.",
+   "leadership": [
+    {
+     "name": "Charlie Morrison",
+     "role": "Chief Executive Officer",
+     "background": "CEO since Apr 2025; former CEO of Salad and Go and of Wingstop.",
+     "whyItMatters": "Sets brand strategy post-Blackstone acquisition; deep QSR-scaling background."
+    },
+    {
+     "name": "Stacy Peterson",
+     "role": "President & COO",
+     "background": "Since Sep 2025; former CEO of Jeni's Splendid Ice Creams and EVP at Wingstop.",
+     "whyItMatters": "Runs day-to-day operations and franchisee support."
+    },
+    {
+     "name": "Michele Allen",
+     "role": "Chief Financial Officer",
+     "background": "Since Dec 2025; former CFO of Wyndham Hotels & Resorts.",
+     "whyItMatters": "Controls financial strategy and reporting."
+    },
+    {
+     "name": "Brian Sommers",
+     "role": "Chief Development Officer",
+     "background": "Since Sep 2021.",
+     "whyItMatters": "Leads unit development and franchise growth."
+    },
+    {
+     "name": "Scott Scherer",
+     "role": "Chief Information Officer",
+     "background": "Company CIO since Dec 2019; JMFS CIO since Apr 2013.",
+     "whyItMatters": "Owns technology systems franchisees must adopt."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "sourcePage": "Item 19, printed pp. 51-52",
+    "unitsReported": 2606,
+    "networkAverageMonthly": 113965,
+    "cohorts": [
+     {
+      "label": "Traditional Franchised Restaurants – Average",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 2606,
+      "annualRevenue": 1367578,
+      "avgMonthlyRevenue": 113965,
+      "monthlyValues": [],
+      "basis": "Average annual net sales (as defined in the FDD) for 2,606 traditional franchised restaurants open >360 days in FY2025 (Jan 1 - Dec 28, 2025); 621 units excluded."
+     },
+     {
+      "label": "Traditional Franchised Restaurants – Median",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 2606,
+      "annualRevenue": 1305850,
+      "avgMonthlyRevenue": 108821,
+      "monthlyValues": [],
+      "basis": "Median annual net sales; 1,148 (44%) met or exceeded the average."
+     },
+     {
+      "label": "Traditional Franchised Restaurants – High",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 3228616,
+      "avgMonthlyRevenue": 269051,
+      "monthlyValues": [],
+      "basis": "Highest-volume single unit in the reporting group."
+     },
+     {
+      "label": "Traditional Franchised Restaurants – Low",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "sampleSize": 1,
+      "annualRevenue": 512332,
+      "avgMonthlyRevenue": 42694,
+      "monthlyValues": [],
+      "basis": "Lowest-volume single unit in the reporting group."
+     }
+    ],
+    "notes": "Top-line net sales only; NO cost, expense, gross-profit, or net-profit data disclosed. Unaudited, self-reported POS figures. Single group only (no quartile or by-format breakdown)."
+   },
+   "item17": {
+    "sourcePage": "Item 7, printed pp. 17-19",
+    "initialInvestmentLow": 436176,
+    "initialInvestmentHigh": 1162228,
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "low": 20000,
+      "high": 20000,
+      "recurring": false,
+      "notes": "Per restaurant, lump sum at signing, non-refundable."
+     },
+     {
+      "category": "Grand Opening Advertising",
+      "low": 10000,
+      "high": 10000,
+      "recurring": false,
+      "notes": "At signing; waived on existing-restaurant purchase."
+     },
+     {
+      "category": "Leasehold Improvements / Buildout",
+      "low": 147495,
+      "high": 658581,
+      "recurring": false,
+      "notes": "~1,000-2,000 sq ft leased retail; excludes land purchase."
+     },
+     {
+      "category": "Equipment, Furniture & Smallwares",
+      "low": 138434,
+      "high": 159872,
+      "recurring": false,
+      "notes": null
+     },
+     {
+      "category": "Exterior Signage",
+      "low": 12087,
+      "high": 38838,
+      "recurring": false,
+      "notes": null
+     },
+     {
+      "category": "Architectural Fees",
+      "low": 8412,
+      "high": 29827,
+      "recurring": false,
+      "notes": null
+     },
+     {
+      "category": "Initial Inventory",
+      "low": 13805,
+      "high": 25797,
+      "recurring": false,
+      "notes": null
+     },
+     {
+      "category": "Training Expenses",
+      "low": 14299,
+      "high": 27879,
+      "recurring": false,
+      "notes": "Travel/lodging/salaries for 4-day Phase 2 in NJ."
+     },
+     {
+      "category": "Rent / CAM / Taxes / Deposits (first 3 months)",
+      "low": 10579,
+      "high": 19848,
+      "recurring": false,
+      "notes": null
+     },
+     {
+      "category": "Additional Funds – first 3 months",
+      "low": 17490,
+      "high": 32555,
+      "recurring": false,
+      "notes": "Working capital; excludes debt service, owner salary."
+     }
+    ]
+   },
+   "ongoingFees": {
+    "royaltyPct": 6.5,
+    "brandFundPct": 5,
+    "localAdPct": null,
+    "flatMonthlyFees": [
+     {
+      "name": "POS Software License & Support (Help Desk)",
+      "monthlyAmount": 395,
+      "source": "Item 6 (currently $395/mo, may rise to $795/mo)"
+     },
+     {
+      "name": "Secure Network / Credit-Card Processing Fee",
+      "monthlyAmount": 39.85,
+      "source": "Item 6"
+     },
+     {
+      "name": "Teamworx Labor Software (optional)",
+      "monthlyAmount": 59.99,
+      "source": "Item 6"
+     },
+     {
+      "name": "Gift Card Program",
+      "monthlyAmount": 9.5,
+      "source": "Item 6"
+     }
+    ]
+   },
+   "hiddenCosts": [
+    {
+     "name": "Advertising Funds (Corporate + National Media)",
+     "description": "1% Corporate Advertising & Development Fund + 4% National Media Fund of Gross Receipts; combined cap 6%.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "Online Ordering Fees",
+     "description": "~$0.2921 per transaction + 3.74% of each online transaction.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "Third-Party Delivery Fees",
+     "description": "$6-$9 small order / $29-$41 large order; third-party order fee $0.2921/transaction.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "Transfer Fee",
+     "description": "$15,000 per restaurant transferred plus reimbursement of direct/legal costs.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "Successor (Renewal) Franchise Fee",
+     "description": "$20,000 at renewal.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6/17"
+    },
+    {
+     "name": "Non-Approved Supplier / GC / Architect Approval",
+     "description": "Reimburse actual inspection/testing cost; $5,000 each for non-approved general contractor and architect.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 8"
+    },
+    {
+     "name": "Relocation Fee",
+     "description": "$5,000 per request + costs, plus $5,000 grand re-opening advertising.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "Interim Management Fee",
+     "description": "5% of Gross Receipts + costs if franchisor operates the restaurant on an interim basis.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    },
+    {
+     "name": "Late Fee / Interest",
+     "description": "Greater of $25 or 5% of the late payment; interest up to 1.5%/month.",
+     "estimatedAnnualAmount": null,
+     "source": "Item 6"
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20 (as of Dec 28, 2025)",
+    "totalUnits": 3227,
+    "openedLastYear": 264,
+    "closedLastYear": 14,
+    "transfersLastYear": 218
+   },
+   "operationalRisks": [
+    {
+     "title": "No Exclusive Territory",
+     "description": "Only a ~0.5-1 mile 'designated area'; franchisor may sell branded product and compete via other channels within it.",
+     "severity": "high",
+     "source": "Item 12"
+    },
+    {
+     "title": "Royalties & Ad Funds Due Regardless of Profit",
+     "description": "6.5% royalty + 5% advertising funds are debited weekly on gross receipts whether or not the unit is profitable.",
+     "severity": "high",
+     "source": "Item 6"
+    },
+    {
+     "title": "Mandatory Area Development Agreement",
+     "description": "Must sign an ADA regardless of unit count; $10,000/unit development fee is non-refundable and forfeited even for units never opened.",
+     "severity": "medium",
+     "source": "Item 5"
+    },
+    {
+     "title": "Leased, Not Owned Real Estate",
+     "description": "All investment figures assume leased space; no appreciating property owned at end of term.",
+     "severity": "medium",
+     "source": "Item 7"
+    },
+    {
+     "title": "Owner-Operator Requirement",
+     "description": "Restaurant must be under direct supervision of owner/Controlling Principal or an approved full-time manager.",
+     "severity": "medium",
+     "source": "Item 15"
+    },
+    {
+     "title": "Heavy Supplier Control",
+     "description": "Must buy substantially all inventory/supplies from franchisor or designated suppliers; prices may exceed market.",
+     "severity": "medium",
+     "source": "Item 8"
+    },
+    {
+     "title": "New Ownership & Leadership; No Parent Guarantee",
+     "description": "Blackstone acquired the system Jan 2025 with a new C-suite; HoldCo does not guarantee the franchisor's obligations to franchisees.",
+     "severity": "medium",
+     "source": "Item 1 / Item 21"
+    },
+    {
+     "title": "Pending Consumer Class Action",
+     "description": "Feb 2026 putative CA class action over mobile-app service fees; amendment threatened to add the franchisor.",
+     "severity": "low",
+     "source": "Item 3"
+    }
+   ],
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "squareFootage": "1000-2000",
+    "source": "Item 7 — real estate excluded; ~1,000-2,000 sq ft leased retail; rent individually negotiated."
+   },
+   "averageRentMonthly": null,
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditorName": "Deloitte & Touche LLP",
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentName": "Jersey Mike's HoldCo, LLC (Blackstone)",
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-28",
+      "revenue": 309843000,
+      "netIncome": 183595000,
+      "totalAssets": 7438097000,
+      "totalLiabilities": 19205000,
+      "cash": 11557000,
+      "currentAssets": 13969000,
+      "currentLiabilities": 4697000,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": 7418892000
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 280092000,
+      "netIncome": 238772000,
+      "totalAssets": 35997000,
+      "totalLiabilities": 21003000,
+      "cash": 8869000,
+      "currentAssets": 15621000,
+      "currentLiabilities": 6792000,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": 14994000
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 246599000,
+      "netIncome": 206098000,
+      "totalAssets": null,
+      "totalLiabilities": null,
+      "cash": null,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "relatedPartyDebt": null,
+      "deferredRevenue": null,
+      "netWorth": null
+     }
+    ]
+   },
+   "fddYear": 2026,
+   "investment": {
+    "lowTotal": 436176,
+    "highTotal": 1162228,
+    "initialFranchiseFee": 20000,
+    "notes": "Excludes real estate. Mandatory Area Development Agreement adds $10,000/unit (non-refundable). Grand-opening ad $10,000."
+   },
+   "territory": {
+    "definition": "~0.5-1 mile designated area, attached to approved site",
+    "exclusive": false,
+    "notes": "No exclusive territory; franchisor may sell branded product and compete via other channels within it."
+   }
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "2 high-severity operational tripwires disclosed — see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Traditional Franchised Restaurants – Median",
+    "monthlyRevenue": 108821,
+    "monthlyVariable": 12514.415,
+    "monthlyFixed": 504.34000000000003,
+    "monthlyEbitda": 95802.245,
+    "annualEbitda": 1149626.94,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Traditional Franchised Restaurants – Median",
+     "math": "$1,305,850/yr ÷ 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 2606
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 799202,
+   "assumedLoan": 639361.6000000001,
+   "assumedMonthlyDebtService": 8627.225543440838,
+   "dscr": 11.104641291409974,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.6951837784873065,
+   "variableRate": 0.115,
+   "fixedMonthly": 504.34000000000003,
+   "notes": [
+    "Average rent not found; fixed costs may be understated."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 799202,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 799202,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 10784.031929301043,
+   "adjustedMonthlyNetCashFlow": 85018.21307069896,
+   "survivesBottomCohort": null,
+   "assessment": "With $0 liquid against a $799,202 mid-point build-out, there is a $799,202 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $85,018/mo before payroll and maintenance — a thin margin of error."
+  },
+  "buyer": {
+   "liquidCapital": null,
+   "netWorth": null
+  },
+  "insights": {
+   "conceptType": "food_beverage_qsr",
+   "conceptLabel": "QSR / fast-casual",
+   "conceptRationale": "Made-to-order sandwich QSR/fast-casual with counter and off-premises (delivery/pickup) service.",
+   "benchmark": {
+    "label": "QSR / fast-casual",
+    "cogsPct": [
+     28,
+     33
+    ],
+    "laborPct": [
+     22,
+     28
+    ],
+    "occupancyPct": [
+     6,
+     10
+    ],
+    "operatingEbitdaPct": [
+     10,
+     18
+    ],
+    "dominantRisk": "Prime cost and throughput per labor hour. Smaller footprint helps fixed costs, but COGS + labor still set the ceiling.",
+    "rampNote": "3–6 months to run-rate once open.",
+    "considerations": [
+     "Budget COGS ~28–33% and labor ~22–28%; target prime cost under ~60%.",
+     "Verify average ticket and daily transaction counts with Item 20 operators, not the franchisor.",
+     "Watch for required remodels and equipment refresh cycles buried in Item 6/Item 11."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10–18% band below is an industry estimate for this concept — validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 108821,
+   "marginAfterFeesMonthly": 95802.245,
+   "benchmarkOperatingEbitdaMonthly": [
+    7657,
+    28333
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    22,
+    28
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      95802.245,
+      95802.245
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "− Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      6529,
+      10882
+     ],
+     "note": "Item 7 disclosed no rent figure — benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "− Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      28,
+      33
+     ],
+     "dollarRange": [
+      30470,
+      35911
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "− Labor",
+     "kind": "subtract",
+     "pctRange": [
+      22,
+      28
+     ],
+     "dollarRange": [
+      23941,
+      30470
+     ],
+     "note": "conventionally staffed · ≈ 6.9–8.8 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "− Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      6529,
+      10882
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      7657,
+      28333
+     ],
+     "note": "≈ 7% to 26% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as “QSR / fast-casual” from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent — occupancy estimated at the 6–10% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 28–33% category band — COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 22–28% conventionally staffed band — labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6–10% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation — the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line — your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 — general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions — NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for — positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "What we found (2025-12-28, audited by Deloitte & Touche LLP): Net income of $183.59M on $309.84M of revenue — roughly 0.4x spent per $1 earned. Losses are widening, not shrinking. Positive net worth of $7.42B. Cash of $11.56M against $4.70M of obligations due within a year (a current ratio of 2.97).",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Jersey Mike's HoldCo, LLC (Blackstone) is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 — unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "positive net worth",
+    "the business is profitable"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-28",
+    "netWorth": 7418892000,
+    "netWorthSign": "positive",
+    "netWorthTrend": "improving",
+    "netIncome": 183595000,
+    "netIncomeTrend": "worsening",
+    "revenue": 309843000,
+    "revenueTrend": "improving",
+    "currentRatio": 2.9740259740259742,
+    "workingCapital": 9272000,
+    "liabilitiesToAssets": 0.0025819776214265557,
+    "adjLiabilitiesToAssets": 0.0025819776214265557,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": 0.4074579706496516,
+    "cash": 11557000,
+    "nearTermObligations": 4697000
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}
