@@ -2,10 +2,17 @@
 // destination). SSG for every live slug (this is why the pages exist: fast,
 // crawlable, titled). Free tier only — the $199 unlock mints a per-buyer
 // report via /api/mint-brand-report and rides the existing checkout pipeline.
+//
+// P0 (2026-07-18): BrandDetail now takes a server-built TeaserCard, not the
+// full card. toTeaserCard() runs HERE (server) and omits the locked values
+// (deficit figures, cohort spread, tripwire descriptions) so they can never
+// serialize into the client payload. Do not pass the full card/brand to
+// BrandDetail; do not widen its props.
 
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { listBrands, getBrand, toCard, pickHeroCohort } from "@/lib/brands";
+import { listBrands, getBrand, toCard } from "@/lib/brands";
+import { toTeaserCard } from "@/lib/teaserProps";
 import BrandDetail from "@/components/BrandDetail";
 
 export const revalidate = 3600;
@@ -54,26 +61,15 @@ export default async function FranchisePage({
   const brand = await getBrand(slug);
   if (!brand) notFound();
 
+  // Keep the live-gate on the full card (server-side only — never passed down).
   const card = toCard(brand, "revenue");
   if (!card.live) notFound(); // THIN brands have no sellable detail page yet
 
   const refTag = ref?.toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 32) || null;
 
-  // The detail hero is revenue-first (SEO honesty standard). We also compute
-  // the profit pick so the page can show "what owners keep" as a secondary
-  // line when the FDD discloses it — labeled from its own revenueType + caveat.
-  const profitHero = pickHeroCohort(brand.result.extracted.item19?.cohorts, "profit");
-  const profitLine =
-    profitHero && profitHero.kind === "profit"
-      ? { monthly: profitHero.monthly, caveat: profitHero.caveat, sampleSize: profitHero.sampleSize }
-      : null;
+  // Server-side gating transform: builds the teaser by OMISSION — locked values
+  // (fin-condition figures, cohort spread, tripwire text) never leave this file.
+  const teaser = toTeaserCard(brand);
 
-  return (
-    <BrandDetail
-      card={card}
-      profitLine={profitLine}
-      cohortCount={brand.result.extracted.item19?.cohorts?.length ?? 0}
-      refTag={refTag}
-    />
-  );
+  return <BrandDetail teaser={teaser} refTag={refTag} />;
 }
