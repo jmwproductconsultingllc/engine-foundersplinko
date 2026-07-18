@@ -175,9 +175,9 @@ export default function BrandDetail({
           <div className="mt-2.5 flex items-start gap-2.5 rounded-xl border border-[#3A496A] bg-[#0E1729] px-4 py-3.5 text-[14px] text-[#CBD5E1]">
             <span aria-hidden>🔒</span>
             <span>
-              Our audit flagged a <b className="text-[#F1F5F9]">serious financial-condition disclosure</b> in this
-              franchisor&apos;s own audited statements. What it is — and what it means for your investment — is in
-              the full report.
+              Our audit flagged a <b className="text-[#F1F5F9]">serious financial-condition disclosure</b>{" "}
+              in this franchisor&apos;s own audited statements. What it is — and what it means for your
+              investment — is in the full report.
             </span>
           </div>
         )}
@@ -348,7 +348,7 @@ export default function BrandDetail({
                 >
                   <span aria-hidden>🔒</span>
                   <span>
-                    A <b className="text-[#F1F5F9]">{t.label.toLowerCase()}</b> most buyers miss → in the full report
+                    <b className="text-[#F1F5F9]">{t.label}</b> — a detail most buyers miss → in the full report
                   </span>
                 </div>
               ))}
