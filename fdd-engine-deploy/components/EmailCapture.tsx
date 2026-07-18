@@ -1,45 +1,35 @@
 "use client";
 
-// components/EmailCapture.tsx — the "Send me my analysis" capture (spec §2, §5, §6).
-// Delivery-framed, NOT a wall: it renders below the teaser and never gates it.
-// Replaces the old client-only "snapshot" facade (spec §9 — carry over only the
-// DOM slot). Posts to /api/lead, which persists + sends the real report email.
-//
-// Junk filter, zero-friction (spec §5): client-side regex, a hidden honeypot,
-// and the server flags disposable domains. No captcha, no upfront verification.
+// components/EmailCapture.tsx — P0 patch (2026-07-18).
+// Changes vs v1:
+//   1. `surface` prop → capture_surface on the lead_email_submitted event
+//      ("inline" | "sheet" | "ask_link"), so we can read which surface produces leads.
+//   2. BUGFIX: context now sends snake_case `capital_entered` / `device` — the
+//      shipped /api/lead route reads ctx.capital_entered; the old camelCase
+//      `capitalEntered` silently landed NULL in Supabase.
+//   3. Posts { email, slug, honeypot, context } matching the shipped route
+//      (no reportId — D1: nothing is minted in the nurture path).
 
 import { useState } from "react";
 import { track } from "@/lib/analytics";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// First-touch attribution — read the SAME cookie middleware set (fe_utm), so a
-// lead's utm/gclid match its eventual purchase attribution (spec §4: "not a
-// fresh URL read at submit time"). Left null if the cookie isn't present.
-function readFirstTouch(): Record<string, string> {
-  if (typeof document === "undefined") return {};
-  const m = document.cookie.match(/(?:^|;\s*)fe_utm=([^;]+)/);
-  if (!m) return {};
-  try {
-    return JSON.parse(decodeURIComponent(m[1])) as Record<string, string>;
-  } catch {
-    return {};
-  }
-}
-
 export default function EmailCapture({
   brandName,
   brandSlug,
   capitalEntered,
   refTag,
+  surface = "inline",
 }: {
   brandName: string;
   brandSlug: string;
   capitalEntered?: number | null;
   refTag?: string | null;
+  surface?: "inline" | "sheet" | "ask_link";
 }) {
   const [email, setEmail] = useState("");
-  const [honeypot, setHoneypot] = useState(""); // §5.4 — humans never touch this
+  const [honeypot, setHoneypot] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const device =
@@ -58,31 +48,25 @@ export default function EmailCapture({
       capitalEntered: capitalEntered ?? null,
       device,
       ref: refTag ?? "none",
+      capture_surface: surface,
     });
     try {
-      const ft = readFirstTouch();
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          slug: brandSlug,
           email,
+          slug: brandSlug,
           honeypot,
           context: {
-            brandName,
             capital_entered: capitalEntered ?? null,
             device,
-            utm_source: ft.utm_source ?? null,
-            utm_medium: ft.utm_medium ?? null,
-            utm_campaign: ft.utm_campaign ?? null,
-            utm_content: ft.utm_content ?? null,
-            gclid: ft.gclid ?? null,
           },
         }),
       });
       const data = await res.json().catch(() => ({ ok: false }));
       if (res.ok && data.ok) {
-        if (data.sent) track("lead_email_sent", { brandSlug, device });
+        if (data.sent) track("lead_email_sent", { brandSlug, device, capture_surface: surface });
         setStatus("sent");
       } else {
         setStatus("error");
@@ -109,11 +93,10 @@ export default function EmailCapture({
   return (
     <div className="rounded-2xl border border-dashed border-[#3A496A] bg-[#16223B] p-5">
       <h3 className="text-base font-extrabold text-[#F1F5F9]">
-        Not ready to decide? Email yourself this analysis.
+        Not ready? Email yourself this analysis.
       </h3>
       <p className="mt-1 text-[13px] text-[#8194B0]">
-        Franchise decisions take time — sleep on it, or send it to your partner. We&apos;ll email you
-        this {brandName} analysis with a link to pick up where you left off.
+        Sleep on it, or send it to your partner — pick up right where you left off.
       </p>
       <div className="mt-3 flex flex-wrap gap-2">
         <input
@@ -128,7 +111,7 @@ export default function EmailCapture({
           aria-label="Your email address"
           className="min-w-[200px] flex-1 rounded-lg border border-[#27344F] bg-[#0B1220] px-3.5 py-3 text-sm text-[#F1F5F9] outline-none placeholder:text-[#586A88] focus:border-[#38BDF8]"
         />
-        {/* honeypot: off-screen, not tabbable, not autocompleted — bots fill it */}
+        {/* honeypot: off-screen, not tabbable — bots fill it */}
         <input
           type="text"
           tabIndex={-1}
