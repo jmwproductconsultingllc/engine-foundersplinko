@@ -9,6 +9,13 @@
 //        /franchise/<slug>?lead=<lead.id>
 //      NO /report/<id> is minted anywhere in this path (D1 — nothing to leak).
 //
+// P0 (2026-07-18): attribution is read SERVER-SIDE from the fe_utm cookie via
+// readUtm(req) — the exact function /api/checkout uses for Stripe metadata, so a
+// lead's first-touch attribution matches its eventual purchase attribution.
+// The previous client-side cookie read decoded once against a double-encoded
+// cookie value, so JSON.parse threw and every utm_*/gclid landed NULL. Anything
+// the client sends is now only a fallback; the server value wins.
+//
 // The lead row id is the verify token: the brand page detects ?lead=<id> and
 // POSTs it to /api/lead/verify, flipping verified=true (the click IS the
 // verification).
@@ -22,6 +29,7 @@ import {
 } from "@/lib/supabaseLeads";
 import { sendLeadTeaserEmail } from "@/lib/leadEmail";
 import { getBrand, toCard } from "@/lib/brands";
+import { readUtm } from "@/lib/utm";
 
 export const runtime = "nodejs";
 
@@ -63,6 +71,30 @@ export async function POST(req: NextRequest) {
 
   const { brandName: _drop, ...ctx } = body.context ?? {};
 
+  // ── P0: first-touch attribution, server-side ──────────────────────────────
+  // readUtm() gets one decode from NextRequest cookie parsing plus its own
+  // decodeURIComponent, which is why the server path resolves a double-encoded
+  // cookie correctly and document.cookie did not.
+  //
+  // IMPORTANT: whitelist the five columns that exist in public.leads. readUtm
+  // also returns utm_term / landed / ts, and passing those to Supabase would
+  // fail the insert with "column does not exist".
+  const ft = readUtm(req);
+  const attribution = {
+    utm_source: ft.utm_source ?? ctx.utm_source ?? null,
+    utm_medium: ft.utm_medium ?? ctx.utm_medium ?? null,
+    utm_campaign: ft.utm_campaign ?? ctx.utm_campaign ?? null,
+    utm_content: ft.utm_content ?? ctx.utm_content ?? null,
+    gclid: ft.gclid ?? ctx.gclid ?? null,
+  };
+  // Visible in Vercel runtime logs — the acceptance check without a debug route.
+  console.log("[lead] attribution", {
+    slug,
+    server: Object.keys(ft).length > 0,
+    utm_campaign: attribution.utm_campaign,
+    gclid: attribution.gclid ? "present" : null,
+  });
+
   // Write the lead FIRST so we have the id (= verify token) for the email link.
   // If Supabase is misconfigured this throws → 500, and nothing is sent (better
   // than sending an email whose verify token was never stored).
@@ -74,11 +106,7 @@ export async function POST(req: NextRequest) {
         context: {
           brand_slug: slug,
           capital_entered: ctx.capital_entered ?? null,
-          utm_source: ctx.utm_source ?? null,
-          utm_medium: ctx.utm_medium ?? null,
-          utm_campaign: ctx.utm_campaign ?? null,
-          utm_content: ctx.utm_content ?? null,
-          gclid: ctx.gclid ?? null,
+          ...attribution,
           device: ctx.device ?? null,
         },
         disposable,
