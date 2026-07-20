@@ -84,16 +84,51 @@ export function toTeaserCard(brand: any): TeaserCard {
   const i19 = ex?.item19 ?? {};
   const cohorts: any[] = Array.isArray(i19?.cohorts) ? i19.cohorts : [];
 
-  // Headline number: networkAverageMonthly, correctly labeled "average".
-  // (Bugfix: the page previously showed the MEDIAN labeled "average".)
+  // Headline number, in strict priority order:
+  //   1. networkAverageMonthly (batch-3+ schema).
+  //   2. A cohort explicitly labeled average/median (mid-generation schema).
+  //   3. OLDER SCHEMA (e.g. sky-zone, Jul-09 era): named cohorts with
+  //      revenueType/ownership/sampleSize. Pick the LEAST cherry-picked
+  //      representative: franchised-only (never company-owned), gross-sales
+  //      preferred over EBITDA, largest sampleSize wins (system-wide beats
+  //      "Model Parks"). Falls back to an EBITDA cohort (moKind "profit")
+  //      only when no revenue cohort exists.
+  // (Bugfix history: v1 showed the MEDIAN labeled "average"; v2.0 showed
+  //  "Not disclosed" for older-schema brands with real Item 19 data.)
   let mo: number | null = i19?.networkAverageMonthly ?? null;
   let moLabel: "average" | "median" = "average";
+  let moKind: "revenue" | "profit" = "revenue";
+  let moUnits: number | null = null;
   if (mo == null && cohorts.length) {
     const avg = cohorts.find((c) => /average/i.test(c?.label ?? c?.name ?? ""));
     const med = cohorts.find((c) => /median/i.test(c?.label ?? c?.name ?? ""));
     if (avg?.avgMonthlyRevenue != null) { mo = avg.avgMonthlyRevenue; moLabel = "average"; }
     else if (med?.avgMonthlyRevenue != null) { mo = med.avgMonthlyRevenue; moLabel = "median"; }
   }
+  if (mo == null && cohorts.length) {
+    const usable = cohorts.filter(
+      (c) => c?.avgMonthlyRevenue != null && c?.ownership !== "company",
+    );
+    const bySample = (a: any, b: any) => (b?.sampleSize ?? 0) - (a?.sampleSize ?? 0);
+    const revenue = usable
+      .filter((c) => /gross|revenue|sales/i.test(String(c?.revenueType ?? "")))
+      .sort(bySample);
+    const profit = usable
+      .filter((c) => /ebitda|net|profit/i.test(String(c?.revenueType ?? "")))
+      .sort(bySample);
+    const pick = revenue[0] ?? profit[0] ?? null;
+    if (pick) {
+      mo = pick.avgMonthlyRevenue;
+      moLabel = "average"; // these schema cohorts store averages ("Average Gross Sales of…")
+      moKind = revenue[0] ? "revenue" : "profit";
+      moUnits = pick.sampleSize ?? null;
+    }
+  }
+
+  // Fee normalization: older schema stores fractions (0.06), newer stores
+  // percents (8). Values < 1 are fractions of gross — convert to percent.
+  const pct = (v: any): number | null =>
+    typeof v === "number" ? (v < 1 ? Math.round(v * 1000) / 10 : v) : null;
 
   const inv = ex?.investment ?? {};
   const i17 = ex?.item17 ?? {};
@@ -130,13 +165,13 @@ export function toTeaserCard(brand: any): TeaserCard {
     parseQuality: brand?.parseQuality,
     mo,
     moLabel,
-    moKind: "revenue",
-    mn: i19?.unitsReported ?? null,
+    moKind,
+    mn: i19?.unitsReported ?? moUnits ?? null,
     cohortCount: cohorts.length,
     lo: inv?.lowTotal ?? i17?.initialInvestmentLow ?? null,
     hi: inv?.highTotal ?? i17?.initialInvestmentHigh ?? null,
-    royaltyPct: fees?.royaltyPct ?? null,
-    brandFundPct: fees?.brandFundPct ?? null,
+    royaltyPct: pct(fees?.royaltyPct),
+    brandFundPct: pct(fees?.brandFundPct),
     units: scale?.totalUnits ?? null,
     openedLastYear: scale?.openedLastYear ?? null,
     closedLastYear: scale?.closedLastYear ?? null,
