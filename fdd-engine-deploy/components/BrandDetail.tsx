@@ -20,6 +20,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { track } from "@/lib/analytics";
 import EmailCapture from "@/components/EmailCapture";
+import CaptureSheet from "@/components/CaptureSheet";
 import type { TeaserCard } from "@/lib/teaserProps";
 
 const PRICE_LABEL = "$199";
