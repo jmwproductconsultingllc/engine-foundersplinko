@@ -44,9 +44,14 @@ export default function BrandDetail({
 }) {
   const card = teaser;
   const [cap, setCap] = useState(250_000);
+  // ruling #3: the 250K default never enters the DB — only a user edit counts
+  const [capEdited, setCapEdited] = useState(false);
+  const [lockTip, setLockTip] = useState<string | null>(null);
+  const [showCalcCapture, setShowCalcCapture] = useState(false);
   const [stickyOn, setStickyOn] = useState(false);
   const heroRef = useRef<HTMLDivElement | null>(null);
   const askRef = useRef<HTMLDivElement | null>(null);
+  const playbookRef = useRef<HTMLElement | null>(null);
   const teaserFired = useRef(false);
 
   const tone = card.risk ? (RISK_TONE[card.risk] ?? RISK_TONE.Medium) : null;
@@ -70,8 +75,10 @@ export default function BrandDetail({
   const mintHref = (surface: string) =>
     `/api/mint-brand-report?slug=${card.slug}${refTag ? `&ref=${refTag}` : ""}`;
 
-  const onUnlock = (surface: string) =>
+  const onUnlock = (surface: string) => {
     track("upgrade_clicked", { source: "brand_page", slug: card.slug, ref: refTag ?? "none", cta_surface: surface });
+    try { sessionStorage.setItem("fe_cta_clicked", "1"); } catch {} // suppresses the S2 sheet
+  };
 
   // sticky bar: appears once the hero leaves the viewport
   useEffect(() => {
@@ -90,12 +97,29 @@ export default function BrandDetail({
       if (e.isIntersecting && !teaserFired.current) {
         teaserFired.current = true;
         track("teaser_viewed", { slug: card.slug, ref: refTag ?? "none" });
+        try { sessionStorage.setItem("fe_teaser_viewed", "1"); } catch {}
         obs.disconnect();
       }
     }, { threshold: 0.4 });
     obs.observe(el);
     return () => obs.disconnect();
   }, [card.slug, refTag]);
+
+  // S5 playbook block: capture_shown at 50% visibility, once
+  const playbookShown = useRef(false);
+  useEffect(() => {
+    const el = playbookRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !playbookShown.current) {
+        playbookShown.current = true;
+        track("capture_shown", { capture_surface: "playbook" });
+        obs.disconnect();
+      }
+    }, { threshold: 0.5 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   const heroKind = card.moKind === "profit" ? "profit" : "revenue";
 
@@ -175,9 +199,9 @@ export default function BrandDetail({
           <div className="mt-2.5 flex items-start gap-2.5 rounded-xl border border-[#3A496A] bg-[#0E1729] px-4 py-3.5 text-[14px] text-[#CBD5E1]">
             <span aria-hidden>🔒</span>
             <span>
-              Our audit flagged a <b className="text-[#F1F5F9]">serious financial-condition disclosure</b>{" "}
-              in this franchisor&apos;s own audited statements. What it is — and what it means for your
-              investment — is in the full report.
+              This franchisor&apos;s own audited statements disclose a{" "}
+              <b className="text-[#F1F5F9]">serious financial-condition item</b>. What it is — and what
+              it means for your investment — is in the full report.
             </span>
           </div>
         )}
@@ -218,6 +242,7 @@ export default function BrandDetail({
             brandName={card.brandName}
             brandSlug={card.slug}
             capitalEntered={cap}
+            capitalEdited={capEdited}
             refTag={refTag}
             surface="inline"
           />
@@ -239,6 +264,10 @@ export default function BrandDetail({
                   onChange={(e) => {
                     const d = e.target.value.replace(/[^0-9]/g, "").slice(0, 9);
                     setCap(d ? Number(d) : 0);
+                    if (!capEdited) {
+                      setCapEdited(true);
+                      track("cta_clicked", { cta_id: "calc_custom_input", section: "calculator" });
+                    }
                   }}
                   className="w-full bg-transparent text-3xl font-bold text-[#F5B847] outline-none"
                 />
@@ -247,7 +276,11 @@ export default function BrandDetail({
                 {[100_000, 250_000, 500_000, 1_000_000].map((v) => (
                   <button
                     key={v}
-                    onClick={() => setCap(v)}
+                    onClick={() => {
+                      setCap(v);
+                      setCapEdited(true);
+                      track("cta_clicked", { cta_id: `calc_preset_${v >= 1_000_000 ? "1m" : Math.round(v / 1000) + "k"}`, section: "calculator" });
+                    }}
                     className={`rounded-lg border px-3 py-1.5 text-xs font-bold transition ${
                       cap === v
                         ? "border-[#F5B847]/60 bg-[#F5B847]/10 text-[#F5B847]"
@@ -297,6 +330,35 @@ export default function BrandDetail({
                   </span>
                 </div>
               )}
+              {capEdited && (
+                <div className="mt-3 text-[13px]">
+                  {!showCalcCapture ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        track("cta_clicked", { cta_id: "calc_match_link", section: "calculator" });
+                        setShowCalcCapture(true);
+                        track("capture_shown", { capture_surface: "calculator" });
+                      }}
+                      className="text-[#38BDF8]"
+                    >
+                      Want this matched against other brands?{" "}
+                      <b className="underline">Email me brands that fit {usd(cap)} →</b>
+                    </button>
+                  ) : (
+                    <div className="mt-2">
+                      <EmailCapture
+                        brandName={card.brandName}
+                        brandSlug={card.slug}
+                        capitalEntered={cap}
+                        capitalEdited={capEdited}
+                        refTag={refTag}
+                        surface="calculator"
+                      />
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </section>
         )}
@@ -342,15 +404,27 @@ export default function BrandDetail({
             </div>
             <div className="mt-3 flex flex-col gap-2">
               {card.tripwires.map((t) => (
-                <div
+                <button
                   key={t.label}
-                  className="flex items-start gap-2.5 rounded-xl border border-[#27344F] bg-[#0E1729] px-3.5 py-3 text-[13.5px] text-[#CBD5E1]"
+                  type="button"
+                  onClick={() => {
+                    // ruling #6a: a lock-tap is the purest purchase-intent signal
+                    track("cta_clicked", { cta_id: "tripwire_lock", section: "tripwires", label: t.label });
+                    setLockTip(t.label);
+                    window.setTimeout(() => setLockTip((cur) => (cur === t.label ? null : cur)), 1800);
+                  }}
+                  className="relative flex w-full items-start gap-2.5 rounded-xl border border-[#27344F] bg-[#0E1729] px-3.5 py-3 text-left text-[13.5px] text-[#CBD5E1]"
                 >
                   <span aria-hidden>🔒</span>
                   <span>
                     <b className="text-[#F1F5F9]">{t.label}</b> — a detail most buyers miss → in the full report
                   </span>
-                </div>
+                  {lockTip === t.label && (
+                    <span className="absolute -top-2 right-3 rounded-md bg-[#27344F] px-2 py-0.5 text-[10.5px] font-bold text-[#CBD5E1]">
+                      In the full report
+                    </span>
+                  )}
+                </button>
               ))}
             </div>
           </section>
@@ -364,6 +438,66 @@ export default function BrandDetail({
         >
           See everything — {PRICE_LABEL}
         </a>
+
+        {/* 8 · FOUNDER STRIP (A2 — approved copy, verbatim) */}
+        <section className="mt-8">
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#586A88]">
+            Who reads these?
+          </p>
+          <div className="mt-3 flex items-start gap-4 rounded-2xl border border-[#27344F] bg-[#0E1729] p-5">
+            <div
+              aria-hidden
+              className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-[#16223B] text-sm font-extrabold text-[#34D399]"
+            >
+              JW
+            </div>
+            <div>
+              <h3 className="text-[15px] font-extrabold text-[#F1F5F9]">
+                Jason Wright — founder, FoundersPlinko
+              </h3>
+              <p className="mt-1.5 text-[13.5px] leading-relaxed text-[#8194B0]">
+                20 years in product. PE/M&amp;A diligence consultant. Franchise owner myself — I wrote
+                a $50K franchise-fee check before building the tool that reads the fine print. Every
+                number on this page is cited to the FDD.
+              </p>
+              <a
+                href="https://linkedin.com/in/jasonmwright"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => track("cta_clicked", { cta_id: "founder_linkedin", section: "founder" })}
+                className="mt-2 inline-block text-[13px] font-bold text-[#38BDF8]"
+              >
+                LinkedIn →
+              </a>
+              <p className="mt-2 text-[10.5px] text-[#586A88]">
+                Not affiliated with or endorsed by {card.brandName}.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* 9 · S5 PLAYBOOK — the dreamer door (below proof layer, above footer) */}
+        <section ref={playbookRef} className="mt-8">
+          <EmailCapture
+            brandName={card.brandName}
+            brandSlug={card.slug}
+            capitalEntered={cap}
+            capitalEdited={capEdited}
+            refTag={refTag}
+            surface="playbook"
+          />
+          <p className="mt-2.5 text-[12.5px] text-[#8194B0]">
+            Looking for something in particular? Email me directly —{" "}
+            <a
+              href={`mailto:jason@foundersplinko.com?subject=${encodeURIComponent(`Question from the ${card.brandName} page`)}`}
+              onClick={() => track("cta_clicked", { cta_id: "contact_email", section: "playbook" })}
+              className="font-bold text-[#38BDF8]"
+            >
+              jason@foundersplinko.com
+            </a>{" "}
+            — real question, real answer.
+          </p>
+        </section>
 
         <p className="mt-5 text-[11px] leading-relaxed text-[#586A88]">
           Informational only — not legal, financial, or investment advice. Figures are extracted from
@@ -394,6 +528,9 @@ export default function BrandDetail({
           </a>
         </div>
       </div>
+
+      {/* S2 · hunt-triggered bottom sheet (fires once/session on 80% + 8s dwell) */}
+      <CaptureSheet brandName={card.brandName} brandSlug={card.slug} />
     </main>
   );
 }

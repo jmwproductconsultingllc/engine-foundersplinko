@@ -38,9 +38,14 @@ export type AnalyticsEvent =
   | "brand_requested" // ghost card demand signal — "which FDD next" { brand, category }
   | "snapshot_email_submitted" // detail-page email capture, pre-A2 (superseded by lead_email_submitted) { slug, ref }
   // ── email capture v2: "Send me my analysis" nurture (delivery-framed) ──
-  | "lead_email_submitted" // capture submitted        { brandSlug, capitalEntered, device, ref }
-  | "lead_email_sent" // teaser email dispatched        { brandSlug, device }
-  | "lead_email_link_clicked"; // emailed link opened = verification { token }
+  | "lead_email_submitted" // capture submitted { brandSlug, capitalEntered, device, ref, capture_surface, lead_source }
+  | "lead_email_sent" // fulfillment email dispatched   { brandSlug, device, capture_surface }
+  | "lead_email_link_clicked" // emailed link opened = verification { token }
+  // ── capture v2 (spec r2): lifecycle + unified click event ──
+  | "capture_shown" // a capture surface became visible { capture_surface }
+  | "lead_enriched" // S4 progressive profile saved     { fields: "name" | "phone" | "name+phone" }
+  | "sheet_dismissed" // S2 bottom sheet dismissed
+  | "cta_clicked"; // unified click event — breakdown by cta_id { cta_id, section }
 
 interface PostHogLike {
   capture: (event: string, props?: Props) => void;

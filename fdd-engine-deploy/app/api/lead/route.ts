@@ -16,6 +16,12 @@
 // cookie value, so JSON.parse threw and every utm_*/gclid landed NULL. Anything
 // the client sends is now only a fallback; the server value wins.
 //
+// Capture v2 (2026-07-19 spec r2): body gains lead_source ("brand_findings" |
+// "playbook" | "capital_match") + capital_edited; response gains { id } for the
+// S4 enrich PATCH. Fulfillment branches on lead_source — findings (shopper),
+// playbook (dreamer), capital-match (S3 list) — routes never cross-deliver.
+// Upsert semantics (ruling #2) live in the upsert_lead RPC.
+//
 // The lead row id is the verify token: the brand page detects ?lead=<id> and
 // POSTs it to /api/lead/verify, flipping verified=true (the click IS the
 // verification).
@@ -27,7 +33,7 @@ import {
   isDisposable,
   type LeadContext,
 } from "@/lib/supabaseLeads";
-import { sendLeadTeaserEmail } from "@/lib/leadEmail";
+import { sendFindingsEmail, sendPlaybookEmail, sendCapitalMatchEmail } from "@/lib/leadEmail";
 import { getBrand, toCard } from "@/lib/brands";
 import { readUtm } from "@/lib/utm";
 
@@ -38,6 +44,7 @@ export async function POST(req: NextRequest) {
     email?: string;
     slug?: string;
     honeypot?: string;
+    lead_source?: "brand_findings" | "playbook" | "capital_match";
     context?: LeadContext & { brandName?: string };
   };
   try {
@@ -106,6 +113,8 @@ export async function POST(req: NextRequest) {
         context: {
           brand_slug: slug,
           capital_entered: ctx.capital_entered ?? null,
+          capital_edited: ctx.capital_edited === true,
+          lead_source: body.lead_source ?? "brand_findings",
           ...attribution,
           device: ctx.device ?? null,
         },
@@ -123,8 +132,15 @@ export async function POST(req: NextRequest) {
   const teaserUrl = `${origin}/franchise/${slug}?lead=${leadId}`;
 
   let sent = false;
+  const source = body.lead_source ?? "brand_findings";
   if (!disposable) {
-    sent = await sendLeadTeaserEmail({ to: email, brandName, teaserUrl });
+    if (source === "playbook") {
+      sent = await sendPlaybookEmail({ to: email, leadId });
+    } else if (source === "capital_match" && ctx.capital_edited === true && ctx.capital_entered) {
+      sent = await sendCapitalMatchEmail({ to: email, capital: ctx.capital_entered, leadId, origin });
+    } else {
+      sent = await sendFindingsEmail({ to: email, brand, brandName, teaserUrl });
+    }
     // best-effort: flip email_sent if it dispatched. A failed update is
     // non-fatal (the lead row already exists); log and move on.
     if (sent) {
@@ -142,5 +158,5 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  return NextResponse.json({ ok: true, sent });
+  return NextResponse.json({ ok: true, sent, id: leadId });
 }
