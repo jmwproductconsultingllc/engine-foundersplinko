@@ -7,3 +7,6 @@ tsconfig.tsbuildinfo
 .DS_Store
 harness/
 fdd-engine-deploy/.claude/
+
+# iCloud-corruption quarantine (moved out of .git — safe to delete in Finder)
+_to_delete/
