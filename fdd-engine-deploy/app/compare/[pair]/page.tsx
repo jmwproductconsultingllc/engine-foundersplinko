@@ -141,7 +141,11 @@ export default async function ComparePage({
           b={b.lo != null ? `${usd(b.lo)} – ${usd(b.hi)}` : b.buildoutMid != null ? `~${usd(b.buildoutMid)}` : "—"}
         />
         <Row label="Disclosed monthly figure" sub="Item 19 · labeled by its own type" a={heroCell(a)} b={heroCell(b)} />
-        <Row label="Royalty" a={a.royaltyPct != null ? `${a.royaltyPct}%` : "—"} b={b.royaltyPct != null ? `${b.royaltyPct}%` : "—"} />
+        <Row
+          label="Royalty"
+          a={a.royaltyPct != null ? `${a.royaltyPct}%` : a.flatRoyaltyNote ?? "—"}
+          b={b.royaltyPct != null ? `${b.royaltyPct}%` : b.flatRoyaltyNote ?? "—"}
+        />
         <Row label="System size" sub="Item 20" a={a.units ?? "—"} b={b.units ?? "—"} />
         <Row
           label="Diligence risk level"
@@ -150,9 +154,9 @@ export default async function ComparePage({
         />
         <Row
           label="Top FDD disclosure"
-          sub="descriptive, cited"
-          a={a.tripwires[0] ? `${a.tripwires[0].title} (${a.tripwires[0].source})` : "—"}
-          b={b.tripwires[0] ? `${b.tripwires[0].title} (${b.tripwires[0].source})` : "—"}
+          sub="category — detail in the full report"
+          a={a.tripwires[0] ? `🔒 ${a.tripwires[0].label}` : "—"}
+          b={b.tripwires[0] ? `🔒 ${b.tripwires[0].label}` : "—"}
         />
 
         <div className="mt-8 grid gap-3 sm:grid-cols-2">

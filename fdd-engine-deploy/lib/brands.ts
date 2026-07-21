@@ -1,17 +1,22 @@
 // lib/brands.ts
-// Brand store: read canonical brand files + derive the card/hero model for
-// /brands and /franchise/[slug]. Field mapping per deploy-brief-brand-pages.md
-// v3, hardened against the real 18-brand corpus (2026-07-09 batch). Every
-// non-obvious rule below exists because a real brand file violated the naive
-// version of it.
+// Brand store + taxonomy + directory model for /brands and /franchise/[slug].
+//
+// SINGLE-RESOLVER (2026-07-20): all fact interpretation moved to
+// lib/brandFacts.ts::resolveBrandFacts(). toCard() below is a THIN PROJECTION
+// of BrandFacts — it interprets nothing, so the index card can never disagree
+// with the detail teaser. Locked values (risk reasons, tripwire descriptions,
+// deficit figures, cohort spreads) are NOT on BrandCard: /brands passes cards
+// into a client component, so anything here serializes into the public payload.
 
 import fs from "node:fs/promises";
 import path from "node:path";
 import type { DiligenceResult } from "./types";
-import type { ExtractedFDD, Item19Cohort } from "./schema";
 import { normalizeRoyaltyPct } from "./fees";
+import { resolveBrandFacts, pickHeroCohort, costRange, type HeroPick } from "./brandFacts";
 
 export { normalizeRoyaltyPct }; // one import site for page code
+export { resolveBrandFacts, pickHeroCohort, costRange }; // legacy import sites
+export type { HeroPick };
 
 // ---------------------------------------------------------------------------
 // Store shape (matches scripts/jsonl-to-brands.ts output)
@@ -38,15 +43,6 @@ export interface BrandRecord {
 
 export type CohortPreference = "revenue" | "profit";
 
-export interface HeroPick {
-  monthly: number; // rounded $/mo
-  kind: "revenue" | "profit"; // ALWAYS from revenueType, never from preference
-  sampleSize: number | null;
-  label: string;
-  caveat: string | null; // label-derived applicability note — never hand-written
-  degraded: boolean; // fell past the integrity tiers (quartile / non-franchised)
-}
-
 export interface BrandCard {
   brandName: string;
   slug: string;
@@ -54,12 +50,12 @@ export interface BrandCard {
   grade: "READY" | "THIN";
   live: boolean; // clickable card vs ghost
   risk: string | null;
-  riskReasons: string[];
   i19: boolean;
   mo: number | null;
+  moLabel: "average" | "median";
   moKind: "revenue" | "profit" | null;
   moCaveat: string | null;
-  mn: number | null; // sampleSize behind the hero figure
+  mn: number | null; // unitsReported → hero cohort sampleSize → null
   lo: number | null;
   hi: number | null;
   costSource: "declared" | "summed" | null;
@@ -69,12 +65,17 @@ export interface BrandCard {
   vertical: string;
   parseQuality: string;
   royaltyPct: number | null; // normalized (R2)
+  /** flat-fee royalty note (e.g. "$1,000–$1,750/mo flat") — render instead of "—" */
+  flatRoyaltyNote: string | null;
+  brandFundPct: number | null;
   units: number | null;
   openedLastYear: number | null;
   closedLastYear: number | null;
-  /** top FDD-cited disclosures for the "what the sales deck won't lead with"
-   *  section (P1-5). Descriptive rendering only — never accusatory. */
-  tripwires: { title: string; description: string; severity: string; source: string }[];
+  /** locked-flag existence only — no figures, no reasons */
+  hasFinancialConditionFlag: boolean;
+  /** category labels ONLY (max 3) — descriptions never reach this object;
+   *  /brands serializes cards into a client component payload. */
+  tripwires: { label: string }[];
 }
 
 // ---------------------------------------------------------------------------
@@ -151,250 +152,40 @@ export function verticalForResult(result: DiligenceResult): string | null {
 }
 
 // ---------------------------------------------------------------------------
-// Cost range. The v1 brief said Σ lineItems, but the corpus proved the declared
-// Item 7 totals are the safer source: code-ninjas line items sum 30% below the
-// declared high, urban-air 21% below (the known Item 7 reconciliation bug, live
-// in the store). Rule: prefer declared low/high, fall back to sums, and flag
-// >10% divergence so those brands get queued for the focused Item 7 repair.
-// ---------------------------------------------------------------------------
-
-export function costRange(item17: ExtractedFDD["item17"] | null | undefined): {
-  lo: number | null;
-  hi: number | null;
-  source: "declared" | "summed" | null;
-  mismatch: boolean;
-} {
-  const items = item17?.lineItems ?? [];
-  const sumLo = items.reduce((a, x) => a + (x.low ?? 0), 0);
-  const sumHi = items.reduce((a, x) => a + (x.high ?? 0), 0);
-  const decLo = item17?.initialInvestmentLow ?? null;
-  const decHi = item17?.initialInvestmentHigh ?? null;
-
-  const lo = decLo ?? (sumLo > 0 ? sumLo : null);
-  const hi = decHi ?? (sumHi > 0 ? sumHi : null);
-  const source: "declared" | "summed" | null =
-    decLo != null && decHi != null ? "declared" : lo != null && hi != null ? "summed" : null;
-  const mismatch = decHi != null && sumHi > 0 && Math.abs(sumHi - decHi) / decHi > 0.1;
-
-  // Guard the learning-express failure mode: a single low-only line item yields
-  // lo=40000 / hi=0. A range needs both ends to be renderable.
-  if (lo != null && hi != null && hi >= lo) return { lo, hi, source, mismatch };
-  return { lo: null, hi: null, source: null, mismatch };
-}
-
-// ---------------------------------------------------------------------------
-// Hero cohort picker — the brief's rep_month, parameterized (reconciliation #1)
-// and hardened with integrity tiers the corpus demanded:
-//
-//   BUG 1 (urban-air / kidstrong): the naive sort crowned a TOP-quartile
-//     cohort ($390k/mo) and a BOTTOM-quartile cohort as heroes. Quartile
-//     cohorts are ineligible unless nothing else survives — and then the
-//     derived caveat renders and the conservative rank applies.
-//   BUG 2 (school-of-rock): profit preference picked Company-Owned NOI —
-//     affiliate economics as owner income (provenance ≠ applicability, the
-//     Five Iron trap documented on Item19Cohort.ownership). Franchised is a
-//     hard tier, not a sort hint.
-//   BUG 3 (goldfish / primrose / once-upon-a-child): "Profit Before Other
-//     Expenses", EBITDAR, and Gross Profit are all revenueType=net_or_ebitda
-//     but are NOT take-home — the caveat derives from the cohort's own label
-//     (reconciliation #4), never hardcoded per brand.
-//
-// Tiering (first non-empty tier wins):
-//   T1 franchised + representative (non-quartile, sample ≥ floor)
-//   T2 franchised (quartile allowed → degraded)
-//   T3 any ownership, representative (→ degraded)
-//   T4 anything with a monthly number (→ degraded)
-// Within a tier: representative-label keywords, then conservative quartile
-// rank, then sampleSize desc. Preference falls back across revenueType and
-// RELABELS — never blank (labels are always driven by revenueType).
-// ---------------------------------------------------------------------------
-
-const QUARTILE_RE = /top\s+quartile|bottom\s+quartile|quartile|percentile|top\s+\d+|decile/i;
-const REPRESENTATIVE_RE = /\ball\b|average|overall|system[-\s]?wide|total|network|mature|median/i;
-
-// A "representative" hero also needs a representative sample. KidStrong's only
-// non-quartile cohort is n=4 — crowning it hides that the disclosure is really
-// quartile-sliced. Below this floor we fall to the degraded tiers instead.
-const SAMPLE_FLOOR = 10;
-
-// When only quartile slices exist (Primrose, Urban Air disclose nothing else),
-// never lead with the best case: middle quartiles are closest to typical,
-// bottom understates (acceptable for a buyer-aligned product), top overstates
-// (never acceptable, even caveated). Also promotes MEDIAN over mean where both
-// exist — skew-resistant and buyer-honest (Jason's call; reverse by removing
-// 'median' from this regex and REPRESENTATIVE_RE).
-function quartileRank(label: string): number {
-  if (/second|third|median|mid/i.test(label)) return 3;
-  if (/bottom/i.test(label)) return 2;
-  if (/top/i.test(label)) return 1;
-  return 0;
-}
-
-function isFranchised(c: Item19Cohort): boolean {
-  // Ownership is a HARD filter (v3 §2): company/affiliate/mixed never render as
-  // owner economics unless sole survivor (degraded tier + caveat). When the
-  // enum is missing/unknown, fall back to the label text.
-  if (c.ownership === "franchised") return true;
-  if (c.ownership === "company" || c.ownership === "affiliate" || c.ownership === "mixed") return false;
-  return /franchis/i.test(c.label ?? "");
-}
-
-function deriveCaveat(c: Item19Cohort, degraded: boolean): string | null {
-  const label = c.label ?? "";
-  const notes: string[] = [];
-  if (/before other expenses/i.test(label)) notes.push("before some owner expenses");
-  else if (/ebitdar/i.test(label)) notes.push("before rent (EBITDAR)");
-  else if (/gross profit/i.test(label)) notes.push("gross profit — before operating costs");
-  else if (/ebitda/i.test(label)) notes.push("EBITDA — before debt and owner pay");
-  if (c.ownership === "company" || c.ownership === "affiliate")
-    notes.push("company-owned outlets, not franchisees");
-  if (degraded && QUARTILE_RE.test(label)) {
-    notes.push(
-      /bottom/i.test(label)
-        ? "bottom-quartile cohort"
-        : /second|third|mid/i.test(label)
-          ? "mid-quartile cohort"
-          : "top-performer cohort, not the system average",
-    );
-  }
-  return notes.length ? notes.join(" · ") : null;
-}
-
-/** Monthly figure for a cohort. Batch2+ records often carry only annualRevenue
- *  (avgMonthlyRevenue null) — derive annual/12, the same math the engine's own
- *  midCohort source uses. Kids-batch records with explicit monthly unchanged. */
-function monthlyOf(c: Item19Cohort): number | null {
-  if (typeof c.avgMonthlyRevenue === "number" && c.avgMonthlyRevenue > 0) return c.avgMonthlyRevenue;
-  if (typeof c.annualRevenue === "number" && c.annualRevenue > 0) return c.annualRevenue / 12;
-  return null;
-}
-
-export function pickHeroCohort(
-  cohorts: Item19Cohort[] | null | undefined,
-  preference: CohortPreference = "revenue",
-): HeroPick | null {
-  const all = (cohorts ?? []).filter(
-    (c) =>
-      monthlyOf(c) != null &&
-      // pre-sale-only revenue (memberships sold before opening) and 'other' are
-      // never hero material — not ongoing operating economics (v3 §1).
-      c.revenueType !== "pre_sale_only" &&
-      c.revenueType !== "other",
-  );
-  if (!all.length) return null;
-
-  const typeOrder: Array<{ t: Item19Cohort["revenueType"]; kind: "revenue" | "profit" }> =
-    preference === "profit"
-      ? [
-          { t: "net_or_ebitda", kind: "profit" },
-          { t: "gross_sales", kind: "revenue" },
-        ]
-      : [
-          { t: "gross_sales", kind: "revenue" },
-          { t: "net_or_ebitda", kind: "profit" },
-        ];
-
-  for (const { t, kind } of typeOrder) {
-    const ofType = all.filter((c) => c.revenueType === t);
-    if (!ofType.length) continue;
-
-    const goodSample = (c: Item19Cohort) => c.sampleSize == null || c.sampleSize >= SAMPLE_FLOOR;
-
-    const tiers: Array<{ pool: Item19Cohort[]; degraded: boolean }> = [
-      {
-        pool: ofType.filter((c) => isFranchised(c) && !QUARTILE_RE.test(c.label ?? "") && goodSample(c)),
-        degraded: false,
-      },
-      { pool: ofType.filter((c) => isFranchised(c)), degraded: true },
-      { pool: ofType.filter((c) => !QUARTILE_RE.test(c.label ?? "") && goodSample(c)), degraded: true },
-      { pool: ofType, degraded: true },
-    ];
-
-    for (const { pool, degraded } of tiers) {
-      if (!pool.length) continue;
-      const sorted = [...pool].sort((a, b) => {
-        const ra = REPRESENTATIVE_RE.test(a.label ?? "") ? 1 : 0;
-        const rb = REPRESENTATIVE_RE.test(b.label ?? "") ? 1 : 0;
-        if (ra !== rb) return rb - ra;
-        const qa = quartileRank(a.label ?? "");
-        const qb = quartileRank(b.label ?? "");
-        if (qa !== qb) return qb - qa;
-        return (b.sampleSize ?? 0) - (a.sampleSize ?? 0);
-      });
-      const c = sorted[0];
-      return {
-        monthly: Math.round(monthlyOf(c) as number),
-        kind, // from revenueType — a profit number is never labeled "revenue" or vice-versa
-        sampleSize: c.sampleSize ?? null,
-        label: c.label ?? "",
-        caveat: deriveCaveat(c, degraded),
-        degraded,
-      };
-    }
-  }
-  return null;
-}
-
-// ---------------------------------------------------------------------------
 // Card model
 // ---------------------------------------------------------------------------
 
 export function toCard(brand: BrandRecord, preference: CohortPreference = "revenue"): BrandCard {
-  const e = brand.result.extracted;
-  const { lo, hi, source: costSource, mismatch } = costRange(e.item17);
-  const hero = pickHeroCohort(e.item19?.cohorts, preference);
-  const risk = brand.result.scoring?.riskLevel ?? null;
-
-  // live = clickable card linking to /franchise/[slug]. THIN grades and
-  // structurally unrenderable brands stay ghosts (clickable-for-demand-signal
-  // per reconciliation #2, but not linked to a detail page). Grade is the
-  // converter's call and the gate; don't second-guess it per-field here.
-  const buildoutMid = brand.result.scoring?.buildoutMidpoint ?? null;
-  // live = clickable + sellable. Cost display needs either the Item 7 range or,
-  // as a last resort, the engine's mid-point build-out (batch2 brief §data-2;
-  // in practice the batch shipped full Item 7s, so the fallback is dormant).
-  // manual-verified records (hand-checked stubs awaiting full extraction) may
-  // ship without a risk grade: they render honestly as "grading in progress"
-  // rather than ghosting a brand with a client deadline. Everything else still
-  // requires a computed risk verdict to be sellable.
-  const gradedOrVerified = risk != null || brand.parseQuality === "manual-verified";
-  const live =
-    brand.grade === "READY" && gradedOrVerified && ((lo != null && hi != null) || buildoutMid != null);
-
+  // THIN PROJECTION of BrandFacts — no interpretation here (single-resolver).
+  const f = resolveBrandFacts(brand, preference);
   return {
-    brandName: brand.brandName,
-    slug: brand.slug,
-    category: brand.category,
-    grade: brand.grade,
-    live,
-    risk,
-    riskReasons: brand.result.scoring?.riskReasons ?? [],
-    i19: Boolean(e.item19?.hasItem19),
-    mo: hero?.monthly ?? null,
-    moKind: hero?.kind ?? null,
-    moCaveat: hero?.caveat ?? null,
-    mn: hero?.sampleSize ?? null,
-    lo,
-    hi,
-    costSource,
-    costMismatch: mismatch,
-    buildoutMid,
-    vertical: verticalOf(brand),
-    parseQuality: brand.parseQuality ?? "clean",
-    royaltyPct: normalizeRoyaltyPct(e.ongoingFees?.royaltyPct),
-    units: e.systemScale?.totalUnits ?? null,
-    openedLastYear: e.systemScale?.openedLastYear ?? null,
-    closedLastYear: e.systemScale?.closedLastYear ?? null,
-    tripwires: (e.operationalRisks ?? [])
-      .slice()
-      .sort((a, b) => ({ high: 0, medium: 1, low: 2 }[a.severity ?? "low"] ?? 2) - ({ high: 0, medium: 1, low: 2 }[b.severity ?? "low"] ?? 2))
-      .slice(0, 3)
-      .map((t) => ({
-        title: t.title ?? "",
-        description: t.description ?? "",
-        severity: t.severity ?? "medium",
-        source: t.source ?? "FDD",
-      })),
+    brandName: f.brandName,
+    slug: f.slug,
+    category: f.category,
+    grade: f.grade,
+    live: f.live,
+    risk: f.risk,
+    i19: f.i19,
+    mo: f.mo,
+    moLabel: f.moLabel,
+    moKind: f.mo != null ? f.moKind : null,
+    moCaveat: f.moCaveat,
+    mn: f.moUnits,
+    lo: f.lo,
+    hi: f.hi,
+    costSource: f.costSource,
+    costMismatch: f.costMismatch,
+    buildoutMid: f.buildoutMid,
+    vertical: f.vertical,
+    parseQuality: f.parseQuality,
+    royaltyPct: f.royaltyPct,
+    flatRoyaltyNote: f.flatRoyaltyNote,
+    brandFundPct: f.brandFundPct,
+    units: f.units,
+    openedLastYear: f.openedLastYear,
+    closedLastYear: f.closedLastYear,
+    hasFinancialConditionFlag: f.hasFinancialConditionFlag,
+    tripwires: f.tripwireLabels.map((label) => ({ label })),
   };
 }
 

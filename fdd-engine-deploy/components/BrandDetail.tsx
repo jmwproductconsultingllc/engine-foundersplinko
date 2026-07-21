@@ -388,10 +388,14 @@ export default function BrandDetail({
             <div className="rounded-xl border border-[#27344F] bg-[#0E1729] p-3.5">
               <div className="text-[10px] font-bold uppercase tracking-wide text-[#8194B0]">Royalty</div>
               <div className="mt-1 text-[19px] font-extrabold">
-                {card.royaltyPct != null ? `${card.royaltyPct}%` : "—"}
+                {card.royaltyPct != null ? `${card.royaltyPct}%` : card.flatRoyaltyNote ? "Flat" : "—"}
               </div>
               <div className="mt-0.5 text-[11px] text-[#5A6B88]">
-                {card.brandFundPct != null ? `+ ${card.brandFundPct}% brand fund` : "see fee model in report"}
+                {card.royaltyPct == null && card.flatRoyaltyNote
+                  ? card.flatRoyaltyNote
+                  : card.brandFundPct != null
+                    ? `+ ${card.brandFundPct}% brand fund`
+                    : "see fee model in report"}
               </div>
             </div>
           </div>

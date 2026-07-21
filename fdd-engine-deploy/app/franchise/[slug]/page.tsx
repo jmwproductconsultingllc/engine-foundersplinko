@@ -12,6 +12,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { listBrands, getBrand, toCard } from "@/lib/brands";
+import { auditBrandFacts } from "@/lib/brandFacts";
 import { toTeaserCard } from "@/lib/teaserProps";
 import BrandDetail from "@/components/BrandDetail";
 
@@ -22,6 +23,10 @@ const usd = (n: number) =>
 
 export async function generateStaticParams() {
   const brands = await listBrands();
+  // Build-time consistency gate (single-resolver spec): any brand file that
+  // resolves inconsistently FAILS THE BUILD, and the resolved-facts table
+  // prints to the build log as a human-scannable snapshot per deploy.
+  auditBrandFacts(brands);
   return brands
     .filter((b) => toCard(b).live)
     .map((b) => ({ slug: b.slug }));

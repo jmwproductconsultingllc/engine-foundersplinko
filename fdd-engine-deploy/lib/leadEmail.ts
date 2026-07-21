@@ -77,15 +77,14 @@ export async function sendFindingsEmail(args: {
   const card = toCard(brand);
   const subject = `What ${brandName}'s FDD discloses — the parts most buyers miss`;
 
-  // category teases: titles/categories only (same fields the free page shows)
+  // category teases: the SAME category labels the free page shows (single
+  // resolver — the email can never tease something the page doesn't).
   const catList = (card.tripwires ?? [])
     .slice(0, 3)
-    .map((t) => `<li style="margin-top:6px;">🔒 ${t.title}</li>`)
+    .map((t) => `<li style="margin-top:6px;">🔒 ${t.label}</li>`)
     .join("");
-  // Fin-condition tease: category-level only, keyed off the risk reasons the
-  // free page already exposes (no severity field exists on the card; do not
-  // reach into scoring internals from an email template).
-  const hasFinFlag = (card.riskReasons ?? []).some((r) => /financial|net worth|deficit|going concern/i.test(r));
+  // Fin-condition tease: the same locked-flag existence bit the page renders.
+  const hasFinFlag = card.hasFinancialConditionFlag;
   const finLine = hasFinFlag
     ? `<p ${P}>${brandName}'s own audited financial statements disclose a <b style="color:#F1F5F9;">financial-condition item</b> — what it is, and what it means for your investment, is detailed in the full report.</p>`
     : "";
