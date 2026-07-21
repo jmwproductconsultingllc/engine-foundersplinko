@@ -102,6 +102,8 @@ export default function EmailCapture({
   const [phone, setPhone] = useState("");
   const [consent, setConsent] = useState(false);
   const [enriched, setEnriched] = useState<"none" | "name" | "phone" | "both">("none");
+  // typed-intent telemetry: fire once per surface instance on first focus
+  const [focusFired, setFocusFired] = useState(false);
 
   const device =
     typeof navigator !== "undefined" && /Mobi|Android/i.test(navigator.userAgent)
@@ -273,6 +275,12 @@ export default function EmailCapture({
             if (status === "error") setStatus("idle");
           }}
           onKeyDown={(e) => e.key === "Enter" && submit()}
+          onFocus={() => {
+            if (!focusFired) {
+              setFocusFired(true);
+              track("email_field_focused", { capture_surface: surface });
+            }
+          }}
           placeholder="you@email.com"
           aria-label="Your email address"
           className="min-w-[200px] flex-1 rounded-lg border border-[#27344F] bg-[#0B1220] px-3.5 py-3 text-sm text-[#F1F5F9] outline-none placeholder:text-[#586A88] focus:border-[#38BDF8]"

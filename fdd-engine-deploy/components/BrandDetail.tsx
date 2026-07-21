@@ -53,6 +53,7 @@ export default function BrandDetail({
   const heroRef = useRef<HTMLDivElement | null>(null);
   const askRef = useRef<HTMLDivElement | null>(null);
   const playbookRef = useRef<HTMLElement | null>(null);
+  const inlineCaptureRef = useRef<HTMLElement | null>(null);
   const teaserFired = useRef(false);
 
   const tone = card.risk ? (RISK_TONE[card.risk] ?? RISK_TONE.Medium) : null;
@@ -105,6 +106,23 @@ export default function BrandDetail({
     obs.observe(el);
     return () => obs.disconnect();
   }, [card.slug, refTag]);
+
+  // S1 inline capture: capture_shown at 40% visibility (the teaser_viewed
+  // standard), once — the surface breakdown was blind to inline exposure.
+  const inlineShown = useRef(false);
+  useEffect(() => {
+    const el = inlineCaptureRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !inlineShown.current) {
+        inlineShown.current = true;
+        track("capture_shown", { capture_surface: "inline" });
+        obs.disconnect();
+      }
+    }, { threshold: 0.4 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   // S5 playbook block: capture_shown at 50% visibility, once
   const playbookShown = useRef(false);
@@ -238,7 +256,7 @@ export default function BrandDetail({
         </div>
 
         {/* 5 · email capture directly under the ask */}
-        <section className="mt-2.5">
+        <section ref={inlineCaptureRef} className="mt-2.5">
           <EmailCapture
             brandName={card.brandName}
             brandSlug={card.slug}

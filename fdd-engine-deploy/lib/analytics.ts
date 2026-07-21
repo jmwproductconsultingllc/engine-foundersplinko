@@ -42,7 +42,8 @@ export type AnalyticsEvent =
   | "lead_email_sent" // fulfillment email dispatched   { brandSlug, device, capture_surface }
   | "lead_email_link_clicked" // emailed link opened = verification { token }
   // ── capture v2 (spec r2): lifecycle + unified click event ──
-  | "capture_shown" // a capture surface became visible { capture_surface }
+  | "capture_shown" // a capture surface became visible { capture_surface: "inline" | "sheet" | "calculator" | "playbook" }
+  | "email_field_focused" // typed-intent signal: separates "nobody cares" from "starts typing and bails" { capture_surface }
   | "lead_enriched" // S4 progressive profile saved     { fields: "name" | "phone" | "name+phone" }
   | "sheet_dismissed" // S2 bottom sheet dismissed
   | "cta_clicked"; // unified click event — breakdown by cta_id { cta_id, section }
