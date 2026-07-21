@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState, type ReactNode } from "react";
-import { applyRentCorrection } from "@/lib/rentCorrection";
+import { useMemo, useRef, useState, type ReactNode } from "react";
+import { applyRentCorrection, applyRentOverride } from "@/lib/rentCorrection";
 import type { RentResolution } from "@/lib/rent";
+import { track } from "@/lib/analytics";
 import type { DiligenceResult } from "@/lib/types";
 import { recurringFeeDisplays } from "@/lib/fees";
 
@@ -197,11 +198,51 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
   // Rent-resolver hotfix: stored results were scored with rent silently $0 when
   // averageRentMonthly was null. Correct the economics at render (risk level is
   // NOT re-scored — it stays consistent with the public brand card).
-  const result = useMemo(() => applyRentCorrection(rawResult), [rawResult]);
+  const baseResult = useMemo(() => applyRentCorrection(rawResult), [rawResult]);
+  // Rent override — the third basis ("your input"). Session-local; the buyer's
+  // number flows through the FULL recompute chain like the resolved mid.
+  const [rentOverride, setRentOverride] = useState<number | null>(null);
+  const [rentEditing, setRentEditing] = useState(false);
+  const [rentDraft, setRentDraft] = useState<string>("");
+  const lastOverrideFired = useRef<number | null>(null);
+  const result = useMemo(
+    () => (rentOverride != null ? applyRentOverride(baseResult, rentOverride) : baseResult),
+    [baseResult, rentOverride],
+  );
   const { extracted: x, scoring: s, underwriting: u } = result;
+  // baseline (pre-override) resolution — drives the edit affordance + reset copy
+  const baselineRent =
+    (baseResult.scoring as { rentResolution?: RentResolution | null }).rentResolution ?? null;
   const rent = (s as { rentResolution?: RentResolution | null }).rentResolution ?? null;
   const fixedFees =
     (s as { fixedFeesMonthly?: number }).fixedFeesMonthly ?? Math.max(0, s.fixedMonthly - (rent?.mid ?? 0));
+
+  const slugify = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const commitRentOverride = (raw: number) => {
+    if (!baselineRent || !Number.isFinite(raw)) return;
+    const clamped = Math.min(200_000, Math.max(200, Math.round(raw)));
+    setRentOverride(clamped);
+    setRentDraft(clamped.toLocaleString("en-US"));
+    if (lastOverrideFired.current !== clamped) {
+      lastOverrideFired.current = clamped;
+      track("rent_override_set", {
+        brand_slug: slugify(x.brandName || "unknown"),
+        baseline_basis: baselineRent.basis === "disclosed" ? "disclosed" : "estimated",
+        baseline_mid: baselineRent.mid,
+        override_value: clamped,
+      });
+    }
+  };
+  const resetRentOverride = () => {
+    setRentOverride(null);
+    setRentDraft("");
+    setRentEditing(false);
+    lastOverrideFired.current = null;
+    track("rent_override_reset", {});
+  };
+  const rentWarn =
+    rentOverride != null && baselineRent != null &&
+    (rentOverride > baselineRent.mid * 3 || rentOverride < baselineRent.mid / 3);
   const ins = result.insights ?? null;
   const fc = result.financialCondition ?? null;
   const fees = recurringFeeDisplays(x);
@@ -411,15 +452,68 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
               {rent ? (
                 <>
                   <Row
-                    label={rent.basis === "disclosed" ? "Rent" : "Rent (estimated)"}
+                    label={
+                      <span className="inline-flex items-center gap-2">
+                        {rent.basis === "override" ? (
+                          <>
+                            Rent (your input)
+                            <span className="rounded bg-[#F5B847]/15 px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wide text-[#F5B847]">
+                              your figure
+                            </span>
+                          </>
+                        ) : rent.basis === "disclosed" ? (
+                          "Rent"
+                        ) : (
+                          "Rent (estimated)"
+                        )}
+                        {baselineRent && rent.basis !== "override" && (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setRentEditing((v) => !v);
+                              setRentDraft(String(Math.round(baselineRent.mid).toLocaleString("en-US")));
+                            }}
+                            className="text-[10px] font-bold text-[#38BDF8] hover:underline"
+                          >
+                            ✎ Adjust for your market
+                          </button>
+                        )}
+                        {rent.basis === "override" && (
+                          <button
+                            type="button"
+                            onClick={resetRentOverride}
+                            className="text-[10px] font-bold text-[#38BDF8] hover:underline"
+                          >
+                            Reset to {baselineRent?.basis === "disclosed" ? "disclosed" : "estimate"}
+                          </button>
+                        )}
+                      </span>
+                    }
                     value={rent.lo !== rent.hi ? `-${usd(rent.lo)} to -${usd(rent.hi)}` : `-${usd(rent.mid)}`}
                     red
                   />
                   <p className="text-[10px] text-[#8194B0] -mt-1">
-                    {rent.basis === "disclosed"
-                      ? `Disclosed — ${rent.source}.`
-                      : `${rent.basis === "disclosed_range" ? "Disclosed range" : "Category occupancy estimate"} — ${rent.source}; the model uses the midpoint (${usd(rent.mid)}).`}
+                    {rent.basis === "override"
+                      ? `Your figure — the ${baselineRent?.basis === "disclosed" ? "disclosed" : "estimated"} baseline was ${usd(baselineRent?.mid ?? null)}. Local quotes beat national averages; use your broker's number.`
+                      : rent.basis === "disclosed"
+                        ? `Disclosed — ${rent.source}.`
+                        : `${rent.basis === "disclosed_range" ? "Disclosed range" : "Category occupancy estimate"} — ${rent.source}; the model uses the midpoint (${usd(rent.mid)}).`}
                   </p>
+                  {rentEditing && rent.basis !== "override" && baselineRent && (
+                    <RentOverrideEditor
+                      baseline={baselineRent}
+                      draft={rentDraft}
+                      setDraft={setRentDraft}
+                      onCommit={commitRentOverride}
+                      onCancel={() => setRentEditing(false)}
+                    />
+                  )}
+                  {rentWarn && (
+                    <p className="text-[10px] text-amber-300 -mt-1">
+                      That&apos;s far from the disclosed/estimated range for this concept — double-check the
+                      quote covers the same square footage.
+                    </p>
+                  )}
                 </>
               ) : (
                 <Row label="Rent — not disclosed" value="see Insights benchmark" />
@@ -850,6 +944,71 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
 }
 
 /* ---- small presentational helpers ---- */
+
+function RentOverrideEditor({
+  baseline,
+  draft,
+  setDraft,
+  onCommit,
+  onCancel,
+}: {
+  baseline: { mid: number; basis: string };
+  draft: string;
+  setDraft: (v: string) => void;
+  onCommit: (v: number) => void;
+  onCancel: () => void;
+}) {
+  const parse = (s: string) => Number(s.replace(/[^0-9]/g, ""));
+  const commit = () => {
+    const v = parse(draft);
+    if (v > 0) onCommit(v);
+  };
+  const chip = (label: string, value: number) => (
+    <button
+      type="button"
+      onClick={() => onCommit(value)}
+      className="rounded-lg border border-[#27344F] px-2.5 py-1 text-[11px] font-bold text-[#8194B0] hover:border-[#3A496A] hover:text-[#CBD5E1]"
+    >
+      {label}
+    </button>
+  );
+  return (
+    <div className="mt-1 rounded-lg border border-[#F5B847]/30 bg-[#0B1220] p-3">
+      <label className="block text-[11px] font-bold text-[#CBD5E1]">
+        Your monthly rent ($200–$200,000)
+      </label>
+      <div className="mt-1.5 flex flex-wrap items-center gap-2">
+        <div className="flex items-center gap-1 rounded-lg border border-[#27344F] bg-[#16223B] px-2.5 py-1.5 focus-within:border-[#F5B847]/60">
+          <span className="text-sm font-bold text-[#F5B847]">$</span>
+          <input
+            inputMode="numeric"
+            value={draft}
+            onChange={(e) => {
+              const d = e.target.value.replace(/[^0-9]/g, "").slice(0, 6);
+              setDraft(d ? Number(d).toLocaleString("en-US") : "");
+            }}
+            onKeyDown={(e) => e.key === "Enter" && commit()}
+            className="w-24 bg-transparent text-sm font-bold text-[#F5B847] outline-none"
+            aria-label="Your monthly rent"
+          />
+          <span className="text-[10px] text-[#8194B0]">/mo</span>
+        </div>
+        <button
+          type="button"
+          onClick={commit}
+          className="rounded-lg bg-[#F5B847] px-3 py-1.5 text-[12px] font-extrabold text-[#0B1220]"
+        >
+          Apply
+        </button>
+        {chip("+25%", Math.round(baseline.mid * 1.25))}
+        {chip("+50%", Math.round(baseline.mid * 1.5))}
+        <button type="button" onClick={onCancel} className="text-[11px] font-bold text-[#8194B0] hover:underline">
+          Cancel
+        </button>
+      </div>
+    </div>
+  );
+}
 
 function Row({
   label,

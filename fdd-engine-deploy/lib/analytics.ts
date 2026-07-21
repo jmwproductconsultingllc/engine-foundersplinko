@@ -46,7 +46,10 @@ export type AnalyticsEvent =
   | "email_field_focused" // typed-intent signal: separates "nobody cares" from "starts typing and bails" { capture_surface }
   | "lead_enriched" // S4 progressive profile saved     { fields: "name" | "phone" | "name+phone" }
   | "sheet_dismissed" // S2 bottom sheet dismissed
-  | "cta_clicked"; // unified click event — breakdown by cta_id { cta_id, section }
+  | "cta_clicked" // unified click event — breakdown by cta_id { cta_id, section }
+  // ── rent override (report pro forma): buyer's own number as the third basis ──
+  | "rent_override_set" // { brand_slug, baseline_basis: "disclosed" | "estimated", baseline_mid, override_value }
+  | "rent_override_reset"; // buyer restored the disclosed/estimated baseline
 
 interface PostHogLike {
   capture: (event: string, props?: Props) => void;

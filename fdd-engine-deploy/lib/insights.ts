@@ -579,6 +579,12 @@ export function buildInsights(
           basis: "disclosed",
           detail: `Taken from the FDD (~$${Math.round(fdd.averageRentMonthly!).toLocaleString()}/mo); already netted in margin after fees & rent.`,
         });
+      } else if (rentRes && rentRes.basis === "override") {
+        assumptions.push({
+          field: "Rent",
+          basis: "inferred",
+          detail: `Buyer-entered figure (~$${Math.round(rentRes.mid).toLocaleString()}/mo — ${rentRes.source}); already netted in the margin line — no separate occupancy subtraction applied.`,
+        });
       } else if (rentRes) {
         assumptions.push({
           field: "Rent",

@@ -5,7 +5,7 @@ import { describe, it, expect } from "vitest";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { resolveMonthlyRent } from "./rent";
-import { applyRentCorrection } from "./rentCorrection";
+import { applyRentCorrection, applyRentOverride } from "./rentCorrection";
 import type { ExtractedFDD } from "./schema";
 
 async function loadBrand(slug: string) {
@@ -118,5 +118,61 @@ describe("Crumbl acceptance (hotfix spec reference numbers)", () => {
     if (before != null) {
       expect(Math.round(corrected.scoring!.midCohort!.monthlyEbitda)).toBe(Math.round(before));
     }
+  });
+});
+
+describe("rent override — the third basis (applyRentOverride)", () => {
+  it("crumbl: $12,000 override flows through margin/DSCR/payback; basis is 'override'", async () => {
+    const crumbl = await loadBrand("crumbl");
+    const o = applyRentOverride(crumbl.result, 12000);
+    const s = o.scoring! as any;
+    expect(Math.round(s.midCohort.monthlyEbitda)).toBe(69260);
+    expect(s.dscr).toBeGreaterThan(5.4);
+    expect(s.dscr).toBeLessThan(5.7);
+    expect(s.rentResolution.basis).toBe("override");
+    expect(s.rentResolution.mid).toBe(12000);
+    // honesty: the override is never labeled disclosed anywhere downstream
+    const rentAssumption = (o.insights?.assumptions ?? []).find((a: any) => a.field === "Rent");
+    if (rentAssumption) expect(rentAssumption.basis).not.toBe("disclosed");
+    // no occupancy double-count with an override either
+    const occRow = (o.insights?.buildup ?? []).find((r: any) => /occupanc/i.test(r.label ?? ""));
+    expect(occRow).toBeUndefined();
+  });
+
+  it("disclosed-rent brand (Back Nine class): override recomputes off the disclosed baseline", async () => {
+    const { scoreFdd } = await import("./scoring");
+    const { underwrite } = await import("./underwriting");
+    // Minimal replica of the golden fixture's economics: mid $19,393, 8% royalty,
+    // $600 flat fees, disclosed rent $6,361 → margin $10,881 (the golden pin).
+    const fdd = {
+      documentCheck: { appearsComplete: true, appearsScanned: false, itemsFound: [], warnings: [] },
+      brandName: "Back Nine Replica",
+      item19: {
+        hasItem19: true,
+        unitsReported: null,
+        cohorts: [
+          { label: "Middle 60% Average", avgMonthlyRevenue: 19393, basis: "x", revenueType: "gross_sales", ownership: "franchised" },
+          { label: "Bottom 30% Average", avgMonthlyRevenue: 10885, basis: "x", revenueType: "gross_sales", ownership: "franchised" },
+        ],
+        networkAverageMonthly: null,
+      },
+      ongoingFees: { royaltyPct: 8, brandFundPct: 0, localAdPct: null, flatMonthlyFees: [{ name: "Tech", monthlyAmount: 600, source: "Item 6" }] },
+      averageRentMonthly: 6361,
+      item17: { initialInvestmentLow: 400000, initialInvestmentHigh: 595550, lineItems: [] },
+      operationalRisks: [],
+      hiddenCosts: [],
+    } as any;
+    const scoring = scoreFdd(fdd, { liquidCapital: 250000 });
+    expect(Math.round(scoring.midCohort!.monthlyEbitda)).toBe(10881); // baseline matches golden
+    expect((scoring as any).rentResolution.basis).toBe("disclosed");
+    expect((scoring as any).rentResolution.mid).toBe(6361);
+    const buyer = { liquidCapital: 250000, netWorth: 250000 };
+    const result = { extracted: fdd, scoring, underwriting: underwrite(fdd, scoring, buyer), buyer } as any;
+    const o = applyRentOverride(result, 10000);
+    const s = o.scoring! as any;
+    expect(Math.round(s.midCohort.monthlyEbitda)).toBe(7242); // 10,881 − (10,000 − 6,361)
+    expect(s.rentResolution.basis).toBe("override");
+    // soft-warn threshold: 10,000 < 3 × 6,361 — must NOT warn
+    expect(10000 <= 6361 * 3).toBe(true);
   });
 });

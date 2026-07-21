@@ -33,7 +33,9 @@ export interface RentResolution {
   lo: number; // monthly $
   hi: number; // monthly $
   mid: number; // simple midpoint — what the math uses
-  basis: "disclosed" | "disclosed_range" | "benchmark";
+  /** "override" is never emitted by the resolver — only by applyRentOverride
+   *  (lib/rentCorrection.ts) when the buyer enters their own figure. */
+  basis: "disclosed" | "disclosed_range" | "benchmark" | "override";
   source: string;
   /** benchmark and disclosed range were DISJOINT — surfaced in the audit table */
   reviewFlag?: boolean;
