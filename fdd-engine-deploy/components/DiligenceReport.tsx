@@ -1,6 +1,8 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useMemo, useState, type ReactNode } from "react";
+import { applyRentCorrection } from "@/lib/rentCorrection";
+import type { RentResolution } from "@/lib/rent";
 import type { DiligenceResult } from "@/lib/types";
 import { recurringFeeDisplays } from "@/lib/fees";
 
@@ -191,8 +193,15 @@ function ProvenanceNote({ result }: { result: DiligenceResult }) {
   );
 }
 
-export default function DiligenceReport({ result }: { result: DiligenceResult }) {
+export default function DiligenceReport({ result: rawResult }: { result: DiligenceResult }) {
+  // Rent-resolver hotfix: stored results were scored with rent silently $0 when
+  // averageRentMonthly was null. Correct the economics at render (risk level is
+  // NOT re-scored — it stays consistent with the public brand card).
+  const result = useMemo(() => applyRentCorrection(rawResult), [rawResult]);
   const { extracted: x, scoring: s, underwriting: u } = result;
+  const rent = (s as { rentResolution?: RentResolution | null }).rentResolution ?? null;
+  const fixedFees =
+    (s as { fixedFeesMonthly?: number }).fixedFeesMonthly ?? Math.max(0, s.fixedMonthly - (rent?.mid ?? 0));
   const ins = result.insights ?? null;
   const fc = result.financialCondition ?? null;
   const fees = recurringFeeDisplays(x);
@@ -398,9 +407,38 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
                 value={`-${usd(s.midCohort.monthlyVariable)}`}
                 red
               />
-              <Row label="Fixed costs (fees + rent)" value={`-${usd(s.fixedMonthly)}`} red />
+              <Row label="Fixed fees" value={`-${usd(fixedFees)}`} red />
+              {rent ? (
+                <>
+                  <Row
+                    label={rent.basis === "disclosed" ? "Rent" : "Rent (estimated)"}
+                    value={rent.lo !== rent.hi ? `-${usd(rent.lo)} to -${usd(rent.hi)}` : `-${usd(rent.mid)}`}
+                    red
+                  />
+                  <p className="text-[10px] text-[#8194B0] -mt-1">
+                    {rent.basis === "disclosed"
+                      ? `Disclosed — ${rent.source}.`
+                      : `${rent.basis === "disclosed_range" ? "Disclosed range" : "Category occupancy estimate"} — ${rent.source}; the model uses the midpoint (${usd(rent.mid)}).`}
+                  </p>
+                </>
+              ) : (
+                <Row label="Rent — not disclosed" value="see Insights benchmark" />
+              )}
               <div className="border-t border-[#27344F] pt-3">
-                <Row label="Margin after fees & rent" value={usd(s.midCohort.monthlyEbitda)} bold />
+                <Row
+                  label={rent ? "Margin after fees, fixed & rent" : "Margin after franchise & fixed fees (excludes rent)"}
+                  value={
+                    rent && rent.lo !== rent.hi
+                      ? `${usd(s.midCohort.monthlyEbitda - (rent.hi - rent.mid))} – ${usd(s.midCohort.monthlyEbitda + (rent.mid - rent.lo))}`
+                      : usd(s.midCohort.monthlyEbitda)
+                  }
+                  bold
+                />
+                {rent && rent.lo !== rent.hi && (
+                  <p className="text-[10px] text-[#8194B0] mt-1">
+                    Midpoint {usd(s.midCohort.monthlyEbitda)} carries through the model (net cash flow, DSCR, payback).
+                  </p>
+                )}
                 <p className="text-[10px] text-[#8194B0] mt-1">Before COGS, labor, maintenance, and owner pay — see Insights below.</p>
               </div>
             </div>
@@ -450,7 +488,11 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
                 <p className={`text-2xl font-black ${net >= 0 ? "text-[#34D399]" : "text-red-400"}`}>
                   {usd(net)}
                 </p>
-                <p className="text-[10px] text-[#8194B0] mt-1">Before COGS, labor, maintenance, owner draw.</p>
+                <p className="text-[10px] text-[#8194B0] mt-1">
+                  Before COGS, labor, maintenance, owner draw.
+                  {rent && rent.basis !== "disclosed" ? " Rent is estimated (see the rent line)." : ""}
+                  {!rent ? " Rent is NOT included — see the rent line above." : ""}
+                </p>
               </div>
             </div>
           </div>
@@ -590,7 +632,7 @@ export default function DiligenceReport({ result }: { result: DiligenceResult })
 
               <p className="text-[10px] text-[#8194B0]">
                 {ins.trueEbitdaBasis === "modeled"
-                  ? `Dollar figures use the midpoint of each category band (the % ranges show the spread); your unit's actuals will vary. Labor headcount implied at ~$20/hr fully loaded. Rent and franchise fees are already inside "margin after fees & rent."`
+                  ? `Dollar figures use the midpoint of each category band (the % ranges show the spread); your unit's actuals will vary. Labor headcount implied at ~$20/hr fully loaded. Rent and franchise fees are already inside the margin line above.`
                   : ins.trueEbitdaBasis === "disclosed"
                   ? "True operating EBITDA here uses the franchisor's own disclosed margin, applied to the modeled franchised gross."
                   : ""}

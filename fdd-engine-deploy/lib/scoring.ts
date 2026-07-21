@@ -9,6 +9,7 @@
  */
 
 import { ExtractedFDD, Item19Cohort } from "./schema";
+import { resolveMonthlyRent, type RentResolution } from "./rent";
 
 export const RUBRIC = {
   dscrStress: 1.25, // debt-service coverage below this = stressed
@@ -69,6 +70,12 @@ export interface ScoringResult {
   variableRate: number;
   /** flat monthly fixed costs (fees + rent) used in the model */
   fixedMonthly: number;
+  /** resolved rent inside fixedMonthly (rent-resolver hotfix). null = unresolvable —
+   *  the renderer splits the line and says "not disclosed" out loud. Optional so
+   *  stored pre-hotfix results stay type-valid (lib/rentCorrection.ts patches those). */
+  rentResolution?: RentResolution | null;
+  /** flat monthly fees only (fixedMonthly minus rent) — powers the split line */
+  fixedFeesMonthly?: number;
   notes: string[];
 }
 
@@ -154,13 +161,10 @@ export function scoreFdd(
   const variableRate = (royalty + brand + localAd) / 100;
   if (f.royaltyPct == null) notes.push("Royalty % not found; variable costs may be understated.");
 
-  // ---- fixed monthly: flat fees + average rent ----
+  // ---- fixed monthly: flat fees (+ rent, resolved AFTER the top line below) ----
   // NOTE: we intentionally do NOT auto-sum hidden/contingent costs (step-in
   // fees, ACH penalties) — they're situational. They surface as flags instead.
   const flatFees = (f.flatMonthlyFees || []).reduce((s, x) => s + (x.monthlyAmount ?? 0), 0);
-  const rent = fdd.averageRentMonthly ?? 0;
-  if (fdd.averageRentMonthly == null) notes.push("Average rent not found; fixed costs may be understated.");
-  const fixedMonthly = flatFees + rent;
 
   // ---- cohorts ----
   const cohorts = fdd.item19?.cohorts ?? [];
@@ -212,6 +216,24 @@ export function scoreFdd(
   }
 
   const bottomRevenue = bottomRaw?.avgMonthlyRevenue ?? null;
+
+  // ---- rent (rent-resolver hotfix): disclosed number → normalized rentDetail →
+  // disclosed annual range → Item 7 rent line ÷ horizon → category occupancy
+  // benchmark × the SAME top line the pro forma uses. $0-by-null NEVER silently
+  // enters a rent-labeled line; unresolved rent is called out and the renderer
+  // splits the fixed-cost line. ----
+  const rentRes = resolveMonthlyRent(fdd, midRevenue ?? fdd.item19?.networkAverageMonthly ?? null);
+  const rent = rentRes?.mid ?? 0;
+  if (rentRes == null) {
+    notes.push("Rent could not be resolved from the FDD or benchmarks; fixed costs EXCLUDE rent and the report labels the margin accordingly.");
+  } else if (rentRes.basis !== "disclosed") {
+    notes.push(
+      `Rent modeled at $${rentRes.lo.toLocaleString()}–$${rentRes.hi.toLocaleString()}/mo (${
+        rentRes.basis === "benchmark" ? "category occupancy benchmark" : "disclosed range"
+      }); the math uses the midpoint.`,
+    );
+  }
+  const fixedMonthly = flatFees + rent;
 
   let midCohort: CohortEconomics | null = null;
   let bottomCohort: CohortEconomics | null = null;
@@ -411,6 +433,8 @@ export function scoreFdd(
     paybackYears,
     variableRate,
     fixedMonthly,
+    rentResolution: rentRes ?? null,
+    fixedFeesMonthly: flatFees,
     notes,
   };
 }

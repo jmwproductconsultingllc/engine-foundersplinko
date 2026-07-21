@@ -17,7 +17,7 @@
  */
 
 import { ExtractedFDD, ConceptType } from "./schema";
-import { ScoringResult } from "./scoring";
+import type { ScoringResult } from "./scoring";
 import { CONSULT_CTA_URL } from "./features";
 
 export interface ConceptBenchmark {
@@ -402,6 +402,12 @@ function laborBandFor(
   return base;
 }
 
+/** Occupancy band for a concept — the rent resolver's tier-5 source (lib/rent.ts). */
+export function occupancyBandFor(conceptType: ConceptType | string | null | undefined): [number, number] | null {
+  const b = BENCHMARKS[(conceptType as ConceptType) ?? "other"] ?? BENCHMARKS.other;
+  return b?.occupancyPct ?? null;
+}
+
 export function buildInsights(
   fdd: ExtractedFDD,
   scoring: ScoringResult,
@@ -522,12 +528,15 @@ export function buildInsights(
       const cogs$ = range(benchmark.cogsPct[0], benchmark.cogsPct[1]);
       const opex$ = range(OTHER_OPEX_PCT[0], OTHER_OPEX_PCT[1]);
 
-      // Rent guard: if the FDD disclosed no monthly rent, "margin after fees & rent"
-      // never actually had rent removed (the fixed-cost line is just flat fees), so the
-      // modeled EBITDA would be overstated. Subtract a benchmark occupancy line in that
-      // case. When rent IS disclosed it's already netted in the base — don't double-count.
+      // Rent guard (rent-resolver hotfix): the base margin includes rent whenever
+      // scoring resolved one (disclosed number, disclosed range, or benchmark) —
+      // in every such case subtracting occupancy again would DOUBLE-COUNT. Only
+      // when rent is truly unresolved does the benchmark occupancy line apply,
+      // so the build-down isn't overstated. One subtraction, one place.
+      const rentRes = (scoring as { rentResolution?: { basis: string; lo: number; hi: number; mid: number; source: string } | null }).rentResolution ?? null;
       const rentDisclosed = fdd.averageRentMonthly != null && fdd.averageRentMonthly > 0;
-      const occ$: [number, number] = rentDisclosed
+      const rentIncluded = rentRes != null || rentDisclosed;
+      const occ$: [number, number] = rentIncluded
         ? [0, 0]
         : range(benchmark.occupancyPct[0], benchmark.occupancyPct[1]);
 
@@ -546,7 +555,7 @@ export function buildInsights(
       const rows: BuildupRow[] = [
         { label: "Margin after fees & rent (modeled)", kind: "base", dollarRange: [marginAfterFeesMonthly, marginAfterFeesMonthly], basis: "derived" },
       ];
-      if (!rentDisclosed) {
+      if (!rentIncluded) {
         rows.push({
           label: "− Occupancy / rent (not disclosed)",
           kind: "subtract",
@@ -569,6 +578,12 @@ export function buildInsights(
           field: "Rent",
           basis: "disclosed",
           detail: `Taken from the FDD (~$${Math.round(fdd.averageRentMonthly!).toLocaleString()}/mo); already netted in margin after fees & rent.`,
+        });
+      } else if (rentRes) {
+        assumptions.push({
+          field: "Rent",
+          basis: rentRes.basis === "benchmark" ? "benchmark" : "disclosed",
+          detail: `${rentRes.basis === "benchmark" ? "Estimated" : "Disclosed range"}: ~$${Math.round(rentRes.lo).toLocaleString()}–$${Math.round(rentRes.hi).toLocaleString()}/mo (${rentRes.source}); already netted in the margin line — no separate occupancy subtraction applied.`,
         });
       } else {
         assumptions.push({

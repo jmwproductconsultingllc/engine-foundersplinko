@@ -34,6 +34,7 @@
 // longer ship (there is nothing left to mismatch).
 
 import type { Item19Cohort } from "./schema";
+import { resolveMonthlyRent } from "./rent";
 import { normalizeRoyaltyPct } from "./fees";
 import type { BrandRecord, CohortPreference } from "./brands";
 
@@ -478,8 +479,10 @@ export function resolveBrandFacts(
 
 export function auditBrandFacts(brands: BrandRecord[]): string {
   const errors: string[] = [];
+  let rentNullAvg = 0;
+  const rentBasis: Record<string, number> = {};
   const rows: string[] = [
-    "slug                              | mo        | label   | n     | lo–hi                     | royalty | risk",
+    "slug                              | mo        | label   | n     | lo–hi                     | royalty | risk | rent (basis)",
   ];
 
   for (const b of brands) {
@@ -517,15 +520,46 @@ export function auditBrandFacts(brands: BrandRecord[]): string {
       errors.push(`${f.slug}: lo ${f.lo} > hi ${f.hi}`);
     }
 
+    // ── rent resolution (rent-resolver hotfix): must never throw; sanity-check
+    // estimated bases against revenue to catch unit errors (annual-as-monthly,
+    // sqft-rate confusion). Disclosed single numbers are exempt from the % band
+    // (tiny-office service brands at <2% and sublease models >25% are real).
+    let rentCell = "—";
+    try {
+      const midRev: number | null =
+        (b as any)?.result?.scoring?.midCohort?.monthlyRevenue ?? f.mo ?? null;
+      if (ex?.averageRentMonthly == null) rentNullAvg++;
+      const r = resolveMonthlyRent(ex, midRev);
+      rentBasis[r?.basis ?? "null"] = (rentBasis[r?.basis ?? "null"] ?? 0) + 1;
+      if (r) {
+        rentCell = `$${r.lo.toLocaleString("en-US")}–$${r.hi.toLocaleString("en-US")} (${r.basis}${r.reviewFlag ? " ⚠REVIEW" : ""})`;
+        if (r.basis !== "disclosed" && midRev != null && midRev > 1000) {
+          const pct = r.mid / midRev;
+          if (pct < 0.02 || pct > 0.25) {
+            errors.push(
+              `${f.slug}: estimated rent $${r.mid} is ${(pct * 100).toFixed(1)}% of revenue — outside 2–25% (unit error?)`,
+            );
+          }
+        }
+      } else {
+        rentCell = "not disclosed";
+      }
+    } catch (err) {
+      errors.push(`${f.slug}: resolveMonthlyRent threw: ${String(err)}`);
+    }
+
     const money = (n: number | null) => (n == null ? "—" : `$${Math.round(n).toLocaleString("en-US")}`);
     rows.push(
-      `${f.slug.padEnd(33)} | ${money(f.mo).padEnd(9)} | ${f.moLabel.padEnd(7)} | ${String(f.moUnits ?? "—").padEnd(5)} | ${`${money(f.lo)}–${money(f.hi)}`.padEnd(25)} | ${(f.royaltyPct != null ? `${f.royaltyPct}%` : f.flatRoyaltyNote ? "flat" : "—").padEnd(7)} | ${f.risk ?? "—"}`,
+      `${f.slug.padEnd(33)} | ${money(f.mo).padEnd(9)} | ${f.moLabel.padEnd(7)} | ${String(f.moUnits ?? "—").padEnd(5)} | ${`${money(f.lo)}–${money(f.hi)}`.padEnd(25)} | ${(f.royaltyPct != null ? `${f.royaltyPct}%` : f.flatRoyaltyNote ? "flat" : "—").padEnd(7)} | ${(f.risk ?? "—").padEnd(6)} | ${rentCell}`,
     );
   }
 
   const table = rows.join("\n");
   // Human-scannable snapshot in every build log.
   console.log(`[brand-facts audit] ${brands.length} brands\n${table}`);
+  console.log(
+    `[brand-facts audit] rent blast radius: averageRentMonthly null on ${rentNullAvg}/${brands.length} (each was silently $0 pre-hotfix) · resolution basis: ${JSON.stringify(rentBasis)}`,
+  );
   if (errors.length) {
     throw new Error(`[brand-facts audit] ${errors.length} violation(s):\n${errors.join("\n")}`);
   }
