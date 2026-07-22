@@ -74,6 +74,27 @@ describe("resolver golden pins (spec acceptance matrix)", () => {
     expect(f.costSource).toBe("declared");
   });
 
+  it("P2(a) RPM: per-managed-unit revenue is excluded from the headline (no $379)", async () => {
+    const f = resolveBrandFacts(await load("real-property-management"));
+    expect(f.mo).toBeNull(); // per-unit fee is not the franchise headline
+    expect(f.live).toBe(true); // stays live on its real Item 7 cost range
+  });
+
+  it("P2(a') Schooley: full-time franchisee headline beats the part-time tier", async () => {
+    const f = resolveBrandFacts(await load("schooley-mitchell"));
+    expect(f.mo).toBe(18629); // full-time ($18,629/mo), not part-time ($1,229/mo)
+  });
+
+  it("P2(c) no live brand ships an Item 19 revenue headline under $2k/mo", async () => {
+    const brands = await loadAll();
+    for (const b of brands) {
+      const f = resolveBrandFacts(b);
+      if (f.live && f.mo != null && f.moKind === "revenue") {
+        expect(f.mo).toBeGreaterThanOrEqual(2000);
+      }
+    }
+  });
+
   it("gating: no locked vocabulary on the facts object", async () => {
     const f = resolveBrandFacts(await load("crumbl"));
     const keys = Object.keys(f).join(",");

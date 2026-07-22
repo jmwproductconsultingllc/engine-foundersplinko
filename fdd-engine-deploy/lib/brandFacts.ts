@@ -152,6 +152,28 @@ function monthlyOf(c: Item19Cohort): number | null {
   return null;
 }
 
+// A revenue figure disclosed PER MANAGED SUB-UNIT (per door / per property unit
+// managed) is NOT the franchise's headline revenue — a property-mgmt franchise
+// manages ~260 units, so "$4,552/yr per unit" is a per-door fee, not the
+// business's revenue (Real Property Management shipped a $379/mo headline from
+// exactly this). Generic "per unit" = per outlet is fine; the sub-unit signal
+// requires a managed-denominator qualifier. The correct per-franchise figure
+// (per-unit × units-managed) is a derivation — a follow-up ticket, not a guess here.
+const SUBUNIT_RE =
+  /per\s+property\s+unit|per\s+door\b|per\s+managed|per\s+unit\s+managed|unit\s+managed|revenue\s+per\s+(door|property|managed)/i;
+function isSubUnitBasis(c: Item19Cohort): boolean {
+  return SUBUNIT_RE.test(`${c.label ?? ""} ${c.basis ?? ""}`);
+}
+
+// Part-time franchisee cohorts are a side-gig tier — never the headline over a
+// full-time cohort (Schooley Mitchell shipped a $1,229/mo part-time headline
+// while its full-time franchisees do $18,629/mo). De-prioritized, not excluded:
+// a brand that ONLY discloses part-time still gets its best part-time figure.
+const PARTTIME_RE = /part[-\s]?time/i;
+function isPartTime(c: Item19Cohort): boolean {
+  return PARTTIME_RE.test(`${c.label ?? ""} ${c.basis ?? ""}`);
+}
+
 export function pickHeroCohort(
   cohorts: Item19Cohort[] | null | undefined,
   preference: CohortPreference = "revenue",
@@ -161,7 +183,9 @@ export function pickHeroCohort(
       monthlyOf(c) != null &&
       // pre-sale-only revenue and 'other' are never hero material
       c.revenueType !== "pre_sale_only" &&
-      c.revenueType !== "other",
+      c.revenueType !== "other" &&
+      // per-managed-sub-unit revenue is not the franchise headline (RPM)
+      !isSubUnitBasis(c),
   );
   if (!all.length) return null;
 
@@ -195,6 +219,10 @@ export function pickHeroCohort(
     for (const { pool, degraded } of tiers) {
       if (!pool.length) continue;
       const sorted = [...pool].sort((a, b) => {
+        // full-time before part-time (side-gig tier never headlines over full-time)
+        const pa = isPartTime(a) ? 1 : 0;
+        const pb = isPartTime(b) ? 1 : 0;
+        if (pa !== pb) return pa - pb;
         const ra = REPRESENTATIVE_RE.test(a.label ?? "") ? 1 : 0;
         const rb = REPRESENTATIVE_RE.test(b.label ?? "") ? 1 : 0;
         if (ra !== rb) return rb - ra;
@@ -501,7 +529,12 @@ export function auditBrandFacts(brands: BrandRecord[]): string {
       (typeof i19obj?.networkAverageMonthly === "number" && i19obj.networkAverageMonthly > 0) ||
       cohorts.some(
         (c) =>
-          monthlyOf(c) != null && c.revenueType !== "pre_sale_only" && c.revenueType !== "other",
+          monthlyOf(c) != null &&
+          c.revenueType !== "pre_sale_only" &&
+          c.revenueType !== "other" &&
+          // per-managed-sub-unit cohorts are correctly NOT headline material — a
+          // null mo when only those exist is right, not the v2.0 bug (RPM).
+          !isSubUnitBasis(c),
       );
     if (i19obj?.hasItem19 && usable && f.mo == null) {
       errors.push(`${f.slug}: hasItem19 with usable cohorts but mo resolved null (v2.0-bug class)`);
@@ -518,6 +551,15 @@ export function auditBrandFacts(brands: BrandRecord[]): string {
     }
     if (f.lo != null && f.hi != null && f.lo > f.hi) {
       errors.push(`${f.slug}: lo ${f.lo} > hi ${f.hi}`);
+    }
+    // Implausibly-low headline (RPM $379 / Schooley $1,229 class): a live brand's
+    // Item 19 REVENUE headline under ~$2k/mo is almost always a mis-basis read —
+    // a per-unit/per-door fee or a part-time tier — not the franchise's revenue.
+    // Only fires on LIVE brands (what a buyer actually sees); THIN/excluded skip.
+    if (f.live && f.mo != null && f.moKind === "revenue" && f.mo < 2000) {
+      errors.push(
+        `${f.slug}: live Item 19 revenue headline $${f.mo}/mo is implausibly low (<$2k) — likely a per-unit/part-time mis-basis read; verify against the FDD`,
+      );
     }
 
     // ── rent resolution (rent-resolver hotfix): must never throw; sanity-check
