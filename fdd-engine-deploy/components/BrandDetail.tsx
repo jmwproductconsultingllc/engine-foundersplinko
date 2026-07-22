@@ -55,6 +55,7 @@ export default function BrandDetail({
   const playbookRef = useRef<HTMLElement | null>(null);
   const inlineCaptureRef = useRef<HTMLElement | null>(null);
   const teaserFired = useRef(false);
+  const navigatingRef = useRef(false); // debounce double-click on the Unlock CTAs
 
   const tone = card.risk ? (RISK_TONE[card.risk] ?? RISK_TONE.Medium) : null;
   const hasRange = card.lo != null && card.hi != null;
@@ -77,8 +78,19 @@ export default function BrandDetail({
   const mintHref = (surface: string) =>
     `/api/mint-brand-report?slug=${card.slug}${refTag ? `&ref=${refTag}` : ""}`;
 
-  const onUnlock = (surface: string) => {
+  const onUnlock = (e: React.MouseEvent, surface: string) => {
+    // Idempotency: a real cold user double-clicked Unlock (replay 019f873e).
+    // First click proceeds and navigates away; any second click before the
+    // navigation commits is swallowed so we don't fire a second mint.
+    if (navigatingRef.current) {
+      e.preventDefault();
+      return;
+    }
+    navigatingRef.current = true;
     track("upgrade_clicked", { source: "brand_page", slug: card.slug, ref: refTag ?? "none", cta_surface: surface });
+    // checkout_started here makes buy-intent dashboard-visible (we caught the
+    // pay-flow break in a REPLAY, not the data — never fly blind on money again).
+    track("checkout_started", { source: "brand_page", slug: card.slug, cta_surface: surface, price: 199 });
     try { sessionStorage.setItem("fe_cta_clicked", "1"); } catch {} // suppresses the S2 sheet
   };
 
@@ -245,7 +257,7 @@ export default function BrandDetail({
           </ul>
           <a
             href={mintHref("ask_card")}
-            onClick={() => onUnlock("ask_card")}
+            onClick={(e) => onUnlock(e, "ask_card")}
             className="mt-4 block w-full rounded-xl bg-[#34D399] py-3.5 text-center text-[15px] font-extrabold text-[#0B1220] hover:brightness-110"
           >
             Unlock the full {card.brandName} report — {PRICE_LABEL}
@@ -456,7 +468,7 @@ export default function BrandDetail({
         {/* 7 · second CTA */}
         <a
           href={mintHref("ask_bottom")}
-          onClick={() => onUnlock("ask_bottom")}
+          onClick={(e) => onUnlock(e, "ask_bottom")}
           className="mt-6 block w-full rounded-xl bg-[#34D399] py-3.5 text-center text-[15px] font-extrabold text-[#0B1220] hover:brightness-110"
         >
           See everything — {PRICE_LABEL}
@@ -544,7 +556,7 @@ export default function BrandDetail({
           </div>
           <a
             href={mintHref("sticky")}
-            onClick={() => onUnlock("sticky")}
+            onClick={(e) => onUnlock(e, "sticky")}
             className="ml-auto rounded-lg bg-[#34D399] px-5 py-2.5 text-[14px] font-extrabold text-[#0B1220] hover:brightness-110"
           >
             Unlock

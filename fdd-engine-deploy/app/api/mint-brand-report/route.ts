@@ -3,23 +3,30 @@
 // THE payment decision, implemented (brief §payment): a brand page must never
 // send buyers to checkout with a shared reportId — markPaid on one record would
 // unlock the brand for everyone. This route mints a FRESH per-buyer report from
-// the brand's canonical template, then hands off to the EXISTING checkout →
-// Stripe → webhook → /report/[reportId] pipeline unchanged.
+// the brand's canonical template, then creates the Stripe Checkout session
+// DIRECTLY and 303s the buyer to Stripe.
 //
-// It is also where attribution physically lives (brief reconciliation #3): the
-// `ref` query param (?ref=mallory, ?ref=seo, …) is persisted onto the buyer's
-// record at mint time, so cold-vs-Related-Party revenue tagging is a field on
-// the record the Stripe webhook can read — automatic and audit-ready — not a
-// manual Stripe chore or a PostHog session inference.
+// P0 FIX (2026-07-21): this route used to 303 to /api/checkout?reportId=<new>,
+// which re-read the just-minted report from Vercel Blob via list(). Blob's list
+// index lags a put() by ~1-2s, so that re-read intermittently returned null and
+// checkout bounced the buyer home — a real cold user (Jersey Mike's, replay
+// 019f873e) clicked Unlock twice and never reached Stripe. Stripe only needs the
+// reportId, so we now create the session here in the same request (no re-read,
+// no cross-route Blob race). The report is read later — on the success return
+// and by the webhook — by which time the blob has long propagated.
 //
-// GET so the "Unlock $199" button is a plain link (same convention as
-// /api/checkout). Next.js does not prefetch API routes, so no spurious mints.
+// Attribution (brief reconciliation #3): the `ref` query param (?ref=mallory,
+// ?ref=seo, …) is persisted onto the buyer's record at mint time, so
+// cold-vs-Related-Party revenue tagging is a field the Stripe webhook can read.
+//
+// GET so the "Unlock $199" button is a plain link. Next.js does not prefetch API
+// routes, so no spurious mints.
 //   /api/mint-brand-report?slug=i9-sports&ref=mallory[&email=…]
 
 import { NextRequest, NextResponse } from "next/server";
 import { getBrand } from "@/lib/brands";
 import { saveReport } from "@/lib/reports";
-import { readUtm } from "@/lib/utm";
+import { createCheckoutUrl } from "@/lib/checkout";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -53,16 +60,33 @@ export async function GET(req: NextRequest) {
     return NextResponse.redirect(`${origin}/brands`, 303);
   }
 
-  // Fresh per-buyer record from the immutable canonical template. fileHash is
-  // a synthetic brand marker (there's no buyer upload to hash) — kept unique
-  // per mint so hash-based dedup analytics never collide two buyers.
+  // Fresh per-buyer record from the immutable canonical template. fileHash is a
+  // synthetic brand marker (no buyer upload to hash) — unique per mint so
+  // hash-based dedup analytics never collide two buyers.
+  const { readUtm } = await import("@/lib/utm");
   const utm = readUtm(req);
-  const reportId = await saveReport(brand.result, `brand:${slug}:${Date.now()}`, {
-    email,
-    ref,
-    brandSlug: slug,
-    utm: Object.keys(utm).length ? (utm as Record<string, string>) : null,
-  });
+  let reportId: string;
+  try {
+    reportId = await saveReport(brand.result, `brand:${slug}:${Date.now()}`, {
+      email,
+      ref,
+      brandSlug: slug,
+      utm: Object.keys(utm).length ? (utm as Record<string, string>) : null,
+    });
+  } catch (err) {
+    console.error("[mint] saveReport failed:", err);
+    return NextResponse.redirect(`${origin}/franchise/${slug}`, 303);
+  }
 
-  return NextResponse.redirect(`${origin}/api/checkout?reportId=${reportId}`, 303);
+  // Create the Stripe session HERE with the reportId in memory — no Blob re-read.
+  try {
+    const checkoutUrl = await createCheckoutUrl(reportId, origin, req);
+    if (checkoutUrl) return NextResponse.redirect(checkoutUrl, 303);
+    console.error("[mint] Stripe returned no session url for", reportId);
+  } catch (err) {
+    console.error("[mint] createCheckoutUrl threw for", reportId, err);
+  }
+  // Fallback: the report exists and is persisted — send the buyer to it so they
+  // can retry Unlock from the report page rather than dead-ending.
+  return NextResponse.redirect(`${origin}/report/${reportId}`, 303);
 }

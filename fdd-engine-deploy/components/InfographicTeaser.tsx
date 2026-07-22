@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import type { DiligenceResult } from "@/lib/types";
 import { track } from "@/lib/analytics";
 import { recurringFeeDisplays } from "@/lib/fees";
@@ -69,10 +69,18 @@ export default function InfographicTeaser({
   const high = x.item17?.initialInvestmentHigh ?? null;
   const hasRange = low != null || high != null;
 
-  const capital = buyer?.liquidCapital ?? 0;
-  const gap = u?.capitalGap ?? null; // positive = shortfall
-  const loanNeeded = !!u?.sbaLoanRequired;
-  const hasGap = capital > 0 && gap != null;
+  // Interactive capital fit (P1): the buyer can model THEIR capital and watch the
+  // gap recompute live — same formula the server used (buildout midpoint − capital).
+  // buildoutMidpoint is a bulletproof always-present field (Item 7), so this stays
+  // within the teaser's "never touch fragile derived fields" contract.
+  const buildoutMid = s.buildoutMidpoint ?? null;
+  const [cap, setCap] = useState<number>(
+    buyer?.liquidCapital && buyer.liquidCapital > 0 ? buyer.liquidCapital : 250000,
+  );
+  const gap = buildoutMid != null ? Math.max(0, Math.round(buildoutMid - cap)) : (u?.capitalGap ?? null);
+  const loanNeeded = gap != null && gap > 0;
+  const hasGap = buildoutMid != null || u?.capitalGap != null;
+  const capital = cap;
 
   const units = x.systemScale?.totalUnits ?? null;
   const opened = x.systemScale?.openedLastYear ?? null;
@@ -138,14 +146,40 @@ export default function InfographicTeaser({
                   )}
                 </p>
               </div>
-              {capital > 0 && (
-                <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-wide text-[#8194B0]">Your capital</p>
-                  <p className="mt-0.5 text-xl font-bold text-[#F1F5F9]">{usd(capital)}</p>
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-[#8194B0]">Your capital</p>
+                <div className="mt-0.5 flex items-center gap-1 rounded-lg border border-[#F5B847]/30 bg-[#0E1729] px-2 py-1 focus-within:border-[#F5B847]/70">
+                  <span className="text-lg font-bold text-[#F5B847]">$</span>
+                  <input
+                    inputMode="numeric"
+                    aria-label="Your capital"
+                    value={cap.toLocaleString("en-US")}
+                    onChange={(e) => {
+                      const d = e.target.value.replace(/[^0-9]/g, "").slice(0, 9);
+                      setCap(d ? Number(d) : 0);
+                    }}
+                    className="w-28 bg-transparent text-xl font-bold text-[#F5B847] outline-none"
+                  />
                 </div>
-              )}
+              </div>
             </div>
-            {hasGap && (
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {[100000, 250000, 500000, 1000000].map((v) => (
+                <button
+                  key={v}
+                  type="button"
+                  onClick={() => setCap(v)}
+                  className={`rounded-md border px-2 py-0.5 text-[11px] font-bold transition ${
+                    cap === v
+                      ? "border-[#F5B847]/60 bg-[#F5B847]/10 text-[#F5B847]"
+                      : "border-[#27344F] text-[#8194B0] hover:border-[#3A496A] hover:text-[#CBD5E1]"
+                  }`}
+                >
+                  {v >= 1000000 ? "$1M" : `$${v / 1000}k`}
+                </button>
+              ))}
+            </div>
+            {hasGap && gap != null && (
               <div className="mt-4 flex items-center gap-2 border-t border-[#27344F] pt-3">
                 {gap > 0 ? (
                   <>
