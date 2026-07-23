@@ -75,6 +75,11 @@ export default function FDDUpload({
   const [loading, setLoading] = useState(false);
   const [phase, setPhase] = useState(0);
   const [error, setError] = useState<string | null>(null);
+  // Broker capture (Ross's warm-handoff loop) — asked during the analyzing wait
+  // as a zero-friction action item; persisted to the report at completion, with
+  // the teaser as the fallback if left blank. Capture ONLY, never transmitted.
+  const [broker, setBroker] = useState("");
+  const [brokerAck, setBrokerAck] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
 
   const pickFile = (f: File | null) => {
@@ -190,6 +195,21 @@ export default function FDDUpload({
         // Analysis ran but persistence didn't return an id — treat as a retryable
         // failure rather than navigating to a report that isn't there.
         throw new Error("The analysis finished but the report couldn't be saved. Please try again.");
+      }
+      // Broker captured during the wait → attach to the report before navigating.
+      // Best-effort: a failed write never blocks the report (the teaser re-asks).
+      const brokerName = broker.trim();
+      if (brokerName) {
+        try {
+          await fetch("/api/report/broker", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ reportId: r.reportId, broker_name: brokerName }),
+          });
+          track("broker_captured", { has_broker: true, capture_surface: "analyzing" });
+        } catch {
+          /* non-blocking — the teaser fallback will re-offer it */
+        }
       }
       onComplete(r.reportId);
     } catch (e) {
@@ -393,6 +413,40 @@ export default function FDDUpload({
                 );
               })}
             </ol>
+
+            {/* While it spins — one optional thing to do. Broker capture (Ross's
+                warm-handoff loop). Persisted at completion; teaser re-asks if blank. */}
+            <div className="mt-1 border-t border-[#27344F] pt-4">
+              {!brokerAck ? (
+                <>
+                  <p className="text-[12.5px] text-[#8194B0]">
+                    <span className="mr-1.5 rounded bg-[#27344F] px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#8194B0]">
+                      Optional
+                    </span>
+                    Working with a franchise consultant or broker? Tell us who, so we can coordinate.
+                  </p>
+                  <div className="mt-2 flex flex-wrap items-center gap-2">
+                    <input
+                      value={broker}
+                      onChange={(e) => setBroker(e.target.value)}
+                      placeholder="Broker or consultant name"
+                      aria-label="Franchise consultant or broker (optional)"
+                      className="min-w-[150px] flex-1 rounded-lg border border-[#27344F] bg-[#0B1220] px-3 py-2 text-sm text-[#F1F5F9] outline-none placeholder:text-[#586A88] focus:border-[#38BDF8]"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => broker.trim() && setBrokerAck(true)}
+                      disabled={!broker.trim()}
+                      className="rounded-lg bg-[#27344F] px-3.5 py-2 text-sm font-bold text-[#CBD5E1] disabled:opacity-50"
+                    >
+                      Save
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <p className="text-[12.5px] text-[#8194B0]">Thanks — we&apos;ll coordinate with {broker.trim()}.</p>
+              )}
+            </div>
           </div>
         </div>
       )}

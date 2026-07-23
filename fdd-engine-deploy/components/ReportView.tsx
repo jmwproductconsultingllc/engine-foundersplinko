@@ -19,6 +19,7 @@ export default function ReportView({
   reportId,
   benchmark,
   benchmarkTotal,
+  hasBroker,
 }: {
   result: DiligenceResult;
   paid: boolean;
@@ -26,14 +27,18 @@ export default function ReportView({
   /** Risk Reframe — corpus benchmark computed server-side, passed to the teaser */
   benchmark?: BenchmarkCopy | null;
   benchmarkTotal?: number;
+  /** broker already captured (during the analyzing wait) → teaser skips the ask */
+  hasBroker?: boolean;
 }) {
   if (paid) return <DiligenceReport result={result} />;
 
   return (
     <InfographicTeaser
       result={result}
+      reportId={reportId}
       benchmark={benchmark}
       benchmarkTotal={benchmarkTotal}
+      hasBroker={hasBroker}
       onUnlock={() => {
         // Full navigation to the checkout route, which 303-redirects to Stripe.
         window.location.href = `/api/checkout?reportId=${reportId}`;

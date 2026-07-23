@@ -45,6 +45,7 @@ export type AnalyticsEvent =
   | "capture_shown" // a capture surface became visible { capture_surface: "inline" | "sheet" | "calculator" | "playbook" }
   | "email_field_focused" // typed-intent signal: separates "nobody cares" from "starts typing and bails" { capture_surface }
   | "lead_enriched" // S4 progressive profile saved     { fields: "name" | "phone" | "name+phone" }
+  | "broker_captured" // S4 broker/consultant field submitted (Ross's warm-handoff loop) { has_broker }
   | "sheet_dismissed" // S2 bottom sheet dismissed
   | "cta_clicked" // unified click event — breakdown by cta_id { cta_id, section }
   // ── rent override (report pro forma): buyer's own number as the third basis ──

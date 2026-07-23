@@ -102,6 +102,9 @@ export default function EmailCapture({
   const [phone, setPhone] = useState("");
   const [consent, setConsent] = useState(false);
   const [enriched, setEnriched] = useState<"none" | "name" | "phone" | "both">("none");
+  // S4 broker capture (Ross's warm-handoff loop) — optional, free-form.
+  const [broker, setBroker] = useState("");
+  const [brokerSaved, setBrokerSaved] = useState(false);
   // typed-intent telemetry: fire once per surface instance on first focus
   const [focusFired, setFocusFired] = useState(false);
 
@@ -159,15 +162,18 @@ export default function EmailCapture({
     }
   }
 
-  async function saveEnrichment(kind: "name" | "phone") {
+  async function saveEnrichment(kind: "name" | "phone" | "broker") {
     if (!leadId) return;
-    track("cta_clicked", { cta_id: kind === "name" ? "enrich_name_save" : "enrich_phone_submit", section: "capture" });
+    const ctaId =
+      kind === "name" ? "enrich_name_save" : kind === "phone" ? "enrich_phone_submit" : "enrich_broker_save";
+    track("cta_clicked", { cta_id: ctaId, section: "capture" });
     const payload: Record<string, unknown> = { id: leadId };
     if (kind === "name") payload.first_name = firstName;
     if (kind === "phone") {
       payload.phone = phone;
       payload.phone_consent = consent;
     }
+    if (kind === "broker") payload.broker_name = broker;
     try {
       const res = await fetch("/api/lead/enrich", {
         method: "POST",
@@ -176,9 +182,16 @@ export default function EmailCapture({
       });
       const data = await res.json().catch(() => ({ ok: false }));
       if (data.ok) {
-        const next = enriched === "none" ? kind : "both";
-        setEnriched(next);
-        track("lead_enriched", { fields: next === "both" ? "name+phone" : next });
+        if (kind === "broker") {
+          setBrokerSaved(true);
+          // Ross's warm-handoff loop + qualification signal (has-broker = real
+          // process). Capture ONLY — buyer data is never sent to a named broker.
+          track("broker_captured", { has_broker: broker.trim().length > 0 });
+        } else {
+          const next = enriched === "none" ? kind : "both";
+          setEnriched(next);
+          track("lead_enriched", { fields: next === "both" ? "name+phone" : next });
+        }
       }
     } catch {
       /* enrichment is best-effort; the email is already banked */
@@ -254,6 +267,36 @@ export default function EmailCapture({
                   <span>OK to text/call me about this analysis.</span>
                 </label>
               </div>
+            )}
+            {/* S4 broker capture — optional, free-form. Capture ONLY: we never
+                transmit buyer data to a named broker without clear awareness. */}
+            {!brokerSaved ? (
+              <div className="mt-3">
+                <p className="text-[12.5px] text-[#8194B0]">
+                  <span className="mr-1.5 rounded bg-[#27344F] px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#8194B0]">
+                    Optional
+                  </span>
+                  Working with a franchise consultant or broker? Tell us who, so we can coordinate.
+                </p>
+                <div className="mt-2 flex flex-wrap items-center gap-2">
+                  <input
+                    value={broker}
+                    onChange={(e) => setBroker(e.target.value)}
+                    placeholder="Broker or consultant name"
+                    aria-label="Franchise consultant or broker (optional)"
+                    className="min-w-[160px] flex-1 rounded-lg border border-[#27344F] bg-[#0B1220] px-3 py-2 text-sm text-[#F1F5F9] outline-none placeholder:text-[#586A88] focus:border-[#38BDF8]"
+                  />
+                  <button
+                    onClick={() => saveEnrichment("broker")}
+                    disabled={!broker.trim()}
+                    className="rounded-lg bg-[#27344F] px-3.5 py-2 text-sm font-bold text-[#CBD5E1] disabled:opacity-50"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <p className="mt-3 text-[12.5px] text-[#8194B0]">Thanks — we&apos;ll coordinate.</p>
             )}
           </div>
         )}

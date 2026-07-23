@@ -41,12 +41,18 @@ export default function InfographicTeaser({
   onUnlock,
   benchmark,
   benchmarkTotal,
+  reportId,
+  hasBroker,
 }: {
   result: DiligenceResult;
   onUnlock: () => void;
   /** Risk Reframe — corpus benchmark for this brand's tier + vertical */
   benchmark?: BenchmarkCopy | null;
   benchmarkTotal?: number;
+  /** report id — lets the broker fallback persist to the report record */
+  reportId?: string;
+  /** broker already captured during the analyzing wait → skip the teaser ask */
+  hasBroker?: boolean;
 }) {
   const { extracted: x, scoring: s, underwriting: u, buyer } = result;
   const fc = result.financialCondition ?? null;
@@ -93,6 +99,26 @@ export default function InfographicTeaser({
   const handleUnlock = () => {
     track("upgrade_clicked", { ...eventProps, price: PRICE_CENTS });
     onUnlock();
+  };
+
+  // Broker capture fallback — only if it wasn't captured during the analyzing
+  // wait (hasBroker). Persists to the report record. Capture ONLY, never sent.
+  const [broker, setBroker] = useState("");
+  const [brokerSaved, setBrokerSaved] = useState(false);
+  const saveBroker = async () => {
+    const name = broker.trim();
+    if (!name || !reportId) return;
+    setBrokerSaved(true);
+    try {
+      await fetch("/api/report/broker", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reportId, broker_name: name }),
+      });
+      track("broker_captured", { has_broker: true, capture_surface: "teaser" });
+    } catch {
+      /* best-effort */
+    }
   };
 
   return (
@@ -226,6 +252,42 @@ export default function InfographicTeaser({
             ))}
           </ul>
         </div>
+
+        {/* Broker capture — fallback (only if not captured during the analyzing
+            wait). Optional, capture-only; never transmitted to the named broker. */}
+        {!hasBroker && reportId && (
+          <div className="mx-6 mt-5 rounded-xl border border-[#27344F] bg-[#0B1220] px-4 py-3.5">
+            {!brokerSaved ? (
+              <>
+                <p className="text-[12.5px] text-[#8194B0]">
+                  <span className="mr-1.5 rounded bg-[#27344F] px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#8194B0]">
+                    Optional
+                  </span>
+                  Working with a franchise consultant or broker? Tell us who, so we can coordinate.
+                </p>
+                <div className="mt-2 flex flex-wrap items-center gap-2">
+                  <input
+                    value={broker}
+                    onChange={(e) => setBroker(e.target.value)}
+                    placeholder="Broker or consultant name"
+                    aria-label="Franchise consultant or broker (optional)"
+                    className="min-w-[150px] flex-1 rounded-lg border border-[#27344F] bg-[#0E1729] px-3 py-2 text-sm text-[#F1F5F9] outline-none placeholder:text-[#586A88] focus:border-[#38BDF8]"
+                  />
+                  <button
+                    type="button"
+                    onClick={saveBroker}
+                    disabled={!broker.trim()}
+                    className="rounded-lg bg-[#27344F] px-3.5 py-2 text-sm font-bold text-[#CBD5E1] disabled:opacity-50"
+                  >
+                    Save
+                  </button>
+                </div>
+              </>
+            ) : (
+              <p className="text-[12.5px] text-[#8194B0]">Thanks — we&apos;ll coordinate.</p>
+            )}
+          </div>
+        )}
 
         {/* CTA */}
         <div className="px-6 pb-6 pt-5">

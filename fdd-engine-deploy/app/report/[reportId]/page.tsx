@@ -72,6 +72,7 @@ export default async function ReportPage({
           reportId={reportId}
           benchmark={benchmark}
           benchmarkTotal={benchmarkTotal}
+          hasBroker={Boolean(record.broker_name)}
         />
       </div>
     </main>

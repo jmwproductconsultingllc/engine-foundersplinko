@@ -122,11 +122,17 @@ export async function enrichLead(args: {
   first_name?: string | null;
   phone?: string | null;
   phone_consent?: boolean;
+  broker_name?: string | null;
 }): Promise<boolean> {
   if (!/^[0-9a-f-]{36}$/i.test(args.id)) return false;
   const patch: Record<string, unknown> = { enriched_at: new Date().toISOString() };
   if (typeof args.first_name === "string" && args.first_name.trim()) {
     patch.first_name = args.first_name.trim().slice(0, 60);
+  }
+  // Broker/consultant name (Ross's warm-handoff loop). Capture ONLY. has_broker
+  // is a GENERATED column in Postgres (broker_name IS NOT NULL) — never set here.
+  if (typeof args.broker_name === "string" && args.broker_name.trim()) {
+    patch.broker_name = args.broker_name.trim().slice(0, 120);
   }
   if (args.phone && args.phone_consent === true) {
     const digits = args.phone.replace(/[^\d+]/g, "");

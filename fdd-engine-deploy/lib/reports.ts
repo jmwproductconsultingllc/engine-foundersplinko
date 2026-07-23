@@ -37,6 +37,11 @@ export interface StoredReport {
   /** set when this record was minted from a canonical brand template
    *  (app/api/mint-brand-report) rather than a user upload */
   brandSlug?: string | null;
+  /** broker/consultant the BUYER is working with — captured optionally during
+   *  the analyzing wait or on the teaser (Ross's warm-handoff loop). Capture
+   *  ONLY: never transmitted to the named broker. Distinct from `ref`, which is
+   *  the traffic source. Reconciles to leads.broker_name when a lead is created. */
+  broker_name?: string | null;
 }
 
 export interface SaveReportOptions {
@@ -133,6 +138,28 @@ export async function markPaid(reportId: string): Promise<boolean> {
     addRandomSuffix: false,
     contentType: "application/json",
     allowOverwrite: true, // overwriting the existing report record
+  });
+  return true;
+}
+
+/**
+ * Attach the buyer's broker/consultant to a report (optional enrichment from the
+ * analyzing wait or the teaser). Capture ONLY — the name is never transmitted to
+ * the broker. Trimmed + capped; empty clears nothing (no-op). Idempotent-ish:
+ * a later non-empty value overwrites an earlier one (buyer corrected it).
+ */
+export async function setReportBroker(reportId: string, brokerName: string): Promise<boolean> {
+  const name = brokerName.trim().slice(0, 120);
+  if (!name) return false;
+  const record = await loadReport(reportId);
+  if (!record) return false;
+
+  const updated: StoredReport = { ...record, broker_name: name };
+  await put(keyFor(reportId), JSON.stringify(updated), {
+    access: "public",
+    addRandomSuffix: false,
+    contentType: "application/json",
+    allowOverwrite: true,
   });
   return true;
 }

@@ -20,7 +20,13 @@ function throttled(id: string): boolean {
 }
 
 export async function POST(req: NextRequest) {
-  let body: { id?: string; first_name?: string; phone?: string; phone_consent?: boolean };
+  let body: {
+    id?: string;
+    first_name?: string;
+    phone?: string;
+    phone_consent?: boolean;
+    broker_name?: string;
+  };
   try {
     body = await req.json();
   } catch {
@@ -35,11 +41,15 @@ export async function POST(req: NextRequest) {
     first_name: body.first_name ?? null,
     phone: body.phone ?? null,
     phone_consent: body.phone_consent === true,
+    broker_name: body.broker_name ?? null,
   });
   console.log("[lead] enrich", {
     id: id.slice(0, 8),
     ok,
-    fields: [body.first_name && "name", body.phone && "phone"].filter(Boolean).join("+") || "none",
+    fields:
+      [body.first_name && "name", body.phone && "phone", body.broker_name && "broker"]
+        .filter(Boolean)
+        .join("+") || "none",
   });
   return NextResponse.json({ ok });
 }

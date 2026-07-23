@@ -14,6 +14,7 @@ import type Stripe from "stripe";
 import { getStripe } from "@/lib/stripe";
 import { markPaid, loadReport } from "@/lib/reports";
 import { sendReportEmail } from "@/lib/email";
+import { insertLead, enrichLead, isDisposable } from "@/lib/supabaseLeads";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -76,6 +77,38 @@ export async function POST(req: NextRequest) {
           console.log(
             `[stripe-webhook] report email ${ok ? "sent" : "FAILED"} -> ${to} (${reportId})`,
           );
+        }
+
+        // Reconcile broker → leads. The FDD-upload funnel captures the broker on
+        // the report record (no lead exists yet — leads are email-keyed, and the
+        // buyer's email only arrives here, at checkout). A paying report that
+        // carries a broker is the warm-handoff jackpot, so land it in the leads
+        // table now: upsert the lead (brand_slug null for an uploaded FDD — the
+        // upsert_lead RPC allows it) and enrich broker_name. Best-effort: a
+        // failure never 500s the webhook (payment is already recorded). Capture
+        // ONLY — nothing is transmitted to the named broker.
+        if (record.broker_name && to) {
+          try {
+            const { id } = await insertLead({
+              email: to,
+              context: {
+                brand_slug: record.brandSlug ?? null,
+                lead_source: "brand_findings",
+                utm_source: record.utm?.utm_source ?? null,
+                utm_medium: record.utm?.utm_medium ?? null,
+                utm_campaign: record.utm?.utm_campaign ?? null,
+                utm_content: record.utm?.utm_content ?? null,
+              },
+              disposable: isDisposable(to),
+              email_sent: true, // a paying buyer isn't in the nurture track
+            });
+            const enriched = await enrichLead({ id, broker_name: record.broker_name });
+            console.log(
+              `[stripe-webhook] broker reconciled to leads ${enriched ? "ok" : "FAILED"} (${reportId})`,
+            );
+          } catch (e) {
+            console.error("[stripe-webhook] broker reconcile threw:", e);
+          }
         }
       }
     }
