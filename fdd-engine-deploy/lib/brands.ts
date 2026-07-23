@@ -54,6 +54,7 @@ export interface BrandCard {
   mo: number | null;
   moLabel: "average" | "median";
   moKind: "revenue" | "profit" | null;
+  moBasis: "disclosed" | "derived";
   moCaveat: string | null;
   mn: number | null; // unitsReported → hero cohort sampleSize → null
   lo: number | null;
@@ -76,6 +77,11 @@ export interface BrandCard {
   /** category labels ONLY (max 3) — descriptions never reach this object;
    *  /brands serializes cards into a client component payload. */
   tripwires: { label: string }[];
+
+  /** Risk Reframe — "N things to verify" count chip on the library grid.
+   *  Real count (floored 1) + top labels; shared <DiligenceToVerify> renders it. */
+  verifyCount: number;
+  verifyItems: string[];
 }
 
 // ---------------------------------------------------------------------------
@@ -169,6 +175,7 @@ export function toCard(brand: BrandRecord, preference: CohortPreference = "reven
     mo: f.mo,
     moLabel: f.moLabel,
     moKind: f.mo != null ? f.moKind : null,
+    moBasis: f.moBasis,
     moCaveat: f.moCaveat,
     mn: f.moUnits,
     lo: f.lo,
@@ -186,6 +193,8 @@ export function toCard(brand: BrandRecord, preference: CohortPreference = "reven
     closedLastYear: f.closedLastYear,
     hasFinancialConditionFlag: f.hasFinancialConditionFlag,
     tripwires: f.tripwireLabels.map((label) => ({ label })),
+    verifyCount: f.verifyCount,
+    verifyItems: f.verifyItems,
   };
 }
 

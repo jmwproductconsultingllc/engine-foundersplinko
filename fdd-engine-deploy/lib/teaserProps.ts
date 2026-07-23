@@ -34,6 +34,10 @@ export interface TeaserCard {
   mo: number | null;
   moLabel: "average" | "median";
   moKind: "revenue" | "profit";
+  /** "disclosed" vs "derived" — the hero must not claim a derived figure was disclosed */
+  moBasis: "disclosed" | "derived";
+  /** honesty note for a derived/degraded headline (e.g. RPM per-unit derivation) */
+  moCaveat: string | null;
   mn: number | null; // unitsReported → hero cohort sampleSize → null
   cohortCount: number; // count only — the spread values stay server-side
 
@@ -58,6 +62,11 @@ export interface TeaserCard {
   hasFinancialConditionFlag: boolean;
   /** existence-only tripwire teases (max 3) */
   tripwires: TeaserTripwire[];
+
+  /** Risk Reframe — "N things to verify" (real count, floored 1) + top labels.
+   *  The shared <DiligenceToVerify> owns the thing/things pluralization + color. */
+  verifyCount: number;
+  verifyItems: string[];
 }
 
 /** Thin projection: BrandFacts → TeaserCard. No interpretation happens here. */
@@ -72,6 +81,8 @@ export function toTeaserCard(brand: BrandRecord): TeaserCard {
     mo: f.mo,
     moLabel: f.moLabel,
     moKind: f.moKind,
+    moBasis: f.moBasis,
+    moCaveat: f.moCaveat,
     mn: f.moUnits,
     cohortCount: f.cohortCount,
     lo: f.lo,
@@ -85,5 +96,7 @@ export function toTeaserCard(brand: BrandRecord): TeaserCard {
     risk: f.risk,
     hasFinancialConditionFlag: f.hasFinancialConditionFlag,
     tripwires: f.tripwireLabels.map((label) => ({ label })),
+    verifyCount: f.verifyCount,
+    verifyItems: f.verifyItems,
   };
 }

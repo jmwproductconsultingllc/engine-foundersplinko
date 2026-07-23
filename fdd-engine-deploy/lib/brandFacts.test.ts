@@ -74,10 +74,13 @@ describe("resolver golden pins (spec acceptance matrix)", () => {
     expect(f.costSource).toBe("declared");
   });
 
-  it("P2(a) RPM: per-managed-unit revenue is excluded from the headline (no $379)", async () => {
+  it("P2(a) RPM: per-unit revenue derived to per-franchise, tagged 'derived' (not $379)", async () => {
     const f = resolveBrandFacts(await load("real-property-management"));
-    expect(f.mo).toBeNull(); // per-unit fee is not the franchise headline
-    expect(f.live).toBe(true); // stays live on its real Item 7 cost range
+    expect(f.mo).toBe(43624); // median $4,256/yr per unit × 123 median units ÷ 12
+    expect(f.moBasis).toBe("derived"); // never claimed as franchisor-disclosed
+    expect(f.moDegraded).toBe(true);
+    expect(f.moCaveat).toMatch(/derived/i);
+    expect(f.live).toBe(true);
   });
 
   it("P2(a') Schooley: full-time franchisee headline beats the part-time tier", async () => {
@@ -92,6 +95,77 @@ describe("resolver golden pins (spec acceptance matrix)", () => {
       if (f.live && f.mo != null && f.moKind === "revenue") {
         expect(f.mo).toBeGreaterThanOrEqual(2000);
       }
+    }
+  });
+
+  it("per-unit guard: a headline equal to a raw per-unit figure ÷12 fails the audit", () => {
+    // The RPM $379 class, generalized: any per-unit disclosure whose rendered
+    // headline equals the raw per-unit monthly (multiplier dropped) must throw —
+    // caught by VALUE, so a false moBasis "derived" (e.g. a 1-unit degenerate
+    // derivation) can't smuggle it through.
+    const leak = {
+      slug: "one-unit-leak",
+      brandName: "X",
+      category: "x",
+      vertical: "x",
+      status: "live",
+      result: {
+        extracted: {
+          item19: {
+            hasItem19: true,
+            cohorts: [
+              { label: "All — Annual Revenue per Unit", ownership: "franchised", revenueType: "gross_sales", sampleSize: 400, avgMonthlyRevenue: null, annualRevenue: 4552, basis: "per property unit managed" },
+              { label: "All — Units Managed", ownership: "franchised", revenueType: "other", sampleSize: 400, avgMonthlyRevenue: null, annualRevenue: null, basis: "Average 1 units managed per franchise overall; median 1 units." },
+            ],
+          },
+        },
+      },
+    } as unknown as BrandRecord;
+    expect(() => auditBrandFacts([leak])).toThrow(/RAW per-unit figure/);
+  });
+
+  it("per-unit guard: real RPM (median×median derivation) passes the guard", async () => {
+    // The honest derivation ($43,624/mo, 123 units) is NOT a raw per-unit ÷12,
+    // so the same guard lets it through — proving the guard discriminates the
+    // bug from the fix, not just "any per-unit brand".
+    const rpm = await load("real-property-management");
+    expect(() => auditBrandFacts([rpm])).not.toThrow();
+  });
+
+  it("Risk Reframe: crumbl → 3 things to verify, labeled (fee stack / tripwires / financial condition)", async () => {
+    const f = resolveBrandFacts(await load("crumbl"));
+    expect(f.verifyCount).toBe(3); // real riskReasons length, not a per-tier constant
+    expect(f.verifyItems).toContain("The fee stack");
+    expect(f.verifyItems).toContain("Operational tripwires");
+    expect(f.verifyItems).toContain("Franchisor financial condition");
+  });
+
+  it("Risk Reframe: a clean/Low brand floors at 1 (reassurance, never 0)", async () => {
+    const f = resolveBrandFacts(await load("the-ups-store"));
+    expect(f.risk).toBe("Low");
+    expect(f.verifyCount).toBe(1); // "1 thing to verify" — emerald reassurance
+    expect(f.verifyItems.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("Risk Reframe: verifyItems come ONLY from the closed label set (no raw reason text leaks)", async () => {
+    // The guarantee: raw reason text ("Above-market royalty at 8%", which carries
+    // a locked figure) can NEVER reach a surface — only these curated labels ship.
+    const ALLOWED = new Set([
+      "Franchisor financial condition",
+      "The fee stack",
+      "Operational tripwires",
+      "Item 19 earnings basis",
+      "Startup cost",
+      "Unit stability",
+      "Territory rights",
+      "Disclosures to review",
+    ]);
+    const brands = await loadAll();
+    for (const b of brands) {
+      const f = resolveBrandFacts(b);
+      for (const item of f.verifyItems) expect(ALLOWED.has(item)).toBe(true);
+      expect(f.verifyCount).toBeGreaterThanOrEqual(1);
+      expect(f.verifyItems.length).toBeLessThanOrEqual(3);
     }
   });
 

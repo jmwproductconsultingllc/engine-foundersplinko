@@ -36,6 +36,7 @@
 import type { Item19Cohort } from "./schema";
 import { resolveMonthlyRent } from "./rent";
 import { normalizeRoyaltyPct } from "./fees";
+import { derivePerFranchiseRevenue } from "./perUnitRevenue";
 import type { BrandRecord, CohortPreference } from "./brands";
 
 // ---------------------------------------------------------------------------
@@ -64,6 +65,10 @@ export interface BrandFacts {
   moCaveat: string | null;
   /** hero fell past the integrity tiers (quartile / non-franchised survivor) */
   moDegraded: boolean;
+  /** "disclosed" (or median/avg of disclosed cohorts) vs "derived" (computed —
+   *  e.g. per-unit revenue × units-managed, RPM). Surfaces must NEVER claim a
+   *  derived headline was "franchisor-disclosed". */
+  moBasis: "disclosed" | "derived";
   cohortCount: number;
 
   // Item 7 (PUBLIC)
@@ -88,6 +93,17 @@ export interface BrandFacts {
   hasFinancialConditionFlag: boolean;
   /** category labels only (max 3) — existence is public, text is locked */
   tripwireLabels: string[];
+
+  // ── Risk Reframe (Jul 23) — the "N things to verify" readout ───────────────
+  // The count is the REAL item count from scoring.riskReasons (not a fixed per-
+  // tier number). Floored at 1: a live brand always warrants a baseline look, so
+  // a clean brand reads "1 thing to verify" (emerald reassurance), never "0".
+  // verifyItems are gating-SAFE category labels (same discipline as tripwires —
+  // the raw reason text, which can carry locked figures, never ships). Powers
+  // the ONE shared <DiligenceToVerify> component across all four surfaces.
+  verifyCount: number;
+  /** top ≤3 buyer-facing labels for "here's what to resolve" — labels only */
+  verifyItems: string[];
 }
 
 // ---------------------------------------------------------------------------
@@ -302,6 +318,28 @@ function categorize(text: string): string {
 }
 
 // ---------------------------------------------------------------------------
+// Risk Reframe — scoring.riskReasons → buyer-facing "here's what to resolve"
+// labels. Same gating discipline as tripwires: the raw reason text can carry
+// locked figures ("Above-market royalty at 8%"), so we NEVER ship it — only
+// these clean category labels leave the server. Order = display priority.
+// ---------------------------------------------------------------------------
+
+const REASON_RULES: Array<[RegExp, string]> = [
+  [/financial (distress|condition|weak)|net worth|solven|going concern|negative equity/i, "Franchisor financial condition"],
+  [/royalt|above-?market|fee stack|\bfees?\b|brand fund|ad fund/i, "The fee stack"],
+  [/tripwire|operational (risk|restriction)/i, "Operational tripwires"],
+  [/item ?19|earnings|revenue|economics|no major stress|assessable|profit/i, "Item 19 earnings basis"],
+  [/build-?out|investment|start-?up cost|cost to open/i, "Startup cost"],
+  [/churn|closure|closed|unit (growth|decline|stability)|turnover/i, "Unit stability"],
+  [/territor|encroach|exclusiv/i, "Territory rights"],
+];
+
+function categorizeReason(text: string): string {
+  for (const [re, label] of REASON_RULES) if (re.test(text)) return label;
+  return "Disclosures to review";
+}
+
+// ---------------------------------------------------------------------------
 // THE RESOLVER — the one interpreter of raw brand JSON.
 // ---------------------------------------------------------------------------
 
@@ -334,6 +372,7 @@ export function resolveBrandFacts(
   let moDegraded = false;
   let heroSample: number | null = null;
 
+  let moBasis: "disclosed" | "derived" = "disclosed";
   const nam = i19obj?.networkAverageMonthly;
   if (typeof nam === "number" && nam > 0) {
     mo = Math.round(nam);
@@ -347,6 +386,20 @@ export function resolveBrandFacts(
       moCaveat = hero.caveat;
       moDegraded = hero.degraded;
       heroSample = hero.sampleSize;
+    } else {
+      // No direct franchise revenue (e.g. Item 19 discloses revenue PER MANAGED
+      // UNIT only, RPM). Derive per-franchise revenue from per-unit × units-managed,
+      // tagged DERIVED so no surface claims it was disclosed.
+      const d = derivePerFranchiseRevenue(cohorts);
+      if (d) {
+        mo = d.monthly;
+        moKind = "revenue";
+        moLabel = "median"; // headline uses median units
+        moCaveat = d.caveat;
+        moDegraded = true;
+        moBasis = "derived";
+        heroSample = d.sample;
+      }
     }
   }
 
@@ -457,6 +510,23 @@ export function resolveBrandFacts(
     if (tripwireLabels.length >= 3) break;
   }
 
+  // ── Risk Reframe: "N things to verify" ────────────────────────────────────
+  // Count = real riskReasons length (floored at 1 — a live brand always earns a
+  // baseline look; a clean brand reads "1 thing to verify", never "0"). Items =
+  // those same reasons categorized to gating-safe labels, deduped, top 3.
+  const rawReasons: string[] = Array.isArray(scoring?.riskReasons) ? scoring.riskReasons : [];
+  const verifyCount = Math.max(1, rawReasons.length);
+  const seenVerify = new Set<string>();
+  const verifyItems: string[] = [];
+  for (const r of rawReasons) {
+    const label = categorizeReason(String(r));
+    if (!seenVerify.has(label)) {
+      seenVerify.add(label);
+      verifyItems.push(label);
+    }
+    if (verifyItems.length >= 3) break;
+  }
+
   // ── live gate ─────────────────────────────────────────────────────────────
   const risk: string | null = scoring?.riskLevel ?? null;
   const parseQuality: string = (brand as any)?.parseQuality ?? "clean";
@@ -481,6 +551,7 @@ export function resolveBrandFacts(
     moUnits,
     moCaveat,
     moDegraded,
+    moBasis,
     cohortCount: cohorts.length,
     lo,
     hi,
@@ -496,6 +567,8 @@ export function resolveBrandFacts(
     risk,
     hasFinancialConditionFlag,
     tripwireLabels,
+    verifyCount,
+    verifyItems,
   };
 }
 
@@ -560,6 +633,50 @@ export function auditBrandFacts(brands: BrandRecord[]): string {
       errors.push(
         `${f.slug}: live Item 19 revenue headline $${f.mo}/mo is implausibly low (<$2k) — likely a per-unit/part-time mis-basis read; verify against the FDD`,
       );
+    }
+
+    // ── per-unit derivation guard (RPM class) ──────────────────────────────
+    // When an Item 19 discloses revenue PER MANAGED UNIT (per door / per
+    // property), the per-FRANCHISE headline is only honest as that figure ×
+    // units-managed-per-franchise. Two mirror-image catastrophes both die here:
+    //   (a) UNDERSTATE — a raw per-unit number headlines un-multiplied (the
+    //       $4,552/12=$379 bug: a $47k/mo business shown as $379/mo)
+    //   (b) SYNTHETIC — moBasis says "derived" but the disclosed inputs aren't
+    //       actually in the store, so the number can't be reproduced/traced
+    // The law: if the store discloses per-unit revenue, the headline is EITHER
+    // moBasis "derived" with reproducible inputs, OR mo is null (no units count
+    // to multiply → no honest headline exists). A raw per-unit number may never
+    // become a headline. This is what lets the derivation generalize safely to
+    // the next per-unit brand without a human catching it against the PDF.
+    // The raw per-unit monthly figures (per-unit annual ÷ 12) — these are the
+    // numbers that must NEVER surface as a per-FRANCHISE headline. Checked by
+    // VALUE, not by re-running the resolver's own basis logic: if the rendered
+    // mo equals one of these, the units-managed multiplier was dropped no matter
+    // what the resolver believed it was doing (this is the $4,552÷12=$379 bug).
+    const rawPerUnitMonthly = cohorts
+      .filter((c) => c.revenueType === "gross_sales" && isSubUnitBasis(c))
+      .map((c) => monthlyOf(c))
+      .filter((m): m is number => m != null);
+    if (rawPerUnitMonthly.length) {
+      const near = (a: number, b: number) => Math.abs(a - b) <= Math.max(2, Math.abs(b) * 0.02);
+      if (f.mo != null && rawPerUnitMonthly.some((m) => near(m, f.mo!))) {
+        errors.push(
+          `${f.slug}: headline $${f.mo}/mo equals a RAW per-unit figure ÷12 — the units-managed multiplier was dropped (RPM $379 class); a per-unit disclosure must derive per-franchise (× units) or stay null`,
+        );
+      }
+      // A non-null headline off a per-unit-only disclosure is only honest if it's
+      // the derivation (moBasis "derived") AND that derivation reproduces from the
+      // store. Anything else means a per-unit number leaked as a headline.
+      if (f.mo != null && f.moBasis !== "derived") {
+        errors.push(
+          `${f.slug}: per-unit Item 19 headlined as $${f.mo}/mo with moBasis "${f.moBasis}" — must be moBasis "derived" (× units-managed) or null, never a raw per-unit headline`,
+        );
+      }
+      if (f.moBasis === "derived" && !derivePerFranchiseRevenue(cohorts)) {
+        errors.push(
+          `${f.slug}: moBasis "derived" but the per-unit derivation is not reproducible from the store — its disclosed inputs (per-unit revenue + units-managed) are missing`,
+        );
+      }
     }
 
     // ── rent resolution (rent-resolver hotfix): must never throw; sanity-check

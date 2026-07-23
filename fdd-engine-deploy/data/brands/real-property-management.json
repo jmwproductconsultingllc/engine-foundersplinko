@@ -46,9 +46,9 @@
    "headquarters": "1010 North University Parks Drive, Waco, Texas 76707",
    "brandBackground": "Real Property Management has offered property management franchises since 2005 (through predecessor Property Management Business Solutions, LLC), was acquired by Neighborly in 2018, and restructured under a securitization transaction in 2021; as of December 31, 2025, 450 franchises operate in the U.S.",
    "conceptType": "home_trade_services",
-   "conceptRationale": "Franchisees operate office-based residential and commercial property management businesses providing tenant screening, leasing, rent collection, maintenance coordination, and evictions \u2014 a home/trade services model with no food or entertainment component.",
+   "conceptRationale": "Franchisees operate office-based residential and commercial property management businesses providing tenant screening, leasing, rent collection, maintenance coordination, and evictions — a home/trade services model with no food or entertainment component.",
    "staffingModel": "lightly_staffed",
-   "staffingRationale": "Item 15 requires owner or designated manager on-site supervision; Item 1 notes 500\u20131,000 sq ft office with small staff, consistent with a small-crew semi-absentee model.",
+   "staffingRationale": "Item 15 requires owner or designated manager on-site supervision; Item 1 notes 500–1,000 sq ft office with small staff, consistent with a small-crew semi-absentee model.",
    "leadership": [
     {
      "name": "Jeffrey Pepperney",
@@ -89,52 +89,55 @@
    ],
    "item19": {
     "hasItem19": true,
-    "sourcePage": "Item 19, pp. 67\u201370",
+    "sourcePage": "Item 19, pp. 67–70",
     "unitsReported": 421,
     "networkAverageMonthly": null,
     "cohorts": [
      {
-      "label": "Franchises 1\u20133 Years Old \u2013 Annual Revenue per Unit",
+      "label": "Franchises 1–3 Years Old – Annual Revenue per Unit",
       "ownership": "franchised",
       "revenueType": "gross_sales",
       "sampleSize": 81,
       "avgMonthlyRevenue": null,
       "annualRevenue": 5377,
-      "basis": "Average Annual Revenue per property unit managed; 81 franchises open 1\u20133 years, FY2025; revenue per unit not per franchise.",
-      "monthlyValues": []
+      "basis": "Average Annual Revenue per property unit managed; 81 franchises open 1–3 years, FY2025; revenue per unit not per franchise.",
+      "monthlyValues": [],
+      "medianAnnualRevenue": 5075
      },
      {
-      "label": "Franchises Over 3 Years Old \u2013 Annual Revenue per Unit",
+      "label": "Franchises Over 3 Years Old – Annual Revenue per Unit",
       "ownership": "franchised",
       "revenueType": "gross_sales",
       "sampleSize": 340,
       "avgMonthlyRevenue": null,
       "annualRevenue": 4441,
       "basis": "Average Annual Revenue per property unit managed; 340 franchises open >3 years, FY2025; revenue per unit not per franchise.",
-      "monthlyValues": []
+      "monthlyValues": [],
+      "medianAnnualRevenue": 4397
      },
      {
-      "label": "All Reporting Franchises \u2013 Annual Revenue per Unit",
+      "label": "All Reporting Franchises – Annual Revenue per Unit",
       "ownership": "franchised",
       "revenueType": "gross_sales",
       "sampleSize": 421,
       "avgMonthlyRevenue": null,
       "annualRevenue": 4552,
       "basis": "Average Annual Revenue per property unit managed across all 421 reporting franchises, FY2025.",
-      "monthlyValues": []
+      "monthlyValues": [],
+      "medianAnnualRevenue": 4256
      },
      {
-      "label": "All Reporting Franchises \u2013 Average Units Managed (1\u20133 Years)",
+      "label": "All Reporting Franchises – Average Units Managed (1–3 Years)",
       "ownership": "franchised",
       "revenueType": "other",
       "sampleSize": 81,
       "avgMonthlyRevenue": null,
       "annualRevenue": null,
-      "basis": "Average 101 units managed per franchise (1\u20133 years old); median 57 units.",
+      "basis": "Average 101 units managed per franchise (1–3 years old); median 57 units.",
       "monthlyValues": []
      },
      {
-      "label": "All Reporting Franchises \u2013 Average Units Managed (Over 3 Years)",
+      "label": "All Reporting Franchises – Average Units Managed (Over 3 Years)",
       "ownership": "franchised",
       "revenueType": "other",
       "sampleSize": 340,
@@ -144,7 +147,7 @@
       "monthlyValues": []
      },
      {
-      "label": "All Reporting Franchises \u2013 Average Units Managed (Overall)",
+      "label": "All Reporting Franchises – Average Units Managed (Overall)",
       "ownership": "franchised",
       "revenueType": "other",
       "sampleSize": 421,
@@ -157,7 +160,7 @@
     "notes": "Item 19 discloses revenue per property unit managed (not per franchise location) and average/median unit counts by franchise age cohort. No EBITDA or profitability table is disclosed. Average monthly rent per managed unit is $1,541 (median $1,496) across 420 reporting franchises. No costs or expenses are included in the Item 19 representation."
    },
    "item17": {
-    "sourcePage": "Item 7, pp. 29\u201331",
+    "sourcePage": "Item 7, pp. 29–31",
     "initialInvestmentLow": 99341,
     "initialInvestmentHigh": 244302,
     "lineItems": [
@@ -180,7 +183,7 @@
       "low": 2250,
       "high": 9000,
       "recurring": false,
-      "notes": "Estimated first 3 months rent for 500\u20131,000 sq ft office; paid to third parties before opening."
+      "notes": "Estimated first 3 months rent for 500–1,000 sq ft office; paid to third parties before opening."
      },
      {
       "category": "Vehicle",
@@ -260,17 +263,17 @@
     "localAdPct": 5,
     "flatMonthlyFees": [
      {
-      "name": "Minimum License Fee (months 1\u20134)",
+      "name": "Minimum License Fee (months 1–4)",
       "monthlyAmount": 0,
       "source": "Item 6, p. 20"
      },
      {
-      "name": "Minimum License Fee (months 5\u201312)",
+      "name": "Minimum License Fee (months 5–12)",
       "monthlyAmount": 250,
       "source": "Item 6, p. 20"
      },
      {
-      "name": "Minimum License Fee (months 13\u201324)",
+      "name": "Minimum License Fee (months 13–24)",
       "monthlyAmount": 500,
       "source": "Item 6, p. 20"
      },
@@ -391,7 +394,7 @@
     },
     {
      "name": "Ongoing Training Fee",
-     "description": "Currently $600\u2013$1,500 per session (up to 2+ sessions per year, up to 4 days each).",
+     "description": "Currently $600–$1,500 per session (up to 2+ sessions per year, up to 4 days each).",
      "estimatedAnnualAmount": null,
      "source": "Item 6, p. 24"
     },
@@ -444,7 +447,7 @@
      "title": "Non-Exclusive Territory",
      "description": "Franchisee does not receive an exclusive territory; franchisor may compete via National Accounts, alternative channels, or affiliate brands within the Territory.",
      "severity": "medium",
-     "source": "Item 12, pp. 54\u201355"
+     "source": "Item 12, pp. 54–55"
     },
     {
      "title": "Post-Termination Non-Compete (2 Years / 25 Miles)",
@@ -456,7 +459,7 @@
      "title": "Mandatory Proprietary Software and BackOffice Programs",
      "description": "Franchisee must use franchisor-designated software (AppFolio, LeadSimple, BackOffice) for minimum periods; fees can increase up to 30% annually.",
      "severity": "medium",
-     "source": "Item 6, pp. 21\u201322; Item 8, pp. 32\u201333"
+     "source": "Item 6, pp. 21–22; Item 8, pp. 32–33"
     },
     {
      "title": "Real Estate Brokerage License Requirement",
@@ -465,7 +468,7 @@
      "source": "Item 11, p. 52"
     },
     {
-     "title": "Pending Litigation \u2013 Restrictive Covenant Enforcement",
+     "title": "Pending Litigation – Restrictive Covenant Enforcement",
      "description": "A pending California lawsuit (Solano Properties) challenges enforceability of post-termination restrictive covenants under California's UCL.",
      "severity": "medium",
      "source": "Item 3, p. 15"
@@ -489,7 +492,7 @@
     "rawValue": 2250,
     "unit": "per_month",
     "squareFootage": 750,
-    "source": "Item 7, p. 29\u201330 \u2014 low estimate based on 500 sq ft, high on 1,000 sq ft; $2,250\u2013$9,000 covers first 3 months rent; midpoint office ~750 sq ft implied"
+    "source": "Item 7, p. 29–30 — low estimate based on 500 sq ft, high on 1,000 sq ft; $2,250–$9,000 covers first 3 months rent; midpoint office ~750 sq ft implied"
    },
    "averageRentMonthly": 1541,
    "financialCondition": {
@@ -533,8 +536,8 @@
   "scoring": {
    "riskLevel": "Medium",
    "riskReasons": [
-    "3 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
-    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+    "3 high-severity operational tripwires disclosed — see the tripwires section.",
+    "Franchisee unit economics could not be scored — no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
    ],
    "midCohort": null,
    "bottomCohort": null,
@@ -568,7 +571,7 @@
   "insights": {
    "conceptType": "home_trade_services",
    "conceptLabel": "Home & trade services (mobile / low-overhead)",
-   "conceptRationale": "Franchisees operate office-based residential and commercial property management businesses providing tenant screening, leasing, rent collection, maintenance coordination, and evictions \u2014 a home/trade services model with no food or entertainment component.",
+   "conceptRationale": "Franchisees operate office-based residential and commercial property management businesses providing tenant screening, leasing, rent collection, maintenance coordination, and evictions — a home/trade services model with no food or entertainment component.",
    "benchmark": {
     "label": "Home & trade services (mobile / low-overhead)",
     "cogsPct": [
@@ -588,10 +591,10 @@
      25
     ],
     "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
-    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "rampNote": "3–9 months to a steady job pipeline.",
     "considerations": [
-     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
-     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Budget materials/subcontractor COGS ~25–40% and field labor ~20–35%.",
+     "CAC (lead cost per booked job) is the dominant hidden line — ask Item 20 operators what they actually spend per job.",
      "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
     ]
    },
@@ -599,7 +602,7 @@
    "disclosedMarginSource": null,
    "crossCheck": {
     "status": "no_disclosure",
-    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10–25% band below is an industry estimate for this concept — validate it against real franchisee P&Ls (Item 20) before relying on any margin."
    },
    "proFormaRevenueMonthly": null,
    "marginAfterFeesMonthly": null,
@@ -607,7 +610,7 @@
    "trueEbitdaBasis": "none",
    "staffingModel": "lightly_staffed",
    "staffingLabel": "lightly staffed",
-   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 10\u201321% \u2014 the 20\u201335% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 10–21% — the 20–35% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
    "laborPctEffective": [
     10,
     21
@@ -617,7 +620,7 @@
     {
      "field": "Concept type",
      "basis": "inferred",
-     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+     "detail": "Classified as “Home & trade services (mobile / low-overhead)” from the FDD (Item 1 / brand description)."
     },
     {
      "field": "Operating model",
@@ -627,18 +630,18 @@
    ],
    "consultCtaUrl": null,
    "consultCtaLabel": "Book a territory review",
-   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
-   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
-   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line — your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 — general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions — NOT a projection of this franchise's results, and not investment advice."
   },
   "financialCondition": {
    "severity": "MEDIUM",
    "headline": "This franchisor is losing money as it grows (a net loss of $185.84M in the most recent year), though it still has positive net worth. Worth understanding how long its runway lasts.",
    "context": null,
    "body": [
-    "What we found (2025-12-31, audited by Ernst & Young LLP): Net loss of $185.84M on $618.76M of revenue \u2014 roughly 1.3x spent per $1 earned. Losses are widening, not shrinking. Positive net worth of $1.19B. Cash of $32.02M against $124.00M of obligations due within a year (a current ratio of 1.07).",
+    "What we found (2025-12-31, audited by Ernst & Young LLP): Net loss of $185.84M on $618.76M of revenue — roughly 1.3x spent per $1 earned. Losses are widening, not shrinking. Positive net worth of $1.19B. Cash of $32.02M against $124.00M of obligations due within a year (a current ratio of 1.07).",
     "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. Neighborly Assetco LLC guarantees the franchisor's performance, which partly backstops this.",
-    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 — unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
    ],
    "aggravators": [
     "operating losses that are widening",

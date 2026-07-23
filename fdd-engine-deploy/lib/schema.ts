@@ -39,8 +39,14 @@ export interface Item19Cohort {
    *  pick the right summary column (it tends to grab a single month). */
   monthlyValues?: number[];
   /** If the figure is disclosed annually (e.g. Five Iron's $3.0M/yr), put the
-   *  annual number here; code divides by 12 so the model never has to. */
+   *  annual number here; code divides by 12 so the model never has to.
+   *  For per-unit-revenue cohorts this is the AVERAGE (mean) annual revenue. */
   annualRevenue?: number | null;
+  /** When a cohort discloses BOTH average and median of the same annual figure
+   *  (e.g. Real Property Management: avg $4,552 AND median $4,256 revenue per
+   *  managed unit), put the median here so a derivation can pair median-with-
+   *  median instead of mixing an average numerator with a median denominator. */
+  medianAnnualRevenue?: number | null;
   /** what this number is based on, e.g. "45 units open 6+ months, 3+ bays" */
   basis: string;
 }

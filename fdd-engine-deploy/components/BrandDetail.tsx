@@ -188,18 +188,28 @@ export default function BrandDetail({
           {card.mo != null ? (
             <div className="mt-5 rounded-2xl border border-[#34D399]/35 bg-gradient-to-b from-[#34D399]/[0.08] to-transparent px-6 py-5">
               <div className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#8194B0]">
-                Item 19 · {card.moLabel} monthly {heroKind}
+                {card.moBasis === "derived"
+                  ? `Item 19 · derived monthly ${heroKind}`
+                  : `Item 19 · ${card.moLabel} monthly ${heroKind}`}
               </div>
               <div className="mt-2 text-[44px] font-extrabold leading-none text-[#F5B847]">
+                {card.moBasis === "derived" ? "~" : ""}
                 {usd(card.mo)}
                 <span className="ml-1 text-lg font-bold text-[#8194B0]">/mo</span>
               </div>
               <p className="mt-2.5 max-w-[54ch] text-[13px] leading-relaxed text-[#CBD5E1]">
-                Franchisor-disclosed{card.mn != null ? <> across <b className="text-[#F1F5F9]">{card.mn.toLocaleString()} reporting units</b></> : null}.{" "}
-                {card.cohortCount > 1 && (
-                  <span className="font-bold text-[#34D399]">
-                    🔒 The full spread — high, median, low across {card.cohortCount} cohorts — is in the full report.
-                  </span>
+                {card.moBasis === "derived" ? (
+                  // NEVER claim "franchisor-disclosed" for a computed figure.
+                  card.moCaveat
+                ) : (
+                  <>
+                    Franchisor-disclosed{card.mn != null ? <> across <b className="text-[#F1F5F9]">{card.mn.toLocaleString()} reporting units</b></> : null}.{" "}
+                    {card.cohortCount > 1 && (
+                      <span className="font-bold text-[#34D399]">
+                        🔒 The full spread — high, median, low across {card.cohortCount} cohorts — is in the full report.
+                      </span>
+                    )}
+                  </>
                 )}
               </p>
             </div>
