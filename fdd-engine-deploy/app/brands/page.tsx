@@ -6,8 +6,10 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
-import { listVerticalDirectory, VERTICAL_ORDER, KIDS_VERTICAL } from "@/lib/brands";
+import { listVerticalDirectory, listBrands, VERTICAL_ORDER, KIDS_VERTICAL } from "@/lib/brands";
+import { computeRiskBenchmarks, overallSpread } from "@/lib/riskBenchmarks";
 import BrandDirectory from "@/components/BrandDirectory";
+import { DiligenceContextBanner } from "@/components/DiligenceToVerify";
 
 export const revalidate = 3600; // store changes at converter cadence, not per-request
 
@@ -30,6 +32,9 @@ export default async function BrandsPage({
   const { ref } = await searchParams;
   const refTag = ref?.toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 32) || null;
   const rows = await listVerticalDirectory("revenue");
+  // Risk Reframe context banner — corpus distribution, computed once server-side.
+  const benchmarks = computeRiskBenchmarks(await listBrands());
+  const spread = overallSpread(benchmarks);
 
   return (
     <main className="min-h-screen bg-[#0B1220] px-4 pb-16 text-[#F1F5F9] md:px-8">
@@ -68,6 +73,10 @@ export default async function BrandsPage({
             ))}
           </div>
         </header>
+
+        <div className="mt-6">
+          <DiligenceContextBanner spread={spread} total={benchmarks.overall.total} />
+        </div>
 
         <BrandDirectory rows={rows} refTag={refTag} />
 

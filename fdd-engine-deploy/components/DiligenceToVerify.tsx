@@ -17,6 +17,7 @@
 //  • Low is REASSURANCE ("1 thing to verify", emerald), not a shallow report.
 
 import type { BenchmarkCopy } from "@/lib/riskBenchmarks";
+import { verifyPhrase } from "@/lib/verify";
 
 export interface VerifyReadout {
   verifyCount: number;
@@ -42,12 +43,6 @@ const NEUTRAL: TierStyle = {
 
 function tierStyle(risk: string | null): TierStyle {
   return (risk && TIER[risk]) || NEUTRAL;
-}
-
-/** THE single source of the noun + pluralization. Never a naked number. */
-export function verifyPhrase(count: number): string {
-  const n = Math.max(1, Math.round(count));
-  return `${n} ${n === 1 ? "thing" : "things"} to verify`;
 }
 
 // ───────────────────────────────────────────────────────────────────────────

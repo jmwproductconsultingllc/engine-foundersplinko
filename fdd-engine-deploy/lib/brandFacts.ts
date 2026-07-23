@@ -37,6 +37,7 @@ import type { Item19Cohort } from "./schema";
 import { resolveMonthlyRent } from "./rent";
 import { normalizeRoyaltyPct } from "./fees";
 import { derivePerFranchiseRevenue } from "./perUnitRevenue";
+import { computeVerify } from "./verify";
 import type { BrandRecord, CohortPreference } from "./brands";
 
 // ---------------------------------------------------------------------------
@@ -317,27 +318,6 @@ function categorize(text: string): string {
   return "Operational restriction";
 }
 
-// ---------------------------------------------------------------------------
-// Risk Reframe — scoring.riskReasons → buyer-facing "here's what to resolve"
-// labels. Same gating discipline as tripwires: the raw reason text can carry
-// locked figures ("Above-market royalty at 8%"), so we NEVER ship it — only
-// these clean category labels leave the server. Order = display priority.
-// ---------------------------------------------------------------------------
-
-const REASON_RULES: Array<[RegExp, string]> = [
-  [/financial (distress|condition|weak)|net worth|solven|going concern|negative equity/i, "Franchisor financial condition"],
-  [/royalt|above-?market|fee stack|\bfees?\b|brand fund|ad fund/i, "The fee stack"],
-  [/tripwire|operational (risk|restriction)/i, "Operational tripwires"],
-  [/item ?19|earnings|revenue|economics|no major stress|assessable|profit/i, "Item 19 earnings basis"],
-  [/build-?out|investment|start-?up cost|cost to open/i, "Startup cost"],
-  [/churn|closure|closed|unit (growth|decline|stability)|turnover/i, "Unit stability"],
-  [/territor|encroach|exclusiv/i, "Territory rights"],
-];
-
-function categorizeReason(text: string): string {
-  for (const [re, label] of REASON_RULES) if (re.test(text)) return label;
-  return "Disclosures to review";
-}
 
 // ---------------------------------------------------------------------------
 // THE RESOLVER — the one interpreter of raw brand JSON.
@@ -510,22 +490,9 @@ export function resolveBrandFacts(
     if (tripwireLabels.length >= 3) break;
   }
 
-  // ── Risk Reframe: "N things to verify" ────────────────────────────────────
-  // Count = real riskReasons length (floored at 1 — a live brand always earns a
-  // baseline look; a clean brand reads "1 thing to verify", never "0"). Items =
-  // those same reasons categorized to gating-safe labels, deduped, top 3.
-  const rawReasons: string[] = Array.isArray(scoring?.riskReasons) ? scoring.riskReasons : [];
-  const verifyCount = Math.max(1, rawReasons.length);
-  const seenVerify = new Set<string>();
-  const verifyItems: string[] = [];
-  for (const r of rawReasons) {
-    const label = categorizeReason(String(r));
-    if (!seenVerify.has(label)) {
-      seenVerify.add(label);
-      verifyItems.push(label);
-    }
-    if (verifyItems.length >= 3) break;
-  }
+  // ── Risk Reframe: "N things to verify" — single source in lib/verify.ts, so
+  // the teaser surfaces and the paid report can't diverge (drift audit enforces).
+  const { verifyCount, verifyItems } = computeVerify(scoring?.riskReasons);
 
   // ── live gate ─────────────────────────────────────────────────────────────
   const risk: string | null = scoring?.riskLevel ?? null;

@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import type { DiligenceResult } from "@/lib/types";
 import { track } from "@/lib/analytics";
 import { recurringFeeDisplays } from "@/lib/fees";
+import { DiligenceModule } from "@/components/DiligenceToVerify";
+import { computeVerify } from "@/lib/verify";
+import type { BenchmarkCopy } from "@/lib/riskBenchmarks";
 
 /**
  * InfographicTeaser — the FREE tier shown after a parse.
@@ -36,9 +39,14 @@ const usd = (n: number | null | undefined) =>
 export default function InfographicTeaser({
   result,
   onUnlock,
+  benchmark,
+  benchmarkTotal,
 }: {
   result: DiligenceResult;
   onUnlock: () => void;
+  /** Risk Reframe — corpus benchmark for this brand's tier + vertical */
+  benchmark?: BenchmarkCopy | null;
+  benchmarkTotal?: number;
 }) {
   const { extracted: x, scoring: s, underwriting: u, buyer } = result;
   const fc = result.financialCondition ?? null;
@@ -57,13 +65,7 @@ export default function InfographicTeaser({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const risk = s.riskLevel ?? "—";
-  const tone =
-    risk === "High"
-      ? { text: "text-red-400", border: "border-red-500/40", bg: "bg-red-500/10", dot: "bg-red-400" }
-      : risk === "Medium"
-        ? { text: "text-amber-300", border: "border-amber-500/40", bg: "bg-amber-500/10", dot: "bg-amber-300" }
-        : { text: "text-[#34D399]", border: "border-[#34D399]/40", bg: "bg-[#34D399]/10", dot: "bg-[#34D399]" };
+  const verify = computeVerify(s.riskReasons);
 
   const low = x.item17?.initialInvestmentLow ?? null;
   const high = x.item17?.initialInvestmentHigh ?? null;
@@ -88,10 +90,6 @@ export default function InfographicTeaser({
   const item19 = !!x.item19?.hasItem19;
   const royalty = fees.royalty.pct ?? "No % royalty";
 
-  const reasons = (s.riskReasons ?? []).filter(Boolean);
-  const topReason = reasons[0] ?? null;
-  const moreReasons = Math.max(0, reasons.length - 1);
-
   const handleUnlock = () => {
     track("upgrade_clicked", { ...eventProps, price: PRICE_CENTS });
     onUnlock();
@@ -110,24 +108,14 @@ export default function InfographicTeaser({
           </h2>
         </div>
 
-        {/* risk verdict */}
+        {/* Risk Reframe — "N things to verify" (shared module, matches the
+            library + detail surfaces via the same computeVerify). */}
         <div className="px-6 pt-5">
-          <div className={`flex items-center gap-2.5 rounded-xl border ${tone.border} ${tone.bg} px-4 py-3`}>
-            <span className={`h-2.5 w-2.5 rounded-full ${tone.dot}`} />
-            <span className="text-sm text-[#CBD5E1]">Diligence risk level</span>
-            <span className={`ml-auto text-lg font-bold ${tone.text}`}>{risk}</span>
-          </div>
-          {topReason && (
-            <p className="mt-2 px-1 text-[13px] leading-snug text-[#8194B0]">
-              {topReason}
-              {moreReasons > 0 && (
-                <span className="text-[#5A6B88]">
-                  {" "}
-                  · +{moreReasons} more flag{moreReasons > 1 ? "s" : ""} inside
-                </span>
-              )}
-            </p>
-          )}
+          <DiligenceModule
+            readout={{ ...verify, risk: s.riskLevel ?? null }}
+            benchmark={benchmark}
+            total={benchmarkTotal}
+          />
         </div>
 
         {/* capital fit — the signature */}

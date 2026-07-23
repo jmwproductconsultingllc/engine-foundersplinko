@@ -22,6 +22,8 @@ import { track } from "@/lib/analytics";
 import EmailCapture from "@/components/EmailCapture";
 import CaptureSheet from "@/components/CaptureSheet";
 import type { TeaserCard } from "@/lib/teaserProps";
+import { DiligenceModule } from "@/components/DiligenceToVerify";
+import type { BenchmarkCopy } from "@/lib/riskBenchmarks";
 
 const PRICE_LABEL = "$199";
 
@@ -30,18 +32,17 @@ const usd = (n: number | null | undefined) =>
     ? "—"
     : new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
 
-const RISK_TONE: Record<string, { text: string; border: string; bg: string }> = {
-  High: { text: "text-red-400", border: "border-red-500/40", bg: "bg-red-500/10" },
-  Medium: { text: "text-amber-300", border: "border-amber-500/40", bg: "bg-amber-500/10" },
-  Low: { text: "text-[#34D399]", border: "border-[#34D399]/40", bg: "bg-[#34D399]/10" },
-};
-
 export default function BrandDetail({
   teaser,
   refTag,
+  benchmark,
+  benchmarkTotal,
 }: {
   teaser: TeaserCard;
   refTag?: string | null;
+  /** Risk Reframe — corpus benchmark copy for this brand's tier + vertical */
+  benchmark?: BenchmarkCopy | null;
+  benchmarkTotal?: number;
 }) {
   const card = teaser;
   const [cap, setCap] = useState(250_000);
@@ -57,7 +58,6 @@ export default function BrandDetail({
   const teaserFired = useRef(false);
   const navigatingRef = useRef(false); // debounce double-click on the Unlock CTAs
 
-  const tone = card.risk ? (RISK_TONE[card.risk] ?? RISK_TONE.Medium) : null;
   const hasRange = card.lo != null && card.hi != null;
   const lo = card.lo ?? 0;
   const hi = card.hi ?? 0;
@@ -227,15 +227,16 @@ export default function BrandDetail({
           )}
         </div>
 
-        {/* 3 · verdict + LOCKED financial-condition tease */}
-        {tone && (
-          <div className={`mt-3 flex items-center gap-3.5 rounded-2xl border px-5 py-3.5 ${tone.border} ${tone.bg}`}>
-            <div className={`text-[20px] font-extrabold ${tone.text}`}>{card.risk?.toUpperCase()}</div>
-            <div className="text-[13px] text-[#CBD5E1]">
-              Diligence risk level{card.hasFinancialConditionFlag ? " — driven by a disclosure most buyers never find." : "."}
-            </div>
-          </div>
-        )}
+        {/* 3 · Risk Reframe — "N things to verify" (replaces the bare red verdict).
+            We contextualize the SUMMARY; the LOCKED financial-condition finding
+            below still renders at full strength, unchanged. */}
+        <div className="mt-3">
+          <DiligenceModule
+            readout={{ verifyCount: card.verifyCount, verifyItems: card.verifyItems, risk: card.risk }}
+            benchmark={benchmark}
+            total={benchmarkTotal}
+          />
+        </div>
         {card.hasFinancialConditionFlag && (
           <div className="mt-2.5 flex items-start gap-2.5 rounded-xl border border-[#3A496A] bg-[#0E1729] px-4 py-3.5 text-[14px] text-[#CBD5E1]">
             <span aria-hidden>🔒</span>

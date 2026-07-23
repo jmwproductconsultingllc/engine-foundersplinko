@@ -2,6 +2,8 @@
 
 import { useMemo, useRef, useState, type ReactNode } from "react";
 import { applyRentCorrection, applyRentOverride } from "@/lib/rentCorrection";
+import { DiligenceModule } from "@/components/DiligenceToVerify";
+import { computeVerify } from "@/lib/verify";
 import type { RentResolution } from "@/lib/rent";
 import { track } from "@/lib/analytics";
 import type { DiligenceResult } from "@/lib/types";
@@ -254,12 +256,11 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
     (r) => !(fc && /financial condition/i.test(r.title)),
   );
 
-  const riskColor =
-    s.riskLevel === "High"
-      ? "text-red-400 border-red-500/40 bg-red-500/10"
-      : s.riskLevel === "Medium"
-        ? "text-amber-300 border-amber-500/40 bg-amber-500/10"
-        : "text-[#34D399] border-[#34D399]/40 bg-[#34D399]/10";
+  // Risk Reframe — the paid report's summary reframes to "N things to verify"
+  // (same shared component + same computeVerify as every teaser, so the drift
+  // audit holds). The DETAILED findings below (Financial Condition, tripwires)
+  // still render at full strength — we reframe the summary, never the findings.
+  const verify = computeVerify(s.riskReasons);
 
   // interactive debt-service model (client-side, pure math)
   const maxLoan = s.buildoutMidpoint ?? 0;
@@ -303,20 +304,22 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
         </div>
       )}
 
-      {/* Risk score */}
-      <div className={`border rounded-xl p-6 ${riskColor}`}>
-        <div className="flex items-center justify-between">
-          <span className="text-sm font-semibold uppercase tracking-wider text-[#CBD5E1]">Risk Level</span>
-          <span className="text-2xl font-black">{s.riskLevel}</span>
-        </div>
-        <ul className="mt-3 space-y-1.5 text-sm text-[#CBD5E1]">
+      {/* Risk summary — reframed to "N things to verify" (shared component).
+          The full reasons stay below as paid detail; findings render at full
+          strength further down. No bare red "HIGH" on the summary. */}
+      <DiligenceModule readout={{ ...verify, risk: s.riskLevel }} />
+      <div className="border border-[#27344F] bg-[#0B1220] rounded-xl px-5 py-4">
+        <p className="text-[11px] font-semibold uppercase tracking-wider text-[#8194B0]">
+          What drove the count
+        </p>
+        <ul className="mt-2 space-y-1.5 text-sm text-[#CBD5E1]">
           {s.riskReasons.map((r, i) => (
             <li key={i}>• {r}</li>
           ))}
         </ul>
         <p className="mt-3 text-[11px] text-[#8194B0]">
-          Score computed from disclosed assumptions (DSCR, rent share, payback, cohort survival) — not a
-          statement of fact about the franchisor.
+          Computed from disclosed assumptions (DSCR, rent share, payback, cohort survival) — a to-do
+          list to verify before you sign, not a statement of fact about the franchisor.
         </p>
       </div>
 

@@ -14,6 +14,7 @@ import { notFound } from "next/navigation";
 import { listBrands, getBrand, toCard } from "@/lib/brands";
 import { auditBrandFacts } from "@/lib/brandFacts";
 import { toTeaserCard } from "@/lib/teaserProps";
+import { computeRiskBenchmarks, benchmarkFor } from "@/lib/riskBenchmarks";
 import BrandDetail from "@/components/BrandDetail";
 
 export const revalidate = 3600;
@@ -76,5 +77,17 @@ export default async function FranchisePage({
   // (fin-condition figures, cohort spread, tripwire text) never leave this file.
   const teaser = toTeaserCard(brand);
 
-  return <BrandDetail teaser={teaser} refTag={refTag} />;
+  // Risk Reframe — corpus benchmark for this brand's tier + vertical (server-side).
+  const benchmarks = computeRiskBenchmarks(await listBrands());
+  const tier = card.risk === "High" || card.risk === "Medium" || card.risk === "Low" ? card.risk : null;
+  const benchmark = tier ? benchmarkFor(tier, card.vertical, benchmarks) : null;
+
+  return (
+    <BrandDetail
+      teaser={teaser}
+      refTag={refTag}
+      benchmark={benchmark}
+      benchmarkTotal={benchmarks.overall.total}
+    />
+  );
 }
