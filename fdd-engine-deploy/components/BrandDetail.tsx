@@ -21,6 +21,7 @@ import Link from "next/link";
 import { track } from "@/lib/analytics";
 import EmailCapture from "@/components/EmailCapture";
 import CaptureSheet from "@/components/CaptureSheet";
+import { CaptureProvider } from "@/components/CaptureContext";
 import type { TeaserCard } from "@/lib/teaserProps";
 import { DiligenceModule } from "@/components/DiligenceToVerify";
 import type { BenchmarkCopy } from "@/lib/riskBenchmarks";
@@ -155,6 +156,7 @@ export default function BrandDetail({
   const heroKind = card.moKind === "profit" ? "profit" : "revenue";
 
   return (
+    <CaptureProvider>
     <main
       className="min-h-screen bg-[#0B1220] px-5 pb-28 text-[#F1F5F9]"
       data-parse-quality={card.parseQuality}
@@ -578,5 +580,6 @@ export default function BrandDetail({
       {/* S2 · hunt-triggered bottom sheet (fires once/session on 80% + 8s dwell) */}
       <CaptureSheet brandName={card.brandName} brandSlug={card.slug} />
     </main>
+    </CaptureProvider>
   );
 }

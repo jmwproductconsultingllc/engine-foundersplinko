@@ -152,6 +152,49 @@ export async function enrichLead(args: {
   } catch (e) { console.error("[leads] enrich threw:", e); return false; }
 }
 
+/**
+ * Atomically CLAIM the fulfillment send for a lead: flip email_sent false→true
+ * and report whether THIS caller won. The condition `.eq("email_sent", false)`
+ * makes it a compare-and-set at the row level — a duplicate submit (the sheet
+ * re-solicit bug) finds email_sent already true, matches 0 rows, and returns
+ * false → it must NOT send. This is the server-side half of the double-email
+ * fix; it holds even for truly-simultaneous submits, which a read-then-decide
+ * check would race. Returns false on any error (fail safe: don't double-send).
+ */
+export async function claimEmailSend(leadId: string): Promise<boolean> {
+  if (!/^[0-9a-f-]{36}$/i.test(leadId)) return false;
+  try {
+    const { data, error } = await getClient()
+      .from("leads")
+      .update({ email_sent: true })
+      .eq("id", leadId)
+      .eq("email_sent", false)
+      .select("id");
+    if (error) {
+      console.error("[leads] claim error:", error.message);
+      return false;
+    }
+    return Boolean(data && data.length > 0);
+  } catch (e) {
+    console.error("[leads] claim threw:", e);
+    return false;
+  }
+}
+
+/**
+ * Release a claim when the send FAILED, so a legitimate retry can re-send.
+ * Best-effort; a failed release just leaves the lead marked sent (no email went
+ * out, but the row is conservative — better than risking a double later).
+ */
+export async function releaseEmailSend(leadId: string): Promise<void> {
+  if (!/^[0-9a-f-]{36}$/i.test(leadId)) return;
+  try {
+    await getClient().from("leads").update({ email_sent: false }).eq("id", leadId);
+  } catch (e) {
+    console.error("[leads] release threw:", e);
+  }
+}
+
 // ── junk-filter helpers (spec §5) ──
 const DISPOSABLE = new Set([
   "mailinator.com", "guerrillamail.com", "10minutemail.com", "tempmail.com",

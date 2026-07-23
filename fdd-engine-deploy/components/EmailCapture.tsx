@@ -12,7 +12,8 @@
 // COPY RULE (ruling #5): disclosure framing only — "our audit" is banned.
 
 import { useState } from "react";
-import { track } from "@/lib/analytics";
+import { track, identify } from "@/lib/analytics";
+import { useCapture } from "@/components/CaptureContext";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -107,6 +108,8 @@ export default function EmailCapture({
   const [brokerSaved, setBrokerSaved] = useState(false);
   // typed-intent telemetry: fire once per surface instance on first focus
   const [focusFired, setFocusFired] = useState(false);
+  // shared cross-surface capture state (null if rendered without a provider)
+  const capture = useCapture();
 
   const device =
     typeof navigator !== "undefined" && /Mobi|Android/i.test(navigator.userAgent)
@@ -150,9 +153,20 @@ export default function EmailCapture({
       });
       const data = await res.json().catch(() => ({ ok: false }));
       if (res.ok && data.ok) {
+        // lead_email_sent fires only when the server actually dispatched — a
+        // server-deduped duplicate returns sent:false, so it fires at most once.
         if (data.sent) track("lead_email_sent", { brandSlug, device, capture_surface: surface });
-        if (typeof data.id === "string") setLeadId(data.id);
-        try { sessionStorage.setItem("fe_capture_done", "1"); } catch {} // suppresses the S2 sheet
+        if (typeof data.id === "string") {
+          setLeadId(data.id);
+          // Identify the anonymous PostHog session by the Supabase lead UUID
+          // (NEVER the raw email) so pre-capture behavior joins to the lead.
+          // Idempotent: a deduped re-submit returns the same id.
+          identify(data.id);
+        }
+        try { sessionStorage.setItem("fe_capture_done", "1"); } catch {} // mount-time sheet gate
+        // Broadcast to every other surface on the page: they collapse to "You're
+        // in ✓" and the sheet auto-closes. This is the fix for the double-submit.
+        capture?.markCaptured(email, surface);
         setStatus("sent");
       } else {
         setStatus("error");
@@ -300,6 +314,17 @@ export default function EmailCapture({
             )}
           </div>
         )}
+      </div>
+    );
+  }
+
+  // A sibling surface already captured (this one didn't submit) → stop
+  // soliciting. Collapse to a compact confirmation instead of another form.
+  if (capture?.captured) {
+    return (
+      <div className="flex items-center gap-2 rounded-2xl border border-[#34D399]/30 bg-[#34D399]/[0.06] px-4 py-3 text-[13px] font-semibold text-[#8FE3C0]">
+        <span aria-hidden>✓</span>
+        <span>You&apos;re in — check your inbox for the findings.</span>
       </div>
     );
   }

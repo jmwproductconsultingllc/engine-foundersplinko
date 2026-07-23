@@ -29,6 +29,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import {
   insertLead,
+  claimEmailSend,
+  releaseEmailSend,
   isValidEmail,
   isDisposable,
   type LeadContext,
@@ -132,31 +134,30 @@ export async function POST(req: NextRequest) {
   const teaserUrl = `${origin}/franchise/${slug}?lead=${leadId}`;
 
   let sent = false;
+  let deduped = false;
   const source = body.lead_source ?? "brand_findings";
   if (!disposable) {
-    if (source === "playbook") {
-      sent = await sendPlaybookEmail({ to: email, leadId });
-    } else if (source === "capital_match" && ctx.capital_edited === true && ctx.capital_entered) {
-      sent = await sendCapitalMatchEmail({ to: email, capital: ctx.capital_entered, leadId, origin });
+    // IDEMPOTENCY: atomically claim the fulfillment. insertLead upserts on
+    // (email, brand_slug), so a duplicate submit (the multi-surface double-
+    // submit bug) returns the SAME leadId — and loses this claim because
+    // email_sent is already true. A lost claim sends ZERO additional emails and
+    // fires no second lead_email_sent. Only the winner dispatches.
+    const claimed = await claimEmailSend(leadId);
+    if (!claimed) {
+      deduped = true;
+      console.log("[lead] duplicate submit — fulfillment already claimed:", leadId.slice(0, 8));
     } else {
-      sent = await sendFindingsEmail({ to: email, brand, brandName, teaserUrl });
-    }
-    // best-effort: flip email_sent if it dispatched. A failed update is
-    // non-fatal (the lead row already exists); log and move on.
-    if (sent) {
-      try {
-        const { createClient } = await import("@supabase/supabase-js");
-        const sb = createClient(
-          process.env.SUPABASE_URL!,
-          process.env.SUPABASE_SERVICE_ROLE_KEY!,
-          { auth: { persistSession: false } },
-        );
-        await sb.from("leads").update({ email_sent: true }).eq("id", leadId);
-      } catch (e) {
-        console.error("[lead] email_sent update failed:", e);
+      if (source === "playbook") {
+        sent = await sendPlaybookEmail({ to: email, leadId });
+      } else if (source === "capital_match" && ctx.capital_edited === true && ctx.capital_entered) {
+        sent = await sendCapitalMatchEmail({ to: email, capital: ctx.capital_entered, leadId, origin });
+      } else {
+        sent = await sendFindingsEmail({ to: email, brand, brandName, teaserUrl });
       }
+      // Send failed → release the claim so a real retry can re-send.
+      if (!sent) await releaseEmailSend(leadId);
     }
   }
 
-  return NextResponse.json({ ok: true, sent, id: leadId });
+  return NextResponse.json({ ok: true, sent, id: leadId, deduped });
 }
