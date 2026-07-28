@@ -569,7 +569,11 @@ export default function BrandDetail({
       >
         <div className="mx-auto flex max-w-[820px] items-center gap-3 px-4 py-2.5">
           <div className="text-[13px] text-[#CBD5E1]">
-            <b className="text-[15px] text-[#F1F5F9]">{PRICE_LABEL}</b> · full {card.brandName} report
+            {/* bareName here too — this is the FIFTH article-consuming string, and the
+                one I missed on the first pass. It sits in the sticky bar, which is the
+                dominant CTA on mobile: "full The UPS Store report" directly above the
+                Unlock button. Any copy that supplies its own article needs bareName. */}
+            <b className="text-[15px] text-[#F1F5F9]">{PRICE_LABEL}</b> · full {bareName(card.brandName)} report
           </div>
           <a
             href={mintHref("sticky")}
