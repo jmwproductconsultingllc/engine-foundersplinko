@@ -13,6 +13,7 @@
 
 import { useState } from "react";
 import { track, identify } from "@/lib/analytics";
+import { withArticle } from "@/lib/brandName";
 import { useCapture } from "@/components/CaptureContext";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -47,13 +48,21 @@ const SOURCE_FOR: Record<CaptureSurface, LeadSource> = {
 const COPY: Record<CaptureSurface, { h: string; sub: string; btn: string; fine: string }> = {
   inline: {
     h: "Get the locked findings — free, by email.",
-    sub: "I'll send you a plain-English summary of what {Brand}'s own audited financials and FDD disclose, plus the 12 questions to ask a {Brand} franchisee before you sign anything.",
+    // {Brand} = the real name, article and all — the possessive reads correctly
+    // as "what The UPS Store's own audited financials ... disclose".
+    // {AnBrand} = the article-consuming slot. NEVER write "a {Brand}" here: that
+    // renders "a The UPS Store franchisee" and "a Anytime Fitness franchisee".
+    sub: "I'll send you a plain-English summary of what {Brand}'s own audited financials and FDD disclose, plus the 12 questions to ask {AnBrand} franchisee before you sign anything.",
     btn: "Send me the findings",
     fine: "No spam. The findings + one follow-up. Unsubscribe anytime.",
   },
   ask_link: {
     h: "Get the locked findings — free, by email.",
-    sub: "I'll send you a plain-English summary of what {Brand}'s own audited financials and FDD disclose, plus the 12 questions to ask a {Brand} franchisee before you sign anything.",
+    // {Brand} = the real name, article and all — the possessive reads correctly
+    // as "what The UPS Store's own audited financials ... disclose".
+    // {AnBrand} = the article-consuming slot. NEVER write "a {Brand}" here: that
+    // renders "a The UPS Store franchisee" and "a Anytime Fitness franchisee".
+    sub: "I'll send you a plain-English summary of what {Brand}'s own audited financials and FDD disclose, plus the 12 questions to ask {AnBrand} franchisee before you sign anything.",
     btn: "Send me the findings",
     fine: "No spam. The findings + one follow-up. Unsubscribe anytime.",
   },
@@ -118,7 +127,13 @@ export default function EmailCapture({
 
   const copy = COPY[surface];
   const capStr = capitalEntered ? `$${capitalEntered.toLocaleString("en-US")}` : "your budget";
-  const sub = copy.sub.replaceAll("{Brand}", brandName).replaceAll("{Capital}", capStr);
+  // {AnBrand} first — it is the more specific token. ("{AnBrand}" does not
+  // contain the literal "{Brand}", but ordering it first makes that safe by
+  // construction rather than by accident if either token is ever renamed.)
+  const sub = copy.sub
+    .replaceAll("{AnBrand}", withArticle(brandName))
+    .replaceAll("{Brand}", brandName)
+    .replaceAll("{Capital}", capStr);
   const showPhoneOffer = capitalEdited === true && (capitalEntered ?? 0) >= 150_000;
 
   async function submit() {
