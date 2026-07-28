@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "vitest run"
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "preflight": "tsc --noEmit && vitest run"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.106.0",

@@ -123,6 +123,15 @@ RULES:
   not know the count, and the per-unit rate is the correct figure to report. Likewise
   never convert monthly↔annual or sum fees together — report each fee as written and
   leave all math to downstream code.
+- ongoingFees.percentageFees: list EVERY continuing fee in Item 6 that is charged as
+  a PERCENTAGE OF SALES / GROSS REVENUE — one entry per fee, with the franchisor's own
+  label, the disclosed rate as a whole number (5 means 5%), and the Item 6 page. This
+  routinely runs to FOUR OR MORE fees (royalty, national/brand marketing fund, local
+  advertising requirement, technology or software fee). Include the royalty, brand
+  fund, and local ad fees here as well as in their named slots — the list is the
+  complete set, not the leftovers. If a rate is disclosed as a RANGE or a tiered
+  schedule, record the rate that applies to a typical single unit at maturity. Fees
+  charged as a flat dollar amount belong in flatMonthlyFees, never here.
 - Item 17 itself covers renewal, termination, transfer, and dispute resolution — pull
   those risks into operationalRisks, never into the investment table.
 - item19.cohorts: capture EVERY table the franchisor discloses in Item 19. Each

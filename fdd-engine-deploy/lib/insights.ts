@@ -408,6 +408,40 @@ export function occupancyBandFor(conceptType: ConceptType | string | null | unde
   return b?.occupancyPct ?? null;
 }
 
+export interface ConceptCostBands {
+  /** human-readable concept name, e.g. "Fast-casual restaurant" */
+  label: string;
+  cogsPct: [number, number];
+  /** already adjusted for the detected staffing model */
+  laborPct: [number, number];
+  otherOpexPct: [number, number];
+  /** used ONLY when no rent figure resolves */
+  occupancyPct: [number, number];
+}
+
+/**
+ * The cost bands behind cash-ladder rungs 6, 7, 8 (and rung 4's fallback).
+ *
+ * insights.ts already owns the curated BENCHMARKS table and the staffing
+ * adjustment; exporting them is what stops lib/ladderInput.ts from forking a
+ * second copy that drifts. Change a band and the Insights build-up and the cash
+ * ladder move together, by construction.
+ */
+export function costBandsFor(
+  conceptType: ConceptType | string | null | undefined,
+  staffingModel: InsightsResult["staffingModel"] | string | null | undefined,
+): ConceptCostBands {
+  const b = BENCHMARKS[(conceptType as ConceptType) ?? "other"] ?? BENCHMARKS.other;
+  const model = (staffingModel ?? "staffed") as InsightsResult["staffingModel"];
+  return {
+    label: b.label,
+    cogsPct: b.cogsPct,
+    laborPct: laborBandFor(model, b.laborPct),
+    otherOpexPct: OTHER_OPEX_PCT,
+    occupancyPct: b.occupancyPct,
+  };
+}
+
 export function buildInsights(
   fdd: ExtractedFDD,
   scoring: ScoringResult,

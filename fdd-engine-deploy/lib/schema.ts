@@ -85,6 +85,28 @@ export interface FlatFee {
   source: string;
 }
 
+/**
+ * A single continuing fee charged as a PERCENTAGE OF SALES.
+ *
+ * Why this exists: ongoingFees carried exactly three named percentage slots
+ * (royalty / brandFund / localAd). Real Item 6 tables routinely disclose more —
+ * Noodles & Co. charges four (5% royalty + 1.75% national marketing + 1.0%
+ * local + 1.25% technology = 9.00%) and the fourth had nowhere to live, so the
+ * ladder's rung 2 silently understated the deal.
+ *
+ * This field is ADDITIVE and optional on purpose. Stored records that predate
+ * it fall back to the three named slots (see lib/ladderInput.ts →
+ * resolvePercentageFees), so no already-minted report's arithmetic moves.
+ */
+export interface PercentageFee {
+  /** e.g. "Royalty", "National marketing fund", "Technology fee" */
+  label: string;
+  /** percent of gross sales, expressed as a whole number: 5 means 5% */
+  pct: number;
+  /** e.g. "Item 6, p.41" */
+  source: string;
+}
+
 export interface HiddenCost {
   name: string;
   description: string;
@@ -147,6 +169,13 @@ export interface ExtractedFDD {
     brandFundPct: number | null;
     localAdPct: number | null;
     flatMonthlyFees: FlatFee[];
+    /**
+     * EVERY continuing percentage-of-sales fee in Item 6, including the three
+     * named above. Optional: absent on records extracted before this field
+     * existed, and lib/ladderInput.ts falls back to the named slots when it is.
+     * When present it is authoritative — the named slots are deduped against it.
+     */
+    percentageFees?: PercentageFee[];
   };
   hiddenCosts: HiddenCost[];
   /** normalized monthly rent (computed in code from rentDetail) — what scoring uses */
@@ -286,6 +315,18 @@ export const fddResponseSchema = {
               source: { type: Type.STRING },
             },
             required: ["name", "source"],
+          },
+        },
+        percentageFees: {
+          type: Type.ARRAY,
+          items: {
+            type: Type.OBJECT,
+            properties: {
+              label: { type: Type.STRING },
+              pct: { type: Type.NUMBER },
+              source: { type: Type.STRING },
+            },
+            required: ["label", "pct", "source"],
           },
         },
       },
