@@ -30,6 +30,18 @@ export const RUBRIC = {
   manyHighTripwires: 4, // >= this → +2
 };
 
+/**
+ * Past this, a computed payback is a division artifact, not a finding.
+ *
+ * Payback = build-out ÷ annual EBITDA. As EBITDA approaches zero the quotient
+ * explodes, and we were printing the result verbatim to one decimal place —
+ * "Long payback: ~801.1 years" shipped on a live brand page. Deliberately NOT
+ * in RUBRIC: RUBRIC holds scoring thresholds (this changes no score — the
+ * paybackYearsStress flag already fired). This is a copy guard, and keeping it
+ * out of RUBRIC keeps "every RUBRIC value is a scoring bar" true.
+ */
+export const PAYBACK_NOT_MEANINGFUL_YEARS = 40;
+
 export interface CohortEconomics {
   label: string;
   monthlyRevenue: number;
@@ -286,9 +298,13 @@ export function scoreFdd(
 
   if (dscr != null && dscr < RUBRIC.dscrStress) {
     points += 2;
-    reasons.push(
-      `Debt-service coverage is thin: mid-cohort DSCR ≈ ${dscr.toFixed(2)} (below ${RUBRIC.dscrStress}).`,
-    );
+    // NAME THE OUTPUT, NEVER THE CUTOFF. This used to append
+    // "(below ${RUBRIC.dscrStress})" — which publishes our internal bar to the
+    // buyer. That is a disclosure about US, not about the franchise: it invites
+    // "why 1.25?", and it goes stale the day the rubric is retuned, at which
+    // point every stored report contradicts the live one. Enforced by
+    // lib/reasonCopy.test.ts.
+    reasons.push(`Debt-service coverage is thin: mid-cohort DSCR ≈ ${dscr.toFixed(2)}.`);
   }
   if (bottomCohort && !bottomCohort.coversCosts) {
     points += 2;
@@ -298,19 +314,30 @@ export function scoreFdd(
   }
   if (rentPctOfRevenue != null && rentPctOfRevenue > RUBRIC.rentPctStress) {
     points += 1;
-    reasons.push(
-      `Rent is heavy: ~${Math.round(rentPctOfRevenue * 100)}% of mid-cohort revenue (above ${Math.round(
-        RUBRIC.rentPctStress * 100,
-      )}%).`,
-    );
+    // Cutoff parenthetical removed — see the DSCR note above.
+    reasons.push(`Rent is heavy: ~${Math.round(rentPctOfRevenue * 100)}% of mid-cohort revenue.`);
   }
   if (paybackYears != null && paybackYears > RUBRIC.paybackYearsStress) {
     points += 1;
-    reasons.push(`Long payback: ~${paybackYears.toFixed(1)} years on the build-out before financing.`);
+    // Payback is buildout ÷ annual EBITDA. When EBITDA is near zero the quotient
+    // explodes and we were printing it verbatim — ellie-mental-health shipped
+    // "Long payback: ~801.1 years", to one decimal place, on a live public page.
+    // That is not a finding, it is a division artifact wearing false precision,
+    // and a reader who spots it stops trusting every other number on the page.
+    // Past a realistic operating horizon the honest statement is that the
+    // payback cannot be computed, not that it is eight centuries.
+    reasons.push(
+      paybackYears > PAYBACK_NOT_MEANINGFUL_YEARS
+        ? "Payback on the build-out is not meaningfully computable — modeled mid-cohort earnings are too thin to amortize the investment over any realistic horizon."
+        : `Long payback: ~${paybackYears.toFixed(1)} years on the build-out before financing.`,
+    );
   }
   if (royalty > RUBRIC.highRoyaltyPct) {
     points += 1;
-    reasons.push(`Above-market royalty at ${royalty}%.`);
+    // "Above-market royalty at 8.25%" asserts a fact about the franchise MARKET
+    // that we cannot cite. The FDD discloses the royalty; it does not disclose
+    // the market. State the disclosed figure and let it carry the weight.
+    reasons.push(`Royalty runs ${royalty}% of gross revenue — verify what that leaves at the bottom line.`);
   }
   if (!fdd.item19?.hasItem19) {
     reasons.push("No Item 19 financial performance representation — earnings are undisclosed, which is itself a caution.");

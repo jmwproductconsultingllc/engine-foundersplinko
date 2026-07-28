@@ -333,7 +333,7 @@
   "scoring": {
    "riskLevel": "Medium",
    "riskReasons": [
-    "Above-market royalty at 8.25%.",
+    "Royalty runs 8.25% of gross revenue \u2014 verify what that leaves at the bottom line.",
     "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
    ],
    "midCohort": {

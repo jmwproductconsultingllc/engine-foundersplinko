@@ -24,6 +24,7 @@ import DiligenceReport from "@/components/DiligenceReport";
 import SampleViewedBeacon from "@/components/SampleViewedBeacon";
 import SampleStickyBar from "@/components/SampleStickyBar";
 import { getSampleResult } from "@/lib/sampleReport";
+import { liveBrandCount, brandCountPhrase } from "@/lib/brandCount";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://engine.foundersplinko.com";
 
@@ -49,7 +50,9 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: TITLE, description: DESC },
 };
 
-export default function SamplePage() {
+export default async function SamplePage() {
+  // Single source (lib/brandCount.ts) — this was a hand-typed literal.
+  const brandCount = brandCountPhrase(await liveBrandCount());
   const result = getSampleResult();
   const brandName = result.extracted.brandName ?? "this brand";
 
@@ -139,7 +142,7 @@ export default function SamplePage() {
               href="/brands"
               className="block flex-1 rounded-xl border border-[#27344F] py-3.5 text-center text-[15px] font-bold text-[#CBD5E1] transition-colors hover:border-[#38BDF8] hover:text-[#38BDF8]"
             >
-              Browse 80+ brands free
+              Browse {brandCount} free
             </Link>
           </div>
           <p className="mt-3 text-center text-[12.5px] text-[#8194B0]">

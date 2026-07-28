@@ -356,7 +356,7 @@
   "scoring": {
    "riskLevel": "Medium",
    "riskReasons": [
-    "Rent is heavy: ~26% of mid-cohort revenue (above 25%).",
+    "Rent is heavy: ~26% of mid-cohort revenue.",
     "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
    ],
    "midCohort": {

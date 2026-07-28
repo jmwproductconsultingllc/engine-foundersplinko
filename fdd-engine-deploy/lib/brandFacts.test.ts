@@ -165,7 +165,13 @@ describe("resolver golden pins (spec acceptance matrix)", () => {
       const f = resolveBrandFacts(b);
       for (const item of f.verifyItems) expect(ALLOWED.has(item)).toBe(true);
       expect(f.verifyCount).toBeGreaterThanOrEqual(1);
-      expect(f.verifyItems.length).toBeLessThanOrEqual(3);
+      // Bounded by the CLOSED LABEL SET, not by a display cap. The old assertion
+      // pinned 3 — which is exactly what let the truncation live: the list was
+      // capped at 3 while the headline counted every finding, so a 5-finding
+      // brand rendered "5 things to verify" over 3 items. The cap is gone.
+      expect(f.verifyItems.length).toBeLessThanOrEqual(ALLOWED.size);
+      // items are DEDUPED AREAS, so they can never exceed the finding count
+      expect(f.verifyItems.length).toBeLessThanOrEqual(f.verifyCount);
     }
   });
 

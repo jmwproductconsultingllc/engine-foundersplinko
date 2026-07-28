@@ -6,6 +6,7 @@
 // the query param, per-buyer payment stays intact.
 
 import { track } from "@/lib/analytics";
+import { bareName } from "@/lib/brandName";
 
 export default function BrandCTA({
   brandName,
@@ -33,7 +34,7 @@ export default function BrandCTA({
         onClick={() => track("upgrade_clicked", { source, slug, ref: refTag ?? "none" })}
         className="mt-3 block w-full rounded-xl bg-[#34D399] py-3 text-center text-[15px] font-extrabold text-[#0B1220] hover:brightness-110"
       >
-        Get the {brandName} report — $199
+        Get the {bareName(brandName)} report — $199
       </a>
     </div>
   );

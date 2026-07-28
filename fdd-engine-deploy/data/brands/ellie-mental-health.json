@@ -389,8 +389,8 @@
   "scoring": {
    "riskLevel": "High",
    "riskReasons": [
-    "Debt-service coverage is thin: mid-cohort DSCR \u2248 0.01 (below 1.25).",
-    "Long payback: ~801.1 years on the build-out before financing.",
+    "Debt-service coverage is thin: mid-cohort DSCR \u2248 0.01.",
+    "Payback on the build-out is not meaningfully computable \u2014 modeled mid-cohort earnings are too thin to amortize the investment over any realistic horizon.",
     "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
    ],
    "midCohort": {

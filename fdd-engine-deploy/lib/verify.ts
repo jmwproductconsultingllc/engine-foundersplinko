@@ -48,10 +48,22 @@ export function verifyPhrase(count: number): string {
 }
 
 export interface VerifyReadout {
-  /** real count of things to verify (floored at 1 — a clean brand reads "1 thing",
-   *  emerald reassurance, never "0"). NOT a fixed per-tier number. */
+  /** real count of FINDINGS to verify (floored at 1 — a clean brand reads
+   *  "1 thing", emerald reassurance, never "0"). NOT a fixed per-tier number. */
   verifyCount: number;
-  /** top ≤3 buyer-facing labels — labels only, raw reason text never ships */
+  /** the distinct AREAS those findings fall into — deduped, display-ordered,
+   *  labels only (raw reason text never ships). Bounded by VERIFY_LABELS (8),
+   *  in practice 1–5.
+   *
+   *  ⚠ verifyItems.length is NOT verifyCount and is not supposed to be. Two
+   *  findings can share one area ("Above-market royalty" + "brand fund" both →
+   *  "The fee stack"), so items ≤ count, always. This USED to be truncated at 3,
+   *  which meant a brand with 5 findings across 5 distinct areas rendered
+   *  "5 things to verify" over a 3-item list under the heading "Here's what to
+   *  resolve" — a list that silently claimed to be the whole set and wasn't.
+   *  The cap is gone; the surfaces now label the list "Areas to resolve", so the
+   *  headline counts findings and the list counts areas. Different nouns — the
+   *  numbers no longer appear to contradict, because they never were comparable. */
   verifyItems: string[];
 }
 
@@ -71,7 +83,8 @@ export function computeVerify(riskReasons: string[] | null | undefined): VerifyR
       seen.add(label);
       verifyItems.push(label);
     }
-    if (verifyItems.length >= 3) break;
+    // NO CAP. See the verifyItems doc above — truncating here is what produced
+    // the count-vs-list mismatch. The closed label set bounds this at 8.
   }
   return { verifyCount, verifyItems };
 }

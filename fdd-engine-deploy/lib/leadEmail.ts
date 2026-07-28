@@ -14,6 +14,7 @@ import { Resend } from "resend";
 import type { BrandRecord } from "@/lib/brands";
 import { listBrands, toCard } from "@/lib/brands";
 import { playbookUrl as resolvePlaybookUrl } from "@/lib/playbook";
+import { liveBrandCount, brandCountPhrase } from "@/lib/brandCount";
 
 const FROM = process.env.RESEND_FROM || "Franchise Edge <hello@foundersplinko.com>";
 
@@ -116,6 +117,11 @@ export async function sendPlaybookEmail(args: { to: string; leadId: string }): P
   // page so the email and the page can never point at different PDFs.
   const playbookUrl = resolvePlaybookUrl();
   const bridgeUrl = "https://engine.foundersplinko.com/brands?utm_source=playbook_email";
+  // The library size was a hand-typed literal here AND on /sample AND on
+  // /playbook, and the three disagreed with each other and with the store. It is
+  // now computed once (lib/brandCount.ts) so the email, the pages and reality
+  // move together. See that file for the full note.
+  const brandCount = brandCountPhrase(await liveBrandCount());
   const subject = "Your free Franchise Playbook";
   const inner = `
 <tr><td style="padding:18px 26px 0;">
@@ -124,9 +130,9 @@ export async function sendPlaybookEmail(args: { to: string; leadId: string }): P
   <p ${P}>Inside: the 90-day checklist, the cost worksheets, and the location math the pros use — in plain English.</p>
 </td></tr>
 <tr><td style="padding:22px 26px 6px;"><a href="${playbookUrl}" ${BTN}>Download the Playbook</a></td></tr>
-<tr><td style="padding:10px 26px 6px;"><a href="${bridgeUrl}" style="display:block;text-align:center;font-size:13.5px;font-weight:700;color:#38BDF8;text-decoration:none;">Next: see what the FDD actually says about 70+ brands →</a></td></tr>
+<tr><td style="padding:10px 26px 6px;"><a href="${bridgeUrl}" style="display:block;text-align:center;font-size:13.5px;font-weight:700;color:#38BDF8;text-decoration:none;">Next: see what the FDD actually says about ${brandCount} →</a></td></tr>
 <tr><td style="padding:14px 26px 24px;"><p ${FOOT}>Informational only. Unsubscribe anytime.</p></td></tr>`;
-  const text = `Your Franchise Playbook\n\nI put this together because I wish someone had handed it to me before I wrote my first franchise check. — Jason\n\nDownload: ${playbookUrl}\n\nNext: see what the FDD actually says about 70+ brands: ${bridgeUrl}`;
+  const text = `Your Franchise Playbook\n\nI put this together because I wish someone had handed it to me before I wrote my first franchise check. — Jason\n\nDownload: ${playbookUrl}\n\nNext: see what the FDD actually says about ${brandCount}: ${bridgeUrl}`;
   return send(to, subject, shell(inner, "The 90-day checklist, cost worksheets, and location math — in plain English."), text);
 }
 

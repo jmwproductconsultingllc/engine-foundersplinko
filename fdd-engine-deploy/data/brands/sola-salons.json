@@ -336,7 +336,7 @@
   "scoring": {
    "riskLevel": "High",
    "riskReasons": [
-    "Rent is heavy: ~39% of mid-cohort revenue (above 25%).",
+    "Rent is heavy: ~39% of mid-cohort revenue.",
     "Long payback: ~5.7 years on the build-out before financing.",
     "Capital gap of $1,099,255 is ~4.4x your liquid \u2014 heavy reliance on outside financing.",
     "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."

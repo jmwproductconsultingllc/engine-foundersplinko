@@ -1,165 +1,32 @@
-"use client";
-
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-import FDDUpload from "@/components/FDDUpload";
-import FeatureMatrix from "@/components/FeatureMatrix";
-import { track } from "@/lib/analytics";
-
-const DISPLAY =
-  "var(--font-display, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif)";
-
-// The sample report used to live HERE, as an in-session state swap: clicking
-// "See a sample report" set result/unlocked/isSample and re-rendered this
-// component as a report. It had no URL, so it could not be linked in an email,
-// forwarded to a spouse or a franchise consultant, bookmarked, indexed, or
-// reached with the back button — and it dragged DiligenceReport +
-// InfographicTeaser into the HOME page's client bundle purely to render a demo
-// that most visitors never open.
+// fdd-engine-deploy/app/page.tsx — SERVER SHELL for the home page.
 //
-// It is now a real route (app/sample/page.tsx, server-rendered), so this page
-// links to it and the state, the two heavy imports, and getSampleResult all go
-// away. A real upload persists server-side and redirects to /report/[id], which
-// is why nothing else needed the result state.
+// This file used to BE the home page and carried "use client". That made it
+// structurally impossible to give the site's single most-linked URL a canonical
+// tag or real Open Graph metadata, because a client component cannot export
+// `metadata`. Every ad, every business card, every share of foundersplinko.com
+// landed here, and here was the one page with no canonical.
+//
+// The fix is the standard split, and it is the same one /playbook already uses:
+// a server component owns the metadata and renders the client view. All the
+// interactive code moved verbatim to components/HomeView.tsx.
+
+import type { Metadata } from "next";
+import HomeView from "@/components/HomeView";
+
+const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://engine.foundersplinko.com";
+
+const TITLE = "Franchise Edge — know if a franchise will actually make you money";
+const DESC =
+  "Upload a franchise's FDD and get a plain-English diligence read: real cost to open, Item 19 unit economics, the full fee stack, and what to verify before you sign.";
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESC,
+  alternates: { canonical: BASE },
+  openGraph: { title: TITLE, description: DESC, url: BASE, type: "website" },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESC },
+};
+
 export default function Page() {
-  const router = useRouter();
-  const [primerOpen, setPrimerOpen] = useState(false);
-
-  return (
-    <main className="min-h-screen bg-[#0B1220] text-[#F1F5F9] px-4 py-12 md:px-8 md:py-16">
-      <style>{`@keyframes fe-hero { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }`}</style>
-
-      <div className="mx-auto max-w-3xl">
-        {/* hero */}
-        <header
-          className="mx-auto mb-7 max-w-2xl text-center"
-          style={{ animation: "fe-hero 0.5s ease-out both" }}
-        >
-          <div className="mb-5 flex items-center justify-center">
-            <Link
-              href="/brands"
-              onClick={() => track("brands_library_clicked", { source: "home_hero" })}
-              className="rounded-full border border-[#38BDF8]/30 bg-[#38BDF8]/[0.06] px-4 py-1.5 text-xs font-bold text-[#38BDF8] transition-colors hover:bg-[#38BDF8]/[0.12]"
-            >
-              Browse the franchise library →
-            </Link>
-          </div>
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#38BDF8]">
-            Franchise Edge
-          </p>
-          <h1
-            className="text-3xl font-bold leading-[1.1] text-[#F1F5F9] md:text-[2.75rem]"
-            style={{ fontFamily: DISPLAY }}
-          >
-            Know if this franchise will actually make you money.
-          </h1>
-          <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-[#8194B0]">
-            Upload the franchise&apos;s{" "}
-            <button
-              type="button"
-              onClick={() => {
-                if (!primerOpen) track("primer_opened", { source: "hero_link" });
-                setPrimerOpen(true);
-              }}
-              className="font-medium text-[#38BDF8] underline decoration-dotted underline-offset-2 hover:decoration-solid"
-            >
-              FDD
-            </button>{" "}
-            — the disclosure document every franchisor must give you — and tell us what you can put
-            toward opening. In minutes you get a scored diligence read: real unit economics, hidden
-            fees, and the franchisor&apos;s financial health, measured against your own capital.
-          </p>
-        </header>
-
-        {/* command center (with the FDD on-ramp directly above the input) */}
-        <div
-          className="mx-auto max-w-xl"
-          style={{ animation: "fe-hero 0.5s ease-out 0.08s both" }}
-        >
-          {/* On-ramp for cold/novice visitors — sky-tinted so it reads as "help is here,"
-              and placed above the box so no one is stranded at "how much can you put toward opening." */}
-          <div className="mb-4 rounded-xl border border-[#38BDF8]/25 bg-[#38BDF8]/[0.05] px-5 py-3.5">
-            <button
-              type="button"
-              onClick={() => {
-                if (!primerOpen) track("primer_opened", { source: "strip" });
-                setPrimerOpen((o) => !o);
-              }}
-              aria-expanded={primerOpen}
-              className="flex w-full items-center justify-between gap-3 text-left text-sm font-medium text-[#CBD5E1]"
-            >
-              <span className="flex items-center gap-2.5">
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#38BDF8]/20 text-xs font-bold text-[#38BDF8]">
-                  ?
-                </span>
-                New to franchises? What an FDD is — and where to get one
-              </span>
-              <svg
-                className={`h-4 w-4 shrink-0 text-[#5A6B88] transition-transform duration-200 ${
-                  primerOpen ? "rotate-180" : ""
-                }`}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden
-              >
-                <path d="M6 9l6 6 6-6" />
-              </svg>
-            </button>
-            {primerOpen && (
-              <div className="mt-3 space-y-3 text-sm leading-relaxed text-[#8194B0]">
-                <p>
-                  An FDD — Franchise Disclosure Document — is the 200–300 page disclosure every
-                  franchisor must give you before you invest: the real costs, fees, financials,
-                  litigation, and the rules of the deal.
-                </p>
-                <p>
-                  Ask the franchise for it directly — under FTC rules they must provide it free, at
-                  least 14 days before you sign anything or pay a dime. Or look one up in a state
-                  registry to compare brands before you ever talk to a salesperson.
-                </p>
-                <a
-                  href="https://apps.dfi.wi.gov/apps/FranchiseSearch/MainSearch.aspx"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => track("fdd_lookup_clicked")}
-                  className="inline-flex items-center gap-1.5 font-medium text-[#38BDF8] hover:underline"
-                >
-                  Look up an FDD on Wisconsin&apos;s free registry
-                  <span aria-hidden>↗</span>
-                </a>
-              </div>
-            )}
-          </div>
-
-          <FDDUpload onComplete={(reportId) => router.push(`/report/${reportId}`)} />
-
-          <div className="mt-4 text-center">
-            <Link
-              href="/sample"
-              onClick={() => track("sample_report_clicked", { source: "home" })}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#27344F] px-4 py-2
-                text-sm font-medium text-[#CBD5E1] transition-colors hover:border-[#38BDF8] hover:text-[#38BDF8]"
-            >
-              See a sample report
-              <span aria-hidden>→</span>
-            </Link>
-          </div>
-        </div>
-
-        {/* value matrix */}
-        <FeatureMatrix />
-
-        <p className="mt-12 text-center text-xs leading-relaxed text-[#5A6B88]">
-          Informational only — not legal, financial, or investment advice. Figures are extracted by
-          an AI model and may contain errors; verify against the source FDD and a qualified advisor
-          before making any decision.
-        </p>
-      </div>
-    </main>
-  );
+  return <HomeView />;
 }

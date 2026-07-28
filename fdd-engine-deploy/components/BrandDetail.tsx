@@ -18,6 +18,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { bareName } from "@/lib/brandName";
 import { track } from "@/lib/analytics";
 import EmailCapture from "@/components/EmailCapture";
 import CaptureSheet from "@/components/CaptureSheet";
@@ -157,10 +158,13 @@ export default function BrandDetail({
 
   return (
     <CaptureProvider>
-    <main
-      className="min-h-screen bg-[#0B1220] px-5 pb-28 text-[#F1F5F9]"
-      data-parse-quality={card.parseQuality}
-    >
+    {/* data-parse-quality={card.parseQuality} REMOVED: internal pipeline
+        metadata ("clean" | "thin" | …) rendered as an attribute on <main> of
+        every public brand page. It told anyone reading view-source how much
+        confidence we have in our own extraction, per brand — a signal we do not
+        publish anywhere in the UI and would not want quoted back at us by a
+        franchisor. It drove no styling and no behavior. */}
+    <main className="min-h-screen bg-[#0B1220] px-5 pb-28 text-[#F1F5F9]">
       <div className="mx-auto max-w-[820px]">
         <div className="flex items-center justify-between border-b border-[#27344F] py-4">
           <Link href="/" className="text-[15px] font-extrabold">
@@ -273,7 +277,7 @@ export default function BrandDetail({
             onClick={(e) => onUnlock(e, "ask_card")}
             className="mt-4 block w-full rounded-xl bg-[#34D399] py-3.5 text-center text-[15px] font-extrabold text-[#0B1220] hover:brightness-110"
           >
-            Unlock the full {card.brandName} report — {PRICE_LABEL}
+            Unlock the full {bareName(card.brandName)} report — {PRICE_LABEL}
           </a>
           <p className="mt-2 text-center text-xs text-[#8194B0]">
             <b className="text-[#F1F5F9]">One-time {PRICE_LABEL} · not a subscription · yours forever.</b>
@@ -537,7 +541,7 @@ export default function BrandDetail({
           <p className="mt-2.5 text-[12.5px] text-[#8194B0]">
             Looking for something in particular? Email me directly —{" "}
             <a
-              href={`mailto:jason@foundersplinko.com?subject=${encodeURIComponent(`Question from the ${card.brandName} page`)}`}
+              href={`mailto:jason@foundersplinko.com?subject=${encodeURIComponent(`Question from the ${bareName(card.brandName)} page`)}`}
               onClick={() => track("cta_clicked", { cta_id: "contact_email", section: "playbook" })}
               className="font-bold text-[#38BDF8]"
             >
@@ -549,7 +553,7 @@ export default function BrandDetail({
 
         <p className="mt-5 text-[11px] leading-relaxed text-[#586A88]">
           Informational only — not legal, financial, or investment advice. Figures are extracted from
-          the {card.brandName} FDD and may contain errors; verify every number against the source
+          the {bareName(card.brandName)} FDD and may contain errors; verify every number against the source
           document and consult a qualified professional before deciding. Not affiliated with or endorsed
           by {card.brandName}.
         </p>

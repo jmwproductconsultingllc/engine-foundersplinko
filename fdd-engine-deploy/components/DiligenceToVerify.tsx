@@ -15,6 +15,11 @@
 //    NEVER red. Red is reserved for a genuine financial-condition flag INSIDE
 //    the report, where earned. NO signal-bar meter (full-bars=good misreads).
 //  • Low is REASSURANCE ("1 thing to verify", emerald), not a shallow report.
+//  • FINDINGS vs AREAS (added Jul 28): the headline counts findings; the list
+//    counts the distinct areas they fall into. They are different nouns and are
+//    NOT expected to match. Never label the list with a word that implies it
+//    enumerates the headline ("here's what to resolve", "the N things"), and
+//    never truncate it — a short list under a bigger number reads as a bug.
 
 import type { BenchmarkCopy } from "@/lib/riskBenchmarks";
 import { verifyPhrase } from "@/lib/verify";
@@ -103,7 +108,13 @@ export function DiligenceModule({
   total?: number;
 }) {
   const t = tierStyle(readout.risk);
-  const items = readout.verifyItems.slice(0, 3);
+  // No slice. This used to be .slice(0, 3), which — paired with a headline that
+  // counts FINDINGS — rendered "5 things to verify" above a 3-item list titled
+  // "Here's what to resolve". Two different numbers, one of them silently a
+  // truncation, under a heading that promised completeness. The list is now the
+  // full deduped area set (bounded at 8 by the closed label set), and the
+  // heading names the right noun.
+  const items = readout.verifyItems;
   return (
     <div className="rounded-2xl border border-[#22304C] bg-[#0E1729] p-5">
       <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#8194B0]">
@@ -129,8 +140,12 @@ export function DiligenceModule({
 
       {items.length ? (
         <div className="mt-4">
+          {/* "Areas to resolve", not "Here's what to resolve": the headline above
+              counts findings, this list counts the areas they fall into, and two
+              findings can share one area. Naming the noun is what makes the two
+              numbers non-comparable — and therefore never contradictory. */}
           <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#34D399]">
-            Here's what to resolve
+            Areas to resolve
           </p>
           <ol className="mt-2 space-y-1.5">
             {items.map((label, i) => (

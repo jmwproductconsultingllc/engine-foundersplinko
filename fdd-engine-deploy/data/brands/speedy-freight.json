@@ -626,7 +626,7 @@
   "scoring": {
    "riskLevel": "High",
    "riskReasons": [
-    "Above-market royalty at 30%.",
+    "Royalty runs 30% of gross revenue \u2014 verify what that leaves at the bottom line.",
     "5 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
     "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
    ],

@@ -384,7 +384,7 @@
   "scoring": {
    "riskLevel": "High",
    "riskReasons": [
-    "Rent is heavy: ~31% of mid-cohort revenue (above 25%).",
+    "Rent is heavy: ~31% of mid-cohort revenue.",
     "A high-severity operational tripwire is disclosed \u2014 see the tripwires section.",
     "Franchisor financial distress disclosed (negative net worth) \u2014 confirm its ability to support the system against the audited statements."
    ],

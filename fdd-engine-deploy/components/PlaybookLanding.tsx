@@ -28,7 +28,7 @@ const DISPLAY =
   "var(--font-display, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif)";
 
 /** Post-capture: the immediate download, so nobody has to go dig in their inbox. */
-function DownloadReveal({ href }: { href: string }) {
+function DownloadReveal({ href, brandCount }: { href: string; brandCount: string }) {
   const capture = useCapture();
   if (!capture?.captured) return null;
 
@@ -54,14 +54,20 @@ function DownloadReveal({ href }: { href: string }) {
           onClick={() => track("brands_library_clicked", { source: "playbook_page" })}
           className="font-bold text-[#38BDF8] hover:underline"
         >
-          see what the FDD actually says about 80+ brands →
+          see what the FDD actually says about {brandCount} →
         </Link>
       </p>
     </div>
   );
 }
 
-export default function PlaybookLanding({ downloadUrl }: { downloadUrl: string }) {
+export default function PlaybookLanding({
+  downloadUrl,
+  brandCount,
+}: {
+  downloadUrl: string;
+  brandCount: string;
+}) {
   const shown = useRef(false);
   useEffect(() => {
     if (shown.current) return;
@@ -104,7 +110,7 @@ export default function PlaybookLanding({ downloadUrl }: { downloadUrl: string }
               surface="playbook"
               refTag={null}
             />
-            <DownloadReveal href={downloadUrl} />
+            <DownloadReveal href={downloadUrl} brandCount={brandCount} />
           </div>
 
           {/* what's inside */}

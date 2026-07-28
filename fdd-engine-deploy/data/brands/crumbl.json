@@ -424,7 +424,7 @@
   "scoring": {
    "riskLevel": "High",
    "riskReasons": [
-    "Above-market royalty at 8%.",
+    "Royalty runs 8% of gross revenue \u2014 verify what that leaves at the bottom line.",
     "2 high-severity operational tripwires disclosed — see the tripwires section.",
     "Franchisor financial distress disclosed (negative net worth) — confirm its ability to support the system against the audited statements."
    ],

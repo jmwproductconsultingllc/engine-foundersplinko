@@ -13,10 +13,18 @@ import { DiligenceContextBanner } from "@/components/DiligenceToVerify";
 
 export const revalidate = 3600; // store changes at converter cadence, not per-request
 
+// SELF-REFERENCING CANONICAL. /brands is reachable with ?ref=<partner> on every
+// referral link we hand out, and Next serves the same rendered page for each —
+// so without this, every ref tag Google crawls is a separate URL competing with
+// the real one for the same content. The money pages had no canonical at all;
+// /sample and /playbook already did.
+const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://engine.foundersplinko.com";
+
 export const metadata: Metadata = {
   title: "Franchise Diligence Library — Browse by Vertical | Franchise Edge",
   description:
     "Browse franchises across 11 verticals — kids, home services, fitness, food, B2B and more. Every brand's FDD read by AI: real cost to open, Item 19 numbers, and risk level.",
+  alternates: { canonical: `${BASE}/brands` },
   openGraph: {
     title: "Franchise Diligence Library — Browse by Vertical | Franchise Edge",
     description:

@@ -19,6 +19,13 @@ import BrandDetail from "@/components/BrandDetail";
 
 export const revalidate = 3600;
 
+// SELF-REFERENCING CANONICAL. Brand pages are the SEO product — they are also
+// the URLs that pick up ?ref= and ?utm_* from every ad, email and partner link,
+// and Next serves identical HTML for all of them. 80 live brand pages with no
+// canonical means 80 pages splitting their own ranking signal across however
+// many tagged variants get crawled.
+const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://engine.foundersplinko.com";
+
 const usd = (n: number) =>
   n >= 1_000_000 ? `$${(n / 1_000_000).toFixed(1)}M` : `$${Math.round(n / 1000).toLocaleString()}k`;
 
@@ -52,7 +59,8 @@ export async function generateMetadata({
   return {
     title,
     description,
-    openGraph: { title, description, type: "article" },
+    alternates: { canonical: `${BASE}/franchise/${slug}` },
+    openGraph: { title, description, url: `${BASE}/franchise/${slug}`, type: "article" },
   };
 }
 

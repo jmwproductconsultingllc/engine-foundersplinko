@@ -16,6 +16,7 @@
 import type { Metadata } from "next";
 import PlaybookLanding from "@/components/PlaybookLanding";
 import { playbookUrl } from "@/lib/playbook";
+import { liveBrandCount, brandCountPhrase } from "@/lib/brandCount";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://engine.foundersplinko.com";
 
@@ -31,6 +32,14 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: TITLE, description: DESC },
 };
 
-export default function PlaybookPage() {
-  return <PlaybookLanding downloadUrl={playbookUrl()} />;
+export default async function PlaybookPage() {
+  // Same prop-down pattern as downloadUrl: resolved server-side from the brand
+  // store and handed to the client view, so /playbook, /sample and the nurture
+  // email can never quote three different library sizes again.
+  return (
+    <PlaybookLanding
+      downloadUrl={playbookUrl()}
+      brandCount={brandCountPhrase(await liveBrandCount())}
+    />
+  );
 }
