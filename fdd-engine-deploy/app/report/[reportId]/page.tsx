@@ -8,6 +8,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ReportView from "@/components/ReportView";
+import MissedSomething from "@/components/MissedSomething";
 import { loadReport } from "@/lib/reports";
 import { isSessionPaidFor } from "@/lib/stripe";
 import { listBrands, verticalForResult } from "@/lib/brands";
@@ -74,6 +75,10 @@ export default async function ReportPage({
           benchmarkTotal={benchmarkTotal}
           hasBroker={Boolean(record.broker_name)}
         />
+        {/* Paid only. The gap a buyer can name right after reading is the most
+            useful thing we can be told; on the teaser the same question would
+            be asking a prospect to imagine a disappointment. */}
+        {paid && <MissedSomething reportId={reportId} />}
       </div>
     </main>
   );

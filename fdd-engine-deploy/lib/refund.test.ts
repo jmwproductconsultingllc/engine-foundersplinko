@@ -31,6 +31,7 @@ import {
   REFUND_EMAIL,
   REFUND_HEADLINE,
   REFUND_HREF,
+  REFUND_ASK,
   REFUND_POLICY,
   REFUND_SENTENCE,
   REFUND_SHORT,
@@ -85,6 +86,60 @@ describe("refund terms are single-sourced", () => {
     expect(REFUND_SENTENCE.toLowerCase()).toContain("no questions");
     expect(REFUND_SENTENCE.toLowerCase()).toContain("no form");
     expect(REFUND_SHORT.toLowerCase()).toContain("no questions");
+  });
+
+  it("names the real failure mode: a MISS, not 'not useful' (Jul 28)", () => {
+    // "Not useful?" conceded a weakness the product doesn't have and invited a
+    // yes/no verdict on the whole report. The failure mode that actually
+    // happens is narrower — it missed the one thing this buyer came for — and
+    // naming it is what turns a refund reply into a build ticket.
+    expect(REFUND_SENTENCE.toLowerCase()).not.toContain("not useful");
+    expect(REFUND_SENTENCE.toLowerCase()).not.toContain("isn't useful");
+    expect(REFUND_SENTENCE.toLowerCase()).toContain("missed");
+    expect(REFUND_POLICY[0].body.toLowerCase()).toContain("missed");
+    expect(REFUND_POLICY[0].body.toLowerCase()).not.toContain("useful");
+  });
+
+  it("keeps the ask decoupled from the refund", () => {
+    // The refund is unconditional. An ask that reads as a condition is worth
+    // less than no ask, because it devalues the guarantee it's attached to.
+    // This clause is the one part of REFUND_ASK that may not be cut for length.
+    expect(REFUND_ASK.toLowerCase()).toContain("doesn't affect the refund");
+    const section = REFUND_POLICY.find((s) => /missing/i.test(s.heading));
+    expect(section).toBeTruthy();
+    expect(section!.body).toContain(REFUND_ASK);
+    expect(section!.body.toLowerCase()).toContain("not a condition");
+  });
+
+  it("keeps the ask short enough to read as an instruction (Jul 28)", () => {
+    // Jason: "just tell us what is missing." An ask a buyer has to parse is an
+    // ask a buyer skips, so the imperative leads and the reasoning lives on
+    // /refunds instead of inline. 16 words is the ceiling; the first clause
+    // must be the instruction itself, not a preamble to it.
+    expect(REFUND_ASK.split(/\s+/).length).toBeLessThanOrEqual(16);
+    expect(REFUND_ASK.toLowerCase()).toMatch(/^tell us what'?s missing/);
+  });
+
+  it("keeps the ask OFF every price surface", () => {
+    // Pre-purchase, "tell me what it missed" primes a buyer to expect a miss.
+    for (const rel of PRICE_SURFACES) {
+      expect(stripComments(read(rel)), rel).not.toContain("REFUND_ASK");
+    }
+    expect(stripComments(read("components/RefundNote.tsx"))).not.toContain("REFUND_ASK");
+  });
+
+  it("captures the miss at the foot of a PAID report and nowhere else", () => {
+    const src = stripComments(read("app/report/[reportId]/page.tsx"));
+    expect(src).toMatch(/import MissedSomething from ["']@\/components\/MissedSomething["']/);
+    // Gated on `paid` — the teaser must not ask a prospect to imagine a
+    // disappointment.
+    expect(src).toMatch(/paid\s*&&\s*<MissedSomething/);
+    const comp = read("components/MissedSomething.tsx");
+    expect(comp).toContain("REFUND_ASK");
+    // The address is interpolated from lib/refund.ts, never typed — so assert
+    // the template form and assert no competing literal address slipped in.
+    expect(comp).toContain("mailto:${REFUND_EMAIL}");
+    expect(comp).not.toMatch(/mailto:[a-z0-9._-]+@/i);
   });
 
   it("keeps a real, non-placeholder contact address in the policy", () => {

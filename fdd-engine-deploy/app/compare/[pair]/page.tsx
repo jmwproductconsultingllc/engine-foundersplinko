@@ -8,20 +8,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect, redirect } from "next/navigation";
 import { listBrands, toCard, verticalOf, isRetracted, type BrandCard as Card } from "@/lib/brands";
+import { parsePair } from "@/lib/comparePair";
 import BrandCTA from "@/components/BrandCTA";
 
 export const revalidate = 3600;
 
 const usd = (n: number | null) =>
   n == null ? "—" : n >= 1_000_000 ? `$${(n / 1_000_000).toFixed(1)}M` : `$${Math.round(n / 1000)}k`;
-
-function parsePair(pair: string): [string, string] | null {
-  const i = pair.indexOf("-vs-");
-  if (i <= 0) return null;
-  const a = pair.slice(0, i);
-  const b = pair.slice(i + 4);
-  return a && b && a !== b ? [a, b] : null;
-}
 
 async function livePairs(): Promise<Array<[string, string, string]>> {
   const brands = await listBrands();

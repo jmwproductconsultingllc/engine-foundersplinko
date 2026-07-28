@@ -34,9 +34,22 @@ const POSTHOG_SNIPPET = `
 posthog.init('${PH_KEY}',{api_host:'${PH_HOST}',person_profiles:'always',defaults:'2025-05-24'});
 `;
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://engine.foundersplinko.com";
+
 export const metadata: Metadata = {
+  // metadataBase is what turns the relative image URL Next generates for every
+  // opengraph-image.tsx into the absolute one scrapers require. Without it the
+  // cards exist and no crawler ever finds them.
+  metadataBase: new URL(SITE_URL),
   title: "Franchise Edge — FDD Diligence",
   description: "Turn a 300-page FDD into a clear, scored diligence read — measured against your own capital.",
+  // Sitewide, so /brands, /franchise/<slug> and /compare/<pair> — none of which
+  // declare their own twitter block — unfurl as a full-bleed card rather than a
+  // thumbnail. Note this is a TOP-LEVEL field on purpose: Next merges metadata
+  // shallowly, so a child's `openGraph` object REPLACES the parent's entirely.
+  // Anything we put in openGraph here would silently vanish on every page that
+  // sets its own title. twitter has no such collision today.
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
