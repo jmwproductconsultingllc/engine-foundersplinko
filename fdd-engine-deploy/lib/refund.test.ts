@@ -185,6 +185,28 @@ describe("every price surface ships the guarantee", () => {
   }
 });
 
+describe("no hardcoded contact address in any mailto (Jul 28)", () => {
+  // Context: a screenshot came in showing a compose window whose From line read
+  // "Jason Wright – <phone>@gmail.com" and it looked like our link had set it.
+  // It hadn't — a mailto URL cannot set From (RFC 6068; the sending identity is
+  // the reader's own mail client, and ours is never in the URL). But chasing it
+  // surfaced a real one: BrandDetail.tsx had the support address typed as a
+  // literal in two places instead of read from REFUND_EMAIL. That is exactly
+  // how an address goes stale in one spot and nowhere else, and a dead contact
+  // link on a page that promises "email me directly" is worse than no link.
+  //
+  // So: the TO address is interpolated from lib/refund.ts or it doesn't ship.
+  it("every mailto: reads its address from REFUND_EMAIL", () => {
+    const offenders: string[] = [];
+    for (const rel of sourceFiles()) {
+      if (/\.test\.tsx?$/.test(rel)) continue;
+      const found = stripComments(read(rel)).match(/mailto:[a-z0-9._%+-]+@[a-z0-9.-]+/gi);
+      if (found) offenders.push(`${rel}: ${found.join(", ")}`);
+    }
+    expect(offenders).toEqual([]);
+  });
+});
+
 describe("no competing refund window anywhere in source", () => {
   // A day count only matters if it is next to refund language — "the 90-day
   // checklist" and "at least 14 days before you sign" are real copy elsewhere on

@@ -26,6 +26,7 @@ import { CaptureProvider } from "@/components/CaptureContext";
 import type { TeaserCard } from "@/lib/teaserProps";
 import { DiligenceModule } from "@/components/DiligenceToVerify";
 import RefundNote from "@/components/RefundNote";
+import { REFUND_EMAIL } from "@/lib/refund";
 import type { BenchmarkCopy } from "@/lib/riskBenchmarks";
 
 const PRICE_LABEL = "$199";
@@ -546,11 +547,11 @@ export default function BrandDetail({
           <p className="mt-2.5 text-[12.5px] text-[#8194B0]">
             Looking for something in particular? Email me directly —{" "}
             <a
-              href={`mailto:jason@foundersplinko.com?subject=${encodeURIComponent(`Question from the ${bareName(card.brandName)} page`)}`}
+              href={`mailto:${REFUND_EMAIL}?subject=${encodeURIComponent(`Question from the ${bareName(card.brandName)} page`)}`}
               onClick={() => track("cta_clicked", { cta_id: "contact_email", section: "playbook" })}
               className="font-bold text-[#38BDF8]"
             >
-              jason@foundersplinko.com
+              {REFUND_EMAIL}
             </a>{" "}
             — real question, real answer.
           </p>
