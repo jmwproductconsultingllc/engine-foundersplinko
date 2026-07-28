@@ -3,7 +3,8 @@
 import { useMemo, useRef, useState, type ReactNode } from "react";
 import { applyRentCorrection, applyRentOverride } from "@/lib/rentCorrection";
 import { DiligenceModule } from "@/components/DiligenceToVerify";
-import { computeVerify } from "@/lib/verify";
+import { computeVerify, verifyPhrase } from "@/lib/verify";
+import { CashLadderSection } from "@/components/CashLadder";
 import type { RentResolution } from "@/lib/rent";
 import { track } from "@/lib/analytics";
 import type { DiligenceResult } from "@/lib/types";
@@ -18,8 +19,8 @@ const usd = (n: number | null | undefined) =>
         maximumFractionDigits: 0,
       }).format(n);
 
-const Card = ({ title, children }: { title: ReactNode; children: ReactNode }) => (
-  <section className="bg-[#16223B] border border-[#27344F] rounded-xl p-6">
+const Card = ({ id, title, children }: { id?: string; title: ReactNode; children: ReactNode }) => (
+  <section id={id} className="bg-[#16223B] border border-[#27344F] rounded-xl p-6">
     <h3 className="text-sm font-bold uppercase tracking-wider text-[#38BDF8] mb-4">{title}</h3>
     {children}
   </section>
@@ -28,13 +29,45 @@ const Card = ({ title, children }: { title: ReactNode; children: ReactNode }) =>
 const Src = ({ s }: { s?: string }) =>
   s ? <span className="text-[11px] text-[#8194B0] ml-1">({s})</span> : null;
 
-function amortize(p: number, ratePct: number, years: number) {
-  if (p <= 0) return 0;
-  const r = ratePct / 100 / 12;
-  const n = years * 12;
-  if (r === 0) return p / n;
-  return (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-}
+/**
+ * A condition-strip pill.
+ *
+ * `loud` is the whole point of this component. The strip has exactly three
+ * pills and the document-warning pill has to win the scan when it fires —
+ * filled, bordered, bold — while the other two stay outlined. Equal weight
+ * across three pills is what turns a strip into wallpaper.
+ */
+const Pill = ({
+  label,
+  color,
+  href,
+  loud,
+}: {
+  label: string;
+  color: string;
+  href?: string;
+  loud?: boolean;
+}) => {
+  const cls = `inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] uppercase tracking-wide whitespace-nowrap ${
+    loud ? "font-extrabold" : "font-semibold"
+  }`;
+  const style = loud
+    ? { color: "#0B1220", background: color, border: `1px solid ${color}` }
+    : { color, background: color + "14", border: `1px solid ${color}55` };
+  return href ? (
+    <a href={href} className={`${cls} hover:opacity-80`} style={style}>
+      {label}
+    </a>
+  ) : (
+    <span className={cls} style={style}>
+      {label}
+    </span>
+  );
+};
+
+/* amortize() used to live here — a second copy of the payment formula that
+   drifted from lib/ladder.ts. Deleted: every debt figure on this page is now
+   READ off the one CashLadder object built in components/CashLadder.tsx. */
 
 // ───────────────────────────────────────────────────────────────────────────
 // Item 19 provenance — trace the pro-forma headline back to its disclosed source
@@ -216,8 +249,8 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
   const baselineRent =
     (baseResult.scoring as { rentResolution?: RentResolution | null }).rentResolution ?? null;
   const rent = (s as { rentResolution?: RentResolution | null }).rentResolution ?? null;
-  const fixedFees =
-    (s as { fixedFeesMonthly?: number }).fixedFeesMonthly ?? Math.max(0, s.fixedMonthly - (rent?.mid ?? 0));
+  /* fixedFees was the pro forma's own flat-fee subtotal. Rung 3 of the ladder
+     is the only place that figure is computed now. */
 
   const slugify = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   const commitRentOverride = (raw: number) => {
@@ -262,158 +295,176 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
   // still render at full strength — we reframe the summary, never the findings.
   const verify = computeVerify(s.riskReasons);
 
-  // interactive debt-service model (client-side, pure math)
-  const maxLoan = s.buildoutMidpoint ?? 0;
-  const [loan, setLoan] = useState<number>(u.recommendedLoan ?? Math.round(maxLoan * 0.8));
-  const [rate, setRate] = useState<number>(10.5);
-  const [term, setTerm] = useState<number>(10);
+  // The debt-service model now lives in <CashLadderSection>, which owns the
+  // loan / rate / term state AND the single CashLadder object every figure is
+  // read off. This component no longer does financial arithmetic.
+
   // Financial-condition detail is collapsed by default — the headline and the
   // for/against lists already carry the severity; the body is opt-in.
   const [fcOpen, setFcOpen] = useState<boolean>(false);
-  const debt = amortize(loan, rate, term);
-  const ebitda = s.midCohort?.monthlyEbitda ?? 0;
-  const net = ebitda - debt;
+
+  // ── The condition strip ──────────────────────────────────────────────────
+  // Three pills, warnings first and warnings loudest. NEVER a fourth: three is
+  // a scan, four is decoration a reader trains past by page three.
+  //
+  // The strip carries what is wrong with the DOCUMENT and the DISCLOSURE. Deal
+  // shape — all cash, financed, how big the loan is — is NOT a condition and
+  // belongs in the financing card, not up here.
+  //
+  // docWarnCount counts exactly the <li> elements the warnings section renders,
+  // so the pill's number always equals the list the reader lands on.
+  const docWarnCount =
+    (x.documentCheck?.appearsComplete === false ? 1 : 0) +
+    (x.documentCheck?.appearsScanned ? 1 : 0) +
+    (x.documentCheck?.warnings?.length ?? 0);
+  const hasWarnings = docWarnCount > 0;
+  const fcPill = fc
+    ? ({
+        HIGH: { label: "Franchisor financials: high concern", color: "#F5B847" },
+        MEDIUM: { label: "Franchisor financials: worth a look", color: "#F5B847" },
+        LOW: { label: "No franchisor distress signals", color: "#34D399" },
+        INSUFFICIENT_DATA: { label: "Franchisor financials not assessable", color: "#8194B0" },
+      } as const)[fc.severity]
+    : { label: "Franchisor financials not assessable", color: "#8194B0" };
+  const fcLinked = !!fc && fc.severity !== "LOW";
+
+  const NAV = [
+    { href: "#item7", label: "What it costs" },
+    { href: "#underwriting", label: "Buyer fit" },
+    { href: "#ladder", label: "Cash ladder" },
+    { href: "#financing", label: "Financing" },
+    { href: "#fees", label: "Fees" },
+    { href: "#item19", label: "Item 19" },
+    { href: "#warnings", label: "Document" },
+    { href: "#risks", label: "To verify" },
+  ].filter((n) => (n.href === "#warnings" ? hasWarnings : true));
+
+  // Rent lives on rung 4 of the ladder now — the buyer edits the number where
+  // they read it. State stays here; the controls are passed down as nodes.
+  const rentNote = rent ? (
+    <p className="text-[10px] text-[#8194B0] leading-relaxed">
+      {rent.basis === "override"
+        ? `Your figure — the ${baselineRent?.basis === "disclosed" ? "disclosed" : "estimated"} baseline was ${usd(baselineRent?.mid ?? null)}. Local quotes beat national averages; use your broker's number.`
+        : rent.basis === "disclosed"
+          ? `Disclosed — ${rent.source}.`
+          : `${rent.basis === "disclosed_range" ? "Disclosed range" : "Category occupancy estimate"} — ${rent.source}; the model uses the midpoint (${usd(rent.mid)}).`}
+    </p>
+  ) : null;
+
+  const rentControl = rent ? (
+    <div className="mt-1 space-y-1">
+      {rent.basis !== "override" && baselineRent && (
+        <button
+          type="button"
+          onClick={() => {
+            setRentEditing((v) => !v);
+            setRentDraft(Math.round(baselineRent.mid).toLocaleString("en-US"));
+          }}
+          className="text-[10px] font-bold text-[#38BDF8] hover:underline"
+        >
+          ✎ Adjust for your market
+        </button>
+      )}
+      {rent.basis === "override" && (
+        <button
+          type="button"
+          onClick={resetRentOverride}
+          className="text-[10px] font-bold text-[#38BDF8] hover:underline"
+        >
+          Reset to {baselineRent?.basis === "disclosed" ? "disclosed" : "estimate"}
+        </button>
+      )}
+      {rentEditing && rent.basis !== "override" && baselineRent && (
+        <RentOverrideEditor
+          baseline={baselineRent}
+          draft={rentDraft}
+          setDraft={setRentDraft}
+          onCommit={commitRentOverride}
+          onCancel={() => setRentEditing(false)}
+        />
+      )}
+      {rentWarn && (
+        <p className="text-[10px] text-amber-300">
+          That&apos;s far from the disclosed/estimated range for this concept — double-check the quote
+          covers the same square footage.
+        </p>
+      )}
+    </div>
+  ) : null;
 
   return (
-    <div className="space-y-5 text-[#F1F5F9]">
-      {/* Header */}
+    <div id="report-root" className="space-y-5 text-[#F1F5F9]">
+      {/* The jump nav is sticky at 52px, so an anchored section has to clear
+          both it and the app chrome above it or the heading lands underneath. */}
+      <style>{`#report-root section[id]{scroll-margin-top:112px}`}</style>
+
+      {/* Header + condition strip */}
       <div className="bg-[#0B1220] border border-[#27344F] rounded-xl p-6">
         <h2 className="text-2xl font-bold">{x.brandName || "Franchise"} — Diligence Report</h2>
         <p className="text-sm text-[#8194B0] mt-1">
           {x.franchisorEntity}
           {x.headquarters ? ` · ${x.headquarters}` : ""}
         </p>
+        {/* DEAL SHAPE lives here, not in the strip. The strip is for what is
+            wrong with the document; how you fund the deal is not a defect. */}
+        {s.buildoutMidpoint != null && (
+          <p className="text-xs text-[#8194B0] mt-2 leading-relaxed">
+            Built on the Item 7 mid-point of {usd(s.buildoutMidpoint)}.{" "}
+            {(u.recommendedLoan ?? 0) > 0
+              ? `Your capital leaves a ${usd(u.capitalGap)} gap, so the ladder opens financed at that amount — move the slider to model it differently.`
+              : "Your capital covers it, so the ladder opens all cash — move the slider to see what borrowing would cost."}
+          </p>
+        )}
+
+        <div className="mt-4 flex flex-wrap gap-2">
+          <Pill
+            loud={hasWarnings}
+            color={hasWarnings ? "#F59E0B" : "#34D399"}
+            href={hasWarnings ? "#warnings" : undefined}
+            label={
+              hasWarnings
+                ? `${docWarnCount} document warning${docWarnCount === 1 ? "" : "s"}`
+                : "Document reads complete"
+            }
+          />
+          <Pill color="#F5B847" href="#risks" label={verifyPhrase(verify.verifyCount)} />
+          <Pill color={fcPill.color} href={fcLinked ? "#condition" : undefined} label={fcPill.label} />
+        </div>
       </div>
 
-      {/* Document warnings */}
-      {(!x.documentCheck?.appearsComplete ||
-        x.documentCheck?.appearsScanned ||
-        (x.documentCheck?.warnings?.length ?? 0) > 0) && (
-        <div className="border border-amber-500/40 bg-amber-500/10 rounded-xl p-4">
-          <p className="text-sm font-semibold text-amber-300 mb-1">Document check</p>
-          <ul className="text-sm text-amber-200/90 list-disc pl-5 space-y-1">
-            {!x.documentCheck.appearsComplete && (
-              <li>The document may be incomplete or truncated — verify core Items are present.</li>
-            )}
-            {x.documentCheck.appearsScanned && (
-              <li>This looks like a scanned PDF; extraction accuracy may be lower.</li>
-            )}
-            {x.documentCheck.warnings?.map((w, i) => <li key={i}>{w}</li>)}
-          </ul>
-          <p className="text-xs text-[#8194B0] mt-2">Items found: {x.documentCheck.itemsFound?.join(", ") || "—"}</p>
-        </div>
-      )}
-
-      {/* Risk summary — reframed to "N things to verify" (shared component).
-          The full reasons stay below as paid detail; findings render at full
-          strength further down. No bare red "HIGH" on the summary. */}
-      <DiligenceModule readout={{ ...verify, risk: s.riskLevel }} />
-      <div className="border border-[#27344F] bg-[#0B1220] rounded-xl px-5 py-4">
-        <p className="text-[11px] font-semibold uppercase tracking-wider text-[#8194B0]">
-          What drove the count
-        </p>
-        <ul className="mt-2 space-y-1.5 text-sm text-[#CBD5E1]">
-          {s.riskReasons.map((r, i) => (
-            <li key={i}>• {r}</li>
+      {/* Jump nav */}
+      <nav
+        className="sticky z-20 rounded-xl border border-[#27344F] bg-[#0B1220]/95 px-3 py-2 backdrop-blur"
+        style={{ top: 52 }}
+      >
+        <ul className="flex gap-1 overflow-x-auto text-[11px] font-semibold">
+          {NAV.map((n) => (
+            <li key={n.href}>
+              <a
+                href={n.href}
+                className="block whitespace-nowrap rounded-lg px-2.5 py-1 text-[#8194B0] hover:bg-[#16223B] hover:text-[#38BDF8]"
+              >
+                {n.label}
+              </a>
+            </li>
           ))}
         </ul>
-        <p className="mt-3 text-[11px] text-[#8194B0]">
-          Computed from disclosed assumptions (DSCR, rent share, payback, cohort survival) — a to-do
-          list to verify before you sign, not a statement of fact about the franchisor.
+      </nav>
+
+      {/* Initial investment (Item 7 in an FDD; the schema field is named item17
+          for legacy reasons — the Src below shows the real Item 7 page). */}
+      <Card id="item7" title={<>Initial Investment <Src s={x.item17?.sourcePage} /></>}>
+        <p className="text-sm text-[#CBD5E1] mb-3">
+          Estimated total: <span className="font-semibold">{usd(x.item17?.initialInvestmentLow)}</span> –{" "}
+          <span className="font-semibold">{usd(x.item17?.initialInvestmentHigh)}</span>
         </p>
-      </div>
-
-      {/* Financial Condition — code-graded severity from Item 21 / Exhibit F,
-          not the franchisor's boilerplate. Suppressed when the read is LOW. */}
-      {fc && fc.severity !== "LOW" && (() => {
-        const sev = ({
-          HIGH: { color: "#F87171", label: "High concern", cls: "border-red-500/40 bg-red-500/10" },
-          MEDIUM: { color: "#FBBF24", label: "Worth a closer look", cls: "border-amber-500/40 bg-amber-500/10" },
-          LOW: { color: "#34D399", label: "No distress signals", cls: "border-[#34D399]/40 bg-[#34D399]/10" },
-          INSUFFICIENT_DATA: { color: "#8194B0", label: "Not enough data", cls: "border-[#27344F] bg-[#16223B]" },
-        } as const)[fc.severity];
-        return (
-          <div className={`border rounded-xl p-6 ${sev.cls}`}>
-            <div className="flex items-center justify-between gap-3">
-              <h3 className="text-sm font-bold uppercase tracking-wider" style={{ color: sev.color }}>
-                Financial Condition of the Franchisor
-              </h3>
-              <span
-                className="text-[10px] font-bold uppercase px-2 py-0.5 rounded whitespace-nowrap"
-                style={{ color: sev.color, background: sev.color + "1A", border: `1px solid ${sev.color}55` }}
-              >
-                {sev.label}
-              </span>
-            </div>
-
-            <p className="mt-3 text-sm font-medium text-[#F1F5F9] leading-relaxed">{fc.headline}</p>
-
-            {fc.context && (
-              <div className="mt-3 rounded-lg border border-[#60A5FA]/40 bg-[#60A5FA]/10 px-3 py-2">
-                <p className="text-xs text-[#CBD5E1] leading-relaxed">{fc.context}</p>
-              </div>
-            )}
-
-            {(fc.aggravators.length > 0 || fc.mitigants.length > 0) && (
-              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {fc.aggravators.length > 0 && (
-                  <div>
-                    <p className="text-[10px] font-bold uppercase text-red-300/80 mb-1">Weighing against</p>
-                    <ul className="space-y-1">
-                      {fc.aggravators.map((a, i) => (
-                        <li key={i} className="text-[11px] text-[#CBD5E1] flex gap-1.5">
-                          <span className="text-red-400">▼</span>
-                          <span>{a}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                {fc.mitigants.length > 0 && (
-                  <div>
-                    <p className="text-[10px] font-bold uppercase text-[#34D399]/80 mb-1">In its favor</p>
-                    <ul className="space-y-1">
-                      {fc.mitigants.map((m, i) => (
-                        <li key={i} className="text-[11px] text-[#CBD5E1] flex gap-1.5">
-                          <span className="text-[#34D399]">▲</span>
-                          <span>{m}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {fc.body.length > 0 && (
-              <>
-                <button
-                  onClick={() => setFcOpen((o) => !o)}
-                  className="mt-4 text-xs font-semibold text-[#38BDF8] hover:underline"
-                >
-                  {fcOpen ? "Hide detail ▲" : "Tell me more ▼"}
-                </button>
-                {fcOpen && (
-                  <div className="mt-2 space-y-2">
-                    {fc.body.map((p, i) => (
-                      <p key={i} className="text-xs text-[#CBD5E1] leading-relaxed">
-                        {p}
-                      </p>
-                    ))}
-                  </div>
-                )}
-              </>
-            )}
-
-            <p className="mt-3 text-[10px] text-[#8194B0] leading-relaxed border-t border-[#27344F]/60 pt-2">
-              {fc.evidenceNote}
-            </p>
-          </div>
-        );
-      })()}
+        <CostGroup title="Non-recurring (build-out)" items={x.item17?.lineItems?.filter((l) => !l.recurring) ?? []} />
+        <CostGroup title="Recurring (ongoing)" items={x.item17?.lineItems?.filter((l) => l.recurring) ?? []} />
+      </Card>
 
       {/* Buyer-fit underwriting (the killer feature) */}
-      <div
+      <section
+        id="underwriting"
         className={`border-l-4 rounded-xl p-6 bg-[#16223B] ${
           u.sbaLoanRequired ? "border-amber-400" : "border-[#34D399]"
         }`}
@@ -431,170 +482,134 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
               u.meetsNetWorthRequirement == null ? "—" : u.meetsNetWorthRequirement ? "Met" : "Short"
             }
           />
-          <Stat
-            label="Net Cash Flow"
-            value={usd(u.adjustedMonthlyNetCashFlow)}
-            tone={(u.adjustedMonthlyNetCashFlow ?? 0) < 0 ? "bad" : "good"}
-          />
+          {/*
+            THIS TILE USED TO SAY "NET CASH FLOW" AND IT WAS NOT NET OF MUCH.
+            u.adjustedMonthlyNetCashFlow is scoring.midCohort.monthlyEbitda −
+            debt service, and midCohort.monthlyEbitda is RUNG 5 — margin after
+            fees and rent, before cost of goods and before labor. Calling that
+            "net cash flow" is how the report ended up publishing $19,638 two
+            cards above a ladder that lands at −$9,330.
+
+            Recomputing it off the ladder is the right fix, but underwrite()
+            runs at extraction time on stored data and its output is persisted,
+            so changing the arithmetic re-dates every report already sold
+            (FE-101 blast radius — Jason's call, still open). What is free and
+            correct today is to stop mislabelling it: name the rung it actually
+            is, and hand the reader down to the ladder for the rest.
+          */}
+          {/* No tone. A green number here is a verdict, and this figure is an
+              intermediate rung, not a verdict — the hero of the ladder is.
+              Colouring it good was how $19,638 read as the answer. */}
+          <Stat label="After fees, rent & debt" value={usd(u.adjustedMonthlyNetCashFlow)} />
         </div>
-      </div>
+        {u.adjustedMonthlyNetCashFlow != null && (
+          <p className="mt-3 text-[11px] leading-relaxed text-[#8194B0]">
+            That last figure is rung 5 of the ladder minus a debt payment — cost of goods and
+            labor have not come out of it yet.{" "}
+            <a href="#ladder" className="font-bold text-[#38BDF8] hover:underline">
+              The cash ladder below subtracts them ▾
+            </a>
+          </p>
+        )}
+      </section>
 
-      {/* Interactive pro forma */}
-      <Card title={`Pro Forma — ${s.midCohort?.label ?? "Mid Cohort"}`}>
-        {s.midCohort ? (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div className="lg:col-span-2 space-y-3">
-              <Row label="Monthly Gross Revenue" value={usd(s.midCohort.monthlyRevenue)} bold green />
-              <ProvenanceNote result={result} />
-              <Row
-                label={`Franchise fees (${Math.round(s.variableRate * 100)}% of sales)`}
-                value={`-${usd(s.midCohort.monthlyVariable)}`}
-                red
-              />
-              <Row label="Fixed fees" value={`-${usd(fixedFees)}`} red />
-              {rent ? (
-                <>
-                  <Row
-                    label={
-                      <span className="inline-flex items-center gap-2">
-                        {rent.basis === "override" ? (
-                          <>
-                            Rent (your input)
-                            <span className="rounded bg-[#F5B847]/15 px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wide text-[#F5B847]">
-                              your figure
-                            </span>
-                          </>
-                        ) : rent.basis === "disclosed" ? (
-                          "Rent"
-                        ) : (
-                          "Rent (estimated)"
-                        )}
-                        {baselineRent && rent.basis !== "override" && (
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setRentEditing((v) => !v);
-                              setRentDraft(String(Math.round(baselineRent.mid).toLocaleString("en-US")));
-                            }}
-                            className="text-[10px] font-bold text-[#38BDF8] hover:underline"
-                          >
-                            ✎ Adjust for your market
-                          </button>
-                        )}
-                        {rent.basis === "override" && (
-                          <button
-                            type="button"
-                            onClick={resetRentOverride}
-                            className="text-[10px] font-bold text-[#38BDF8] hover:underline"
-                          >
-                            Reset to {baselineRent?.basis === "disclosed" ? "disclosed" : "estimate"}
-                          </button>
-                        )}
+      {/* The cash ladder + financing — FE-111.
+          ONE CashLadder object per render. Every figure from rung 1 to rung 13,
+          including debt service, DSCR and payback, is READ off that object.
+          This component does no financial arithmetic of its own any more. */}
+      <CashLadderSection
+        result={result}
+        provenance={<ProvenanceNote result={result} />}
+        rentNote={rentNote}
+        rentControl={rentControl}
+      />
+
+      {/* Fees + hidden costs */}
+      <Card id="fees" title="Ongoing Fees & Hidden Costs">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-2 text-sm">
+            <FeeRow label="Royalty" d={fees.royalty} />
+            <FeeRow label="Brand fund" d={fees.brandFund} />
+            <FeeRow label="Local ad" d={fees.localAd} />
+            {x.ongoingFees?.flatMonthlyFees?.map((ff, i) => (
+              <Row key={i} label={<>{ff.name} <Src s={ff.source} /></>} value={`${usd(ff.monthlyAmount)}/mo`} />
+            ))}
+          </div>
+          <div className="space-y-3">
+            {(x.hiddenCosts ?? []).map((h, i) => (
+              <div key={i} className="border border-[#27344F] rounded-lg p-3">
+                <p className="text-sm font-semibold text-amber-300">
+                  {h.name} {h.estimatedAnnualAmount != null ? `· ${usd(h.estimatedAnnualAmount)}/yr` : ""}
+                </p>
+                <p className="text-xs text-[#CBD5E1] mt-1">{h.description}</p>
+                <Src s={h.source} />
+              </div>
+            ))}
+            {(x.hiddenCosts?.length ?? 0) === 0 && (
+              <p className="text-sm text-[#8194B0]">No ancillary/hidden costs flagged.</p>
+            )}
+          </div>
+        </div>
+      </Card>
+
+      {/* Item 19 cohorts */}
+      <Card id="item19" title={<>Item 19 — Financial Performance <Src s={x.item19?.sourcePage} /></>}>
+        {x.item19?.hasItem19 ? (
+          <div className="space-y-2">
+            {x.item19.cohorts.map((c, i) => {
+              const cv = c as CohortView;
+              // Match the pro-forma "basis" cohort by LABEL only. Its display value
+              // (avgMonthlyRevenue) is frequently null even when scoring derived a
+              // usable monthly figure (annual ÷ 12, median, etc.), so the old
+              // value-equality test silently failed on exactly those reports.
+              const isBasis = !!s.midCohort && c.label === s.midCohort.label;
+              // Best monthly figure to SHOW for this row: disclosed avg → annual ÷ 12
+              // → (for the basis row only) the figure the pro forma actually used.
+              const derivedMonthly =
+                cv.avgMonthlyRevenue != null
+                  ? cv.avgMonthlyRevenue
+                  : cv.annualRevenue != null
+                    ? cv.annualRevenue / 12
+                    : isBasis
+                      ? s.midCohort!.monthlyRevenue
+                      : null;
+              const annualNote = cv.avgMonthlyRevenue == null && cv.annualRevenue != null;
+              if (isBasis) {
+                return (
+                  <div key={i} className="rounded-lg border border-[#38BDF8]/50 bg-[#38BDF8]/10 px-3 py-2">
+                    <div className="flex justify-between items-baseline gap-3">
+                      <span className="text-sm font-semibold text-[#F1F5F9]">
+                        {c.label}
+                        {c.basis ? ` — ${c.basis}` : ""}
                       </span>
-                    }
-                    value={rent.lo !== rent.hi ? `-${usd(rent.lo)} to -${usd(rent.hi)}` : `-${usd(rent.mid)}`}
-                    red
-                  />
-                  <p className="text-[10px] text-[#8194B0] -mt-1">
-                    {rent.basis === "override"
-                      ? `Your figure — the ${baselineRent?.basis === "disclosed" ? "disclosed" : "estimated"} baseline was ${usd(baselineRent?.mid ?? null)}. Local quotes beat national averages; use your broker's number.`
-                      : rent.basis === "disclosed"
-                        ? `Disclosed — ${rent.source}.`
-                        : `${rent.basis === "disclosed_range" ? "Disclosed range" : "Category occupancy estimate"} — ${rent.source}; the model uses the midpoint (${usd(rent.mid)}).`}
-                  </p>
-                  {rentEditing && rent.basis !== "override" && baselineRent && (
-                    <RentOverrideEditor
-                      baseline={baselineRent}
-                      draft={rentDraft}
-                      setDraft={setRentDraft}
-                      onCommit={commitRentOverride}
-                      onCancel={() => setRentEditing(false)}
-                    />
-                  )}
-                  {rentWarn && (
-                    <p className="text-[10px] text-amber-300 -mt-1">
-                      That&apos;s far from the disclosed/estimated range for this concept — double-check the
-                      quote covers the same square footage.
+                      <span className="text-sm font-bold text-[#38BDF8] whitespace-nowrap">
+                        {usd(derivedMonthly)}/mo
+                        {annualNote ? (
+                          <span className="text-[10px] font-normal text-[#8194B0]"> (annual ÷ 12)</span>
+                        ) : null}
+                      </span>
+                    </div>
+                    <p className="text-[10px] font-semibold uppercase tracking-wide text-[#38BDF8] mt-1">
+                      {/* Named the pro forma until FE-115 deleted that card. The
+                          reader now scrolls up into the cash ladder, so the
+                          pointer has to name what is actually up there. */}
+                      ◄ Rung 1 of the cash ladder above — the franchised, apples-to-apples number
                     </p>
-                  )}
-                </>
-              ) : (
-                <Row label="Rent — not disclosed" value="see Insights benchmark" />
-              )}
-              <div className="border-t border-[#27344F] pt-3">
+                  </div>
+                );
+              }
+              return (
                 <Row
-                  label={rent ? "Margin after fees, fixed & rent" : "Margin after franchise & fixed fees (excludes rent)"}
-                  value={
-                    rent && rent.lo !== rent.hi
-                      ? `${usd(s.midCohort.monthlyEbitda - (rent.hi - rent.mid))} – ${usd(s.midCohort.monthlyEbitda + (rent.mid - rent.lo))}`
-                      : usd(s.midCohort.monthlyEbitda)
-                  }
-                  bold
+                  key={i}
+                  label={`${c.label}${c.basis ? ` — ${c.basis}` : ""}${annualNote ? " (annual ÷ 12)" : ""}`}
+                  value={`${usd(derivedMonthly)}/mo`}
                 />
-                {rent && rent.lo !== rent.hi && (
-                  <p className="text-[10px] text-[#8194B0] mt-1">
-                    Midpoint {usd(s.midCohort.monthlyEbitda)} carries through the model (net cash flow, DSCR, payback).
-                  </p>
-                )}
-                <p className="text-[10px] text-[#8194B0] mt-1">Before COGS, labor, maintenance, and owner pay — see Insights below.</p>
-              </div>
-            </div>
-
-            <div className="bg-[#0B1220] border border-[#27344F] rounded-lg p-4">
-              <p className="text-xs font-bold uppercase text-[#8194B0] mb-3">Debt Service</p>
-              <label className="block text-xs text-[#CBD5E1] mb-1">Loan: {usd(loan)}</label>
-              <input
-                type="range"
-                min={0}
-                max={maxLoan || 1000000}
-                step={10000}
-                value={loan}
-                onChange={(e) => setLoan(Number(e.target.value))}
-                className="w-full accent-[#34D399]"
-              />
-              <div className="grid grid-cols-2 gap-3 mt-3">
-                <div>
-                  <label className="block text-xs text-[#8194B0] mb-1">Rate %</label>
-                  <input
-                    type="number"
-                    value={rate}
-                    onChange={(e) => setRate(Number(e.target.value))}
-                    className="w-full p-1.5 bg-[#16223B] border border-[#27344F] rounded text-sm"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs text-[#8194B0] mb-1">Term (yr)</label>
-                  <input
-                    type="number"
-                    value={term}
-                    onChange={(e) => setTerm(Number(e.target.value))}
-                    className="w-full p-1.5 bg-[#16223B] border border-[#27344F] rounded text-sm"
-                  />
-                </div>
-              </div>
-              <div className="flex justify-between text-sm mt-3 pt-3 border-t border-[#27344F]">
-                <span className="text-[#8194B0]">Monthly payment</span>
-                <span className="text-red-400 font-semibold">-{usd(debt)}</span>
-              </div>
-              <div
-                className={`mt-3 p-3 rounded-lg border ${
-                  net >= 0 ? "border-[#34D399]/40 bg-[#34D399]/10" : "border-red-500/40 bg-red-500/10"
-                }`}
-              >
-                <p className="text-[11px] uppercase font-bold text-[#8194B0]">Net monthly cash flow</p>
-                <p className={`text-2xl font-black ${net >= 0 ? "text-[#34D399]" : "text-red-400"}`}>
-                  {usd(net)}
-                </p>
-                <p className="text-[10px] text-[#8194B0] mt-1">
-                  Before COGS, labor, maintenance, owner draw.
-                  {rent && rent.basis !== "disclosed" ? " Rent is estimated (see the rent line)." : ""}
-                  {!rent ? " Rent is NOT included — see the rent line above." : ""}
-                </p>
-              </div>
-            </div>
+              );
+            })}
+            {x.item19.notes && <p className="text-xs text-[#8194B0] mt-2">{x.item19.notes}</p>}
           </div>
         ) : (
-          <p className="text-sm text-[#8194B0]">Not enough Item 19 data to build a pro forma.</p>
+          <p className="text-sm text-amber-300">No Item 19 disclosed — earnings are not represented by the franchisor.</p>
         )}
       </Card>
 
@@ -784,102 +799,132 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
         );
       })()}
 
-      {/* Item 19 cohorts */}
-      <Card title={<>Item 19 — Financial Performance <Src s={x.item19?.sourcePage} /></>}>
-        {x.item19?.hasItem19 ? (
-          <div className="space-y-2">
-            {x.item19.cohorts.map((c, i) => {
-              const cv = c as CohortView;
-              // Match the pro-forma "basis" cohort by LABEL only. Its display value
-              // (avgMonthlyRevenue) is frequently null even when scoring derived a
-              // usable monthly figure (annual ÷ 12, median, etc.), so the old
-              // value-equality test silently failed on exactly those reports.
-              const isBasis = !!s.midCohort && c.label === s.midCohort.label;
-              // Best monthly figure to SHOW for this row: disclosed avg → annual ÷ 12
-              // → (for the basis row only) the figure the pro forma actually used.
-              const derivedMonthly =
-                cv.avgMonthlyRevenue != null
-                  ? cv.avgMonthlyRevenue
-                  : cv.annualRevenue != null
-                    ? cv.annualRevenue / 12
-                    : isBasis
-                      ? s.midCohort!.monthlyRevenue
-                      : null;
-              const annualNote = cv.avgMonthlyRevenue == null && cv.annualRevenue != null;
-              if (isBasis) {
-                return (
-                  <div key={i} className="rounded-lg border border-[#38BDF8]/50 bg-[#38BDF8]/10 px-3 py-2">
-                    <div className="flex justify-between items-baseline gap-3">
-                      <span className="text-sm font-semibold text-[#F1F5F9]">
-                        {c.label}
-                        {c.basis ? ` — ${c.basis}` : ""}
-                      </span>
-                      <span className="text-sm font-bold text-[#38BDF8] whitespace-nowrap">
-                        {usd(derivedMonthly)}/mo
-                        {annualNote ? (
-                          <span className="text-[10px] font-normal text-[#8194B0]"> (annual ÷ 12)</span>
-                        ) : null}
-                      </span>
-                    </div>
-                    <p className="text-[10px] font-semibold uppercase tracking-wide text-[#38BDF8] mt-1">
-                      ◄ The figure behind the pro forma &amp; Insights above — the franchised, apples-to-apples number
-                    </p>
-                  </div>
-                );
-              }
-              return (
-                <Row
-                  key={i}
-                  label={`${c.label}${c.basis ? ` — ${c.basis}` : ""}${annualNote ? " (annual ÷ 12)" : ""}`}
-                  value={`${usd(derivedMonthly)}/mo`}
-                />
-              );
-            })}
-            {x.item19.notes && <p className="text-xs text-[#8194B0] mt-2">{x.item19.notes}</p>}
-          </div>
-        ) : (
-          <p className="text-sm text-amber-300">No Item 19 disclosed — earnings are not represented by the franchisor.</p>
-        )}
-      </Card>
-
-      {/* Initial investment (Item 7 in an FDD; the schema field is named item17
-          for legacy reasons — the Src below shows the real Item 7 page). */}
-      <Card title={<>Initial Investment <Src s={x.item17?.sourcePage} /></>}>
-        <p className="text-sm text-[#CBD5E1] mb-3">
-          Estimated total: <span className="font-semibold">{usd(x.item17?.initialInvestmentLow)}</span> –{" "}
-          <span className="font-semibold">{usd(x.item17?.initialInvestmentHigh)}</span>
-        </p>
-        <CostGroup title="Non-recurring (build-out)" items={x.item17?.lineItems?.filter((l) => !l.recurring) ?? []} />
-        <CostGroup title="Recurring (ongoing)" items={x.item17?.lineItems?.filter((l) => l.recurring) ?? []} />
-      </Card>
-
-      {/* Fees + hidden costs */}
-      <Card title="Ongoing Fees & Hidden Costs">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-2 text-sm">
-            <FeeRow label="Royalty" d={fees.royalty} />
-            <FeeRow label="Brand fund" d={fees.brandFund} />
-            <FeeRow label="Local ad" d={fees.localAd} />
-            {x.ongoingFees?.flatMonthlyFees?.map((ff, i) => (
-              <Row key={i} label={<>{ff.name} <Src s={ff.source} /></>} value={`${usd(ff.monthlyAmount)}/mo`} />
-            ))}
-          </div>
-          <div className="space-y-3">
-            {(x.hiddenCosts ?? []).map((h, i) => (
-              <div key={i} className="border border-[#27344F] rounded-lg p-3">
-                <p className="text-sm font-semibold text-amber-300">
-                  {h.name} {h.estimatedAnnualAmount != null ? `· ${usd(h.estimatedAnnualAmount)}/yr` : ""}
-                </p>
-                <p className="text-xs text-[#CBD5E1] mt-1">{h.description}</p>
-                <Src s={h.source} />
-              </div>
-            ))}
-            {(x.hiddenCosts?.length ?? 0) === 0 && (
-              <p className="text-sm text-[#8194B0]">No ancillary/hidden costs flagged.</p>
+      {/* Document warnings */}
+      {(!x.documentCheck?.appearsComplete ||
+        x.documentCheck?.appearsScanned ||
+        (x.documentCheck?.warnings?.length ?? 0) > 0) && (
+        <section id="warnings" className="border border-amber-500/40 bg-amber-500/10 rounded-xl p-4">
+          <p className="text-sm font-semibold text-amber-300 mb-1">Document check</p>
+          <ul className="text-sm text-amber-200/90 list-disc pl-5 space-y-1">
+            {!x.documentCheck.appearsComplete && (
+              <li>The document may be incomplete or truncated — verify core Items are present.</li>
             )}
-          </div>
-        </div>
-      </Card>
+            {x.documentCheck.appearsScanned && (
+              <li>This looks like a scanned PDF; extraction accuracy may be lower.</li>
+            )}
+            {x.documentCheck.warnings?.map((w, i) => <li key={i}>{w}</li>)}
+          </ul>
+          <p className="text-xs text-[#8194B0] mt-2">Items found: {x.documentCheck.itemsFound?.join(", ") || "—"}</p>
+        </section>
+      )}
+
+      {/* Risk summary — reframed to "N things to verify" (shared component).
+          The full reasons stay below as paid detail; findings render at full
+          strength further down. No bare red "HIGH" on the summary. */}
+      <DiligenceModule readout={{ ...verify, risk: s.riskLevel }} />
+      <section id="risks" className="border border-[#27344F] bg-[#0B1220] rounded-xl px-5 py-4">
+        <p className="text-[11px] font-semibold uppercase tracking-wider text-[#8194B0]">
+          What drove the count
+        </p>
+        <ul className="mt-2 space-y-1.5 text-sm text-[#CBD5E1]">
+          {s.riskReasons.map((r, i) => (
+            <li key={i}>• {r}</li>
+          ))}
+        </ul>
+        <p className="mt-3 text-[11px] text-[#8194B0]">
+          Computed from disclosed assumptions (DSCR, rent share, payback, cohort survival) — a to-do
+          list to verify before you sign, not a statement of fact about the franchisor.
+        </p>
+      </section>
+
+      {/* Financial Condition — code-graded severity from Item 21 / Exhibit F,
+          not the franchisor's boilerplate. Suppressed when the read is LOW. */}
+      {fc && fc.severity !== "LOW" && (() => {
+        const sev = ({
+          HIGH: { color: "#F87171", label: "High concern", cls: "border-red-500/40 bg-red-500/10" },
+          MEDIUM: { color: "#FBBF24", label: "Worth a closer look", cls: "border-amber-500/40 bg-amber-500/10" },
+          LOW: { color: "#34D399", label: "No distress signals", cls: "border-[#34D399]/40 bg-[#34D399]/10" },
+          INSUFFICIENT_DATA: { color: "#8194B0", label: "Not enough data", cls: "border-[#27344F] bg-[#16223B]" },
+        } as const)[fc.severity];
+        return (
+          <section id="condition" className={`border rounded-xl p-6 ${sev.cls}`}>
+            <div className="flex items-center justify-between gap-3">
+              <h3 className="text-sm font-bold uppercase tracking-wider" style={{ color: sev.color }}>
+                Financial Condition of the Franchisor
+              </h3>
+              <span
+                className="text-[10px] font-bold uppercase px-2 py-0.5 rounded whitespace-nowrap"
+                style={{ color: sev.color, background: sev.color + "1A", border: `1px solid ${sev.color}55` }}
+              >
+                {sev.label}
+              </span>
+            </div>
+
+            <p className="mt-3 text-sm font-medium text-[#F1F5F9] leading-relaxed">{fc.headline}</p>
+
+            {fc.context && (
+              <div className="mt-3 rounded-lg border border-[#60A5FA]/40 bg-[#60A5FA]/10 px-3 py-2">
+                <p className="text-xs text-[#CBD5E1] leading-relaxed">{fc.context}</p>
+              </div>
+            )}
+
+            {(fc.aggravators.length > 0 || fc.mitigants.length > 0) && (
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {fc.aggravators.length > 0 && (
+                  <div>
+                    <p className="text-[10px] font-bold uppercase text-red-300/80 mb-1">Weighing against</p>
+                    <ul className="space-y-1">
+                      {fc.aggravators.map((a, i) => (
+                        <li key={i} className="text-[11px] text-[#CBD5E1] flex gap-1.5">
+                          <span className="text-red-400">▼</span>
+                          <span>{a}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {fc.mitigants.length > 0 && (
+                  <div>
+                    <p className="text-[10px] font-bold uppercase text-[#34D399]/80 mb-1">In its favor</p>
+                    <ul className="space-y-1">
+                      {fc.mitigants.map((m, i) => (
+                        <li key={i} className="text-[11px] text-[#CBD5E1] flex gap-1.5">
+                          <span className="text-[#34D399]">▲</span>
+                          <span>{m}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {fc.body.length > 0 && (
+              <>
+                <button
+                  onClick={() => setFcOpen((o) => !o)}
+                  className="mt-4 text-xs font-semibold text-[#38BDF8] hover:underline"
+                >
+                  {fcOpen ? "Hide detail ▲" : "Tell me more ▼"}
+                </button>
+                {fcOpen && (
+                  <div className="mt-2 space-y-2">
+                    {fc.body.map((p, i) => (
+                      <p key={i} className="text-xs text-[#CBD5E1] leading-relaxed">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                )}
+              </>
+            )}
+
+            <p className="mt-3 text-[10px] text-[#8194B0] leading-relaxed border-t border-[#27344F]/60 pt-2">
+              {fc.evidenceNote}
+            </p>
+          </section>
+        );
+      })()}
 
       {/* Leadership */}
       {(x.leadership?.length ?? 0) > 0 && (
@@ -942,6 +987,7 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
         financial, or investment advice. Figures are extracted by an AI model and may contain errors — verify
         every number against the source FDD before making any decision.
       </p>
+
     </div>
   );
 }

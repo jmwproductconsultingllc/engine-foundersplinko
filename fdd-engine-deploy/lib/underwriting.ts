@@ -80,18 +80,28 @@ export function underwrite(
     );
   }
 
+  /*
+   * NAME THE RUNG, NOT A VERDICT.
+   *
+   * adjustedNet is midCohort.monthlyEbitda − debt service, and that EBITDA is
+   * rung 5 of the cash ladder: margin after fees and rent, BEFORE cost of goods
+   * and BEFORE labor. The old copy called it "cash flow after debt service",
+   * which reads as the bottom line and is off by the two largest costs in the
+   * business. The arithmetic is unchanged (recomputing it re-dates every stored
+   * report — FE-101); only the claim it makes is corrected.
+   */
   if (adjustedNet != null) {
     if (adjustedNet < 0) {
       parts.push(
-        `At mid-cohort revenue, monthly cash flow after debt service is negative (${usd(
+        `At mid-cohort revenue, fees, rent and debt service alone put this ${usd(
           adjustedNet,
-        )}/mo) before payroll — this deal does not cash-flow at the typical performance tier.`,
+        )}/mo in the hole — before a dollar of cost of goods or labor comes out.`,
       );
     } else {
       parts.push(
-        `At mid-cohort revenue, modeled cash flow after debt service is about ${usd(
+        `At mid-cohort revenue, about ${usd(
           adjustedNet,
-        )}/mo before payroll and maintenance — a thin margin of error.`,
+        )}/mo is left after fees, rent and debt service — cost of goods and labor still come out of that, and the cash ladder below subtracts them.`,
       );
     }
   }
