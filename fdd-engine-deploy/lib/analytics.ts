@@ -20,7 +20,8 @@ export type AnalyticsEvent =
   // ── live now ──
   | "primer_opened" // novice opened the "what's an FDD" explainer  { source }
   | "fdd_lookup_clicked" // clicked through to the state registry
-  | "sample_report_clicked" // clicked "See a sample report"
+  | "sample_report_clicked" // clicked "See a sample report"            { source }
+  | "sample_report_viewed" // landed on /sample, any entry path         { device, entry }
   | "file_selected" // picked or dropped a PDF                       { sizeMB }
   | "analyze_started" // hit "Run my diligence"                      { capital, fileSizeMB }
   | "analyze_succeeded" // report generated   { capital, durationMs, riskLevel, finconSeverity, proFormaBuilt }
@@ -43,6 +44,7 @@ export type AnalyticsEvent =
   | "lead_email_link_clicked" // emailed link opened = verification { token }
   // ── capture v2 (spec r2): lifecycle + unified click event ──
   | "capture_shown" // a capture surface became visible { capture_surface: "inline" | "sheet" | "calculator" | "playbook" }
+  | "playbook_downloaded" // direct PDF grab after capture on /playbook { source }
   | "email_field_focused" // typed-intent signal: separates "nobody cares" from "starts typing and bails" { capture_surface }
   | "lead_enriched" // S4 progressive profile saved     { fields: "name" | "phone" | "name+phone" }
   | "broker_captured" // S4 broker/consultant field submitted (Ross's warm-handoff loop) { has_broker }

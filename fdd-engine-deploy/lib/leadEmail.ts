@@ -13,6 +13,7 @@
 import { Resend } from "resend";
 import type { BrandRecord } from "@/lib/brands";
 import { listBrands, toCard } from "@/lib/brands";
+import { playbookUrl as resolvePlaybookUrl } from "@/lib/playbook";
 
 const FROM = process.env.RESEND_FROM || "Franchise Edge <hello@foundersplinko.com>";
 
@@ -111,7 +112,9 @@ export async function sendFindingsEmail(args: {
 // ── 2 · PLAYBOOK (dreamer track, A3) ────────────────────────────────────────
 export async function sendPlaybookEmail(args: { to: string; leadId: string }): Promise<boolean> {
   const { to } = args;
-  const playbookUrl = process.env.PLAYBOOK_URL || "https://foundersplinko.com/playbook.pdf";
+  // Single source of truth (lib/playbook.ts) — shared with the /playbook landing
+  // page so the email and the page can never point at different PDFs.
+  const playbookUrl = resolvePlaybookUrl();
   const bridgeUrl = "https://engine.foundersplinko.com/brands?utm_source=playbook_email";
   const subject = "Your free Franchise Playbook";
   const inner = `

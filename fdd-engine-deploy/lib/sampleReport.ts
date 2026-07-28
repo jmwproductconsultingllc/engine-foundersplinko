@@ -31,7 +31,13 @@ const SAMPLE_FDD: ExtractedFDD = {
   },
   brandName: "Verde Bowls",
   franchisorEntity: "Verde Bowls Franchising, LLC",
-  headquarters: "1400 Harbor Point Blvd, Austin, Texas 78701",
+  // CITY + STATE ONLY — deliberately no street address and no ZIP. This fixture
+  // publishes a distress narrative (negative net worth, related-party funding)
+  // about a named LLC; a real ZIP geocodes to real buildings and would attach
+  // that narrative to whoever actually occupies them. The brand is fictional,
+  // so the address must be too — city/state reads exactly as credible and
+  // carries none of the risk. Do not add a street back.
+  headquarters: "Austin, Texas",
   brandBackground:
     "Fast-casual restaurant serving build-your-own grain and salad bowls with locally-sourced ingredients, counter service, and a compact kitchen footprint.",
   leadership: [
@@ -88,24 +94,27 @@ const SAMPLE_FDD: ExtractedFDD = {
     sourcePage: "Item 19, p.71",
   },
   item17: {
-    initialInvestmentLow: 285000,
-    initialInvestmentHigh: 612000,
+    // Line items sum EXACTLY to the low/high totals (340,000 / 720,000) — the
+    // report shows both, and a fixture whose parts don't add up teaches the
+    // reader to distrust the arithmetic everywhere else on the page.
+    initialInvestmentLow: 340000,
+    initialInvestmentHigh: 720000,
     lineItems: [
       { category: "Initial Franchise Fee", low: 35000, high: 35000, recurring: false, notes: "Single-unit." },
-      { category: "Leasehold Improvements / Construction", low: 120000, high: 310000, recurring: false, notes: "Varies widely by market and condition." },
-      { category: "Equipment", low: 55000, high: 95000, recurring: false, notes: "Kitchen line, refrigeration, hoods." },
-      { category: "Furniture & Fixtures", low: 18000, high: 40000, recurring: false, notes: "" },
-      { category: "Signage", low: 8000, high: 22000, recurring: false, notes: "" },
-      { category: "Opening Inventory", low: 12000, high: 20000, recurring: false, notes: "" },
-      { category: "POS & Technology", low: 6000, high: 14000, recurring: false, notes: "" },
+      { category: "Leasehold Improvements / Construction", low: 155000, high: 375000, recurring: false, notes: "Varies widely by market and condition." },
+      { category: "Equipment", low: 62000, high: 108000, recurring: false, notes: "Kitchen line, refrigeration, hoods." },
+      { category: "Furniture & Fixtures", low: 20000, high: 44000, recurring: false, notes: "" },
+      { category: "Signage", low: 9000, high: 24000, recurring: false, notes: "" },
+      { category: "Opening Inventory", low: 13000, high: 22000, recurring: false, notes: "" },
+      { category: "POS & Technology", low: 7000, high: 16000, recurring: false, notes: "" },
       { category: "Grand Opening Marketing", low: 10000, high: 15000, recurring: false, notes: "" },
       { category: "Training Travel & Living", low: 3000, high: 8000, recurring: false, notes: "" },
-      { category: "Additional Funds — 3 Months", low: 18000, high: 53000, recurring: false, notes: "Working capital before breakeven." },
+      { category: "Additional Funds — 3 Months", low: 26000, high: 73000, recurring: false, notes: "Working capital before breakeven." },
     ],
     sourcePage: "Item 7, p.23",
   },
   ongoingFees: {
-    royaltyPct: 6,
+    royaltyPct: 7.5,
     brandFundPct: 2,
     localAdPct: 1,
     flatMonthlyFees: [
@@ -127,9 +136,9 @@ const SAMPLE_FDD: ExtractedFDD = {
       source: "Item 17, p.66",
     },
   ],
-  averageRentMonthly: 7800,
+  averageRentMonthly: 11200,
   rentDetail: {
-    rawValue: 39,
+    rawValue: 56,
     unit: "per_sqft_per_year",
     squareFootage: 2400,
     source: "Item 7, p.23 (estimated)",
@@ -219,7 +228,12 @@ const SAMPLE_FDD: ExtractedFDD = {
   },
 };
 
-const SAMPLE_BUYER: BuyerContext = { liquidCapital: 250000, netWorth: 600000 };
+// The buyer is deliberately set EXACTLY at the franchisor's own stated minimums
+// (requiredLiquidCapital 150,000 / requiredNetWorth 500,000 is comfortably met).
+// That is the whole lesson of the sample: you can clear every box the franchisor
+// asks you to clear and still be carrying a ~2.5x capital gap. A buyer with
+// 250k liquid hides that, and the showcase becomes the thin case.
+const SAMPLE_BUYER: BuyerContext = { liquidCapital: 150000, netWorth: 600000 };
 
 /** Build the full sample DiligenceResult through the real pipeline. Insights and
  *  Financial Condition are always included here so the sample shows the complete

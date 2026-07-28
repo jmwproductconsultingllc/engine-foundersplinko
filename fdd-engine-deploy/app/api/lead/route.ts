@@ -38,6 +38,7 @@ import {
 import { sendFindingsEmail, sendPlaybookEmail, sendCapitalMatchEmail } from "@/lib/leadEmail";
 import { getBrand, toCard } from "@/lib/brands";
 import { readUtm } from "@/lib/utm";
+import { PLAYBOOK_SLUG } from "@/lib/playbook";
 
 export const runtime = "nodejs";
 
@@ -70,13 +71,30 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "missing_slug" }, { status: 400 });
   }
 
-  const brand = await getBrand(slug);
-  if (!brand || brand.grade !== "READY") {
+  const source = body.lead_source ?? "brand_findings";
+
+  // ── PLAYBOOK SENTINEL ────────────────────────────────────────────────────
+  // The standalone /playbook landing page captures leads that have no brand at
+  // all. The brand lookup below exists solely to build the FINDINGS email, so
+  // requiring it here was what blocked a brandless capture surface.
+  //
+  // Scoped deliberately tight: exactly ONE reserved slug, and ONLY when the
+  // lead is genuinely a playbook lead. Both halves matter — without the
+  // lead_source check, anyone could post the sentinel with lead_source
+  // "brand_findings" and walk a lead past the READY gate.
+  //
+  // Safe as an upsert key: leads upsert on (email, brand_slug) with no FK, so
+  // "__playbook" is its own bucket. One person can be a playbook lead once AND
+  // a brand lead per brand without either collapsing the other.
+  const isPlaybookLead = source === "playbook" && slug === PLAYBOOK_SLUG;
+
+  const brand = isPlaybookLead ? null : await getBrand(slug);
+  if (!isPlaybookLead && (!brand || brand.grade !== "READY")) {
     return NextResponse.json({ ok: false, error: "unknown_brand" }, { status: 404 });
   }
 
   const disposable = isDisposable(email);
-  const brandName = toCard(brand).brandName;
+  const brandName = brand ? toCard(brand).brandName : "Franchise Edge";
 
   const { brandName: _drop, ...ctx } = body.context ?? {};
 
@@ -135,7 +153,6 @@ export async function POST(req: NextRequest) {
 
   let sent = false;
   let deduped = false;
-  const source = body.lead_source ?? "brand_findings";
   if (!disposable) {
     // IDEMPOTENCY: atomically claim the fulfillment. insertLead upserts on
     // (email, brand_slug), so a duplicate submit (the multi-surface double-
@@ -151,7 +168,10 @@ export async function POST(req: NextRequest) {
         sent = await sendPlaybookEmail({ to: email, leadId });
       } else if (source === "capital_match" && ctx.capital_edited === true && ctx.capital_entered) {
         sent = await sendCapitalMatchEmail({ to: email, capital: ctx.capital_entered, leadId, origin });
-      } else {
+      } else if (brand) {
+        // `brand` is only ever null on the playbook-sentinel path, which the
+        // branch above already handled — this guard is the type narrowing, not
+        // a new behaviour.
         sent = await sendFindingsEmail({ to: email, brand, brandName, teaserUrl });
       }
       // Send failed → release the claim so a real retry can re-send.

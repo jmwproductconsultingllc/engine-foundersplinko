@@ -13,6 +13,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     { url: BASE, changeFrequency: "weekly", priority: 1 },
     { url: `${BASE}/brands`, changeFrequency: "daily", priority: 0.9 },
+    // Two evergreen top-of-funnel pages. /sample answers "what does a franchise
+    // diligence report actually look like" — a real query with no honest answer
+    // on the web; /playbook is the free guide and the front door to the list.
+    { url: `${BASE}/sample`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/playbook`, changeFrequency: "monthly", priority: 0.7 },
     ...live.map((b) => ({
       url: `${BASE}/franchise/${b.slug}`,
       lastModified: b.generatedAt ? new Date(b.generatedAt) : undefined,

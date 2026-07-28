@@ -5,54 +5,26 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import FDDUpload from "@/components/FDDUpload";
 import FeatureMatrix from "@/components/FeatureMatrix";
-import DiligenceReport from "@/components/DiligenceReport";
-import InfographicTeaser from "@/components/InfographicTeaser";
-import type { DiligenceResult } from "@/lib/types";
 import { track } from "@/lib/analytics";
-import { getSampleResult } from "@/lib/sampleReport";
 
 const DISPLAY =
   "var(--font-display, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif)";
 
+// The sample report used to live HERE, as an in-session state swap: clicking
+// "See a sample report" set result/unlocked/isSample and re-rendered this
+// component as a report. It had no URL, so it could not be linked in an email,
+// forwarded to a spouse or a franchise consultant, bookmarked, indexed, or
+// reached with the back button — and it dragged DiligenceReport +
+// InfographicTeaser into the HOME page's client bundle purely to render a demo
+// that most visitors never open.
+//
+// It is now a real route (app/sample/page.tsx, server-rendered), so this page
+// links to it and the state, the two heavy imports, and getSampleResult all go
+// away. A real upload persists server-side and redirects to /report/[id], which
+// is why nothing else needed the result state.
 export default function Page() {
   const router = useRouter();
-  // Result state below is now used ONLY by the sample report (an in-session
-  // demo). A real upload persists server-side and redirects to /report/[id].
-  const [result, setResult] = useState<DiligenceResult | null>(null);
-  const [unlocked, setUnlocked] = useState(false);
-  const [isSample, setIsSample] = useState(false);
   const [primerOpen, setPrimerOpen] = useState(false);
-
-  if (result) {
-    const reset = () => {
-      setResult(null);
-      setUnlocked(false);
-      setIsSample(false);
-    };
-    return (
-      <main className="min-h-screen bg-[#0B1220] text-[#F1F5F9] px-4 py-10 md:px-8">
-        <div className="mx-auto max-w-4xl space-y-5">
-          <button onClick={reset} className="text-sm font-medium text-[#38BDF8] hover:underline">
-            ← {isSample ? "Back to start" : "Analyze another FDD"}
-          </button>
-          {isSample && (
-            <div className="rounded-xl border border-[#38BDF8]/30 bg-[#38BDF8]/[0.07] px-5 py-3.5 text-sm leading-relaxed text-[#CBD5E1]">
-              <span className="font-semibold text-[#38BDF8]">Sample report.</span> An illustrative example of a
-              full Franchise Edge read — fictional brand, realistic numbers.{" "}
-              <button onClick={reset} className="font-medium text-[#38BDF8] hover:underline">
-                Run yours →
-              </button>
-            </div>
-          )}
-          {unlocked ? (
-            <DiligenceReport result={result} />
-          ) : (
-            <InfographicTeaser result={result} onUnlock={() => setUnlocked(true)} />
-          )}
-        </div>
-      </main>
-    );
-  }
 
   return (
     <main className="min-h-screen bg-[#0B1220] text-[#F1F5F9] px-4 py-12 md:px-8 md:py-16">
@@ -167,19 +139,15 @@ export default function Page() {
           <FDDUpload onComplete={(reportId) => router.push(`/report/${reportId}`)} />
 
           <div className="mt-4 text-center">
-            <button
-              onClick={() => {
-                track("sample_report_clicked");
-                setIsSample(true);
-                setUnlocked(true);
-                setResult(getSampleResult());
-              }}
+            <Link
+              href="/sample"
+              onClick={() => track("sample_report_clicked", { source: "home" })}
               className="inline-flex items-center gap-1.5 rounded-lg border border-[#27344F] px-4 py-2
                 text-sm font-medium text-[#CBD5E1] transition-colors hover:border-[#38BDF8] hover:text-[#38BDF8]"
             >
               See a sample report
               <span aria-hidden>→</span>
-            </button>
+            </Link>
           </div>
         </div>
 
