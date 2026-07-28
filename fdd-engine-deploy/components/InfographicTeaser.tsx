@@ -6,6 +6,7 @@ import { track } from "@/lib/analytics";
 import { recurringFeeDisplays } from "@/lib/fees";
 import { DiligenceModule } from "@/components/DiligenceToVerify";
 import { computeVerify } from "@/lib/verify";
+import RefundNote from "@/components/RefundNote";
 import type { BenchmarkCopy } from "@/lib/riskBenchmarks";
 
 /**
@@ -301,6 +302,11 @@ export default function InfographicTeaser({
           <p className="mt-2 text-center text-[11px] text-[#8194B0]">
             One-time payment · instant access · secure checkout
           </p>
+          {/* COMPACT here on purpose. This block already carries a button, a
+              reassurance line and a disclaimer; a bordered guarantee card would
+              be a fourth element and push the CTA off a phone screen. One line
+              is enough — the promise is legible, the terms are a tap away. */}
+          <RefundNote variant="compact" className="mt-2 text-center" />
           <p className="mt-3 text-center text-[11px] leading-relaxed text-[#5A6B88]">
             Informational only — not legal, financial, or investment advice. Figures are AI-extracted; verify
             against the source FDD.

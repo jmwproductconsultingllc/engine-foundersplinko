@@ -25,6 +25,7 @@ import CaptureSheet from "@/components/CaptureSheet";
 import { CaptureProvider } from "@/components/CaptureContext";
 import type { TeaserCard } from "@/lib/teaserProps";
 import { DiligenceModule } from "@/components/DiligenceToVerify";
+import RefundNote from "@/components/RefundNote";
 import type { BenchmarkCopy } from "@/lib/riskBenchmarks";
 
 const PRICE_LABEL = "$199";
@@ -282,6 +283,10 @@ export default function BrandDetail({
           <p className="mt-2 text-center text-xs text-[#8194B0]">
             <b className="text-[#F1F5F9]">One-time {PRICE_LABEL} · not a subscription · yours forever.</b>
           </p>
+          {/* The guarantee sits UNDER the button, not above it. Above, it reads
+              as a hedge before the ask; under, it reads as reassurance after the
+              decision — which is where the hesitation actually happens. */}
+          <RefundNote className="mt-3" />
         </div>
 
         {/* 5 · email capture directly under the ask */}

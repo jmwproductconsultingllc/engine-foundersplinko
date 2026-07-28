@@ -14,9 +14,12 @@ import type { DiligenceResult } from "./types";
 import { normalizeRoyaltyPct } from "./fees";
 import { resolveBrandFacts, pickHeroCohort, costRange, type HeroPick } from "./brandFacts";
 
+import { isRetracted, retractionOf, type Retraction } from "./retraction";
+
 export { normalizeRoyaltyPct }; // one import site for page code
 export { resolveBrandFacts, pickHeroCohort, costRange }; // legacy import sites
-export type { HeroPick };
+export { isRetracted, retractionOf }; // page code imports the store, not lib/retraction
+export type { HeroPick, Retraction };
 
 // ---------------------------------------------------------------------------
 // Store shape (matches scripts/jsonl-to-brands.ts output)
@@ -38,6 +41,11 @@ export interface BrandRecord {
   sourceFddYear: number | null;
   generatedAt: string;
   sourceStem?: string;
+  /** Set when a published figure didn't reconcile against the source FDD and we
+   *  pulled the record. Absent on every healthy brand — this is the exception,
+   *  and it should stay rare enough to stay meaningful. See lib/retraction.ts
+   *  for why the page stays up and says so rather than 404ing. */
+  retraction?: Retraction | null;
   result: DiligenceResult;
 }
 
@@ -49,6 +57,9 @@ export interface BrandCard {
   category: string;
   grade: "READY" | "THIN";
   live: boolean; // clickable card vs ghost
+  /** Pulled on purpose. `live` is already false; this says WHY, so the grid can
+   *  suppress the card entirely rather than demote it to a ghost row. */
+  retracted: boolean;
   risk: string | null;
   i19: boolean;
   mo: number | null;
@@ -170,6 +181,7 @@ export function toCard(brand: BrandRecord, preference: CohortPreference = "reven
     category: f.category,
     grade: f.grade,
     live: f.live,
+    retracted: f.retracted,
     risk: f.risk,
     i19: f.i19,
     mo: f.mo,
@@ -307,9 +319,16 @@ function buildCategoryRows(
   return subcats
     .map((category) => {
       const inCat = cards.filter((c) => c.category === category);
-      const live = inCat.filter((c) => c.live).sort((a, b) => (b.mo ?? 0) - (a.mo ?? 0));
-      const thin = inCat.filter((c) => !c.live);
+      // inStore is computed BEFORE retracted cards are dropped, and that
+      // ordering is load-bearing. Ghost rows are suppressed for any name already
+      // in the store; drop a retracted brand from this set first and it
+      // reappears in the grid as an "FDD pending" ghost — a clickable demand
+      // signal for a record we just pulled for being wrong. Worse than leaving
+      // it up, because now the page implies we've never looked at it.
       const inStore = new Set(inCat.map((c) => c.brandName.toLowerCase()));
+      const visible = inCat.filter((c) => !c.retracted);
+      const live = visible.filter((c) => c.live).sort((a, b) => (b.mo ?? 0) - (a.mo ?? 0));
+      const thin = visible.filter((c) => !c.live);
       const ghostNames = withGhosts
         ? (GHOST_UNIVERSE[category] ?? []).filter((n) => !inStore.has(n.toLowerCase()))
         : [];
@@ -318,7 +337,7 @@ function buildCategoryRows(
         cards: [...live, ...thin],
         ghostNames,
         liveCount: live.length,
-        totalCount: inCat.length + ghostNames.length,
+        totalCount: visible.length + ghostNames.length,
       };
     })
     .filter((row) => row.totalCount > 0);
@@ -346,6 +365,9 @@ export async function listVerticalDirectory(
       const subsections = buildCategoryRows(cards, subcats, true);
       const placed = new Set(subsections.flatMap((s) => s.cards.map((c) => c.slug)));
       for (const c of cards) {
+        // A retracted card is absent from `placed` BY DESIGN — don't warn about
+        // it as an off-taxonomy registry bug and send someone chasing a fix.
+        if (c.retracted) continue;
         if (!placed.has(c.slug)) {
           console.warn(
             `[brands] "${c.slug}" (${vertical}) has off-taxonomy category "${c.category}" — excluded. Fix the registry.`,
@@ -356,15 +378,18 @@ export async function listVerticalDirectory(
       const totalCount = subsections.reduce((a, s) => a + s.totalCount, 0);
       if (totalCount > 0) rows.push({ vertical, subsections, cards: [], liveCount, totalCount });
     } else {
-      const live = cards.filter((c) => c.live).sort((a, b) => (b.mo ?? 0) - (a.mo ?? 0));
-      const thin = cards.filter((c) => !c.live);
-      if (cards.length > 0)
+      // Flat verticals have no ghost universe, so a retracted brand can simply
+      // be filtered out here — nothing downstream needs to remember it existed.
+      const visible = cards.filter((c) => !c.retracted);
+      const live = visible.filter((c) => c.live).sort((a, b) => (b.mo ?? 0) - (a.mo ?? 0));
+      const thin = visible.filter((c) => !c.live);
+      if (visible.length > 0)
         rows.push({
           vertical,
           subsections: null,
           cards: [...live, ...thin],
           liveCount: live.length,
-          totalCount: cards.length,
+          totalCount: visible.length,
         });
     }
   }

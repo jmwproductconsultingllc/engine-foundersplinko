@@ -20,6 +20,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { DiligenceResult } from "../lib/types";
+import {
+  serializeBrandRecord,
+  detectBrandJsonFormat,
+  DEFAULT_BRAND_JSON_FORMAT,
+  type BrandJsonFormat,
+} from "../lib/brandJson";
 
 const KIDS = "Kids & Family";
 
@@ -133,6 +139,44 @@ function main() {
     }
 
     const grade = gradeOf(row.report);
+
+    // PRESERVE AN EXISTING RETRACTION ACROSS A REGENERATION.
+    //
+    // This converter overwrites data/brands/<slug>.json wholesale. Without this
+    // read-back, re-running it for any reason — a batch re-extract, one
+    // unrelated brand added to the registry — silently UN-retracts every pulled
+    // record and quietly republishes the exact figures we took down. That is a
+    // one-line bug with a straight line to the only kind of damage this product
+    // can't absorb, and it fails silently and invisibly.
+    //
+    // So a retraction survives a rebuild and can only be cleared deliberately:
+    //   npx tsx scripts/retract-brand.ts <slug> --restore
+    const outPath = path.join(outDir, `${reg.slug}.json`);
+    let carriedRetraction: unknown = undefined;
+    // The prior file is also where the FORMAT comes from. The corpus is not
+    // uniformly serialized (five variants across 83 files, laid down by
+    // different writers over two years), so regenerating one brand in a
+    // canonical format would reformat that file wholesale and bury the actual
+    // change in a 150-line whitespace diff. Read the shape, write it back.
+    // New slugs get DEFAULT. See lib/brandJson.ts.
+    let outFmt: BrandJsonFormat = DEFAULT_BRAND_JSON_FORMAT;
+    try {
+      const rawPrev = fs.readFileSync(outPath, "utf8");
+      outFmt = detectBrandJsonFormat(rawPrev);
+      const prev = JSON.parse(rawPrev);
+      if (prev?.retraction?.retractedAt && prev?.retraction?.figure) {
+        carriedRetraction = prev.retraction;
+      }
+    } catch {
+      /* no prior file — first write for this slug */
+    }
+    if (carriedRetraction) {
+      console.warn(
+        `[jsonl-to-brands] ${reg.slug} is RETRACTED — regenerated and kept pulled. ` +
+          `Run "npx tsx scripts/retract-brand.ts ${reg.slug} --restore" once the figure reconciles.`,
+      );
+    }
+
     const record = {
       slug: reg.slug,
       brandName: row.report.extracted.brandName || reg.slug,
@@ -142,10 +186,11 @@ function main() {
       sourceFddYear: reg.sourceFddYear ?? null,
       generatedAt: new Date().toISOString(),
       sourceStem: stem,
+      ...(carriedRetraction ? { retraction: carriedRetraction } : {}),
       result: row.report,
     };
 
-    fs.writeFileSync(path.join(outDir, `${reg.slug}.json`), JSON.stringify(record, null, 1));
+    fs.writeFileSync(outPath, serializeBrandRecord(record, outFmt));
     written++;
     rows.push(
       `✓ ${reg.slug.padEnd(30)} [${grade}] ${(reg.vertical ?? KIDS).padEnd(26)} ← ${stem}`,

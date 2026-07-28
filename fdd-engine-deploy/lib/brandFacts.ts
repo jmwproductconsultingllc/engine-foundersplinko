@@ -38,6 +38,7 @@ import { resolveMonthlyRent } from "./rent";
 import { normalizeRoyaltyPct } from "./fees";
 import { derivePerFranchiseRevenue } from "./perUnitRevenue";
 import { computeVerify } from "./verify";
+import { isRetracted } from "./retraction";
 import type { BrandRecord, CohortPreference } from "./brands";
 
 // ---------------------------------------------------------------------------
@@ -51,8 +52,13 @@ export interface BrandFacts {
   vertical: string;
   parseQuality: string;
   grade: "READY" | "THIN";
-  /** clickable + sellable (READY, graded or manual-verified, renderable cost) */
+  /** clickable + sellable (READY, graded or manual-verified, renderable cost).
+   *  ALWAYS false for a retracted record — see `retracted` below. */
   live: boolean;
+  /** A published figure didn't reconcile against the FDD, so we pulled the
+   *  record. Distinct from !live: a THIN brand was never sellable; a retracted
+   *  one was, and is now down on purpose with a notice served at its URL. */
+  retracted: boolean;
   /** Item 19 exists in the FDD (independent of whether a hero resolved) */
   i19: boolean;
 
@@ -498,7 +504,16 @@ export function resolveBrandFacts(
   const risk: string | null = scoring?.riskLevel ?? null;
   const parseQuality: string = (brand as any)?.parseQuality ?? "clean";
   const gradedOrVerified = risk != null || parseQuality === "manual-verified";
+  // RETRACTION IS THE OUTERMOST GATE, and it lives here rather than at each
+  // consumer on purpose. Everything downstream that must forget a pulled brand
+  // — the /brands grid, the sitemap, liveBrandCount(), the same-vertical
+  // compare pairs, the capital-fit email, the risk benchmark denominator —
+  // already asks exactly one question: is it live? Answering "no" once, at the
+  // single resolver, retracts it from all of them with no further edits and no
+  // way for a future surface to miss the memo.
+  const retracted = isRetracted(brand as any);
   const live =
+    !retracted &&
     (brand as any)?.grade === "READY" &&
     gradedOrVerified &&
     ((lo != null && hi != null) || buildoutMid != null);
@@ -511,6 +526,7 @@ export function resolveBrandFacts(
     parseQuality,
     grade: (brand as any)?.grade === "THIN" ? "THIN" : "READY",
     live,
+    retracted,
     i19: Boolean(i19obj?.hasItem19),
     mo,
     moLabel,

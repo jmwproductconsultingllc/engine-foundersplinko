@@ -7,6 +7,7 @@
 
 import { track } from "@/lib/analytics";
 import { bareName } from "@/lib/brandName";
+import RefundNote from "@/components/RefundNote";
 
 export default function BrandCTA({
   brandName,
@@ -36,6 +37,10 @@ export default function BrandCTA({
       >
         Get the {bareName(brandName)} report — $199
       </a>
+      {/* Under the button, never above it. Above the ask, a guarantee reads as a
+          hedge; under it, it answers the question the buyer actually has at the
+          moment their thumb is over the button. */}
+      <RefundNote className="mt-3" />
     </div>
   );
 }

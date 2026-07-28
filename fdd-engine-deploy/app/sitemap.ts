@@ -18,6 +18,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // on the web; /playbook is the free guide and the front door to the list.
     { url: `${BASE}/sample`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/playbook`, changeFrequency: "monthly", priority: 0.7 },
+    // Low priority, but indexed on purpose: "<product> refund policy" is a query
+    // a hesitating buyer actually runs, and the answer should be our page rather
+    // than nothing.
+    { url: `${BASE}/refunds`, changeFrequency: "yearly", priority: 0.3 },
     ...live.map((b) => ({
       url: `${BASE}/franchise/${b.slug}`,
       lastModified: b.generatedAt ? new Date(b.generatedAt) : undefined,

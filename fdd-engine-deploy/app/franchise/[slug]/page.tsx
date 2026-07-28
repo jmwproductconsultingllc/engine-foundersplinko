@@ -11,11 +11,12 @@
 
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { listBrands, getBrand, toCard } from "@/lib/brands";
+import { listBrands, getBrand, toCard, retractionOf } from "@/lib/brands";
 import { auditBrandFacts } from "@/lib/brandFacts";
 import { toTeaserCard } from "@/lib/teaserProps";
 import { computeRiskBenchmarks, benchmarkFor } from "@/lib/riskBenchmarks";
 import BrandDetail from "@/components/BrandDetail";
+import RetractionNotice from "@/components/RetractionNotice";
 
 export const revalidate = 3600;
 
@@ -35,8 +36,13 @@ export async function generateStaticParams() {
   // resolves inconsistently FAILS THE BUILD, and the resolved-facts table
   // prints to the build log as a human-scannable snapshot per deploy.
   auditBrandFacts(brands);
+  // live OR retracted. A retraction forces live=false at the resolver (that's
+  // how it disappears from the grid, the sitemap and the count in one move) —
+  // which means a `.filter(live)` here would stop generating the page entirely
+  // and the URL would 404. That is precisely the outcome the retraction design
+  // exists to prevent, so the pulled slugs are re-admitted explicitly.
   return brands
-    .filter((b) => toCard(b).live)
+    .filter((b) => toCard(b).live || retractionOf(b) !== null)
     .map((b) => ({ slug: b.slug }));
 }
 
@@ -48,6 +54,20 @@ export async function generateMetadata({
   const { slug } = await params;
   const brand = await getBrand(slug);
   if (!brand) return { title: "Franchise not found | Franchise Edge" };
+
+  // A retracted record must not keep advertising cost figures in the SERP
+  // snippet — that string outlives the page in Google's index for days. noindex
+  // asks Google to stop serving it; follow stays on so the exits still pass
+  // equity. Canonical is dropped: there is no content here to be canonical for.
+  const pulled = retractionOf(brand);
+  if (pulled) {
+    return {
+      title: `${brand.brandName} — record retracted | Franchise Edge`,
+      description: `We pulled the ${brand.brandName} record because a disclosed figure didn't reconcile against the source FDD. It goes back up once it does.`,
+      robots: { index: false, follow: true },
+    };
+  }
+
   const card = toCard(brand);
   const cost =
     card.lo != null && card.hi != null ? `${usd(card.lo)}–${usd(card.hi)}` : "cost to open";
@@ -74,6 +94,16 @@ export default async function FranchisePage({
   const [{ slug }, { ref }] = await Promise.all([params, searchParams]);
   const brand = await getBrand(slug);
   if (!brand) notFound();
+
+  // RETRACTION CHECK GOES FIRST, ahead of the live gate — a retracted brand is
+  // !live by construction, so any ordering that reaches notFound() first turns
+  // the visible retraction back into a 404.
+  const pulled = retractionOf(brand);
+  if (pulled) {
+    // Only the name and the retraction cross this boundary. No card, no teaser,
+    // no figures: we can't currently stand behind them, so they don't render.
+    return <RetractionNotice brandName={brand.brandName} retraction={pulled} />;
+  }
 
   // Keep the live-gate on the full card (server-side only — never passed down).
   const card = toCard(brand, "revenue");

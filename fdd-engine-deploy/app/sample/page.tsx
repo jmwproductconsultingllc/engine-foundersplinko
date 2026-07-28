@@ -25,6 +25,7 @@ import SampleViewedBeacon from "@/components/SampleViewedBeacon";
 import SampleStickyBar from "@/components/SampleStickyBar";
 import { getSampleResult } from "@/lib/sampleReport";
 import { liveBrandCount, brandCountPhrase } from "@/lib/brandCount";
+import RefundNote from "@/components/RefundNote";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://engine.foundersplinko.com";
 
@@ -130,6 +131,11 @@ export default async function SamplePage() {
               No account required, and we never sell your information to a franchisor or a broker.
             </p>
           </div>
+
+          {/* The block above was labeled "price + guarantee" and had no
+              guarantee in it — the copy promised reassurance the page never
+              delivered. This is the guarantee. */}
+          <RefundNote className="mt-4" />
 
           <div className="mt-5 flex flex-col gap-2.5 sm:flex-row">
             <Link

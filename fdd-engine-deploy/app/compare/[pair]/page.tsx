@@ -6,8 +6,8 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound, permanentRedirect } from "next/navigation";
-import { listBrands, toCard, verticalOf, type BrandCard as Card } from "@/lib/brands";
+import { notFound, permanentRedirect, redirect } from "next/navigation";
+import { listBrands, toCard, verticalOf, isRetracted, type BrandCard as Card } from "@/lib/brands";
 import BrandCTA from "@/components/BrandCTA";
 
 export const revalidate = 3600;
@@ -99,6 +99,14 @@ export default async function ComparePage({
   const B = brands.find((x) => x.slug === bSlug);
   if (!A || !B) notFound();
   if (verticalOf(A) !== verticalOf(B)) notFound(); // same-vertical pairs only
+
+  // A retracted side sends the reader to that brand's page, which is where the
+  // retraction notice lives. Redirect rather than notFound(): compare URLs are
+  // indexed and shared, and a 404 tells someone holding the link that the page
+  // never existed instead of that we pulled a number. Temporary by design — the
+  // comparison comes back when the record does, so this must not be permanent.
+  if (isRetracted(A)) redirect(`/franchise/${A.slug}`);
+  if (isRetracted(B)) redirect(`/franchise/${B.slug}`);
 
   const a = toCard(A);
   const b = toCard(B);
