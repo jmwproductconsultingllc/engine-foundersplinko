@@ -32,7 +32,7 @@ vi.mock("@/lib/ladder", async (importOriginal) => {
 const { CashLadderSection } = await import("@/components/CashLadder");
 const { getSampleResult } = await import("@/lib/sampleReport");
 const { applyRentCorrection } = await import("@/lib/rentCorrection");
-const { buildLadderInput } = await import("@/lib/ladderInput");
+const { buildLadderInput, resolvePercentageFees } = await import("@/lib/ladderInput");
 const { buildCashLadder } = await import("@/lib/ladder");
 
 const sample = applyRentCorrection(getSampleResult());
@@ -79,6 +79,19 @@ describe("CashLadderSection", () => {
     expect(html).toMatch(/no debt service/i);
     const eleven = html.slice(html.indexOf("Cash after debt"));
     expect(eleven.slice(0, 400)).not.toMatch(/not disclosed/i);
+  });
+
+  it("the sample never concedes an incomplete fee record", () => {
+    // /sample is the page that has to show what the product does. The amber
+    // "predates the full Item 6 fee capture" caveat is correct on a real brand
+    // extracted before percentageFees existed; on the sample it reads as us
+    // admitting the headline number is understated. The fix is a COMPLETE
+    // fixture, not a suppressed warning — so assert completeness, and assert
+    // the fee total is unchanged so completing it never silently moves a rung.
+    const res = resolvePercentageFees(sample.extracted);
+    expect(res.complete).toBe(true);
+    expect(res.totalPct).toBe(10.5);
+    expect(render()).not.toMatch(/predates the full Item 6/i);
   });
 
   it("names the lender convention, never our own cutoff", () => {

@@ -117,6 +117,32 @@ const SAMPLE_FDD: ExtractedFDD = {
     royaltyPct: 7.5,
     brandFundPct: 2,
     localAdPct: 1,
+    /*
+     * THE SAMPLE'S RECORD IS COMPLETE, SO IT MUST SAY SO.
+     *
+     * resolvePercentageFees() shows an amber "this record predates the full
+     * Item 6 fee capture" caveat whenever percentageFees is absent. That is
+     * correct on a real brand extracted before the field existed. It is wrong
+     * here: /sample is the page whose job is to show what the product does,
+     * and a caveat conceding our own fee load may be understated is the last
+     * thing a first-time reader should meet under the hero.
+     *
+     * The honest fix is not to suppress the caveat — it is to complete the
+     * record. Verde Bowls is an invented disclosure, so this list IS the whole
+     * of its percentage-of-sales fees, and its technology fee is deliberately
+     * a FLAT $350/mo (see flatMonthlyFees below, rung 3) — which is the exact
+     * hypothetical the caveat raises, answered two rungs down.
+     *
+     * These three lines restate royaltyPct/brandFundPct/localAdPct verbatim.
+     * resolvePercentageFees dedupes the named slots against them, so the total
+     * stays 10.5% and not one figure on the sample moves. Asserted in
+     * components/CashLadder.test.tsx.
+     */
+    percentageFees: [
+      { label: "Royalty", pct: 7.5, source: "Item 6, p.31" },
+      { label: "Brand fund", pct: 2, source: "Item 6, p.31" },
+      { label: "Local advertising", pct: 1, source: "Item 6, p.32" },
+    ],
     flatMonthlyFees: [
       { name: "Technology & POS Fee", monthlyAmount: 350, source: "Item 6, p.32" },
       { name: "Supply Chain Access Fee", monthlyAmount: 200, source: "Item 6, p.33" },
