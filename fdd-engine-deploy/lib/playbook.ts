@@ -17,7 +17,19 @@
 // To ship the v2 PDF: upload it, then set PLAYBOOK_URL in Vercel. Nothing else
 // in the codebase needs to change.
 
-const FALLBACK_PLAYBOOK_URL = "https://foundersplinko.com/playbook.pdf";
+// The fallback USED to be "https://foundersplinko.com/playbook.pdf" — which was
+// a 404. That file does not exist and never did; the apex-hosted v1 guide lives
+// under a different name (FoundersPlinko_FranchiseEdgePlaybook.pdf). So the
+// "safe" branch of this resolver was a dead link, and every environment where
+// PLAYBOOK_URL is unset — which today includes Development, since the Vercel var
+// is scoped Production+Preview only — shipped a broken download button.
+//
+// It now points at the v2 PDF in THIS repo's public/ folder. That is the whole
+// point: the fallback and the artifact it names ship in the same commit, so they
+// cannot drift. PLAYBOOK_URL is now purely an override for pointing at a CDN or
+// a future v3 without a deploy — not a load-bearing requirement.
+const FALLBACK_PLAYBOOK_URL =
+  "https://engine.foundersplinko.com/FranchiseEdge_FranchiseBuyersPlaybook_v2.pdf";
 
 /** Server-side only (reads a non-public env var). Pass the result down as a prop. */
 export function playbookUrl(): string {
