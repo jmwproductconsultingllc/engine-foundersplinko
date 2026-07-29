@@ -252,6 +252,37 @@ export default function InfographicTeaser({
               </li>
             ))}
           </ul>
+
+          {/* Who to call — framed, not bulleted. Every other line in the list
+              above is something we tell the buyer; this is the only one that
+              tells them what to DO next, and it is the section nothing else in
+              this category ships. Bullet six would have buried it. Amber is the
+              same moat tint FeatureMatrix uses, so the two acquisition surfaces
+              agree about which line is the differentiator.
+
+              The copy is deliberately STATIC. lib/callList.ts holds the cohort
+              prose and the ordered questions, and this is a client component —
+              importing the module would ship every question we charge for into
+              the free page's JS bundle. So the teaser names the SHAPE of the
+              section and nothing inside it. The system-unit count is already on
+              the Glance row 40px above, so repeating it here would be the same
+              number twice on one phone screen.
+
+              It also never promises contact data FROM US: the roster is in the
+              buyer's own FDD by law (16 CFR 436.5(t), Exhibits A and B), and the
+              sentence says so. We sell the cohorts and the questions. */}
+          <div className="mt-3.5 rounded-xl border border-[#F5B847]/40 bg-[#F5B847]/[0.05] px-4 py-3.5">
+            <p className="flex items-center gap-2 text-[13px] font-bold text-[#F1F5F9]">
+              <span aria-hidden>🔒</span>
+              Who to call, and what to ask
+            </p>
+            <p className="mt-1.5 text-[12.5px] leading-relaxed text-[#CBD5E1]">
+              The franchisor already printed the phone numbers — every current owner, and
+              everyone who left last year, is in the FDD you were handed. The report tells you
+              which of those groups are worth an afternoon, where those pages sit, and the first
+              question that opens each call.
+            </p>
+          </div>
         </div>
 
         {/* Broker capture — fallback (only if not captured during the analyzing

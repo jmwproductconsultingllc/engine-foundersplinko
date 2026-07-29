@@ -114,8 +114,9 @@ export default async function SamplePage() {
           </h2>
           <p className="mt-2 max-w-2xl text-[13.5px] leading-relaxed text-[#8194B0]">
             Upload that brand&apos;s FDD and get everything above on its numbers — real cost to open,
-            the disclosed Item 19 cohorts, the full fee stack, financial condition, and your list of
-            what to verify. About two minutes. The free snapshot comes first.
+            the disclosed Item 19 cohorts, the full fee stack, financial condition, who to call
+            before you sign, and your list of what to verify. About two minutes. The free snapshot
+            comes first.
           </p>
 
           {/* price + guarantee, side by side */}

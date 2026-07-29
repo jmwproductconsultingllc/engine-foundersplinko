@@ -46,6 +46,18 @@ const ROWS: Row[] = [
     typical: "no",
     moat: true,
   },
+  // Last row on purpose. Every other line here is a better READ of the
+  // document; this one is the only thing on the page that tells a buyer what to
+  // do on Monday, so it is the row a reader leaves the table holding. "typical:
+  // no" is not a competitive dig — every checklist in this category ends on
+  // "talk to existing franchisees" and none of them says which ones or what to
+  // ask, which is exactly the gap.
+  {
+    label: "Who to call, and what to ask",
+    sub: "The franchisee groups worth an afternoon, and the question that opens each",
+    typical: "no",
+    moat: true,
+  },
 ];
 
 function Mark({ kind, edge = false }: { kind: Cell; edge?: boolean }) {

@@ -273,6 +273,18 @@ export default function BrandDetail({
               <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#38BDF8]" />
               <span>Every clause that could trap you, cited to the page</span>
             </li>
+            {/* The ask card is three lines of what we TELL you. This is the one
+                line of what to DO, so it closes the list — the last bullet is
+                the one a thumb is sitting next to when it reaches the button.
+                Contact data is in the buyer's own FDD by law; what we sell is
+                which groups are worth the call and what opens each one. */}
+            <li className="flex gap-2.5">
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#38BDF8]" />
+              <span>
+                <b className="text-[#F1F5F9]">Who to call before you sign</b> — the owner groups
+                worth an afternoon, and the question that opens each
+              </span>
+            </li>
           </ul>
           <a
             href={mintHref("ask_card")}

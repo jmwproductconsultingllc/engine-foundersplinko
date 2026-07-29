@@ -155,7 +155,8 @@ export default function PlaybookLanding({
             <p className="mt-2 text-[14px] leading-relaxed text-[#8194B0]">
               The Playbook teaches you what to look for. Franchise Edge finds it for you — it reads a
               brand&apos;s FDD and returns the real cost to open, the disclosed Item 19 earnings, the
-              full fee stack, and a plain-English list of what to verify.
+              full fee stack, a plain-English list of what to verify, and the franchisees to call
+              before you sign.
             </p>
             <div className="mt-4 flex flex-col gap-2.5 sm:flex-row">
               <Link

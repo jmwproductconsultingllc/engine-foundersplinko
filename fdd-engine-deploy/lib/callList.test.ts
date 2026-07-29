@@ -285,3 +285,72 @@ describe("copy law", () => {
     expect(missing, `no call list for: ${missing.join(", ")}`).toHaveLength(0);
   });
 });
+
+/**
+ * THE SHELF LINT.
+ *
+ * This module shipped complete, tested and rendering — and invisible. It went in
+ * behind the paywall only: nothing on the free snapshot, nothing in the feature
+ * matrix, nothing in the nurture email said the report contained it. A feature a
+ * buyer cannot find out about before paying does not raise conversion, it raises
+ * cost. The paid render was built and the reason to pay for it was not.
+ *
+ * That is not a copy oversight, it is a defect class. `tsc` cannot see it,
+ * vitest could not see it, and the paid report looked perfect the whole time —
+ * the only symptom is a number that does not move.
+ *
+ * So the shelf is now a lint: every surface where a buyer decides whether to pay
+ * must name this section. Same shape as PRICE_SURFACES in lib/refund.test.ts,
+ * which holds the same kind of line for the guarantee.
+ *
+ * Deliberately loose on wording and strict on presence. Copy gets rewritten and
+ * should not break a build; SILENCE should. If a rewrite drops the promise
+ * entirely, that is the thing worth failing on.
+ */
+describe("THE SHELF LINT — the unlock is named where the buyer decides to pay", () => {
+  /** Every surface a buyer reads before the $199 decision. */
+  const UNLOCK_SURFACES = [
+    "components/InfographicTeaser.tsx", // the free snapshot, straight after a parse
+    "components/FeatureMatrix.tsx", // the marketing "what you get" table
+    "components/BrandDetail.tsx", // the ask card on a free brand page
+    "components/BrandCTA.tsx", // the $199 block on brand / report / compare pages
+    "app/sample/page.tsx", // "now run it on yours", under the sample report
+    "components/PlaybookLanding.tsx", // the dreamer-track landing page
+    "lib/leadEmail.ts", // nurture email #1 — the shopper track
+  ];
+
+  /** Any of these counts as naming it. */
+  const NAMED =
+    /who to call|who to ask|franchisees to call|owner groups worth an afternoon|calls worth an afternoon|calls actually worth an afternoon/i;
+
+  for (const rel of UNLOCK_SURFACES) {
+    it(`${rel} tells the buyer the call list is in there`, () => {
+      // Comments stripped: a promise written in a code comment is a promise made
+      // to us, not to the buyer.
+      const src = readFileSync(`/root/work/${rel}`, "utf8")
+        .replace(/\/\*[\s\S]*?\*\//g, "")
+        .replace(/\{\/\*[\s\S]*?\*\/\}/g, "")
+        .replace(/^\s*\/\/.*$/gm, "");
+      expect(
+        NAMED.test(src),
+        `${rel} never mentions the call list. It is the section that most changes ` +
+          `what a buyer DOES with the report, and this is a surface where they ` +
+          `decide whether to pay for it. Name it, or take it out of UNLOCK_SURFACES ` +
+          `and say why here.`,
+      ).toBe(true);
+    });
+  }
+
+  it("never promises contact data FROM US on a pre-purchase surface", () => {
+    // The privacy line: Item 20's exhibits are personal contact details for named
+    // individuals, and they are in the buyer's own document by law. We sell the
+    // cohorts and the questions. Copy that reads as "we will give you the phone
+    // numbers" is both a promise we do not keep and a promise we should not make.
+    const CLAIMS_OURS =
+      /\b(we|our)\b[^.]{0,60}\b(phone numbers|contact (?:info|information)|franchisee list|roster)\b/i;
+    for (const rel of UNLOCK_SURFACES) {
+      const src = readFileSync(`/root/work/${rel}`, "utf8");
+      expect(CLAIMS_OURS.test(src), `${rel} sounds like WE supply the contact data`).toBe(false);
+    }
+  });
+});

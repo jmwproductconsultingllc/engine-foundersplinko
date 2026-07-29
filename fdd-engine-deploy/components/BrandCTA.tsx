@@ -27,8 +27,8 @@ export default function BrandCTA({
         Buying into {brandName}&apos;s system?
       </p>
       <p className="mt-1 text-[13px] leading-relaxed text-[#8194B0]">
-        Get the full diligence report — every fee, tripwire, and the revenue modeled to what
-        you&apos;d actually keep. $199, delivered in minutes.
+        Get the full diligence report — every fee, tripwire, the revenue modeled to what
+        you&apos;d actually keep, and who to call before you sign. $199, delivered in minutes.
       </p>
       <a
         href={href}

@@ -103,12 +103,17 @@ export async function sendFindingsEmail(args: {
   <p ${P}>Each locked item above is explained — with the numbers and the FDD page citations — in the full $199 report.</p>
   <p ${P}><b style="color:#F1F5F9;">Before you sign anything, ask a current franchisee these 12 questions:</b></p>
   <ol style="margin:10px 0 0;padding:0;list-style:none;font-size:13.5px;line-height:1.55;color:#8194B0;">${qHtml}</ol>
+  <p ${P}><b style="color:#F1F5F9;">Those twelve are the generic ones. The full report tells you who to ask.</b> ${brandName}'s FDD is required to list every current owner — and everyone who left last fiscal year — with contact information. The report sorts them into the calls actually worth an afternoon, points you at the pages that carry the roster, and gives you the first question for each group.</p>
 </td></tr>
 <tr><td style="padding:22px 26px 6px;"><a href="${teaserUrl}" ${BTN}>Back to your ${brandName} analysis</a></td></tr>
-<tr><td style="padding:6px 26px 24px;"><p ${FOOT}>One-time $199 unlocks every number, cited to the page. Not affiliated with or endorsed by ${brandName}. Informational only. Unsubscribe anytime.</p></td></tr>`;
+<tr><td style="padding:6px 26px 24px;"><p ${FOOT}>One-time $199 unlocks every number, cited to the page — plus who to call before you sign. Not affiliated with or endorsed by ${brandName}. Informational only. Unsubscribe anytime.</p></td></tr>`;
 
-  const text = `Your ${brandName} findings\n\nWhat ${brandName}'s own audited financials and FDD disclose (category level) is summarized on your analysis page — the full numbers and page citations are in the $199 report.\n\nThe 12 questions to ask a franchisee:\n${TWELVE_QUESTIONS.map((q, i) => `${i + 1}. ${q}`).join("\n")}\n\nYour analysis: ${teaserUrl}\n\nNot affiliated with ${brandName}. Informational only.`;
-  return send(to, subject, shell(inner, "The findings summary + the 12 questions to ask before you sign."), text);
+  // The plain-text part is not a courtesy copy — Gmail's clipping and every
+  // text-first client render it, and it was already carrying the twelve
+  // questions in full. It carries the who-to-call line too, or the HTML makes a
+  // promise the text half never does.
+  const text = `Your ${brandName} findings\n\nWhat ${brandName}'s own audited financials and FDD disclose (category level) is summarized on your analysis page — the full numbers and page citations are in the $199 report.\n\nThe 12 questions to ask a franchisee:\n${TWELVE_QUESTIONS.map((q, i) => `${i + 1}. ${q}`).join("\n")}\n\nThose twelve are the generic ones — the full report tells you who to ask. ${brandName}'s FDD is required to list every current owner, and everyone who left last fiscal year, with contact information. The report sorts them into the calls worth an afternoon, points you at the pages that carry the roster, and gives you the first question for each group.\n\nYour analysis: ${teaserUrl}\n\nNot affiliated with ${brandName}. Informational only.`;
+  return send(to, subject, shell(inner, "The 12 questions to ask before you sign — and who to ask."), text);
 }
 
 // ── 2 · PLAYBOOK (dreamer track, A3) ────────────────────────────────────────
