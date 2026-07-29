@@ -151,6 +151,59 @@ describe("a figure that does not exist gets WORDS", () => {
   });
 });
 
+/**
+ * THE ADDING-UP LINT.
+ *
+ * A buyer who checks our arithmetic and finds the column does not add does not
+ * conclude "rounding" — they conclude the engine is sloppy, and that conclusion
+ * is contagious to every other figure on the page. The parts must sum to the
+ * whole for every system in the corpus, not only the ones we happened to pin.
+ */
+describe("the printed figures add up", () => {
+  it("reconciles the shipped Crumbl card: 0.9 + 7.7 = 8.6", () => {
+    const c = analyzeChurn(CRUMBL);
+    // Raw: 9/1058 = 0.851%, 82/1058 = 7.750%, 91/1058 = 8.601%.
+    // Rounded independently those print 0.9 + 7.8 beside a total of 8.6.
+    expect(c.closed!.pct).toBe(0.9);
+    expect(c.transfers!.pct).toBe(7.7);
+    expect(c.ownerTurnover!.pct).toBe(8.6);
+    expect(c.closed!.pct + c.transfers!.pct).toBeCloseTo(c.ownerTurnover!.pct, 10);
+  });
+
+  it("leaves a pair that already reconciled exactly where it was", () => {
+    // Tint World's shares happen to round cleanly. Apportionment must not move
+    // a figure that was never broken.
+    const c = analyzeChurn(TINT_WORLD);
+    expect(c.closed!.pct).toBe(4.8);
+    expect(c.transfers!.pct).toBe(16.6);
+    expect(c.ownerTurnover!.pct).toBe(21.4);
+  });
+
+  it("holds across every outlet shape in the corpus", () => {
+    for (let total = 3; total <= 1200; total += 7) {
+      for (const [opened, closed, transfers] of [
+        [0, 1, 0], [5, 0, 9], [12, 7, 24], [1, 1, 1], [40, 39, 61], [0, 0, 3], [3, 0, 0],
+      ]) {
+        const c = analyzeChurn({
+          totalUnits: total, openedLastYear: opened, closedLastYear: closed, transfersLastYear: transfers,
+        });
+        if (!c.computable || !c.ownerTurnover) continue;
+        const parts = (c.closed?.pct ?? 0) + (c.transfers?.pct ?? 0);
+        expect(parts, `total=${total} closed=${closed} xfer=${transfers}`).toBeCloseTo(c.ownerTurnover.pct, 10);
+      }
+    }
+  });
+
+  it("keeps every apportioned part within a tenth of its true share", () => {
+    for (let total = 5; total <= 900; total += 13) {
+      const c = analyzeChurn({ totalUnits: total, openedLastYear: 4, closedLastYear: 3, transfersLastYear: 11 });
+      if (!c.computable || !c.base) continue;
+      expect(Math.abs(c.closed!.pct - (3 / c.base) * 100)).toBeLessThanOrEqual(0.1000001);
+      expect(Math.abs(c.transfers!.pct - (11 / c.base) * 100)).toBeLessThanOrEqual(0.1000001);
+    }
+  });
+});
+
 describe("copy law", () => {
   const all = [TINT_WORLD, STRETCH_ZONE, CRUMBL, {}, { totalUnits: 12, openedLastYear: 3, closedLastYear: 2, transfersLastYear: 1 }];
 

@@ -12,6 +12,7 @@ import { recurringFeeDisplays } from "@/lib/fees";
 import { BASIS_STYLE, LEGEND_ORDER, basisColor } from "@/lib/basis";
 import { range } from "@/lib/range";
 import { analyzeChurn } from "@/lib/churn";
+import { buildCallList } from "@/lib/callList";
 
 const usd = (n: number | null | undefined) =>
   n == null
@@ -1036,6 +1037,72 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
               )}
               <p className="text-[11px] text-[#8194B0] mt-3 leading-relaxed">{ch.question}</p>
             </div>
+          </Card>
+        );
+      })()}
+
+      {/* Who to call — the executable half of "validate with existing franchisees".
+          No names are stored or rendered: the buyer already holds the FDD, and the
+          franchisor is required to print the roster in it. What we add is which
+          groups are worth an afternoon and what question opens each one. */}
+      {(() => {
+        const cl = buildCallList({
+          totalUnits: x.systemScale?.totalUnits,
+          closedLastYear: x.systemScale?.closedLastYear,
+          transfersLastYear: x.systemScale?.transfersLastYear,
+          item20Page: x.systemScale?.sourcePage,
+          cohorts: x.item19?.cohorts,
+          item19Page: x.item19?.sourcePage,
+        });
+        return (
+          <Card id="calls" title="Who To Call, And What To Ask">
+            {cl.available ? (
+              <>
+                <p className="text-xs text-[#CBD5E1] leading-relaxed">{cl.intro}</p>
+                <div className="mt-5 space-y-5">
+                  {cl.cohorts.map((c) => (
+                    <div key={c.key} className="border border-[#27344F] rounded-lg p-4">
+                      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                        <span className="text-sm font-semibold text-[#F1F5F9]">{c.title}</span>
+                        {c.count != null && (
+                          <span className="text-lg font-bold text-[#F1F5F9] tabular-nums">
+                            {c.count.toLocaleString()}
+                          </span>
+                        )}
+                        <span
+                          className="text-[10px] tracking-wider font-semibold border rounded px-1.5 py-0.5"
+                          style={{
+                            color: basisColor(c.basis),
+                            borderColor: `${basisColor(c.basis)}33`,
+                            backgroundColor: `${basisColor(c.basis)}14`,
+                          }}
+                        >
+                          {BASIS_STYLE[c.basis].label}
+                        </span>
+                      </div>
+                      <p className="text-xs text-[#CBD5E1] mt-2 leading-relaxed">{c.who}</p>
+                      <p className="text-xs text-[#CBD5E1] mt-3 border-l-2 border-[#38BDF8]/50 pl-3 leading-relaxed">
+                        {c.why}
+                      </p>
+                      <ol className="mt-3 space-y-1.5">
+                        {c.questions.map((q, i) => (
+                          <li key={i} className="flex gap-2 text-xs text-[#CBD5E1] leading-relaxed">
+                            <span className="text-[#8194B0] tabular-nums shrink-0">{i + 1}.</span>
+                            <span>{q}</span>
+                          </li>
+                        ))}
+                      </ol>
+                      {c.where && (
+                        <p className="text-[11px] text-[#8194B0] mt-3 leading-relaxed">{c.where}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                <p className="text-[11px] text-[#8194B0] mt-4 leading-relaxed">{cl.note}</p>
+              </>
+            ) : (
+              <p className="text-xs text-[#CBD5E1] leading-relaxed">{cl.unavailable}</p>
+            )}
           </Card>
         );
       })()}

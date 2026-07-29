@@ -97,8 +97,37 @@ function pct(n: number, base: number): number {
   return Math.round((n / base) * 1000) / 10;
 }
 
-function figure(n: number | null | undefined, base: number): ChurnFigure | null {
-  return n == null ? null : { count: n, pct: pct(n, base) };
+/**
+ * Split a rounded total into rounded parts that add back up to it exactly.
+ *
+ * Rounding each share independently does not guarantee the column adds. Crumbl's
+ * 9 closures are 0.851% of its starting base and its 82 transfers are 7.750%;
+ * rounded on their own those print 0.9 and 7.8, which a reader sums to 8.7 while
+ * the correctly-rounded total beside them reads 8.6. Every individual figure is
+ * right and the page is still wrong — and in a product whose entire claim is that
+ * it shows its work, a reader who checks our arithmetic and finds it off by a
+ * tenth does not conclude "rounding."
+ *
+ * So the total is rounded honestly and the parts are apportioned to it by largest
+ * remainder: floor each part to a tenth of a point, then hand the leftover tenths
+ * to whichever parts lost the most in the flooring. Every part still lands within
+ * a tenth of its true value, and the column always adds. Because the parts share
+ * a denominator with the total, the floors can never overshoot it, so this only
+ * ever distributes upward.
+ */
+function apportion(counts: number[], base: number, totalPct: number): number[] {
+  const totalTenths = Math.round(totalPct * 10);
+  const raw = counts.map((c) => (c / base) * 1000);
+  const out = raw.map((r) => Math.floor(r));
+  let leftover = totalTenths - out.reduce((a, b) => a + b, 0);
+  const byRemainder = raw
+    .map((r, i) => ({ i, frac: r - Math.floor(r) }))
+    .sort((a, b) => b.frac - a.frac || a.i - b.i);
+  for (let k = 0; leftover > 0 && k < byRemainder.length * 2; k++) {
+    out[byRemainder[k % byRemainder.length].i] += 1;
+    leftover--;
+  }
+  return out.map((t) => t / 10);
 }
 
 function isCount(n: unknown): n is number {
@@ -188,11 +217,19 @@ export function analyzeChurn(s: SystemScaleCounts | null | undefined): ChurnAnal
     );
   }
 
-  const closedFig = figure(closed, base);
-  const transferFig = figure(transfers, base);
+  // The whole is rounded first; the parts are then fitted to it. See apportion().
   const turnoverCount = (closed ?? 0) + (transfers ?? 0);
   const ownerTurnover: ChurnFigure | null =
     closed == null && transfers == null ? null : { count: turnoverCount, pct: pct(turnoverCount, base) };
+
+  const [closedPct, transferPct] = apportion(
+    [closed ?? 0, transfers ?? 0],
+    base,
+    ownerTurnover?.pct ?? 0,
+  );
+  const closedFig: ChurnFigure | null = closed == null ? null : { count: closed, pct: closedPct };
+  const transferFig: ChurnFigure | null =
+    transfers == null ? null : { count: transfers, pct: transferPct };
 
   const smallSystem = base < SMALL_SYSTEM;
   const tier = ownerTurnover && !smallSystem ? tierFor(ownerTurnover.pct) : null;
