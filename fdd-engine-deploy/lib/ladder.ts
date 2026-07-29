@@ -43,6 +43,8 @@
  * to us ("we flag anything below 1.25").
  */
 
+import { band } from "./range";
+
 /* ────────────────────────────── types ────────────────────────────── */
 
 /**
@@ -180,6 +182,22 @@ export interface CashLadder {
    * qualifier that governs all thirteen rungs below it.
    */
   revenueLabel: string;
+  /**
+   * The caveat that belongs to the operating-cost BLOCK — rungs 6, 7 and 8.
+   *
+   * It used to hang off each of the three rungs, so the identical three-line
+   * sentence ("Cost of goods, labor, and other operating costs are never
+   * disclosed in an FDD…") printed three times inside a thirteen-row table,
+   * directly above a fourth copy in the section footer. On a phone those
+   * duplicates were roughly a third of the visible screen, and a reader who has
+   * read the sentence once reads the second and third copies as noise and
+   * starts skipping footnotes — which is the opposite of what a caveat is for.
+   *
+   * THE RULE: a caveat that applies to a block is stated once, under the block.
+   * Each rung keeps its BENCHMARK chip and its own band, which is the part that
+   * differs between them.
+   */
+  blockNote: string;
 }
 
 /* ──────────────────────────── arithmetic ──────────────────────────── */
@@ -272,7 +290,7 @@ export function buildCashLadder(input: LadderInput): CashLadder {
     ids.forEach(([id, label, kind], i) =>
       push(nullRung(id, i + 1, label, kind, "No revenue figure disclosed in Item 19")),
     );
-    return finalize(rungs, null, "benchmark", false, input.revenueLabel);
+    return finalize(rungs, null, "benchmark", false, input.revenueLabel, blockNoteFor(input.costs));
   }
 
   const revenue = exact(rev);
@@ -354,10 +372,21 @@ export function buildCashLadder(input: LadderInput): CashLadder {
   const cogs = m((rev * c.cogsPct[0]) / 100, (rev * c.cogsPct[1]) / 100);
   const labor = m((rev * c.laborPct[0]) / 100, (rev * c.laborPct[1]) / 100);
   const opex = m((rev * c.otherOpexPct[0]) / 100, (rev * c.otherOpexPct[1]) / 100);
+  /**
+   * The rung's source is its OWN band and nothing else — "28–34% of revenue",
+   * "26.4% of revenue". Where the band came from is block-level provenance and
+   * is stated once in blockNote.
+   *
+   * This also puts the percentage back in front of a phone reader: the
+   * "% of revenue" column is hidden below the md breakpoint, so on mobile the
+   * band was the one thing about rungs 6-8 that never reached the screen while
+   * the same category label reached it three times.
+   */
   const costRow = (id: RungId, n: number, label: string, v: Money, p: [number, number]): Rung => ({
     id, n, label, kind: "subtract",
     monthly: round(v), annual: round(scale(v, 12)),
-    pctOfRevenue: m(p[0], p[1]), basis: c.basis, source: c.source, note: c.note,
+    pctOfRevenue: m(p[0], p[1]), basis: c.basis,
+    source: `${band(p[0], p[1], p[0] % 1 || p[1] % 1 ? 1 : 0)} of revenue`,
   });
   push(costRow("cogs", 6, "− Cost of goods", cogs, c.cogsPct));
   push(costRow("labor", 7, "− Labor", labor, c.laborPct));
@@ -462,7 +491,20 @@ export function buildCashLadder(input: LadderInput): CashLadder {
         },
   );
 
-  return finalize(rungs, debtMonthly, c.basis, neverAtLowEnd, input.revenueLabel);
+  return finalize(rungs, debtMonthly, c.basis, neverAtLowEnd, input.revenueLabel, blockNoteFor(c));
+}
+
+/**
+ * The operating-cost block's provenance and its caveat, joined into the single
+ * sentence that renders under the table.
+ *
+ * Both halves used to ride on every one of rungs 6, 7 and 8 — the long category
+ * label in `source` and the identical three-line warning in `note`. Neither
+ * varies between the three rungs, so neither belongs on them.
+ */
+function blockNoteFor(c: CostStructure): string {
+  const period = (t: string) => t.replace(/\.?$/, ".");
+  return [c.source, c.note].filter((t): t is string => !!t && t.trim().length > 0).map(period).join(" ");
 }
 
 function finalize(
@@ -471,6 +513,7 @@ function finalize(
   costBasis: Basis,
   paybackNeverAtLowEnd = false,
   revenueLabel = "Item 19 top line",
+  blockNote = "",
 ): CashLadder {
   const byId = new Map(rungs.map((r) => [r.id, r]));
   const get = (id: RungId) => byId.get(id) ?? null;
@@ -487,5 +530,6 @@ function finalize(
     usesBenchmark: rungs.some((r) => r.basis === "benchmark"),
     costBasis,
     revenueLabel,
+    blockNote,
   };
 }

@@ -15,6 +15,7 @@ import type { BrandRecord } from "@/lib/brands";
 import { listBrands, toCard } from "@/lib/brands";
 import { playbookUrl as resolvePlaybookUrl } from "@/lib/playbook";
 import { liveBrandCount, brandCountPhrase } from "@/lib/brandCount";
+import { range, RANGE_SEP } from "./range";
 
 const FROM = process.env.RESEND_FROM || "Franchise Edge <hello@foundersplinko.com>";
 
@@ -161,7 +162,7 @@ export async function sendCapitalMatchEmail(args: {
     .map(
       (c) => `<tr>
 <td style="padding:10px 0;border-bottom:1px solid #22304C;"><a href="${origin}/franchise/${c.slug}" style="font-size:14px;font-weight:700;color:#38BDF8;text-decoration:none;">${c.brandName}</a></td>
-<td style="padding:10px 0;border-bottom:1px solid #22304C;text-align:right;font-size:13px;color:#8194B0;">${c.lo != null && c.hi != null ? `${fmt(c.lo)} – ${fmt(c.hi)}` : "—"}</td>
+<td style="padding:10px 0;border-bottom:1px solid #22304C;text-align:right;font-size:13px;color:#8194B0;">${c.lo != null && c.hi != null ? range(fmt(c.lo), fmt(c.hi)) : "—"}</td>
 </tr>`,
     )
     .join("");
@@ -174,6 +175,6 @@ export async function sendCapitalMatchEmail(args: {
 </td></tr>
 <tr><td style="padding:22px 26px 6px;"><a href="${origin}/brands" ${BTN}>Browse all brands</a></td></tr>
 <tr><td style="padding:6px 26px 24px;"><p ${FOOT}>Ranges are franchisor-disclosed Item 7 estimates from each brand's FDD. Informational only. Unsubscribe anytime.</p></td></tr>`;
-  const text = `Brands that fit ${capStr}\n\n${fits.map((c) => `${c.brandName}: ${c.lo != null ? fmt(c.lo) : "—"}${c.hi != null ? " – " + fmt(c.hi) : ""} — ${origin}/franchise/${c.slug}`).join("\n")}\n\nAll brands: ${origin}/brands\n\nRanges are franchisor-disclosed Item 7 estimates.`;
+  const text = `Brands that fit ${capStr}\n\n${fits.map((c) => `${c.brandName}: ${c.lo != null ? fmt(c.lo) : "—"}${c.hi != null ? RANGE_SEP + fmt(c.hi) : ""} — ${origin}/franchise/${c.slug}`).join("\n")}\n\nAll brands: ${origin}/brands\n\nRanges are franchisor-disclosed Item 7 estimates.`;
   return send(to, subject, shell(inner, "Up to 8 tracked brands with an Item 7 low end inside your budget."), text);
 }

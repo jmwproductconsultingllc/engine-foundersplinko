@@ -258,14 +258,14 @@ describe("copy law", () => {
   });
 
   it("never publishes an internal rubric threshold in a rung's copy", () => {
-    const text = l.rungs.map((r) => `${r.label} ${r.source} ${r.note ?? ""}`).join(" ");
+    const text = l.rungs.map((r) => `${r.label} ${r.source} ${r.note ?? ""}`).join(" ") + " " + l.blockNote;
     // 1.25 is permitted (lender convention). Our own rubric numbers are not.
     expect(text).not.toMatch(/below (our|the) (threshold|cutoff|bar)/i);
     expect(text).not.toMatch(/we (flag|score|penali[sz]e)/i);
   });
 
   it("uses no banned nouns about our own analysis", () => {
-    const text = l.rungs.map((r) => `${r.label} ${r.note ?? ""}`).join(" ").toLowerCase();
+    const text = (l.rungs.map((r) => `${r.label} ${r.note ?? ""}`).join(" ") + " " + l.blockNote).toLowerCase();
     for (const banned of ["thoroughness", "our audit", "inflated"]) {
       expect(text).not.toContain(banned);
     }
@@ -318,5 +318,51 @@ describe("SOURCE LINT — the ladder math lives in exactly one file", () => {
     // assertion is updated down, never up.
     expect(MIGRATION_PENDING_SUBTRACTION.length).toBeLessThanOrEqual(1);
     expect(MIGRATION_PENDING_AMORTIZE.length).toBeLessThanOrEqual(1);
+  });
+});
+
+describe("mobile density — a caveat is stated once", () => {
+  /**
+   * On a 390px screen the identical three-line warning printed on rungs 6, 7 AND
+   * 8, and again in the section footer: four copies of one sentence, roughly a
+   * third of the visible screen, inside a table the buyer is trying to read as
+   * arithmetic. A reader who meets the same footnote three times stops reading
+   * footnotes, which is exactly the outcome a caveat exists to prevent.
+   */
+  const l = buildCashLadder(NOODLES_LADDER_INPUT);
+  const COST_RUNGS = ["cogs", "labor", "otherOpex"] as const;
+
+  it("rungs 6-8 carry no footnote of their own", () => {
+    for (const id of COST_RUNGS) expect(l.get(id)!.note, id).toBeUndefined();
+  });
+
+  it("the block's provenance and caveat survive, once, on the ladder", () => {
+    expect(l.blockNote).toContain(NOODLES_LADDER_INPUT.costs.source);
+    expect(l.blockNote).toContain(NOODLES_LADDER_INPUT.costs.note!.replace(/\.$/, ""));
+    // Once. Not once per rung.
+    const first = l.blockNote.slice(0, 40);
+    expect(l.blockNote.split(first).length - 1).toBe(1);
+  });
+
+  it("each cost rung's source is its OWN band, so the three rows differ", () => {
+    const sources = COST_RUNGS.map((id) => l.get(id)!.source);
+    expect(new Set(sources).size).toBe(3);
+    for (const src of sources) expect(src).toMatch(/^[\d.]+(–[\d.]+)?% of revenue$/);
+  });
+
+  it("the band reaches a phone, where the % column is hidden", () => {
+    // Noodles discloses 26.4 / 31.8 / 20.6 as point estimates.
+    expect(l.get("cogs")!.source).toBe("26.4% of revenue");
+    expect(l.get("labor")!.source).toBe("31.8% of revenue");
+    expect(l.get("otherOpex")!.source).toBe("20.6% of revenue");
+  });
+
+  it("no rung's source or value contains a breakable range", () => {
+    // An ordinary space either side of an en-dash is where "$16,018 – $25,629"
+    // splits into three lines on an iPhone. lib/range.ts owns that join.
+    for (const r of l.rungs) {
+      expect(r.source, r.id).not.toMatch(/\s–\s/);
+      expect(r.note ?? "", r.id).not.toMatch(/\s–\s/);
+    }
   });
 });

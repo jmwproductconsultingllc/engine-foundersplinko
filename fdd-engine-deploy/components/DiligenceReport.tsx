@@ -10,6 +10,7 @@ import { track } from "@/lib/analytics";
 import type { DiligenceResult } from "@/lib/types";
 import { recurringFeeDisplays } from "@/lib/fees";
 import { BASIS_STYLE, LEGEND_ORDER, basisColor } from "@/lib/basis";
+import { range } from "@/lib/range";
 
 const usd = (n: number | null | undefined) =>
   n == null
@@ -397,7 +398,13 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
     <div id="report-root" className="space-y-5 text-[#F1F5F9]">
       {/* The jump nav is sticky at 52px, so an anchored section has to clear
           both it and the app chrome above it or the heading lands underneath. */}
-      <style>{`#report-root section[id]{scroll-margin-top:112px}`}</style>
+      {/* Two mobile rules live here because they are page-level, not component-level.
+          scroll-margin: the jump nav is sticky at 52px, so an anchored section has
+          to clear both it and the app chrome or the heading lands underneath it.
+          padding-bottom: Safari's URL bar overlays the bottom of the viewport, and
+          it was eating the last row of the Item 7 table on every phone. */}
+      <style>{`#report-root section[id]{scroll-margin-top:112px}
+#report-root{padding-bottom:calc(4rem + env(safe-area-inset-bottom))}`}</style>
 
       {/* Header + condition strip */}
       <div className="bg-[#0B1220] border border-[#27344F] rounded-xl p-6">
@@ -456,8 +463,10 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
           for legacy reasons — the Src below shows the real Item 7 page). */}
       <Card id="item7" title={<>Initial Investment <Src s={x.item17?.sourcePage} /></>}>
         <p className="text-sm text-[#CBD5E1] mb-3">
-          Estimated total: <span className="font-semibold">{usd(x.item17?.initialInvestmentLow)}</span> –{" "}
-          <span className="font-semibold">{usd(x.item17?.initialInvestmentHigh)}</span>
+          Estimated total:{" "}
+          <span className="font-semibold whitespace-nowrap">
+            {range(usd(x.item17?.initialInvestmentLow), usd(x.item17?.initialInvestmentHigh))}
+          </span>
         </p>
         <CostGroup title="Non-recurring (build-out)" items={x.item17?.lineItems?.filter((l) => !l.recurring) ?? []} />
         <CostGroup title="Recurring (ongoing)" items={x.item17?.lineItems?.filter((l) => l.recurring) ?? []} />
@@ -1133,10 +1142,13 @@ function CostGroup({
       <p className="text-xs font-bold uppercase text-[#8194B0] mb-2">{title}</p>
       <div className="space-y-1.5">
         {items.map((it, i) => (
-          <div key={i} className="flex justify-between text-sm">
-            <span className="text-[#CBD5E1]">{it.category}</span>
-            <span className="text-[#F1F5F9] font-medium">
-              {usdLocal(it.low)} – {usdLocal(it.high)}
+          /* min-w-0 on the label, shrink-0 on the figure: a long Item 7 category
+             ("Initial Marketing Expenditure and Local Advertising (90 days)") wraps,
+             and the dollars stay on one line. It was the other way round. */
+          <div key={i} className="flex items-baseline justify-between gap-3 text-sm">
+            <span className="min-w-0 text-[#CBD5E1]">{it.category}</span>
+            <span className="shrink-0 whitespace-nowrap tabular-nums text-[#F1F5F9] font-medium">
+              {range(usdLocal(it.low), usdLocal(it.high))}
             </span>
           </div>
         ))}

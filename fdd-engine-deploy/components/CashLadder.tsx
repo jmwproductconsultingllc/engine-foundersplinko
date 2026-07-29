@@ -26,6 +26,7 @@ import type { DiligenceResult } from "@/lib/types";
 import { buildCashLadder, maxSupportableLoan, type Basis, type Money, type Rung } from "@/lib/ladder";
 import { buildLadderInput, resolvePercentageFees } from "@/lib/ladderInput";
 import { BASIS_STYLE } from "@/lib/basis";
+import { range } from "@/lib/range";
 
 /* ────────────────────────────── formatting ────────────────────────────── */
 
@@ -33,10 +34,9 @@ const usd0 = (n: number) =>
   new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
 
 /** A money range. Exact figures collapse to one number. */
-const money = (v: Money) => (Math.round(v.lo) === Math.round(v.hi) ? usd0(v.lo) : `${usd0(v.lo)} – ${usd0(v.hi)}`);
+const money = (v: Money) => range(usd0(v.lo), usd0(v.hi));
 
-const ratio = (v: Money) =>
-  Math.abs(v.lo - v.hi) < 0.005 ? v.lo.toFixed(2) : `${v.lo.toFixed(2)} – ${v.hi.toFixed(2)}`;
+const ratio = (v: Money) => range(v.lo.toFixed(2), v.hi.toFixed(2));
 
 /** LENDER CONVENTION, not our cutoff. We never say "we flag anything below". */
 const DSCR_LENDER_FLOOR = 1.25;
@@ -180,7 +180,7 @@ export function CashLadderSection({
         </div>
 
         <p className="mt-4 border-t border-[#27344F] pt-3 text-[11px] leading-relaxed text-[#8194B0]">
-          {ladder.get("cogs")?.note ??
+          {ladder.blockNote ||
             "Cost of goods, labor, and other operating costs are category ranges — an FDD never discloses them."}{" "}
           Rung 9 is before the owner&apos;s own pay. If you intend to draw a salary, it comes out of rung 11.
         </p>
@@ -248,7 +248,7 @@ export function CashLadderSection({
               />
               <Fig
                 label="Return on your cash"
-                value={roe ? `${roe.lo.toFixed(1)}% – ${roe.hi.toFixed(1)}%` : <Absent>no cash at risk</Absent>}
+                value={roe ? range(`${roe.lo.toFixed(1)}%`, `${roe.hi.toFixed(1)}%`) : <Absent>no cash at risk</Absent>}
                 tone={roe && roe.lo < 0 ? "warn" : "good"}
               />
             </div>
@@ -347,7 +347,7 @@ function Hero({
       </p>
       <p className="text-[11px] text-[#8194B0] mt-1">
         {annual ? `${money(annual)} a year` : ""}
-        {marginPct ? ` · ${marginPct.lo.toFixed(1)}% – ${marginPct.hi.toFixed(1)}% of revenue` : ""}
+        {marginPct ? ` · ${range(`${marginPct.lo.toFixed(1)}%`, `${marginPct.hi.toFixed(1)}%`)} of revenue` : ""}
         {strong ? "" : " · at the expensive end of the modeled cost range this unit does not turn an operating profit"}
       </p>
     </div>
@@ -385,7 +385,7 @@ function RungRow({
             <Absent>· never at worst</Absent>
           </span>
         );
-      return `${r.monthly.lo.toFixed(1)} – ${r.monthly.hi.toFixed(1)} yrs`;
+      return `${range(r.monthly.lo.toFixed(1), r.monthly.hi.toFixed(1))} yrs`;
     }
     if (!r.monthly) {
       if (r.id === "debtService") return <Absent>none</Absent>;
@@ -410,7 +410,7 @@ function RungRow({
           </span>
           <span className="block text-[10px] text-[#64748B] mt-0.5">{r.source}</span>
         </td>
-        <td className={`py-2 text-right align-top tabular-nums ${emphatic ? "font-bold text-[#F1F5F9]" : "text-[#CBD5E1]"}`}>
+        <td className={`py-2 pl-2 text-right align-top tabular-nums whitespace-nowrap ${emphatic ? "font-bold text-[#F1F5F9]" : "text-[#CBD5E1]"}`}>
           {value}
         </td>
         <td className="py-2 text-right align-top tabular-nums text-[#8194B0] hidden sm:table-cell">

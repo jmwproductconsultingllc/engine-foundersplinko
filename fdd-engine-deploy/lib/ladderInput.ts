@@ -191,8 +191,11 @@ export function buildLadderInput(
     otherOpexPct: bands.otherOpexPct,
     occupancyPct: bands.occupancyPct,
     basis: "benchmark",
-    source: `${bands.label} category bands`,
-    note: "Cost of goods, labor, and other operating costs are never disclosed in an FDD. These are category ranges — replace them with real franchisee numbers from Item 20 before you sign.",
+    // Block-level provenance. It is stated ONCE, under the table (ladder.blockNote),
+    // because it is identical for rungs 6, 7 and 8 — the part that differs between
+    // them is the band, and the band is now each rung's own source line.
+    source: `Rungs 6, 7 and 8 are ${bands.label} category bands`,
+    note: "Cost of goods, labor, and other operating costs are never disclosed in an FDD — replace these with real franchisee numbers from Item 20 before you sign.",
   };
 
   const financing = resolveFinancing(result, opts);

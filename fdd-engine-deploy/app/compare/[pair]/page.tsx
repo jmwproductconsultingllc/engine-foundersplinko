@@ -10,6 +10,7 @@ import { notFound, permanentRedirect, redirect } from "next/navigation";
 import { listBrands, toCard, verticalOf, isRetracted, type BrandCard as Card } from "@/lib/brands";
 import { parsePair } from "@/lib/comparePair";
 import BrandCTA from "@/components/BrandCTA";
+import { range } from "@/lib/range";
 
 export const revalidate = 3600;
 
@@ -138,8 +139,8 @@ export default async function ComparePage({
         <Row
           label="Cost to open"
           sub="Item 7 declared (or engine mid-point est.)"
-          a={a.lo != null ? `${usd(a.lo)} – ${usd(a.hi)}` : a.buildoutMid != null ? `~${usd(a.buildoutMid)}` : "—"}
-          b={b.lo != null ? `${usd(b.lo)} – ${usd(b.hi)}` : b.buildoutMid != null ? `~${usd(b.buildoutMid)}` : "—"}
+          a={a.lo != null ? range(usd(a.lo), usd(a.hi)) : a.buildoutMid != null ? `~${usd(a.buildoutMid)}` : "—"}
+          b={b.lo != null ? range(usd(b.lo), usd(b.hi)) : b.buildoutMid != null ? `~${usd(b.buildoutMid)}` : "—"}
         />
         <Row label="Disclosed monthly figure" sub="Item 19 · labeled by its own type" a={heroCell(a)} b={heroCell(b)} />
         <Row
