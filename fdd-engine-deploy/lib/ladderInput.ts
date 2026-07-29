@@ -195,7 +195,17 @@ export function buildLadderInput(
     // because it is identical for rungs 6, 7 and 8 — the part that differs between
     // them is the band, and the band is now each rung's own source line.
     source: `Rungs 6, 7 and 8 are ${bands.label} category bands`,
-    note: "Cost of goods, labor, and other operating costs are never disclosed in an FDD — replace these with real franchisee numbers from Item 20 before you sign.",
+    // C0. The previous wording said these costs "are never disclosed in an FDD"
+    // and sent the reader to Item 20 for "real franchisee numbers". Both halves
+    // were wrong. Item 19 is voluntary but roughly half of the brands on file
+    // publish a profitability cohort, and a quarter of them break out cost of
+    // goods, labor or occupancy inside it — so "never" is false, and the founder
+    // reading his own product caught it, which means a buyer would too. Item 20
+    // meanwhile carries no cost figures at all: by 16 CFR 436.5(t) it is outlet
+    // counts and the franchisee roster. What makes it the right pointer is the
+    // roster — the people who have the numbers, with their phone numbers.
+    note:
+      "These three rungs are category bands, not this brand's figures — an FDD is not required to disclose cost of goods, labor, or operating costs, and no such figures were read from this one. Item 20 does not carry cost figures either; what it carries is every current franchisee, by name and phone. Call three in markets like yours and ask what they actually run for food cost, labor and rent before you sign.",
   };
 
   const financing = resolveFinancing(result, opts);

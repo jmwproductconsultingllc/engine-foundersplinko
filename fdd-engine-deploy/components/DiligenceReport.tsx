@@ -11,6 +11,7 @@ import type { DiligenceResult } from "@/lib/types";
 import { recurringFeeDisplays } from "@/lib/fees";
 import { BASIS_STYLE, LEGEND_ORDER, basisColor } from "@/lib/basis";
 import { range } from "@/lib/range";
+import { analyzeChurn } from "@/lib/churn";
 
 const usd = (n: number | null | undefined) =>
   n == null
@@ -955,15 +956,89 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
         </Card>
       )}
 
-      {/* System scale */}
-      <Card title={<>System Scale <Src s={x.systemScale?.sourcePage} /></>}>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Stat label="Total units" value={x.systemScale?.totalUnits?.toLocaleString() ?? "—"} />
-          <Stat label="Opened (yr)" value={x.systemScale?.openedLastYear?.toLocaleString() ?? "—"} />
-          <Stat label="Closed (yr)" value={x.systemScale?.closedLastYear?.toLocaleString() ?? "—"} tone="bad" />
-          <Stat label="Transfers (yr)" value={x.systemScale?.transfersLastYear?.toLocaleString() ?? "—"} />
-        </div>
-      </Card>
+      {/* System scale & turnover.
+          Four bare counts with no denominator was the old card: "9 closed" reads
+          one way on 1,100 units and another on 40, and the page left that
+          division to the reader. lib/churn.ts does it, on outlets open at the
+          START of the year — see that module for why the year-end headline count
+          is the wrong base. Nothing here is newly extracted; it is arithmetic
+          over figures every record already carries, so it lands on reports
+          already sold without re-minting one of them. */}
+      {(() => {
+        const ch = analyzeChurn(x.systemScale);
+        const tierColor =
+          ch.tier === "High" ? "#F59E0B" : ch.tier === "Medium" ? "#F5B847" : "#34D399";
+        return (
+          <Card id="scale" title={<>System Scale &amp; Turnover <Src s={x.systemScale?.sourcePage} /></>}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <Stat
+                label="Total units"
+                value={x.systemScale?.totalUnits?.toLocaleString() ?? "Not disclosed"}
+                tone={x.systemScale?.totalUnits == null ? "muted" : undefined}
+                sub={x.systemScale?.totalUnits != null ? "at year end" : undefined}
+              />
+              <Stat
+                label="Opened (yr)"
+                value={x.systemScale?.openedLastYear?.toLocaleString() ?? "Not disclosed"}
+                tone={x.systemScale?.openedLastYear == null ? "muted" : undefined}
+              />
+              <Stat
+                label="Closed (yr)"
+                value={x.systemScale?.closedLastYear?.toLocaleString() ?? "Not disclosed"}
+                tone={x.systemScale?.closedLastYear == null ? "muted" : "warn"}
+                sub={ch.closed ? `${ch.closed.pct}% of starting units` : undefined}
+              />
+              <Stat
+                label="Changed hands (yr)"
+                value={x.systemScale?.transfersLastYear?.toLocaleString() ?? "Not disclosed"}
+                tone={x.systemScale?.transfersLastYear == null ? "muted" : undefined}
+                sub={ch.transfers ? `${ch.transfers.pct}% of starting units` : undefined}
+              />
+            </div>
+
+            <div className="mt-5 border-t border-[#27344F] pt-4">
+              {ch.computable && ch.ownerTurnover ? (
+                <>
+                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                    <span className="text-[11px] uppercase font-bold text-[#8194B0]">Owner turnover</span>
+                    <span className="text-lg font-bold text-[#F1F5F9] tabular-nums">{ch.ownerTurnover.pct}%</span>
+                    <span
+                      className="text-[10px] tracking-wider font-semibold border rounded px-1.5 py-0.5"
+                      style={{
+                        color: basisColor(ch.basis),
+                        borderColor: `${basisColor(ch.basis)}33`,
+                        backgroundColor: `${basisColor(ch.basis)}14`,
+                      }}
+                    >
+                      {BASIS_STYLE[ch.basis].label}
+                    </span>
+                    {ch.tier && (
+                      <span
+                        className="text-[10px] tracking-wider font-semibold border rounded px-1.5 py-0.5"
+                        style={{ color: tierColor, borderColor: `${tierColor}44` }}
+                      >
+                        {ch.tier.toUpperCase()}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-xs text-[#CBD5E1] mt-2 leading-relaxed">{ch.headline}</p>
+                  {ch.tell && (
+                    <p className="text-xs text-[#CBD5E1] mt-3 border-l-2 border-[#38BDF8]/50 pl-3 leading-relaxed">
+                      {ch.tell}
+                    </p>
+                  )}
+                  {ch.baseNote && (
+                    <p className="text-[11px] text-[#8194B0] mt-3 leading-relaxed">{ch.baseNote}</p>
+                  )}
+                </>
+              ) : (
+                <p className="text-xs text-[#CBD5E1] leading-relaxed">{ch.unavailable}</p>
+              )}
+              <p className="text-[11px] text-[#8194B0] mt-3 leading-relaxed">{ch.question}</p>
+            </div>
+          </Card>
+        );
+      })()}
 
       {/* Operational risks */}
       {tripwires.length > 0 && (
@@ -1112,17 +1187,46 @@ function FeeRow({ label, d }: { label: string; d: { pct: string | null; note: st
   );
 }
 
-function Stat({ label, value, tone }: { label: string; value: string; tone?: "good" | "bad" }) {
+/**
+ * A labelled figure.
+ *
+ * Two rules here.
+ *
+ * `muted` exists because a figure that does not exist gets WORDS, not a zero
+ * and not a dash. "Not disclosed" is longer than "—", so it drops a type size
+ * and loses the bold — it should read as an absence, not compete with the
+ * figures beside it.
+ *
+ * `warn` replaces the old `bad` on the closure count. Red is spoken for by
+ * warnings in this product, and a closure count is a disclosure, not a verdict:
+ * painting it red editorialises a number the franchisor published.
+ */
+function Stat({
+  label,
+  value,
+  tone,
+  sub,
+}: {
+  label: string;
+  value: string;
+  tone?: "good" | "bad" | "warn" | "muted";
+  sub?: string;
+}) {
+  const color =
+    tone === "bad"
+      ? "text-red-400"
+      : tone === "warn"
+        ? "text-[#F59E0B]"
+        : tone === "good"
+          ? "text-[#34D399]"
+          : tone === "muted"
+            ? "text-[#8194B0]"
+            : "text-[#F1F5F9]";
   return (
     <div>
       <p className="text-[11px] uppercase font-bold text-[#8194B0]">{label}</p>
-      <p
-        className={`text-lg font-bold ${
-          tone === "bad" ? "text-red-400" : tone === "good" ? "text-[#34D399]" : "text-[#F1F5F9]"
-        }`}
-      >
-        {value}
-      </p>
+      <p className={`${tone === "muted" ? "text-sm font-semibold" : "text-lg font-bold"} ${color}`}>{value}</p>
+      {sub && <p className="text-[10px] text-[#8194B0] mt-0.5 leading-snug">{sub}</p>}
     </div>
   );
 }

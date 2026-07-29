@@ -286,17 +286,29 @@ describe("SOURCE LINT — the ladder math lives in exactly one file", () => {
   const MIGRATION_PENDING_SUBTRACTION = ["scoring.ts"];
   const MIGRATION_PENDING_AMORTIZE = ["scoring.ts"];
 
-  const libDir = path.join(process.cwd(), "lib");
-  const files = fs
-    .readdirSync(libDir)
-    .filter((f) => f.endsWith(".ts") && !f.endsWith(".test.ts"));
+  /**
+   * The scan used to walk lib/ ONLY — which left components/, the one directory
+   * most likely to reconstruct a rung inline for display, as the place the lint
+   * could not see. A ratchet with a blind spot ratchets nothing. It walks both
+   * now; hits are reported as bare file names so the allowlists above keep
+   * reading as module names.
+   */
+  const roots = ["lib", "components"];
+  const files: string[] = [];
+  for (const root of roots) {
+    const dir = path.join(process.cwd(), root);
+    for (const f of fs.readdirSync(dir)) {
+      if (!/\.tsx?$/.test(f) || /\.test\.tsx?$/.test(f)) continue;
+      files.push(path.join(root, f));
+    }
+  }
 
   const scan = (re: RegExp) => {
     const hits: string[] = [];
     for (const f of files) {
-      if (f === "ladder.ts") continue;
-      const src = fs.readFileSync(path.join(libDir, f), "utf8");
-      if (re.test(src)) hits.push(f);
+      if (f === path.join("lib", "ladder.ts")) continue;
+      const src = fs.readFileSync(path.join(process.cwd(), f), "utf8");
+      if (re.test(src)) hits.push(path.basename(f));
     }
     return hits.sort();
   };
