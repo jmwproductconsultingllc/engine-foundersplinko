@@ -170,6 +170,16 @@ export interface CashLadder {
   usesBenchmark: boolean;
   /** the widest basis used for rungs 6-8, for the provenance legend */
   costBasis: Basis;
+  /**
+   * The Item 19 cohort this entire ladder runs on — "Middle 50% — Average",
+   * not "Gross revenue".
+   *
+   * input.revenueLabel was populated from the cohort and then never read, so
+   * the section heading fell back to rung 1's own label and rendered "The cash
+   * ladder — Gross revenue": true, tautological, and silent on the one
+   * qualifier that governs all thirteen rungs below it.
+   */
+  revenueLabel: string;
 }
 
 /* ──────────────────────────── arithmetic ──────────────────────────── */
@@ -262,7 +272,7 @@ export function buildCashLadder(input: LadderInput): CashLadder {
     ids.forEach(([id, label, kind], i) =>
       push(nullRung(id, i + 1, label, kind, "No revenue figure disclosed in Item 19")),
     );
-    return finalize(rungs, null, "benchmark");
+    return finalize(rungs, null, "benchmark", false, input.revenueLabel);
   }
 
   const revenue = exact(rev);
@@ -452,7 +462,7 @@ export function buildCashLadder(input: LadderInput): CashLadder {
         },
   );
 
-  return finalize(rungs, debtMonthly, c.basis, neverAtLowEnd);
+  return finalize(rungs, debtMonthly, c.basis, neverAtLowEnd, input.revenueLabel);
 }
 
 function finalize(
@@ -460,6 +470,7 @@ function finalize(
   debtMonthly: number | null,
   costBasis: Basis,
   paybackNeverAtLowEnd = false,
+  revenueLabel = "Item 19 top line",
 ): CashLadder {
   const byId = new Map(rungs.map((r) => [r.id, r]));
   const get = (id: RungId) => byId.get(id) ?? null;
@@ -475,5 +486,6 @@ function finalize(
     monthlyDebtService: debtMonthly,
     usesBenchmark: rungs.some((r) => r.basis === "benchmark"),
     costBasis,
+    revenueLabel,
   };
 }

@@ -9,6 +9,7 @@ import type { RentResolution } from "@/lib/rent";
 import { track } from "@/lib/analytics";
 import type { DiligenceResult } from "@/lib/types";
 import { recurringFeeDisplays } from "@/lib/fees";
+import { BASIS_STYLE, LEGEND_ORDER, basisColor } from "@/lib/basis";
 
 const usd = (n: number | null | undefined) =>
   n == null
@@ -662,19 +663,19 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
                   </p>
                   <div className="p-3 space-y-2">
                     {ins.assumptions.map((a, i) => {
-                      const tag = ({
-                        disclosed: { c: "#34D399", t: "Disclosed" },
-                        derived: { c: "#60A5FA", t: "Derived" },
-                        benchmark: { c: "#F59E0B", t: "Benchmark" },
-                        inferred: { c: "#8194B0", t: "Inferred" },
-                      } as const)[a.basis];
+                      /* Palette from lib/basis.ts. This map used to be declared
+                         inline with benchmark = #F59E0B, while CashLadder.tsx
+                         declared benchmark = #A78BFA — the same word in two
+                         colours on one page, and one of them was the warning
+                         colour. Both surfaces now read the same module. */
+                      const tag = BASIS_STYLE[a.basis];
                       return (
                         <div key={i} className="flex items-baseline gap-2">
                           <span
                             className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded shrink-0"
-                            style={{ color: tag.c, background: tag.c + "1A", border: `1px solid ${tag.c}55` }}
+                            style={{ color: tag.color, background: tag.color + "1A", border: `1px solid ${tag.color}55` }}
                           >
-                            {tag.t}
+                            {tag.word}
                           </span>
                           <span className="text-[11px] text-[#CBD5E1]">
                             <span className="text-white font-medium">{a.field}:</span> {a.detail}
@@ -683,11 +684,18 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
                       );
                     })}
                   </div>
+                  {/* Definitions come from the same module as the chips, so a
+                      term can never be defined in one colour and chipped in
+                      another. */}
                   <p className="text-[9px] text-[#64748B] px-3 pb-3 leading-relaxed">
-                    <span style={{ color: "#34D399" }}>Disclosed</span> = stated in this FDD ·{" "}
-                    <span style={{ color: "#60A5FA" }}>Derived</span> = our calculation from disclosed figures ·{" "}
-                    <span style={{ color: "#F59E0B" }}>Benchmark</span> = our industry range ·{" "}
-                    <span style={{ color: "#8194B0" }}>Inferred</span> = AI classification
+                    {LEGEND_ORDER.map((b, i) => (
+                      <span key={b}>
+                        {i > 0 ? " · " : ""}
+                        <span style={{ color: BASIS_STYLE[b].color }}>{BASIS_STYLE[b].word}</span>
+                        {" = "}
+                        {BASIS_STYLE[b].definition}
+                      </span>
+                    ))}
                   </p>
                 </div>
               )}
@@ -707,18 +715,13 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
                           : `${usd(r.dollarRange[0])}–${usd(r.dollarRange[1])}`
                         : "";
                       const pct = r.pctRange ? `${r.pctRange[0]}–${r.pctRange[1]}%` : "";
-                      // color each value by provenance, matching the legend:
-                      // disclosed = green, benchmark = amber, derived = blue.
-                      const valColor =
-                        r.basis === "disclosed"
-                          ? "#34D399"
-                          : r.basis === "benchmark"
-                            ? "#F59E0B"
-                            : r.basis === "derived"
-                              ? "#60A5FA"
-                              : isResult
-                                ? "#34D399"
-                                : "#CBD5E1";
+                      /* Colour each value by provenance, from the same palette
+                         as the chips and the definitions above. */
+                      const valColor = r.basis
+                        ? basisColor(r.basis)
+                        : isResult
+                          ? BASIS_STYLE.disclosed.color
+                          : "#CBD5E1";
                       return (
                         <div key={i} className={isResult ? "pt-2 mt-1 border-t border-[#27344F]" : ""}>
                           <div className="flex justify-between items-baseline gap-3">

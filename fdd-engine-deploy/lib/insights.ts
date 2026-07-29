@@ -551,6 +551,42 @@ export function buildInsights(
           detail: "Our calculation — the disclosed margin applied to the modeled franchised gross. The margin is from the FDD; this dollar figure is computed, not disclosed.",
         },
       );
+      /*
+       * A LEGEND MAY NOT DEFINE A WORD IT NEVER USES.
+       *
+       * When the franchisor disclosed a margin, Insights builds down from that
+       * margin and touches no category band — so this branch used to push zero
+       * benchmark rows, and the legend below rendered "Benchmark = our industry
+       * range" under a list where the word never appeared.
+       *
+       * But the CASH LADDER on the same page runs rungs 6, 7 and 8 entirely on
+       * these bands and chips each of them BENCHMARK. The reader met a key that
+       * defined a term, scrolled into a table that used it three times, and was
+       * never told which ranges applied or where they came from. Insights even
+       * says "these are category benchmarks applied to the disclosed top line"
+       * while declining to itemize them.
+       *
+       * So the bands are declared here whether or not THIS card's arithmetic
+       * used them, and each says where it lands. The legend describes the page,
+       * not one card on it.
+       */
+      assumptions.push(
+        {
+          field: "Cost of goods",
+          basis: "benchmark",
+          detail: `Estimated at the ${benchmark.cogsPct[0]}–${benchmark.cogsPct[1]}% category band — COGS is never disclosed in an FDD. Applied on rung 6 of the cash ladder, not to the disclosed margin above.`,
+        },
+        {
+          field: "Labor",
+          basis: "benchmark",
+          detail: `Estimated at the ${laborPctEffective[0]}–${laborPctEffective[1]}% category band (${laborNote}). Applied on rung 7 of the cash ladder, not to the disclosed margin above.`,
+        },
+        {
+          field: "Other operating costs",
+          basis: "benchmark",
+          detail: `Estimated at the ${OTHER_OPEX_PCT[0]}–${OTHER_OPEX_PCT[1]}% category band — utilities, insurance, R&M, supplies. Applied on rung 8 of the cash ladder, not to the disclosed margin above.`,
+        },
+      );
     } else if (marginAfterFeesMonthly != null) {
       // No disclosure — build down from the modeled margin-after-fees by subtracting
       // the missing lines as RANGES (each category's low–high), and carry the swing

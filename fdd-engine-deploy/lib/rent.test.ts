@@ -4,7 +4,7 @@
 import { describe, it, expect } from "vitest";
 import fs from "node:fs/promises";
 import path from "node:path";
-import { resolveMonthlyRent } from "./rent";
+import { resolveMonthlyRent, rentCeilingMonthly } from "./rent";
 import { applyRentCorrection, applyRentOverride } from "./rentCorrection";
 import type { ExtractedFDD } from "./schema";
 
@@ -174,5 +174,107 @@ describe("rent override — the third basis (applyRentOverride)", () => {
     expect(s.rentResolution.basis).toBe("override");
     // soft-warn threshold: 10,000 < 3 × 6,361 — must NOT warn
     expect(10000 <= 6361 * 3).toBe(true);
+  });
+});
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * THE PLAUSIBILITY GATE — regression pins for Row House (report 13d8381d).
+ *
+ * Rung 4 rendered "− Rent & occupancy $300,000" under a disclosed top line of
+ * $27,129/mo, and all nine rungs below it inherited the impossibility. The
+ * resolver trusted a single extracted number without ever comparing it to the
+ * revenue it was about to be subtracted from.
+ * ──────────────────────────────────────────────────────────────────────────── */
+describe("resolveMonthlyRent — the plausibility gate", () => {
+  const ROW_HOUSE_REVENUE = 27129;
+  const rowHouse = (rent: number) =>
+    base({
+      conceptType: "fitness_studio",
+      averageRentMonthly: rent,
+      rentDetail: { source: "Item 7 note 7, p.22 — estimate based on 3 months rent + 1-month security deposit" },
+    });
+
+  it("REPRO: $300,000/mo rent against $27,129/mo revenue is refused", () => {
+    const r = resolveMonthlyRent(rowHouse(300000), ROW_HOUSE_REVENUE);
+    expect(r!.basis).toBe("benchmark");
+    expect(r!.reviewFlag).toBe(true);
+    // 12–20% boutique-fitness occupancy band × the pro forma's own top line
+    expect(r!.lo).toBe(3255);
+    expect(r!.hi).toBe(5426);
+  });
+
+  it("the rejected figure is NAMED on the rung, in dollars and as a share", () => {
+    const r = resolveMonthlyRent(rowHouse(300000), ROW_HOUSE_REVENUE);
+    // A silently substituted benchmark is how a buyer gets surprised at the
+    // lease signing. Say the number we threw out and point at Item 7.
+    expect(r!.source).toContain("$300,000/mo");
+    expect(r!.source).toContain("1,106%");
+    expect(r!.source).toContain("Item 7");
+  });
+
+  it("GATE LAW — the merely BAD is never laundered into the good", () => {
+    // 45% of revenue is a deal no one should sign. It is not impossible, so it
+    // stays disclosed, stays on the rung, and still craters everything below.
+    // A gate that "fixes" this deal is a worse bug than the one it replaced.
+    const r = resolveMonthlyRent(rowHouse(Math.round(ROW_HOUSE_REVENUE * 0.45)), ROW_HOUSE_REVENUE);
+    expect(r!.basis).toBe("disclosed");
+    expect(r!.mid).toBe(12208);
+    expect(r!.reviewFlag).toBeUndefined();
+  });
+
+  it("the ceiling is 3× the category occupancy band, floored at 50% of revenue", () => {
+    // fitness_studio band tops at 20% → 60% ceiling.
+    expect(rentCeilingMonthly(rowHouse(1), 10000)).toBe(6000);
+    // a low-occupancy category would compute under 50%; the floor holds.
+    expect(rentCeilingMonthly(base({ conceptType: "mobile_services" }), 10000)).toBe(5000);
+    // no revenue to compare against → no gate. Named, not hidden: the resolver
+    // cannot judge plausibility without the top line the ladder runs on.
+    expect(rentCeilingMonthly(rowHouse(1), null)).toBeNull();
+    expect(resolveMonthlyRent(rowHouse(300000), null)!.basis).toBe("disclosed");
+  });
+});
+
+describe("applyRentCorrection — the sanity re-check on STORED results", () => {
+  const stored = (rentResolution: unknown) =>
+    ({
+      extracted: base({ conceptType: "fitness_studio", averageRentMonthly: 300000 }),
+      scoring: {
+        rentResolution,
+        assumedMonthlyDebtService: 1181,
+        buildoutMidpoint: 450000,
+        midCohort: {
+          monthlyRevenue: 27129,
+          monthlyVariable: 8000,
+          monthlyFixed: 303165,
+          monthlyEbitda: -284036,
+          annualEbitda: -3408432,
+          coversCosts: false,
+        },
+        bottomCohort: null,
+      },
+    }) as any;
+
+  it("a PERSISTED impossibility is repaired at render time — no re-mint", () => {
+    // This is the retroactive win. Every report already sold with an impossible
+    // rent heals the next time someone opens it: same report ID, same URL.
+    const out = applyRentCorrection(stored({ lo: 300000, hi: 300000, mid: 300000, basis: "disclosed", source: "Item 7" }));
+    const s = out.scoring as any;
+    expect(s.rentResolution.basis).toBe("benchmark");
+    expect(s.rentResolution.mid).toBe(4341);
+    expect(s.midCohort.monthlyEbitda).toBeGreaterThan(0);
+  });
+
+  it("a PERSISTED plausible resolution is left byte-identical", () => {
+    // The gate must not become a second source of drift. Anything that clears
+    // it is returned untouched — no re-derivation, no recompute.
+    const input = stored({ lo: 4200, hi: 4200, mid: 4200, basis: "disclosed", source: "Item 7" });
+    expect(applyRentCorrection(input)).toBe(input);
+  });
+
+  it("a buyer's OVERRIDE is never second-guessed", () => {
+    // If they typed something extreme, that is a deliberate scenario, not a
+    // defect. Their number is theirs.
+    const input = stored({ lo: 300000, hi: 300000, mid: 300000, basis: "override", source: "buyer-entered figure" });
+    expect(applyRentCorrection(input)).toBe(input);
   });
 });

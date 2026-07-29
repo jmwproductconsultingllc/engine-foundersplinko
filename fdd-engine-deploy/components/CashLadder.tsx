@@ -25,6 +25,7 @@ import { useMemo, useState, type ReactNode } from "react";
 import type { DiligenceResult } from "@/lib/types";
 import { buildCashLadder, maxSupportableLoan, type Basis, type Money, type Rung } from "@/lib/ladder";
 import { buildLadderInput, resolvePercentageFees } from "@/lib/ladderInput";
+import { BASIS_STYLE } from "@/lib/basis";
 
 /* ────────────────────────────── formatting ────────────────────────────── */
 
@@ -40,14 +41,9 @@ const ratio = (v: Money) =>
 /** LENDER CONVENTION, not our cutoff. We never say "we flag anything below". */
 const DSCR_LENDER_FLOOR = 1.25;
 
-const BASIS_STYLE: Record<Basis, { label: string; color: string }> = {
-  disclosed: { label: "DISCLOSED", color: "#34D399" },
-  buyer: { label: "YOUR FIGURE", color: "#F5B847" },
-  derived: { label: "DERIVED", color: "#38BDF8" },
-  benchmark: { label: "BENCHMARK", color: "#A78BFA" },
-  inferred: { label: "INFERRED", color: "#8194B0" },
-};
-
+/* Provenance palette lives in lib/basis.ts — ONE palette, two surfaces. This
+   file used to declare its own, and DiligenceReport.tsx declared a different
+   one, so BENCHMARK was violet here and amber there on the same page. */
 const BasisChip = ({ basis }: { basis: Basis }) => {
   const b = BASIS_STYLE[basis];
   return (
@@ -137,7 +133,7 @@ export function CashLadderSection({
     <>
       <section id="ladder" className="bg-[#16223B] border border-[#27344F] rounded-xl p-6">
         <h3 className="text-sm font-bold uppercase tracking-wider text-[#38BDF8] mb-1">
-          The cash ladder — {ladder.get("revenue")?.label}
+          The cash ladder — {ladder.revenueLabel}
         </h3>
         <p className="text-xs text-[#8194B0] mb-4">
           Rungs 1 through 9 are the business. Rung 10 onward is the deal — how you pay for it changes

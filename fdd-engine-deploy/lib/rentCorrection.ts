@@ -14,7 +14,7 @@ import type { DiligenceResult } from "./types";
 import type { ScoringResult } from "./scoring";
 import { underwrite } from "./underwriting";
 import { buildInsights } from "./insights";
-import { resolveMonthlyRent, type RentResolution } from "./rent";
+import { resolveMonthlyRent, rentCeilingMonthly, type RentResolution } from "./rent";
 
 /**
  * applyRentOverride — the THIRD basis: the buyer's own number ("your input").
@@ -103,10 +103,38 @@ export function applyRentCorrection(result: DiligenceResult): DiligenceResult {
   const fdd = result?.extracted;
   if (!s || !fdd) return result;
 
-  // Already resolver-aware (new pipeline output) → nothing to correct.
-  if (s.rentResolution !== undefined) return result;
-
   const midRev = s.midCohort?.monthlyRevenue ?? null;
+
+  /**
+   * THE SANITY RE-CHECK — why this runs on records that are already
+   * resolver-aware.
+   *
+   * The rent hotfix made new pipeline runs "correct natively", so this
+   * function used to return immediately whenever `rentResolution` was present.
+   * That was right for the bug it was written for (rent silently $0) and wrong
+   * for the one after it: Row House shipped a PERSISTED rentResolution of
+   * $300,000/mo against $27,129/mo of revenue. Being resolver-aware is not the
+   * same as being right, and a stored impossibility survives every render.
+   *
+   * So the early return now carries a condition. A persisted resolution that
+   * clears the plausibility gate is still trusted untouched — no re-derivation,
+   * no drift. One that does not clear it falls through to the full recompute
+   * below, where resolveMonthlyRent() applies the gate and substitutes the
+   * category benchmark with the rejected figure named on the rung.
+   *
+   * This is what makes the fix RETROACTIVE. Every report already sold with an
+   * impossible rent repairs itself the next time someone opens it — no re-mint,
+   * no new report ID, no second live URL with different numbers.
+   *
+   * An "override" is never re-checked. A buyer's own rent figure is theirs; if
+   * they typed something extreme, that is a deliberate scenario and we model it.
+   */
+  const persisted = s.rentResolution;
+  if (persisted !== undefined) {
+    if (persisted === null || persisted.basis === "override") return result;
+    const ceiling = rentCeilingMonthly(fdd, midRev);
+    if (ceiling == null || persisted.mid <= ceiling) return result;
+  }
   const rent = resolveMonthlyRent(fdd, midRev);
   const flatFees = (fdd.ongoingFees?.flatMonthlyFees ?? []).reduce(
     (acc, x) => acc + (x.monthlyAmount ?? 0),
