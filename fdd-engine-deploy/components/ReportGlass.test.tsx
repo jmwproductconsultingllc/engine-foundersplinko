@@ -65,6 +65,47 @@ function scannable(html: string): string {
     .replace(CAP_INPUT, (tag) => tag.replace(/\b(?:value|max|min)="\d+"/g, ""));
 }
 
+/**
+ * Every numeric leaf on the shell big enough to be a figure.
+ *
+ * NOT a regex over JSON.stringify(shell), which is where this started and
+ * where it was wrong. The separator heuristic the markup check uses is exactly
+ * backwards here: the payload carries RAW numbers, and JSON's own array
+ * delimiter reads as a thousands separator — `capitalRange: [272357, 534417]`
+ * serializes to `[272357,534417]`, out of which `\d{1,3}(,\d{3})+` happily
+ * cuts "357,534". That fired on all 12 sampled brands, and a lint that is red
+ * on 100% of the catalog is a lint someone disables.
+ *
+ * So this walks the object and judges magnitude, which is what a leak in the
+ * payload actually looks like. Numeric strings are walked too — stashing a
+ * figure as text is not a loophole. Nothing free on the shell reaches 1,000:
+ * counts, severity counts, Item numbers, page cites and mask widths are all
+ * small, so the floor needs no allow-list beyond the Item 7 pair.
+ */
+function payloadFigures(shell: unknown): string[] {
+  const range = (shell as { capitalRange?: number[] })?.capitalRange ?? [];
+  const allowed = new Set<number>(range);
+  const out: string[] = [];
+  const walk = (v: unknown, path: string) => {
+    if (v === null || v === undefined) return;
+    if (Array.isArray(v)) return v.forEach((x) => walk(x, `${path}[]`));
+    if (typeof v === "object") {
+      for (const k of Object.keys(v)) walk((v as Record<string, unknown>)[k], `${path}.${k}`);
+      return;
+    }
+    const n =
+      typeof v === "number"
+        ? v
+        : typeof v === "string" && /^-?\d[\d,]*(\.\d+)?$/.test(v)
+          ? Number(v.replace(/,/g, ""))
+          : NaN;
+    if (!Number.isFinite(n) || Math.abs(n) < 1000 || allowed.has(n)) return;
+    out.push(`${path} = ${String(v)}`);
+  };
+  walk(shell, "shell");
+  return out;
+}
+
 function load(): Array<{ slug: string; rec: BrandRecord }> {
   return readdirSync(BRANDS_DIR)
     .filter((f) => f.endsWith(".json"))
@@ -148,6 +189,30 @@ describe("THE RENDERED LEAK TEST", () => {
         html.length - scanned.length,
         "scannable() removed far more than the capital readout",
       ).toBeLessThan(200);
+
+      /* THE RSC PAYLOAD CHECK — ship-gate item 4, and the reason view-source
+         is not sufficient on the App Router.
+
+         A server component streams two things to the browser: the rendered
+         HTML (asserted above) and the flight payload, which carries the
+         serialized props of every client component in the tree so React can
+         hydrate. A figure can be absent from the markup and present in the
+         payload — it is sitting in the page source either way, and "we don't
+         paint it" is not the guarantee we sell.
+
+         On the glass path this is exactly checkable, because
+         app/franchise/[slug]/page.tsx returns NOTHING but <ReportGlass>. The
+         client subtree is this one component, so its props ARE the payload.
+         Widen the props and this assertion silently stops covering the page —
+         which is the other reason the header says do not widen them. */
+      const inPayload = payloadFigures(shell);
+      expect(
+        inPayload,
+        `${slug} serialized ${inPayload.length} figure(s) into the RSC payload ` +
+          `that never appear in the markup: ${inPayload.join(", ")}. The buyer ` +
+          `can read these in view-source. Nothing but the shell crosses the ` +
+          `boundary, so a number here was put ON the shell, not hidden by it.`,
+      ).toEqual([]);
 
       const found = [...new Set(scanned.match(SEPARATED) ?? [])];
       const leaked = found.filter((n) => !allowed.has(n));
