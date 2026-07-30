@@ -524,7 +524,15 @@ export function resolveBrandFacts(
     category: (brand as any)?.category ?? "",
     vertical: (brand as any)?.vertical ?? "Kids & Family",
     parseQuality,
-    grade: (brand as any)?.grade === "THIN" ? "THIN" : "READY",
+    // READY IS EARNED, NEVER INHERITED. This used to read
+    //   grade === "THIN" ? "THIN" : "READY"
+    // which resolved EVERY unrecognized value — "STAGED", a typo, undefined, a
+    // future staging tier — to READY, while `live` ten lines up strict-equals
+    // "READY". Two contradictory grade tests in one object: the safety
+    // inversion defeated itself the moment a third grade existed. The default
+    // is now the SAFE side, so adding a grade can only ever withhold a brand,
+    // never publish one by accident.
+    grade: (brand as any)?.grade === "READY" ? "READY" : "THIN",
     live,
     retracted,
     i19: Boolean(i19obj?.hasItem19),

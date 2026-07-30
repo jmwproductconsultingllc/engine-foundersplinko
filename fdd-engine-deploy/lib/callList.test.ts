@@ -1,7 +1,17 @@
 import { describe, it, expect } from "vitest";
 import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import { buildCallList, type CallListInput } from "./callList";
 import { RANGE_SEP } from "./range";
+
+// PATHS RESOLVE FROM THE REPO, NEVER FROM A MACHINE. These once read the
+// authoring sandbox's absolute data dir literally — a path that exists on one
+// machine on earth. Every assertion passed there and the whole FILE aborted in
+// CI with EACCES before a single test in it ran, so the job printed
+// "251 passed · 0 failed" next to a red X. A test that cannot run is not a
+// passing test, and a green count beside a red job is worse than a red count.
+// Held by THE PORTABILITY LINT in lib/portability.test.ts.
+const BRANDS_DIR = join(process.cwd(), "data", "brands");
 
 /**
  * THE VALIDATION LINT.
@@ -21,7 +31,7 @@ import { RANGE_SEP } from "./range";
 // ── real records, as extracted, on disk ─────────────────────────────────────
 const brand = (slug: string): CallListInput => {
   const e = JSON.parse(
-    readFileSync(`/root/work/data/brands/${slug}.json`, "utf8"),
+    readFileSync(BRANDS_DIR + `/${slug}.json`, "utf8"),
   )?.result?.extracted;
   return {
     totalUnits: e?.systemScale?.totalUnits,
@@ -64,7 +74,7 @@ describe("the cohorts a record can actually support", () => {
 
 describe("a cohort with no data is absent, never empty", () => {
   it("never prints a zero count", () => {
-    for (const f of readdirSync("/root/work/data/brands").filter((x) => x.endsWith(".json"))) {
+    for (const f of readdirSync(BRANDS_DIR).filter((x) => x.endsWith(".json"))) {
       const cl = buildCallList(brand(f.replace(".json", "")));
       for (const c of cl.cohorts) {
         expect(c.count === null || c.count > 0, `${f} ${c.key} count=${c.count}`).toBe(true);
@@ -104,7 +114,7 @@ describe("the exit reason is the first question, not a label we apply", () => {
       /\bfailed\b/i, /\bwent under\b/i, /\bwas terminated\b/i,
       /\bstruggling\b/i, /\bunderperform/i, /\bunsuccessful\b/i,
     ];
-    for (const f of readdirSync("/root/work/data/brands").filter((x) => x.endsWith(".json"))) {
+    for (const f of readdirSync(BRANDS_DIR).filter((x) => x.endsWith(".json"))) {
       const cl = buildCallList(brand(f.replace(".json", "")));
       const who = cl.cohorts.map((c) => c.who).join(" ");
       for (const re of banned) {
@@ -219,7 +229,7 @@ describe("no performance claim attaches to a person or a false denominator", () 
     // Tint World's "Highest" row describes ONE centre and carries sampleSize 105.
     const c = cohort(brand("tint-world"), "tiers")!;
     expect(c.who).not.toMatch(/105 outlets/);
-    for (const f of readdirSync("/root/work/data/brands").filter((x) => x.endsWith(".json"))) {
+    for (const f of readdirSync(BRANDS_DIR).filter((x) => x.endsWith(".json"))) {
       const t = cohort(brand(f.replace(".json", "")), "tiers");
       if (t) expect(t.who, f).not.toMatch(/\d+ outlets\)/);
     }
@@ -241,7 +251,7 @@ describe("no performance claim attaches to a person or a false denominator", () 
 });
 
 describe("copy law", () => {
-  const slugs = readdirSync("/root/work/data/brands").filter((x) => x.endsWith(".json"));
+  const slugs = readdirSync(BRANDS_DIR).filter((x) => x.endsWith(".json"));
 
   it("describes the deal, never our analysis, and never names a cutoff", () => {
     for (const f of slugs) {
@@ -327,7 +337,7 @@ describe("THE SHELF LINT — the unlock is named where the buyer decides to pay"
     it(`${rel} tells the buyer the call list is in there`, () => {
       // Comments stripped: a promise written in a code comment is a promise made
       // to us, not to the buyer.
-      const src = readFileSync(`/root/work/${rel}`, "utf8")
+      const src = readFileSync(join(process.cwd(), rel), "utf8")
         .replace(/\/\*[\s\S]*?\*\//g, "")
         .replace(/\{\/\*[\s\S]*?\*\/\}/g, "")
         .replace(/^\s*\/\/.*$/gm, "");
@@ -349,7 +359,7 @@ describe("THE SHELF LINT — the unlock is named where the buyer decides to pay"
     const CLAIMS_OURS =
       /\b(we|our)\b[^.]{0,60}\b(phone numbers|contact (?:info|information)|franchisee list|roster)\b/i;
     for (const rel of UNLOCK_SURFACES) {
-      const src = readFileSync(`/root/work/${rel}`, "utf8");
+      const src = readFileSync(join(process.cwd(), rel), "utf8");
       expect(CLAIMS_OURS.test(src), `${rel} sounds like WE supply the contact data`).toBe(false);
     }
   });
