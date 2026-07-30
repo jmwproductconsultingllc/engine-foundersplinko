@@ -13,9 +13,11 @@
 // means it is true on that day and unenforced forever after. This is the same
 // check, run over real catalog records, on every commit.
 //
-// scripts/renderPreview.ts is NOT this. It is a hand-written mirror of the
-// component's markup — "when you change one, change the other" — so it proves
-// things about the mirror. This renders the actual default export.
+// A preview script that hand-writes the same markup is NOT this, and was the
+// first thing built here before it got thrown away. A mirror of the component
+// only ever proves things about the mirror — it stays clean on exactly the
+// commit where the component stops being. This renders the actual default
+// export, so there is nothing to keep in sync.
 
 import { describe, it, expect } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
