@@ -1,0 +1,230 @@
+/* ReportGlass.module.css
+ *
+ * The mask is a striped, animated empty box. It is NOT a blurred number.
+ * There is no text node behind any of these rules — if you find yourself
+ * writing `color: transparent` or `filter: blur()` here, stop: that ships
+ * the figure to view-source. See reportShell.ts.
+ *
+ * LABEL LAW: negatives are amber (#fbbf24). Never red.
+ */
+
+.root {
+  --bg: #080b10;
+  --panel: #111823;
+  --panel2: #0d141d;
+  --line: #1a2432;
+  --line2: #25313f;
+  --text: #e8eef5;
+  --muted: #8b98a8;
+  --dim: #5f6c7c;
+  --amber: #fbbf24;
+  --cta: #22c55e;
+  --ctaText: #04240f;
+  /* THE ONE PROVENANCE PALETTE. These four hexes are NOT a design choice made
+     here — they are copied from BASIS_STYLE in lib/basis.ts, which the paid
+     report renders from. A buyer who sees a green DISCLOSED chip on the glass
+     page and a blue one on the report they just paid for has been told the
+     colour means nothing. Pinned by THE PALETTE LINT (lib/basis.test.ts),
+     which scans .css as of glass mode precisely because the incoming bundle
+     shipped disclosed and derived inverted and nothing caught it. */
+  --disclosed: #34D399;
+  --derived: #38BDF8;
+  --benchmark: #A78BFA;
+  --inferred: #8194B0;
+
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 24px 18px 132px;
+}
+
+/* ---------------- hero ---------------- */
+
+.hero { padding: 8px 0 20px; }
+
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+
+.badge, .badgeMed, .badgeHigh {
+  font-size: 12px; font-weight: 600; letter-spacing: .01em;
+  padding: 4px 9px; border-radius: 999px; border: 1px solid var(--line2);
+  color: var(--muted); background: var(--panel2);
+}
+.badgeMed { color: var(--amber); border-color: #574521; background: #23200f; }
+.badgeHigh { color: #04240f; background: var(--amber); border-color: var(--amber); }
+
+.h1 { font-size: 27px; line-height: 1.2; margin: 0 0 12px; font-weight: 700; }
+
+.heroCounts {
+  font-size: 15px; color: var(--muted); margin: 0 0 12px;
+  padding: 12px 14px; border: 1px solid var(--line2); border-radius: 10px;
+  background: var(--panel);
+}
+.heroCounts strong { color: var(--text); font-size: 17px; }
+
+.heroSub { font-size: 14px; color: var(--muted); margin: 0; max-width: 62ch; }
+
+/* ---------------- provenance legend ---------------- */
+
+.legend {
+  display: flex; flex-wrap: wrap; gap: 14px;
+  padding: 12px 14px; margin: 18px 0;
+  border: 1px solid var(--line); border-radius: 10px; background: var(--panel2);
+}
+.legendItem { display: inline-flex; align-items: center; gap: 7px; }
+.legendText { font-size: 12.5px; color: var(--dim); }
+
+/* ---------------- nav ---------------- */
+
+.nav { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 22px; }
+.navItem {
+  font-size: 12.5px; color: var(--muted); text-decoration: none;
+  padding: 5px 10px; border: 1px solid var(--line2); border-radius: 999px;
+  background: var(--panel2);
+}
+.navItem:hover { color: var(--text); border-color: var(--dim); }
+
+/* ---------------- capital verdict ---------------- */
+
+.capital {
+  border: 1px solid var(--line2); border-radius: 12px;
+  background: var(--panel); padding: 16px; margin: 0 0 26px;
+}
+.capLabel { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); margin-bottom: 10px; }
+.slider { width: 100%; accent-color: var(--cta); }
+.capRow { display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px; gap: 12px; }
+.capValue { font-size: 21px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.vBad { font-size: 13px; font-weight: 600; color: var(--amber); }
+.vMid { font-size: 13px; font-weight: 600; color: var(--disclosed); }
+.vOk { font-size: 13px; font-weight: 600; color: var(--cta); }
+.capNote { font-size: 12.5px; color: var(--dim); margin: 10px 0 0; }
+
+/* ---------------- sections ---------------- */
+
+.section {
+  border: 1px solid var(--line); border-radius: 12px;
+  background: var(--panel2); padding: 16px; margin: 0 0 16px;
+  scroll-margin-top: 16px;
+}
+.sectionHead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.h2 { font-size: 17px; font-weight: 700; margin: 0; }
+.count { font-size: 11.5px; color: var(--dim); white-space: nowrap; }
+.blurb { font-size: 13.5px; color: var(--muted); margin: 8px 0 14px; max-width: 66ch; }
+
+.sevRow { display: flex; gap: 8px; margin: 0 0 12px; }
+.sevHigh, .sevMed, .sevLow {
+  font-size: 11.5px; font-weight: 700; padding: 3px 8px;
+  border-radius: 5px; letter-spacing: .02em;
+}
+.sevHigh { color: #04240f; background: var(--amber); }
+.sevMed { color: var(--amber); background: #2b2412; border: 1px solid #574521; }
+.sevLow { color: var(--dim); background: var(--panel); border: 1px solid var(--line2); }
+
+.chipRow { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; }
+.freeChip {
+  /* Free chips are things the FDD states — Item numbers, executive titles, the
+     one open question. Disclosed green, not derived blue. */
+  font-size: 12px; color: var(--disclosed); background: #0f2418;
+  border: 1px solid #1d4630; border-radius: 6px; padding: 4px 9px;
+}
+
+/* ---------------- lines ---------------- */
+
+.line { padding: 9px 0; border-top: 1px solid var(--line); }
+.line:first-of-type { border-top: none; }
+.lineHead { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+.label { font-size: 14px; flex: 1 1 auto; min-width: 46%; }
+.cite { font-size: 11px; color: var(--dim); white-space: nowrap; }
+.note { font-size: 12.5px; color: var(--dim); margin: 6px 0 0; max-width: 64ch; font-style: italic; }
+
+.chip {
+  font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  padding: 2px 6px; border-radius: 4px; white-space: nowrap;
+}
+/* Tints follow the foreground: disclosed is green, derived is blue. These two
+   were swapped in the incoming bundle along with the vars above. */
+.disclosed { color: var(--disclosed); background: #0f2418; }
+.derived { color: var(--derived); background: #10203a; }
+.benchmark { color: var(--benchmark); background: #201a3a; }
+.inferred { color: var(--inferred); background: #1a1f26; }
+
+/* ---------------- the mask ---------------- */
+
+.value, .valueNeg { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.dash { color: var(--dim); font-size: 12px; }
+
+.mask {
+  display: inline-block; height: 14px; border-radius: 4px;
+  position: relative; overflow: hidden; vertical-align: -2px;
+  background: repeating-linear-gradient(115deg, #243141 0 3px, #1b2532 3px 6px);
+  box-shadow: inset 0 0 0 1px #2c3a4b, 0 0 14px rgba(90, 130, 180, .10);
+  cursor: pointer;
+}
+.mask::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(100deg, transparent 20%, rgba(150, 190, 230, .16) 50%, transparent 80%);
+  transform: translateX(-100%);
+  animation: sheen 3.6s ease-in-out infinite;
+}
+@keyframes sheen {
+  0%, 60% { transform: translateX(-100%); }
+  100% { transform: translateX(220%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mask::after { animation: none; }
+}
+
+.w2 { width: 20px; }
+.w3 { width: 29px; }
+.w4 { width: 38px; }
+.w5 { width: 50px; }
+.w6 { width: 62px; }
+.w7 { width: 74px; }
+.w8 { width: 88px; }
+.maskWide { width: 100%; height: 15px; }
+
+.negative {
+  background: repeating-linear-gradient(115deg, #3d3218 0 3px, #2b2412 3px 6px);
+  box-shadow: inset 0 0 0 1px #574521, 0 0 14px rgba(251, 191, 36, .12);
+}
+
+.srOnly {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* ---------------- offer ---------------- */
+
+.offer {
+  border: 1px solid var(--line2); border-radius: 12px;
+  background: linear-gradient(180deg, var(--panel) 0%, var(--panel2) 100%);
+  padding: 22px 18px; margin: 26px 0 0; text-align: center;
+}
+.offerHead { font-size: 20px; font-weight: 700; margin: 0 0 6px; }
+.offerSub { font-size: 13.5px; color: var(--muted); margin: 0 0 16px; }
+.cta {
+  font-size: 16px; font-weight: 700; padding: 13px 26px;
+  background: var(--cta); color: var(--ctaText);
+  border: none; border-radius: 9px; cursor: pointer; width: 100%; max-width: 340px;
+}
+.offerFine { font-size: 12px; color: var(--dim); margin: 12px 0 0; }
+
+/* ---------------- traveling bar ---------------- */
+
+.bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 11px 16px calc(11px + env(safe-area-inset-bottom));
+  background: rgba(13, 20, 29, .96);
+  border-top: 1px solid var(--line2);
+  backdrop-filter: blur(8px);
+}
+.barText { display: flex; flex-direction: column; min-width: 0; }
+.barHead { font-size: 13.5px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.barSub { font-size: 11.5px; color: var(--dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.barCta {
+  font-size: 14px; font-weight: 700; padding: 10px 18px; white-space: nowrap;
+  background: var(--cta); color: var(--ctaText);
+  border: none; border-radius: 8px; cursor: pointer;
+}
