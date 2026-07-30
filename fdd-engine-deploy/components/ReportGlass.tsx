@@ -18,7 +18,8 @@
  * this page contains labels and prose and nothing else.
  */
 
-import { useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
+import { usePathname } from "next/navigation";
 
 import {
   PROVENANCE_LABEL,
@@ -34,6 +35,19 @@ import {
 
 import { RANGE_SEP } from "@/lib/range";
 import { usePriceBlockTelemetry } from "@/lib/priceBlockTelemetry";
+
+/* CAPTURE (2026-07-30). Glass shipped with none of it: BrandDetail mounts
+   CaptureProvider, three EmailCapture surfaces and CaptureSheet, and none of
+   that is global — app/layout.tsx mounts no capture machinery — so the glass
+   branch of app/franchise/[slug]/page.tsx returned a page that could take
+   money and could not take a lead. Unlock or leave, nothing in between.
+
+   Neither import breaches THE SEAM LINT. EmailCapture reaches only
+   lib/analytics, lib/brandName and CaptureContext; nothing here can compute a
+   figure, which is why capture could be added without widening the props. */
+import EmailCapture from "@/components/EmailCapture";
+import { CaptureProvider } from "@/components/CaptureContext";
+import { track } from "@/lib/analytics";
 
 import styles from "./ReportGlass.module.css";
 
@@ -198,7 +212,20 @@ function CapitalVerdict({
   onChange,
 }: {
   range: [number, number];
-  onChange: () => void;
+  /**
+   * Now carries the value. It used to be `() => void` — telemetry only cared
+   * that the slider MOVED, not where it landed.
+   *
+   * The capture surface below cares where it landed: EmailCapture's S4 phone
+   * offer is gated on capitalEdited === true && capital >= $150K (TCPA — the
+   * number is only asked for when the visitor is plausibly financeable, and
+   * always behind a consent checkbox). Without the value threaded out, glass
+   * could collect a name and a broker but never a phone.
+   *
+   * RULING #3 HOLDS: the seeded round(low * 0.6) default is NOT an edit. Only
+   * a real drag sets edited, and only an edited value ever reaches the DB.
+   */
+  onChange: (capital: number) => void;
 }) {
   const [low, high] = range;
   const [capital, setCapital] = useState(Math.round(low * 0.6));
@@ -224,8 +251,9 @@ function CapitalVerdict({
         step={5000}
         value={capital}
         onChange={(e) => {
-          setCapital(Number(e.target.value));
-          onChange();
+          const next = Number(e.target.value);
+          setCapital(next);
+          onChange(next);
         }}
       />
       <div className={styles.capRow}>
@@ -270,6 +298,30 @@ export default function ReportGlass({
   const { priceBlockRef, onCheckoutClick, onCapitalChange, lockedRef } =
     usePriceBlockTelemetry(refTag);
 
+  /* The slug, derived from the pathname rather than passed in.
+     usePriceBlockTelemetry already does exactly this and says why in its
+     header: "do not simplify that later by threading a slug prop down from the
+     server component; it reopens a door that took real work to close." The
+     capture surface needs a slug too, and it gets one the same way — so the
+     props stay `{ shell, refTag, unlockHref }` and THE RSC PAYLOAD CHECK in
+     components/ReportGlass.test.tsx keeps covering the entire page. */
+  const pathname = usePathname();
+  const brandSlug = (pathname ?? "").split("/").filter(Boolean).pop() ?? "";
+
+  /* Capital, lifted out of CapitalVerdict so the capture surface can read it.
+     `edited` starts false and only a real drag flips it — the seeded default
+     never counts (ruling #3) and never reaches the DB. */
+  const [capital, setCapital] = useState<number | null>(null);
+  const [capitalEdited, setCapitalEdited] = useState(false);
+  const onCapital = useCallback(
+    (next: number) => {
+      setCapital(next);
+      setCapitalEdited(true);
+      onCapitalChange(); // debounced capital_modified — unchanged
+    },
+    [onCapitalChange],
+  );
+
   /* Idempotency, carried over from components/BrandDetail.tsx: a real cold
      user double-clicked Unlock (replay 019f873e). The first click proceeds and
      navigates away; any second click before the navigation commits is
@@ -289,7 +341,12 @@ export default function ReportGlass({
     navigatingRef.current = true;
     onCheckoutClick();
     try {
-      sessionStorage.setItem("fe_cta_clicked", "1"); // suppresses the S2 sheet
+      /* Honors the Capture v2 coordination contract even though glass mounts
+         no S2 sheet (see the capture block below for why it must not). Kept
+         because it costs nothing and because a session that starts on a teaser
+         and continues onto a glass page shares this sessionStorage — a click
+         here should still suppress the sheet over there. */
+      sessionStorage.setItem("fe_cta_clicked", "1");
     } catch {}
   };
 
@@ -299,6 +356,31 @@ export default function ReportGlass({
     setIntent(
       raw === "cost" || raw === "profit" || raw === "invest" ? raw : null,
     );
+  }, []);
+
+  /* capture_shown, at 40% visibility, once — the same trigger and the same
+     threshold BrandDetail uses for its S1 inline surface (components/
+     BrandDetail.tsx:126). Matching it is the point: capture_shown / lead_email_
+     submitted is the funnel, and if the two page types define "shown"
+     differently the conversion rates are not comparable and the flip cannot be
+     read. Only capture_surface differs. */
+  const captureRef = useRef<HTMLDivElement | null>(null);
+  const captureShown = useRef(false);
+  useEffect(() => {
+    const el = captureRef.current;
+    if (!el || captureShown.current) return;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting && !captureShown.current) {
+          captureShown.current = true;
+          track("capture_shown", { capture_surface: "glass" });
+          io.disconnect();
+        }
+      },
+      { threshold: 0.4 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
   }, []);
 
   const copy = useMemo(() => unlockCopy(shell, intent), [shell, intent]);
@@ -365,7 +447,7 @@ export default function ReportGlass({
 
       {/* ---------- the one free interaction ---------- */}
       {shell.capitalRange && (
-        <CapitalVerdict range={shell.capitalRange} onChange={onCapitalChange} />
+        <CapitalVerdict range={shell.capitalRange} onChange={onCapital} />
       )}
 
       {/* ---------- the report, in full, behind the glass ---------- */}
@@ -387,6 +469,41 @@ export default function ReportGlass({
         <p className={styles.offerFine}>
           One report, one brand, instant access. Not a subscription.
         </p>
+      </div>
+
+      {/* ---------- lead capture ----------
+          PLACEMENT IS THE DECISION HERE, and it is deliberate on both axes.
+
+          AFTER the offer block, never before. This is a free ask on a page
+          whose entire thesis is that the numbers are paid; put it above the
+          $199 CTA and it is the first offer the reader meets, and it competes
+          with the product for the reader who was closest to buying. Below the
+          CTA it only ever catches the visitor who has already scrolled past
+          the price without clicking — a reader we currently lose completely.
+
+          ONE surface, not four, and specifically NOT the S2 bottom sheet.
+          BrandDetail runs four because a teaser is a browsing page. Glass is a
+          single decision. The sheet is also physically unavailable here:
+          CaptureSheet renders `fixed inset-x-0 bottom-0 z-[60] max-h-[35dvh]`
+          and the traveling unlock bar is bottom-anchored on the same screen —
+          on mobile, which is 83% of spend, they occupy the same real estate
+          and the sheet would cover the CTA it is meant to back up. (It would
+          also never arm: eligible() requires fe_teaser_viewed, which only
+          BrandDetail sets. Two independent reasons, same answer.)
+
+          Not wrapped in `shell.capitalRange &&` — capital is optional context
+          for the S4 phone gate, not a precondition for taking an email. */}
+      <div ref={captureRef} className={styles.capture}>
+        <CaptureProvider>
+          <EmailCapture
+            brandName={shell.brandName}
+            brandSlug={brandSlug}
+            surface="glass"
+            capitalEntered={capital}
+            capitalEdited={capitalEdited}
+            refTag={refTag}
+          />
+        </CaptureProvider>
       </div>
 
       {/* ---------- traveling unlock bar ---------- */}

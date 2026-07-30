@@ -210,6 +210,15 @@
 }
 .offerFine { font-size: 12px; color: var(--dim); margin: 12px 0 0; }
 
+/* ---------------- lead capture ---------------- */
+
+/* Deliberately QUIETER than .offer — no gradient panel, no border, no
+   centring. The offer block above is the page's one loud element and this must
+   not read as a second, competing offer; it is the exit ramp for a reader who
+   has already declined that one. The bottom margin clears the traveling unlock
+   bar so the email field is never parked underneath it on mobile. */
+.capture { margin: 22px 0 96px; }
+
 /* ---------------- traveling bar ---------------- */
 
 .bar {

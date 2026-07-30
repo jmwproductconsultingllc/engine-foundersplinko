@@ -256,4 +256,66 @@ describe("THE RENDERED LEAK TEST", () => {
     // (loses cmd-click, loses the PostHog flush tick, loses nothing visibly).
     expect(html).not.toMatch(/<button[^>]*_(?:bar)?[cC]ta_/);
   });
+
+  /**
+   * THE CAPTURE MOUNT TEST.
+   *
+   * Glass mode reached prod on 2026-07-30 with ZERO lead capture. Not degraded
+   * — absent. BrandDetail mounts CaptureProvider, three EmailCapture surfaces
+   * and CaptureSheet; app/layout.tsx mounts none of that globally; and the
+   * glass branch of app/franchise/[slug]/page.tsx returns nothing but
+   * <ReportGlass>. The page could take $199 and could not take an email, and
+   * nothing anywhere went red about it.
+   *
+   * That is a nasty failure mode precisely because it is an ABSENCE. Every
+   * other guard around glass asserts something is NOT on the page — a whole
+   * family of lints pointed one direction — and a component can satisfy all of
+   * them by rendering less and less. This is the guard pointing back.
+   *
+   * It asserts the INPUT, not the wrapper: a <CaptureProvider> rendering no
+   * form is exactly as useless as no provider, and asserting on the provider
+   * would sail straight through that regression.
+   */
+  it("CAPTURE MOUNT — glass renders an email capture, below the offer", () => {
+    const withShell = sample
+      .map(({ rec }) =>
+        buildReportShell(reportSourceFromComputed(rec), DEFAULT_GLASS_CONFIG),
+      )
+      .find((s) => qualifiesForGlass(s, DEFAULT_GLASS_CONFIG));
+    expect(withShell, "no qualifying brand in the sample").toBeTruthy();
+
+    const html = renderToStaticMarkup(
+      React.createElement(ReportGlass, {
+        shell: withShell!,
+        refTag: null,
+        unlockHref: "/api/mint-brand-report?slug=probe",
+      }),
+    );
+
+    // The field itself, and the submit that goes with it.
+    expect(html, "no email input on the glass page — capture is gone").toMatch(
+      /<input[^>]*type="email"[^>]*aria-label="Your email address"/,
+    );
+    expect(html).toContain("Email me the questions");
+
+    /* ORDER. The free ask must sit BELOW the paid one. Above it, it becomes
+       the first offer the reader meets and competes with the product for the
+       visitor who was closest to buying. This is the one property of the
+       placement a later refactor can silently invert. */
+    const offerAt = html.indexOf("Unlock the full report");
+    const captureAt = html.indexOf("Email me the questions");
+    expect(offerAt, "offer block not found").toBeGreaterThan(-1);
+    expect(
+      captureAt,
+      "the free email ask renders ABOVE the $199 CTA — it now competes with " +
+        "the product instead of catching the reader who already declined it",
+    ).toBeGreaterThan(offerAt);
+
+    /* No S2 sheet on glass, on purpose, for two independent reasons: it renders
+       fixed to bottom-0 and would cover the traveling unlock bar on mobile
+       (83% of spend), and CaptureSheet.eligible() gates on fe_teaser_viewed,
+       which only BrandDetail sets — so mounting it here would be a silent
+       no-op that looks shipped. "Not now" is the sheet's dismiss control. */
+    expect(html).not.toContain("Not now");
+  });
 });
