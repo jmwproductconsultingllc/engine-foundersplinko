@@ -42,7 +42,11 @@ interface RegistryEntry {
 // exactly why identity can't be computed ("brittish-swim", "school of rock").
 // The stem is the corpus FILENAME (minus .pdf), lowercased. Keep corpus
 // filenames aligned with the intended slug so the mapping stays obvious.
-const REGISTRY: Record<string, RegistryEntry> = {
+// EXPORTED so tooling can READ it without duplicating it. scripts/registerBrand.ts
+// imports this to check stem/slug collisions before minting a URL — a second
+// hand-maintained copy of the identity source is exactly the drift this file's
+// header exists to prevent.
+export const REGISTRY: Record<string, RegistryEntry> = {
   // ── Kids & Family (original launch; vertical defaults to Kids & Family) ──
   mathnasium: { slug: "mathnasium", category: "Education & STEM" },
   "code-ninjas": { slug: "code-ninjas", category: "Education & STEM" },
@@ -206,4 +210,13 @@ function main() {
   console.log(`\n${written} brand files → ${outDir}`);
 }
 
-main();
+// RUN ONLY WHEN INVOKED AS A SCRIPT. REGISTRY is exported above so
+// scripts/registerBrand.ts can read the identity source instead of duplicating
+// it — but a bare `main()` at module scope turns that import into an
+// EXECUTION: the importer would immediately hit the missing-argv branch and
+// process.exit(1), killing the caller with a usage message about a file it
+// never meant to convert. Same defect shape as the machine-path bug: valid TS,
+// invisible to tsc, only fails at runtime in the caller.
+const invokedDirectly =
+  Boolean(process.argv[1]) && /jsonl-to-brands\.[cm]?[jt]sx?$/.test(process.argv[1]);
+if (invokedDirectly) main();
