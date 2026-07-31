@@ -48,6 +48,7 @@ import { recurringFeeDisplays } from "./fees";
 import { analyzeChurn } from "./churn";
 import { buildCallList } from "./callList";
 import { computeVerify, verifyPhrase } from "./verify";
+import { normalizeSeverity } from "./severity";
 import type { DiligenceResult } from "./types";
 import type {
   Provenance,
@@ -342,12 +343,19 @@ function toVerify(r: DiligenceResult): SourceSection {
 
 function financialCondition(r: DiligenceResult): SourceSection | null {
   const fc = r.financialCondition;
+  // normalizeSeverity, never fc.severity raw. Persisted severities are NOT
+  // guaranteed to be in the union — the-back-nine and golftrk carry
+  // 'INSUFFICIENT', which slipped past the === "INSUFFICIENT_DATA" test below
+  // and advertised a "Franchisor financial condition" section whose blurb read
+  // "0 findings from the audited statements" — a concern signal about a NAMED
+  // FRANCHISOR derived from a token we failed to read.
+  const sevKey = fc ? normalizeSeverity(fc.severity) : null;
   // The paid report suppresses this section entirely at LOW. A glass page that
   // advertises findings the report will not show is a refund.
-  if (!fc || fc.severity === "LOW" || fc.severity === "INSUFFICIENT_DATA") return null;
+  if (!fc || sevKey === "LOW" || sevKey === "INSUFFICIENT_DATA") return null;
 
   const rows = (fc.body?.length ?? 0) + (fc.aggravators?.length ?? 0) + (fc.mitigants?.length ?? 0);
-  const sev = fc.severity === "HIGH" ? "high" : "medium";
+  const sev = sevKey === "HIGH" ? "high" : "medium";
 
   return {
     id: "financial-condition",
@@ -480,9 +488,11 @@ function badges(r: DiligenceResult): SourceBadge[] {
   out.push({ label: verifyPhrase(v.verifyCount), severity: "medium" });
 
   const fc = r.financialCondition;
-  if (fc && fc.severity === "HIGH") {
+  // Raw fc.severity never reaches a comparison — see financialCondition() above.
+  const fcSeverity = fc ? normalizeSeverity(fc.severity) : null;
+  if (fcSeverity === "HIGH") {
     out.push({ label: "Franchisor financials: high concern", severity: "high" });
-  } else if (fc && fc.severity === "MEDIUM") {
+  } else if (fcSeverity === "MEDIUM") {
     out.push({ label: "Franchisor financials: moderate concern", severity: "medium" });
   }
 

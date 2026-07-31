@@ -24,7 +24,19 @@ export type AuditOpinion =
 
 export type Trend = 'improving' | 'worsening' | 'flat' | 'unknown';
 
-export type Severity = 'HIGH' | 'MEDIUM' | 'LOW' | 'INSUFFICIENT_DATA';
+// SEVERITY — one declaration, in lib/severity.ts.
+//
+// The resolver used to live here. It moved because components/DiligenceReport.tsx
+// is a "use client" component and needs it: importing this module from the
+// browser bundle would ship FINANCIAL_CONDITION_EXTRACTION_PROMPT (33KB, below)
+// to every reader. lib/severity.ts has no dependencies and nothing to leak.
+//
+// Re-exported rather than moved-and-update-every-caller so existing
+// `from '@/lib/financialCondition'` imports keep working. There is still only
+// ONE declaration — see THE TWO-PALETTE DEFECT.
+import type { Severity } from './severity';
+export { normalizeSeverity, isKnownSeverity, SEVERITIES } from './severity';
+export type { Severity } from './severity';
 
 export type DataQuality = 'audited' | 'partial' | 'missing';
 

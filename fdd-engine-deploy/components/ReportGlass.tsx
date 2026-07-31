@@ -257,8 +257,12 @@ function WhatThisIs({ brandName }: { brandName: string }) {
   return (
     <section className={styles.whatIs}>
       <p className={styles.whatIsLead}>
-        <strong className={styles.wordmark}>Franchise Edge</strong> automates
-        franchise diligence. We read the franchisor&rsquo;s own{" "}
+        {/* {" "} not a literal space: the space after </strong> renders under
+            react-dom/server but was dropped in the shipped Next build, giving
+            "Franchise Edgeautomates" on the live page. Every other inline tag
+            in this block already uses the explicit form. Match it. */}
+        <strong className={styles.wordmark}>Franchise Edge</strong>{" "}
+        automates franchise diligence. We read the franchisor&rsquo;s own{" "}
         <b>Franchise Disclosure Document</b> — the filing a franchisor is
         legally required to hand you at least 14 days before you sign anything
         or pay anything — and run the work that takes a buyer weeks by hand:

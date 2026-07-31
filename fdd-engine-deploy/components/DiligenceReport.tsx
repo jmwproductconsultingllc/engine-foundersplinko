@@ -11,6 +11,9 @@ import type { DiligenceResult } from "@/lib/types";
 import { recurringFeeDisplays } from "@/lib/fees";
 import { BASIS_STYLE, LEGEND_ORDER, basisColor } from "@/lib/basis";
 import { range } from "@/lib/range";
+// @/lib/severity, NOT @/lib/financialCondition: this is a "use client"
+// component and that module exports a 33KB extraction prompt.
+import { normalizeSeverity } from "@/lib/severity";
 import { analyzeChurn } from "@/lib/churn";
 import { buildCallList } from "@/lib/callList";
 
@@ -284,6 +287,10 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
     (rentOverride > baselineRent.mid * 3 || rentOverride < baselineRent.mid / 3);
   const ins = result.insights ?? null;
   const fc = result.financialCondition ?? null;
+  // Persisted severities are NOT guaranteed to be in the Severity union — two
+  // catalog records carry 'INSUFFICIENT' and used to crash this component on
+  // the object-literal lookups below. Resolve once, here, and index with this.
+  const fcSeverity = fc ? normalizeSeverity(fc.severity) : null;
   const fees = recurringFeeDisplays(x);
 
   // Financial Condition (rendered below) now owns this topic, so drop the
@@ -328,9 +335,11 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
         MEDIUM: { label: "Franchisor financials: worth a look", color: "#F5B847" },
         LOW: { label: "No franchisor distress signals", color: "#34D399" },
         INSUFFICIENT_DATA: { label: "Franchisor financials not assessable", color: "#8194B0" },
-      } as const)[fc.severity]
+      } as const)[fcSeverity ?? "INSUFFICIENT_DATA"]
     : { label: "Franchisor financials not assessable", color: "#8194B0" };
-  const fcLinked = !!fc && fc.severity !== "LOW";
+  // Unchanged semantics: INSUFFICIENT_DATA still renders a section ("Not enough
+  // data"), so the pill still links to it. Only the lookup key is normalised.
+  const fcLinked = !!fc && fcSeverity !== "LOW";
 
   const NAV = [
     { href: "#item7", label: "What it costs" },
@@ -853,13 +862,13 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
 
       {/* Financial Condition — code-graded severity from Item 21 / Exhibit F,
           not the franchisor's boilerplate. Suppressed when the read is LOW. */}
-      {fc && fc.severity !== "LOW" && (() => {
+      {fc && fcSeverity !== "LOW" && (() => {
         const sev = ({
           HIGH: { color: "#F87171", label: "High concern", cls: "border-red-500/40 bg-red-500/10" },
           MEDIUM: { color: "#FBBF24", label: "Worth a closer look", cls: "border-amber-500/40 bg-amber-500/10" },
           LOW: { color: "#34D399", label: "No distress signals", cls: "border-[#34D399]/40 bg-[#34D399]/10" },
           INSUFFICIENT_DATA: { color: "#8194B0", label: "Not enough data", cls: "border-[#27344F] bg-[#16223B]" },
-        } as const)[fc.severity];
+        } as const)[fcSeverity ?? "INSUFFICIENT_DATA"];
         return (
           <section id="condition" className={`border rounded-xl p-6 ${sev.cls}`}>
             <div className="flex items-center justify-between gap-3">
