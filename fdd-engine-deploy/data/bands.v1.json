@@ -1,0 +1,19 @@
+{
+  "version": "bands.v1",
+  "generatedOn": "2026-07-31",
+  "reviewBy": "2026-10-31",
+  "provenance": "inferred",
+  "customerFacingLabel": "our industry range",
+  "note": "Total operating cost as a percentage of gross sales, EXCLUDING franchisor percentage-of-sales fees, EXCLUDING debt service, and INCLUDING occupancy, cost of goods, labour, payment processing and other operating costs. These are ranking aids and report-level benchmarks. A per-brand band sourced from a franchisor disclosure always supersedes the category entry and must be tagged sourced=\"brand\".",
+  "categories": {
+    "qsr":          { "low": 0.685, "mid": 0.715, "high": 0.745, "basis": "category composite" },
+    "fast-casual":  { "low": 0.640, "mid": 0.680, "high": 0.720, "basis": "category composite" },
+    "restaurant":   { "low": 0.665, "mid": 0.700, "high": 0.735, "basis": "category composite" },
+    "retail":       { "low": 0.610, "mid": 0.650, "high": 0.690, "basis": "category composite" },
+    "fitness":      { "low": 0.575, "mid": 0.620, "high": 0.665, "basis": "category composite" },
+    "entertainment":{ "low": 0.575, "mid": 0.620, "high": 0.665, "basis": "category composite" },
+    "service":      { "low": 0.505, "mid": 0.550, "high": 0.595, "basis": "category composite" },
+    "home-service": { "low": 0.475, "mid": 0.520, "high": 0.565, "basis": "category composite" }
+  },
+  "default": { "low": 0.640, "mid": 0.680, "high": 0.720, "basis": "library default" }
+}
