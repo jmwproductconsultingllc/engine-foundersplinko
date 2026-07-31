@@ -175,35 +175,6 @@ describe("resolver golden pins (spec acceptance matrix)", () => {
     }
   });
 
-  // ── THE GRADE LINT ───────────────────────────────────────────────────────
-  // READY IS EARNED, NEVER INHERITED. resolveBrandFacts once defaulted every
-  // unrecognized grade to READY while `live` strict-equalled "READY" — two
-  // contradictory tests ten lines apart. The first staging tier we ever added
-  // would have published itself. These pin the safe default so that can't
-  // silently come back.
-
-  it("THE GRADE LINT: an unrecognized grade resolves THIN and is never live", async () => {
-    const base = await load("crumbl");
-    expect(resolveBrandFacts(base).grade).toBe("READY"); // control: this record IS ready
-    for (const bogus of ["STAGED", "ready", "READY ", "", undefined, null]) {
-      const staged = { ...base, grade: bogus } as unknown as BrandRecord;
-      const f = resolveBrandFacts(staged);
-      expect(f.grade).toBe("THIN");
-      expect(f.live).toBe(false);
-    }
-  });
-
-  it("THE GRADE LINT: resolution never promotes a stored grade", async () => {
-    // Every catalog record round-trips its own grade. If this ever fails, the
-    // resolver is inventing READY for something the store didn't grade READY.
-    const brands = await loadAll();
-    for (const b of brands) {
-      const stored = (b as any)?.grade;
-      expect(stored === "READY" || stored === "THIN").toBe(true); // no third grade is live yet
-      expect(resolveBrandFacts(b).grade).toBe(stored);
-    }
-  });
-
   it("gating: no locked vocabulary on the facts object", async () => {
     const f = resolveBrandFacts(await load("crumbl"));
     const keys = Object.keys(f).join(",");

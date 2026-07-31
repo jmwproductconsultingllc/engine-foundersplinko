@@ -52,16 +52,7 @@ export type AnalyticsEvent =
   | "cta_clicked" // unified click event — breakdown by cta_id { cta_id, section }
   // ── rent override (report pro forma): buyer's own number as the third basis ──
   | "rent_override_set" // { brand_slug, baseline_basis: "disclosed" | "estimated", baseline_mid, override_value }
-  | "rent_override_reset" // buyer restored the disclosed/estimated baseline
-  // ── glass mode (lib/priceBlockTelemetry.ts) ──
-  // All four carry { brand_slug, intent, ref_tag, seconds_on_page }. The pay
-  // click is deliberately NOT a fifth name here — glass fires the existing
-  // upgrade_clicked / checkout_started pair with cta_surface: "glass", so the
-  // teaser-vs-glass conversion read stays a single funnel query.
-  | "price_block_viewed" // the IN-FLOW offer block hit 50% view. Never the sticky bar.
-  | "page_scroll_depth" // sent once on pagehide { max_depth_pct, reached_price, reached_lock, modified_capital }
-  | "capital_modified" // debounced 800ms { change_index }
-  | "locked_value_engaged"; // { lock_id, trigger: "click" | "dwell" | "view", price_in_view }
+  | "rent_override_reset"; // buyer restored the disclosed/estimated baseline
 
 interface PostHogLike {
   capture: (event: string, props?: Props) => void;

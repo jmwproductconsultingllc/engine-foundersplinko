@@ -92,7 +92,7 @@ export default function CaptureSheet({
     <div
       className="fixed inset-x-0 bottom-0 z-[60] max-h-[35dvh] overflow-y-auto rounded-t-2xl border-t border-[#3A496A] bg-[#0E1729] px-5 pb-[calc(16px+env(safe-area-inset-bottom))] pt-2.5 shadow-[0_-8px_30px_rgba(0,0,0,.45)]"
       role="dialog"
-      aria-label="Email the diligence questions"
+      aria-label="Email the findings"
     >
       {/* Drag handle — obvious swipe-down/tap affordance to dismiss (mobile: the
           sheet must never feel like it's trapping the content the visitor came for). */}
@@ -110,13 +110,13 @@ export default function CaptureSheet({
       >
         ✕
       </button>
-      {/* The headline lives in EmailCapture's COPY.sheet and is rendered there.
-          This file used to paint its own <h4>/<p> with the same two sentences
-          hardcoded, so the shipped sheet showed the headline TWICE — and the
-          copy in the two places could drift, which is the two-palette defect
-          wearing different clothes. One declaration. If the sheet's headline
-          needs to change, change COPY.sheet. */}
-      <div className="mt-2.5 pr-8">
+      <h4 className="pr-8 text-[15px] font-extrabold text-[#F1F5F9]">
+        You&apos;ve read the whole thing.
+      </h4>
+      <p className="mt-1 text-[12.5px] text-[#8194B0]">
+        Want the locked findings explained? I&apos;ll email them — free.
+      </p>
+      <div className="mt-2.5">
         <EmailCapture brandName={brandName} brandSlug={brandSlug} surface="sheet" />
       </div>
       <button

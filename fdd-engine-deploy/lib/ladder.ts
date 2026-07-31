@@ -224,17 +224,6 @@ export function paymentFactor(annualRatePct: number, years: number): number {
   return r / (1 - Math.pow(1 + r, -n));
 }
 
-/**
- * LENDER CONVENTION, not our cutoff. We never say "we flag anything below".
- *
- * This lived as a private const in components/CashLadder.tsx. It moved here
- * when glass mode needed the same number to size the "what this unit could
- * support" line: two surfaces quoting the same covenant from two declarations
- * is exactly the shape of the two-palette defect, and a buyer reading 1.25 on
- * the glass page and 1.20 on the paid report has been sold a different loan.
- */
-export const DSCR_LENDER_FLOOR = 1.25;
-
 /** Largest loan whose debt service still clears `targetDscr` against `ebitdaMonthly`.
  *  This is the breakeven / pre-planning calculator: a buyer walks into an SBA
  *  conversation knowing the number instead of discovering it in underwriting. */
