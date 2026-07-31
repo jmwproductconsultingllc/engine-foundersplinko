@@ -13,6 +13,14 @@
 //
 // The transforms below MUST stay in lockstep with lib/scoring.ts. If they drift,
 // lib/reasonCopy.test.ts goes red — which is the point of writing the lint first.
+//
+// BRAND-JSON-EXEMPT: this edits brand files as TEXT — it substitutes encoded
+// string literals in the raw bytes and never parses-then-reserializes. That is
+// why it does not call serializeBrandRecord: it cannot impose a format, because
+// it never emits one. Every byte it does not deliberately change is preserved,
+// which is a stronger guarantee than round-tripping, not a weaker one. It does
+// JSON.parse the result twice, before writing, purely to prove the edit still
+// yields valid JSON carrying the migrated strings.
 
 import fs from "node:fs";
 import path from "node:path";

@@ -26,6 +26,7 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import path from "node:path";
+import { stripComments } from "./stripComments";
 import {
   REFUND_DAYS,
   REFUND_EMAIL,
@@ -49,11 +50,6 @@ const PRICE_SURFACES = [
 
 function read(rel: string): string {
   return readFileSync(path.join(ROOT, rel), "utf8");
-}
-
-/** Source with block and line comments removed. */
-function stripComments(src: string): string {
-  return src.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
 }
 
 /** All first-party .ts/.tsx under app/, components/ and lib/. */

@@ -8,6 +8,10 @@
  * to give them. What ships is which cohorts are worth calling and what to ask.
  *
  * Output: calllist-preview.html (frames are 390px — an iPhone in Safari).
+ *
+ * BRAND-JSON-EXEMPT: reads data/brands and writes only an HTML preview to the
+ * repo root — it never writes a record back, so the on-disk format contract in
+ * lib/brandJson.test.ts does not apply here.
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { buildCallList, type CallListInput } from "../lib/callList";

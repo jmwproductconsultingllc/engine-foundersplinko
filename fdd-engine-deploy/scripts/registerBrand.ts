@@ -21,6 +21,11 @@
 // against BOTH the live REGISTRY and data/brands/, and prints a paste-ready
 // line.
 //
+// BRAND-JSON-EXEMPT: the only file this writes is scripts/jsonl-to-brands.ts —
+// a TypeScript source, not a brand record. It reads data/brands solely to check
+// for slug collisions. The converter it edits is itself held to the on-disk
+// format contract in lib/brandJson.test.ts.
+//
 // It stops there by default, and --write only edits the source file on your
 // machine. THE REGISTRY GATE IS THE POINT. A slug is a permanent public URL; a
 // wrong one either 404s later or ranks for the wrong brand forever. The human

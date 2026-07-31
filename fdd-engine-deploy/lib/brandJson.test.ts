@@ -24,6 +24,7 @@ import {
   detectBrandJsonFormat,
   DEFAULT_BRAND_JSON_FORMAT,
 } from "./brandJson";
+import { stripComments } from "./stripComments";
 
 const ROOT = process.cwd();
 const BRAND_DIR = path.join(ROOT, "data", "brands");
@@ -171,20 +172,115 @@ describe("serializeBrandRecord", () => {
   });
 });
 
-describe("both writers go through the serializer", () => {
+// EVERY writer, DISCOVERED -- not a hand-maintained list of two.
+//
+// This block used to name scripts/retract-brand.ts and scripts/jsonl-to-brands.ts
+// literally. On 2026-07-31 a third writer (scripts/backfill-item7.ts, hand-
+// transcribing Item 7 for the-back-nine) landed with a bare
+// `JSON.stringify(rec, null, 2)`. Every test in this file passed. The round-trip
+// test above went red only because the FILE had already been rewritten -- the
+// corpus caught it, the writer contract did not, because the contract was a list
+// and the list did not know about the new name.
+//
+// AN ENUMERATED GUARD ONLY GUARDS WHAT SOMEONE REMEMBERED TO ENUMERATE. The
+// list below is derived from the source tree instead: anything under scripts/
+// that writes into data/brands is a writer and is held to the contract, whether
+// or not anyone updated this file.
+//
+// THE DETECTOR IS DELIBERATELY OVER-INCLUSIVE, AND THE WAIVER IS IN THE SOURCE.
+//
+// "Writes a file and mentions the brand corpus" catches scripts that are not
+// record writers at all -- two that emit an HTML preview, one that rewrites a
+// .ts source. Narrowing the regex until those drop out means guessing a write
+// TARGET from source text, and every narrowing is a chance to exclude a real
+// writer by accident. A false positive costs one comment line. A false negative
+// costs a corrupted record on a named franchisor. So: catch broadly, and let a
+// script opt out by SAYING SO, in itself, with a reason.
+//
+// This is not the exceptions list the round-trip test above refuses. That one
+// would have lived here, in a test file, listing corpus data by name, where
+// nobody re-derives whether an entry still belongs. A waiver marker lives in
+// the script it exempts, is read by whoever next edits that script, and shows
+// up in the diff that adds it.
+const EXEMPT = /BRAND-JSON-EXEMPT:/;
+
+const CANDIDATES = (() => {
+  const dir = path.join(ROOT, "scripts");
+  return readdirSync(dir)
+    .filter((f) => /\.(ts|mts|mjs|js)$/.test(f))
+    .filter((f) => {
+      const src = readFileSync(path.join(dir, f), "utf8");
+      // Writes a file AND addresses the brand corpus. Both halves matter:
+      // plenty of scripts READ data/brands (tallies, audits) and must not be
+      // dragged into a contract about writing.
+      return (
+        /writeFileSync|writeFile\(/.test(src) &&
+        /["'`]brands["'`]|data\/brands/.test(src)
+      );
+    })
+    .map((f) => `scripts/${f}`)
+    .sort();
+})();
+
+const WRITERS = CANDIDATES.filter(
+  (rel) => !EXEMPT.test(readFileSync(path.join(ROOT, rel), "utf8")),
+);
+
+describe("every brand-file writer goes through the serializer", () => {
   const read = (rel: string) => readFileSync(path.join(ROOT, rel), "utf8");
 
-  it.each(["scripts/retract-brand.ts", "scripts/jsonl-to-brands.ts"])(
+  // The floor. If the discovery regex breaks or scripts/ moves, WRITERS is []
+  // and every it.each below vanishes silently -- THE ALWAYS-PASSING VERIFIER,
+  // a suite that reports green having asserted nothing.
+  it("discovered the writers", () => {
+    expect(CANDIDATES.length).toBeGreaterThanOrEqual(6);
+    expect(WRITERS.length).toBeGreaterThanOrEqual(3);
+    // The two the contract was originally written for must still be found, or
+    // the detector has narrowed without anyone noticing.
+    expect(WRITERS).toContain("scripts/retract-brand.ts");
+    expect(WRITERS).toContain("scripts/jsonl-to-brands.ts");
+    // ...and the one that caught this whole class of defect.
+    expect(WRITERS).toContain("scripts/backfill-item7.ts");
+  });
+
+  it("every waiver states a reason on the marker line", () => {
+    // A bare marker is an off switch. A marker with a sentence after it is an
+    // argument someone can disagree with in review.
+    const bare: string[] = [];
+    for (const rel of CANDIDATES.filter((r) => !WRITERS.includes(r))) {
+      const line = read(rel).split("\n").find((l) => EXEMPT.test(l)) ?? "";
+      if (line.split("BRAND-JSON-EXEMPT:")[1]?.trim().length < 20) bare.push(rel);
+    }
+    expect(bare).toEqual([]);
+  });
+
+  it.each(WRITERS)(
     "%s serializes through this module, not a bare JSON.stringify",
     (rel) => {
-      const src = read(rel);
-      expect(src).toContain("serializeBrandRecord");
-      // The specific regression: writeFileSync(path, JSON.stringify(...)).
-      expect(src).not.toMatch(/writeFileSync\([^)]*JSON\.stringify/);
+      // Comment-blind: the writers explain the ban by naming the banned thing.
+      const src = stripComments(read(rel));
+
+      // CALLS it. `toContain("serializeBrandRecord")` was the original
+      // assertion and it is satisfied by the IMPORT LINE ALONE -- a writer can
+      // import the serializer, never call it, and pass. Proved by mutation.
+      expect(src).toMatch(/serializeBrandRecord\s*\(/);
+
+      // The pretty-print form: JSON.stringify(x, replacer, indent). This is the
+      // shape that produces file bytes. Single-argument JSON.stringify stays
+      // legal -- writers use it for logging and for before/after comparison.
+      //
+      // Matching on the CALL, not on `writeFileSync(... JSON.stringify`, is
+      // also mutation-proved: hoisting the result into a local
+      //   const out = JSON.stringify(rec, null, 2);
+      //   fs.writeFileSync(file, out);
+      // walks straight past a regex anchored on writeFileSync, and that is
+      // exactly how the defect this block exists for was written.
+      const pretty = src.match(/JSON\.stringify\s*\([^;]*?,[^;]*?,[^;]*?\)/g);
+      expect(pretty ?? []).toEqual([]);
     },
   );
 
-  it.each(["scripts/retract-brand.ts", "scripts/jsonl-to-brands.ts"])(
+  it.each(WRITERS)(
     "%s preserves the file's existing format rather than imposing one",
     (rel) => {
       // Writing DEFAULT unconditionally would reformat 18 of the 83 files the

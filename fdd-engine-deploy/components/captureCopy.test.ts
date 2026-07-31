@@ -28,6 +28,7 @@ import { describe, it, expect } from "vitest";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
+import { stripComments } from "@/lib/stripComments";
 const SURFACE_FILES = [
   "components/EmailCapture.tsx",
   "components/CaptureSheet.tsx",
@@ -59,54 +60,13 @@ const BANNED: Array<{ re: RegExp; why: string }> = [
   },
 ];
 
-/**
- * Strip line and block comments, preserving offsets.
- *
- * THE COMMENT-BLIND LINT, already learned once in lib/glassSeam.test.ts. Every
- * file in SURFACE_FILES now documents WHY the banned phrasing was retired, and
- * those explanations quote it. A lint that reads its own documentation as a
- * violation punishes the files that took the trouble to explain themselves,
- * and the fix a hurried reader reaches for is deleting the explanation.
- *
- * Strings are skipped rather than blanked — the copy being measured lives in
- * string literals, so blanking them would erase the thing under test. This
- * branch exists only to stop a "//" inside a literal from opening a comment.
- */
-function stripComments(src: string): string {
-  const out = src.split("");
-  const n = src.length;
-  let i = 0;
-  const blank = (from: number, to: number) => {
-    for (let k = from; k < to && k < n; k++) out[k] = src[k] === "\n" ? "\n" : " ";
-  };
-  while (i < n) {
-    const c = src[i];
-    const d = src[i + 1];
-    if (c === "/" && d === "/") {
-      let j = i;
-      while (j < n && src[j] !== "\n") j++;
-      blank(i, j);
-      i = j;
-    } else if (c === "/" && d === "*") {
-      let j = i + 2;
-      while (j < n && !(src[j] === "*" && src[j + 1] === "/")) j++;
-      blank(i, Math.min(j + 2, n));
-      i = j + 2;
-    } else if (c === '"' || c === "'" || c === "`") {
-      let j = i + 1;
-      while (j < n) {
-        if (src[j] === "\\") { j += 2; continue; }
-        if (src[j] === c) break;
-        if (c !== "`" && src[j] === "\n") break; // unterminated; bail at EOL
-        j++;
-      }
-      i = j + 1;
-    } else {
-      i++;
-    }
-  }
-  return out.join("");
-}
+// THE COMMENT-BLIND LINT, already learned once in lib/glassSeam.test.ts. Every
+// file in SURFACE_FILES documents WHY the banned phrasing was retired, and those
+// explanations quote it. A lint that reads its own documentation as a violation
+// punishes the files that took the trouble to explain themselves, and the fix a
+// hurried reader reaches for is deleting the explanation. The walk lives in
+// lib/stripComments.ts; strings are skipped, not blanked, because the copy being
+// measured IS the string literals.
 
 describe("THE PROMISE LINT", () => {
   const sources = SURFACE_FILES.map((f) => ({

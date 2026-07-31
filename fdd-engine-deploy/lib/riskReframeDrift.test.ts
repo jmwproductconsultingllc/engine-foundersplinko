@@ -13,51 +13,12 @@ import { resolveBrandFacts } from "./brandFacts";
 import { computeVerify, verifyPhrase, VERIFY_LABELS } from "./verify";
 import type { BrandRecord } from "./brands";
 
-/**
- * Blank line and block comments, preserving every offset so reported line
- * numbers stay true. Strings are SKIPPED rather than blanked: the phrase this
- * lint measures lives in string literals, so blanking them would erase the
- * thing under test. That branch exists only to stop a "//" inside a literal —
- * "https://…" — from being read as the start of a comment.
- *
- * Same character walk as lib/glassSeam.test.ts and components/captureCopy.test.ts.
- * Three copies is one too many; if a fourth lint needs it, hoist it.
- */
-function stripComments(src: string): string {
-  const out = src.split("");
-  const n = src.length;
-  let i = 0;
-  const blank = (from: number, to: number) => {
-    for (let k = from; k < to && k < n; k++) out[k] = src[k] === "\n" ? "\n" : " ";
-  };
-  while (i < n) {
-    const c = src[i];
-    const d = src[i + 1];
-    if (c === "/" && d === "/") {
-      let j = i;
-      while (j < n && src[j] !== "\n") j++;
-      blank(i, j);
-      i = j;
-    } else if (c === "/" && d === "*") {
-      let j = i + 2;
-      while (j < n && !(src[j] === "*" && src[j + 1] === "/")) j++;
-      blank(i, Math.min(j + 2, n));
-      i = j + 2;
-    } else if (c === '"' || c === "'" || c === "`") {
-      let j = i + 1;
-      while (j < n) {
-        if (src[j] === "\\") { j += 2; continue; }
-        if (src[j] === c) break;
-        if (c !== "`" && src[j] === "\n") break; // unterminated; bail at EOL
-        j++;
-      }
-      i = j + 1;
-    } else {
-      i++;
-    }
-  }
-  return out.join("");
-}
+import { stripComments } from "./stripComments";
+// This lint is COMMENT-BLIND: it scans stripped source, because the call sites
+// below document the retired phrasing by quoting it, and a lint that reads its
+// own documentation as a violation gets "fixed" by deleting the explanation.
+// The walk itself now lives in lib/stripComments.ts — it was hoisted at the
+// fourth caller, after two of the three copies had already drifted apart.
 
 async function loadAll(): Promise<BrandRecord[]> {
   const dir = path.join(process.cwd(), "data", "brands");

@@ -7,6 +7,10 @@
  * shows on the next render.
  *
  * Output: churn-preview.html (frames are 390px — an iPhone in Safari).
+ *
+ * BRAND-JSON-EXEMPT: reads data/brands and writes only an HTML preview to the
+ * repo root — it never writes a record back, so the on-disk format contract in
+ * lib/brandJson.test.ts does not apply here.
  */
 import { readFileSync } from "node:fs";
 import { writeFileSync } from "node:fs";
