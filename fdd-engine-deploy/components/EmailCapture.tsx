@@ -34,43 +34,75 @@ function suggestFix(email: string): string | null {
   return fixed ? `${email.slice(0, at + 1)}${fixed}` : null;
 }
 
-export type CaptureSurface = "inline" | "sheet" | "calculator" | "playbook" | "ask_link";
+/**
+ * `glass` is its own surface, not a reuse of `inline`, and that is deliberate.
+ * capture_surface is the only dimension separating the two page types in
+ * PostHog; reuse the same value on both and the before/after read that glass
+ * mode exists to produce collapses into a single bucket the day the flag flips.
+ *
+ * `ask_link` was removed 2026-07-30. It sat in this union with full copy
+ * defined and was mounted by nothing — dead code that still read as a live
+ * promise, which is exactly how a retired line comes back.
+ */
+export type CaptureSurface = "inline" | "sheet" | "calculator" | "playbook" | "glass";
 type LeadSource = "brand_findings" | "playbook" | "capital_match";
 
+/* lead_source, NOT capture_surface, is what /api/lead persists and what
+   lib/leadEmail.ts branches on. A glass capture is a shopper-track lead and
+   gets the findings email, same as the teaser: the page type changes where we
+   asked, never what we send. Adding a surface here is a client + analytics
+   change only — the API validates lead_source and has never seen this union. */
 const SOURCE_FOR: Record<CaptureSurface, LeadSource> = {
   inline: "brand_findings",
   sheet: "brand_findings",
-  ask_link: "brand_findings",
+  glass: "brand_findings",
   calculator: "capital_match",
   playbook: "playbook",
 };
 
+/**
+ * THE PROMISE RULE (2026-07-30). Every headline here must describe something
+ * this component can actually cause to arrive in an inbox.
+ *
+ * "Get the locked findings — free, by email" broke that. sendFindingsEmail()
+ * is gated to category and severity language and never sends a dollar figure,
+ * so "the locked findings, free" promised the paid product and delivered a
+ * summary — fishy on the teaser, and outright incoherent on glass, where the
+ * ask would sit inches from a $199 button on a page where every number is an
+ * empty span. It also converted at approximately nothing, so there is no
+ * traffic to protect.
+ *
+ * What the email demonstrably DOES carry is TWELVE_QUESTIONS verbatim plus the
+ * who-to-ask tease — its own preheader is "The 12 questions to ask before you
+ * sign — and who to ask." So the copy now sells the questions. That is both
+ * the honest promise and the one that does not compete with the report.
+ */
 const COPY: Record<CaptureSurface, { h: string; sub: string; btn: string; fine: string }> = {
   inline: {
-    h: "Get the locked findings — free, by email.",
+    h: "Not ready to buy? Take the questions with you.",
     // {Brand} = the real name, article and all — the possessive reads correctly
     // as "what The UPS Store's own audited financials ... disclose".
     // {AnBrand} = the article-consuming slot. NEVER write "a {Brand}" here: that
     // renders "a The UPS Store franchisee" and "a Anytime Fitness franchisee".
-    sub: "I'll send you a plain-English summary of what {Brand}'s own audited financials and FDD disclose, plus the 12 questions to ask {AnBrand} franchisee before you sign anything.",
-    btn: "Send me the findings",
-    fine: "No spam. The findings + one follow-up. Unsubscribe anytime.",
-  },
-  ask_link: {
-    h: "Get the locked findings — free, by email.",
-    // {Brand} = the real name, article and all — the possessive reads correctly
-    // as "what The UPS Store's own audited financials ... disclose".
-    // {AnBrand} = the article-consuming slot. NEVER write "a {Brand}" here: that
-    // renders "a The UPS Store franchisee" and "a Anytime Fitness franchisee".
-    sub: "I'll send you a plain-English summary of what {Brand}'s own audited financials and FDD disclose, plus the 12 questions to ask {AnBrand} franchisee before you sign anything.",
-    btn: "Send me the findings",
-    fine: "No spam. The findings + one follow-up. Unsubscribe anytime.",
+    sub: "I'll email you the 12 questions to ask {AnBrand} franchisee before you sign — and which {Brand} FDD Items carry the answers. Free.",
+    btn: "Email me the questions",
+    fine: "No spam. The questions + one follow-up. Unsubscribe anytime.",
   },
   sheet: {
     h: "You've read the whole thing.",
-    sub: "Want the locked findings explained? I'll email them — free.",
-    btn: "Email me the findings",
+    sub: "Take the 12 questions with you — I'll email them free, plus which {Brand} FDD Items carry the answers.",
+    btn: "Email me the questions",
     fine: "No spam. Unsubscribe anytime.",
+  },
+  glass: {
+    h: "Not buying today? Take the questions with you.",
+    /* The last sentence of `fine` is load-bearing, not throat-clearing. Every
+       figure on the glass page is masked, so any free offer here is read
+       against the $199 button six inches away. Declining the promise out loud
+       is what keeps the two asks from competing. Do not trim it. */
+    sub: "The numbers on this page are the report. The questions are free: the 12 to ask {AnBrand} franchisee before you sign, and which {Brand} FDD Items carry the answers.",
+    btn: "Email me the questions",
+    fine: "No spam. The questions + one follow-up. Unsubscribe anytime. This email is not the report.",
   },
   calculator: {
     h: "Brands that fit your budget",

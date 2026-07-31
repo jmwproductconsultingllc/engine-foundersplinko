@@ -17,6 +17,11 @@ import { toTeaserCard } from "@/lib/teaserProps";
 import { computeRiskBenchmarks, benchmarkFor } from "@/lib/riskBenchmarks";
 import BrandDetail from "@/components/BrandDetail";
 import RetractionNotice from "@/components/RetractionNotice";
+// Server-only: glassGate pulls the adapter and the whole arithmetic graph.
+// It is imported HERE, in a server component, and never from components/ —
+// THE SEAM LINT (lib/glassSeam.test.ts) fails the build if that ever inverts.
+import { glassDecision, parseGlassOverride } from "@/lib/glassGate";
+import ReportGlass from "@/components/ReportGlass";
 
 export const revalidate = 3600;
 
@@ -89,9 +94,9 @@ export default async function FranchisePage({
   searchParams,
 }: {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ ref?: string }>;
+  searchParams: Promise<{ ref?: string; v?: string }>;
 }) {
-  const [{ slug }, { ref }] = await Promise.all([params, searchParams]);
+  const [{ slug }, { ref, v }] = await Promise.all([params, searchParams]);
   const brand = await getBrand(slug);
   if (!brand) notFound();
 
@@ -110,6 +115,34 @@ export default async function FranchisePage({
   if (!card.live) notFound(); // THIN brands have no sellable detail page yet
 
   const refTag = ref?.toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 32) || null;
+
+  /* ---------- GLASS MODE ----------
+     Same URL, deliberately. This is where every ad, email and partner link
+     already points, it carries the self-referencing canonical above, and a
+     /franchise/[slug]/glass would split ranking signal and then receive no
+     traffic. Two page types on one URL; rollback is GLASS_ENABLED, not a
+     revert.
+
+     Placed AFTER the retraction check and the live gate, and that order is
+     load-bearing. A retracted brand must keep showing its retraction, and a
+     THIN brand must keep 404ing — glass mode is a better page for a brand we
+     can stand behind, not a way to publish one we cannot. Every path out of
+     glassDecision() that is not "ok" falls through to the teaser below, which
+     is a working product. */
+  const decision = glassDecision(brand, parseGlassOverride(v));
+  if (decision.shell) {
+    return (
+      <ReportGlass
+        shell={decision.shell}
+        refTag={refTag}
+        // Byte-identical to BrandDetail's mintHref. Both pages must land on the
+        // same endpoint with the same params or first-touch attribution splits
+        // between the two variants, and the before/after read glass mode exists
+        // to produce is exactly that comparison.
+        unlockHref={`/api/mint-brand-report?slug=${brand.slug}${refTag ? `&ref=${refTag}` : ""}`}
+      />
+    );
+  }
 
   // Server-side gating transform: builds the teaser by OMISSION — locked values
   // (fin-condition figures, cohort spread, tripwire text) never leave this file.

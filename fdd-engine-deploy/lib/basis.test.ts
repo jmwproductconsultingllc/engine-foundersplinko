@@ -15,12 +15,12 @@ import { BASIS_STYLE, LEGEND_ORDER } from "./basis";
  * So the palette is a module and the literals are a lint. Any provenance hex
  * written directly into components/ fails here, by construction.
  */
-function walk(dir: string): string[] {
+function walk(dir: string, match = /\.tsx?$/): string[] {
   const out: string[] = [];
   for (const name of readdirSync(dir)) {
     const p = join(dir, name);
-    if (statSync(p).isDirectory()) out.push(...walk(p));
-    else if (/\.tsx?$/.test(name)) out.push(p);
+    if (statSync(p).isDirectory()) out.push(...walk(p, match));
+    else if (match.test(name)) out.push(p);
   }
   return out;
 }
@@ -86,6 +86,55 @@ describe("provenance palette", () => {
       offenders,
       `A basis-keyed colour map belongs in lib/basis.ts and nowhere else. ` +
         `Import BASIS_STYLE:\n${offenders.join("\n")}`,
+    ).toEqual([]);
+  });
+
+  /**
+   * THE CSS BLIND SPOT.
+   *
+   * Everything above scans .ts and .tsx, because that is where the two-palette
+   * defect happened the first time. Glass mode arrived with its own CSS module
+   * and shipped `--disclosed: #60a5fa` / `--derived: #22c55e` — the palette
+   * INVERTED, green where the report paints blue and blue where it paints
+   * green. Every lint in this file passed, because none of them opened a .css
+   * file. A chip that means "the franchisor said this" on one page and "we
+   * calculated this" on the next has stopped meaning anything, and the buyer
+   * pays for the report where the second one is true.
+   *
+   * So: any CSS custom property named for a basis must carry that basis's hex.
+   * A stylesheet is allowed not to define one. It is not allowed to define a
+   * different one.
+   */
+  it("CSS LINT — no stylesheet declares a provenance colour that disagrees", () => {
+    const files: string[] = [];
+    for (const dir of ["components", "app"]) files.push(...walk(dir, /\.css$/));
+
+    // The lint's own failure mode is scanning nothing and reporting green.
+    expect(files.length, "found no stylesheets to scan — the lint is not running").toBeGreaterThan(0);
+
+    const DECL = /--(disclosed|derived|benchmark|inferred|buyer)\s*:\s*(#[0-9A-Fa-f]{6})/g;
+    const offenders: string[] = [];
+    let checked = 0;
+
+    for (const file of files) {
+      const text = readFileSync(file, "utf8");
+      for (const m of text.matchAll(DECL)) {
+        const [, basis, hex] = m;
+        const want = BASIS_STYLE[basis as keyof typeof BASIS_STYLE]?.color;
+        if (!want) continue;
+        checked++;
+        if (hex.toUpperCase() !== want.toUpperCase()) {
+          offenders.push(`${file} → --${basis}: ${hex} (BASIS_STYLE says ${want})`);
+        }
+      }
+    }
+
+    expect(checked, "no provenance custom properties matched — check the regex").toBeGreaterThan(0);
+    expect(
+      offenders,
+      `A CSS variable named for a basis must carry that basis's colour from ` +
+        `lib/basis.ts. Two palettes is the defect this file exists to prevent, ` +
+        `and a stylesheet is not exempt from it:\n${offenders.join("\n")}`,
     ).toEqual([]);
   });
 

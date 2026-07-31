@@ -23,7 +23,14 @@
 
 import { useMemo, useState, type ReactNode } from "react";
 import type { DiligenceResult } from "@/lib/types";
-import { buildCashLadder, maxSupportableLoan, type Basis, type Money, type Rung } from "@/lib/ladder";
+import {
+  buildCashLadder,
+  maxSupportableLoan,
+  DSCR_LENDER_FLOOR,
+  type Basis,
+  type Money,
+  type Rung,
+} from "@/lib/ladder";
 import { buildLadderInput, resolvePercentageFees } from "@/lib/ladderInput";
 import { BASIS_STYLE } from "@/lib/basis";
 import { range } from "@/lib/range";
@@ -38,8 +45,8 @@ const money = (v: Money) => range(usd0(v.lo), usd0(v.hi));
 
 const ratio = (v: Money) => range(v.lo.toFixed(2), v.hi.toFixed(2));
 
-/** LENDER CONVENTION, not our cutoff. We never say "we flag anything below". */
-const DSCR_LENDER_FLOOR = 1.25;
+/* DSCR_LENDER_FLOOR moved to lib/ladder.ts — glass mode quotes the same lender
+   covenant, and two declarations of one convention is how they drift apart. */
 
 /* Provenance palette lives in lib/basis.ts — ONE palette, two surfaces. This
    file used to declare its own, and DiligenceReport.tsx declared a different
