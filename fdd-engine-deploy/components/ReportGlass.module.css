@@ -65,6 +65,112 @@
 
 .heroSub { font-size: 14px; color: var(--muted); margin: 0; max-width: 62ch; }
 
+/* ---------------- the hook ----------------
+ *
+ * The one block on this page that is deliberately LOUDER than the mask. A
+ * visitor arriving from an ad meets the capital verdict ("Below the disclosed
+ * minimum") within one scroll, and that sentence is meaningless without the
+ * opening range. So the range and the Item 19 headline get the largest type in
+ * the hero and sit above everything else.
+ *
+ * No border box, no panel fill: this is not a card competing with the counts
+ * box, it is the page talking. The left rule is the only chrome, and it is
+ * amber — the attention colour on this page, never red (LABEL LAW).
+ */
+
+.hook {
+  margin: 0 0 16px;
+  padding: 2px 0 2px 14px;
+  border-left: 3px solid var(--amber);
+}
+
+.hookBig {
+  font-size: 21px;
+  line-height: 1.35;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 4px;
+  max-width: 32ch;
+  text-wrap: balance;
+}
+
+/* The figure itself. Larger than the sentence carrying it, because on a phone
+   this is what gets read at a glance and everything else is context. */
+.hookFig {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--amber);
+  letter-spacing: -0.01em;
+}
+
+.hookUnit { font-size: 15px; font-weight: 600; color: var(--muted); }
+
+.hookMeta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  margin: 10px 0 0;
+}
+.hookMetaText { font-size: 12.5px; color: var(--dim); }
+
+/* Verbatim from the resolver. Honesty, not fine print — same voice and nearly
+   the same weight as the note above it. */
+.hookCaveat {
+  font-size: 12.5px; line-height: 1.5; color: var(--muted);
+  margin: 8px 0 0; max-width: 62ch;
+}
+
+.hookNote {
+  font-size: 13px; line-height: 1.55; color: var(--dim);
+  margin: 10px 0 0; max-width: 62ch;
+}
+
+/* ---------------- what this is / what an FDD is ---------------- */
+
+.whatIs {
+  padding: 14px 16px; margin: 0 0 18px;
+  border: 1px solid var(--line); border-radius: 10px; background: var(--panel2);
+}
+
+.whatIsLead {
+  font-size: 13.5px; line-height: 1.6; color: var(--muted);
+  margin: 0 0 10px; max-width: 72ch;
+}
+.whatIsLead b { color: var(--text); font-weight: 600; }
+
+.wordmark { color: var(--text); font-weight: 700; letter-spacing: .01em; }
+
+.fdd { border-top: 1px solid var(--line); padding-top: 10px; margin-top: 12px; }
+
+/* Padded for a thumb. A summary sized for a mouse is a summary nobody on
+   mobile opens, and mobile is the overwhelming majority of this traffic. */
+.fddSummary {
+  cursor: pointer; font-size: 13px; font-weight: 600; color: var(--text);
+  padding: 8px 0; list-style: none;
+}
+.fddSummary::-webkit-details-marker { display: none; }
+.fddSummary::before { content: "+ "; color: var(--amber); font-weight: 700; }
+.fdd[open] .fddSummary::before { content: "– "; }
+
+.fddBody {
+  font-size: 13px; line-height: 1.6; color: var(--muted);
+  padding-top: 4px; max-width: 72ch;
+}
+.fddBody p { margin: 0 0 8px; }
+.fddList { margin: 0 0 8px; padding-left: 18px; }
+.fddList li { margin-bottom: 7px; }
+.fddList b { color: var(--text); font-weight: 600; }
+
+.contact {
+  font-size: 13px; color: var(--dim);
+  margin: 12px 0 0; padding-top: 10px; border-top: 1px solid var(--line);
+}
+.contactLink { color: var(--derived); text-decoration: none; font-weight: 600; }
+.contactLink:hover { text-decoration: underline; }
+
+@media (max-width: 480px) {
+  .hookBig { font-size: 19px; max-width: none; }
+  .hookFig { font-size: 23px; }
+}
+
 /* ---------------- provenance legend ---------------- */
 
 .legend {

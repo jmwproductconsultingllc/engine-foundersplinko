@@ -28,6 +28,7 @@ import {
   type ReportShell,
 } from "./reportShell";
 import { reportSourceFromComputed } from "./reportSource";
+import { buildPublicHook } from "./publicFigures";
 import { GLASS_ENABLED } from "./features";
 import type { BrandRecord } from "./brands";
 
@@ -94,5 +95,19 @@ export function glassDecision(
     return { shell: null, reason: "too-thin" };
   }
 
-  return { shell, reason: "ok" };
+  // The already-public figures, attached HERE rather than inside
+  // buildReportShell(). Two reasons, and the second is the load-bearing one:
+  //
+  //  1. This is the only layer holding the BrandRecord, which is what the
+  //     public-facts resolver reads. The shell builder sees only the arithmetic
+  //     source and could not build the hook if it wanted to.
+  //
+  //  2. buildReportShell()'s guarantee is that it never puts a figure ON a
+  //     shell. Keeping that literally true — rather than true-except-for-one-
+  //     field — is what lets lib/reportShell.test.ts stay a proof.
+  //
+  // A throw here would be a resolver bug on a record that already renders a
+  // tile, so it is not caught: it should fail the build, loudly, in
+  // generateStaticParams, next to auditBrandFacts().
+  return { shell: { ...shell, hook: buildPublicHook(brand) }, reason: "ok" };
 }

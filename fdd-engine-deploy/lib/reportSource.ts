@@ -47,7 +47,7 @@ import {
 import { recurringFeeDisplays } from "./fees";
 import { analyzeChurn } from "./churn";
 import { buildCallList } from "./callList";
-import { computeVerify } from "./verify";
+import { computeVerify, verifyPhrase } from "./verify";
 import type { DiligenceResult } from "./types";
 import type {
   Provenance,
@@ -471,7 +471,13 @@ function badges(r: DiligenceResult): SourceBadge[] {
   }
 
   const v = computeVerify(r.scoring?.riskReasons);
-  out.push({ label: `${v.verifyCount} things to verify`, severity: "medium" });
+  // verifyPhrase(), NOT a template literal. This line shipped as a hardcoded
+  // plural and a real brand rendered "1 things to verify" in the badge strip
+  // of a page we were about to put paid traffic on. lib/verify.ts owns the
+  // singular/plural and every other surface already calls it; this was the one
+  // call site that re-typed the string. The drift lint now covers call sites
+  // too — see lib/riskReframeDrift.test.ts.
+  out.push({ label: verifyPhrase(v.verifyCount), severity: "medium" });
 
   const fc = r.financialCondition;
   if (fc && fc.severity === "HIGH") {

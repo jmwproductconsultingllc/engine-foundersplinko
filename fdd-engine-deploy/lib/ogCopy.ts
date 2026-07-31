@@ -42,6 +42,7 @@
 // than by rendering a PNG and squinting at it.
 
 import { verifyPhrase } from "./verify";
+import { compactUsd } from "./publicFormat";
 import { RETRACTION_HEADLINE } from "./retraction";
 import { REFUND_HEADLINE, REFUND_SENTENCE } from "./refund";
 
@@ -107,13 +108,18 @@ export interface OgBrandFacts {
 // Formatting
 // ---------------------------------------------------------------------------
 
-/** Same compact form the brand page's meta description uses, so the card and the
- *  SERP snippet quote the same range. */
-export function ogUsd(n: number): string {
-  return n >= 1_000_000
-    ? `$${(n / 1_000_000).toFixed(1)}M`
-    : `$${Math.round(n / 1000).toLocaleString("en-US")}k`;
-}
+/**
+ * Same compact form the brand page's meta description uses, so the card and the
+ * SERP snippet quote the same range.
+ *
+ * This was the THIRD hand-typed copy of that formatter (the others were the
+ * local usd() in components/BrandCard.tsx and the one the glass hero was about
+ * to grow). It is now an alias, kept only so the call sites in this file and
+ * the OG route read in their own vocabulary. Do not re-inline the body: two
+ * copies of a declaration always drift, and drift here means the tile, the OG
+ * image and the glass hero quote three different numbers for one brand.
+ */
+export const ogUsd = compactUsd;
 
 /** Word-boundary truncation. Satori will happily render a 60-character brand
  *  name straight off the right edge of the image, silently. */

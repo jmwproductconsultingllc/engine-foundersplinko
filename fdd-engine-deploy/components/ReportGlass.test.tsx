@@ -25,13 +25,67 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import React from "react";
 
-import ReportGlass from "@/components/ReportGlass";
+import ReportGlass, { HeroHook } from "@/components/ReportGlass";
 import { buildReportShell, DEFAULT_GLASS_CONFIG } from "@/lib/reportShell";
 import { reportSourceFromComputed } from "@/lib/reportSource";
 import { qualifiesForGlass } from "@/lib/reportShell";
+import { buildPublicHook } from "@/lib/publicFigures";
+import type { PublicHook } from "@/lib/publicFormat";
+import type { BrandRecord as CatalogRecord } from "@/lib/brands";
 import type { DiligenceResult } from "@/lib/types";
 
 type BrandRecord = { slug?: string; brandName?: string; result: DiligenceResult };
+
+/**
+ * Build the shell the way PRODUCTION builds it.
+ *
+ * buildReportShell() returns hook: null and always will — its guarantee is that
+ * the shell is built by OMISSION, and populating the hook inside it would turn
+ * that proof into a claim about which branch happened to run. lib/glassGate.ts
+ * is the one layer that attaches it, because it is the only layer holding the
+ * BrandRecord. This mirrors that line exactly.
+ *
+ * Rendering with hook: null would be the worse kind of green: every assertion
+ * below would pass while the entire hero — the block that prints figures — went
+ * unrendered and therefore unscanned.
+ */
+function productionShell(rec: BrandRecord) {
+  const shell = buildReportShell(reportSourceFromComputed(rec), DEFAULT_GLASS_CONFIG);
+  return { ...shell, hook: buildPublicHook(rec as unknown as CatalogRecord) };
+}
+
+/**
+ * The hook's own separated numbers, enumerated — NOT a loosening of SEPARATED.
+ *
+ * "1,046 units reporting" and "2,193 open units" carry thousands separators, so
+ * the leak scan sees them and is right to. The exception is allowed because of
+ * what backs it, and the chain is short enough to check: PUBLIC_HOOK_KEYS pins
+ * the hook's key set, and lib/publicHook.test.ts (THE PUBLIC-FIGURE LINT)
+ * asserts per catalog brand that every one of those values is byte-identical to
+ * what the unpaywalled /brands tile already renders. So this allows exactly the
+ * strings a visitor could read on a public page one click earlier, and nothing
+ * else — it reads them off the shell rather than trusting a list someone typed.
+ *
+ * What it must never become: a regex relaxation, or an exemption for a subtree.
+ * Widen SEPARATED and the test stops seeing leaks everywhere at once; this
+ * pathway can only ever admit values that survived the identity lint.
+ *
+ * THE WIDEST PART OF THIS EXCEPTION, named so nobody discovers it later:
+ * monthlyCaveat is free text from the resolver, and on a derived brand it spells
+ * the derivation out in full — real-property-management's reads "median $4,256/yr
+ * revenue per managed unit … Range $43,624–$98,627/mo". Those are uncompacted
+ * figures and this allows all three. They are allowed because they are already
+ * printed verbatim on the public tile (components/BrandCard.tsx:55) and because
+ * suppressing the caveat while keeping the headline it qualifies is the one
+ * outcome worse than showing both. If the caveat ever stops being rendered on
+ * the tile, this exception must be narrowed to the counted fields the same day.
+ */
+function hookAllowed(hook: PublicHook | null): string[] {
+  if (!hook) return [];
+  return Object.values(hook)
+    .filter((v): v is string => typeof v === "string")
+    .flatMap((v) => v.match(/\d{1,3}(?:,\d{3})+/g) ?? []);
+}
 
 const BRANDS_DIR = resolve(process.cwd(), "data/brands");
 
@@ -139,10 +193,7 @@ describe("THE RENDERED LEAK TEST", () => {
 
   for (const { slug, rec } of sample) {
     it(`${slug} renders no figure but the Item 7 range`, () => {
-      const shell = buildReportShell(
-        reportSourceFromComputed(rec),
-        DEFAULT_GLASS_CONFIG,
-      );
+      const shell = productionShell(rec);
       if (!qualifiesForGlass(shell, DEFAULT_GLASS_CONFIG)) return; // teaser brand
 
       const html = renderToStaticMarkup(
@@ -176,9 +227,10 @@ describe("THE RENDERED LEAK TEST", () => {
          test keys on the separator rather than on digits: it stays sharp
          without a growing allow-list of "legitimate" numbers, and an allow-list
          is how a leak test dies. */
-      const allowed = new Set(
-        (shell.capitalRange ?? []).map((n) => n.toLocaleString("en-US")),
-      );
+      const allowed = new Set([
+        ...(shell.capitalRange ?? []).map((n) => n.toLocaleString("en-US")),
+        ...hookAllowed(shell.hook),
+      ]);
       /* Over-strip guard. If scannable() ever blanks more than the slider
          readout, this test goes quiet about everything it stopped scanning and
          reports green — the always-passing verifier, arrived at by accident.
@@ -227,15 +279,167 @@ describe("THE RENDERED LEAK TEST", () => {
     });
   }
 
+  /**
+   * THE HOOK RENDER TEST — the second guard pointing back at absence.
+   *
+   * Everything else in this file asserts that something is NOT on the page, and
+   * a component can satisfy every one of those by rendering less and less. The
+   * hero is the block most exposed to that: it is the only place on a glass page
+   * that prints a figure, so the safest-looking edit anyone can make to this
+   * component is to delete it — and the leak scan would go GREENER, not red.
+   *
+   * The failure this stops is the one we already shipped once: a paid ad drops a
+   * visitor here, the first concrete statement is "Below the disclosed minimum,"
+   * and nothing above it says below WHAT.
+   */
+  it("HOOK RENDER — the public figures reach the markup, above the capital check", () => {
+    const withHook = sample
+      .map(({ rec }) => productionShell(rec))
+      .find(
+        (s) =>
+          qualifiesForGlass(s, DEFAULT_GLASS_CONFIG) &&
+          s.hook?.monthly != null &&
+          s.hook?.cost != null,
+      );
+    expect(
+      withHook,
+      "no sampled brand has both an Item 19 headline and an Item 7 range — " +
+        "either the catalog changed or buildPublicHook stopped resolving",
+    ).toBeTruthy();
+
+    const html = renderToStaticMarkup(
+      React.createElement(ReportGlass, {
+        shell: withHook!,
+        refTag: null,
+        unlockHref: "/api/mint-brand-report?slug=probe",
+      }),
+    );
+
+    // The figures themselves, exactly as the tile prints them.
+    expect(html, "the Item 19 monthly headline is missing from the hero").toContain(
+      withHook!.hook!.monthly!,
+    );
+    // Rendered through JSX, so the en dash in the range survives but "&" and
+    // friends would not — compare on the two ends rather than the joined string.
+    for (const half of withHook!.hook!.cost!.split("–")) {
+      expect(html, `the Item 7 range is missing "${half}"`).toContain(half);
+    }
+
+    // ABOVE the capital slider. This is the whole point of the block: the
+    // capital verdict is a comparison, and a comparison rendered before its
+    // reference point is what sent a buyer looking for the back button.
+    const hookAt = html.indexOf(withHook!.hook!.monthly!);
+    const capitalAt = html.indexOf("_capValue");
+    expect(capitalAt, "capital block not found").toBeGreaterThan(-1);
+    expect(
+      hookAt,
+      "the hook renders BELOW the capital check — the ad visitor meets " +
+        "'Below the disclosed minimum' before anything tells them below what",
+    ).toBeLessThan(capitalAt);
+
+    // The positioning and the FDD definition, which is the other half of the
+    // context problem: a buyer who does not know what an FDD is cannot judge a
+    // page whose credibility rests entirely on our having read one.
+    expect(html).toContain("Franchise Edge");
+    expect(html).toContain("Franchise Disclosure Document");
+    expect(html, "the 14-day delivery rule is the one checkable fact here").toMatch(
+      /at least 14 days before/,
+    );
+    expect(html, "no contact route on a page asking for $199").toContain(
+      "mailto:jason@foundersplinko.com",
+    );
+
+    /* NOT A SUPERLATIVE. "The leading provider of…" is unsubstantiated on its
+       face, which is an FTC problem on a commercial page and — more expensively
+       — reads as marketing to the exact skeptical buyer about to spend $200k+.
+       Every claim in this hero is checkable against the document. */
+    expect(html.toLowerCase()).not.toMatch(/\b(?:the leading|#1|number one|best-in-class)\b/);
+  });
+
+  /*
+   * THE PROSE PROVENANCE LINT.
+   *
+   * The defect this exists for was live and green: the hero's closing note read
+   * "Both figures are the franchisor's own, straight out of the disclosure
+   * document" as a fixed string, under a chip reading DERIVED, on a brand whose
+   * own caveat one line above said per-franchise revenue "is not disclosed
+   * directly." Three provenance mechanisms were working — the moBasis field, the
+   * chip, the verb — and the sentence next to them made the exact claim
+   * lib/brandFacts.ts bans, because no guard reads sentences.
+   *
+   * That is the general shape of it: provenance is enforced on values and then
+   * lost in the copy that frames them. So this scans the WHOLE catalog rather
+   * than the sample — the derived brands are a minority, and a sample that
+   * happens to miss them is a lint that reports green on the only case it was
+   * written for.
+   *
+   * Rendering the hook in isolation, not the page: this is a copy assertion, and
+   * 80 full report renders to check one paragraph is how a test gets deleted.
+   */
+  it("PROSE PROVENANCE — no derived headline is described as franchisor-disclosed", () => {
+    const hooks = all
+      .map(({ slug, rec }) => ({ slug, hook: buildPublicHook(rec as unknown as CatalogRecord) }))
+      .filter((h) => h.hook.monthly != null);
+
+    const derived = hooks.filter((h) => h.hook.monthlyBasis === "derived");
+    expect(
+      derived.length,
+      "no derived-basis brand in the catalog — this lint scanned nothing. If " +
+        "every headline is now franchisor-disclosed, delete the lint on purpose " +
+        "rather than leaving it passing vacuously.",
+    ).toBeGreaterThan(0);
+    expect(
+      hooks.filter((h) => h.hook.monthlyBasis === "disclosed").length,
+      "no disclosed-basis brand either — the resolver is not resolving",
+    ).toBeGreaterThan(0);
+
+    // The sentence that must never appear over a derived figure, and the one
+    // that must. Matched loosely on purpose: a rewrite that keeps the meaning
+    // should keep passing, a rewrite that flattens back to one fixed sentence
+    // for both bases should not.
+    const CLAIMS_DISCLOSED = /the franchisor’s own, straight out of the disclosure document\.\s*What is masked/;
+
+    for (const { slug, hook } of derived) {
+      const html = renderToStaticMarkup(
+        React.createElement(HeroHook, { hook, brandName: "Probe" }),
+      );
+      expect(
+        html,
+        `${slug}: the hero's note calls a DERIVED headline the franchisor's own. ` +
+          `lib/brandFacts.ts: surfaces must NEVER claim a derived headline was ` +
+          `franchisor-disclosed.`,
+      ).not.toMatch(CLAIMS_DISCLOSED);
+      expect(
+        html,
+        `${slug}: the note does not say the monthly figure is ours`,
+      ).toMatch(/our arithmetic/);
+      // The verb, the other half of the same rule.
+      expect(html, `${slug}: "reports" claims disclosure`).toContain("works out to");
+    }
+
+    // ...and the mutation proof that the matcher can fire at all: the disclosed
+    // brands DO carry the sentence, so the regex is not a typo matching nothing.
+    const oneDisclosed = hooks.find(
+      (h) => h.hook.monthlyBasis === "disclosed" && h.hook.cost != null,
+    )!;
+    const okHtml = renderToStaticMarkup(
+      React.createElement(HeroHook, { hook: oneDisclosed.hook, brandName: "Probe" }),
+    );
+    expect(
+      okHtml,
+      "CLAIMS_DISCLOSED matches nothing even on a disclosed brand — the guard " +
+        "above is vacuous and the copy has drifted out from under it",
+    ).toMatch(CLAIMS_DISCLOSED);
+    expect(okHtml).toContain("Both figures are the franchisor");
+  });
+
   it("the unlock CTAs are anchors to the mint endpoint", () => {
     /* Not cosmetic. BrandDetail navigates by anchor so a double-click cannot
        mint twice (replay 019f873e), so cmd-click keeps working, and so PostHog
        gets a tick to flush before the navigation commits. A button plus
        router.push loses all three, and it loses them silently. */
     const withShell = sample
-      .map(({ rec }) =>
-        buildReportShell(reportSourceFromComputed(rec), DEFAULT_GLASS_CONFIG),
-      )
+      .map(({ rec }) => productionShell(rec))
       .find((s) => qualifiesForGlass(s, DEFAULT_GLASS_CONFIG));
     expect(withShell, "no qualifying brand in the sample").toBeTruthy();
 
@@ -278,9 +482,7 @@ describe("THE RENDERED LEAK TEST", () => {
    */
   it("CAPTURE MOUNT — glass renders an email capture, below the offer", () => {
     const withShell = sample
-      .map(({ rec }) =>
-        buildReportShell(reportSourceFromComputed(rec), DEFAULT_GLASS_CONFIG),
-      )
+      .map(({ rec }) => productionShell(rec))
       .find((s) => qualifiesForGlass(s, DEFAULT_GLASS_CONFIG));
     expect(withShell, "no qualifying brand in the sample").toBeTruthy();
 

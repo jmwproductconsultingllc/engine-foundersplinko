@@ -16,9 +16,12 @@ import Link from "next/link";
 import { track } from "@/lib/analytics";
 import type { BrandCard as BrandCardModel } from "@/lib/brands";
 import { DiligenceChip } from "@/components/DiligenceToVerify";
-
-const usd = (n: number) =>
-  n >= 1_000_000 ? `$${(n / 1_000_000).toFixed(1)}M` : `$${Math.round(n / 1000)}k`;
+// The tile and the glass hero print the SAME public figures. They used to do it
+// with two hand-typed formatters, which is the two-palette defect and this repo
+// has paid for it three times already. One declaration now, in a module with
+// zero imports so a client component can reach it. THE PUBLIC-FIGURE LINT
+// (lib/publicHook.test.ts) pins the hook's output to what renders here.
+import { compactUsd, compactMonthly } from "@/lib/publicFormat";
 
 export function LiveBrandCard({ card, refTag }: { card: BrandCardModel; refTag?: string | null }) {
   const href = refTag ? `/franchise/${card.slug}?ref=${refTag}` : `/franchise/${card.slug}`;
@@ -42,7 +45,7 @@ export function LiveBrandCard({ card, refTag }: { card: BrandCardModel; refTag?:
       {card.mo != null ? (
         <>
           <div className="mt-auto pt-3 text-[25px] font-extrabold leading-none text-[#F5B847]">
-            ${Math.round(card.mo / 1000)}k
+            {compactMonthly(card.mo)}
             <span className="ml-1.5 text-[11px] font-semibold text-[#8194B0]">
               /mo {kindLabel}
               {card.i19 ? " · Item 19" : ""}
@@ -54,7 +57,7 @@ export function LiveBrandCard({ card, refTag }: { card: BrandCardModel; refTag?:
           <div className="mt-1.5 text-[11px] text-[#8194B0]">
             from{" "}
             <b className="font-bold text-[#CBD5E1]">
-              {card.lo != null && card.hi != null ? `${usd(card.lo)}–${usd(card.hi)}` : "—"}
+              {card.lo != null && card.hi != null ? `${compactUsd(card.lo)}–${compactUsd(card.hi)}` : "—"}
             </b>{" "}
             to open · see the diligence →
           </div>
@@ -63,9 +66,9 @@ export function LiveBrandCard({ card, refTag }: { card: BrandCardModel; refTag?:
         <>
           <div className="mt-auto pt-3 text-[21px] font-extrabold leading-none text-[#F5B847]">
             {card.lo != null && card.hi != null
-              ? `${usd(card.lo)}–${usd(card.hi)}`
+              ? `${compactUsd(card.lo)}–${compactUsd(card.hi)}`
               : card.buildoutMid != null
-                ? `~${usd(card.buildoutMid)}`
+                ? `~${compactUsd(card.buildoutMid)}`
                 : "—"}
             <span className="ml-1.5 text-[11px] font-semibold text-[#8194B0]">
               {card.lo != null ? "to open" : "est. build-out"}

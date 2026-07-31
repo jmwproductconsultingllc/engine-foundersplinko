@@ -34,7 +34,7 @@ const EXTS = [".ts", ".tsx"];
  * Modules that must never appear in a client module's import graph.
  * Keyed by the specifier stem as it appears in an import, without extension.
  */
-const SERVER_ONLY = ["reportSource", "glassGate"] as const;
+const SERVER_ONLY = ["reportSource", "glassGate", "publicFigures"] as const;
 
 function walk(dir: string, out: string[] = []): string[] {
   let entries: string[];

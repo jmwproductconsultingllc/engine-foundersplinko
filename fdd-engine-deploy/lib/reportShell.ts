@@ -28,6 +28,11 @@
  */
 
 import { BASIS_STYLE } from "./basis";
+// Type-only, and from publicFormat (zero imports) rather than publicFigures
+// (which reaches resolveBrandFacts). This file is imported BY the client
+// component; a value import of the builder here would invert the seam in one
+// line. THE SEAM LINT asserts it stays this way.
+import type { PublicHook } from "./publicFormat";
 
 /* ------------------------------------------------------------------ *
  * Config — the four open decisions, as flags rather than blockers.
@@ -291,6 +296,16 @@ export interface ReportShell {
   /** Item 7 range for the free capital verdict — see note below. */
   capitalRange: [number, number] | null;
   ladderRungs: number;
+  /**
+   * Figures that are ALREADY public on /brands and in the SERP snippet, so the
+   * hero can tell an ad visitor what they are looking at. NOT built here — see
+   * the note at the bottom of buildReportShell(). Null on every path through
+   * this file; attached by lib/glassGate.ts.
+   *
+   * The import is type-only and lib/publicFormat.ts has no imports of its own,
+   * so this does not put the resolver anywhere near the client bundle.
+   */
+  hook: PublicHook | null;
   config: GlassConfig;
 }
 
@@ -444,6 +459,16 @@ export function buildReportShell(
     // therefore not moat. If freeCapitalVerdict is off it does not ship.
     capitalRange: config.freeCapitalVerdict ? (source.capitalRange ?? null) : null,
     ladderRungs: source.ladderRungs ?? 0,
+    // ALWAYS null here, and that is the point. This builder's guarantee is that
+    // the shell is built by OMISSION: it walks the arithmetic graph and drops
+    // every figure on the floor, so there is no code path in this file capable
+    // of leaking one. Populating the hook here would mean this function had
+    // started ADDING figures back, and lib/reportShell.test.ts's proof would
+    // quietly become a claim about which branch happened to run.
+    //
+    // The hook is attached one layer out, in lib/glassGate.ts, which is the
+    // only place holding the BrandRecord anyway. See lib/publicFigures.ts.
+    hook: null,
     config,
   };
 }
