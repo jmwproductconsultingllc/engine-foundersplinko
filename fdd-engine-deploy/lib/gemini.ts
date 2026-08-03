@@ -77,6 +77,26 @@ RULES:
   from overflowing.
 - Extract FACTS ONLY. Do NOT assign a risk score, rating, or recommendation —
   that is computed downstream. Do not editorialize.
+- NAME A ROW AFTER WHAT IT IS, NEVER AFTER WHAT IT COSTS. Every "label", "name"
+  or "category" field must describe the thing being charged, earned or counted,
+  and must NOT restate the number that goes in the value field beside it. FDD
+  table headings frequently do restate it, and copying the heading verbatim is
+  how the number gets in:
+    WRONG  "Mandatory $20,000/Month Marketing Spend by Month 3"
+    RIGHT  "Mandatory Monthly Marketing Spend, Phased In By Month Three"
+    WRONG  "All 129 Locations — Average Monthly Revenue Ramp"
+    RIGHT  "All Locations — Average Monthly Revenue Ramp"
+    WRONG  "Pre-Sale Membership Requirement (150 memberships)"
+    RIGHT  "Pre-Sale Membership Requirement Before Opening"
+  Nothing is lost: the figure is carried in its own field, cited, and rendered
+  beside the label. Put any amount the label used to carry into "description" or
+  "notes" instead, where it belongs. A qualifier that is NOT the row's own value
+  is fine and should be kept — "(first 12 months)", "(Years 2-5)", "Item 20" —
+  the rule is about a row disclosing its own number, not about digits.
+  This is load-bearing rather than cosmetic: labels are free text on the teaser
+  and the row's value is paid, so a self-naming label publishes a figure the
+  buyer has not paid for. lib/reportShell.ts refuses to build a glass page from
+  a record that does it, which silently drops that brand to the plain teaser.
 - LANGUAGE — ENGLISH ONLY. Write EVERY prose, descriptive, or narrative field in
   English, no matter what language the source FDD (or any text quoted inside it)
   is written in. This covers all leadership.background and whyItMatters,
@@ -174,6 +194,32 @@ RULES:
   If the franchisor makes NO financial performance representation (the Item 19 says
   it does not provide one), set hasItem19=false, cohorts=[], and say so in notes —
   do not fabricate or infer any revenue. That absence is a finding, not a gap.
+- systemScale: outlet counts come from ITEM 20 AND NOWHERE ELSE. Item 20 has
+  three tables and they do different jobs — use the right one for each field:
+    * unitsStartOfYear and totalUnits: TABLE 1 (Systemwide Outlet Summary), which
+      gives outlets at the START and at the END of each of the last three fiscal
+      years. Report the MOST RECENT completed year: its start count in
+      unitsStartOfYear and its end count in totalUnits. Add franchised and
+      company/affiliate-owned together for both — one system, one count.
+    * openedLastYear: TABLE 3 (Status of Franchised Outlets), the OPENED column,
+      SUMMED ACROSS EVERY STATE for that same year.
+    * closedLastYear: TABLE 3, summed across every state AND ACROSS ALL FOUR
+      CLOSURE COLUMNS — terminations, non-renewals, reacquired by franchisor, and
+      ceased operations for other reasons. All four, always. Terminations alone
+      is the single most common error in this field, and it understates closures
+      on almost every system.
+    * transfersLastYear: TABLE 2 (Transfers of Outlets from Franchisees to New
+      Owners), summed across every state for that year.
+  HARD RULE: no outlet count may be taken from Item 19, from Item 1, or from
+  marketing prose anywhere in the document. Item 19 notes routinely state how
+  many units were EXCLUDED from a revenue dataset; that is a sample-size note,
+  not a count of openings, and reading it as one has put a wrong number on a
+  published page. If Item 20 does not disclose a figure, return null.
+  SELF-CHECK: unitsStartOfYear + openedLastYear − closedLastYear should equal
+  totalUnits. If it does not, re-read Table 3 — you have almost certainly missed
+  a closure column or a state row. If it still does not reconcile, leave every
+  figure exactly as the tables state it and say so in documentCheck.warnings. Do
+  NOT adjust a number to make the arithmetic work.
 - rentDetail: capture rent exactly as disclosed — rawValue, its unit
   (per_sqft_per_year is common; also per_sqft_per_month, per_month, per_year), and
   squareFootage if a unit size is given (needed to convert per-sqft figures). Cite

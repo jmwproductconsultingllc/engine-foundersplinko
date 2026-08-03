@@ -12,9 +12,41 @@
  *  1. RATES ARE COMPUTED ON OUTLETS AT THE START OF THE YEAR. Item 20's headline
  *     count is outlets at year END. Dividing last year's closures by this year's
  *     ending count understates churn on every growing system — the systems most
- *     likely to be sold to a first-time buyer. The start base is reconstructed
- *     explicitly (end − opened + closed) and the reconstruction is stated, not
- *     hidden. Transfers do not move the count, so they do not appear in it.
+ *     likely to be sold to a first-time buyer. Transfers do not move the count,
+ *     so they do not appear in it.
+ *
+ *     The start count is READ from Item 20 Table 1 where the record carries it,
+ *     and only reconstructed (end − opened + closed) where it does not — and a
+ *     reconstruction now says out loud that it is one. See RULE 4.
+ *
+ *  4. A RECONSTRUCTION IS NOT A READING, AND A RECONCILIATION MUST ACTUALLY
+ *     RECONCILE.
+ *
+ *     seniors-helping-seniors shipped this sentence to a live brand page:
+ *
+ *       "179 outlets were open at the start of the year: 224 at year end, less
+ *        54 opened, plus 9 closed."
+ *
+ *     Item 20 Table 1 discloses 180 at the start of 2025. Every number in that
+ *     sentence except the 224 was wrong, and the sentence was phrased as though
+ *     we had read them out of the table. Two separate failures:
+ *
+ *       - The 54 came out of an Item 19 NOTE — units excluded from the revenue
+ *         dataset, which is not a count of openings. The 9 was Table 3's
+ *         terminations column alone, dropping non-renewals, reacquisitions and
+ *         "ceased operations — other." Both are extractor problems, and the
+ *         extractor rule is now: no outlet count may be sourced from Item 19.
+ *
+ *       - The arithmetic could not catch either one, because `base` was DEFINED
+ *         as end − opened + closed. A quantity defined by an equation always
+ *         satisfies that equation. The sentence read like a check and was
+ *         incapable of failing.
+ *
+ *     So: where the disclosed start exists, it is the base AND the check —
+ *     start + opened − closed must equal the disclosed end. Where it doesn't
+ *     close, the reconciliation sentence does not render at all and the reader
+ *     gets the finding instead. An outlet table that does not add up is worth
+ *     more to a buyer than a turnover rate computed off it.
  *
  *  2. A TRANSFER IS NOT A CLOSURE AND IT IS NOT A SUCCESS EITHER. The FDD gives
  *     transfer counts with no reason attached. A transfer can be a franchisee
@@ -36,6 +68,15 @@ import type { Basis } from "./ladder";
 /** systemScale, structurally — kept local so this module has no schema coupling. */
 export interface SystemScaleCounts {
   totalUnits?: number | null;
+  /**
+   * Outlets open at the START of the fiscal year, as Item 20 Table 1 discloses
+   * it directly. Optional because 83 of 83 records predate the field.
+   *
+   * When present it does two jobs at once: it becomes the denominator (a read
+   * beats a reconstruction), and it makes the reconstruction FALSIFIABLE for
+   * the first time — see RULE 4 in the header.
+   */
+  unitsStartOfYear?: number | null;
   openedLastYear?: number | null;
   closedLastYear?: number | null;
   transfersLastYear?: number | null;
@@ -60,8 +101,21 @@ export interface ChurnAnalysis {
   base: number | null;
   /** how the denominator was arrived at, in plain language */
   baseNote: string | null;
-  /** true when opened AND closed were both disclosed, so the base is exact */
+  /** true when the base is a disclosed figure or an exact reconstruction */
   baseExact: boolean;
+  /** true when the base was READ from Item 20 Table 1 rather than reconstructed */
+  baseDisclosed: boolean;
+
+  /**
+   * Did the franchisor's own outlet table close?
+   *
+   * null when there was nothing to check — no disclosed start count, or no
+   * openings/closures to check it against. Never null-as-in-fine: a null here
+   * means unverified, and the copy says so.
+   */
+  reconciles: boolean | null;
+  /** present only when reconciles === false. The finding, in the buyer's words. */
+  unreconciled: string | null;
 
   opened: number | null;
   closed: ChurnFigure | null;
@@ -146,6 +200,9 @@ const NOT_COMPUTABLE = (why: string): ChurnAnalysis => ({
   base: null,
   baseNote: null,
   baseExact: false,
+  baseDisclosed: false,
+  reconciles: null,
+  unreconciled: null,
   opened: null,
   closed: null,
   transfers: null,
@@ -174,6 +231,7 @@ export function analyzeChurn(s: SystemScaleCounts | null | undefined): ChurnAnal
   const sourcePage = s?.sourcePage?.trim() || null;
 
   const total = isCount(s?.totalUnits) ? (s!.totalUnits as number) : null;
+  const startDisclosed = isCount(s?.unitsStartOfYear) ? (s!.unitsStartOfYear as number) : null;
   const opened = isCount(s?.openedLastYear) ? (s!.openedLastYear as number) : null;
   const closed = isCount(s?.closedLastYear) ? (s!.closedLastYear as number) : null;
   const transfers = isCount(s?.transfersLastYear) ? (s!.transfersLastYear as number) : null;
@@ -190,9 +248,21 @@ export function analyzeChurn(s: SystemScaleCounts | null | undefined): ChurnAnal
     return { ...a, base: total, sourcePage };
   }
 
-  // Rule 1. Item 20's headline is outlets at year END. Reconstruct the start.
-  const baseExact = opened != null && closed != null;
-  const base = total - (opened ?? 0) + (closed ?? 0);
+  /* Rule 1. Item 20's headline is outlets at year END.
+     Read the start where Table 1 gives it; reconstruct it only where it does
+     not. A read beats a reconstruction even when the two agree, because only
+     the read can DISagree — see RULE 4 in the header. */
+  const reconstructed = total - (opened ?? 0) + (closed ?? 0);
+  const base = startDisclosed ?? reconstructed;
+  const baseDisclosed = startDisclosed != null;
+  const baseExact = baseDisclosed || (opened != null && closed != null);
+
+  /* RULE 4. The check that was impossible until the start count was disclosed.
+     Note it runs against the DISCLOSED end count, not against `base`. */
+  const reconciles =
+    startDisclosed != null && opened != null && closed != null
+      ? startDisclosed + opened - closed === total
+      : null;
 
   if (base <= 0) {
     return NOT_COMPUTABLE(
@@ -200,11 +270,12 @@ export function analyzeChurn(s: SystemScaleCounts | null | undefined): ChurnAnal
     );
   }
   // Rule: a figure that cannot be true is not a disclosure — and the gate
-  // catches the IMPOSSIBLE, never the merely bad. Note that `closed` feeds the
-  // base, so "closed > base" is unreachable: a mis-read closure count silently
-  // inflates its own denominator. The check therefore runs against the disclosed
-  // year-end count, at a ceiling generous enough that a system which HALVED in
-  // one year passes it unflagged. What it catches is a table read wrong.
+  // catches the IMPOSSIBLE, never the merely bad. On a RECONSTRUCTED base,
+  // "closed > base" is unreachable — `closed` feeds that base, so a mis-read
+  // closure count silently inflates its own denominator. The check therefore
+  // runs against the disclosed year-end count, at a ceiling generous enough
+  // that a system which HALVED in one year passes it unflagged. What it catches
+  // is a table read wrong.
   const ceiling = (n: number) => Math.max(2 * n, n + 25);
   if (closed != null && closed > ceiling(total)) {
     return NOT_COMPUTABLE(
@@ -217,16 +288,28 @@ export function analyzeChurn(s: SystemScaleCounts | null | undefined): ChurnAnal
     );
   }
 
-  // The whole is rounded first; the parts are then fitted to it. See apportion().
+  /* The whole is rounded first; the parts are then fitted to it. See apportion().
+   *
+   * BOTH components required, which is a change. This used to fire when EITHER
+   * was disclosed, coalescing the missing one to 0 — so a record carrying
+   * transfers but no closure count printed "changed hands + 0 closed" as an
+   * owner-turnover RATE, which is a confident claim that nothing closed. It is
+   * the same defect as the reconciliation above in a smaller frame: an absent
+   * disclosure treated as a disclosed zero.
+   *
+   * The single figure that IS disclosed still renders its own rate below; what
+   * is withheld is only the combined one, which is the one that would be wrong.
+   * 79 of 83 catalog records carry both and are unaffected. */
   const turnoverCount = (closed ?? 0) + (transfers ?? 0);
   const ownerTurnover: ChurnFigure | null =
-    closed == null && transfers == null ? null : { count: turnoverCount, pct: pct(turnoverCount, base) };
+    closed == null || transfers == null ? null : { count: turnoverCount, pct: pct(turnoverCount, base) };
 
-  const [closedPct, transferPct] = apportion(
-    [closed ?? 0, transfers ?? 0],
-    base,
-    ownerTurnover?.pct ?? 0,
-  );
+  /* apportion() fits parts to a printed whole. With no whole printed there is
+     nothing to fit to, and passing 0 as the total would floor both parts to
+     zero — so the lone disclosed figure gets its own honest rounding instead. */
+  const [closedPct, transferPct] = ownerTurnover
+    ? apportion([closed ?? 0, transfers ?? 0], base, ownerTurnover.pct)
+    : [closed == null ? 0 : pct(closed, base), transfers == null ? 0 : pct(transfers, base)];
   const closedFig: ChurnFigure | null = closed == null ? null : { count: closed, pct: closedPct };
   const transferFig: ChurnFigure | null =
     transfers == null ? null : { count: transfers, pct: transferPct };
@@ -234,9 +317,68 @@ export function analyzeChurn(s: SystemScaleCounts | null | undefined): ChurnAnal
   const smallSystem = base < SMALL_SYSTEM;
   const tier = ownerTurnover && !smallSystem ? tierFor(ownerTurnover.pct) : null;
 
-  const baseNote = baseExact
-    ? `${base.toLocaleString()} outlets were open at the start of the year: ${total.toLocaleString()} at year end, less ${opened!.toLocaleString()} opened, plus ${closed!.toLocaleString()} closed. Every rate below is a share of that starting count, not of today's.`
-    : `${base.toLocaleString()} outlets is the closest starting count this record supports; the year's openings are not both disclosed, so the rates below may run slightly low on a growing system.`;
+  const share = "Every rate below is a share of that starting count, not of today's.";
+
+  /* RULE 5. THESE STRINGS ARE FREE TEXT, AND FREE TEXT MAY NOT CARRY A PAID
+     FIGURE.
+
+     The first version of this copy read:
+
+       "179 outlets were open at the start of the year: 224 at year end, less
+        54 opened, plus 9 closed."
+
+     Every number after the colon — the year-end total, the openings, the
+     closures — is a MASKED figure a few lines above the note on the same glass
+     card. The sentence printed them in plain prose, for free, on 67 of 82 live
+     brand pages. It shipped for the same reason the arithmetic defect shipped:
+     nobody had read the rendered page as a stranger.
+
+     baseNote and unreconciled therefore name the METHOD and never the
+     components. The base itself stays — it is the denominator of a rate the
+     reader is being asked to trust, it is not one of the four disclosed counts,
+     and knowing it recovers none of them. Everything else goes.
+
+     The paid report renders all four counts as their own lines a few inches up,
+     so the paid reader loses nothing by their absence here. There is
+     deliberately ONE string rather than a free one and a paid one: two copies
+     of a sentence drift, and the drift stays invisible until a stranger prints
+     the page. lib/reportShell.ts now enforces this at the seam rather than
+     trusting this comment.
+
+     The reconciliation CLAIM still renders in exactly one case: the start count
+     was disclosed AND the year's movements close against the disclosed end.
+
+     ONE FURTHER CARVE-OUT, found by the seam and not by reading. The base is
+     safe to print in the two branches below where it is either DISCLOSED (a
+     figure of its own, not one of the four masked counts) or RECONSTRUCTED
+     (total − opened + closed, which is one equation in three unknowns and
+     recovers none of them). It is NOT safe in the inexact branch: there at
+     least one movement is absent and coalesced to nothing, so in the common
+     case where both are absent `base` collapses to `total` EXACTLY and the note
+     prints the masked total-unit count in words beside its own mask. Two live
+     brands were doing this. The inexact branch therefore prints no number at
+     all — and it loses nothing, because a starting count the record cannot
+     pin down was never the point of that sentence. The caveat is. */
+  const baseNote = baseDisclosed
+    ? reconciles === true
+      ? `${base.toLocaleString()} outlets were open at the start of the year, as Item 20 Table 1 discloses, and the year's openings and closures reconcile to the year-end count stated in the same table. ${share}`
+      : `${base.toLocaleString()} outlets were open at the start of the year, as Item 20 Table 1 discloses. ${share}`
+    : baseExact
+      ? `${base.toLocaleString()} outlets is this record's reconstruction of the starting count, worked back from the year-end total and the year's openings and closures rather than read from Item 20 Table 1. ${share} Check the reconstruction against Table 1 in your own copy.`
+      : `This record does not disclose the starting outlet count, and does not carry both of the year's movements to work it back from, so the rates below are taken against the closest starting count it supports and may run slightly low on a growing system.`;
+
+  /* The finding. Deliberately does NOT say which of the four figures is wrong,
+     because the disclosure does not say either — and naming a culprit we cannot
+     identify is the failure this whole module is a reaction to.
+
+     Also deliberately carries no counts. See RULE 5: this is the free surface,
+     and a finding that needs the numbers printed to land was never about the
+     numbers. "Their own table does not add up" lands without them, and the
+     buyer who wants the four figures is exactly the buyer we want unlocking. */
+  const unreconciled =
+    reconciles === false
+      ? `Item 20's own outlet table does not close: the outlets the franchisor states were open at the start of the year, plus the year's openings, less the year's closures, do not come to the year-end count in the same table. One of those four figures is wrong, or Table 3 breaks closures out in a column this reading missed. Ask the franchisor to walk you from Table 1 to Table 3 before you rely on any turnover figure — the one on this page or the one in the document.`
+      : null;
 
   return {
     computable: true,
@@ -244,6 +386,9 @@ export function analyzeChurn(s: SystemScaleCounts | null | undefined): ChurnAnal
     base,
     baseNote,
     baseExact,
+    baseDisclosed,
+    reconciles,
+    unreconciled,
     opened,
     closed: closedFig,
     transfers: transferFig,
@@ -270,7 +415,21 @@ function headlineFor(
   base: number,
   smallSystem: boolean,
 ): string {
-  if (!turnover) return "Turnover could not be computed for this system.";
+  /* PARTIAL DISCLOSURE. One of the two figures is on the record and the other
+     is not, so there is no combined turnover rate to state — but there is still
+     a disclosed figure, and suppressing it to protect a rate we were never
+     entitled to compute would be the strictly worse trade. Says which half is
+     missing, because "3 closed" with no transfer count is a different read from
+     "3 closed, 0 transferred" and the reader cannot tell them apart. */
+  if (!turnover) {
+    const one = closed ?? transfers;
+    if (!one) return "Turnover could not be computed for this system.";
+    const missing = closed ? "transfer count" : "closure count";
+    const what = closed
+      ? plural(one.count, "outlet closed", "outlets closed")
+      : `${one.count.toLocaleString()} ${one.count === 1 ? "outlet" : "outlets"} changed hands`;
+    return `${what} — ${one.pct}% of the ${base.toLocaleString()} outlets open at the start of the year. This record carries no ${missing}, so total owner turnover is not stated; it is at least this figure and Item 20 has the rest.`;
+  }
 
   if (turnover.count === 0) {
     return `No outlet closed or changed hands last year across ${base.toLocaleString()} units.`;

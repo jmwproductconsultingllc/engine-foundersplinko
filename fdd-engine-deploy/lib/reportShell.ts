@@ -209,6 +209,21 @@ export interface SourceSection {
    * MUST NOT contain a derived figure. Validated by the leak test.
    */
   freeChips?: string[];
+  /**
+   * A contradiction this section found in the FRANCHISOR'S OWN document, stated
+   * free, in full, on the teaser.
+   *
+   * Distinct from `blurb` (context) and from `freeChips` (things the FDD states)
+   * because it is neither: it is a thing the FDD FAILS to state consistently,
+   * and it is the single most persuasive item on the card. An outlet table that
+   * does not close is worth the unlock price by itself, and a buyer who has to
+   * pay to find out that it does not close will never pay.
+   *
+   * SUBJECT TO THE FREE-TEXT SEAM like every other free string, and that is the
+   * whole discipline here: a finding may name the contradiction and may not
+   * print the figures that contradict. See RULE 5 in lib/churn.ts.
+   */
+  finding?: string;
   /** Free severity counts; the titles they belong to stay masked. */
   severityCounts?: Partial<Record<Severity, number>>;
   /** Number of masked list rows this section contains beyond `figures`. */
@@ -266,6 +281,8 @@ export interface ShellSection {
   anchor?: string;
   lines: ShellLine[];
   freeChips?: string[];
+  /** See SourceSection.finding. Free, full text, figure-free. */
+  finding?: string;
   severityCounts?: Partial<Record<Severity, number>>;
   maskedRows?: number;
   /** Masked figures in this section. Drives the "N figures" chip. */
@@ -362,6 +379,216 @@ function slugifyLabel(s: string): string {
     .slice(0, 48);
 }
 
+/* ------------------------------------------------------------------ *
+ * THE FREE-TEXT SEAM.
+ *
+ * Build-by-omission guarantees that no figure is ever ASSIGNED to a shell
+ * field. It never guaranteed that no figure is SPELLED OUT in one, and those
+ * are different claims — the second one is the one a visitor can read.
+ *
+ * What was live when this was written, on 67 of 82 glass brands:
+ *
+ *   Total units   ▉▉▉▉      (masked)
+ *   Opened        ▉▉        (masked)
+ *   Closed        ▉         (masked)
+ *   Owner turnover ▉▉▉      (masked)
+ *     "145 outlets were open at the start of the year: 149 at year end, less
+ *      11 opened, plus 7 closed."          <- free note, same card
+ *
+ * The note is free by design and should be: the honesty copy does more selling
+ * than the numbers would. But it was written by someone holding the numbers,
+ * and prose is where a figure hides from a build-by-omission proof.
+ *
+ * Neither existing leak test could see it. The rendered scan keys on a
+ * thousands separator, and an outlet count under 1,000 has none. The payload
+ * scan walks numeric leaves with a >= 1,000 floor, and a note is a prose
+ * string, so it was never a candidate at all. Both floors are load-bearing
+ * where they are (see their headers); the hole is that neither instrument
+ * pointed at prose.
+ *
+ * So this one does, and it does it HERE rather than in a test, because a test
+ * proves the corpus on disk today and this seam holds for the FDD uploaded
+ * tomorrow. A leak throws; lib/glassGate.ts catches every throw and serves the
+ * teaser. Fail-open on infrastructure, fail-closed on findings — a brand page
+ * that would leak simply does not become glass.
+ * ------------------------------------------------------------------ */
+
+/**
+ * Structural references, removed before a string is read for figures.
+ *
+ * A leading "4. " is a list marker — every cash-ladder rung carries one, and a
+ * rung whose ordinal happens to equal some figure's value is a coincidence, not
+ * a disclosure. "Item 20" and "Items 5–6" are citations; they are the single
+ * most common two-digit token in this product's copy and they point at the FDD
+ * rather than stating anything from it.
+ *
+ * These are NOT an allow-list of leaks. An allow-list names values to forgive,
+ * which is how a leak test dies. These name two SYNTAXES that are not figures
+ * in any report, present or future, and they are removed from the text before
+ * any comparison happens — so a value that also appears somewhere else in the
+ * same string is still caught.
+ */
+const LIST_MARKER = /^\s*\d+\.\s+/;
+const ITEM_POINTER = /\bItems?\s+\d+(?:\s*[–—-]\s*\d+)?/g;
+
+/**
+ * Every number spelled out in a string, however it was formatted.
+ *
+ * "2,295" and "2295" and "2295.0" are the same leak. Percentages are included:
+ * a derived rate is a paid figure and printing "21.4%" in a note gives it away
+ * exactly as completely as printing it in the field would.
+ */
+function spelledOut(text: string): number[] {
+  return (text.replace(LIST_MARKER, "").replace(ITEM_POINTER, "Item").match(/\d[\d,]*(?:\.\d+)?/g) ?? [])
+    .map((m) => Number(m.replace(/,/g, "")))
+    .filter((n) => Number.isFinite(n))
+    .map(Math.abs);
+}
+
+/**
+ * Prose, as opposed to a field that happens to be typed `string`.
+ *
+ * A field holding nothing but a number is not free text — it is a mask width,
+ * an Item number or a page cite, and the masks are the other tests' territory.
+ * Requiring four consecutive letters is what makes this a PROSE check rather
+ * than a second, worse copy of the payload scan.
+ */
+const isProse = (v: string) => /[A-Za-z]{4}/.test(v);
+
+const figureValues = (f: SourceFigure): number[] =>
+  (Array.isArray(f.value) ? f.value : [f.value])
+    .filter((v): v is number => typeof v === "number" && Number.isFinite(v))
+    .map(Math.abs);
+
+/* ------------------------------------------------------------------ *
+ * PROPERTY ONE — A FIGURE MAY NOT LABEL ITSELF.
+ *
+ * The strongest form of the leak, and the one no magnitude floor can reach: a
+ * label transcribed verbatim from an FDD table heading that states the very
+ * number the row is hiding.
+ *
+ *   Mandatory $20,000/Month Marketing Spend by Month 3     value 20000
+ *   Pre-Sale Membership Requirement (150 memberships)      value 150
+ *
+ * The reader does not have to attribute anything — the label and the mask are
+ * the same row. This holds at ANY magnitude, because "(6% of Gross Revenue)"
+ * beside a masked 6 is exactly as complete a disclosure as the two above, and
+ * a percentage never clears a floor. Attribution is what makes the leak, not
+ * size, so this check keys on attribution and has no floor at all.
+ *
+ * Measured on the 83-brand catalog, 2026-08-03: 0 false positives once the two
+ * structural syntaxes above are stripped. Before stripping, the cash ladder's
+ * own rung ordinals accounted for every single flag.
+ * ------------------------------------------------------------------ */
+function assertNoSelfLabelledFigures(source: ReportSource): void {
+  const found: string[] = [];
+  for (const s of source.sections) {
+    for (const f of s.figures) {
+      const own = new Set(figureValues(f));
+      if (own.size === 0) continue;
+      for (const [field, text] of [
+        ["label", f.label],
+        ["note", f.note],
+      ] as const) {
+        if (!text || !isProse(text)) continue;
+        for (const n of spelledOut(text)) {
+          if (own.has(n)) found.push(`${s.id}/${f.label} ${field}: states its own value ${n}`);
+        }
+      }
+    }
+  }
+  if (found.length > 0) {
+    throw new Error(
+      `${found.length} figure(s) spell out their own masked value in their own label or note. ` +
+        `Rename the row after what it IS, never after what it costs — see THE FREE-TEXT SEAM ` +
+        `in lib/reportShell.ts.\n  ${found.join("\n  ")}`,
+    );
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * PROPERTY TWO — FREE PROSE MAY NOT SPELL OUT A MASKED FIGURE.
+ *
+ * The cross-figure case: a note, blurb or chip that names a number belonging to
+ * some OTHER row on the report. Unlike property one there is no attribution to
+ * key on, so this one does need a floor, and the floor is where attribution
+ * stops being possible for the reader either.
+ *
+ * FREE_TEXT_FLOOR is 100, compared strictly, and the justification is
+ * structural rather than fitted: nothing this product counts exceeds 100. The
+ * FDD has 23 numbered Items. The cash ladder has 13 rungs. Month markers run to
+ * 60 ("Months 37+", "first 24 months"). Percentiles and percentages stop at
+ * 100 by definition, which is why the comparison is strict and 100 itself is
+ * out. The largest row count in the catalog is 28 ("28 separate charges in the
+ * agreement"). So a prose number at or under 100 that matches a masked value is
+ * a collision the reader cannot attribute to anything, and above 100 it is a
+ * figure.
+ *
+ * The headroom is deliberate. Fitting the floor to the highest observed
+ * collision — 37, at the time of writing — would have taken the next brand
+ * with a "Months 60+" row out of glass mode silently.
+ *
+ * THE RESIDUAL GAP, STATED RATHER THAN PAPERED OVER: an outlet or closure count
+ * under 100 spelled out in a note about a DIFFERENT row is not caught here. The
+ * counts that started all of this — 224, 179, 54, 9 — are only half covered by
+ * this floor. The other half is covered by RULE 5 in lib/churn.ts, which is
+ * copy discipline rather than a machine check, and copy discipline is exactly
+ * what failed the first time. If a second module ever starts writing prose
+ * around Item 20 counts, this floor will not save it.
+ *
+ * Walks the finished SHELL rather than an enumerated list of fields — note,
+ * blurb, title, anchor, freeChips, badge labels and anything added later. An
+ * enumerated guard only guards what someone remembered to enumerate, and the
+ * next free string added to ShellSection would be exactly the one nobody
+ * remembered.
+ * ------------------------------------------------------------------ */
+const FREE_TEXT_FLOOR = 100;
+
+/** Every distinct number above the floor that a figure on this report is hiding. */
+function paidValues(source: ReportSource): Set<number> {
+  const out = new Set<number>();
+  for (const s of source.sections) {
+    for (const f of s.figures) {
+      for (const v of figureValues(f)) if (v > FREE_TEXT_FLOOR) out.add(v);
+    }
+  }
+  /* Item 7 crosses the gate by design — it is disclosed, it is already on the
+     teaser this page replaces, and the free capital verdict needs it
+     client-side. It is the ONE exemption and it is enumerated, not inferred. */
+  for (const v of source.capitalRange ?? []) out.delete(Math.abs(v));
+  return out;
+}
+
+function assertNoSpelledOutFigures(source: ReportSource, shell: unknown): void {
+  const paid = paidValues(source);
+  if (paid.size === 0) return;
+
+  const found: string[] = [];
+  const walk = (v: unknown, path: string) => {
+    if (v === null || v === undefined) return;
+    if (Array.isArray(v)) return v.forEach((x, i) => walk(x, `${path}[${i}]`));
+    if (typeof v === "object") {
+      for (const k of Object.keys(v as object)) {
+        walk((v as Record<string, unknown>)[k], `${path}.${k}`);
+      }
+      return;
+    }
+    if (typeof v !== "string" || !isProse(v)) return;
+    for (const n of spelledOut(v)) {
+      if (paid.has(n)) found.push(`${path}: "${n}" in ${JSON.stringify(v.slice(0, 120))}`);
+    }
+  };
+  walk(shell, "shell");
+
+  if (found.length > 0) {
+    throw new Error(
+      `Free text on the shell spells out ${found.length} masked figure(s). ` +
+        `Free copy names the method, never the components — see THE FREE-TEXT SEAM ` +
+        `in lib/reportShell.ts and RULE 5 in lib/churn.ts.\n  ${found.join("\n  ")}`,
+    );
+  }
+}
+
 function buildMask(
   fig: SourceFigure,
   sectionId: string,
@@ -417,6 +644,10 @@ export function buildReportShell(
     if (s.blurb) section.blurb = s.blurb;
     if (s.anchor) section.anchor = s.anchor;
     if (s.freeChips) section.freeChips = s.freeChips;
+    /* Copied through unconditionally, NOT gated on a config flag. A finding is
+       free at every glass config there is: it is the reason to unlock, not a
+       thing being withheld until you do. */
+    if (s.finding) section.finding = s.finding;
     if (s.maskedRows) section.maskedRows = s.maskedRows;
     if (s.severityCounts && config.revealSeverity) {
       section.severityCounts = s.severityCounts;
@@ -440,7 +671,7 @@ export function buildReportShell(
     config.revealSeverity ? { ...b } : { label: b.label },
   );
 
-  return {
+  const shell: ReportShell = {
     brandSlug: source.brandSlug,
     brandName: source.brandName,
     badges,
@@ -471,6 +702,14 @@ export function buildReportShell(
     hook: null,
     config,
   };
+
+  /* THE FREE-TEXT SEAM, both properties. The second runs against the FINISHED
+     object rather than the pieces — so a field added to the return above is
+     covered the day it is added, not the day someone remembers to add it here
+     too. See the header blocks above each. */
+  assertNoSelfLabelledFigures(source);
+  assertNoSpelledOutFigures(source, shell);
+  return shell;
 }
 
 /**

@@ -49,6 +49,7 @@ import { analyzeChurn } from "./churn";
 import { buildCallList } from "./callList";
 import { computeVerify, verifyPhrase } from "./verify";
 import { normalizeSeverity } from "./severity";
+import { normalizeCitation } from "./citation";
 import type { DiligenceResult } from "./types";
 import type {
   Provenance,
@@ -93,12 +94,15 @@ const fig = (
   extra: Partial<SourceFigure> = {},
 ): SourceFigure => ({ label, value, unit, provenance, ...extra });
 
-/** Item/page citation. `page` is omitted rather than sent empty — the renderer
- *  prints ", p. " off a truthy check and an empty string reads as a bug. */
-function cite(item: number, page?: string | null) {
-  const p = page?.trim();
-  return p ? { item, page: p } : { item };
-}
+/** Item/page citation.
+ *
+ *  This used to pass `sourcePage` straight through, on the assumption that the
+ *  extractor writes a bare page number. It does not — it writes a complete
+ *  citation ("Item 7, pp. 9-10"), so every glass line rendered "Item 7, p.
+ *  Item 7, pp. 9-10", and one record leaked its masked unit counts through the
+ *  parenthetical tail. See lib/citation.ts for the whole story; the parsing
+ *  lives there because it is a producer-contract problem, not a display one. */
+const cite = (item: number, page?: string | null) => normalizeCitation(item, page);
 
 /** The four benchmark cost bands are the moat. They render fixed-width no
  *  matter what the config says, because their real width would let a reader
@@ -409,13 +413,22 @@ function systemScale(r: DiligenceResult): SourceSection {
     }),
   ];
 
-  return {
+  const section: SourceSection = {
     id: "system-scale",
     title: "System scale and turnover",
     anchor: "System at a glance",
     blurb: "Item 20, year-end.",
     figures,
   };
+  /* RULE 4's output, surfaced. analyzeChurn has been able to tell a buyer that
+     Item 20's own table does not close since the start count became readable,
+     and until now nothing consumed it — the check ran, found the contradiction
+     on seniors-helping-seniors, and told no one. A check whose result is never
+     read is not a check. It goes on the FREE surface deliberately: an outlet
+     table that does not add up is worth the unlock by itself, and a buyer who
+     has to pay to learn that it does not add up never will. */
+  if (churn.unreconciled) section.finding = churn.unreconciled;
+  return section;
 }
 
 function whoToCall(r: DiligenceResult): SourceSection | null {

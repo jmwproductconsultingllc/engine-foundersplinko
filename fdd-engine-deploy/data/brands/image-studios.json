@@ -178,7 +178,7 @@
       "basis": "Average 2025 estimated earnings after key operating expenses and royalties for 18 salons below 70% occupancy. Item 19, p.51."
      },
      {
-      "label": "All 129 Locations \u2014 Year-Over-Year Average Unit Volume (All Years Combined)",
+      "label": "All Locations \u2014 Year-Over-Year Average Unit Volume (All Years Combined)",
       "ownership": "mixed",
       "revenueType": "gross_sales",
       "sampleSize": 129,
@@ -188,7 +188,7 @@
       "basis": "Average unit volume across all opening-year cohorts (2019\u20132025), all years of operation combined. Item 19, Table 7, p.54."
      },
      {
-      "label": "All 129 Locations \u2014 Average Monthly Revenue Ramp (First 12 Months, All Cohorts)",
+      "label": "All Locations \u2014 Average Monthly Revenue Ramp (First 12 Months, All Cohorts)",
       "ownership": "mixed",
       "revenueType": "gross_sales",
       "sampleSize": 129,

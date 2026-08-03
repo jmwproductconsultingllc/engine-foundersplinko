@@ -100,10 +100,11 @@ const CAP_INPUT = /<input[^>]*_slider[^>]*>/g;
  * Blank the capital slider's own readout, and NOTHING else.
  *
  * The slider is the page's one free interaction. The number it shows is the
- * visitor's, not ours: CapitalVerdict seeds it at round(low * 0.6) off the
- * Item 7 disclosed minimum and then it is whatever they drag it to. It is not
- * a figure they have not paid for, and the first run of this test flagged it
- * on all 12 sampled brands.
+ * visitor's, not ours: CapitalVerdict shows nothing at all until they drag,
+ * and after that it is whatever they dragged it to. It is not a figure they
+ * have not paid for, and the first run of this test flagged it on all 12
+ * sampled brands — back when the control seeded itself at round(low * 0.6),
+ * which is the defect THE FIRST-PAINT LINT below now holds shut.
  *
  * The obvious fix — skip the whole capital block — is the wrong one. That
  * block's own copy says "what it means for your loan, your coverage ratio and
@@ -328,8 +329,12 @@ describe("THE RENDERED LEAK TEST", () => {
     // ABOVE the capital slider. This is the whole point of the block: the
     // capital verdict is a comparison, and a comparison rendered before its
     // reference point is what sent a buyer looking for the back button.
+    // Anchored on the SLIDER, not on the readout. The readout no longer renders
+    // until the visitor drags (see THE FIRST-PAINT LINT), and anchoring order on
+    // an element that is conditionally absent is how an ordering test quietly
+    // stops testing ordering.
     const hookAt = html.indexOf(withHook!.hook!.monthly!);
-    const capitalAt = html.indexOf("_capValue");
+    const capitalAt = html.search(CAP_INPUT);
     expect(capitalAt, "capital block not found").toBeGreaterThan(-1);
     expect(
       hookAt,
@@ -519,5 +524,253 @@ describe("THE RENDERED LEAK TEST", () => {
        which only BrandDetail sets — so mounting it here would be a silent
        no-op that looks shipped. "Not now" is the sheet's dismiss control. */
     expect(html).not.toContain("Not now");
+  });
+});
+
+/* ------------------------------------------------------------------ *
+ * THE FIRST-PAINT LINT.
+ *
+ * A defect this file's other lints were structurally unable to see, because
+ * every one of them asks "is there a figure here that the visitor has not paid
+ * for" — and $57,141 was not that. It was OUR arithmetic on the franchisor's
+ * disclosed minimum, printed in the visitor's own field, next to the sentence
+ * "Below the disclosed minimum," two seconds into the page.
+ *
+ * Nobody had paid for it and nobody had asked for it. It read as a verdict on
+ * the reader.
+ *
+ * So this lint guards a different property: on FIRST PAINT, before any
+ * interaction, the capital control asserts nothing. No dollar figure, no
+ * verdict, no colour. The render the visitor gets is a question.
+ *
+ * Why first paint is checkable at all: renderToStaticMarkup runs the component
+ * body once, and a useState initializer IS first paint. The old default landed
+ * in this markup. The new one cannot, because there is no longer a value to
+ * land — which is the difference between a convention and a structure, and the
+ * reason this lint is short.
+ *
+ * MUTATION-PROVEN: restore `useState(Math.round(low * 0.6))` and the figure,
+ * verdict, prompt and aria assertions all go red together.
+ * ------------------------------------------------------------------ */
+
+/** The three things the control can say once it has a number. */
+const VERDICTS = [
+  "Below the disclosed minimum",
+  "Above the disclosed range",
+  "Inside the disclosed range",
+];
+
+describe("THE FIRST-PAINT LINT — the capital control asserts nothing unasked", () => {
+  const glass = load()
+    .sort((a, b) => a.slug.localeCompare(b.slug))
+    .map(({ slug, rec }) => ({ slug, shell: productionShell(rec) }))
+    .filter(
+      ({ shell }) =>
+        qualifiesForGlass(shell, DEFAULT_GLASS_CONFIG) &&
+        Array.isArray((shell as { capitalRange?: number[] }).capitalRange),
+    );
+
+  it("found glass brands that actually mount the capital control", () => {
+    // THE ALWAYS-PASSING FAILURE MODE. Every assertion below is a `not` —
+    // scan zero brands and the suite is a wall of green that proves nothing.
+    expect(
+      glass.length,
+      "no glass brand carries a capitalRange — the control never rendered",
+    ).toBeGreaterThan(40);
+  });
+
+  /* A strided sample for the same reason THE RENDERED LEAK TEST takes one. */
+  for (const { slug, shell } of glass.filter((_, i) => i % 7 === 0)) {
+    it(`${slug} paints no capital figure and no verdict before the visitor drags`, () => {
+      const html = renderToStaticMarkup(
+        React.createElement(ReportGlass, {
+          shell,
+          refTag: null,
+          unlockHref: `/api/mint-brand-report?slug=${slug}`,
+        }),
+      );
+
+      /* Floor #1: the control is on the page. Without this, deleting the whole
+         block would pass the three `not`s below. */
+      const slider = html.match(CAP_INPUT) ?? [];
+      expect(slider.length, "the capital slider did not render at all").toBe(1);
+
+      /* Floor #2: it is in its unset state, and says so. If the prompt copy is
+         renamed, this fails and the rename gets to be a decision. */
+      expect(html, "the unset prompt is missing — what is in the row?").toContain(
+        "Drag to enter the capital you have available.",
+      );
+
+      /* THE ASSERTIONS.
+
+         No echoed figure: the readout span is not rendered at all in the unset
+         state, so this checks for the element rather than for a number. That is
+         deliberate — an empty `_capValue` span would satisfy "no digits" while
+         still reserving a slot someone later fills with a default. */
+      expect(
+        html.match(/_capValue/g) ?? [],
+        "the capital readout rendered before the visitor entered anything",
+      ).toEqual([]);
+
+      // No verdict, in any of its three forms.
+      for (const v of VERDICTS) {
+        expect(html, `"${v}" rendered on first paint — that is a verdict on a
+          number the visitor never gave us`).not.toContain(v);
+      }
+
+      /* No verdict COLOUR either. vBad is amber, which under LABEL LAW is the
+         loudest tone on the page; painting it unasked is the visual half of the
+         same defect and would survive a copy-only fix. */
+      /* The trailing separator is `_`, NOT a word boundary. CSS modules emit
+         `_vBad_8b4be9`, and `_` is a word character, so /_vBad\b/ can never
+         match anything this renderer produces. That is what this assertion used
+         to say, which made it an ALWAYS-PASSING VERIFIER: it would have stayed
+         green with every verdict tone painted on first paint. Caught in passing
+         while wiring the finding element; the class-name shape is now asserted
+         positively below so the next hash-format change fails loudly instead of
+         disarming the check. */
+      expect(
+        html.match(/_v(?:Bad|Mid|Ok)_/g) ?? [],
+        "a verdict tone class painted before there was a verdict",
+      ).toEqual([]);
+      expect(
+        html,
+        "class names are not `_name_hash` any more — every _-anchored regex in this file is now vacuous",
+      ).toMatch(/class="_slider_[A-Za-z0-9]+/);
+
+      /* The screen-reader channel. A range input announces its value whether or
+         not we print one, so the seed has to be suppressed here explicitly —
+         this is the one assertion that fails if someone "fixes" the visual by
+         hiding the readout with CSS. */
+      expect(html, "the slider announces the seed as the visitor's value").toMatch(
+        /<input[^>]*_slider[^>]*aria-valuetext="Not set"|aria-valuetext="Not set"[^>]*_slider/,
+      );
+
+      /* And the seed is a THUMB POSITION, never a claim: it must not be the
+         disclosed minimum dressed up, nor 0.6× it, nor anything the visitor
+         could read as our estimate of them. It is the midpoint, and the only
+         place it appears is the input's value attribute. */
+      const [low, high] = (shell as { capitalRange: [number, number] }).capitalRange;
+      const seeded = Number(slider[0].match(/value="(\d+)"/)?.[1] ?? NaN);
+      expect(seeded, "slider has no value attribute").not.toBeNaN();
+      expect(seeded).toBe(Math.round((low + high) / 2 / 5000) * 5000);
+      expect(
+        html.includes(seeded.toLocaleString("en-US")),
+        "the seed thumb position is printed somewhere on the page as a figure",
+      ).toBe(false);
+    });
+  }
+});
+
+/* ------------------------------------------------------------------ *
+ * THE FINDING-REACHES-THE-READER LINT.
+ *
+ * analyzeChurn has been able to say "Item 20's own table does not close" since
+ * the start count became readable. Nothing consumed it. The check ran on
+ * seniors-helping-seniors, found the contradiction, and told no one — which is
+ * the failure mode worth naming, because it looks exactly like working code:
+ * the arithmetic was right, the tests were green, the string was built, and the
+ * only thing missing was a reader.
+ *
+ * A CHECK WHOSE RESULT IS NEVER READ IS NOT A CHECK. So this lint asserts the
+ * whole path, end to end, in one go: churn computes it, reportSource attaches
+ * it, buildReportShell copies it through, ReportGlass renders it. Four links,
+ * and a unit test on any single one of them stays green while the chain is cut.
+ *
+ * It also asserts the finding stays FREE and stays FIGURE-FREE, which are the
+ * two ways it could be shipped wrong rather than not shipped at all.
+ *
+ * MUTATION-PROVEN (measured, 2026-08-03):
+ *   * drop `if (churn.unreconciled)` in reportSource.systemScale  -> 3 red
+ *   * drop `if (s.finding)` in buildReportShell                   -> 3 red
+ *   * gate the copy-through on config.revealSeverity              -> 3 red
+ *   * delete the <p className={styles.finding}> node              -> 1 red
+ *
+ * The render mutation kills only one because all three render assertions live
+ * in one `it`. Left as-is rather than split: the three are one claim ("the full
+ * text reached the page in the right element"), and splitting them to inflate a
+ * kill count would be optimising the proof rather than the test.
+ * ------------------------------------------------------------------ */
+describe("THE FINDING-REACHES-THE-READER LINT", () => {
+  /* Built rather than loaded from disk, on purpose. seniors-helping-seniors was
+     the brand that exposed this and its record has since been CORRECTED — the
+     start count is disclosed and the two bad movement counts are null, so it no
+     longer contradicts itself and no longer produces a finding. Pinning the
+     lint to a live record would mean the next data fix silently disarms it. */
+  const CLEAN = () =>
+    JSON.parse(
+      readFileSync(join(BRANDS_DIR, "seniors-helping-seniors.json"), "utf8"),
+    ) as BrandRecord;
+
+  const CONTRADICTS: BrandRecord = (() => {
+    const rec = CLEAN();
+    const r = rec as unknown as {
+      result: { extracted: { systemScale: Record<string, unknown> } };
+    };
+    r.result.extracted.systemScale = {
+      ...r.result.extracted.systemScale,
+      // 180 + 54 - 9 = 225, and Table 1 states 224. The original extraction.
+      unitsStartOfYear: 180,
+      openedLastYear: 54,
+      closedLastYear: 9,
+      totalUnits: 224,
+    };
+    return rec;
+  })();
+
+  const shellOf = (rec: BrandRecord) =>
+    buildReportShell(reportSourceFromComputed(rec), DEFAULT_GLASS_CONFIG);
+  const scale = (s: ReturnType<typeof shellOf>) =>
+    s.sections.find((x) => x.id === "system-scale");
+
+  it("puts the contradiction on the shell, where a client can see it", () => {
+    const f = scale(shellOf(CONTRADICTS))?.finding;
+    expect(f, "the shell carries no finding — the chain is cut before the client").toBeTruthy();
+    expect(f!).toMatch(/does not close/);
+    expect(f!).toMatch(/Ask the franchisor/);
+  });
+
+  it("renders it, in full, on the free page", () => {
+    const shell = shellOf(CONTRADICTS);
+    const html = renderToStaticMarkup(
+      React.createElement(ReportGlass, {
+        shell,
+        refTag: null,
+        unlockHref: "/api/mint-brand-report?slug=seniors-helping-seniors",
+      }),
+    );
+    expect(html, "the finding never reached the markup").toContain(
+      "Item 20&#x27;s own outlet table does not close",
+    );
+    /* Free means free: not behind the unlock bar, not truncated to a teaser.
+       The closing instruction is the last sentence, so its presence proves the
+       whole string shipped. */
+    expect(html).toContain("before you rely on any turnover figure");
+    /* And it is the amber finding element, not a green "disclosed" chip. The
+       trailing `_` is load-bearing: CSS modules emit `_finding_8b4be9` and `_`
+       is a word character, so /_finding\b/ matches nothing. */
+    expect(html).toMatch(/class="_finding_[A-Za-z0-9]+"/);
+  });
+
+  it("names the contradiction without printing the figures that contradict", () => {
+    /* RULE 5, at the surface that matters. The four counts are masked on this
+       very card; a finding that spells them out to make its point hands over
+       the section it is advertising. Note buildReportShell would now THROW on
+       224 or 180 via THE FREE-TEXT SEAM — 54 and 9 sit under the floor and are
+       covered by copy discipline alone, which is why they are asserted here. */
+    const f = scale(shellOf(CONTRADICTS))!.finding!;
+    for (const masked of ["225", "224", "180", "54", "9 "]) {
+      expect(f, `the finding spells out the masked figure ${masked.trim()}`).not.toContain(masked);
+    }
+  });
+
+  it("says nothing when the table does close", () => {
+    /* THE ALWAYS-FAILING VERIFIER, guarded against: a lint that reported a
+        finding on every brand would satisfy all three assertions above and be
+        worthless. The corrected record on disk is the negative case. */
+    expect(
+      scale(shellOf(CLEAN()))?.finding,
+      "a finding on a record that does not contradict itself",
+    ).toBeUndefined();
   });
 });

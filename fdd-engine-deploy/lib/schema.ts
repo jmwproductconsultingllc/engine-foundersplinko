@@ -187,6 +187,10 @@ export interface ExtractedFDD {
   requiredLiquidCapital: number | null;
   systemScale: {
     totalUnits: number | null;
+    /** Outlets open at the START of the last fiscal year — Item 20 Table 1.
+     *  Optional: every record written before 2026-08-03 predates the field, and
+     *  lib/churn.ts falls back to reconstructing it. Never sourced from Item 19. */
+    unitsStartOfYear?: number | null;
     openedLastYear: number | null;
     closedLastYear: number | null;
     transfersLastYear: number | null;
@@ -371,6 +375,7 @@ export const fddResponseSchema = {
       type: Type.OBJECT,
       properties: {
         totalUnits: { type: Type.NUMBER, nullable: true },
+        unitsStartOfYear: { type: Type.NUMBER, nullable: true },
         openedLastYear: { type: Type.NUMBER, nullable: true },
         closedLastYear: { type: Type.NUMBER, nullable: true },
         transfersLastYear: { type: Type.NUMBER, nullable: true },

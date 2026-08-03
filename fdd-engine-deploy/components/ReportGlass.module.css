@@ -201,6 +201,10 @@
 .slider { width: 100%; accent-color: var(--cta); }
 .capRow { display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px; gap: 12px; }
 .capValue { font-size: 21px; font-weight: 700; font-variant-numeric: tabular-nums; }
+/* The unset state. Occupies the row the figure and the verdict will occupy, at
+   the size of neither, so that the first drag does not jump the page. Muted
+   rather than amber: nothing has been assessed yet. */
+.capPrompt { font-size: 13.5px; font-weight: 500; color: var(--muted); }
 .vBad { font-size: 13px; font-weight: 600; color: var(--amber); }
 .vMid { font-size: 13px; font-weight: 600; color: var(--disclosed); }
 .vOk { font-size: 13px; font-weight: 600; color: var(--cta); }
@@ -226,6 +230,17 @@
 .sevHigh { color: #04240f; background: var(--amber); }
 .sevMed { color: var(--amber); background: #2b2412; border: 1px solid #574521; }
 .sevLow { color: var(--dim); background: var(--panel); border: 1px solid var(--line2); }
+
+/* A contradiction in the franchisor's own document, stated free and in full.
+   Amber because it is a warning about the DEAL; never red, per LABEL LAW. Not a
+   chip: a chip is a glanceable token and this is three sentences a buyer is
+   meant to actually read. */
+.finding {
+  font-size: 13px; line-height: 1.5; color: var(--text);
+  background: #241c07; border: 1px solid var(--amber);
+  border-left-width: 3px; border-radius: 8px;
+  padding: 10px 12px; margin: 0 0 12px;
+}
 
 .chipRow { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; }
 .freeChip {

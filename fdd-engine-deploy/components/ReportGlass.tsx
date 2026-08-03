@@ -34,6 +34,9 @@ import {
 } from "@/lib/reportShell";
 
 import { RANGE_SEP } from "@/lib/range";
+// citation.ts imports nothing but a type from reportShell — safe in the client
+// bundle. It is the only place a citation becomes display text.
+import { formatCitation } from "@/lib/citation";
 import { usePriceBlockTelemetry } from "@/lib/priceBlockTelemetry";
 
 /* The hero's public figures. TYPE-ONLY from publicFormat, which has zero
@@ -336,10 +339,7 @@ function Line({
         <span className={styles.label}>{line.label}</span>
         <ProvenanceChip kind={line.provenance} />
         {line.citation && (
-          <span className={styles.cite}>
-            Item {line.citation.item}
-            {line.citation.page ? `, p. ${line.citation.page}` : ""}
-          </span>
+          <span className={styles.cite}>{formatCitation(line.citation)}</span>
         )}
         <Mask token={line.value} bind={bind(line.value.lockId)} />
       </div>
@@ -400,6 +400,12 @@ function Section({
         </div>
       )}
 
+      {section.finding && (
+        /* Amber, not red. LABEL LAW: this describes the DEAL — the franchisor's
+           own table — and never our analysis, and the palette never goes red. */
+        <p className={styles.finding}>{section.finding}</p>
+      )}
+
       {section.freeChips && section.freeChips.length > 0 && (
         <div className={styles.chipRow}>
           {section.freeChips.map((c) => (
@@ -430,6 +436,9 @@ function Section({
  * responds to the visitor — replay says people already do this.
  * ------------------------------------------------------------------ */
 
+/** Slider granularity. Named because the thumb's rest position snaps to it. */
+const STEP = 5000;
+
 function CapitalVerdict({
   range,
   onChange,
@@ -445,20 +454,54 @@ function CapitalVerdict({
    * always behind a consent checkbox). Without the value threaded out, glass
    * could collect a name and a broker but never a phone.
    *
-   * RULING #3 HOLDS: the seeded round(low * 0.6) default is NOT an edit. Only
-   * a real drag sets edited, and only an edited value ever reaches the DB.
+   * RULING #3 HOLDS, and is now structural rather than a convention: there is
+   * no seeded value to mistake for an edit. `capital` is null until the visitor
+   * drags, this fires only on a real change event, and only an edited value
+   * ever reaches the DB.
    */
   onChange: (capital: number) => void;
 }) {
   const [low, high] = range;
-  const [capital, setCapital] = useState(Math.round(low * 0.6));
+
+  /**
+   * THE DEFECT THIS REPLACES.
+   *
+   * This was `useState(Math.round(low * 0.6))`. On seniors-helping-seniors that
+   * is round(95,235 × 0.6) = 57,141, so first paint rendered
+   *
+   *     CAPITAL AVAILABLE   $57,141   Below the disclosed minimum
+   *
+   * three inches into a page the visitor had been on for two seconds. It reads
+   * as "we have assessed you and you do not qualify." We had assessed nobody;
+   * we had multiplied the franchisor's own minimum by 0.6.
+   *
+   * Defaulting to the disclosed minimum instead would be the same defect with
+   * a friendlier verdict. A number the visitor did not choose is the problem,
+   * not which number it is. So: no number until they give us one.
+   *
+   * The thumb still has to sit somewhere — a range input has no null position.
+   * It sits at the middle of the DISCLOSED range, which communicates nothing
+   * quantitative while no figure is on screen, and puts the first drag a short
+   * distance from wherever they are heading. Parking it at 0 would read as
+   * "$0" to anyone who glanced at it. `seed` is a thumb position and never a
+   * value: it is never displayed, never passed to onChange, and never stored.
+   *
+   * Kept a slider, not a dropdown or a text input — the capture path's 800ms
+   * debounce on capital_modified is written against a control that emits a
+   * stream of change events.
+   */
+  const seed = Math.round((low + high) / 2 / STEP) * STEP;
+
+  const [capital, setCapital] = useState<number | null>(null);
 
   const verdict =
-    capital < low
-      ? { text: "Below the disclosed minimum", tone: styles.vBad }
-      : capital > high
-        ? { text: "Above the disclosed range", tone: styles.vOk }
-        : { text: "Inside the disclosed range", tone: styles.vMid };
+    capital === null
+      ? null
+      : capital < low
+        ? { text: "Below the disclosed minimum", tone: styles.vBad }
+        : capital > high
+          ? { text: "Above the disclosed range", tone: styles.vOk }
+          : { text: "Inside the disclosed range", tone: styles.vMid };
 
   return (
     <div className={styles.capital}>
@@ -471,8 +514,14 @@ function CapitalVerdict({
         type="range"
         min={0}
         max={Math.round(high * 1.5)}
-        step={5000}
-        value={capital}
+        step={STEP}
+        value={capital ?? seed}
+        /* A screen reader would otherwise announce the seed as the current
+           value — the same false claim the sighted defect made, in the one
+           channel where nobody would have print-to-PDF'd it. */
+        aria-valuetext={
+          capital === null ? "Not set" : `$${capital.toLocaleString("en-US")}`
+        }
         onChange={(e) => {
           const next = Number(e.target.value);
           setCapital(next);
@@ -480,8 +529,18 @@ function CapitalVerdict({
         }}
       />
       <div className={styles.capRow}>
-        <span className={styles.capValue}>${capital.toLocaleString("en-US")}</span>
-        <span className={verdict.tone}>{verdict.text}</span>
+        {capital === null || verdict === null ? (
+          <span className={styles.capPrompt}>
+            Drag to enter the capital you have available.
+          </span>
+        ) : (
+          <>
+            <span className={styles.capValue}>
+              ${capital.toLocaleString("en-US")}
+            </span>
+            <span className={verdict.tone}>{verdict.text}</span>
+          </>
+        )}
       </div>
       <p className={styles.capNote}>
         Against the total investment the franchisor discloses in Item 7. What it
