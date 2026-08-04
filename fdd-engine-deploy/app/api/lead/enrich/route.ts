@@ -10,13 +10,34 @@ import { enrichLead } from "@/lib/supabaseLeads";
 
 export const runtime = "nodejs";
 
-const seen = new Map<string, number>(); // best-effort per-instance throttle
+// Best-effort per-instance throttle. Possession of a valid lead id is the real
+// gate; this only stops a script hammering one id.
+//
+// 2026-08-04 — TWO DEFECTS FIXED HERE, AND THEY COMPOUNDED.
+//
+// (1) THE WINDOW ROLLED. `seen.set(id, now)` ran BEFORE the comparison, so a
+//     REJECTED call pushed the window forward. Anyone clicking faster than once
+//     every 2s was in a lockout that only cleared by giving up: click at 1.5s ->
+//     429 and the clock resets; click at 3.0s -> 429 again, because the clock
+//     now says 1.5s. Measured in lib/captureButtons.test.ts. A THROTTLE THAT
+//     RESETS ON THE REJECT IS A LOCKOUT, NOT A THROTTLE.
+//
+// (2) THE WINDOW WAS SIZED FOR ONE BUTTON AND THIS FORM HAS THREE. S4 is a
+//     name field, a phone field and a broker field, each with its own Save,
+//     filled top to bottom in one sitting. Two seconds between "Save the name"
+//     and "Save the broker" is not abuse, it is a person typing. 400ms still
+//     stops a hammering script and is below the floor of deliberate human
+//     re-click. THE THROTTLE MUST BE SHORTER THAN THE GAP BETWEEN TWO FIELDS A
+//     HUMAN FILLS IN SEQUENCE.
+const THROTTLE_MS = 400;
+const seen = new Map<string, number>();
 function throttled(id: string): boolean {
   const now = Date.now();
   const last = seen.get(id) ?? 0;
+  if (now - last < THROTTLE_MS) return true; // reject WITHOUT extending
   seen.set(id, now);
   if (seen.size > 500) seen.clear();
-  return now - last < 2000;
+  return false;
 }
 
 export async function POST(req: NextRequest) {

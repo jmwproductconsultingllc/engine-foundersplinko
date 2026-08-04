@@ -153,22 +153,54 @@ export async function enrichLead(args: {
 }
 
 /**
+ * How long a won claim blocks the next one. See scripts/lead-resend-window.sql
+ * for the full reasoning; the short version is that race protection needs
+ * seconds, a double-click and a reload need about a minute, and everything past
+ * that is a human who did not get the email asking again — which must work,
+ * because the Playbook is the fulfillment path for 82 of 83 brands.
+ *
+ * Exported so the lint asserts against the real number rather than a copy.
+ */
+export const RESEND_WINDOW_MS = 120_000;
+
+/**
  * Atomically CLAIM the fulfillment send for a lead: flip email_sent false→true
- * and report whether THIS caller won. The condition `.eq("email_sent", false)`
- * makes it a compare-and-set at the row level — a duplicate submit (the sheet
- * re-solicit bug) finds email_sent already true, matches 0 rows, and returns
- * false → it must NOT send. This is the server-side half of the double-email
- * fix; it holds even for truly-simultaneous submits, which a read-then-decide
+ * and report whether THIS caller won. The row-level compare-and-set is what
+ * makes it safe against a truly-simultaneous submit, which a read-then-decide
  * check would race. Returns false on any error (fail safe: don't double-send).
+ *
+ * 2026-08-04 — THE CLAIM IS NOW TIME-BOXED, AND THAT IS THE WHOLE FIX.
+ *
+ * It used to be `.eq("email_sent", false)` alone. Correct for the defect it was
+ * written for (two surfaces on one page firing in the same second) and silently
+ * catastrophic for the one it was not: leads upsert on (email, brand_slug), so
+ * that condition scoped the claim to FOREVER. First submit wins, every submit
+ * from that address on that slug thereafter loses, sends nothing, and returns
+ * ok:true — so the page says "Sent — check your inbox" and no email exists.
+ * Measured: ten consecutive submits, one email, ten successes reported.
+ *
+ * A DEDUPE THAT NEVER EXPIRES IS NOT A DEDUPE, IT IS A BLOCKLIST. The window is
+ * what makes it the former. Two conditions, OR'd: never sent, or last sent
+ * before the cutoff.
+ *
+ * email_sent_at is written on every win. It is NOT NULL-safe by accident — the
+ * migration backfills existing sent rows to a year ago, because a NULL fails
+ * `lt` and would have locked in the bug for exactly the cohort that has it.
+ * MIGRATION BEFORE CODE: without the column this update errors, the catch
+ * returns false, and every send stops. Run the SQL first.
  */
 export async function claimEmailSend(leadId: string): Promise<boolean> {
   if (!/^[0-9a-f-]{36}$/i.test(leadId)) return false;
+  const now = new Date();
+  const cutoff = new Date(now.getTime() - RESEND_WINDOW_MS).toISOString();
   try {
     const { data, error } = await getClient()
       .from("leads")
-      .update({ email_sent: true })
+      .update({ email_sent: true, email_sent_at: now.toISOString() })
       .eq("id", leadId)
-      .eq("email_sent", false)
+      // PostgREST `.or()` is applied as a single AND'd group alongside the
+      // .eq("id") above, so this reads: id = X AND (never sent OR stale claim).
+      .or(`email_sent.eq.false,email_sent_at.lt.${cutoff}`)
       .select("id");
     if (error) {
       console.error("[leads] claim error:", error.message);

@@ -164,15 +164,33 @@ export async function POST(req: NextRequest) {
       deduped = true;
       console.log("[lead] duplicate submit — fulfillment already claimed:", leadId.slice(0, 8));
     } else {
-      if (source === "playbook") {
-        sent = await sendPlaybookEmail({ to: email, leadId });
-      } else if (source === "capital_match" && ctx.capital_edited === true && ctx.capital_entered) {
-        sent = await sendCapitalMatchEmail({ to: email, capital: ctx.capital_entered, leadId, origin });
-      } else if (brand) {
-        // `brand` is only ever null on the playbook-sentinel path, which the
-        // branch above already handled — this guard is the type narrowing, not
-        // a new behaviour.
-        sent = await sendFindingsEmail({ to: email, brand, brandName, teaserUrl });
+      // 2026-08-04: THE TRY/CATCH IS LOAD-BEARING, NOT DEFENSIVE HABIT.
+      //
+      // send() inside lib/leadEmail wraps the Resend call and returns false on
+      // failure, so it was easy to read this block as already safe. It was not:
+      // each send* builder does work BEFORE reaching send() — sendPlaybookEmail
+      // awaits liveBrandCount(), which walks the brand store off disk — and a
+      // throw there propagates past this block, past the handler, and out as an
+      // unhandled 500. Which means `releaseEmailSend` on the next line NEVER
+      // RUNS, and the claim we just won stays won with no email behind it. A
+      // FAILED SEND THAT KEEPS ITS CLAIM IS THE SAME AS A BLOCKLIST ENTRY.
+      //
+      // fail-open on infrastructure: a builder that throws is our problem, not
+      // the reader's. Release, log, return sent:false, let them retry.
+      try {
+        if (source === "playbook") {
+          sent = await sendPlaybookEmail({ to: email, leadId });
+        } else if (source === "capital_match" && ctx.capital_edited === true && ctx.capital_entered) {
+          sent = await sendCapitalMatchEmail({ to: email, capital: ctx.capital_entered, leadId, origin });
+        } else if (brand) {
+          // `brand` is only ever null on the playbook-sentinel path, which the
+          // branch above already handled — this guard is the type narrowing, not
+          // a new behaviour.
+          sent = await sendFindingsEmail({ to: email, brand, brandName, teaserUrl });
+        }
+      } catch (err) {
+        sent = false;
+        console.error("[lead] fulfillment threw:", source, err);
       }
       // Send failed → release the claim so a real retry can re-send.
       if (!sent) await releaseEmailSend(leadId);

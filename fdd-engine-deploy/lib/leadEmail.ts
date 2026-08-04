@@ -127,7 +127,24 @@ export async function sendPlaybookEmail(args: { to: string; leadId: string }): P
   // /playbook, and the three disagreed with each other and with the store. It is
   // now computed once (lib/brandCount.ts) so the email, the pages and reality
   // move together. See that file for the full note.
-  const brandCount = brandCountPhrase(await liveBrandCount());
+  //
+  // 2026-08-04 — GUARDED. liveBrandCount() walks the brand store off disk, and
+  // this await sits OUTSIDE send()'s try/catch, so a store read that threw took
+  // down the whole fulfillment before Resend was ever called — and, until
+  // app/api/lead/route.ts gained its own catch, took the claim release with it,
+  // leaving that address marked sent with no email behind it.
+  //
+  // THE LIBRARY SIZE IS A GARNISH. THE PDF LINK IS THE PRODUCT. A count we
+  // cannot compute is not a reason to withhold the Playbook from someone who
+  // asked for it: degrade the sentence, send the file. Both call sites below
+  // read "…what the FDD actually says about the library →", which is honest and
+  // scans fine. fail-open on infrastructure.
+  let brandCount = "the library";
+  try {
+    brandCount = brandCountPhrase(await liveBrandCount());
+  } catch (e) {
+    console.error("[leadEmail] liveBrandCount failed; sending without the count:", e);
+  }
   const subject = "Your free Franchise Playbook";
   const inner = `
 <tr><td style="padding:18px 26px 0;">

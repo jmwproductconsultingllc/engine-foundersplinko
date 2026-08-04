@@ -201,6 +201,23 @@ export default function EmailCapture({
   // S4 broker capture (Ross's warm-handoff loop) — optional, free-form.
   const [broker, setBroker] = useState("");
   const [brokerSaved, setBrokerSaved] = useState(false);
+  // S4 SAVE LIFECYCLE — added 2026-08-04, and the absence of it was half the bug.
+  //
+  // saveEnrichment used to be `if (data.ok) { ...commit... }` with no else and
+  // no in-flight state. So a rejected save — a 429 from the enrich throttle, a
+  // 5xx, a dropped connection — changed NOTHING on screen. The button stayed
+  // enabled, the field kept its text, no message appeared. The UI after a failed
+  // save was byte-identical to the UI before the click, which leaves a reader
+  // exactly one move: click it again. And clicking again used to re-arm the
+  // throttle (see app/api/lead/enrich/route.ts), so the obvious response to the
+  // silence was the one thing that guaranteed more silence.
+  //
+  // A SAVE BUTTON THAT LOOKS THE SAME WHETHER IT WORKED OR NOT IS A BUTTON THAT
+  // TEACHES PEOPLE TO DOUBLE-SUBMIT. Both halves below are required: `saving`
+  // makes the in-flight request visible and un-repeatable, `saveFailed` makes
+  // the failure visible at all.
+  const [saving, setSaving] = useState<"name" | "phone" | "broker" | null>(null);
+  const [saveFailed, setSaveFailed] = useState<"name" | "phone" | "broker" | null>(null);
   // typed-intent telemetry: fire once per surface instance on first focus
   const [focusFired, setFocusFired] = useState(false);
   // shared cross-surface capture state (null if rendered without a provider)
@@ -278,7 +295,12 @@ export default function EmailCapture({
   }
 
   async function saveEnrichment(kind: "name" | "phone" | "broker") {
-    if (!leadId) return;
+    // `saving` is the client half of the double-submit guard. The server throttle
+    // is per-instance and best-effort; this is what actually stops the second
+    // click, because it stops it before it becomes a request.
+    if (!leadId || saving) return;
+    setSaving(kind);
+    setSaveFailed(null);
     const ctaId =
       kind === "name" ? "enrich_name_save" : kind === "phone" ? "enrich_phone_submit" : "enrich_broker_save";
     track("cta_clicked", { cta_id: ctaId, section: "capture" });
@@ -307,10 +329,30 @@ export default function EmailCapture({
           setEnriched(next);
           track("lead_enriched", { fields: next === "both" ? "name+phone" : next });
         }
+      } else {
+        // The else that did not exist. ok:false covers the 429 from the enrich
+        // throttle, a Supabase write that matched no row, and a 4xx/5xx. All of
+        // them used to render as nothing at all.
+        setSaveFailed(kind);
       }
     } catch {
-      /* enrichment is best-effort; the email is already banked */
+      // Enrichment is best-effort — the email is already banked, so a failure
+      // here costs a profile field, not a lead. But best-effort means we still
+      // TELL them, or they retry into the same wall.
+      setSaveFailed(kind);
+    } finally {
+      setSaving(null);
     }
+  }
+
+  /** Shared failure line. Named so all three buttons cannot drift apart. */
+  function saveError(kind: "name" | "phone" | "broker") {
+    if (saveFailed !== kind) return null;
+    return (
+      <p className="mt-1.5 text-[12px] text-[#FBBF24]">
+        That didn&apos;t save — give it a second and try again.
+      </p>
+    );
   }
 
   // ── success state + S4 enrichment ──
@@ -337,11 +379,12 @@ export default function EmailCapture({
                 />
                 <button
                   onClick={() => saveEnrichment("name")}
-                  disabled={!firstName.trim()}
+                  disabled={!firstName.trim() || saving !== null}
                   className="rounded-lg bg-[#27344F] px-3.5 py-2 text-sm font-bold text-[#CBD5E1] disabled:opacity-50"
                 >
-                  Save
+                  {saving === "name" ? "Saving…" : "Save"}
                 </button>
+                {saveError("name")}
               </div>
             ) : (
               <p className="mt-2 text-[12.5px] text-[#8194B0]">Thanks, {firstName.trim()}.</p>
@@ -366,12 +409,13 @@ export default function EmailCapture({
                   />
                   <button
                     onClick={() => saveEnrichment("phone")}
-                    disabled={!consent || phone.replace(/\D/g, "").length < 10}
+                    disabled={!consent || phone.replace(/\D/g, "").length < 10 || saving !== null}
                     className="rounded-lg bg-[#38BDF8] px-3.5 py-2 text-sm font-bold text-[#0B1220] disabled:opacity-50"
                   >
-                    Request walkthrough
+                    {saving === "phone" ? "Sending…" : "Request walkthrough"}
                   </button>
                 </div>
+                {saveError("phone")}
                 <label className="mt-2 flex items-start gap-2 text-[11.5px] text-[#8194B0]">
                   <input
                     type="checkbox"
@@ -403,12 +447,13 @@ export default function EmailCapture({
                   />
                   <button
                     onClick={() => saveEnrichment("broker")}
-                    disabled={!broker.trim()}
+                    disabled={!broker.trim() || saving !== null}
                     className="rounded-lg bg-[#27344F] px-3.5 py-2 text-sm font-bold text-[#CBD5E1] disabled:opacity-50"
                   >
-                    Save
+                    {saving === "broker" ? "Saving…" : "Save"}
                   </button>
                 </div>
+                {saveError("broker")}
               </div>
             ) : (
               <p className="mt-3 text-[12.5px] text-[#8194B0]">Thanks — we&apos;ll coordinate.</p>
