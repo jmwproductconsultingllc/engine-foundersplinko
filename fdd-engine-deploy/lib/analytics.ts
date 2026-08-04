@@ -43,7 +43,14 @@ export type AnalyticsEvent =
   | "lead_email_sent" // fulfillment email dispatched   { brandSlug, device, capture_surface }
   | "lead_email_link_clicked" // emailed link opened = verification { token }
   // ── capture v2 (spec r2): lifecycle + unified click event ──
-  | "capture_shown" // a capture surface became visible { capture_surface: "inline" | "sheet" | "calculator" | "playbook" }
+  // capture_surface is WHERE we asked. lead_source (on lead_email_submitted) is
+  // WHAT we send. They are not the same axis and must never be collapsed:
+  // "playbook" and "glass_playbook" carry the same magnet and the same
+  // lead_source, and differ only by page type — which is the entire before/after
+  // read glass mode exists to produce. `glass` was retired 2026-08-03; it is
+  // still in historical PostHog data for 07-30 → 08-03 and those rows were
+  // fulfilled as brand_findings, so do not union it back in to "fix" a chart.
+  | "capture_shown" // a capture surface became visible { capture_surface: "inline" | "sheet" | "calculator" | "playbook" | "glass_playbook" }
   | "playbook_downloaded" // direct PDF grab after capture on /playbook { source }
   | "email_field_focused" // typed-intent signal: separates "nobody cares" from "starts typing and bails" { capture_surface }
   | "lead_enriched" // S4 progressive profile saved     { fields: "name" | "phone" | "name+phone" }

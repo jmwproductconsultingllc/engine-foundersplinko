@@ -645,7 +645,22 @@ export default function ReportGlass({
      BrandDetail.tsx:126). Matching it is the point: capture_shown / lead_email_
      submitted is the funnel, and if the two page types define "shown"
      differently the conversion rates are not comparable and the flip cannot be
-     read. Only capture_surface differs. */
+     read. Only capture_surface differs.
+
+     THE THRESHOLD DID NOT MOVE when the magnet changed on 2026-08-03, and that
+     was a decision. BrandDetail fires its own `playbook` surface at 50%
+     (BrandDetail.tsx:143), and matching THAT instead was tempting — same
+     magnet, same lead_source, why not the same denominator. Because the
+     denominator that matters here is the page-type flip, not the magnet: the
+     question this beacon exists to answer is "does glass capture better than
+     the teaser," and the teaser number it is being compared against is the 40%
+     inline one this page has always mirrored. Move the threshold to chase
+     magnet parity and the page-type read breaks instead. One comparison had to
+     survive; this is the one with a decision hanging on it.
+
+     ONE surface on this page, and `capture_surface` says which. Do not add a
+     second beacon here without adding a second ask, and do not add a second ask
+     — see the capture block below. */
   const captureRef = useRef<HTMLDivElement | null>(null);
   const captureShown = useRef(false);
   useEffect(() => {
@@ -655,7 +670,7 @@ export default function ReportGlass({
       ([e]) => {
         if (e.isIntersecting && !captureShown.current) {
           captureShown.current = true;
-          track("capture_shown", { capture_surface: "glass" });
+          track("capture_shown", { capture_surface: "glass_playbook" });
           io.disconnect();
         }
       },
@@ -786,18 +801,29 @@ export default function ReportGlass({
 
           Not wrapped in `shell.capitalRange &&` — capital is optional context
           for the S4 phone gate, not a precondition for taking an email. */}
-      <div ref={captureRef} className={styles.capture}>
-        <CaptureProvider>
+      {/* ONE ask. Not two. 2026-08-03: the first pass at restoring the Playbook
+          added it as a SECOND capture below this one, and that was wrong — the
+          one-ask discipline on this page is a decision, not an omission (see
+          the comment on the capture beacon above). What regressed in the glass
+          refactor was never the number of asks; it was the MAGNET and the
+          lead_source underneath it. So the magnet moves and the count does not.
+
+          surface="glass_playbook": Playbook copy, lead_source "playbook" (which
+          is what routes the reader to sendPlaybookEmail and the PDF), and its
+          own capture_surface so the glass-vs-teaser funnel read stays legible.
+          All three strings are load-bearing and none of them is the other. */}
+      <CaptureProvider>
+        <div ref={captureRef} className={styles.capture}>
           <EmailCapture
             brandName={shell.brandName}
             brandSlug={brandSlug}
-            surface="glass"
+            surface="glass_playbook"
             capitalEntered={capital}
             capitalEdited={capitalEdited}
             refTag={refTag}
           />
-        </CaptureProvider>
-      </div>
+        </div>
+      </CaptureProvider>
 
       {/* ---------- traveling unlock bar ---------- */}
       <div className={styles.bar} role="complementary">

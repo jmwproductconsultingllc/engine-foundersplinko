@@ -177,8 +177,8 @@ export default function PlaybookLanding({
 
           <p className="mt-10 text-xs leading-relaxed text-[#5A6B88]">
             Informational only — not legal, financial, or investment advice. Not affiliated with or
-            endorsed by any franchisor. No spam: the Playbook plus one follow-up, unsubscribe
-            anytime.
+            endorsed by any franchisor. No spam: the Playbook, then occasional notes as you go —
+            unsubscribe anytime.
           </p>
         </div>
       </main>

@@ -26,6 +26,11 @@ import { join, resolve } from "node:path";
 import React from "react";
 
 import ReportGlass, { HeroHook } from "@/components/ReportGlass";
+/* THE CONVERSION SURFACE LINT asserts on the real map, not on a regex over the
+   file — see its header. Importing a client module into a node-env test is fine
+   here for the same reason ReportGlass itself is: nothing in EmailCapture's
+   import graph touches the DOM at module scope. */
+import { SOURCE_FOR } from "@/components/EmailCapture";
 import { buildReportShell, DEFAULT_GLASS_CONFIG } from "@/lib/reportShell";
 import { reportSourceFromComputed } from "@/lib/reportSource";
 import { qualifiesForGlass } from "@/lib/reportShell";
@@ -503,14 +508,19 @@ describe("THE RENDERED LEAK TEST", () => {
     expect(html, "no email input on the glass page — capture is gone").toMatch(
       /<input[^>]*type="email"[^>]*aria-label="Your email address"/,
     );
-    expect(html).toContain("Email me the questions");
+    /* The magnet moved 2026-08-03: "Email me the questions" -> "Get the free
+       Playbook". This assertion is deliberately NOT loosened to "some button
+       exists" — the button label IS the magnet, and swapping the magnet without
+       deciding to is the exact defect that produced THE CONVERSION SURFACE LINT
+       below. If you change this string, change it there too, on purpose. */
+    expect(html).toContain("Get the free Playbook");
 
     /* ORDER. The free ask must sit BELOW the paid one. Above it, it becomes
        the first offer the reader meets and competes with the product for the
        visitor who was closest to buying. This is the one property of the
        placement a later refactor can silently invert. */
     const offerAt = html.indexOf("Unlock the full report");
-    const captureAt = html.indexOf("Email me the questions");
+    const captureAt = html.indexOf("Get the free Playbook");
     expect(offerAt, "offer block not found").toBeGreaterThan(-1);
     expect(
       captureAt,
@@ -772,5 +782,205 @@ describe("THE FINDING-REACHES-THE-READER LINT", () => {
       scale(shellOf(CLEAN()))?.finding,
       "a finding on a record that does not contradict itself",
     ).toBeUndefined();
+  });
+});
+
+/* ------------------------------------------------------------------ *
+ * THE CONVERSION SURFACE LINT.
+ *
+ * Every other guard around glass mode asserts that something is NOT on the
+ * page. THE LEAK TEST, THE RENDERED LEAK TEST, THE SEAM LINT, THE FIRST-PAINT
+ * LINT, THE PROSE PROVENANCE LINT — a whole family pointing one direction, and
+ * a component can satisfy every one of them by rendering less and less. The
+ * ship gate inherited the same bias: six steps, all of them about figure leaks
+ * and figure counts, and not one about whether the page can still take money.
+ *
+ * So it shipped. The glass refactor swapped the capture's magnet from the
+ * Playbook to the twelve questions and, underneath it, the lead_source from
+ * `playbook` to `brand_findings`. Four of four cold leads this product has ever
+ * produced carry lead_source = playbook. For four days, across 82 of 83 brands
+ * in the catalog, the page every ad points at ran the untested magnet, wrote
+ * the wrong cohort, and fulfilled with the findings summary instead of the PDF.
+ * `tsc` was clean. 462 tests were green. The printed live page contained the
+ * word "playbook" zero times.
+ *
+ * Note what a naive version of this lint would NOT have caught: the capture was
+ * present the whole time. It rendered, it submitted, it said "Sent — check your
+ * inbox." A guard that asks "is there a capture on the page" goes green on the
+ * defect. So this asserts the whole chain, because a surface can be present and
+ * still be worthless in three distinct ways that all look fine in a screenshot:
+ *
+ *   1. mounted but not rendering a form   -> nothing to submit
+ *   2. mounted under a surface string     -> wrong lead_source, wrong email,
+ *      that maps to the wrong source         cohort silently re-tagged
+ *   3. mounted with no beacon             -> converts, and the funnel is blind
+ *
+ * (2) is what actually happened and is why this imports SOURCE_FOR rather than
+ * asserting on markup. The surface string is load-bearing in two systems at
+ * once: EmailCapture maps it to a lead_source, and app/api/lead branches on
+ * that to send the PDF instead of the findings summary. Change one string and
+ * the page still renders, still captures, still confirms — and delivers the
+ * wrong artifact to a cohort that stops being comparable to the four leads it
+ * is supposed to extend.
+ *
+ * REGISTRY, not discovery. AN ENUMERATED GUARD ONLY GUARDS WHAT SOMEONE
+ * REMEMBERED TO ENUMERATE — so the count assertions below close that hole from
+ * both sides: a surface added to the page and not added here goes red, and a
+ * surface deleted from the page goes red. The count is ONE. That is the glass
+ * one-ask discipline, asserted rather than commented, because the first attempt
+ * at this fix added a second capture and nothing in the suite objected.
+ *
+ * MUTATION-PROVEN. Each of these was applied to the working tree, the suite run,
+ * the red count recorded, and the mutation reverted (measured 2026-08-03, on a
+ * 44-test baseline):
+ *
+ *   delete the <EmailCapture> mount block .......................... 6 red
+ *   paraphrase the button label ("Send me the Playbook") ........... 4 red
+ *   surface="glass_playbook" -> "playbook" (collapses the read) .... 2 red
+ *   add a SECOND capture below this one (the wrong fix) ............ 2 red
+ *   drop the capture_shown beacon .................................. 2 red
+ *   SOURCE_FOR.glass_playbook -> "brand_findings" (the 07-30 bug) ... 1 red
+ *   remove the source === "playbook" branch in /api/lead ........... 1 red
+ *   capture_shown threshold 0.4 -> 0.5 ............................. 1 red
+ *
+ * The run itself found a hole and it is fixed below: the mount assertion was a
+ * bare substring check, and the comment above the mount block names the surface
+ * string, so deleting the block while keeping the prose went green. It is now
+ * anchored to a JSX attribute on its own line. A MUTATION TEST IS WHAT MAKES A
+ * LINT REAL, and this is the second time that has been literally true here.
+ * ------------------------------------------------------------------ */
+
+/* The surfaces the glass page is expected to mount, exhaustively. */
+const GLASS_SURFACES = [
+  {
+    surface: "glass_playbook" as const,
+    btn: "Get the free Playbook",
+    leadSource: "playbook",
+    threshold: "0.4",
+    why: "the Playbook — 4 of 4 cold leads to date; restored 2026-08-03 after the glass refactor swapped the magnet to the twelve questions",
+  },
+];
+
+describe("THE CONVERSION SURFACE LINT", () => {
+  const GLASS_SRC = readFileSync(join(process.cwd(), "components/ReportGlass.tsx"), "utf8");
+
+  const glassHtml = (() => {
+    /* The first brand in the catalog that actually qualifies for glass, by
+       slug order. Deterministic on purpose — a lint that renders a random
+       brand fails on one commit in nine and gets disabled rather than fixed. */
+    const withShell = load()
+      .sort((a, b) => a.slug.localeCompare(b.slug))
+      .map(({ rec }) => productionShell(rec))
+      .find((s) => qualifiesForGlass(s, DEFAULT_GLASS_CONFIG));
+    if (!withShell) throw new Error("no qualifying brand in the catalog");
+    return renderToStaticMarkup(
+      React.createElement(ReportGlass, {
+        shell: withShell,
+        refTag: null,
+        unlockHref: "/api/mint-brand-report?slug=probe",
+      }),
+    );
+  })();
+
+  /* THE ALWAYS-PASSING VERIFIER, closed. Every assertion below is of the form
+     "the rendered page contains X" — and all of them are vacuously satisfiable
+     by a render that throws, returns null, or hands back an empty string. */
+  it("the registry is non-empty and the page actually rendered", () => {
+    expect(GLASS_SURFACES.length).toBeGreaterThan(0);
+    expect(glassHtml.length).toBeGreaterThan(5_000);
+    expect(glassHtml).toContain("Unlock");
+  });
+
+  it("every registered surface is mounted and submittable", () => {
+    for (const s of GLASS_SURFACES) {
+      expect(glassHtml, `${s.surface}: ${s.why}`).toContain(s.btn);
+      /* Anchored to a JSX attribute on its own line, NOT a bare substring.
+         The mutation run that produced the counts above caught this: the
+         comment above the mount block names the surface string too, so a
+         substring check goes green on a file where the block is deleted and
+         only the prose explaining it survives. Comments are not mounts. */
+      expect(
+        GLASS_SRC,
+        `${s.surface} must be mounted by ReportGlass, not merely mentioned`,
+      ).toMatch(new RegExp(`^\\s+surface="${s.surface}"$`, "m"));
+    }
+    /* A magnet with no field to type into is a poster. */
+    const emailFields = glassHtml.match(/type="email"/g) ?? [];
+    expect(emailFields.length).toBe(GLASS_SURFACES.length);
+  });
+
+  /* §8, THE ZERO-SURFACE FLOOR. The assertion the ship gate was missing, stated
+     in its weakest and least deletable form: a glass page with no way to take
+     an email address is never shippable, whatever else is true of it. Kept
+     separate from the registry assertions on purpose — the registry is the
+     thing a future refactor edits, and this is the thing it cannot edit away
+     without noticing. */
+  it("a rendered glass page is never left with zero capture surfaces", () => {
+    expect(glassHtml).toMatch(/type="email"/);
+    expect(GLASS_SRC).toMatch(/capture_shown", \{ capture_surface: "/);
+  });
+
+  it("every registered surface still resolves to its recorded lead_source", () => {
+    for (const s of GLASS_SURFACES) {
+      expect(SOURCE_FOR[s.surface], `${s.surface} -> lead_source`).toBe(s.leadSource);
+    }
+  });
+
+  it("the glass ask still reaches the Playbook email, not the findings email", () => {
+    const route = readFileSync(join(process.cwd(), "app/api/lead/route.ts"), "utf8");
+    expect(route).toMatch(/source\s*===\s*"playbook"/);
+    expect(route).toContain("sendPlaybookEmail");
+  });
+
+  it("every registered surface fires capture_shown, at its own threshold", () => {
+    for (const s of GLASS_SURFACES) {
+      expect(GLASS_SRC).toContain(
+        `track("capture_shown", { capture_surface: "${s.surface}" })`,
+      );
+      expect(GLASS_SRC).toContain(`{ threshold: ${s.threshold} }`);
+    }
+    /* The enumerated-guard hole, closed from the other side: a beacon added to
+       this page and not registered above goes red here. */
+    const beacons = GLASS_SRC.match(/capture_shown", \{ capture_surface: "/g) ?? [];
+    expect(beacons.length).toBe(GLASS_SURFACES.length);
+  });
+
+  /* ONE ASK. The glass page runs a single capture by design — BrandDetail runs
+     four because a teaser is a browsing page; glass is a single decision. That
+     decision has lived in a comment since 07-30 and a comment did not stop the
+     first pass at restoring the Playbook from stacking a second ask underneath
+     the first. Now it is an assertion. */
+  it("the page asks exactly once, and the free ask stays below the paid one", () => {
+    const providers = GLASS_SRC.match(/<CaptureProvider>/g) ?? [];
+    expect(providers.length, "one provider — two means two independent states").toBe(1);
+    const mounts = GLASS_SRC.match(/<EmailCapture$/gm) ?? [];
+    expect(mounts.length, "one EmailCapture on the glass page").toBe(1);
+
+    const offer = glassHtml.indexOf("Unlock");
+    const ask = glassHtml.indexOf(GLASS_SURFACES[0].btn);
+    expect(offer).toBeGreaterThan(-1);
+    expect(ask).toBeGreaterThan(offer);
+  });
+
+  /* The restore is only a restore if the words match the ones the four leads
+     were captured with. A magnet whose copy drifts is a different magnet
+     wearing the same lead_source. */
+  it("the glass magnet is the Playbook, word for word, not a paraphrase", () => {
+    for (const line of [
+      "Not sure where to start with a franchise?",
+      "the 90-day checklist, cost worksheets, and location math",
+      "Get the free Playbook",
+    ]) {
+      expect(glassHtml).toContain(line);
+    }
+  });
+
+  it("the fine print promises no count of follow-ups", () => {
+    expect(glassHtml).toContain("The Playbook, then occasional notes as you go.");
+    expect(glassHtml).not.toContain("The Playbook + one follow-up");
+    /* The glass-only disambiguator survives the magnet swap — a free PDF named
+       six inches under a $199 button is exactly what gets half-read as "the
+       report, free." */
+    expect(glassHtml).toContain("This email is not the report.");
   });
 });

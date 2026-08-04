@@ -35,29 +35,56 @@ function suggestFix(email: string): string | null {
 }
 
 /**
- * `glass` is its own surface, not a reuse of `inline`, and that is deliberate.
- * capture_surface is the only dimension separating the two page types in
- * PostHog; reuse the same value on both and the before/after read that glass
- * mode exists to produce collapses into a single bucket the day the flag flips.
+ * `glass_playbook` is its own surface, not a reuse of `playbook`, and that is
+ * deliberate. capture_surface is the only dimension separating the two page
+ * types in PostHog; reuse the same value on both and the before/after read that
+ * glass mode exists to produce collapses into a single bucket the day the flag
+ * flips. It carries the same MAGNET as `playbook` and the same LEAD_SOURCE as
+ * `playbook` — it differs only in where we asked, which is the one thing
+ * capture_surface is for.
  *
- * `ask_link` was removed 2026-07-30. It sat in this union with full copy
- * defined and was mounted by nothing — dead code that still read as a live
- * promise, which is exactly how a retired line comes back.
+ * `glass` was removed 2026-08-03 and replaced by `glass_playbook`. It shipped
+ * 2026-07-30 with the twelve-questions magnet and, by side effect, wrote
+ * lead_source "brand_findings" — so from 07-30 to 08-03 every glass-page
+ * capture was silently split off from the only cohort that has ever converted,
+ * and was fulfilled with the findings summary instead of the PDF. Nobody
+ * decided that; a rendering refactor did. The questions magnet may well be the
+ * better one, but it does not get to replace the instrument with a track record
+ * as a side effect. If we test it, we test it on purpose, from a known baseline.
+ *
+ * `glass` is GONE rather than left in the union unmounted, for the same reason
+ * `ask_link` was removed 2026-07-30: a surface that sits here with full copy
+ * defined and is mounted by nothing is dead code that still reads as a live
+ * promise, which is exactly how a retired line comes back. The copy is one
+ * `git show` away if we want the A/B.
  */
-export type CaptureSurface = "inline" | "sheet" | "calculator" | "playbook" | "glass";
+export type CaptureSurface =
+  | "inline"
+  | "sheet"
+  | "calculator"
+  | "playbook"
+  | "glass_playbook";
 type LeadSource = "brand_findings" | "playbook" | "capital_match";
 
 /* lead_source, NOT capture_surface, is what /api/lead persists and what
-   lib/leadEmail.ts branches on. A glass capture is a shopper-track lead and
-   gets the findings email, same as the teaser: the page type changes where we
-   asked, never what we send. Adding a surface here is a client + analytics
-   change only — the API validates lead_source and has never seen this union. */
-const SOURCE_FOR: Record<CaptureSurface, LeadSource> = {
+   lib/leadEmail.ts branches on. Two surfaces map to "playbook" on purpose:
+   where we asked is a client + analytics fact, what we send is a fulfillment
+   fact, and collapsing them is what produced the 07-30 regression. Adding a
+   surface here is a client + analytics change only — the API validates
+   lead_source and has never seen this union.
+
+   Exported for THE CONVERSION SURFACE LINT, which asserts that each surface
+   the glass page mounts still resolves to the lead_source its cohort was
+   recorded under. Exported rather than regex-scraped on purpose: a lint that
+   reads this map as text goes green the moment the map is reformatted, and the
+   thing being protected — that the glass ask still means `playbook` — is worth
+   an assertion that cannot drift. Read-only by contract; nothing writes it. */
+export const SOURCE_FOR: Record<CaptureSurface, LeadSource> = {
   inline: "brand_findings",
   sheet: "brand_findings",
-  glass: "brand_findings",
   calculator: "capital_match",
   playbook: "playbook",
+  glass_playbook: "playbook",
 };
 
 /**
@@ -94,16 +121,6 @@ const COPY: Record<CaptureSurface, { h: string; sub: string; btn: string; fine: 
     btn: "Email me the questions",
     fine: "No spam. Unsubscribe anytime.",
   },
-  glass: {
-    h: "Not buying today? Take the questions with you.",
-    /* The last sentence of `fine` is load-bearing, not throat-clearing. Every
-       figure on the glass page is masked, so any free offer here is read
-       against the $199 button six inches away. Declining the promise out loud
-       is what keeps the two asks from competing. Do not trim it. */
-    sub: "The numbers on this page are the report. The questions are free: the 12 to ask {AnBrand} franchisee before you sign, and which {Brand} FDD Items carry the answers.",
-    btn: "Email me the questions",
-    fine: "No spam. The questions + one follow-up. Unsubscribe anytime. This email is not the report.",
-  },
   calculator: {
     h: "Brands that fit your budget",
     sub: "I'll email you the tracked brands whose disclosed Item 7 low end fits {Capital}.",
@@ -114,7 +131,44 @@ const COPY: Record<CaptureSurface, { h: string; sub: string; btn: string; fine: 
     h: "Not sure where to start with a franchise?",
     sub: "Get our free Playbook — the 90-day checklist, cost worksheets, and location math the pros use, in plain English.",
     btn: "Get the free Playbook",
-    fine: "No spam. The Playbook + one follow-up. Unsubscribe anytime.",
+    /* #65. "one follow-up" was a COUNT, and no code in this repo honours it.
+       lib/leadEmail.ts labels sendPlaybookEmail "nurture email #1" and there is
+       no #2 — so the line has been under-delivering since it shipped, and the
+       moment a #2 exists it starts over-promising instead. A number that is
+       wrong in both directions is not a number worth keeping.
+
+       Names the SHAPE of the relationship rather than its cardinality, which is
+       the only honest thing this component can say about mail it does not send.
+       Standing rule, same family as "name the output, never the cutoff": do not
+       promise a quantity a downstream system decides. */
+    fine: "No spam. The Playbook, then occasional notes as you go. Unsubscribe anytime.",
+  },
+  /* Restored to the glass page 2026-08-03. h / sub / btn are the `playbook`
+     block above VERBATIM, and that is the requirement, not a coincidence: this
+     is a restore, not a rewrite. The four leads this cohort is meant to extend
+     were captured by these exact words, and a magnet whose copy drifts is a
+     different magnet wearing the same lead_source. If you improve this line,
+     improve the one above it in the same commit, or the comparison dies.
+
+     `fine` is the ONE line that differs, and it differs twice over:
+
+       1. the corrected #65 promise (see the note above) — a count nothing in
+          this repo honours, replaced by the shape of the relationship;
+       2. plus the glass-only disambiguator that shipped on this page 07-30 and
+          survives the magnet swap.
+
+     (2) is load-bearing, not throat-clearing. Every figure on a glass page is
+     an empty span, so a free offer here is read against the $199 button six
+     inches above it — and the failure mode got WORSE with this change, not
+     better: "the Playbook" is a generic PDF, and a reader who half-skims it as
+     "the report, free" churns on open and never comes back. Declining the
+     promise out loud is what keeps the free ask from cannibalising the paid
+     one. Do not trim it. */
+  glass_playbook: {
+    h: "Not sure where to start with a franchise?",
+    sub: "Get our free Playbook — the 90-day checklist, cost worksheets, and location math the pros use, in plain English.",
+    btn: "Get the free Playbook",
+    fine: "No spam. The Playbook, then occasional notes as you go. Unsubscribe anytime. This email is not the report.",
   },
 };
 
