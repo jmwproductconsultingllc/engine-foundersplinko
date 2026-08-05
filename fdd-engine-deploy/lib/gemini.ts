@@ -72,7 +72,7 @@ RULES:
   FINANCIAL STATEMENTS. Never pull a fee, cost, or table out of the franchise
   agreement, the operations/brand standards manual, or an addendum — even if it
   restates a number. (Item 17's renewal, termination, transfer, and dispute terms
-  are the sole exception, and go to operationalRisks as noted below.) On long,
+  are the sole exception, and go to exitTerms as specified below.) On long,
   exhibit-heavy filings this is what keeps the extraction focused and the output
   from overflowing.
 - Extract FACTS ONLY. Do NOT assign a risk score, rating, or recommendation —
@@ -152,8 +152,38 @@ RULES:
   complete set, not the leftovers. If a rate is disclosed as a RANGE or a tiered
   schedule, record the rate that applies to a typical single unit at maturity. Fees
   charged as a flat dollar amount belong in flatMonthlyFees, never here.
-- Item 17 itself covers renewal, termination, transfer, and dispute resolution — pull
-  those risks into operationalRisks, never into the investment table.
+- exitTerms: Item 17 is a TABLE every franchisor is required to publish — rows (a)
+  through (w), each naming the franchise-agreement section it summarizes. Fill
+  exitTerms from that table and from the sections it names, and from nowhere else.
+  It never goes into the investment table.
+  COUNT, DO NOT CHARACTERIZE. Never state, imply or grade whether a term is
+  standard, unusual, harsh, favorable, enforceable or unenforceable — not in any
+  field, not in any phrase. There is no severity here and no legal opinion here.
+    * Anything the Item 17 table does not state is null. Do not infer it and do
+      not write "none" — absence from the table is not absence from the
+      agreement, and downstream code renders null as "Not stated in this table".
+    * A stated ZERO is a zero, not a null. A non-compete the table gives with no
+      geographic radius is postTermNonCompeteMiles: 0; a table that is silent on
+      radius is null. These are different facts and must never collapse.
+    * curableDefaults: one entry per default CATEGORY row (g) names, with its
+      cure period in days (null if the row names a category with no period).
+    * nonCurableDefaultCount: how many grounds row (h) actually NAMES. Count
+      them; do not estimate. nonCurableOpenEnded: true when that list ends in
+      "and others", "among others", "including but not limited to" or the
+      equivalent — i.e. the count is a floor, not a total.
+    * franchiseeTerminationGrounds: how many grounds row (d) gives the
+      FRANCHISEE to terminate. If row (d) gives only "any ground allowed by
+      law", that is 1.
+    * transferConditionCount: how many conditions row (m) lists, as printed.
+    * successorFeeBasis: how row (c) words the successor fee, e.g. "50% of
+      then-current initial franchise fee plus training costs". Do not convert it
+      to a dollar figure.
+    * Do NOT compute the longest possible hold, the franchisor-to-franchisee
+      grounds ratio, or any other arithmetic. Code does that.
+- operationalRisks must NOT contain renewal, termination, transfer, non-compete
+  or dispute-resolution terms. Those are exitTerms, and exitTerms carries no
+  severity grade. Placing them in both renders the same term twice — once
+  counted, once editorialized.
 - item19.cohorts: capture EVERY table the franchisor discloses in Item 19. Each
   table is its own cohort, and Item 19 is routinely UNDER-captured because it
   contains several tables. CRITICAL: a franchisor very often discloses a separate

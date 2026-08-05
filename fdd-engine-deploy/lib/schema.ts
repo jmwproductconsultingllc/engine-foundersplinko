@@ -137,6 +137,76 @@ export type ConceptType =
   | "education_childcare"
   | "other";
 
+/**
+ * ITEM 17 — RENEWAL, TERMINATION, TRANSFER AND DISPUTE RESOLUTION.
+ *
+ * Every field here is a count, a duration, or a short phrase lifted from the
+ * Item 17 table. Nothing here is a judgment: the model never decides whether a
+ * term is standard, unusual, harsh, favorable, enforceable or unenforceable.
+ * Derivations (longest possible hold, franchisor-vs-franchisee ground counts)
+ * happen in code, never in the model.
+ *
+ * A field the Item 17 table does not state is null and renders as
+ * "Not stated in this table" — never as "None". Item 17 is a summary; absence
+ * from the table is not absence from the franchise agreement.
+ */
+export interface CurableDefault {
+  /** the category as the table words it, e.g. "Failure to pay money" */
+  category: string;
+  /** cure period in days; null when the table names a category with no period */
+  cureDays: number | null;
+}
+
+export interface ExitTerms {
+  /** 17(a) */
+  initialTermYears: number | null;
+  /** 17(b) — how many successor terms, and how long each is */
+  successorTermCount: number | null;
+  successorTermYears: number | null;
+  /** 17(c) — does renewal require signing the THEN-CURRENT agreement? */
+  renewalRequiresCurrentAgreement: boolean | null;
+  /** 17(c) — the conditions as the table words them */
+  renewalConditions: string | null;
+  /** 17(c) — how the successor fee is expressed, verbatim-ish
+   *  (e.g. "50% of then-current initial franchise fee plus training costs") */
+  successorFeeBasis: string | null;
+  /** 17(e) — true only if the table states the franchisor may terminate without cause */
+  franchisorTerminationWithoutCause: boolean | null;
+  /** 17(g) */
+  curableDefaults: CurableDefault[];
+  /** 17(h) — how many non-curable grounds the table actually names */
+  nonCurableDefaultCount: number | null;
+  /** 17(h) — true when the list ends "and others" or equivalent, i.e. the count is a floor */
+  nonCurableOpenEnded: boolean | null;
+  /** 17(d) — how many grounds the table gives the FRANCHISEE to terminate */
+  franchiseeTerminationGrounds: number | null;
+  /** 17(k)(l) */
+  transferApprovalRequired: boolean | null;
+  /** 17(m) — how many conditions the table lists for approval */
+  transferConditionCount: number | null;
+  /** 17(n) */
+  rightOfFirstRefusal: boolean | null;
+  rightOfFirstRefusalDays: number | null;
+  /** 17(p) */
+  deathTransferDays: number | null;
+  estateApplicationDays: number | null;
+  /** 17(q) — scope as worded; null when the table states none */
+  inTermNonCompete: string | null;
+  /** 17(r) — 0 and null are DIFFERENT and must never render identically */
+  postTermNonCompeteYears: number | null;
+  postTermNonCompeteMiles: number | null;
+  /** 17(r) — what the radius is measured against, as worded */
+  postTermNonCompeteScope: string | null;
+  /** 17(u) */
+  disputeResolution: string | null;
+  /** 17(v) */
+  forum: string | null;
+  /** 17(w) */
+  governingLaw: string | null;
+  /** e.g. "Item 17, pp. 47-52" */
+  sourcePage: string;
+}
+
 export interface ExtractedFDD {
   documentCheck: {
     appearsComplete: boolean;
@@ -210,6 +280,12 @@ export interface ExtractedFDD {
    *  so a filing with no readable audited financials degrades cleanly rather than
    *  failing extraction. */
   financialCondition?: FinancialConditionExtraction;
+  /** RAW Item 17 terms — counted, never characterized. Optional: absent on every
+   *  record extracted before this field existed. The report's "Leaving" section
+   *  and its nav entry are omitted entirely when it is missing, never rendered
+   *  empty, and it is deliberately NOT in the top-level required[] below so that
+   *  legacy blobs stay valid. */
+  exitTerms?: ExitTerms;
 }
 
 /**
@@ -451,7 +527,49 @@ export const fddResponseSchema = {
         "priorPeriodRestatement", "parentGuaranteeOfPerformance", "years",
       ],
     },
+    exitTerms: {
+      type: Type.OBJECT,
+      properties: {
+        initialTermYears: { type: Type.NUMBER, nullable: true },
+        successorTermCount: { type: Type.NUMBER, nullable: true },
+        successorTermYears: { type: Type.NUMBER, nullable: true },
+        renewalRequiresCurrentAgreement: { type: Type.BOOLEAN, nullable: true },
+        renewalConditions: { type: Type.STRING, nullable: true },
+        successorFeeBasis: { type: Type.STRING, nullable: true },
+        franchisorTerminationWithoutCause: { type: Type.BOOLEAN, nullable: true },
+        curableDefaults: {
+          type: Type.ARRAY,
+          items: {
+            type: Type.OBJECT,
+            properties: {
+              category: { type: Type.STRING },
+              cureDays: { type: Type.NUMBER, nullable: true },
+            },
+            required: ["category"],
+          },
+        },
+        nonCurableDefaultCount: { type: Type.NUMBER, nullable: true },
+        nonCurableOpenEnded: { type: Type.BOOLEAN, nullable: true },
+        franchiseeTerminationGrounds: { type: Type.NUMBER, nullable: true },
+        transferApprovalRequired: { type: Type.BOOLEAN, nullable: true },
+        transferConditionCount: { type: Type.NUMBER, nullable: true },
+        rightOfFirstRefusal: { type: Type.BOOLEAN, nullable: true },
+        rightOfFirstRefusalDays: { type: Type.NUMBER, nullable: true },
+        deathTransferDays: { type: Type.NUMBER, nullable: true },
+        estateApplicationDays: { type: Type.NUMBER, nullable: true },
+        inTermNonCompete: { type: Type.STRING, nullable: true },
+        postTermNonCompeteYears: { type: Type.NUMBER, nullable: true },
+        postTermNonCompeteMiles: { type: Type.NUMBER, nullable: true },
+        postTermNonCompeteScope: { type: Type.STRING, nullable: true },
+        disputeResolution: { type: Type.STRING, nullable: true },
+        forum: { type: Type.STRING, nullable: true },
+        governingLaw: { type: Type.STRING, nullable: true },
+        sourcePage: { type: Type.STRING },
+      },
+      required: ["curableDefaults", "sourcePage"],
+    },
   },
+  // exitTerms is intentionally NOT here: every persisted report predates it.
   required: [
     "documentCheck", "brandName", "franchisorEntity", "headquarters",
     "brandBackground", "leadership", "item19", "item17", "ongoingFees",

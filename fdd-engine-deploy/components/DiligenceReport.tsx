@@ -16,6 +16,9 @@ import { range } from "@/lib/range";
 import { normalizeSeverity } from "@/lib/severity";
 import { analyzeChurn } from "@/lib/churn";
 import { buildCallList } from "@/lib/callList";
+// lib/exitTerms.ts imports ONLY a type from lib/schema.ts, so nothing from
+// @google/genai reaches this "use client" bundle. Keep it that way.
+import { buildLeaving } from "@/lib/exitTerms";
 
 const usd = (n: number | null | undefined) =>
   n == null
@@ -341,6 +344,10 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
   // data"), so the pill still links to it. Only the lookup key is normalised.
   const fcLinked = !!fc && fcSeverity !== "LOW";
 
+  // Item 17. Derived once: the nav entry and the section have to agree, and the
+  // only way to guarantee that is one source for both.
+  const leaving = buildLeaving(x.exitTerms);
+
   const NAV = [
     { href: "#item7", label: "What it costs" },
     { href: "#underwriting", label: "Buyer fit" },
@@ -350,7 +357,10 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
     { href: "#item19", label: "Item 19" },
     { href: "#warnings", label: "Document" },
     { href: "#risks", label: "To verify" },
-  ].filter((n) => (n.href === "#warnings" ? hasWarnings : true));
+    { href: "#leaving", label: "Leaving" },
+  ].filter((n) =>
+    n.href === "#warnings" ? hasWarnings : n.href === "#leaving" ? leaving.available : true,
+  );
 
   // Rent lives on rung 4 of the ladder now — the buyer edits the number where
   // they read it. State stays here; the controls are passed down as nodes.
@@ -1049,6 +1059,120 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
           </Card>
         );
       })()}
+
+      {/* LEAVING — Item 17.
+
+          Placement is deliberate and sits at #13 of 16: its output is questions
+          and the question section renders directly below it, and both of its
+          derived numbers are read against Item 20, which renders directly above
+          it. It lands after the money sections because its job is to interrupt
+          someone who has already absorbed the numbers.
+
+          Absent ENTIRELY — card and nav entry both — on every record extracted
+          before exitTerms existed, and on any record whose Item 17 did not read.
+          Never rendered empty. */}
+      {leaving.available && (
+        <Card
+          id="leaving"
+          title={<>Leaving &mdash; Renewal, Exit &amp; Transfer <Src s={leaving.sourcePage} /></>}
+        >
+          <p className="text-xs text-[#CBD5E1] leading-relaxed">
+            Item 17 is a table every franchisor is required to publish, and it is in the
+            document you are already holding. Nothing here is hidden. It is also the table
+            that gets read last, if at all, because it is the only one entirely about the
+            end. Below is what yours says, counted rather than characterised.
+          </p>
+
+          <div className="mt-5 space-y-5">
+            {leaving.blocks.map((b) => (
+              <div key={b.n} className="border-t border-[#27344F] pt-4">
+                <p className="text-[11px] uppercase font-bold tracking-wider text-[#8194B0]">
+                  <span className="text-[#38BDF8]">{b.n}</span>&nbsp;&nbsp;{b.title}
+                </p>
+
+                <div className="mt-3 space-y-2">
+                  {b.rows.map((r, i) => (
+                    <div key={i}>
+                      <div className="flex items-baseline justify-between gap-3 text-sm">
+                        <span className="min-w-0 text-[#CBD5E1]">{r.label}</span>
+                        <span
+                          className={`shrink-0 text-right font-medium ${
+                            r.unstated ? "text-xs text-[#8194B0]" : "text-[#F1F5F9]"
+                          }`}
+                        >
+                          {r.value}
+                        </span>
+                      </div>
+                      {r.sub && (
+                        <p className="text-[10px] text-[#8194B0] mt-0.5 leading-snug">{r.sub}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                {b.n === "02" && leaving.exitColumn && (
+                  <div className="mt-4 rounded-lg border border-[#34D399]/30 bg-[#34D399]/[0.06] px-3 py-3">
+                    <p className="text-[10px] uppercase font-bold tracking-wider text-[#8194B0]">
+                      The exit column
+                    </p>
+                    <p className="text-2xl font-bold text-[#F1F5F9] tabular-nums mt-1">
+                      {leaving.exitColumn.franchisorGrounds}
+                      {leaving.exitColumn.openEnded ? "+" : ""}{" "}
+                      <span className="text-sm font-semibold text-[#8194B0]">vs</span>{" "}
+                      {leaving.exitColumn.franchiseeGrounds}
+                    </p>
+                    <p className="text-[11px] text-[#8194B0] mt-1 leading-relaxed">
+                      Grounds this table gives the franchisor to end the agreement, against the
+                      grounds it gives you.
+                      {leaving.exitColumn.openEnded
+                        ? ` The franchisor figure is a floor, not a total — the list ends "and others".`
+                        : ""}{" "}
+                      This is a count of one document. It is not a comparison against other
+                      brands, and it is not a judgment about either number.
+                    </p>
+                  </div>
+                )}
+
+                {b.callouts.map((c, i) => {
+                  const tone = c.tone === "amber" ? "#F5B847" : "#38BDF8";
+                  return (
+                    <div
+                      key={i}
+                      className="mt-4 rounded-lg border px-3 py-3"
+                      style={{ borderColor: `${tone}4D`, backgroundColor: `${tone}0F` }}
+                    >
+                      <p
+                        className="text-[10px] uppercase font-bold tracking-wider"
+                        style={{ color: tone }}
+                      >
+                        {c.title}
+                      </p>
+                      <p className="text-[11px] text-[#CBD5E1] mt-1 leading-relaxed">{c.body}</p>
+                    </div>
+                  );
+                })}
+
+                <div className="mt-4 border-l-2 border-[#38BDF8]/50 pl-3">
+                  <p className="text-[10px] uppercase font-bold tracking-wider text-[#8194B0]">
+                    Ask
+                  </p>
+                  <ul className="mt-1 space-y-1">
+                    {b.questions.map((q, i) => (
+                      <li key={i} className="text-[11px] text-[#CBD5E1] leading-relaxed">
+                        {q}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-[11px] text-[#8194B0] mt-5 border-t border-[#27344F] pt-4 leading-relaxed">
+            {leaving.disclaimer}
+          </p>
+        </Card>
+      )}
 
       {/* Who to call — the executable half of "validate with existing franchisees".
           No names are stored or rendered: the buyer already holds the FDD, and the
