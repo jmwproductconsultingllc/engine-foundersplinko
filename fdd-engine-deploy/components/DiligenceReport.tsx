@@ -23,7 +23,7 @@ import { buildLeaving } from "@/lib/exitTerms";
 // only), ./exitTerms, ./callList and ./severity — all four already imported
 // above. It is imported here for COPY, not for control flow; each surface
 // still decides for itself what to draw.
-import { sectionSpec } from "@/lib/sections";
+import { sectionSpec, undisclosedSpec } from "@/lib/sections";
 
 const usd = (n: number | null | undefined) =>
   n == null
@@ -102,6 +102,41 @@ const Frame = ({ id }: { id: string }) => {
         the delivery email with the page number and we will run it.
       </p>
     </section>
+  );
+};
+
+/**
+ * THE UNDISCLOSED BLOCK — the franchisor said nothing, and that is the finding.
+ *
+ * Not a Frame, and the difference is the entire reason both exist. A Frame is an
+ * apology for our pass and is styled to recede. This is a result: we read the
+ * filing, and the filing exercises a legal right to disclose nothing. For Item
+ * 19 that is true of roughly half the franchisors in the country and it is
+ * usually the most decision-relevant fact in the document, so it is styled to be
+ * read — amber, per LABEL LAW, because it is negative and never red.
+ *
+ * WHAT THIS MUST NOT DO. It must not read as our failure; the paid reader would
+ * reasonably ask for a refund on a section we simply skipped, and this is not
+ * that. It must not point the buyer back at the franchisor for numbers — under
+ * the FTC Franchise Rule a franchisor with no financial performance
+ * representation may not supply earnings figures outside the document at all, so
+ * "ask the brand" solicits a violation and sets the buyer up to be sold on a
+ * figure with no source. The route out is the Item 20 franchisee list.
+ *
+ * Copy comes from lib/sections.ts so this block and the glass teaser's state the
+ * finding in the same words.
+ */
+const Undisclosed = ({ id }: { id: string }) => {
+  const u = undisclosedSpec(id);
+  if (!u) return null;
+  return (
+    <div className="rounded-lg border border-[#F59E0B]/40 bg-[#F59E0B]/10 border-l-[3px] border-l-[#F59E0B] p-4">
+      <p className="text-sm font-bold text-[#F1F5F9]">{u.heading}</p>
+      <p className="text-xs text-[#CBD5E1] leading-relaxed mt-2">{u.body}</p>
+      <p className="text-xs text-[#CBD5E1] leading-relaxed mt-3 border-t border-[#F59E0B]/25 pt-3">
+        {u.nextStep}
+      </p>
+    </div>
   );
 };
 
@@ -710,7 +745,10 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
             {x.item19.notes && <p className="text-xs text-[#8194B0] mt-2">{x.item19.notes}</p>}
           </div>
         ) : (
-          <p className="text-sm text-amber-300">No Item 19 disclosed — earnings are not represented by the franchisor.</p>
+          /* Was a single amber sentence. It stated the fact and then stranded
+             the reader — no explanation of why the silence is informative, and
+             no lawful route to the number they came for. See Undisclosed. */
+          <Undisclosed id="item-19" />
         )}
       </Card>
 

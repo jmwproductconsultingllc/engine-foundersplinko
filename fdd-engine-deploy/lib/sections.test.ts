@@ -27,7 +27,13 @@
 
 import { describe, it, expect } from "vitest";
 
-import { SECTIONS, sectionSpec, navAnchor } from "./sections";
+import {
+  SECTIONS,
+  sectionSpec,
+  navAnchor,
+  isUndisclosed,
+  undisclosedSpec,
+} from "./sections";
 import { reportSourceFromComputed } from "./reportSource";
 import { buildReportShell, qualifiesForGlass } from "./reportShell";
 import { getSampleResult } from "./sampleReport";
@@ -228,5 +234,230 @@ describe("a frame promises nothing", () => {
         ladderRungs: 0,
       } as never),
     ).toThrow(/structural/i);
+  });
+});
+
+/* ------------------------------------------------------------------ *
+ * 3. THE FOURTH STATE — the franchisor disclosed nothing
+ *
+ * The taxonomy before this had three states and needed four. "We have not read
+ * it" and "we read it and the franchisor exercised a legal right to say
+ * nothing" are opposite facts, and they rendered identically — as a frame, or
+ * as one stranded amber sentence. Roughly half of US franchisors publish no
+ * Item 19, so on the teaser this was the single most decision-relevant thing in
+ * the filing being presented as our own shortcoming.
+ *
+ * The whole state rests on ONE property: that it is driven by a positive
+ * assertion in the record, never inferred from an empty container. Every test
+ * below is ultimately protecting that.
+ * ------------------------------------------------------------------ */
+
+/** A filing that states, in the extractor's own required field, that there is
+ *  no financial performance representation. */
+function noFprRecord(): DiligenceResult {
+  const s = getSampleResult();
+  return {
+    ...s,
+    extracted: {
+      ...s.extracted,
+      brandName: "No FPR Co.",
+      item19: { hasItem19: false, cohorts: [], notes: "", sourcePage: "Item 19, p.41" },
+    },
+  } as unknown as DiligenceResult;
+}
+
+describe("undisclosed — the filing says no, and that is the finding", () => {
+  const shell = buildReportShell(reportSourceFromComputed({ result: noFprRecord() }));
+  const block = shell.sections.find((s) => s.id === "item-19");
+
+  it("the fixture actually produces an undisclosed block", () => {
+    // Guard on the guard, same reasoning as the frames fixture above.
+    expect(block, "item-19 vanished entirely").toBeDefined();
+    expect(block!.undisclosed, "item-19 rendered but was not flagged undisclosed").toBeTruthy();
+  });
+
+  it("is driven by the franchisor's positive statement, NOT by an empty cohort list", () => {
+    // THE LOAD-BEARING TEST IN THIS FILE.
+    //
+    // `cohorts: []` is what a FAILED PARSE leaves behind, and it is byte-for-byte
+    // what a genuine no-FPR filing leaves behind. If the predicate ever starts
+    // reading the array instead of the flag, every brand whose Item 19 pass
+    // failed will ship a paid report stating that a NAMED FRANCHISOR discloses
+    // no earnings. That is a false factual claim about a real company, on a
+    // document someone paid for, and it would be invisible — the report would
+    // look complete.
+    //
+    // So: same empty cohorts, flag flipped, opposite outcome. If someone
+    // "simplifies" the predicate to `!cohorts.length`, this goes red.
+    const s = getSampleResult();
+    const unread = {
+      ...s,
+      extracted: {
+        ...s.extracted,
+        item19: { hasItem19: true, cohorts: [], notes: "", sourcePage: "Item 19, p.41" },
+      },
+    } as unknown as DiligenceResult;
+
+    expect(isUndisclosed(noFprRecord(), "item-19")).toBe(true);
+    expect(isUndisclosed(unread, "item-19")).toBe(false);
+
+    // And a record with no item19 object at all is UNKNOWN, not undisclosed.
+    // Absent ≠ denied. This is the emptyRecord() fixture from above.
+    expect(isUndisclosed(emptyRecord(), "item-19")).toBe(false);
+  });
+
+  it("only sections whose extractor records silence may carry this state", () => {
+    // leadership and hiddenCosts come back empty on real filings too, and they
+    // deliberately do NOT get an undisclosed spec, because for them "empty" and
+    // "unread" are the same bytes. This asserts the discipline rather than the
+    // current list: any section that adds the state must be able to point at a
+    // predicate that reads a boolean the schema REQUIRES.
+    for (const s of SECTIONS) {
+      if (!s.undisclosed) continue;
+      expect(
+        s.undisclosed.when(emptyRecord()),
+        `"${s.id}" claims the franchisor disclosed nothing for a record where ` +
+          `nothing was read at all — the predicate is inferring from emptiness`,
+      ).toBe(false);
+    }
+  });
+
+  it("undisclosed copy carries no digits either", () => {
+    // Same rule as `covers`, same reason: these strings render for every brand
+    // that trips the predicate, so a number in one is a figure asserted about a
+    // named franchisor on the strength of nothing. Item numbers are the FDD's
+    // own section names and are allowed in that form only.
+    for (const s of SECTIONS) {
+      const u = s.undisclosed;
+      if (!u) continue;
+      for (const [field, text] of [
+        ["heading", u.heading],
+        ["body", u.body],
+        ["nextStep", u.nextStep],
+      ] as const) {
+        const stripped = text.replace(/\bItem \d{1,2}\b/g, "");
+        expect(stripped, `${s.id}.undisclosed.${field}`).not.toMatch(/\d/);
+      }
+    }
+  });
+
+  it("does not tell the buyer to ask the franchisor for the numbers", () => {
+    // NOT STYLE. Under the FTC Franchise Rule a franchisor that publishes no
+    // financial performance representation may not supply sales or earnings
+    // figures outside the document at all. "Confirm with the brand" therefore
+    // solicits a violation and, worse, walks our own buyer into being sold on a
+    // figure with no source — the exact failure the product exists to prevent.
+    // The lawful route is the Item 20 franchisee list.
+    for (const s of SECTIONS) {
+      const u = s.undisclosed;
+      if (!u) continue;
+      expect(u.nextStep, `${s.id}.undisclosed.nextStep`).toMatch(/Item 20|franchisee/i);
+      expect(
+        `${u.body} ${u.nextStep}`,
+        `${s.id} points the buyer back at the franchisor for figures`,
+      ).not.toMatch(/ask the (brand|franchisor)|confirm (directly )?with the (brand|franchisor)/i);
+    }
+  });
+
+  it("carries no mask token, no lockId and no masked row", () => {
+    // There is no value behind this card — not behind the paywall, not
+    // anywhere. A mask here is a promise about a number that does not exist in
+    // the world, which is a strictly worse version of the frame bug.
+    const json = JSON.stringify(block);
+    expect(json).not.toContain('"kind":"mask"');
+    expect(json).not.toContain("lockId");
+    expect(json).not.toContain("maskedRows");
+    expect(block!.lines.length).toBe(0);
+    expect(block!.figureCount).toBe(0);
+  });
+
+  it("ships all three strings free, at every glass config", () => {
+    // The trade, made on purpose: a reader who never pays still learns this.
+    // It is the strongest evidence on the teaser that we read the document, and
+    // there is nothing behind it to sell, so withholding any of it would be a
+    // lock over an empty box.
+    const u = undisclosedSpec("item-19")!;
+    expect(block!.undisclosed).toEqual({
+      heading: u.heading,
+      body: u.body,
+      nextStep: u.nextStep,
+    });
+  });
+
+  it("is not counted in the numbers the pitch quotes", () => {
+    // counts.sections becomes "N sections" in the unlock bar. An undisclosed
+    // block has nothing to unlock, so counting it sells a section that is
+    // already fully visible.
+    const inert = shell.sections.filter((s) => s.structural || s.undisclosed);
+    expect(shell.counts.sections).toBe(shell.sections.length - inert.length);
+  });
+
+  it("cannot make a brand glass-eligible", () => {
+    // Same floor the frames test pins, for the same reason: a page of findings
+    // about what is NOT in a filing is not a paid teaser, and we must not buy
+    // traffic to one.
+    const allBlocks = buildReportShell({
+      brandSlug: "undisclosed-only",
+      brandName: "Undisclosed Only",
+      badges: [],
+      sections: SECTIONS.filter((s) => s.undisclosed).map((s) => ({
+        id: s.id,
+        title: s.title,
+        figures: [],
+        undisclosed: {
+          heading: s.undisclosed!.heading,
+          body: s.undisclosed!.body,
+          nextStep: s.undisclosed!.nextStep,
+        },
+      })),
+      ladderRungs: 0,
+    });
+    expect(allBlocks.counts.figures).toBe(0);
+    expect(allBlocks.counts.sections).toBe(0);
+    expect(qualifiesForGlass(allBlocks)).toBe(false);
+  });
+
+  it("an undisclosed section carrying data is a build error", () => {
+    expect(() =>
+      buildReportShell({
+        brandSlug: "bad",
+        brandName: "Bad",
+        badges: [],
+        sections: [
+          {
+            id: "item-19",
+            title: "What units actually make",
+            figures: [
+              { label: "Network average", value: 41000, unit: "usd_month", provenance: "disclosed" },
+            ],
+            undisclosed: { heading: "h", body: "b", nextStep: "n" },
+          },
+        ],
+        ladderRungs: 0,
+      } as never),
+    ).toThrow(/undisclosed/i);
+  });
+
+  it("a section flagged BOTH structural and undisclosed is a build error", () => {
+    // "We have not read this" and "we read it and it says nothing" cannot both
+    // be true. Left unchecked, whichever branch the renderer tests first wins,
+    // and the difference between an apology and a finding becomes a coin flip.
+    expect(() =>
+      buildReportShell({
+        brandSlug: "bad",
+        brandName: "Bad",
+        badges: [],
+        sections: [
+          {
+            id: "item-19",
+            title: "What units actually make",
+            figures: [],
+            structural: true,
+            undisclosed: { heading: "h", body: "b", nextStep: "n" },
+          },
+        ],
+        ladderRungs: 0,
+      } as never),
+    ).toThrow(/BOTH/i);
   });
 });

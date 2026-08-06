@@ -64,6 +64,48 @@ import { normalizeSeverity } from "./severity";
  */
 export type Absence = "always" | "structural" | "suppressed";
 
+/**
+ * THE FOURTH STATE: THE FRANCHISOR DISCLOSED NOTHING, AND THAT IS THE FINDING.
+ *
+ * `Absence` above answers "what do we do when the record cannot produce this
+ * section". This type answers a different question, and conflating the two was
+ * the taxonomy error that made this necessary: a section can be perfectly
+ * READABLE and still be empty, because the franchisor exercised a legal right
+ * not to say anything. Item 19 is the live case — roughly half of all US
+ * franchisors make no financial performance representation at all.
+ *
+ * Rendered as a structural frame, that fact reads "we haven't got to this yet",
+ * which is false and which costs us the sale. Rendered as an absent section, it
+ * reads as nothing at all, and the buyer never learns the single most
+ * decision-relevant thing in the filing. Rendered as a masked line it would be
+ * a lock over a value that does not exist anywhere in the world.
+ *
+ * THE HARD RULE, AND THE ONLY ONE THAT MATTERS HERE: `when` must read a field
+ * where the extractor POSITIVELY RECORDED the franchisor's silence. Never infer
+ * it from an empty array. `cohorts.length === 0` is indistinguishable from "the
+ * parse failed", and shipping "this franchisor discloses no earnings" over a
+ * failed parse is a false statement about a named company in a document a buyer
+ * paid for. `item19.hasItem19 === false` is a positive assertion and is
+ * required by the response schema; that is why item-19 is the only section
+ * carrying this state today. Adding a second one means adding its own
+ * statedNone-shaped flag to lib/schema.ts and the prompt first, then reparsing.
+ * There is no shortcut and the shortcut is the bug.
+ *
+ * The copy is held to the same brand-agnostic rule as `covers`: it must be true
+ * for every brand that trips `when`, with no record loaded, and it carries no
+ * digits other than "Item N".
+ */
+export type UndisclosedSpec = {
+  /** Reads the extractor's POSITIVE record of silence. Never `!x.length`. */
+  when: (r: DiligenceResult) => boolean;
+  /** Names the finding. This is a headline, not an apology. */
+  heading: string;
+  /** Why the silence is itself informative. No numbers, no brand names. */
+  body: string;
+  /** Where the reader goes instead. Must be a real, lawful route. */
+  nextStep: string;
+};
+
 export type SectionSpec = {
   id: string;
   /** Nav entry. Short — it sits in a rail. */
@@ -100,6 +142,14 @@ export type SectionSpec = {
    * which is worse than having no audit at all.
    */
   available: (r: DiligenceResult) => boolean;
+  /**
+   * Present only on sections where the extractor can positively record that the
+   * franchisor disclosed nothing. See UndisclosedSpec. Orthogonal to `absence`:
+   * item-19 is absence:"always" AND carries this, because the section always
+   * renders — what changes is whether it renders numbers or renders the finding
+   * that there are none.
+   */
+  undisclosed?: UndisclosedSpec;
 };
 
 const has = (n: unknown) => Array.isArray(n) && n.length > 0;
@@ -170,6 +220,29 @@ export const SECTIONS: SectionSpec[] = [
     chips: ["Cohorts", "Basis", "What is excluded"],
     absence: "always",
     available: () => true,
+    // THE ONLY SECTION CARRYING THE FOURTH STATE TODAY, and it is not an
+    // editorial preference — `hasItem19` is the only field in lib/schema.ts
+    // where the extractor is REQUIRED to assert the franchisor's silence rather
+    // than leave a container empty. `leadership` and `hiddenCosts` also come
+    // back empty on real filings, and they do NOT get this state, because for
+    // them "empty" and "unread" are the same bytes on disk.
+    undisclosed: {
+      when: (r) => r.extracted.item19?.hasItem19 === false,
+      heading: "This franchisor makes no earnings claim",
+      body:
+        "Item 19 is optional, and this franchisor chose to leave it out. That " +
+        "silence is itself a disclosure, and it binds them: under the FTC " +
+        "Franchise Rule a franchisor that publishes no financial performance " +
+        "representation may not give you sales, revenue or profit figures " +
+        "anywhere else either — not on a call, not at discovery day, not " +
+        "through a broker. Every other number in this report still holds. This " +
+        "one has no source, so we have not invented one.",
+      nextStep:
+        "Item 20 lists the franchisees in the system and the ones who left, " +
+        "with contact details. Those owners may tell you what their units " +
+        "make. The franchisor may not — and a seller who offers you a figure " +
+        "anyway has just handed you your first finding.",
+    },
   },
   {
     id: "document-check",
@@ -355,4 +428,27 @@ export function isStructural(r: DiligenceResult, id: string): boolean {
   const s = BY_ID.get(id);
   if (!s) return false;
   return s.absence === "structural" && !s.available(r);
+}
+
+/**
+ * True when THIS record's franchisor positively disclosed nothing for this
+ * section. Deliberately does NOT consult `available` — the two states answer
+ * different questions and a section can be available and undisclosed at once
+ * (item-19 always "produces", and on these brands what it produces is the
+ * finding that there is nothing to produce).
+ *
+ * Both surfaces route through this rather than reading `hasItem19` themselves.
+ * The teaser and the report reading the same predicate is the entire point of
+ * this file; a renderer that reimplements the test is how the two pages started
+ * disagreeing about what the product contains in the first place.
+ */
+export function isUndisclosed(r: DiligenceResult, id: string): boolean {
+  const s = BY_ID.get(id);
+  if (!s?.undisclosed) return false;
+  return s.undisclosed.when(r) === true;
+}
+
+/** The copy for the undisclosed block, or undefined if the section has none. */
+export function undisclosedSpec(id: string): UndisclosedSpec | undefined {
+  return BY_ID.get(id)?.undisclosed;
 }

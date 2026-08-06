@@ -383,6 +383,40 @@ function Section({
   section: ShellSection;
   bind: (lockId: string) => (el: HTMLElement | null) => void;
 }) {
+  /* UNDISCLOSED — a FINDING, not a gap. See SourceSection.undisclosed in
+     lib/reportShell.ts.
+
+     Checked before the structural branch below, and styled as close to its
+     opposite as this page allows. A frame recedes because it is an admission
+     about our pipeline. This card advances, because it is the most
+     decision-relevant sentence in the filing and the strongest evidence on the
+     page that we actually read the document rather than scraping a directory.
+
+     NOTHING HERE IS MASKED AND NOTHING HERE IS COUNTED. No "N locked", no
+     stripes, no cursor:pointer, no lockIds bound — there is no value behind
+     this card, in this product or in the world, so any mask vocabulary would be
+     a lock over an empty box. The three strings ship in full at every glass
+     config; a buyer who never pays still leaves knowing this, which is the
+     trade we are making on purpose.
+
+     Amber, because LABEL LAW makes amber the attention colour and this is a
+     negative finding. It is an existing variable — no new hex enters the
+     palette, or THE PALETTE LINT in lib/basis.test.ts goes red. */
+  if (section.undisclosed) {
+    const u = section.undisclosed;
+    return (
+      <section className={`${styles.section} ${styles.undisclosed}`} id={section.id}>
+        <header className={styles.sectionHead}>
+          <h2 className={styles.h2}>{section.title}</h2>
+          <span className={styles.undisclosedTag}>Read — nothing disclosed</span>
+        </header>
+        <p className={styles.undisclosedHeading}>{u.heading}</p>
+        <p className={styles.blurb}>{u.body}</p>
+        <p className={styles.undisclosedNext}>{u.nextStep}</p>
+      </section>
+    );
+  }
+
   /* STRUCTURAL — a frame, not data. See SourceSection.structural in
      lib/reportShell.ts.
 

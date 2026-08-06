@@ -56,7 +56,7 @@ import { buildCallList } from "./callList";
 import { computeVerify, verifyPhrase } from "./verify";
 import { normalizeSeverity } from "./severity";
 import { normalizeCitation } from "./citation";
-import { sectionSpec, navAnchor } from "./sections";
+import { sectionSpec, navAnchor, isUndisclosed } from "./sections";
 import type { DiligenceResult } from "./types";
 import type {
   Provenance,
@@ -159,6 +159,52 @@ function frame(id: string): SourceSection {
     freeChips: [...spec.chips],
     figures: [],
     structural: true,
+  };
+  if (anchor) s.anchor = anchor;
+  return s;
+}
+
+/**
+ * THE UNDISCLOSED BLOCK — the franchisor said nothing, and that is the finding.
+ *
+ * The near-opposite of frame() despite the identical plumbing, and the reason
+ * both exist. A frame is an apology for OUR pipeline and is styled to recede. An
+ * undisclosed block is a FINDING about the filing and is styled to be read: it
+ * is often the most decision-relevant sentence in the whole document, and on the
+ * teaser it is the strongest possible argument that we actually read the thing.
+ *
+ * It carries no figures, so it takes the same inert path through the shell — no
+ * masks, no lock ids, no row count, no contribution to the glass floors. What it
+ * does carry is free prose, deliberately: there is nothing behind a paywall
+ * here, so withholding any of it would be selling a lock over an empty box.
+ *
+ * The predicate lives in lib/sections.ts and is NOT re-tested here. See
+ * isUndisclosed() — a renderer or adapter that reads `hasItem19` directly is how
+ * the two surfaces drift apart.
+ */
+function undisclosedBlock(id: string): SourceSection {
+  const spec = sectionSpec(id);
+  if (!spec) {
+    throw new Error(
+      `undisclosedBlock("${id}") — no such section in lib/sections.ts. A ` +
+        `section must be in the registry before either surface can render it.`,
+    );
+  }
+  const u = spec.undisclosed;
+  if (!u) {
+    throw new Error(
+      `undisclosedBlock("${id}") — section carries no \`undisclosed\` spec. ` +
+        `A section may only claim the franchisor disclosed nothing when the ` +
+        `extractor positively recorded that; see UndisclosedSpec in ` +
+        `lib/sections.ts before adding one.`,
+    );
+  }
+  const anchor = navAnchor(spec.id);
+  const s: SourceSection = {
+    id: spec.id,
+    title: spec.title,
+    figures: [],
+    undisclosed: { heading: u.heading, body: u.body, nextStep: u.nextStep },
   };
   if (anchor) s.anchor = anchor;
   return s;
@@ -345,6 +391,13 @@ function ongoingFees(r: DiligenceResult): SourceSection {
 }
 
 function itemNineteen(r: DiligenceResult): SourceSection {
+  /* Ahead of every figure, and routed through the registry rather than tested
+     here. When the filing states there is no financial performance
+     representation, the section's output IS that fact — building masks first
+     and discarding them would leave a code path where a cohort figure could
+     survive onto a card that says no figures exist. */
+  if (isUndisclosed(r, "item-19")) return undisclosedBlock("item-19");
+
   const i19 = r.extracted.item19;
   const c = cite(19, i19?.sourcePage);
   const figures: SourceFigure[] = [];

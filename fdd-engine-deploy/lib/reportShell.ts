@@ -255,6 +255,24 @@ export interface SourceSection {
    * nothing, and it is not left to a caller to remember.
    */
   structural?: true;
+  /**
+   * UNDISCLOSED — the franchisor stated there is nothing here, and that
+   * statement is the section's content.
+   *
+   * Inert in exactly the way `structural` is: no figures, no masks, no row
+   * count, no contribution to the glass floors. Everything else about it is the
+   * opposite. A structural card says "we have not read this"; an undisclosed
+   * one says "we read it, and the filing says no". Shipping the second as the
+   * first understates the work and buries the finding; shipping the first as
+   * the second is a false claim about a named franchisor. They are separate
+   * flags for that reason and a section may not carry both — see
+   * assertInertSectionsAreEmpty().
+   *
+   * All three strings are FREE, at every glass config. There is no hidden value
+   * behind this card, so masking any part of it would sell a lock over an empty
+   * box — the one thing this surface exists to never do.
+   */
+  undisclosed?: { heading: string; body: string; nextStep: string };
 }
 
 export interface SourceBadge {
@@ -322,6 +340,8 @@ export interface ShellSection {
    * it is the property the empty-record test in lib/sections.test.ts pins.
    */
   structural?: true;
+  /** See SourceSection.undisclosed. Inert like `structural`, and wholly free. */
+  undisclosed?: { heading: string; body: string; nextStep: string };
 }
 
 export interface ShellBadge {
@@ -625,36 +645,51 @@ function assertNoSpelledOutFigures(source: ReportSource, shell: unknown): void {
 }
 
 /**
- * THE STRUCTURAL SEAM.
+ * THE INERT SEAM.
  *
- * A structural section is a claim about the PRODUCT ("the full report has a
- * Leaving section"), never about the RECORD ("there are 14 values behind this
- * card"). The moment one carries a figure, a masked row or a severity count, it
- * has silently become the second thing — a lock over nothing, which is the one
- * defect on this surface that a buyer discovers only after paying.
+ * Two kinds of card render with nothing behind them, for opposite reasons: a
+ * STRUCTURAL frame ("the full report has a Leaving section" — a claim about the
+ * PRODUCT) and an UNDISCLOSED block ("the filing states there is no Item 19" — a
+ * claim about the FILING). Neither is a claim about the RECORD, and neither may
+ * ever carry "there are 14 values behind this card". The moment one does, it has
+ * become a lock over nothing, which is the single defect on this surface a buyer
+ * discovers only after paying.
  *
  * So it is a throw, not a filter. Silently dropping the offending figures would
  * make the bug invisible in exactly the case where it matters: a section
- * function that starts returning data one day and gets left flagged structural.
+ * function that starts returning data one day and gets left flagged inert.
  * Build fails, someone reads the section function, the flag comes off.
+ *
+ * A section carrying BOTH flags is also a throw. "We have not read this" and
+ * "we read it and it says nothing" cannot both be true, and a card that claims
+ * both will be rendered by whichever branch the renderer happens to test first
+ * — which is a coin flip between an apology and a finding.
  */
-function assertStructuralSectionsAreEmpty(source: ReportSource): void {
+function assertInertSectionsAreEmpty(source: ReportSource): void {
   const bad: string[] = [];
   for (const s of source.sections) {
-    if (!s.structural) continue;
+    if (s.structural && s.undisclosed) {
+      bad.push(
+        `${s.id}: flagged BOTH structural and undisclosed — "not read yet" and ` +
+          `"read, and the filing discloses nothing" are different facts`,
+      );
+      continue;
+    }
+    if (!s.structural && !s.undisclosed) continue;
+    const kind = s.structural ? "structural" : "undisclosed";
     const carried: string[] = [];
     if (s.figures.length > 0) carried.push(`${s.figures.length} figure(s)`);
     if (s.maskedRows) carried.push(`maskedRows=${s.maskedRows}`);
     if (s.severityCounts) carried.push("severityCounts");
     if (s.finding) carried.push("finding");
-    if (carried.length > 0) bad.push(`${s.id}: ${carried.join(", ")}`);
+    if (carried.length > 0) bad.push(`${s.id} (${kind}): ${carried.join(", ")}`);
   }
   if (bad.length > 0) {
     throw new Error(
-      `Structural section(s) carrying data: a structural card must promise ` +
-        `nothing, because nothing is behind it. Either drop the data or drop ` +
-        `the structural flag — see SourceSection.structural in ` +
-        `lib/reportShell.ts.\n  ${bad.join("\n  ")}`,
+      `Inert section(s) carrying data: a structural or undisclosed card must ` +
+        `promise nothing, because nothing is behind it. Either drop the data ` +
+        `or drop the flag — see SourceSection.structural and ` +
+        `SourceSection.undisclosed in lib/reportShell.ts.\n  ${bad.join("\n  ")}`,
     );
   }
 }
@@ -697,9 +732,27 @@ export function buildReportShell(
      what was produced; this one checks what was asked for, and it has to fail
      ahead of the loop or a structural section carrying figures would mint real
      mask tokens on the way to the error. */
-  assertStructuralSectionsAreEmpty(source);
+  assertInertSectionsAreEmpty(source);
 
   const sections: ShellSection[] = source.sections.map((s) => {
+    /* An undisclosed section short-circuits the mask path for the same reason a
+       structural one does, and it is checked FIRST because its card is the more
+       specific claim: a section that somehow arrived flagged both would be
+       caught by the assertion above, but if that assertion is ever relaxed the
+       finding must win over the apology. Its three strings ship verbatim — free
+       at every config, because there is nothing behind this card to sell. */
+    if (s.undisclosed) {
+      const block: ShellSection = {
+        id: s.id,
+        title: s.title,
+        lines: [],
+        figureCount: 0,
+        undisclosed: { ...s.undisclosed },
+      };
+      if (s.anchor) block.anchor = s.anchor;
+      return block;
+    }
+
     /* A structural section short-circuits the entire mask path. Not "builds
        masks and discards them" — never enters it. Same build-by-omission
        guarantee the rest of this file makes: the code that could leak a figure
@@ -761,11 +814,11 @@ export function buildReportShell(
      is not decorative: it prints in the unlock bar as a thing being bought.
      Structure is free to show and must never be counted as content. */
   const tripwires = source.sections
-    .filter((s) => s.id === "tripwires" && !s.structural)
+    .filter((s) => s.id === "tripwires" && !s.structural && !s.undisclosed)
     .reduce((n, s) => n + s.figures.length + (s.maskedRows ?? 0), 0);
 
   const questions = source.sections
-    .filter((s) => s.id === "who-to-call" && !s.structural)
+    .filter((s) => s.id === "who-to-call" && !s.structural && !s.undisclosed)
     .reduce((n, s) => n + (s.freeChips?.length ?? 0) + (s.maskedRows ?? 0), 0);
 
   const badges: ShellBadge[] = source.badges.map((b) =>
@@ -783,7 +836,7 @@ export function buildReportShell(
          inflate the pitch by exactly the sections that have nothing behind
          them. shell.sections.length is still the render list; this is the
          number that may be quoted. */
-      sections: sections.filter((s) => !s.structural).length,
+      sections: sections.filter((s) => !s.structural && !s.undisclosed).length,
       figures: sections.reduce((n, s) => n + s.figureCount, 0),
       citations: allFigures.filter((f) => f.citation).length,
       itemsCited: items.size,

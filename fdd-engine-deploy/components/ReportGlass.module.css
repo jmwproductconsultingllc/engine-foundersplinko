@@ -288,6 +288,49 @@
   border: 1px dashed var(--line2); border-radius: 6px; padding: 4px 9px;
 }
 
+/* ---------------- undisclosed findings ----------------
+ *
+ * The near-opposite of .frame above, and the contrast is the whole design. A
+ * frame is an admission about OUR pipeline, so it recedes. An UNDISCLOSED card
+ * is a finding about the FILING — the franchisor exercised a legal right to say
+ * nothing, and for Item 19 that is frequently the most decision-relevant fact in
+ * the document. It gets a solid left rule and a real panel, so it reads as
+ * something we found rather than something we missed.
+ *
+ * It still borrows NONE of the mask's vocabulary: no stripes, no sheen, no
+ * "N locked", no cursor:pointer. There is no value behind this card in this
+ * product or anywhere else, so any hint of one would be a lock over an empty
+ * box. Amber is the page's attention colour under LABEL LAW (never red), and it
+ * is the existing --amber variable — no new hex enters the palette, or THE
+ * PALETTE LINT in lib/basis.test.ts goes red.
+ */
+
+.undisclosed {
+  border-color: #574521;
+  border-left: 3px solid var(--amber);
+}
+
+/* Occupies the slot .count and .frameTag use, so the right edge of the page
+   stays one column of small text. Says READ, because the entire point of this
+   card is that the absence is the franchisor's and not ours. */
+.undisclosedTag {
+  font-size: 11.5px; color: var(--amber); white-space: nowrap;
+}
+
+.undisclosedHeading {
+  font-size: 15px; font-weight: 700; color: var(--text);
+  margin: 2px 0 8px;
+}
+
+/* The route out. Separated by a rule so a reader who skims the card still lands
+   on the one actionable line in it. */
+.undisclosedNext {
+  font-size: 13px; line-height: 1.55; color: var(--muted);
+  margin: 12px 0 0; padding-top: 11px;
+  border-top: 1px solid var(--line2);
+  max-width: 64ch;
+}
+
 /* ---------------- lines ---------------- */
 
 .line { padding: 9px 0; border-top: 1px solid var(--line); }
