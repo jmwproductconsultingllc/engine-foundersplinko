@@ -19,6 +19,11 @@ import { buildCallList } from "@/lib/callList";
 // lib/exitTerms.ts imports ONLY a type from lib/schema.ts, so nothing from
 // @google/genai reaches this "use client" bundle. Keep it that way.
 import { buildLeaving } from "@/lib/exitTerms";
+// The registry. Safe in a "use client" bundle: it imports only ./types (types
+// only), ./exitTerms, ./callList and ./severity — all four already imported
+// above. It is imported here for COPY, not for control flow; each surface
+// still decides for itself what to draw.
+import { sectionSpec } from "@/lib/sections";
 
 const usd = (n: number | null | undefined) =>
   n == null
@@ -38,6 +43,67 @@ const Card = ({ id, title, children }: { id?: string; title: ReactNode; children
 
 const Src = ({ s }: { s?: string }) =>
   s ? <span className="text-[11px] text-[#8194B0] ml-1">({s})</span> : null;
+
+/**
+ * A STRUCTURAL FRAME in the paid report.
+ *
+ * The section exists in the product for every brand; we did not get a readable
+ * table out of THIS filing. Before this component that case rendered as
+ * nothing at all — no card, no nav entry, no acknowledgement — which meant a
+ * buyer who had paid could not tell the difference between "this franchisor
+ * has no post-term covenant" and "we never read the page". Those are opposite
+ * facts and silence rendered them identically.
+ *
+ * TWO THINGS THIS MUST NOT DO.
+ *
+ * It must not blame the document. "Not in this filing" is a claim about the
+ * franchisor's disclosure and we have no basis for it — Item 17 is mandatory,
+ * so the near-certain truth is that the table is there and our pass did not
+ * resolve it. Saying otherwise is a factual assertion about a named company.
+ *
+ * It must not sell. No "unlock", no "upgrade", no count of what is missing. The
+ * reader already paid. The chips restate what the section covers so the frame
+ * is worth the vertical space it takes, and that is all it does.
+ *
+ * Copy comes from lib/sections.ts so the frame on this page and the frame on
+ * the glass teaser describe the section in the same words.
+ */
+const Frame = ({ id }: { id: string }) => {
+  const spec = sectionSpec(id);
+  if (!spec) return null;
+  return (
+    <section
+      id={id}
+      className="border border-dashed border-[#27344F] rounded-xl p-6"
+    >
+      <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 mb-3">
+        <h3 className="text-sm font-bold uppercase tracking-wider text-[#8194B0]">
+          {spec.title}
+        </h3>
+        <span className="text-[11px] italic text-[#8194B0]">
+          Not readable in this filing
+        </span>
+      </div>
+      <p className="text-xs text-[#CBD5E1] leading-relaxed">{spec.covers}</p>
+      <div className="flex flex-wrap gap-1.5 mt-3">
+        {spec.chips.map((c) => (
+          <span
+            key={c}
+            className="text-[11px] text-[#8194B0] border border-dashed border-[#27344F] rounded px-2 py-0.5"
+          >
+            {c}
+          </span>
+        ))}
+      </div>
+      <p className="text-[11px] text-[#8194B0] leading-relaxed mt-4 border-t border-[#27344F] pt-3">
+        Our pass did not produce a readable table for this section on this
+        document. Nothing has been inferred in its place, and no figure
+        elsewhere in this report depends on it. If you want it read, reply to
+        the delivery email with the page number and we will run it.
+      </p>
+    </section>
+  );
+};
 
 /**
  * A condition-strip pill.
@@ -358,9 +424,13 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
     { href: "#warnings", label: "Document" },
     { href: "#risks", label: "To verify" },
     { href: "#leaving", label: "Leaving" },
-  ].filter((n) =>
-    n.href === "#warnings" ? hasWarnings : n.href === "#leaving" ? leaving.available : true,
-  );
+    // #leaving is NO LONGER conditional. The section renders for every record
+    // now — as the table when we read it, as a frame when we did not — so the
+    // nav entry always has a target. This mirrors navAnchor() in
+    // lib/sections.ts, which the glass teaser uses; the two surfaces have to
+    // make the identical nav decision or the product looks different before
+    // and after payment.
+  ].filter((n) => (n.href === "#warnings" ? hasWarnings : true));
 
   // Rent lives on rung 4 of the ladder now — the buyer edits the number where
   // they read it. State stays here; the controls are passed down as nodes.
@@ -959,8 +1029,11 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
         );
       })()}
 
-      {/* Leadership */}
-      {(x.leadership?.length ?? 0) > 0 && (
+      {/* Leadership. Structural — see lib/sections.ts. 2 of 83 records carry no
+          leadership block; those get the frame rather than a hole. */}
+      {(x.leadership?.length ?? 0) === 0 ? (
+        <Frame id="leadership" />
+      ) : (
         <Card title="Franchisor Leadership">
           <div className="space-y-3">
             {x.leadership.map((m, i) => (
@@ -1068,10 +1141,13 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
           it. It lands after the money sections because its job is to interrupt
           someone who has already absorbed the numbers.
 
-          Absent ENTIRELY — card and nav entry both — on every record extracted
-          before exitTerms existed, and on any record whose Item 17 did not read.
-          Never rendered empty. */}
-      {leaving.available && (
+          NEVER ABSENT as of 2026-08-06. Records extracted before exitTerms
+          existed — which is all 83 of them — used to drop the card and the nav
+          entry silently, so the module shipped and no buyer ever saw it and
+          nothing in the build said so. It renders as a frame instead. */}
+      {!leaving.available ? (
+        <Frame id="leaving" />
+      ) : (
         <Card
           id="leaving"
           title={<>Leaving &mdash; Renewal, Exit &amp; Transfer <Src s={leaving.sourcePage} /></>}

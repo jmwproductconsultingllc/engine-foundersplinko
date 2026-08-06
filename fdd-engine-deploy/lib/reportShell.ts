@@ -228,6 +228,33 @@ export interface SourceSection {
   severityCounts?: Partial<Record<Severity, number>>;
   /** Number of masked list rows this section contains beyond `figures`. */
   maskedRows?: number;
+  /**
+   * STRUCTURAL — this section is a FRAME, not data.
+   *
+   * The section exists in the product and we have not extracted it for THIS
+   * brand yet. The card renders its title, its blurb and its topic chips, and
+   * nothing else: no lines, no masks, no row count, no severity counts.
+   *
+   * The distinction it encodes is the whole reason it exists. A masked line is
+   * a PROMISE that a specific value sits behind it and that $199 reveals it. A
+   * structural card makes no such promise — it says only "the full report has
+   * this section," which is true of every brand in the library. Before this
+   * flag the only way to say the second thing was to say the first, so a
+   * section with no data had to be dropped entirely, and every new module
+   * therefore blocked on extracting a new field across the whole corpus. That
+   * was the tax.
+   *
+   * SET THIS ONLY FOR ABSENCE THAT IS OURS. See lib/sections.ts — a section the
+   * paid report deliberately SUPPRESSES (financial-condition at LOW severity)
+   * must stay absent, not become structural. Advertising findings the report
+   * will never show, about a named franchisor, is a refund at best.
+   *
+   * ENFORCED, NOT TRUSTED: buildReportShell() throws if a structural section
+   * arrives carrying figures, masked rows or severity counts. The one failure
+   * that would matter here is a structural card rendering "14 locked" over
+   * nothing, and it is not left to a caller to remember.
+   */
+  structural?: true;
 }
 
 export interface SourceBadge {
@@ -287,6 +314,14 @@ export interface ShellSection {
   maskedRows?: number;
   /** Masked figures in this section. Drives the "N figures" chip. */
   figureCount: number;
+  /**
+   * See SourceSection.structural. When true this section carries no lines and
+   * figureCount is 0, so it contributes nothing to counts.figures and cannot
+   * satisfy config.requiredSections — qualifiesForGlass() therefore ignores it
+   * without needing a special case. That is not an accident of the arithmetic;
+   * it is the property the empty-record test in lib/sections.test.ts pins.
+   */
+  structural?: true;
 }
 
 export interface ShellBadge {
@@ -589,6 +624,41 @@ function assertNoSpelledOutFigures(source: ReportSource, shell: unknown): void {
   }
 }
 
+/**
+ * THE STRUCTURAL SEAM.
+ *
+ * A structural section is a claim about the PRODUCT ("the full report has a
+ * Leaving section"), never about the RECORD ("there are 14 values behind this
+ * card"). The moment one carries a figure, a masked row or a severity count, it
+ * has silently become the second thing — a lock over nothing, which is the one
+ * defect on this surface that a buyer discovers only after paying.
+ *
+ * So it is a throw, not a filter. Silently dropping the offending figures would
+ * make the bug invisible in exactly the case where it matters: a section
+ * function that starts returning data one day and gets left flagged structural.
+ * Build fails, someone reads the section function, the flag comes off.
+ */
+function assertStructuralSectionsAreEmpty(source: ReportSource): void {
+  const bad: string[] = [];
+  for (const s of source.sections) {
+    if (!s.structural) continue;
+    const carried: string[] = [];
+    if (s.figures.length > 0) carried.push(`${s.figures.length} figure(s)`);
+    if (s.maskedRows) carried.push(`maskedRows=${s.maskedRows}`);
+    if (s.severityCounts) carried.push("severityCounts");
+    if (s.finding) carried.push("finding");
+    if (carried.length > 0) bad.push(`${s.id}: ${carried.join(", ")}`);
+  }
+  if (bad.length > 0) {
+    throw new Error(
+      `Structural section(s) carrying data: a structural card must promise ` +
+        `nothing, because nothing is behind it. Either drop the data or drop ` +
+        `the structural flag — see SourceSection.structural in ` +
+        `lib/reportShell.ts.\n  ${bad.join("\n  ")}`,
+    );
+  }
+}
+
 function buildMask(
   fig: SourceFigure,
   sectionId: string,
@@ -623,7 +693,31 @@ export function buildReportShell(
   source: ReportSource,
   config: GlassConfig = DEFAULT_GLASS_CONFIG,
 ): ReportShell {
+  /* Runs FIRST, before a single mask is built. The other two seams below check
+     what was produced; this one checks what was asked for, and it has to fail
+     ahead of the loop or a structural section carrying figures would mint real
+     mask tokens on the way to the error. */
+  assertStructuralSectionsAreEmpty(source);
+
   const sections: ShellSection[] = source.sections.map((s) => {
+    /* A structural section short-circuits the entire mask path. Not "builds
+       masks and discards them" — never enters it. Same build-by-omission
+       guarantee the rest of this file makes: the code that could leak a figure
+       is not reachable, rather than reachable and careful. */
+    if (s.structural) {
+      const frame: ShellSection = {
+        id: s.id,
+        title: s.title,
+        lines: [],
+        figureCount: 0,
+        structural: true,
+      };
+      if (s.blurb) frame.blurb = s.blurb;
+      if (s.anchor) frame.anchor = s.anchor;
+      if (s.freeChips) frame.freeChips = s.freeChips;
+      return frame;
+    }
+
     const lines: ShellLine[] = s.figures.map((f) => {
       const line: ShellLine = {
         label: f.label,
@@ -659,12 +753,19 @@ export function buildReportShell(
   const items = new Set<number>();
   for (const f of allFigures) if (f.citation) items.add(f.citation.item);
 
+  /* Both reducers skip structural sections, and the questions one is the reason
+     the rule is worth stating out loud. A structural who-to-call carries its
+     topic chips ("Cohorts", "Questions") in freeChips — the same field a real
+     one uses to carry the single free QUESTION. Counted naively, a brand with
+     no call list would report two questions it does not have, and that number
+     is not decorative: it prints in the unlock bar as a thing being bought.
+     Structure is free to show and must never be counted as content. */
   const tripwires = source.sections
-    .filter((s) => s.id === "tripwires")
+    .filter((s) => s.id === "tripwires" && !s.structural)
     .reduce((n, s) => n + s.figures.length + (s.maskedRows ?? 0), 0);
 
   const questions = source.sections
-    .filter((s) => s.id === "who-to-call")
+    .filter((s) => s.id === "who-to-call" && !s.structural)
     .reduce((n, s) => n + (s.freeChips?.length ?? 0) + (s.maskedRows ?? 0), 0);
 
   const badges: ShellBadge[] = source.badges.map((b) =>
@@ -677,7 +778,12 @@ export function buildReportShell(
     badges,
     sections,
     counts: {
-      sections: sections.length,
+      /* DATA-BACKED sections only. counts.sections is used as a claim about how
+         much report there is — "16 sections" — so counting frames in it would
+         inflate the pitch by exactly the sections that have nothing behind
+         them. shell.sections.length is still the render list; this is the
+         number that may be quoted. */
+      sections: sections.filter((s) => !s.structural).length,
       figures: sections.reduce((n, s) => n + s.figureCount, 0),
       citations: allFigures.filter((f) => f.citation).length,
       itemsCited: items.size,

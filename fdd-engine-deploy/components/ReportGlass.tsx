@@ -383,6 +383,51 @@ function Section({
   section: ShellSection;
   bind: (lockId: string) => (el: HTMLElement | null) => void;
 }) {
+  /* STRUCTURAL — a frame, not data. See SourceSection.structural in
+     lib/reportShell.ts.
+
+     This branch exists to render a card that promises NOTHING, so it
+     deliberately shares almost none of the locked card's furniture below:
+
+       • No "N locked" counter. That number is the unlock pitch. There is
+         nothing to unlock here and a zero in that slot would read as a bug.
+       • No lines, no MaskedRows, and `bind` is never called — so a frame
+         registers no lockIds, and the price-block telemetry cannot record
+         engagement with a value that does not exist.
+       • Chips use .frameChip, NOT .freeChip. That is not a styling
+         preference: .freeChip is disclosed-green and green means "the FDD
+         states this." These chips are OUR section headings, not the
+         franchisor's words, and colouring them as disclosed content would be
+         the smallest possible version of the exact lie this whole surface is
+         built to avoid.
+
+     THE TAG SAYS "NOT YET READ FOR THIS BRAND", NOT "IN THE FULL REPORT".
+     "In the full report" implies data sits behind the paywall, and for a brand
+     we have not extracted, it does not — a buyer would pay $199 and find this
+     same card. It also does not say "not in this filing", which would be worse
+     than over-promising: it would blame the franchisor's document for a gap
+     that is ours. The tag names whose gap it is. */
+  if (section.structural) {
+    return (
+      <section className={`${styles.section} ${styles.frame}`} id={section.id}>
+        <header className={styles.sectionHead}>
+          <h2 className={styles.h2}>{section.title}</h2>
+          <span className={styles.frameTag}>Not yet read for this brand</span>
+        </header>
+        {section.blurb && <p className={styles.blurb}>{section.blurb}</p>}
+        {section.freeChips && section.freeChips.length > 0 && (
+          <div className={styles.chipRow}>
+            {section.freeChips.map((c) => (
+              <span className={styles.frameChip} key={c}>
+                {c}
+              </span>
+            ))}
+          </div>
+        )}
+      </section>
+    );
+  }
+
   const sev = section.severityCounts;
   return (
     <section className={styles.section} id={section.id}>

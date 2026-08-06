@@ -56,6 +56,7 @@ import { buildCallList } from "./callList";
 import { computeVerify, verifyPhrase } from "./verify";
 import { normalizeSeverity } from "./severity";
 import { normalizeCitation } from "./citation";
+import { sectionSpec, navAnchor } from "./sections";
 import type { DiligenceResult } from "./types";
 import type {
   Provenance,
@@ -115,6 +116,53 @@ const cite = (item: number, page?: string | null) => normalizeCitation(item, pag
  *  reconstruct the band from the mask. Rung 4 (occupancy) joins them whenever
  *  rent came from the benchmark rather than the document. */
 const METHOD_BAND_RUNGS = new Set(["cogs", "labor", "otherOpex"]);
+
+/**
+ * THE FRAME — a section rendered from the registry alone, with no record.
+ *
+ * Returned by a section function when the module has nothing to build from for
+ * THIS brand, in place of the null it used to return. The card still appears,
+ * in its normal slot, saying what the section covers and naming its topics; it
+ * carries no figures, so the shell gives it no masks, no lock ids and no row
+ * count, and it contributes nothing to the glass qualification floors.
+ *
+ * ALL COPY COMES FROM lib/sections.ts AND NONE OF IT IS DERIVED. That is the
+ * point of routing through the registry rather than writing the strings here:
+ * a frame renders for brands we have not extracted, so every word on it has to
+ * be true with no record loaded. The registry holds `covers` to a hard no-numbers
+ * rule for exactly this reason — see the comment on SectionSpec.covers.
+ *
+ * Throwing on an unknown id is intentional. A section function that frames an
+ * id the registry does not carry would produce a card the parity test cannot
+ * see and the paid report will never render.
+ */
+function frame(id: string): SourceSection {
+  const spec = sectionSpec(id);
+  if (!spec) {
+    throw new Error(
+      `frame("${id}") — no such section in lib/sections.ts. A section must be ` +
+        `in the registry before either surface can render it.`,
+    );
+  }
+  if (spec.absence !== "structural") {
+    throw new Error(
+      `frame("${id}") — section is marked absence:"${spec.absence}". Only ` +
+        `"structural" sections may render as a frame; "suppressed" ones must ` +
+        `stay absent. See lib/sections.ts.`,
+    );
+  }
+  const anchor = navAnchor(spec.id);
+  const s: SourceSection = {
+    id: spec.id,
+    title: spec.title,
+    blurb: spec.covers,
+    freeChips: [...spec.chips],
+    figures: [],
+    structural: true,
+  };
+  if (anchor) s.anchor = anchor;
+  return s;
+}
 
 /* ------------------------------------------------------------------ *
  * Sections
@@ -437,7 +485,7 @@ function systemScale(r: DiligenceResult): SourceSection {
   return section;
 }
 
-function whoToCall(r: DiligenceResult): SourceSection | null {
+function whoToCall(r: DiligenceResult): SourceSection {
   const x = r.extracted;
   const cl = buildCallList({
     totalUnits: x.systemScale?.totalUnits,
@@ -447,10 +495,10 @@ function whoToCall(r: DiligenceResult): SourceSection | null {
     cohorts: x.item19?.cohorts,
     item19Page: x.item19?.sourcePage,
   });
-  if (!cl.available) return null;
+  if (!cl.available) return frame("who-to-call");
 
   const questions = cl.cohorts.flatMap((c) => c.questions);
-  if (questions.length === 0) return null;
+  if (questions.length === 0) return frame("who-to-call");
 
   // Exactly one question is free, and it is the first one — the cost-of-goods
   // question, which is the one a real operator answers and the one that proves
@@ -499,9 +547,13 @@ function whoToCall(r: DiligenceResult): SourceSection | null {
  * most quotable thing in the section, they are derived rather than disclosed,
  * and they belong to the buyer, not to the teaser.
  */
-function leaving(r: DiligenceResult): SourceSection | null {
+function leaving(r: DiligenceResult): SourceSection {
   const lv = buildLeaving(r.extracted.exitTerms);
-  if (!lv.available) return null;
+  // NOT null. Item 17 is part of the report for every brand; what varies is
+  // whether we have read this brand's table yet. Today that is none of them,
+  // which is precisely why the frame matters — the module shipped and the card
+  // was invisible on all 83, and nothing in the build said so.
+  if (!lv.available) return frame("leaving");
 
   const c = cite(17, lv.sourcePage);
 
@@ -509,7 +561,8 @@ function leaving(r: DiligenceResult): SourceSection | null {
   // on the card title; repeating it on eighteen consecutive lines would be a
   // different page, not a more honest one.
   const stated = lv.blocks.flatMap((b) => b.rows.filter((row) => !row.unstated));
-  if (stated.length === 0) return null;
+  // A table that read but stated nothing is still an unread table to a buyer.
+  if (stated.length === 0) return frame("leaving");
 
   const figures = stated.map((row, i) =>
     fig(row.label, null, "text", "disclosed", i === 0 ? { citation: c } : {}),
@@ -539,9 +592,9 @@ function leaving(r: DiligenceResult): SourceSection | null {
   };
 }
 
-function leadership(r: DiligenceResult): SourceSection | null {
+function leadership(r: DiligenceResult): SourceSection {
   const people = r.extracted.leadership ?? [];
-  if (people.length === 0) return null;
+  if (people.length === 0) return frame("leadership");
   return {
     id: "leadership",
     title: "Who runs it",
@@ -677,6 +730,10 @@ export function reportSourceFromComputed(record: {
     leaving(r),
     whoToCall(r),
     leadership(r),
+    // Only financialCondition() can be null now, and its null is a DECISION
+    // rather than a gap — see absence:"suppressed" in lib/sections.ts. The
+    // other three return a frame instead, so the section list has the same
+    // shape for every brand and the nav stops depending on extraction luck.
   ].filter((s): s is SourceSection => s !== null);
 
   const it = r.extracted.item17;
