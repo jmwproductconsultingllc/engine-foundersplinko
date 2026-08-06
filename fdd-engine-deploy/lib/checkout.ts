@@ -47,6 +47,13 @@ export async function createCheckoutUrl(
         quantity: 1,
       },
     ],
+    // Shows the "Add promotion code" field on the hosted Checkout page. This is
+    // how a 100%-off coupon gets applied for internal prod testing without
+    // touching a card — and it is the same field a real discount campaign would
+    // use later. A $0 session settles with payment_status "no_payment_required",
+    // which isSessionPaidFor() is written to accept; the webhook never inspected
+    // payment_status, so it already handles $0 correctly.
+    allow_promotion_codes: true,
     // First-touch UTM from the middleware cookie → Stripe metadata, so every
     // purchase carries its acquisition source (ads acceptance test).
     metadata: { reportId, ...readUtm(req) },
