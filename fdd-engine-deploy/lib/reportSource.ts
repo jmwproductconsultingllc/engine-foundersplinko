@@ -45,6 +45,12 @@ import {
   type Money,
 } from "./ladder";
 import { recurringFeeDisplays } from "./fees";
+// exitTerms.ts imports ONLY a type from lib/schema.ts and pulls in no compute
+// module, so this import costs nothing structurally. It is also the SAME
+// producer the paid report calls (DiligenceReport.tsx line 349), which is the
+// whole point: the teaser must never re-derive Item 17, or the two surfaces
+// drift the first time a label law changes.
+import { buildLeaving } from "./exitTerms";
 import { analyzeChurn } from "./churn";
 import { buildCallList } from "./callList";
 import { computeVerify, verifyPhrase } from "./verify";
@@ -463,6 +469,76 @@ function whoToCall(r: DiligenceResult): SourceSection | null {
   };
 }
 
+/**
+ * LEAVING — Item 17.
+ *
+ * Mirrors the paid report's card, and sits in the same place in the section
+ * order for the same reason it does there: its counts are read against Item 20,
+ * which renders directly above it, and its output is questions, which the call
+ * list directly below it continues.
+ *
+ * ABSENCE IS ABSENCE. buildLeaving() reports unavailable for every record
+ * extracted before exitTerms existed — which today is nearly all of them — and
+ * for any record whose Item 17 did not read. This returns null on exactly that
+ * signal, so the teaser drops the card AND its nav entry, the same as the
+ * report. A glass card is a claim that something is behind it. There must never
+ * be one over nothing.
+ *
+ * EVERY ROW IS MASKED AS TEXT WITH A NULL VALUE, NOT AS A NUMBER. Item 17 rows
+ * are phrases — "2 successor terms, 5 years each", "Yes", a forum state — and a
+ * text mask is fixed-width by construction, so no row here makes a claim about
+ * magnitude that it cannot support.
+ *
+ * ROWS THE TABLE DOES NOT STATE ARE DROPPED, NOT MASKED. A mask is a promise
+ * that a value is behind it; "Not stated in this table" is not a value, and
+ * charging $199 to reveal a blank is the one move that would make the unlock
+ * feel taken. This is also why the count in the blurb is of STATED terms only —
+ * it is the number the buyer will actually find on the other side.
+ *
+ * The exit column's two counts stay out of the blurb entirely. They are the
+ * most quotable thing in the section, they are derived rather than disclosed,
+ * and they belong to the buyer, not to the teaser.
+ */
+function leaving(r: DiligenceResult): SourceSection | null {
+  const lv = buildLeaving(r.extracted.exitTerms);
+  if (!lv.available) return null;
+
+  const c = cite(17, lv.sourcePage);
+
+  // The page citation rides on the first row only. The report prints it once,
+  // on the card title; repeating it on eighteen consecutive lines would be a
+  // different page, not a more honest one.
+  const stated = lv.blocks.flatMap((b) => b.rows.filter((row) => !row.unstated));
+  if (stated.length === 0) return null;
+
+  const figures = stated.map((row, i) =>
+    fig(row.label, null, "text", "disclosed", i === 0 ? { citation: c } : {}),
+  );
+
+  // row.sub is deliberately NOT carried through as a note. One of them prints
+  // the non-curable default count inside its sentence, and that count is a
+  // locked value on this very card. The free-text floor would not catch it —
+  // it is far below 100 — so the guard here is not passing it at all.
+
+  const questions = lv.blocks.reduce((n, b) => n + b.questions.length, 0);
+
+  return {
+    id: "leaving",
+    title: "Leaving — renewal, exit and transfer",
+    anchor: "Leaving",
+    blurb:
+      `Item 17, counted rather than characterised. ${figures.length} terms the table ` +
+      `states, across how long you are in, how it ends, how you sell it and what ` +
+      `happens after — plus the grounds it gives each side to end the agreement, and ` +
+      `${questions} questions to take to a franchisee.`,
+    // Structure is free. The four block titles tell a reader exactly what the
+    // section covers, which is the argument for buying it.
+    freeChips: lv.blocks.map((b) => b.title),
+    figures,
+    maskedRows: questions,
+  };
+}
+
 function leadership(r: DiligenceResult): SourceSection | null {
   const people = r.extracted.leadership ?? [];
   if (people.length === 0) return null;
@@ -597,6 +673,8 @@ export function reportSourceFromComputed(record: {
     financialCondition(r),
     tripwires(r),
     systemScale(r),
+    // Same slot as the paid report: after Item 20, before the call list.
+    leaving(r),
     whoToCall(r),
     leadership(r),
   ].filter((s): s is SourceSection => s !== null);
