@@ -41,6 +41,21 @@ const MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash";
 // Tunable — raise only if you find a legitimately enormous Items section.
 const MAX_FDD_PAGES = Number(process.env.MAX_FDD_PAGES) || 300;
 
+// Output-cap ladder, rung three. gemini-3.5-flash's 65,536-token output ceiling
+// is a HARD max — there is no larger number to set. A filing whose Item 19
+// cohorts, fee schedules and Item 20 roster are unusually dense can overflow it
+// even in minimal (numbers-only) mode. THE CAP IS ON OUTPUT, AND THE ONLY LEVER
+// WE HAVE ON OUTPUT IS INPUT — so before we surrender the document to the
+// failover vendor we re-prepare it at a narrower page window and try once more.
+// Without this rung the fallback wins by default on dense filings purely because
+// its own page window is smaller, which would make "Gemini primary" true in name
+// and Anthropic in practice — the exact defect lib/providerOrder.ts exists to fix.
+const RETRY_PAGE_FRACTION = Number(process.env.GEMINI_RETRY_PAGE_FRACTION) || 0.6;
+const RETRY_FLOOR_PAGES = Number(process.env.GEMINI_RETRY_FLOOR_PAGES) || 60;
+
+/** Structural shape of a processed Files API handle — avoids importing the SDK's File type. */
+type PreparedFile = { uri?: string | null; mimeType?: string | null };
+
 // Extraction is mechanical (locate figures, fill the schema, cite pages), not
 // reasoning — so we constrain Gemini's thinking, the single biggest latency
 // lever. The model's DEFAULT is dynamic/HIGH thinking, which is what pushed
@@ -348,67 +363,94 @@ export async function extractFddFromFile(
 
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
-  // 0) Trim oversized FDDs to the disclosure items so we never exceed Gemini's
-  //    input window. Only kicks in for filings past MAX_FDD_PAGES; normal docs
-  //    pass through byte-for-byte untouched (no regression for the FDDs that
-  //    already work). ignoreEncryption lets us read permission-flagged PDFs.
-  //    If the trim fails for any reason, fall back to the original bytes.
-  let uploadBytes: ArrayBuffer = fileBytes;
-  try {
-    const src = await PDFDocument.load(fileBytes, { ignoreEncryption: true });
-    const pageCount = src.getPageCount();
-    if (pageCount > MAX_FDD_PAGES) {
-      const trimmed = await PDFDocument.create();
-      const indices = Array.from({ length: MAX_FDD_PAGES }, (_, i) => i);
-      const copied = await trimmed.copyPages(src, indices);
-      copied.forEach((p) => trimmed.addPage(p));
-      // save() yields a Uint8Array; copy it into a standalone ArrayBuffer so the
-      // Blob constructor's BlobPart type is satisfied (TS 5.7 made typed arrays
-      // generic over their backing buffer, so Uint8Array no longer assigns to it).
-      const saved = await trimmed.save();
-      const ab = new ArrayBuffer(saved.byteLength);
-      new Uint8Array(ab).set(saved);
-      uploadBytes = ab;
-      console.warn(
-        `[extract] large FDD: trimmed ${pageCount} -> ${MAX_FDD_PAGES} pages ` +
-          `(exhibits dropped) to fit the model input window.`,
-      );
+  // 0-2) Trim -> upload -> wait, as ONE re-runnable step.
+  //
+  // Trimming caps the pages sent so the model only ever sees the disclosure
+  // items; filings under `maxPages` pass through byte-for-byte untouched (no
+  // regression for the FDDs that already work). ignoreEncryption lets us read
+  // permission-flagged PDFs, and any trim failure falls back to the original
+  // bytes rather than failing the extraction.
+  //
+  // This is a function, not a straight-line block, because the output-cap ladder
+  // in step 3 needs to re-prepare the SAME document at a narrower window. That
+  // costs a second upload; it buys keeping the document on the primary vendor.
+  // Every Files API handle this call creates, in creation order. The ladder can
+  // upload the SAME document twice (full window, then narrowed), and the cleanup
+  // in the finally block below must delete BOTH. A retry rung that leaves its
+  // extra upload behind turns a data-minimization guarantee into a leak that
+  // only fires on the hardest documents — the ones most likely to be someone's
+  // real filing. DELETE WHAT YOU UPLOADED, NOT WHAT YOU REMEMBER UPLOADING.
+  const uploadedNames: string[] = [];
+
+  const prepare = async (maxPages: number): Promise<{ fileInfo: PreparedFile; pagesSent: number }> => {
+    let uploadBytes: ArrayBuffer = fileBytes;
+    // Infinity means "we could not read the page count" — the ladder treats an
+    // unknown page count as not-narrowable rather than guessing at a number.
+    let pagesSent = Number.POSITIVE_INFINITY;
+    try {
+      const src = await PDFDocument.load(fileBytes, { ignoreEncryption: true });
+      const pageCount = src.getPageCount();
+      pagesSent = Math.min(pageCount, maxPages);
+      if (pageCount > maxPages) {
+        const trimmed = await PDFDocument.create();
+        const indices = Array.from({ length: maxPages }, (_, i) => i);
+        const copied = await trimmed.copyPages(src, indices);
+        copied.forEach((pg) => trimmed.addPage(pg));
+        // save() yields a Uint8Array; copy it into a standalone ArrayBuffer so the
+        // Blob constructor's BlobPart type is satisfied (TS 5.7 made typed arrays
+        // generic over their backing buffer, so Uint8Array no longer assigns to it).
+        const saved = await trimmed.save();
+        const ab = new ArrayBuffer(saved.byteLength);
+        new Uint8Array(ab).set(saved);
+        uploadBytes = ab;
+        console.warn(
+          `[extract] large FDD: trimmed ${pageCount} -> ${maxPages} pages ` +
+            `(exhibits dropped) to fit the model input window.`,
+        );
+      }
+    } catch (e) {
+      console.warn("[extract] PDF page-trim skipped (load failed); sending original.", e);
     }
-  } catch (e) {
-    console.warn("[extract] PDF page-trim skipped (load failed); sending original.", e);
-  }
 
-  // 1) Upload via Files API (the right path for large PDFs). Retry transient blips.
-  const blob = new Blob([uploadBytes], { type: mimeType });
-  const uploaded = await withRetry(
-    () => ai.files.upload({ file: blob, config: { mimeType, displayName: "fdd-upload.pdf" } }),
-    "upload",
-  );
+    // Upload via Files API (the right path for large PDFs). Retry transient blips.
+    const blob = new Blob([uploadBytes], { type: mimeType });
+    const uploaded = await withRetry(
+      () => ai.files.upload({ file: blob, config: { mimeType, displayName: "fdd-upload.pdf" } }),
+      "upload",
+    );
+    if (uploaded.name) uploadedNames.push(uploaded.name);
 
-  // 2) Wait for the file to finish processing (tight poll: 1.5s x up to 20 = ~30s budget).
-  let fileInfo = await ai.files.get({ name: uploaded.name as string });
-  let tries = 0;
-  while (fileInfo.state === "PROCESSING" && tries < 20) {
-    await sleep(1500);
-    fileInfo = await ai.files.get({ name: uploaded.name as string });
-    tries++;
-  }
-  if (fileInfo.state === "FAILED") {
-    throw new Error("Gemini could not process the uploaded PDF.");
-  }
+    // Wait for the file to finish processing (tight poll: 1.5s x up to 20 = ~30s budget).
+    let info = await ai.files.get({ name: uploaded.name as string });
+    let tries = 0;
+    while (info.state === "PROCESSING" && tries < 20) {
+      await sleep(1500);
+      info = await ai.files.get({ name: uploaded.name as string });
+      tries++;
+    }
+    if (info.state === "FAILED") {
+      throw new Error("Gemini could not process the uploaded PDF.");
+    }
+    return { fileInfo: info, pagesSent };
+  };
 
   // 3) Extract -> strict JSON, retrying transient 503/429 overloads.
   let extracted: ExtractedFDD;
   try {
+    // The first prepare() lives INSIDE the try so its upload is covered by the
+    // cleanup in the finally block. Outside it, an upload that succeeded and
+    // then failed processing would be left on Google's Files API forever.
+    const { fileInfo, pagesSent } = await prepare(MAX_FDD_PAGES);
+
     // One extraction call. `minimal` appends the strip-prose suffix used on the
     // retry path below; same schema + output cap either way.
-    const callExtraction = (minimal: boolean) =>
+    const callExtraction = (minimal: boolean, info: PreparedFile) =>
       withRetry(
         () =>
           ai.models.generateContent({
             model: MODEL,
             contents: createUserContent([
-              createPartFromUri(fileInfo.uri as string, fileInfo.mimeType as string),
+              createPartFromUri(info.uri as string, info.mimeType as string),
               EXTRACTION_PROMPT +
                 "\n\n" +
                 FINANCIAL_CONDITION_EXTRACTION_PROMPT +
@@ -437,15 +479,30 @@ export async function extractFddFromFile(
     // schema with all prose stripped, so the numbers (Item 7 / 19 / fees /
     // financials) survive and only the narrative goes light. Only a genuinely
     // enormous filing fails after that.
-    let response = await callExtraction(false);
+    let response = await callExtraction(false, fileInfo);
     if (hitOutputCap(response)) {
       console.warn("[extract] output cap hit — retrying in minimal (numbers-only) mode.");
-      response = await callExtraction(true);
-      if (hitOutputCap(response)) {
-        throw new Error(
-          "This FDD is too data-dense to extract in full, even after compacting — its Item 19 or fee tables are exceptionally large. Try a text-based copy of the document.",
+      response = await callExtraction(true, fileInfo);
+    }
+    // Rung three: minimal mode still overflowed. Re-prepare the SAME document at a
+    // narrower page window and try minimal once more BEFORE surrendering it to the
+    // failover vendor. Without this rung the fallback wins by default on dense
+    // filings purely because its own page window is smaller, which would make
+    // "Gemini primary" true in name and Anthropic in practice.
+    if (hitOutputCap(response)) {
+      const narrowed = Math.max(RETRY_FLOOR_PAGES, Math.floor(pagesSent * RETRY_PAGE_FRACTION));
+      if (Number.isFinite(pagesSent) && narrowed < pagesSent) {
+        console.warn(
+          `[extract] minimal mode still over cap — re-preparing at ${narrowed} of ${pagesSent} pages and retrying.`,
         );
+        const narrowedPrep = await prepare(narrowed);
+        response = await callExtraction(true, narrowedPrep.fileInfo);
       }
+    }
+    if (hitOutputCap(response)) {
+      throw new Error(
+        "This FDD is too data-dense to extract in full, even after compacting — its Item 19 or fee tables are exceptionally large. Try a text-based copy of the document.",
+      );
     }
 
     const text = response.text;
@@ -500,11 +557,17 @@ export async function extractFddFromFile(
       if (monthly !== null) extracted.averageRentMonthly = Math.round(monthly);
     }
   } finally {
-    // 4) Clean up the uploaded file (don't leave PII/docs lying around).
-    try {
-      await ai.files.delete({ name: uploaded.name as string });
-    } catch {
-      /* non-fatal */
+    // 4) Clean up EVERY uploaded file (don't leave PII/docs lying around).
+    //    The buyer's FDD is their financial diligence document; it exists on
+    //    Google's Files API only for the duration of this call. Deletion is
+    //    best-effort per handle — one failure must not skip the others, and
+    //    none of them may fail the extraction the buyer already paid for.
+    for (const name of uploadedNames) {
+      try {
+        await ai.files.delete({ name });
+      } catch {
+        /* non-fatal */
+      }
     }
   }
 

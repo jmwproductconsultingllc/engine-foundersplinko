@@ -46,8 +46,9 @@ export async function runDiligence(input: DiligenceInput) {
   const { bytes, mimeType, buyer, fileHash } = input;
 
   // 1) Extract structured facts — determinism cache (when fileHash given) in front
-  //    of provider failover (Claude primary in prod via EXTRACTION_PRIMARY; Gemini
-  //    fallback — flip with the env var). A cache hit returns provider "cache".
+  //    of provider failover. Vendor order is owned by lib/providerOrder.ts:
+  //    Gemini is PRIMARY, Claude is FAILOVER, overridable with EXTRACTION_PRIMARY.
+  //    A cache hit returns provider "cache" and makes no model call at all.
   const { result: extracted, provider, fellBack, fromCache } = await extractFdd(
     bytes,
     mimeType,
@@ -57,6 +58,11 @@ export async function runDiligence(input: DiligenceInput) {
     console.log("[pipeline] extraction served from determinism cache (no model call).");
   } else if (fellBack) {
     console.warn(`[pipeline] extraction served by FALLBACK provider: ${provider}`);
+  } else {
+    // The success path used to be the ONLY branch that said nothing, which meant
+    // the one run that proves the primary vendor works was the one run no log
+    // could confirm. A CLAIM NO LOG CAN CONFIRM IS A CLAIM NO ONE CAN AUDIT.
+    console.log(`[pipeline] extraction served by PRIMARY provider: ${provider}`);
   }
   // 2) Score deterministically (code).
   const scoring = scoreFdd(extracted, buyer);

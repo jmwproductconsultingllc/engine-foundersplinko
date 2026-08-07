@@ -109,14 +109,23 @@ export default function FDDUpload({
       capital: liquid,
       fileSizeMB: Math.round((file.size / 1048576) * 100) / 100,
     });
-    // Narrate the ~30–120s parse so it never looks frozen. Timed, not tied to
-    // real server events; paced to file size and parked on the last two messages.
-    // Back-loaded on purpose: a fast (small) FDD finishes around the "modeling"
-    // step — the buyer sees the deep work, then the report — while a large filing
-    // reaches the open-ended "compiling" step late and only dwells there briefly,
-    // never racing to the end and stalling on a bare spinner.
-    const scale = Math.min(2, Math.max(0.5, file.size / (12 * 1024 * 1024)));
-    const timers = [2500, 6500, 13000, 26000, 45000, 70000, 105000].map((ms, i) =>
+    // Narrate the parse so it never looks frozen. Timed, not tied to real server
+    // events; paced to file size and parked on the last two messages.
+    //
+    // Re-timed Aug 6 2026 against measured production runs. The old schedule was
+    // built for a "~30-120s parse" and topped out at 105s; a measured run on a
+    // 209-page filing took 4m 27s, and a small file at the old 0.5 scale floor
+    // reached the final phase inside a minute and then sat there for three more.
+    // A PROGRESS NARRATIVE THAT FINISHES BEFORE THE WORK DOES IS A SPINNER WITH
+    // EXTRA STEPS. The schedule now spans ~3-4 minutes and the floor is raised so
+    // a small filing still walks the steps instead of racing them.
+    //
+    // Back-loaded on purpose: a fast FDD finishes around the "modeling" step — the
+    // buyer sees the deep work, then the report — while a large filing reaches the
+    // open-ended "compiling" step late and dwells there, which is the one label
+    // that reads honestly when parked on.
+    const scale = Math.min(2, Math.max(0.8, file.size / (12 * 1024 * 1024)));
+    const timers = [6000, 16000, 34000, 62000, 105000, 160000, 225000].map((ms, i) =>
       setTimeout(() => setPhase(i + 1), Math.round(ms * scale)),
     );
     try {
@@ -365,7 +374,8 @@ export default function FDDUpload({
           <div className="w-[min(92vw,440px)] rounded-2xl border border-[#27344F] bg-[#16223B] p-7 shadow-2xl">
             <h3 className="text-base font-bold text-[#F1F5F9]">Running your diligence</h3>
             <p className="mt-1 mb-5 text-xs text-[#8194B0] truncate">
-              Reading {file?.name ?? "your document"} — a thorough scan can take up to a minute.
+              Reading {file?.name ?? "your document"} — most filings finish in three to
+              five minutes. A long one takes longer.
             </p>
             <ol>
               {PHASES.map((label, i) => {

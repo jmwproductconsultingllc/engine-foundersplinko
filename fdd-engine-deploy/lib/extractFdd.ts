@@ -35,14 +35,15 @@ import { extractFddWithClaude } from "./claude";
 import { recoverFinancials } from "./financialsPass";
 import type { FinancialConditionExtraction } from "./financialCondition";
 import { getCachedExtraction, putCachedExtraction } from "./extractionCache";
+import { providerOrder, type ModelProvider } from "./providerOrder";
 
 // "cache" is a virtual provider: it means the result was served from the
 // content-addressed store, no model vendor was called this request.
-export type ExtractionProvider = "gemini" | "claude" | "cache";
+export type ExtractionProvider = ModelProvider | "cache";
 
 type ProviderFn = (bytes: ArrayBuffer, mimeType: string) => Promise<ExtractedFDD>;
 
-const EXTRACTORS: Record<"gemini" | "claude", ProviderFn> = {
+const EXTRACTORS: Record<ModelProvider, ProviderFn> = {
   gemini: extractFddFromFile,
   claude: extractFddWithClaude,
 };
@@ -55,9 +56,10 @@ export interface ExtractionOutcome {
   fromCache: boolean;
 }
 
-function resolvePrimary(): "gemini" | "claude" {
-  return process.env.EXTRACTION_PRIMARY === "claude" ? "claude" : "gemini";
-}
+// Provider order lives in lib/providerOrder.ts so that EVERY model call site in
+// the engine — this one and the financials recovery pass — reads the same
+// answer. It used to be a local ternary here, which is how the recovery pass
+// ended up hardcoded to a different vendor than the one we called primary.
 
 function msgOf(e: unknown): string {
   if (e instanceof Error) return e.message;
@@ -145,9 +147,8 @@ function isFinancialsMissingWarning(w: string): boolean {
 async function extractWithFailover(
   fileBytes: ArrayBuffer,
   mimeType: string,
-): Promise<{ result: ExtractedFDD; provider: "gemini" | "claude"; fellBack: boolean }> {
-  const primary = resolvePrimary();
-  const secondary: "gemini" | "claude" = primary === "gemini" ? "claude" : "gemini";
+): Promise<{ result: ExtractedFDD; provider: ModelProvider; fellBack: boolean }> {
+  const [primary, secondary] = providerOrder();
 
   try {
     const result = await EXTRACTORS[primary](fileBytes, mimeType);

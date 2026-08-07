@@ -19,15 +19,32 @@
 // block located, model error) returns null and the caller proceeds unchanged —
 // never worse than today. `unpdf` is imported dynamically so a bundling issue
 // can never break the main extraction path.
+//
+// PROVIDER ORDER (changed 2026-08-06)
+// -----------------------------------
+// This pass used to be hardcoded Anthropic with no Gemini branch. That mattered
+// more than it looks: recoverFinancials() runs inside the NORMAL SUCCESSFUL path
+// (extractFdd -> backfillFinancials on every cache miss whose financials look
+// thin), not the error path. So a Claude-only implementation here meant Claude
+// was in the production path of a large share of extractions no matter which
+// vendor was "primary" — and any sentence claiming otherwise was false.
+//
+// It now honours lib/providerOrder.ts like every other model call site: Gemini
+// primary, Claude failover, same schema, same prompt, same merge contract.
+// Gemini's branch needs no schema conversion — fddResponseSchema is ALREADY a
+// Gemini schema; it is the Claude branch that converts.
 
 import Anthropic from "@anthropic-ai/sdk";
+import { GoogleGenAI } from "@google/genai";
 import { PDFDocument } from "pdf-lib";
 import { fddResponseSchema } from "./schema";
 import type { FinancialConditionExtraction } from "./financialCondition";
 import { FINANCIAL_CONDITION_EXTRACTION_PROMPT } from "./financialCondition";
 import { geminiSchemaToJsonSchema } from "./schemaToJsonSchema";
+import { providerOrder, type ModelProvider } from "./providerOrder";
 
 const CLAUDE_MODEL = process.env.CLAUDE_EXTRACTION_MODEL || "claude-sonnet-4-6";
+const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash";
 const TOOL_NAME = "emit_financial_condition";
 
 // Pages to scan/carve as the statements block. Audited statements are a
@@ -50,13 +67,27 @@ const FIN_PATTERNS: RegExp[] = [
   /notes to (the )?(consolidated )?financial statements/i,
 ];
 
-let _client: Anthropic | null = null;
-function getClient(): Anthropic {
-  if (_client) return _client;
+const FOCUSED_INSTRUCTION =
+  "The attached pages are the financial-statements section of a franchise FDD. " +
+  "Extract the franchisor's financial condition strictly from these audited statements.\n\n" +
+  FINANCIAL_CONDITION_EXTRACTION_PROMPT;
+
+let _anthropic: Anthropic | null = null;
+function getAnthropic(): Anthropic {
+  if (_anthropic) return _anthropic;
   const key = process.env.ANTHROPIC_API_KEY;
   if (!key) throw new Error("ANTHROPIC_API_KEY is not set.");
-  _client = new Anthropic({ apiKey: key, timeout: 780_000 });
-  return _client;
+  _anthropic = new Anthropic({ apiKey: key, timeout: 780_000 });
+  return _anthropic;
+}
+
+let _gemini: GoogleGenAI | null = null;
+function getGemini(): GoogleGenAI {
+  if (_gemini) return _gemini;
+  const key = process.env.GEMINI_API_KEY;
+  if (!key) throw new Error("GEMINI_API_KEY is not set.");
+  _gemini = new GoogleGenAI({ apiKey: key });
+  return _gemini;
 }
 
 /** Per-page financial-signal score for the whole document. */
@@ -114,18 +145,118 @@ async function carvePages(bytes: ArrayBuffer, start: number, end: number): Promi
   return out.save();
 }
 
-/** The financialCondition sub-schema of fddResponseSchema, as a Claude tool input_schema. */
-function financialConditionSchema(): Anthropic.Tool.InputSchema {
+/**
+ * The financialCondition sub-schema node, in its NATIVE Gemini form. Both
+ * branches start here, so the two vendors cannot drift onto different shapes:
+ * Gemini consumes it directly, Claude converts it.
+ */
+function financialConditionNode(): unknown {
   const root = fddResponseSchema as unknown as { properties?: Record<string, unknown> };
   const node = root.properties?.financialCondition;
   if (!node) throw new Error("financialCondition schema node not found in fddResponseSchema.");
-  return geminiSchemaToJsonSchema(node) as Anthropic.Tool.InputSchema;
+  return node;
 }
+
+/** The same node as a Claude tool input_schema. */
+function financialConditionSchema(): Anthropic.Tool.InputSchema {
+  return geminiSchemaToJsonSchema(financialConditionNode()) as Anthropic.Tool.InputSchema;
+}
+
+// --- Vendor branches --------------------------------------------------------
+// Each returns the extraction or THROWS. Throwing (not returning null) is what
+// lets the caller distinguish "this vendor is down, try the other one" from
+// "both vendors read the pages and there is nothing there." A branch that
+// swallowed its own error would make the failover unreachable.
+
+async function recoverWithGemini(subPdf: Uint8Array): Promise<FinancialConditionExtraction | null> {
+  const ai = getGemini();
+  const response = await ai.models.generateContent({
+    model: GEMINI_MODEL,
+    contents: [
+      {
+        role: "user",
+        parts: [
+          {
+            inlineData: {
+              mimeType: "application/pdf",
+              data: Buffer.from(subPdf).toString("base64"),
+            },
+          },
+          { text: FOCUSED_INSTRUCTION },
+        ],
+      },
+    ],
+    config: {
+      responseMimeType: "application/json",
+      // Native Gemini schema — no conversion, no hand-maintained duplicate.
+      responseSchema: financialConditionNode() as never,
+      temperature: 0,
+      maxOutputTokens: 8192,
+    },
+  });
+  const text = response.text;
+  if (!text) return null;
+  return JSON.parse(text) as FinancialConditionExtraction;
+}
+
+async function recoverWithClaude(subPdf: Uint8Array): Promise<FinancialConditionExtraction | null> {
+  const tool: Anthropic.Tool = {
+    name: TOOL_NAME,
+    description:
+      "Return the franchisor's financial condition as a single JSON object matching the schema, " +
+      "extracted ONLY from the attached audited financial-statement pages.",
+    input_schema: financialConditionSchema(),
+  };
+
+  const message = await getAnthropic()
+    .messages.stream({
+      model: CLAUDE_MODEL,
+      max_tokens: 8000,
+      tools: [tool],
+      tool_choice: { type: "tool", name: TOOL_NAME },
+      messages: [
+        {
+          role: "user",
+          content: [
+            {
+              type: "document",
+              source: {
+                type: "base64",
+                media_type: "application/pdf",
+                data: Buffer.from(subPdf).toString("base64"),
+              },
+            },
+            { type: "text", text: FOCUSED_INSTRUCTION },
+          ],
+        },
+      ],
+    })
+    .finalMessage();
+
+  const toolUse = message.content.find((b): b is Anthropic.ToolUseBlock => b.type === "tool_use");
+  if (!toolUse) {
+    console.warn("[financials] focused pass returned no tool_use block.");
+    return null;
+  }
+  return toolUse.input as FinancialConditionExtraction;
+}
+
+const BRANCHES: Record<
+  ModelProvider,
+  (subPdf: Uint8Array) => Promise<FinancialConditionExtraction | null>
+> = {
+  gemini: recoverWithGemini,
+  claude: recoverWithClaude,
+};
 
 /**
  * Recover the franchisor's financial condition from the FULL document when the
  * main (trimmed) extraction missed it. Returns the extracted object, or null if
- * no statements block is found or anything fails.
+ * no statements block is found or every vendor fails.
+ *
+ * Vendor order is lib/providerOrder.ts — the SAME order the main extraction
+ * uses, so there is exactly one answer to "which model does this product call
+ * first," and it is true of the whole engine rather than of one file.
  */
 export async function recoverFinancials(
   fileBytes: ArrayBuffer,
@@ -153,56 +284,27 @@ export async function recoverFinancials(
     return null;
   }
 
-  const tool: Anthropic.Tool = {
-    name: TOOL_NAME,
-    description:
-      "Return the franchisor's financial condition as a single JSON object matching the schema, " +
-      "extracted ONLY from the attached audited financial-statement pages.",
-    input_schema: financialConditionSchema(),
-  };
-
-  try {
-    const message = await getClient()
-      .messages.stream({
-        model: CLAUDE_MODEL,
-        max_tokens: 8000,
-        tools: [tool],
-        tool_choice: { type: "tool", name: TOOL_NAME },
-        messages: [
-          {
-            role: "user",
-            content: [
-              {
-                type: "document",
-                source: {
-                  type: "base64",
-                  media_type: "application/pdf",
-                  data: Buffer.from(subPdf).toString("base64"),
-                },
-              },
-              {
-                type: "text",
-                text:
-                  "The attached pages are the financial-statements section of a franchise FDD. " +
-                  "Extract the franchisor's financial condition strictly from these audited statements.\n\n" +
-                  FINANCIAL_CONDITION_EXTRACTION_PROMPT,
-              },
-            ],
-          },
-        ],
-      })
-      .finalMessage();
-
-    const toolUse = message.content.find(
-      (b): b is Anthropic.ToolUseBlock => b.type === "tool_use",
-    );
-    if (!toolUse) {
-      console.warn("[financials] focused pass returned no tool_use block.");
-      return null;
+  const order = providerOrder();
+  for (let i = 0; i < order.length; i++) {
+    const provider = order[i];
+    try {
+      const out = await BRANCHES[provider](subPdf);
+      if (i > 0) {
+        console.warn(`[financials] recovered via FAILOVER provider "${provider}".`);
+      } else {
+        console.log(`[financials] recovered via primary provider "${provider}".`);
+      }
+      return out;
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      const isLast = i === order.length - 1;
+      console.warn(
+        `[financials] provider "${provider}" failed${isLast ? " (last resort)" : " — failing over"}: ${msg}`,
+      );
+      // Best-effort pass: if every vendor is down we return null and the caller
+      // keeps the main-pass financials and the honest "not provided" warning.
+      // We never fail the whole report over a recovery attempt.
     }
-    return toolUse.input as FinancialConditionExtraction;
-  } catch (e) {
-    console.warn("[financials] focused extraction failed:", e instanceof Error ? e.message : e);
-    return null;
   }
+  return null;
 }
