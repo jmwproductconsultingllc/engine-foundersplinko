@@ -245,6 +245,28 @@ export const SECTIONS: SectionSpec[] = [
     },
   },
   {
+    id: "who-to-call",
+    label: "Who to call",
+    title: "Who to call, and what to ask",
+    covers:
+      "Which franchisees to reach, chosen by what their cohort can tell you, and " +
+      "the questions that get a real answer out of each one.",
+    chips: ["Cohorts", "Questions"],
+    absence: "structural",
+    available: (r) => {
+      const x = r.extracted;
+      const cl = buildCallList({
+        totalUnits: x.systemScale?.totalUnits,
+        closedLastYear: x.systemScale?.closedLastYear,
+        transfersLastYear: x.systemScale?.transfersLastYear,
+        item20Page: x.systemScale?.sourcePage,
+        cohorts: x.item19?.cohorts,
+        item19Page: x.item19?.sourcePage,
+      });
+      return cl.available && cl.cohorts.some((c) => c.questions.length > 0);
+    },
+  },
+  {
     id: "document-check",
     label: "Document",
     title: "What we found in the document",
@@ -325,28 +347,6 @@ export const SECTIONS: SectionSpec[] = [
     ],
     absence: "structural",
     available: (r) => buildLeaving(r.extracted.exitTerms).available,
-  },
-  {
-    id: "who-to-call",
-    label: "Who to call",
-    title: "Who to call, and what to ask",
-    covers:
-      "Which franchisees to reach, chosen by what their cohort can tell you, and " +
-      "the questions that get a real answer out of each one.",
-    chips: ["Cohorts", "Questions"],
-    absence: "structural",
-    available: (r) => {
-      const x = r.extracted;
-      const cl = buildCallList({
-        totalUnits: x.systemScale?.totalUnits,
-        closedLastYear: x.systemScale?.closedLastYear,
-        transfersLastYear: x.systemScale?.transfersLastYear,
-        item20Page: x.systemScale?.sourcePage,
-        cohorts: x.item19?.cohorts,
-        item19Page: x.item19?.sourcePage,
-      });
-      return cl.available && cl.cohorts.some((c) => c.questions.length > 0);
-    },
   },
   {
     id: "leadership",
