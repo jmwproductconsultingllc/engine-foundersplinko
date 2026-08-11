@@ -9,7 +9,7 @@
 // its lowest. The bar keeps the ask in reach the whole way down.
 //
 // One difference from the brand-page bar, and it matters: there is nothing to
-// "Unlock" here. Verde Bowls is fictional, so there is no checkout to mint — the
+// "Unlock" here. Stonecrop Bowls is fictional, so there is no checkout to mint — the
 // conversion action is to go run the engine on a REAL FDD. The bar therefore
 // routes to the upload flow, not to Stripe. Promising "Unlock" and landing them
 // on an upload form would be a bait-and-switch on the hottest lead we have.

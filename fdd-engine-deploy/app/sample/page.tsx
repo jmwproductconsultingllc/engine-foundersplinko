@@ -15,7 +15,7 @@
 //
 // INDEXED deliberately — "what does a franchise diligence report actually look
 // like" is a real search, and this is the honest answer. The brand is fictional
-// (Verde Bowls) and labeled as such above the fold, twice, so no reader can
+// (Stonecrop Bowls) and labeled as such above the fold, twice, so no reader can
 // mistake it for a real franchisor's disclosed numbers.
 
 import type { Metadata } from "next";
@@ -159,6 +159,41 @@ export default async function SamplePage() {
             </Link>
           </p>
         </section>
+
+        {/* The "see it run" door. Deliberately AFTER the ask, for the same reason
+            the ask is after the report: a reader who just finished it and is ready
+            to buy should meet the CTA first, not a link that takes them off the
+            page. This is the second door, for everyone who is not there yet.
+            External <a> rather than next/link, and a link rather than an embed —
+            a YouTube iframe would drop a third party's cookies on the one page
+            where first-touch attribution has to stay clean. */}
+        <section className="rounded-2xl border border-[#27344F] p-5 md:p-6">
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#38BDF8]">
+            See the engine run
+          </p>
+          <h2
+            className="mt-2 text-xl font-bold leading-tight text-[#F1F5F9]"
+            style={{ fontFamily: DISPLAY }}
+          >
+            Watch a live filing go through it, start to finish.
+          </h2>
+          <p className="mt-2 max-w-2xl text-[13.5px] leading-relaxed text-[#8194B0]">
+            Everything above is real engine output on an invented disclosure. The
+            three-minute walkthrough is the other half: a live parse end to end — a
+            193-page filing uploaded, read by Gemini, and rendered — including the case
+            where a franchisor makes no earnings claim at all and the report says so
+            instead of guessing.
+          </p>
+          <a
+            href="https://www.youtube.com/watch?v=2qksyPsDQ9k"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block rounded-xl border border-[#27344F] px-4 py-2.5 text-[14px] font-bold text-[#CBD5E1] transition-colors hover:border-[#38BDF8] hover:text-[#38BDF8]"
+          >
+            Watch the walkthrough →
+          </a>
+        </section>
+
 
         <SampleStickyBar />
 

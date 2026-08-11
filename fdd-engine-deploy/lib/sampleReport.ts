@@ -29,8 +29,8 @@ const SAMPLE_FDD: ExtractedFDD = {
     itemsFound: ["Item 1", "Item 5", "Item 6", "Item 7", "Item 8", "Item 12", "Item 15", "Item 19", "Item 20", "Item 21"],
     warnings: [],
   },
-  brandName: "Verde Bowls",
-  franchisorEntity: "Verde Bowls Franchising, LLC",
+  brandName: "Stonecrop Bowls",
+  franchisorEntity: "Stonecrop Bowls Franchising, LLC",
   // CITY + STATE ONLY — deliberately no street address and no ZIP. This fixture
   // publishes a distress narrative (negative net worth, related-party funding)
   // about a named LLC; a real ZIP geocodes to real buildings and would attach
@@ -128,7 +128,7 @@ const SAMPLE_FDD: ExtractedFDD = {
      * thing a first-time reader should meet under the hero.
      *
      * The honest fix is not to suppress the caveat — it is to complete the
-     * record. Verde Bowls is an invented disclosure, so this list IS the whole
+     * record. Stonecrop Bowls is an invented disclosure, so this list IS the whole
      * of its percentage-of-sales fees, and its technology fee is deliberately
      * a FLAT $350/mo (see flatMonthlyFees below, rung 3) — which is the exact
      * hypothetical the caveat raises, answered two rungs down.
@@ -187,7 +187,7 @@ const SAMPLE_FDD: ExtractedFDD = {
     },
     {
       title: "No Exclusive Territory",
-      description: "The franchisor may operate or license other Verde Bowls units near yours, including company-owned locations.",
+      description: "The franchisor may operate or license other Stonecrop Bowls units near yours, including company-owned locations.",
       severity: "medium",
       source: "Item 12, p.51",
     },
