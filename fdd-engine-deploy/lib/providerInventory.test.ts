@@ -64,11 +64,13 @@ const MANIFEST: Record<string, { role: Role; vendor: string; why: string }> = {
     vendor: "none",
     why: "Imports @google/genai's Type enum to BUILD the shared response schema. No client, no network.",
   },
-  "lib/schemaToJsonSchema.ts": {
-    role: "schema",
-    vendor: "none",
-    why: "Converts the Gemini schema to Claude tool input_schema. Pure function.",
-  },
+  // lib/schemaToJsonSchema.ts is NOT declared here, and that is the point.
+  // It converts the Gemini schema shape into Claude's tool input_schema — it
+  // names both vendors and contacts neither. The scanner only counts a file that
+  // imports a vendor leaf, constructs a client, or resolves provider order.
+  // Declaring a pure function as a call site made the manifest describe a
+  // codebase that did not exist, and the stale-declaration test caught it.
+  // A MANIFEST THAT OVER-DECLARES IS AS WRONG AS ONE THAT UNDER-DECLARES.
 };
 
 // ---------------------------------------------------------------------------
