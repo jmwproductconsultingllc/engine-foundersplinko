@@ -613,7 +613,19 @@ function buildBody(
  *  distress signals are the kind a young, scaling franchisor typically shows
  *  (losses / deficit with offsetting positives) AND the auditor did NOT raise
  *  going-concern doubt. If the auditor flagged survival risk, we never soften it. */
-function buildContext(x: FinancialConditionExtraction, g: Grade): string | null {
+/** Growth-stage framing for the always-visible card. Returned ONLY when the
+ *  distress signals are the kind a young, scaling franchisor typically shows
+ *  (losses / deficit with offsetting positives) AND the auditor did NOT raise
+ *  going-concern doubt. If the auditor flagged survival risk, we never soften it. */
+/** Growth-stage framing for the always-visible card. Returned ONLY when the
+ *  distress signals are the kind a young, scaling franchisor typically shows
+ *  (losses / deficit with offsetting positives) AND the auditor did NOT raise
+ *  going-concern doubt. If the auditor flagged survival risk, we never soften it. */
+function buildContext(
+  x: FinancialConditionExtraction,
+  g: Grade,
+  m: ComputedMetrics
+): string | null {
   if (g.severity === 'LOW' || g.severity === 'INSUFFICIENT_DATA') return null;
   if (g.severity === 'HIGH') return null; // never soften a HIGH — incl. distress-cluster escalations
   if (x.goingConcernRaised) return null; // auditor flagged survival — do not soften
@@ -622,9 +634,81 @@ function buildContext(x: FinancialConditionExtraction, g: Grade): string | null 
   // franchisor carrying a deficit is a different, worse story, and the
   // "spending ahead of revenue" narrative would mislead.
   if (!g.mitigants.includes('revenue is growing')) return null;
+
+  // THE SIGN GATE.
+  //
+  // Everything below this line asserts losses and a deficit. Nothing above it
+  // ever checked whether either exists. Eight catalog records — one reporting
+  // $151.66M of net income — were told they "commonly run losses and carry a
+  // deficit" in the same sentence that reported positive net worth.
+  //
+  // A SENTENCE THAT CHARACTERISES A NUMBER MUST READ THE NUMBER.
+  const hasLoss = n(m.netIncome) && m.netIncome < 0;
+  const hasDeficit = m.netWorthSign === 'negative';
+  if (!hasLoss && !hasDeficit) return buildSolventFlaggedContext(x, g, m);
+
   return `Worth perspective: ${g.mitigants.join(
     '; '
   )}. Early-stage franchisors commonly run losses and carry a deficit while investing to scale — this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.`;
+}
+
+/** The franchisor flagged its own financial condition, yet the income statement
+ *  and the balance sheet are both positive. Do not invent losses to explain the
+ *  flag — say what is true, then point at the composition of the balance sheet,
+ *  which is where the answer usually is: fees collected on agreements whose
+ *  obligations are still owed. */
+function buildSolventFlaggedContext(
+  x: FinancialConditionExtraction,
+  g: Grade,
+  m: ComputedMetrics
+): string | null {
+  const facts: string[] = [];
+  const statedIncome = n(m.netIncome) && m.netIncome > 0;
+  const statedWorth = n(m.netWorth) && m.netWorth > 0;
+  if (statedIncome) {
+    facts.push(`the most recent year is profitable at ${fmtM(m.netIncome)} of net income`);
+  }
+  if (statedWorth) {
+    facts.push(`net worth is positive at ${fmtM(m.netWorth)}`);
+  }
+  // Carry the remaining mitigants, minus the ones we just said with a figure
+  // attached. "positive net worth" after "net worth is positive at $25.09M"
+  // reads like the paragraph lost its place.
+  for (const mit of g.mitigants) {
+    if (statedWorth && /net worth/i.test(mit)) continue;
+    if (statedIncome && /(profitab|net income)/i.test(mit)) continue;
+    facts.push(mit);
+  }
+  const base = facts.length
+    ? `Worth perspective: ${facts.join('; ')}.`
+    : 'Worth perspective: the figures extracted do not show the distress signals we screen for.';
+
+  // NO FIGURES AT ALL. A null is not a "no" — and it is not a "yes" either.
+  // Thirteen catalog records carried the growth-stage paragraph with netIncome
+  // and netWorth both null: we asserted losses and a deficit about a franchisor
+  // whose income statement and balance sheet we never read. Say that instead.
+  if (!n(m.netIncome) && !n(m.netWorth)) {
+    const flag = x.specialRiskPresent
+      ? ', including the financial-condition risk the franchisor flags about itself'
+      : '';
+    return `${base} We could not read usable income-statement or balance-sheet figures from this filing, so nothing here characterises the franchisor's profitability or net worth either way${flag} — read the audited statements in Item 21 directly.`;
+  }
+
+  if (!x.specialRiskPresent) return base;
+
+  // The franchisor flagged itself anyway. Name the most likely balance-sheet
+  // driver if the numbers support it; otherwise say plainly that we cannot tell
+  // which figure drove the disclosure, rather than guessing at one.
+  const deferred = x.years?.[0]?.deferredRevenue ?? null;
+  const nw = m.netWorth;
+  if (n(deferred) && n(nw) && nw > 0 && deferred > nw) {
+    return `${base} The franchisor still flags its own financial condition, and on these figures the reason sits on the balance sheet rather than the income statement: ${fmtM(
+      deferred
+    )} of deferred revenue against ${fmtM(nw)} of net worth — about ${fmtX(
+      deferred / nw
+    )} — which is money already collected on agreements whose obligations are still owed. Ask how many signed outlets are not yet open, and what supporting them costs.`;
+  }
+  return `${base} The franchisor still flags its own financial condition. We cannot tell from the extracted figures which disclosure drove that — ask the franchisor directly, and read the balance sheet composition rather than the income statement.`;
 }
 
 function buildEvidenceNote(x: FinancialConditionExtraction): string {
@@ -651,7 +735,7 @@ export function assessFinancialCondition(
   return {
     severity: grade.severity,
     headline: buildHeadline(grade.primaryDriver, metrics),
-    context: buildContext(extraction, grade),
+    context: buildContext(extraction, grade, metrics),
     body: buildBody(extraction, metrics, grade),
     aggravators: grade.aggravators,
     mitigants: grade.mitigants,

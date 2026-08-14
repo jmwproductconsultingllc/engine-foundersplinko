@@ -86,3 +86,62 @@ export function isKnownSeverity(raw: unknown): boolean {
   if (key === null) return false;
   return key in SEVERITY_ALIASES || (SEVERITIES as readonly string[]).includes(key);
 }
+
+/* ------------------------------------------------------------------ *
+ * THE SIGN GATE, AT READ.
+ * ------------------------------------------------------------------ */
+
+/** The only two fields of ComputedMetrics this resolver needs. Structural on
+ *  purpose — this module imports nothing, and a type import from
+ *  financialCondition.ts would invite a value import next. */
+export interface SignedMetrics {
+  netIncome?: number | null;
+  netWorthSign?: 'positive' | 'negative' | 'unknown' | null;
+}
+
+/** Copy that asserts a DIRECTION. Every phrase here is a claim about the sign
+ *  of a figure, so every phrase here is falsifiable against that figure. */
+const LOSS_ASSERTIONS =
+  /run losses|running losses|carry a deficit|carries a deficit|spending ahead of revenue|net loss/i;
+
+/**
+ * Resolve a persisted financial-condition context paragraph.
+ *
+ * WHY THIS EXISTS
+ *
+ * buildContext() shipped for months without ever reading the sign of net
+ * income or net worth. 21 of the 29 catalog records carrying that paragraph
+ * assert a direction the record cannot support: 8 say the franchisor "commonly
+ * runs losses and carries a deficit" in the same sentence that reports positive
+ * net worth, on records reporting positive net income; 13 say it on records
+ * where netIncome and netWorth were never extracted at all. The producer is
+ * fixed in lib/financialCondition.ts. This is the second lock: a stale record —
+ * or one written by a batch path outside this repo — still cannot print a claim
+ * its own numbers refute.
+ *
+ * WHY SUPPRESSION AND NOT REPAIR
+ *
+ * This module has the insight, not the extraction. It cannot know what the
+ * right sentence is; it can only know that this one is wrong. The headline is
+ * computed separately and is correct in all 21 cases, so suppressing the
+ * context leaves a true, complete card. Silence beats a confident falsehood —
+ * the same reason normalizeSeverity() falls back to INSUFFICIENT_DATA.
+ *
+ * A null netIncome with a non-negative netWorthSign suppresses too. An
+ * unextracted figure is not evidence of a loss.
+ */
+export function resolveFinancialContext(
+  context: unknown,
+  metrics: SignedMetrics | null | undefined
+): string | null {
+  if (typeof context !== 'string' || context.trim() === '') return null;
+  if (!LOSS_ASSERTIONS.test(context)) return context;
+
+  const ni = metrics?.netIncome;
+  const hasLoss = typeof ni === 'number' && Number.isFinite(ni) && ni < 0;
+  const hasDeficit = metrics?.netWorthSign === 'negative';
+
+  // The paragraph asserts losses or a deficit. At least one must actually be
+  // there, or the sentence is describing a company that does not exist.
+  return hasLoss || hasDeficit ? context : null;
+}

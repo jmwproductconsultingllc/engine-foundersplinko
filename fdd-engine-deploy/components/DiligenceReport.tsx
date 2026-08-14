@@ -13,7 +13,7 @@ import { BASIS_STYLE, LEGEND_ORDER, basisColor } from "@/lib/basis";
 import { range } from "@/lib/range";
 // @/lib/severity, NOT @/lib/financialCondition: this is a "use client"
 // component and that module exports a 33KB extraction prompt.
-import { normalizeSeverity } from "@/lib/severity";
+import { normalizeSeverity, resolveFinancialContext } from "@/lib/severity";
 import { analyzeChurn } from "@/lib/churn";
 import { buildCallList } from "@/lib/callList";
 // lib/exitTerms.ts imports ONLY a type from lib/schema.ts, so nothing from
@@ -395,6 +395,10 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
   // catalog records carry 'INSUFFICIENT' and used to crash this component on
   // the object-literal lookups below. Resolve once, here, and index with this.
   const fcSeverity = fc ? normalizeSeverity(fc.severity) : null;
+  // Persisted context paragraphs are NOT guaranteed to agree with the figures
+  // beside them — 21 of 29 assert losses or a deficit the record cannot
+  // support. Resolve once, here, and render this.
+  const fcContext = fc ? resolveFinancialContext(fc.context, fc.metrics) : null;
   const fees = recurringFeeDisplays(x);
 
   // Financial Condition (rendered below) now owns this topic, so drop the
@@ -1069,9 +1073,9 @@ export default function DiligenceReport({ result: rawResult }: { result: Diligen
 
             <p className="mt-3 text-sm font-medium text-[#F1F5F9] leading-relaxed">{fc.headline}</p>
 
-            {fc.context && (
+            {fcContext && (
               <div className="mt-3 rounded-lg border border-[#60A5FA]/40 bg-[#60A5FA]/10 px-3 py-2">
-                <p className="text-xs text-[#CBD5E1] leading-relaxed">{fc.context}</p>
+                <p className="text-xs text-[#CBD5E1] leading-relaxed">{fcContext}</p>
               </div>
             )}
 
