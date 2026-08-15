@@ -101,8 +101,10 @@ export interface SignedMetrics {
 
 /** Copy that asserts a DIRECTION. Every phrase here is a claim about the sign
  *  of a figure, so every phrase here is falsifiable against that figure. */
-const LOSS_ASSERTIONS =
-  /run losses|running losses|carry a deficit|carries a deficit|spending ahead of revenue|net loss/i;
+const ASSERTS_LOSS =
+  /run losses|running losses|runs a loss|running a loss|net loss|spending ahead of revenue/i;
+const ASSERTS_DEFICIT =
+  /carry a deficit|carries a deficit|carrying a deficit|members'? deficit|stockholders'? deficit/i;
 
 /**
  * Resolve a persisted financial-condition context paragraph.
@@ -135,13 +137,21 @@ export function resolveFinancialContext(
   metrics: SignedMetrics | null | undefined
 ): string | null {
   if (typeof context !== 'string' || context.trim() === '') return null;
-  if (!LOSS_ASSERTIONS.test(context)) return context;
+
+  const assertsLoss = ASSERTS_LOSS.test(context);
+  const assertsDeficit = ASSERTS_DEFICIT.test(context);
+  if (!assertsLoss && !assertsDeficit) return context;
 
   const ni = metrics?.netIncome;
   const hasLoss = typeof ni === 'number' && Number.isFinite(ni) && ni < 0;
   const hasDeficit = metrics?.netWorthSign === 'negative';
 
-  // The paragraph asserts losses or a deficit. At least one must actually be
-  // there, or the sentence is describing a company that does not exist.
-  return hasLoss || hasDeficit ? context : null;
+  // EVERY direction the paragraph asserts must actually be present. "At least
+  // one" was the first version of this rule and it was wrong: the growth-stage
+  // paragraph asserts BOTH a loss and a deficit, so a franchisor with a real
+  // deficit and $154.92M of net income still got told it "commonly runs
+  // losses". One true half does not license the false half.
+  if (assertsLoss && !hasLoss) return null;
+  if (assertsDeficit && !hasDeficit) return null;
+  return context;
 }

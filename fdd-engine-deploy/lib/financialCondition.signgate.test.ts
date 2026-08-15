@@ -19,7 +19,9 @@ import {
 import { resolveFinancialContext } from './severity';
 
 const LOSS_WORDS =
-  /run losses|running losses|carry a deficit|carries a deficit|spending ahead of revenue|net loss/i;
+  /run losses|running losses|runs a loss|running a loss|net loss|spending ahead of revenue/i;
+const DEFICIT_WORDS =
+  /carry a deficit|carries a deficit|carrying a deficit|members'? deficit|stockholders'? deficit/i;
 
 /** Shape of the filing that surfaced the defect: profitable, clean audit,
  *  growing revenue, positive equity, self-flagged on the Special Risks page,
@@ -161,16 +163,27 @@ describe('renderer — resolveFinancialContext refuses a contradiction', () => {
     ).toBeNull();
   });
 
-  it('keeps loss copy when there is an actual loss', () => {
+  it('keeps copy that asserts ONLY a loss when the loss is real', () => {
+    const lossOnly = 'The most recent year is a net loss, absorbed by positive net worth.';
     expect(
-      resolveFinancialContext(LOSS_COPY, { netIncome: -1_100_000, netWorthSign: 'positive' })
-    ).toBe(LOSS_COPY);
+      resolveFinancialContext(lossOnly, { netIncome: -1_100_000, netWorthSign: 'positive' })
+    ).toBe(lossOnly);
   });
 
-  it('keeps loss copy when there is an actual deficit', () => {
+  it('keeps copy that asserts ONLY a deficit when the deficit is real', () => {
+    const deficitOnly = 'The franchisor carries a deficit against positive net income.';
+    expect(
+      resolveFinancialContext(deficitOnly, { netIncome: 5, netWorthSign: 'negative' })
+    ).toBe(deficitOnly);
+  });
+
+  it('refuses copy asserting BOTH when only one half is real', () => {
+    expect(
+      resolveFinancialContext(LOSS_COPY, { netIncome: -1_100_000, netWorthSign: 'positive' })
+    ).toBeNull();
     expect(
       resolveFinancialContext(LOSS_COPY, { netIncome: 5, netWorthSign: 'negative' })
-    ).toBe(LOSS_COPY);
+    ).toBeNull();
   });
 
   it('passes through copy that asserts no direction', () => {
@@ -188,6 +201,91 @@ describe('renderer — resolveFinancialContext refuses a contradiction', () => {
   it('handles a null/empty context', () => {
     expect(resolveFinancialContext(null, { netIncome: 1, netWorthSign: 'positive' })).toBeNull();
     expect(resolveFinancialContext('   ', { netIncome: 1, netWorthSign: 'positive' })).toBeNull();
+  });
+});
+
+/** Profitable, but negative equity — the shape that leaked past the first gate.
+ *  Real figures: $154.92M net income against a $932.05M members' deficit, in a
+ *  2,282-unit system. */
+function profitableWithDeficit(): FinancialConditionExtraction {
+  const x = solventGrowing();
+  x.years = x.years.map((y, i) => ({
+    ...y,
+    netIncome: i === 0 ? 154_915_000 : i === 1 ? 90_000_000 : 40_000_000,
+    netWorth: i === 0 ? -932_047_000 : i === 1 ? -900_000_000 : -880_000_000,
+  }));
+  return x;
+}
+
+/** Loss-making, but positive equity. The mirror leak. */
+function lossWithPositiveEquity(): FinancialConditionExtraction {
+  const x = solventGrowing();
+  x.years = x.years.map((y, i) => ({
+    ...y,
+    netIncome: i === 0 ? -12_250_006 : i === 1 ? -8_000_000 : -5_000_000,
+    netWorth: i === 0 ? 47_328_038 : i === 1 ? 55_000_000 : 60_000_000,
+  }));
+  return x;
+}
+
+describe('producer — ONE TRUE HALF DOES NOT LICENSE THE FALSE HALF', () => {
+  it('profitable with a deficit is never described as running losses', () => {
+    const ctx = assessFinancialCondition(profitableWithDeficit())!.context ?? '';
+    expect(ctx).not.toMatch(LOSS_WORDS);
+    expect(ctx).toMatch(/positive net income/i);
+  });
+
+  it('a loss with positive net worth is never described as carrying a deficit', () => {
+    const ctx = assessFinancialCondition(lossWithPositiveEquity())!.context ?? '';
+    expect(ctx).not.toMatch(DEFICIT_WORDS);
+    expect(ctx).toMatch(/net worth is still positive/i);
+  });
+
+  it('a 2,282-unit system is never called early-stage', () => {
+    const x = lossMaking();
+    const ctx =
+      assessFinancialCondition(x, {
+        totalUnits: 2282,
+        openedLastYear: 53,
+        closedLastYear: 66,
+        transfersLastYear: 169,
+      })!.context ?? '';
+    expect(ctx).not.toMatch(/early-stage/i);
+    expect(ctx).toMatch(LOSS_WORDS);
+  });
+
+  it('a small system with a real loss and deficit still gets the early-stage framing', () => {
+    const ctx =
+      assessFinancialCondition(lossMaking(), {
+        totalUnits: 40,
+        openedLastYear: 12,
+        closedLastYear: 1,
+        transfersLastYear: 0,
+      })!.context ?? '';
+    expect(ctx).toMatch(/early-stage/i);
+  });
+});
+
+describe('renderer — every asserted direction must hold', () => {
+  const BOTH =
+    'Worth perspective: revenue is growing. Early-stage franchisors commonly run losses and carry a deficit while investing to scale.';
+
+  it('THE LEAK — deficit is real, the loss is not, so the paragraph is refused', () => {
+    expect(
+      resolveFinancialContext(BOTH, { netIncome: 154_915_000, netWorthSign: 'negative' })
+    ).toBeNull();
+  });
+
+  it('THE MIRROR LEAK — loss is real, the deficit is not, so the paragraph is refused', () => {
+    expect(
+      resolveFinancialContext(BOTH, { netIncome: -12_250_006, netWorthSign: 'positive' })
+    ).toBeNull();
+  });
+
+  it('both real — the paragraph survives', () => {
+    expect(
+      resolveFinancialContext(BOTH, { netIncome: -1_583_131, netWorthSign: 'negative' })
+    ).toBe(BOTH);
   });
 });
 
@@ -212,11 +310,14 @@ describe('catalog — no shipped record can render a contradiction', () => {
       const shown = resolveFinancialContext(fc.context, fc.metrics);
       if (shown === null) continue;
       const ni = fc.metrics?.netIncome;
-      const solvent =
-        typeof ni === 'number' && ni > 0 && fc.metrics?.netWorthSign === 'positive';
-      if (solvent) {
-        expect(shown, `${f} would render loss copy on a profitable record`).not.toMatch(
-          LOSS_WORDS
+      const hasLoss = typeof ni === 'number' && ni < 0;
+      const hasDeficit = fc.metrics?.netWorthSign === 'negative';
+      if (!hasLoss) {
+        expect(shown, `${f} would render loss copy without a loss`).not.toMatch(LOSS_WORDS);
+      }
+      if (!hasDeficit) {
+        expect(shown, `${f} would render deficit copy without a deficit`).not.toMatch(
+          DEFICIT_WORDS
         );
       }
     }
@@ -231,11 +332,14 @@ describe('catalog — no shipped record can render a contradiction', () => {
       const out = assessFinancialCondition(raw, ex?.systemScale ?? null);
       if (!out?.context) continue;
       const ni = out.metrics.netIncome;
-      const solvent =
-        typeof ni === 'number' && ni > 0 && out.metrics.netWorthSign === 'positive';
-      if (solvent) {
-        expect(out.context, `${f} producer asserts losses on a profitable record`).not.toMatch(
-          LOSS_WORDS
+      const hasLoss = typeof ni === 'number' && ni < 0;
+      const hasDeficit = out.metrics.netWorthSign === 'negative';
+      if (!hasLoss) {
+        expect(out.context, `${f} producer asserts a loss there isn't`).not.toMatch(LOSS_WORDS);
+      }
+      if (!hasDeficit) {
+        expect(out.context, `${f} producer asserts a deficit there isn't`).not.toMatch(
+          DEFICIT_WORDS
         );
       }
     }

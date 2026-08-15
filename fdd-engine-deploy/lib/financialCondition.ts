@@ -624,7 +624,8 @@ function buildBody(
 function buildContext(
   x: FinancialConditionExtraction,
   g: Grade,
-  m: ComputedMetrics
+  m: ComputedMetrics,
+  scale?: SystemScaleInput | null
 ): string | null {
   if (g.severity === 'LOW' || g.severity === 'INSUFFICIENT_DATA') return null;
   if (g.severity === 'HIGH') return null; // never soften a HIGH — incl. distress-cluster escalations
@@ -647,9 +648,32 @@ function buildContext(
   const hasDeficit = m.netWorthSign === 'negative';
   if (!hasLoss && !hasDeficit) return buildSolventFlaggedContext(x, g, m);
 
-  return `Worth perspective: ${g.mitigants.join(
-    '; '
-  )}. Early-stage franchisors commonly run losses and carry a deficit while investing to scale — this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.`;
+  const facts = `Worth perspective: ${g.mitigants.join('; ')}.`;
+
+  // BOTH. This is the only shape the growth-stage sentence actually describes.
+  if (hasLoss && hasDeficit) {
+    const units = scale?.totalUnits ?? null;
+    // "Early-stage" is a claim about the FRANCHISOR, and a 2,282-unit system is
+    // not early-stage no matter what its balance sheet looks like.
+    if (!n(units) || units < 250) {
+      return `${facts} Early-stage franchisors commonly run losses and carry a deficit while investing to scale — this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.`;
+    }
+    return `${facts} A system this size running a loss and carrying a deficit is more often a capital-structure story than an operating one — but it is still a gap somebody is funding. The real question is runway: what funds it, and for how long.`;
+  }
+
+  // DEFICIT ONLY. Profitable, negative equity. Do not call this a loss.
+  if (hasDeficit) {
+    return `${facts} Note what this is and is not: the negative net worth sits alongside positive net income of ${fmtM(
+      m.netIncome,
+    )}, so the balance sheet reflects how this business was financed rather than how it trades. Ask what created the gap — a recapitalisation, distributions to the owner, or accumulated losses from earlier years — because those carry very different consequences for a franchisee.`;
+  }
+
+  // LOSS ONLY. Negative income, positive net worth. Do not call this a deficit.
+  return `${facts} The most recent year is a loss of ${fmtM(
+    m.netIncome,
+  )}, but net worth is still positive at ${fmtM(
+    m.netWorth,
+  )} — there is equity absorbing it rather than a deficit deepening underneath it. The question is how many more years like this that cushion covers.`;
 }
 
 /** The franchisor flagged its own financial condition, yet the income statement
@@ -735,7 +759,7 @@ export function assessFinancialCondition(
   return {
     severity: grade.severity,
     headline: buildHeadline(grade.primaryDriver, metrics),
-    context: buildContext(extraction, grade, metrics),
+    context: buildContext(extraction, grade, metrics, systemScale ?? null),
     body: buildBody(extraction, metrics, grade),
     aggravators: grade.aggravators,
     mitigants: grade.mitigants,
