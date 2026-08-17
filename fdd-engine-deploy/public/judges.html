@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Franchise Edge — Judge Index</title>
+<style>
+  :root{
+    --ink:#0F1B2D; --panel:#15233A; --line:#27344F; --mute:#8194B0;
+    --sky:#38BDF8; --amber:#F59E0B; --gold:#F5B847; --emerald:#34D399; --paper:#E8EEF6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ink);color:var(--paper);
+       font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       -webkit-font-smoothing:antialiased;padding:0 20px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+  header{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+  .kicker{color:var(--sky);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+  h1{font-size:34px;line-height:1.15;margin:12px 0 10px;letter-spacing:-.02em}
+  .sub{color:var(--mute);font-size:17px;max-width:62ch}
+  h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);
+     margin:44px 0 14px;font-weight:700}
+  p{margin:0 0 14px;max-width:70ch}
+  .lead{font-size:17px}
+  a{color:var(--sky)}
+  .cards{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+  .card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:12px;
+        padding:18px 18px 16px;text-decoration:none;color:inherit;transition:border-color .15s}
+  .card:hover{border-color:var(--sky)}
+  .card .t{font-weight:700;font-size:15px;margin-bottom:5px}
+  .card .d{color:var(--mute);font-size:13.5px;line-height:1.5}
+  .card .u{color:var(--sky);font-size:12px;margin-top:9px;word-break:break-all}
+  .split{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-top:6px}
+  .split h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:0 0 8px;font-weight:700}
+  .split h3.b{margin-top:18px}
+  .split ul{list-style:none;margin:0}
+  .split li{padding:4px 0 4px 18px;position:relative;font-size:14.5px;color:var(--paper)}
+  .split li:before{content:"";position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--sky)}
+  .split li.code:before{background:var(--emerald)}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 14px}
+  .tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+       padding:4px 9px;border-radius:5px;border:1px solid}
+  .t1{color:var(--emerald);border-color:#34D39955;background:#34D3991A}
+  .t2{color:var(--sky);border-color:#38BDF855;background:#38BDF81A}
+  .t3{color:var(--gold);border-color:#F5B84755;background:#F5B8471A}
+  .t4{color:var(--mute);border-color:#8194B055;background:#8194B01A}
+  .facts{border-top:1px solid var(--line);margin-top:8px}
+  .row{display:flex;justify-content:space-between;gap:20px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+  .row span:first-child{color:var(--mute)}
+  .row span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+  blockquote{border-left:3px solid var(--amber);padding:2px 0 2px 16px;margin:0 0 14px;
+             color:var(--paper);font-size:16px}
+  footer{margin-top:52px;padding-top:20px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+  @media (max-width:560px){h1{font-size:27px}header{padding-top:38px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Build with Gemini XPRIZE · Submission 1034160</div>
+  <h1>Franchise Edge — a franchise disclosure diligence engine</h1>
+  <p class="sub">$500K, a personal guarantee, and hundreds of pages of legal disclosure on a
+  14-day clock. Gemini reads it and returns a full underwriting report in minutes — every figure
+  citing the page it came from.</p>
+</header>
+
+<h2>Start here</h2>
+<div class="cards">
+  <a class="card" href="https://www.youtube.com/watch?v=2qksyPsDQ9k" target="_blank" rel="noopener noreferrer">
+    <div class="t">Demo — under 3 minutes</div>
+    <div class="d">AI live in production, and the decisions it is and is not allowed to make.</div>
+    <div class="u">youtube.com/watch?v=2qksyPsDQ9k</div>
+  </a>
+  <a class="card" href="https://engine.foundersplinko.com/sample" target="_blank" rel="noopener noreferrer">
+    <div class="t">A complete report, free</div>
+    <div class="d">The full paid output on a fictional filing — built by the same engine, not a mockup.</div>
+    <div class="u">engine.foundersplinko.com/sample</div>
+  </a>
+  <a class="card" href="https://engine.foundersplinko.com" target="_blank" rel="noopener noreferrer">
+    <div class="t">Run your own filing</div>
+    <div class="d">Upload any FDD. Extraction, underwriting and the cash ladder run end to end.</div>
+    <div class="u">engine.foundersplinko.com</div>
+  </a>
+  <a class="card" href="https://github.com/jmwproductconsultingllc/engine-foundersplinko" target="_blank" rel="noopener noreferrer">
+    <div class="t">Source</div>
+    <div class="d">Public repository, AGPL v3. Schema, financial layer, and the test suite that gates every commit.</div>
+    <div class="u">github.com/jmwproductconsultingllc/engine-foundersplinko</div>
+  </a>
+</div>
+
+<h2>The architecture, in one line</h2>
+<p class="lead"><strong>Gemini decides what the document says. Deterministic code decides what it
+means for your money.</strong></p>
+<div class="split">
+  <h3>What the model decides</h3>
+  <ul>
+    <li>What the initial investment range, fee stack and outlet counts actually are</li>
+    <li>Whether each of the 23 Items is present, absent, or explicitly disclosed as absent</li>
+    <li>Whether the franchisor made a financial performance representation at all — a legal finding, never inferred from an empty result</li>
+    <li>Which pages of a several-hundred-page filing carry diligence signal</li>
+    <li>Industry and sub-segment, which selects every benchmark applied downstream</li>
+  </ul>
+  <h3 class="b">What code decides</h3>
+  <ul>
+    <li class="code">Every arithmetic result: debt-service coverage, fee load, payback, churn</li>
+    <li class="code">Whether a pro forma may be built at all</li>
+    <li class="code">Severity, and whether a finding is shown or suppressed</li>
+    <li class="code">Whether a sentence characterising a figure is allowed to contradict that figure</li>
+  </ul>
+</div>
+<p style="margin-top:14px">Two consequences. The same filing gives two buyers the same answer, auditable
+line by line. And a corrected formula reaches reports that were already sold, not only new ones.</p>
+
+<h2>Every figure is labelled by where it came from</h2>
+<div class="legend">
+  <span class="tag t1">Disclosed</span>
+  <span class="tag t2">Derived</span>
+  <span class="tag t3">Benchmark</span>
+  <span class="tag t4">Inferred</span>
+</div>
+<p><strong>Disclosed</strong> — stated in this filing. <strong>Derived</strong> — our calculation from
+disclosed figures. <strong>Benchmark</strong> — an industry range, shown because the filing does not
+disclose it. <strong>Inferred</strong> — an AI classification. The labels are enforced by tests, and the
+colours they render in are pinned by a test that reads the stylesheet, so an inferred figure cannot be
+made to look disclosed.</p>
+
+<h2>What the engine refuses to do</h2>
+<p>An FDD never discloses what a unit costs to operate. Where a figure is missing, the report says what
+is missing and where to look for it — never a zero, never an em-dash, never a plausible average from a
+comparable brand. Of the filings measured, five make no earnings claim at all; the report says so, tells
+the buyer the franchisor is legally barred from giving them numbers anywhere else, and hands them the
+Item 20 call list instead. It costs the sale. That is why the rest of the page can be trusted.</p>
+
+<h2>Measured, not asserted</h2>
+<div class="facts">
+  <div class="row"><span>Filings processed to a complete report</span><span>83 of 83 · 100%</span></div>
+  <div class="row"><span>Runs failed because the model could not read the business</span><span>0</span></div>
+  <div class="row"><span>Corpus measured</span><span>22,619 pages · median 259 · longest 723</span></div>
+  <div class="row"><span>Automated tests gating every commit</span><span>599 across 40 files</span></div>
+  <div class="row"><span>Production deployments in the period</span><span>262 · mean build 28.9s</span></div>
+  <div class="row"><span>Price of a full report</span><span>$199, one brand, no subscription</span></div>
+  <div class="row"><span>Arms-length revenue in the period</span><span>$0.00 — stated, not implied</span></div>
+</div>
+
+<h2>An operator checked it against the source document</h2>
+<div class="split" style="border-left:3px solid var(--amber)">
+  <p style="margin:0 0 10px;font-size:16.5px">“I own and operate two locations in a franchise system,
+  and I've read plenty of FDDs. I ran one through Franchise Edge and then went back through the source
+  document line by line to check it. It found the things that actually decide a deal: the full fee stack,
+  the churn, who to call. Where I found something wrong, it was fixed and deployed within days. That's
+  the part I'd tell another buyer about.”</p>
+  <p style="margin:0;color:var(--mute);font-size:13.5px">Deven Patel · multi-unit franchise owner ·
+  arms-length user, not a paying customer</p>
+</div>
+<p style="margin-top:14px">His audit is the most valuable feedback this product has received. It found
+the financial-condition section describing a profitable franchisor as running losses. That defect was
+then measured across every filing in the catalog, fixed in the producer and locked at render, and
+deployed inside the submission window.</p>
+
+<h2>The rule the engine is built on</h2>
+<blockquote>A sentence that characterises a number must read the number.</blockquote>
+<blockquote>A null is not a “no,” and it is not a “yes” either.</blockquote>
+<blockquote>A failure that reports success is worse than a crash.</blockquote>
+<p>All three are enforced by tests rather than by review, because a rule enforced by human review does
+not survive contact with scale.</p>
+
+<footer>
+  Franchise Edge · JMW Product Consulting LLC · Build with Gemini XPRIZE, submission 1034160.<br>
+  Reports are generated from the uploaded document for informational purposes only and are not legal,
+  financial, or investment advice. Every figure should be verified against the source filing.
+</footer>
+
+</div>
+</body>
+</html>
