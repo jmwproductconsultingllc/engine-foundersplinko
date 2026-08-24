@@ -101,6 +101,37 @@ export function amortize(principal: number, annualRatePct: number, years: number
   return (principal * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
 }
 
+/**
+ * THE TOP LINE MUST BE GROSS SALES.
+ *
+ * Motivating bug, found reading the stored corpus rather than the code: Ellie
+ * Mental Health's pro forma was built on the cohort "Franchised Clinics New
+ * Patients", whose disclosed figure is 400 — four hundred NEW PATIENTS A YEAR.
+ * The engine read it as $400 of annual revenue, made the top line $33/month,
+ * and every rung below inherited it. The $3-$5 monthly rent that surfaced in
+ * the corpus audit was not a rent defect at all; it was 10-15% occupancy
+ * applied to $33.
+ *
+ * Gorilla Property Services failed the same way through the other door: the
+ * cohort "Canadian Franchisees Profit and Loss Table 4 Median" matched the
+ * keyword "median" and became the top line at $11,431/month. It is a PROFIT
+ * table. The brand's disclosed gross revenue is $835,748/month, in the same
+ * filing, in a cohort sitting right beside it.
+ *
+ * In both cases the extractor did its job: it tagged those cohorts "other" and
+ * "net_or_ebitda" respectively. The selection logic simply never read the tag —
+ * findCohort matched on the LABEL alone, and the franchised fallback excluded
+ * net_or_ebitda and pre_sale_only while quietly allowing "other", which is the
+ * bucket that by definition means "this is not gross sales".
+ *
+ * undefined is permissive on purpose: revenueType postdates some stored
+ * records, and a legacy cohort with no tag is not evidence of a bad tag. An
+ * EXPLICIT non-revenue tag disqualifies.
+ */
+export function isRevenueCohort(c: Item19Cohort | null | undefined): boolean {
+  return c != null && (c.revenueType == null || c.revenueType === "gross_sales");
+}
+
 function findCohort(cohorts: Item19Cohort[], keys: string[]): Item19Cohort | null {
   const lower = (s: string) => s.toLowerCase();
   for (const c of cohorts) {
@@ -188,7 +219,17 @@ export function scoreFdd(
   // fees, ACH penalties) — they're situational. They surface as flags instead.
 
   // ---- cohorts ----
-  const cohorts = fdd.item19?.cohorts ?? [];
+  const allCohorts = fdd.item19?.cohorts ?? [];
+  // Label matching runs ONLY over cohorts that are actually revenue. A profit
+  // table headed "Median" is still a profit table.
+  const cohorts = allCohorts.filter(isRevenueCohort);
+  const excludedByType = allCohorts.length - cohorts.length;
+  if (excludedByType > 0) {
+    notes.push(
+      `Item 19 in this filing also publishes ${excludedByType === 1 ? "a table that is" : `${excludedByType} tables that are`} not gross sales — patient or visit counts, a profit-and-loss table, or pre-sale figures. ${excludedByType === 1 ? "It is" : "They are"} excluded from the top line, which is built only on disclosed gross revenue.`,
+    );
+  }
+
   let midRaw =
     findCohort(cohorts, ["middle", "mid", "60", "median", "2nd", "second"]) ?? null;
   const bottomRaw = findCohort(cohorts, ["bottom", "30", "lowest", "4th", "fourth"]) ?? null;
@@ -214,6 +255,7 @@ export function scoreFdd(
     const franchised = cohorts.find(
       (c) =>
         c.avgMonthlyRevenue != null &&
+        isRevenueCohort(c) &&
         c.revenueType !== "pre_sale_only" &&
         c.revenueType !== "net_or_ebitda" &&
         !/pre-?sale/i.test(c.label) &&
