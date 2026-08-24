@@ -27,7 +27,7 @@ import type { ExtractedFDD } from "./schema";
 import type { ScoringResult } from "./scoring";
 import { RUBRIC } from "./scoring";
 import type { DiligenceResult } from "./types";
-import type { RentResolution } from "./rent";
+import { premisesModel, type RentResolution } from "./rent";
 import { costBandsFor } from "./insights";
 import { normalizeRoyaltyPct } from "./fees";
 import { resolveFlatFees, obligationOf, resolvePercentageFees } from "./feeObligation";
@@ -106,12 +106,17 @@ export function buildLadderInput(
         ? fdd.averageRentMonthly
         : null;
 
+  // FE-143 · disclosed beats benchmark on occupancy too. When the filing says
+  // the business runs from home, the category occupancy band is withheld so
+  // rung 4 cannot fall back to it — see lib/rent.ts premisesModel().
+  const premises = premisesModel(fdd);
+
   const bands = costBandsFor(fdd?.conceptType, fdd?.staffingModel);
   const costs: CostStructure = {
     cogsPct: bands.cogsPct,
     laborPct: bands.laborPct,
     otherOpexPct: bands.otherOpexPct,
-    occupancyPct: bands.occupancyPct,
+    occupancyPct: premises.homeBased ? undefined : bands.occupancyPct,
     basis: "benchmark",
     // Block-level provenance. It is stated ONCE, under the table (ladder.blockNote),
     // because it is identical for rungs 6, 7 and 8 — the part that differs between
@@ -148,8 +153,15 @@ export function buildLadderInput(
       .map((x) => ({ label: x.label, pct: x.pct })),
     fixedFees,
     rentMonthly,
-    rentBasis: rentBasisFor(rentRes),
-    rentSource: rentRes?.source ?? (rentMonthly != null ? "FDD rent disclosure" : "Not disclosed"),
+    noPremises: premises.homeBased && rentMonthly == null,
+    rentBasis:
+      premises.homeBased && rentMonthly == null ? "disclosed" : rentBasisFor(rentRes),
+    rentSource:
+      premises.homeBased && rentMonthly == null
+        ? `This filing states the business is operated from the franchisee's home and requires no site approval, so no premises rent is charged${
+            premises.evidence ? ` ("${premises.evidence}")` : ""
+          }. Any vehicle storage or parking cost disclosed in Item 7 is charged above; confirm what you will actually pay to store equipment.`
+        : rentRes?.source ?? (rentMonthly != null ? "FDD rent disclosure" : "Not disclosed"),
     costs,
     buildoutMidpoint: s?.buildoutMidpoint ?? null,
     financing,

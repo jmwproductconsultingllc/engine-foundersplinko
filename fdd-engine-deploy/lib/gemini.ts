@@ -167,6 +167,14 @@ RULES:
   complete set, not the leftovers. If a rate is disclosed as a RANGE or a tiered
   schedule, record the rate that applies to a typical single unit at maturity. Fees
   charged as a flat dollar amount belong in flatMonthlyFees, never here.
+- premises: does the franchisee occupy leased premises at all? Set homeBased true when
+  the filing says the business is run from the franchisee's home, is mobile, operates from
+  a vehicle, or requires no retail location; set siteApprovalRequired false when it says no
+  site approval is needed. Quote the filing's own sentence in evidence. These statements
+  live in Item 1, Item 7 notes and Item 11. This is load-bearing: a mobile business charged
+  a category rent benchmark is billed for a lease that does not exist, so if the document
+  says it plainly, say so here. Leave the fields null when the filing is silent — null means
+  unknown, not "no".
 - exitTerms: Item 17 is a TABLE every franchisor is required to publish — rows (a)
   through (w), each naming the franchise-agreement section it summarizes. Fill
   exitTerms from that table and from the sections it names, and from nowhere else.

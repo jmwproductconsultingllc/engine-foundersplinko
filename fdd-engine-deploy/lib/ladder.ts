@@ -141,6 +141,14 @@ export interface LadderInput {
 
   /** resolved monthly rent. null → we fall back to costs.occupancyPct. */
   rentMonthly: number | null;
+  /**
+   * FE-143 · the filing says this business has no leased premises (home-based,
+   * mobile, no site approval required). Rung 4 then reports the disclosed
+   * occupancy cost and nothing more — which is often zero, and zero here is a
+   * DISCLOSURE, not a missing number. buildLadderInput also withholds
+   * costs.occupancyPct in this case, so there is no band to fall back to.
+   */
+  noPremises?: boolean;
   rentBasis: Basis;
   rentSource: string;
 
@@ -355,6 +363,12 @@ export function buildCashLadder(input: LadderInput): CashLadder {
     );
     occupancyBasis = "benchmark";
     occupancySource = `Category range ${input.costs.occupancyPct[0]}–${input.costs.occupancyPct[1]}% of revenue — this FDD discloses no rent figure`;
+  } else if (input.noPremises) {
+    // Not "we could not find a rent figure" — "this filing says there is no
+    // rent to find". Different sentences, and only one of them is true here.
+    occupancy = exact(0);
+    occupancyBasis = "disclosed";
+    occupancySource = input.rentSource;
   } else {
     occupancy = exact(0);
     occupancyBasis = "benchmark";

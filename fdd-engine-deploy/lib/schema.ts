@@ -269,6 +269,19 @@ export interface ExtractedFDD {
   operationalRisks: OperationalRisk[];
   /** AI-classified concept/industry — drives the Insights benchmark layer. */
   conceptType: ConceptType;
+  /**
+   * FE-143 · Does this business occupy leased premises at all? A mobile or
+   * home-based concept pays no rent, and a category occupancy band applied to
+   * one invents a cost the filing explicitly says does not exist. Optional:
+   * absent on records extracted before this field existed, and lib/rent.ts
+   * premisesModel() falls back to sniffing Item 7 notes when it is.
+   */
+  premises?: {
+    homeBased: boolean | null;
+    siteApprovalRequired: boolean | null;
+    /** the filing's own words — never assert this without being able to cite it */
+    evidence: string | null;
+  };
   /** one-line reason for the classification */
   conceptRationale?: string;
   /** operating model — drives the Insights labor adjustment */
@@ -423,6 +436,14 @@ export const fddResponseSchema = {
           source: { type: Type.STRING },
         },
         required: ["name", "description", "source"],
+      },
+    },
+    premises: {
+      type: Type.OBJECT,
+      properties: {
+        homeBased: { type: Type.BOOLEAN, nullable: true },
+        siteApprovalRequired: { type: Type.BOOLEAN, nullable: true },
+        evidence: { type: Type.STRING, nullable: true },
       },
     },
     averageRentMonthly: { type: Type.NUMBER, nullable: true },

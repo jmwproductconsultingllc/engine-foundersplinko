@@ -43,6 +43,65 @@ export interface RentResolution {
 
 const round0 = (n: number) => Math.round(n);
 
+/**
+ * FE-143 · A BUSINESS WITH NO PREMISES PAYS NO PREMISES RENT.
+ *
+ * Motivating bug (Bark & Mane): the filing says, in its own words, that the
+ * franchisee runs the business from home and that no site approval is
+ * required. The only occupancy-shaped cost disclosed anywhere in Item 7 is van
+ * storage at $0–$1,500 for the first van. The report charged rung 4 at 9% of
+ * revenue — $2,358/month, $28,296/year — as "Rent & occupancy", roughly
+ * nineteen times the top of the disclosed figure, because the concept fell
+ * through to the uncategorized bucket and drew a generic occupancy band.
+ *
+ * The precedence rule is the same one FE-140 is about: DISCLOSED BEATS
+ * BENCHMARK. A category band is a guess about businesses of this shape. An
+ * explicit statement in the filing is a fact about THIS business. The band may
+ * never overrule the sentence.
+ *
+ * Detection reads an explicit extracted flag first and falls back to sniffing
+ * the text we do carry — Item 7 line categories and notes, hidden-cost
+ * descriptions, the rent disclosure's own source string, and the concept type.
+ * The fallback matters: every record extracted before the flag existed has to
+ * keep working, and those are the records already sold.
+ */
+const HOME_BASED_RE =
+  /\b(?:from your home|home[- ]based|no site approval|mobile business|operates? from a vehicle|no retail location|run (?:it|the business) from home|van[- ]based)\b/i;
+
+export interface PremisesModel {
+  /** true when the filing says this business has no leased premises */
+  homeBased: boolean;
+  /** the phrase that decided it — never assert this without being able to cite it */
+  evidence: string | null;
+}
+
+export function premisesModel(fdd: ExtractedFDD | null | undefined): PremisesModel {
+  if (!fdd) return { homeBased: false, evidence: null };
+
+  // 1 · an explicit extracted flag wins outright
+  const explicit = (fdd as any)?.premises;
+  if (explicit && typeof explicit.homeBased === "boolean") {
+    return {
+      homeBased: explicit.homeBased,
+      evidence: typeof explicit.evidence === "string" ? explicit.evidence : "Item 7/11 premises disclosure",
+    };
+  }
+
+  // 2 · fall back to the text this record actually carries
+  const haystack: string[] = [];
+  const rd = (fdd as any)?.rentDetail ?? null;
+  if (typeof rd?.source === "string") haystack.push(rd.source);
+  for (const li of fdd.item17?.lineItems ?? []) haystack.push(`${li.category ?? ""} ${li.notes ?? ""}`);
+  for (const h of fdd.hiddenCosts ?? []) haystack.push(`${h.name ?? ""} ${h.description ?? ""}`);
+  if (typeof fdd.conceptType === "string") haystack.push(fdd.conceptType);
+
+  for (const t of haystack) {
+    const m = t.match(HOME_BASED_RE);
+    if (m) return { homeBased: true, evidence: t.trim().slice(0, 160) };
+  }
+  return { homeBased: false, evidence: null };
+}
+
 function mk(
   lo: number,
   hi: number,
@@ -213,8 +272,12 @@ export function resolveMonthlyRent(
   }
 
   // ── 5 · category occupancy benchmark × the pro forma's own top line ──────
+  // SUPPRESSED for a business the filing says has no premises. Tiers 1–4 still
+  // run above, so a disclosed van-storage or parking line is still charged —
+  // what is refused is inventing a lease out of a category average.
   let bench: RentResolution | null = null;
-  if (headlineMonthly != null && headlineMonthly > 0) {
+  const premises = premisesModel(fdd);
+  if (!premises.homeBased && headlineMonthly != null && headlineMonthly > 0) {
     const band = occupancyBandFor(fdd.conceptType ?? "other");
     if (band) {
       bench = mk(

@@ -9,7 +9,7 @@
  */
 
 import { ExtractedFDD, Item19Cohort } from "./schema";
-import { resolveMonthlyRent, type RentResolution } from "./rent";
+import { resolveMonthlyRent, premisesModel, type RentResolution } from "./rent";
 import { resolvePercentageFees, resolveFlatFees, obligationOf } from "./feeObligation";
 
 export const RUBRIC = {
@@ -245,7 +245,14 @@ export function scoreFdd(
   // splits the fixed-cost line. ----
   const rentRes = resolveMonthlyRent(fdd, midRevenue ?? fdd.item19?.networkAverageMonthly ?? null);
   const rent = rentRes?.mid ?? 0;
-  if (rentRes == null) {
+  if (rentRes == null && premisesModel(fdd).homeBased) {
+    // FE-143 · say the true thing. "Could not be resolved" and "the filing says
+    // there is nothing to resolve" are different statements, and a buyer who
+    // reads the first one goes looking for a number that does not exist.
+    notes.push(
+      "This filing states the business is operated from the franchisee's home and requires no site approval, so no premises rent is modeled. Any vehicle storage or equipment parking disclosed in Item 7 is charged; confirm what you will actually pay.",
+    );
+  } else if (rentRes == null) {
     notes.push("Rent could not be resolved from the FDD or benchmarks; fixed costs EXCLUDE rent and the report labels the margin accordingly.");
   } else if (rentRes.basis !== "disclosed") {
     notes.push(
