@@ -28,6 +28,7 @@ import type { ScoringResult } from "./scoring";
 import { RUBRIC } from "./scoring";
 import type { DiligenceResult } from "./types";
 import { premisesModel, type RentResolution } from "./rent";
+import { currencyDisclosure, resolveCurrency } from "./currency";
 import { costBandsFor } from "./insights";
 import { normalizeRoyaltyPct } from "./fees";
 import { resolveFlatFees, obligationOf, resolvePercentageFees } from "./feeObligation";
@@ -191,7 +192,10 @@ export function buildLadderInput(
   return {
     monthlyRevenue: cohort?.monthlyRevenue ?? null,
     revenueLabel: cohort?.label ?? "Item 19 top line",
-    revenueSource: revenueSourceText(cohort),
+    // A CAD figure wearing a US dollar sign is the defect this closes. The
+    // disclosure rides on rung 1, because rung 1 is where the number enters.
+    revenueSource: [revenueSourceText(cohort), currencyDisclosure(fdd)].filter(Boolean).join(" — "),
+    currencyCode: resolveCurrency(fdd) ?? undefined,
     revenueOwnership: cohort?.source?.ownership ?? undefined,
     // FE-142 + FE-144 · rung 2 charges only what is actually owed. Not the
     // ceilings — those are lifted into the fees panel with a question attached —

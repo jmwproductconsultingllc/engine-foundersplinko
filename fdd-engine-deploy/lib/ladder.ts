@@ -141,6 +141,11 @@ export interface LadderInput {
   /** what that cohort is, in the buyer's words — e.g. "Network average, all units" */
   revenueLabel: string;
   revenueSource: string;
+  /**
+   * ISO code when the FPR is denominated in something other than US dollars.
+   * Renderers must label money with it. Absent means USD.
+   */
+  currencyCode?: string;
   /** franchised | company | mixed — company-unit revenue is NOT franchisee revenue */
   revenueOwnership?: string;
 

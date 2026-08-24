@@ -11,6 +11,7 @@
 import { ExtractedFDD, Item19Cohort } from "./schema";
 import { resolveMonthlyRent, premisesModel, type RentResolution } from "./rent";
 import { resolvePercentageFees, resolveFlatFees, obligationOf } from "./feeObligation";
+import { resolveCurrency, currencyDisclosure } from "./currency";
 
 export const RUBRIC = {
   dscrStress: 1.25, // debt-service coverage below this = stressed
@@ -164,20 +165,23 @@ export function isRevenueCohort(c: Item19Cohort | null | undefined): boolean {
  * USD." The fact was extracted correctly and then read by nobody, which is the
  * same shape of failure as the revenueType tag two functions up.
  */
-export function resolveItem19Currency(fdd: ExtractedFDD | null | undefined): string | null {
-  const explicit = fdd?.item19?.currency;
-  if (typeof explicit === "string" && explicit.trim()) return explicit.trim().toUpperCase();
-  const notes = fdd?.item19?.notes;
-  if (typeof notes === "string") {
-    const m = notes.match(/\b(?:presented|denominated|reported|expressed)\s+in\s+([A-Z]{3})\b/);
-    if (m) return m[1].toUpperCase();
-  }
-  return null;
-}
+export { resolveCurrency as resolveItem19Currency } from "./currency";
 
 export function suspectedSystemTotals(cohorts: Item19Cohort[]): boolean {
+  // FRANCHISED cohorts only. Measured across the 83-brand corpus, this filter
+  // is the difference between a usable detector and a blunt one: Amazing
+  // Athletes and Soccer Stars both trip on an "Affiliate-Owned Outlets" cohort
+  // whose figure never reaches a franchisee pro forma anyway, and condemning
+  // their filings for it would have destroyed two perfectly good top lines.
+  // A total sitting in a company or affiliate table is not our problem.
   const rev = cohorts.filter(
-    (c) => isRevenueCohort(c) && (c.annualRevenue ?? 0) > 0 && (c.sampleSize ?? 0) >= 2,
+    (c) =>
+      isRevenueCohort(c) &&
+      (c.annualRevenue ?? 0) > 0 &&
+      (c.sampleSize ?? 0) >= 2 &&
+      c.ownership !== "company" &&
+      c.ownership !== "affiliate" &&
+      !/\b(?:affiliate|company)[- ]owned\b/i.test(c.label ?? ""),
   );
   if (rev.length < 2) return false;
   for (const c of rev) {
@@ -292,7 +296,8 @@ export function scoreFdd(
     );
   }
 
-  if (suspectedSystemTotals(cohorts)) {
+  const item19IsSuspect = suspectedSystemTotals(cohorts);
+  if (item19IsSuspect) {
     // Refuse the whole Item 19 rather than pick the least wrong number.
     cohorts.length = 0;
     reasons.push(
@@ -309,7 +314,7 @@ export function scoreFdd(
   if (midRaw?.avgMonthlyRevenue != null) {
     midRevenue = midRaw.avgMonthlyRevenue;
     midSource = disclosedSource(midRaw);
-  } else if (fdd.item19?.networkAverageMonthly != null) {
+  } else if (!item19IsSuspect && fdd.item19?.networkAverageMonthly != null) {
     // A tier cohort may have matched by keyword but carried no value (the
     // median / blank-cohort case) — the NUMBER is still the network average, so
     // record it as such rather than inheriting the unmatched tier's label.
@@ -354,11 +359,10 @@ export function scoreFdd(
   // Gorilla argues a Canadian franchisee charges $250 CAD where a US one
   // charges $250 USD for the same service — is an argument the BUYER should
   // weigh, not one we should silently resolve with an exchange rate.
-  const currency = resolveItem19Currency(fdd);
+  const currency = resolveCurrency(fdd);
   if (typeof currency === "string" && currency.trim() && currency.trim().toUpperCase() !== "USD") {
-    notes.push(
-      `Every Item 19 figure in this filing is denominated in ${currency.trim().toUpperCase()}, not US dollars, and is shown here exactly as disclosed with no conversion applied. Check the current rate before comparing these numbers to a US investment.`,
-    );
+    const disclosure = currencyDisclosure(fdd);
+    if (disclosure) notes.push(disclosure);
   }
 
   // ---- rent (rent-resolver hotfix): disclosed number → normalized rentDetail →
