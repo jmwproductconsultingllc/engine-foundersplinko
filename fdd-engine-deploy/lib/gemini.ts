@@ -167,6 +167,16 @@ RULES:
   complete set, not the leftovers. If a rate is disclosed as a RANGE or a tiered
   schedule, record the rate that applies to a typical single unit at maturity. Fees
   charged as a flat dollar amount belong in flatMonthlyFees, never here.
+- item19.cohorts[].disclosedCosts: Item 19 charts frequently print COST columns beside
+  the revenue column, repeated per cohort — read every chart, not only the revenue line.
+  Map the franchisor's own column headings: Direct Labor / Labor / Payroll -> laborAnnual;
+  Cleaning Materials / Cost of Materials / Product Cost / Food Cost / COGS / Cost of Goods
+  Sold -> cogsAnnual; Total Cost of Sales / Total COS -> totalCostOfSalesAnnual; Gross
+  Margin % -> grossMarginPct. Report ANNUAL dollars as printed and attach the chart's
+  printed page. Put each chart's figures on ITS OWN cohort — never carry one cohort's costs
+  onto another and never average them. If a cost-shaped column does not match any of these
+  names, still report it in notes rather than dropping it silently. Leave the block absent
+  when the charts genuinely print revenue only.
 - premises: does the franchisee occupy leased premises at all? Set homeBased true when
   the filing says the business is run from the franchisee's home, is mobile, operates from
   a vehicle, or requires no retail location; set siteApprovalRequired false when it says no

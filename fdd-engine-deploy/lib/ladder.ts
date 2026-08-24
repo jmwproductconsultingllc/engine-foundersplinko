@@ -121,6 +121,18 @@ export interface CostStructure {
   source: string;
   /** rendered as a footnote on rungs 6-8 */
   note?: string;
+  /**
+   * FE-140 · DISCLOSED BEATS BENCHMARK, enforced per rung.
+   *
+   * A rung named here renders the franchisor's own figure and reports basis
+   * "disclosed"; its band is not consulted. A rung absent from this map falls
+   * back to the band exactly as before. Precedence is per rung and not
+   * per block, because a filing that discloses labor and materials while
+   * saying nothing about utilities is the normal case, not the exception.
+   */
+  disclosed?: Partial<
+    Record<"cogs" | "labor" | "otherOpex", { pctOfRevenue: number; monthly: number; source: string }>
+  >;
 }
 
 export interface LadderInput {
@@ -407,12 +419,25 @@ export function buildCashLadder(input: LadderInput): CashLadder {
    * band was the one thing about rungs 6-8 that never reached the screen while
    * the same category label reached it three times.
    */
-  const costRow = (id: RungId, n: number, label: string, v: Money, p: [number, number]): Rung => ({
-    id, n, label, kind: "subtract",
-    monthly: round(v), annual: round(scale(v, 12)),
-    pctOfRevenue: m(p[0], p[1]), basis: c.basis,
-    source: `${band(p[0], p[1], p[0] % 1 || p[1] % 1 ? 1 : 0)} of revenue`,
-  });
+  const costRow = (id: RungId, n: number, label: string, v: Money, p: [number, number]): Rung => {
+    // FE-140 · the filing's own figure, when it published one for this cohort.
+    const d = c.disclosed?.[id as "cogs" | "labor" | "otherOpex"];
+    if (d) {
+      const exactV = exact(d.monthly);
+      return {
+        id, n, label, kind: "subtract",
+        monthly: round(exactV), annual: round(scale(exactV, 12)),
+        pctOfRevenue: exact(d.pctOfRevenue), basis: "disclosed",
+        source: d.source,
+      };
+    }
+    return {
+      id, n, label, kind: "subtract",
+      monthly: round(v), annual: round(scale(v, 12)),
+      pctOfRevenue: m(p[0], p[1]), basis: c.basis,
+      source: `${band(p[0], p[1], p[0] % 1 || p[1] % 1 ? 1 : 0)} of revenue`,
+    };
+  };
   push(costRow("cogs", 6, "− Cost of goods", cogs, c.cogsPct));
   push(costRow("labor", 7, "− Labor", labor, c.laborPct));
   push(costRow("otherOpex", 8, "− Other operating costs", opex, c.otherOpexPct));

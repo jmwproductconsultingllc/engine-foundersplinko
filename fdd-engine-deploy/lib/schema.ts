@@ -47,6 +47,26 @@ export interface Item19Cohort {
    *  managed unit), put the median here so a derivation can pair median-with-
    *  median instead of mixing an average numerator with a median denominator. */
   medianAnnualRevenue?: number | null;
+  /**
+   * FE-140 · Item 19 cost columns for THIS cohort, when the filing publishes
+   * them. Two Maids discloses Gross Revenues, Direct Labor, Cleaning Materials,
+   * Total Cost of Sales and Gross Margin per cohort across twelve charts; the
+   * engine read the revenue line and nothing else, then printed category bands
+   * and the sentence "no such figures were read from this one".
+   *
+   * Annual dollars, matching how the charts print. Cohort-aligned by
+   * construction: these live ON the cohort, so a Q2 ladder can never pick up
+   * Q1's labor.
+   */
+  disclosedCosts?: {
+    laborAnnual?: number | null;
+    cogsAnnual?: number | null;
+    otherOpexAnnual?: number | null;
+    totalCostOfSalesAnnual?: number | null;
+    grossMarginPct?: number | null;
+    /** printed page of the chart these came from */
+    sourcePage?: string | null;
+  };
   /** what this number is based on, e.g. "45 units open 6+ months, 3+ bays" */
   basis: string;
 }
@@ -358,6 +378,17 @@ export const fddResponseSchema = {
               avgMonthlyRevenue: { type: Type.NUMBER, nullable: true },
               monthlyValues: { type: Type.ARRAY, items: { type: Type.NUMBER } },
               annualRevenue: { type: Type.NUMBER, nullable: true },
+              disclosedCosts: {
+                type: Type.OBJECT,
+                properties: {
+                  laborAnnual: { type: Type.NUMBER, nullable: true },
+                  cogsAnnual: { type: Type.NUMBER, nullable: true },
+                  otherOpexAnnual: { type: Type.NUMBER, nullable: true },
+                  totalCostOfSalesAnnual: { type: Type.NUMBER, nullable: true },
+                  grossMarginPct: { type: Type.NUMBER, nullable: true },
+                  sourcePage: { type: Type.STRING, nullable: true },
+                },
+              },
               basis: { type: Type.STRING },
             },
             required: ["label", "ownership", "revenueType", "avgMonthlyRevenue", "basis"],

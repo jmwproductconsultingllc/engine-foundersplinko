@@ -112,16 +112,60 @@ export function buildLadderInput(
   const premises = premisesModel(fdd);
 
   const bands = costBandsFor(fdd?.conceptType, fdd?.staffingModel);
+
+  // FE-140 · DISCLOSED BEATS BENCHMARK.
+  //
+  // Two Maids' Item 19 discloses Gross Revenues, Direct Labor, Cleaning
+  // Materials, Total Cost of Sales and Gross Margin for every cohort across
+  // twelve charts. The engine read the revenue line and nothing else, filled
+  // rungs 6 and 7 with category bands, and then printed "no such figures were
+  // read from this one" — a hardcoded sentence that was false for this filing.
+  // Cost of goods came out 7-10x overstated and labor understated; the two
+  // errors roughly offset at the optimistic end, which is why nothing looked
+  // wrong, and the pessimistic end — the one that set the headline — was
+  // fabricated.
+  //
+  // COHORT ALIGNMENT: the disclosed figures are matched to the cohort the
+  // ladder is actually running on, by label. If the ladder runs on Q2 revenue
+  // it uses Q2 labor, never Q1's and never a system-wide average.
+  const disclosedCosts = (() => {
+    const monthlyRev = cohort?.monthlyRevenue ?? null;
+    if (!monthlyRev || monthlyRev <= 0 || !cohort?.label) return undefined;
+    const raw = (fdd?.item19?.cohorts ?? []).find((c) => c?.label === cohort.label)?.disclosedCosts;
+    if (!raw) return undefined;
+    const page = raw.sourcePage ? `Item 19, ${raw.sourcePage}` : "Item 19";
+    const out: NonNullable<CostStructure["disclosed"]> = {};
+    const put = (key: "cogs" | "labor" | "otherOpex", annual: number | null | undefined, what: string) => {
+      if (annual == null || !Number.isFinite(annual) || annual < 0) return;
+      const monthly = annual / 12;
+      out[key] = {
+        monthly,
+        pctOfRevenue: Math.round((monthly / monthlyRev) * 1000) / 10,
+        source: `${page} — ${what} disclosed for ${cohort.label}`,
+      };
+    };
+    put("labor", raw.laborAnnual, "direct labor");
+    put("cogs", raw.cogsAnnual, "cost of goods");
+    put("otherOpex", raw.otherOpexAnnual, "other operating costs");
+    return Object.keys(out).length ? out : undefined;
+  })();
+
+  const allDisclosed =
+    !!disclosedCosts && (["cogs", "labor", "otherOpex"] as const).every((k) => disclosedCosts[k]);
+
   const costs: CostStructure = {
     cogsPct: bands.cogsPct,
     laborPct: bands.laborPct,
     otherOpexPct: bands.otherOpexPct,
     occupancyPct: premises.homeBased ? undefined : bands.occupancyPct,
-    basis: "benchmark",
+    disclosed: disclosedCosts,
+    basis: allDisclosed ? "disclosed" : "benchmark",
     // Block-level provenance. It is stated ONCE, under the table (ladder.blockNote),
     // because it is identical for rungs 6, 7 and 8 — the part that differs between
     // them is the band, and the band is now each rung's own source line.
-    source: `Rungs 6, 7 and 8 are ${bands.label} category bands`,
+    source: disclosedCosts
+      ? `Rungs 6, 7 and 8: disclosed figures from Item 19 where this filing publishes them, ${bands.label} category bands elsewhere`
+      : `Rungs 6, 7 and 8 are ${bands.label} category bands`,
     // C0. The previous wording said these costs "are never disclosed in an FDD"
     // and sent the reader to Item 20 for "real franchisee numbers". Both halves
     // were wrong. Item 19 is voluntary but roughly half of the brands on file
@@ -131,8 +175,15 @@ export function buildLadderInput(
     // meanwhile carries no cost figures at all: by 16 CFR 436.5(t) it is outlet
     // counts and the franchisee roster. What makes it the right pointer is the
     // roster — the people who have the numbers, with their phone numbers.
-    note:
-      "These three rungs are category bands, not this brand's figures — an FDD is not required to disclose cost of goods, labor, or operating costs, and no such figures were read from this one. Item 20 does not carry cost figures either; what it carries is every current franchisee, by name and phone. Call three in markets like yours and ask what they actually run for food cost, labor and rent before you sign.",
+    // FE-140 · this sentence used to print unconditionally, which is how a
+    // filing that discloses four cost columns across twelve charts got told it
+    // disclosed none. An absence claim has to be checked against the sweep that
+    // supposedly found nothing.
+    note: allDisclosed
+      ? "These rungs are this brand's own disclosed figures, read from the Item 19 chart for the cohort above. They describe what these units actually ran — not a category average. Item 20 carries every current franchisee, by name and phone; calling three in markets like yours is still the best check on any number in this report."
+      : disclosedCosts
+        ? "Some of these rungs are this brand's own Item 19 figures and some are category bands — each rung says which on its own line. An FDD is not required to disclose cost of goods, labor, or operating costs, and this one discloses some of them. Item 20 does not carry cost figures; what it carries is every current franchisee, by name and phone. Call three in markets like yours and ask what they run for the lines still modeled above."
+        : "These three rungs are category bands, not this brand's figures — an FDD is not required to disclose cost of goods, labor, or operating costs, and no such figures were read from this one. Item 20 does not carry cost figures either; what it carries is every current franchisee, by name and phone. Call three in markets like yours and ask what they actually run for food cost, labor and rent before you sign.",
   };
 
   const financing = resolveFinancing(result, opts);
