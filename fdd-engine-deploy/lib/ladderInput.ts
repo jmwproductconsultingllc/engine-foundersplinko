@@ -30,6 +30,7 @@ import type { DiligenceResult } from "./types";
 import type { RentResolution } from "./rent";
 import { costBandsFor } from "./insights";
 import { normalizeRoyaltyPct } from "./fees";
+import { resolveFlatFees } from "./feeObligation";
 import type { Basis, CostStructure, Financing, LadderInput } from "./ladder";
 
 /* ─────────────────────────── percentage fees ─────────────────────────── */
@@ -224,9 +225,15 @@ export function buildLadderInput(
 
   const pctFees = resolvePercentageFees(fdd);
 
-  const fixedFees = (fdd?.ongoingFees?.flatMonthlyFees ?? [])
-    .filter((x) => (x?.monthlyAmount ?? 0) > 0)
-    .map((x) => ({ label: x.name, monthly: x.monthlyAmount as number }));
+  // FE-144 · rung 3 is resolved AGAINST rung 2 and the modeled revenue, because
+  // "Minimum Royalty Fee $500/mo" is a floor under the royalty already charged
+  // above it — not a second fee. Summing this array was the defect.
+  const flat = resolveFlatFees(
+    fdd?.ongoingFees?.flatMonthlyFees,
+    pctFees.fees,
+    cohort?.monthlyRevenue ?? null,
+  );
+  const fixedFees = flat.fees.map((x) => ({ label: x.label, monthly: x.monthly }));
 
   const rentRes = s?.rentResolution ?? null;
   const rentMonthly =
@@ -267,7 +274,15 @@ export function buildLadderInput(
     revenueLabel: cohort?.label ?? "Item 19 top line",
     revenueSource: revenueSourceText(cohort),
     revenueOwnership: cohort?.source?.ownership ?? undefined,
-    feePcts: pctFees.fees.map((x) => ({ label: x.label, pct: x.pct })),
+    // FE-142 + FE-144 · rung 2 charges only what is actually owed. Not the
+    // ceilings — those are lifted into the fees panel with a question attached —
+    // and not a percentage that a binding minimum has already replaced.
+    // NOTE: buildCashLadder sums feePcts, NOT PercentageFeeResolution.totalPct.
+    // Filtering here is what makes the resolver's verdict reach the report.
+    feePcts: pctFees.fees
+      .filter((x) => obligationOf(x) === "FIXED")
+      .filter((x) => !flat.supersededPctLabels.includes(x.label))
+      .map((x) => ({ label: x.label, pct: x.pct })),
     fixedFees,
     rentMonthly,
     rentBasis: rentBasisFor(rentRes),
