@@ -68,7 +68,7 @@ export const CRUMBL_SOURCE: ReportSource = {
       title: "The cash ladder",
       anchor: "Cash ladder",
       blurb:
-        "Thirteen rungs, monthly, from disclosed revenue down to what the operator actually keeps. Every rung is labelled with where its number came from.",
+        "Thirteen rungs, monthly, from disclosed revenue down to what the operator actually keeps. Every rung is labeled with where its number came from.",
       figures: [
         { label: "1. Gross revenue", value: 91089, unit: "usd_month", provenance: "disclosed", citation: { item: 19, page: "70" } },
         { label: "2. Less franchise fees (royalty and brand fund)", value: 9109, unit: "usd_month", provenance: "disclosed", citation: { item: 6 } },

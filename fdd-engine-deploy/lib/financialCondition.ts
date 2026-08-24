@@ -665,7 +665,7 @@ function buildContext(
   if (hasDeficit) {
     return `${facts} Note what this is and is not: the negative net worth sits alongside positive net income of ${fmtM(
       m.netIncome,
-    )}, so the balance sheet reflects how this business was financed rather than how it trades. Ask what created the gap — a recapitalisation, distributions to the owner, or accumulated losses from earlier years — because those carry very different consequences for a franchisee.`;
+    )}, so the balance sheet reflects how this business was financed rather than how it trades. Ask what created the gap — a recapitalization, distributions to the owner, or accumulated losses from earlier years — because those carry very different consequences for a franchisee.`;
   }
 
   // LOSS ONLY. Negative income, positive net worth. Do not call this a deficit.

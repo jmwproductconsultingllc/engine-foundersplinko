@@ -305,7 +305,7 @@ function cashLadder(r: DiligenceResult, ladder: CashLadder): SourceSection {
     anchor: "Cash ladder",
     blurb:
       `${ladder.rungs.length} rungs, monthly, from disclosed revenue down to what the ` +
-      `operator actually keeps. Every rung is labelled with where its number came from.`,
+      `operator actually keeps. Every rung is labeled with where its number came from.`,
     figures,
   };
 }
