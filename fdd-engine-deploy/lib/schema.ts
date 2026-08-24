@@ -48,6 +48,13 @@ export interface Item19Cohort {
    *  median instead of mixing an average numerator with a median denominator. */
   medianAnnualRevenue?: number | null;
   /**
+   * The SYSTEM total for this cohort — the sum across every outlet in it, which
+   * Item 19 tables routinely print in the row above the per-outlet average.
+   * Never a per-unit figure and never the top line. It lives here so that
+   * reading it can never again be mistaken for reading annualRevenue.
+   */
+  totalAnnualRevenue?: number | null;
+  /**
    * FE-140 · Item 19 cost columns for THIS cohort, when the filing publishes
    * them. Two Maids discloses Gross Revenues, Direct Labor, Cleaning Materials,
    * Total Cost of Sales and Gross Margin per cohort across twelve charts; the
@@ -245,6 +252,13 @@ export interface ExtractedFDD {
     unitsReported: number | null;
     cohorts: Item19Cohort[];
     networkAverageMonthly: number | null;
+    /**
+     * The currency the FPR is denominated in, when the filing states one.
+     * Gorilla Property Services' entire Item 19 is CAD and says so; every
+     * figure we render for it carries a US dollar sign. Never converted —
+     * reported, so the reader can weigh it.
+     */
+    currency?: string | null;
     notes: string;
     sourcePage: string;
   };
@@ -378,6 +392,7 @@ export const fddResponseSchema = {
               avgMonthlyRevenue: { type: Type.NUMBER, nullable: true },
               monthlyValues: { type: Type.ARRAY, items: { type: Type.NUMBER } },
               annualRevenue: { type: Type.NUMBER, nullable: true },
+              totalAnnualRevenue: { type: Type.NUMBER, nullable: true },
               disclosedCosts: {
                 type: Type.OBJECT,
                 properties: {

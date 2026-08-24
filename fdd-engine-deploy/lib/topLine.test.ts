@@ -29,7 +29,7 @@
 import { describe, it, expect } from "vitest";
 import fs from "node:fs";
 import path from "node:path";
-import { scoreFdd, isRevenueCohort } from "./scoring";
+import { scoreFdd, isRevenueCohort, suspectedSystemTotals, resolveItem19Currency } from "./scoring";
 import type { ExtractedFDD, Item19Cohort } from "./schema";
 
 const load = (slug: string) =>
@@ -52,12 +52,19 @@ describe("the Item 19 top line is gross sales or it is nothing", () => {
   });
 
   it("GORILLA — a profit-and-loss table headed 'Median' is not revenue", () => {
+    // This assertion was written BEFORE the source FDD was read, and it
+    // originally required the gross-revenue cohort to win at $835,748/mo. The
+    // filing disproved it: that cohort is a 32-franchisee system total, so the
+    // right outcome is not "pick the other one" but "refuse the filing". Kept
+    // here, rewritten, because the thing worth pinning is that the P&L table
+    // never becomes the top line — see the system-total block below for why
+    // nothing else does either.
     const fdd = load("gorilla-property-services");
     const s = scoreFdd(fdd);
-    expect(s.midCohort).not.toBeNull();
-    expect(s.midCohort!.label).not.toMatch(/profit and loss/i);
-    // $11,431/mo was the shipped number against $835,748/mo of disclosed gross.
-    expect(s.midCohort!.monthlyRevenue).toBeGreaterThan(100_000);
+    expect(s.midCohort?.label ?? "").not.toMatch(/profit and loss/i);
+    const pl = (fdd.item19?.cohorts ?? []).filter((c) => c.revenueType === "net_or_ebitda");
+    expect(pl.length).toBeGreaterThan(0); // the trap is still in the record
+    expect(pl.every((c) => !isRevenueCohort(c))).toBe(true);
   });
 
   it("the rent that started this is now sane, and it was never a rent bug", () => {
@@ -98,5 +105,53 @@ describe("the Item 19 top line is gross sales or it is nothing", () => {
       if (picked && !isRevenueCohort(picked)) offenders.push(`${rec.slug}: ${label}`);
     }
     expect(offenders).toEqual([]);
+  });
+});
+
+/**
+ * The SECOND Gorilla defect, confirmed against the source FDD on August 24, 2026.
+ *
+ * Item 19 Table 1 prints "Total gross revenue $10,028,981.01" for 32 Canadian
+ * franchisees and, directly beneath it, "Average gross revenue per franchisee
+ * $313,405.66". The extraction took the total. The pro forma was built on
+ * $835,748 a month of revenue for one gutter-cleaning franchise, in a filing
+ * whose best single franchisee did $1.31M for the entire YEAR.
+ *
+ * Table 2 has the same shape and was extracted the same way — $407,430.76 of
+ * combined revenue for 2 multi-unit franchisees stored as though one unit
+ * earned it. That is why the guard refuses the whole filing instead of dividing
+ * the cohort it caught: quietly dividing would have produced a confident number
+ * off by 2x in place of one off by 32x, and confident is the dangerous part.
+ */
+describe("a system total is not a unit", () => {
+  it("GORILLA — the filing is refused rather than guessed at", () => {
+    const s = scoreFdd(load("gorilla-property-services"));
+    expect(s.midCohort).toBeNull();
+    expect(s.riskReasons.join(" ")).toMatch(/SYSTEM TOTALS/i);
+    // The "couldn't assess" floor must hold: unverified is never Low.
+    expect(s.riskLevel).not.toBe("Low");
+  });
+
+  it("the CAD disclosure the extractor captured is finally read", () => {
+    const s = scoreFdd(load("gorilla-property-services"));
+    expect(resolveItem19Currency(load("gorilla-property-services"))).toBe("CAD");
+    expect(s.notes.join(" ")).toMatch(/CAD/);
+    expect(s.notes.join(" ")).toMatch(/no conversion/i);
+  });
+
+  it("the detector needs the arithmetic signature, not just a big number", () => {
+    const c = (annualRevenue: number, sampleSize: number): Item19Cohort =>
+      ({ label: "x", revenueType: "gross_sales", annualRevenue, sampleSize, avgMonthlyRevenue: annualRevenue / 12 }) as Item19Cohort;
+    // Gorilla's real shape: 10,028,981 over 32 against a 407,430 sibling.
+    expect(suspectedSystemTotals([c(10_028_981, 32), c(407_430, 2)])).toBe(true);
+    // Honest quintiles: a top cohort a few times its siblings, dividing makes it absurd.
+    expect(suspectedSystemTotals([c(1_085_616, 19), c(229_896, 19)])).toBe(false);
+    // A single cohort can never be judged against siblings it does not have.
+    expect(suspectedSystemTotals([c(10_028_981, 32)])).toBe(false);
+  });
+
+  it("ELLIE is untouched by the total guard — it has a different disease", () => {
+    expect(suspectedSystemTotals(load("ellie-mental-health").item19!.cohorts)).toBe(false);
+    expect(scoreFdd(load("ellie-mental-health")).midCohort).not.toBeNull();
   });
 });

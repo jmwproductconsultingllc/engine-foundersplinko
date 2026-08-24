@@ -132,6 +132,68 @@ export function isRevenueCohort(c: Item19Cohort | null | undefined): boolean {
   return c != null && (c.revenueType == null || c.revenueType === "gross_sales");
 }
 
+/**
+ * A SYSTEM TOTAL IS NOT A UNIT.
+ *
+ * Second defect in the same filing, confirmed against the source document.
+ * Gorilla Property Services' Item 19 Table 1 prints "Total gross revenue
+ * $10,028,981.01" for 32 Canadian franchisees, and directly beneath it
+ * "Average gross revenue per franchisee $313,405.66". The extraction took the
+ * total. The pro forma was built on $835,748 a month of revenue for a single
+ * gutter-cleaning franchise — 32 times the disclosed per-outlet figure, in a
+ * filing whose own highest-performing single franchisee did $1.31M for the
+ * YEAR.
+ *
+ * Code cannot tell a large outlet from a summed one by looking at a number in
+ * isolation. It can tell when a cohort is a wild outlier against its siblings
+ * AND dividing it by its own sample size lands it right back among them, which
+ * is the arithmetic signature of a total and nothing else.
+ *
+ * WHAT WE DO NOT DO IS DIVIDE. The suspicion is that this filing's Item 19 was
+ * read wrong, and a filing read wrong once is not a filing to guess at twice:
+ * Gorilla's SECOND revenue cohort is a total as well, and quietly dividing the
+ * one we caught would have produced a confident number off by a factor of two
+ * instead of a factor of thirty-two. Every revenue cohort in a filing carrying
+ * one of these is refused, the pro forma comes out UNVERIFIED rather than
+ * wrong, and the note says exactly what was seen.
+ */
+/**
+ * The explicit field first; then the note the extractor already captured.
+ * Gorilla's stored record predates the field but carries the sentence verbatim
+ * in item19.notes — "All dollar amounts in Item 19 are presented in CAD and not
+ * USD." The fact was extracted correctly and then read by nobody, which is the
+ * same shape of failure as the revenueType tag two functions up.
+ */
+export function resolveItem19Currency(fdd: ExtractedFDD | null | undefined): string | null {
+  const explicit = fdd?.item19?.currency;
+  if (typeof explicit === "string" && explicit.trim()) return explicit.trim().toUpperCase();
+  const notes = fdd?.item19?.notes;
+  if (typeof notes === "string") {
+    const m = notes.match(/\b(?:presented|denominated|reported|expressed)\s+in\s+([A-Z]{3})\b/);
+    if (m) return m[1].toUpperCase();
+  }
+  return null;
+}
+
+export function suspectedSystemTotals(cohorts: Item19Cohort[]): boolean {
+  const rev = cohorts.filter(
+    (c) => isRevenueCohort(c) && (c.annualRevenue ?? 0) > 0 && (c.sampleSize ?? 0) >= 2,
+  );
+  if (rev.length < 2) return false;
+  for (const c of rev) {
+    const mine = c.annualRevenue as number;
+    const others = rev.filter((o) => o !== c).map((o) => o.annualRevenue as number).sort((a, b) => a - b);
+    const median = others[Math.floor(others.length / 2)];
+    if (!(median > 0)) continue;
+    const perUnit = mine / (c.sampleSize as number);
+    // A genuine top quintile runs a few times its siblings, not five.
+    const isOutlier = mine > 5 * median;
+    const dividingFixesIt = perUnit >= median / 5 && perUnit <= median * 5;
+    if (isOutlier && dividingFixesIt) return true;
+  }
+  return false;
+}
+
 function findCohort(cohorts: Item19Cohort[], keys: string[]): Item19Cohort | null {
   const lower = (s: string) => s.toLowerCase();
   for (const c of cohorts) {
@@ -230,6 +292,14 @@ export function scoreFdd(
     );
   }
 
+  if (suspectedSystemTotals(cohorts)) {
+    // Refuse the whole Item 19 rather than pick the least wrong number.
+    cohorts.length = 0;
+    reasons.push(
+      "Item 19 in this filing appears to report SYSTEM TOTALS where a per-outlet figure is required — one revenue table is many times its siblings and divides back into line by its own franchisee count. No franchisee pro forma is built from it. Read the Item 19 tables directly and check whether each figure is a total or a per-outlet average before relying on any number below.",
+    );
+  }
+
   let midRaw =
     findCohort(cohorts, ["middle", "mid", "60", "median", "2nd", "second"]) ?? null;
   const bottomRaw = findCohort(cohorts, ["bottom", "30", "lowest", "4th", "fourth"]) ?? null;
@@ -279,6 +349,17 @@ export function scoreFdd(
   }
 
   const bottomRevenue = bottomRaw?.avgMonthlyRevenue ?? null;
+
+  // Currency is reported, never converted. The franchisor's own parity claim —
+  // Gorilla argues a Canadian franchisee charges $250 CAD where a US one
+  // charges $250 USD for the same service — is an argument the BUYER should
+  // weigh, not one we should silently resolve with an exchange rate.
+  const currency = resolveItem19Currency(fdd);
+  if (typeof currency === "string" && currency.trim() && currency.trim().toUpperCase() !== "USD") {
+    notes.push(
+      `Every Item 19 figure in this filing is denominated in ${currency.trim().toUpperCase()}, not US dollars, and is shown here exactly as disclosed with no conversion applied. Check the current rate before comparing these numbers to a US investment.`,
+    );
+  }
 
   // ---- rent (rent-resolver hotfix): disclosed number → normalized rentDetail →
   // disclosed annual range → Item 7 rent line ÷ horizon → category occupancy

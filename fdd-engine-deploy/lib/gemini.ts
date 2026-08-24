@@ -167,6 +167,17 @@ RULES:
   complete set, not the leftovers. If a rate is disclosed as a RANGE or a tiered
   schedule, record the rate that applies to a typical single unit at maturity. Fees
   charged as a flat dollar amount belong in flatMonthlyFees, never here.
+- item19 tables almost always print a SYSTEM TOTAL beside a PER-OUTLET average. Gorilla
+  Property Services prints "Total gross revenue $10,028,981.01" directly above "Average gross
+  revenue per franchisee $313,405.66" for the same 32 franchisees. annualRevenue and
+  avgMonthlyRevenue are ALWAYS PER OUTLET — put the total in totalAnnualRevenue and nowhere
+  else. If a table prints only a total and a franchisee count, still report the total in
+  totalAnnualRevenue and leave annualRevenue null rather than dividing: the count and the
+  revenue set are not always the same population, and downstream code must know it is
+  looking at an unresolved figure.
+- item19.currency: the three-letter code the FPR is denominated in, when the filing says so.
+  Gorilla states "All dollar amounts are presented in CAD and not USD." Report exactly what
+  the filing says and never convert.
 - item19.cohorts[].disclosedCosts: Item 19 charts frequently print COST columns beside
   the revenue column, repeated per cohort — read every chart, not only the revenue line.
   Map the franchisor's own column headings: Direct Labor / Labor / Payroll -> laborAnnual;
