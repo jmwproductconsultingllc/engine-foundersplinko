@@ -46,6 +46,8 @@ export interface CohortRow {
   revenueType?: "gross_sales" | "net_or_ebitda" | "pre_sale_only" | "other" | null;
   avgMonthlyRevenue?: number | null;
   annualRevenue?: number | null;
+  /** how many outlets this row's figure covers — 1, or a combined count */
+  outletsCovered?: number | null;
 }
 
 export interface CallListInput {
@@ -141,7 +143,34 @@ function monthlyOf(c: CohortRow): { value: number; disclosed: boolean } | null {
  * in the same Item 19 array as its sales bands, and reading the low EBITDA band
  * against the high sales band would print a 20× spread that is really just two
  * different units of measure.
+ *
+ * FE-140 criterion 8 adds the third exclusion: A PORTFOLIO IS NOT A UNIT.
+ *
+ * Two Maids' Item 19 runs to twelve charts, and Chart 12 reports 24 owners
+ * operating 65 locations — a portfolio figure. Ranked against a single-territory
+ * cohort it printed a 6.2x spread "inside one system". The true
+ * single-territory spread is 4.7x: Q1 average $90,468/mo against Q5 average
+ * $19,158/mo. The buyer is deciding whether to run ONE territory, and a
+ * yardstick built partly from someone's twelve is not the yardstick for that.
+ *
+ * outletsCovered is the reliable signal and is checked first. The label pattern
+ * behind it exists for records extracted before that field, and it is kept
+ * deliberately narrow — "multi-unit", "owners operating", "per owner". A
+ * broader net was tried against the corpus earlier today for a different guard
+ * and matched 21 of 83 brands, nearly all wrongly, because "all outlets" in FDD
+ * prose almost always means "averaged across all outlets". The asymmetry is
+ * what makes the heuristic acceptable HERE and not there: a false positive
+ * drops one row from a spread comparison, where the same mistake in cohort
+ * selection would have blanked an entire report.
  */
+const PORTFOLIO_LABEL =
+  /\b(?:multi[- ]?unit|multiple territor|owners? operating|per owner|portfolio|combined figures)\b/i;
+
+function isPortfolioRow(c: CohortRow): boolean {
+  if (typeof c.outletsCovered === "number" && c.outletsCovered > 1) return true;
+  return PORTFOLIO_LABEL.test(c.label ?? "");
+}
+
 function comparable(rows: CohortRow[]): Band[] {
   const out: Band[] = [];
   for (const c of rows ?? []) {
@@ -152,6 +181,7 @@ function comparable(rows: CohortRow[]): Band[] {
       c.revenueType === "pre_sale_only" ||
       c.revenueType === "other"
     ) continue;
+    if (isPortfolioRow(c)) continue;
     const m = monthlyOf(c);
     if (!m) continue;
     out.push({ row: c, monthly: m.value, monthlyDisclosed: m.disclosed });
