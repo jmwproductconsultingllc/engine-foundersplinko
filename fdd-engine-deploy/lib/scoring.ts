@@ -10,6 +10,7 @@
 
 import { ExtractedFDD, Item19Cohort } from "./schema";
 import { resolveMonthlyRent, type RentResolution } from "./rent";
+import { resolvePercentageFees, resolveFlatFees, obligationOf } from "./feeObligation";
 
 export const RUBRIC = {
   dscrStress: 1.25, // debt-service coverage below this = stressed
@@ -165,18 +166,26 @@ export function scoreFdd(
   const notes: string[] = [];
   const reasons: string[] = [];
 
-  // ---- variable rate (royalty + brand fund + local ad), as a fraction ----
   const f = fdd.ongoingFees;
-  const royalty = f.royaltyPct ?? 0;
-  const brand = f.brandFundPct ?? 0;
-  const localAd = f.localAdPct ?? 0;
-  const variableRate = (royalty + brand + localAd) / 100;
   if (f.royaltyPct == null) notes.push("Royalty % not found; variable costs may be understated.");
 
-  // ---- fixed monthly: flat fees (+ rent, resolved AFTER the top line below) ----
+  // The royalty risk flag below reads the DISCLOSED royalty slot, deliberately.
+  // It is a statement about what Item 6 says the royalty is, not about the
+  // resolved fee stack. (Known gap, pre-existing: a record that carries the
+  // royalty only in percentageFees and leaves the named slot null does not
+  // trip this flag. Out of scope here.)
+  const royalty = f.royaltyPct ?? 0;
+
+  // FE-142 / FE-144 · variableRate and the flat-fee total are resolved FURTHER
+  // DOWN, immediately before fixedMonthly. They used to be computed here, which
+  // was the defect: a floor is max(rate x revenue, floor) and this point in the
+  // function has no revenue yet — midRevenue is not resolved until the cohort
+  // search below. Summing flatMonthlyFees raw was the only thing possible here,
+  // and summing it raw is exactly what charged a minimum on top of the
+  // percentage it bounds.
+  //
   // NOTE: we intentionally do NOT auto-sum hidden/contingent costs (step-in
   // fees, ACH penalties) — they're situational. They surface as flags instead.
-  const flatFees = (f.flatMonthlyFees || []).reduce((s, x) => s + (x.monthlyAmount ?? 0), 0);
 
   // ---- cohorts ----
   const cohorts = fdd.item19?.cohorts ?? [];
@@ -245,6 +254,21 @@ export function scoreFdd(
       }); the math uses the midpoint.`,
     );
   }
+  // ---- fees, resolved against the revenue they are charged on ----
+  // The ladder (lib/ladderInput.ts) runs these same two resolvers on the same
+  // inputs. That is deliberate and it is the point: before this, the score and
+  // the ladder could print different fee loads for the same brand, and a buyer
+  // had no way to know which half to trust. lib/feeAgreement.test.ts pins them
+  // together.
+  const pctFees = resolvePercentageFees(fdd);
+  const flat = resolveFlatFees(f?.flatMonthlyFees, pctFees.fees, midRevenue);
+  const flatFees = flat.totalMonthly;
+  const variableRate =
+    pctFees.fees
+      .filter((x) => obligationOf(x) === "FIXED")
+      .filter((x) => !flat.supersededPctLabels.includes(x.label))
+      .reduce((a, x) => a + x.pct, 0) / 100;
+
   const fixedMonthly = flatFees + rent;
 
   let midCohort: CohortEconomics | null = null;

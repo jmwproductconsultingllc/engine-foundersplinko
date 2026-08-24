@@ -283,8 +283,24 @@ describe("SOURCE LINT — the ladder math lives in exactly one file", () => {
    * FE-101 being done. Deleting a name without migrating the module will fail
    * the test, which is the point.
    */
-  const MIGRATION_PENDING_SUBTRACTION = ["scoring.ts"];
+  const MIGRATION_PENDING_SUBTRACTION = ["rentCorrection.ts", "scoring.ts"];
   const MIGRATION_PENDING_AMORTIZE = ["scoring.ts"];
+
+  /**
+   * rentCorrection.ts was added to the subtraction list on August 24, 2026, and
+   * this is the one case where a name may go ON the list: the module did not
+   * start doing the ladder's arithmetic, the SCAN started being able to see it.
+   *
+   * The old pattern required a bare identifier after each minus sign, so
+   * `c.monthlyRevenue - c.monthlyVariable - fixedMonthly` — property access,
+   * which is how rentCorrection.ts has always written it — slipped past. The
+   * pattern now allows a dotted path. A ratchet that cannot measure is not a
+   * ratchet, and a lint that reports a clean two-module problem as a clean
+   * one-module problem is worse than no lint, because it is believed.
+   *
+   * FE-101's real remaining scope is therefore two modules, not one. The number
+   * may only fall from here.
+   */
 
   /**
    * The scan used to walk lib/ ONLY — which left components/, the one directory
@@ -314,7 +330,7 @@ describe("SOURCE LINT — the ladder math lives in exactly one file", () => {
   };
 
   it("no NEW module recomputes revenue − variable − fixed", () => {
-    expect(scan(/monthlyRevenue\s*-\s*\w*[Vv]ariable\s*-\s*\w*[Ff]ixed/)).toEqual(
+    expect(scan(/monthlyRevenue\s*-\s*[\w.]*[Vv]ariable\s*-\s*[\w.]*[Ff]ixed/)).toEqual(
       [...MIGRATION_PENDING_SUBTRACTION].sort(),
     );
   });
@@ -328,7 +344,7 @@ describe("SOURCE LINT — the ladder math lives in exactly one file", () => {
   it("the allowlists are shrinking, not growing", () => {
     // Pinned at the FE-100 baseline. When FE-101 lands these go to 0 and this
     // assertion is updated down, never up.
-    expect(MIGRATION_PENDING_SUBTRACTION.length).toBeLessThanOrEqual(1);
+    expect(MIGRATION_PENDING_SUBTRACTION.length).toBeLessThanOrEqual(2);
     expect(MIGRATION_PENDING_AMORTIZE.length).toBeLessThanOrEqual(1);
   });
 });

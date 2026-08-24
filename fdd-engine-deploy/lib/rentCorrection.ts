@@ -15,6 +15,7 @@ import type { ScoringResult } from "./scoring";
 import { underwrite } from "./underwriting";
 import { buildInsights } from "./insights";
 import { resolveMonthlyRent, rentCeilingMonthly, type RentResolution } from "./rent";
+import { resolvePercentageFees, resolveFlatFees, obligationOf } from "./feeObligation";
 
 /**
  * applyRentOverride — the THIRD basis: the buyer's own number ("your input").
@@ -39,9 +40,16 @@ export function applyRentOverride(
   const fdd = corrected.extracted;
   if (!s || !fdd) return corrected;
 
+  // applyRentCorrection ran first, so fixedFeesMonthly is normally already the
+  // resolved figure. The fallback resolves rather than sums, so the two paths
+  // cannot disagree if it ever fires.
   const flatFees =
     s.fixedFeesMonthly ??
-    (fdd.ongoingFees?.flatMonthlyFees ?? []).reduce((acc, x) => acc + (x.monthlyAmount ?? 0), 0);
+    resolveFlatFees(
+      fdd.ongoingFees?.flatMonthlyFees,
+      resolvePercentageFees(fdd).fees,
+      corrected.scoring?.midCohort?.monthlyRevenue ?? null,
+    ).totalMonthly;
   const rent = Math.round(overrideMonthly);
   const fixedMonthly = flatFees + rent;
   const baseline = s.rentResolution ?? null;
@@ -136,18 +144,38 @@ export function applyRentCorrection(result: DiligenceResult): DiligenceResult {
     if (ceiling == null || persisted.mid <= ceiling) return result;
   }
   const rent = resolveMonthlyRent(fdd, midRev);
-  const flatFees = (fdd.ongoingFees?.flatMonthlyFees ?? []).reduce(
-    (acc, x) => acc + (x.monthlyAmount ?? 0),
-    0,
-  );
+
+  // FE-142 / FE-144 · the fee stack is re-resolved here, not re-summed.
+  //
+  // This is what makes the fee corrections retroactive, on exactly the terms
+  // the rent fix already set: a report already sold repairs itself the next
+  // time someone opens it — no re-mint, no new report ID, no second live URL
+  // with different numbers. A stored cohort carries a monthlyVariable that may
+  // have charged a discretionary ceiling as a certainty, and a monthlyFixed
+  // that may have charged a minimum on top of the percentage it bounds. Both
+  // are recomputed from the filing.
+  //
+  // Risk level and reasons are still NOT re-scored — see the header note. This
+  // corrects the economics, not the verdict.
+  const pctFees = resolvePercentageFees(fdd);
+  const flat = resolveFlatFees(fdd.ongoingFees?.flatMonthlyFees, pctFees.fees, midRev);
+  const flatFees = flat.totalMonthly;
+  const variableRate =
+    pctFees.fees
+      .filter((x) => obligationOf(x) === "FIXED")
+      .filter((x) => !flat.supersededPctLabels.includes(x.label))
+      .reduce((a, x) => a + x.pct, 0) / 100;
+
   const rentMid = rent?.mid ?? 0;
   const fixedMonthly = flatFees + rentMid;
 
   const patchCohort = (c: ScoringResult["midCohort"]): ScoringResult["midCohort"] => {
     if (!c) return c;
-    const monthlyEbitda = c.monthlyRevenue - c.monthlyVariable - fixedMonthly;
+    const monthlyVariable = c.monthlyRevenue * variableRate;
+    const monthlyEbitda = c.monthlyRevenue - monthlyVariable - fixedMonthly;
     return {
       ...c,
+      monthlyVariable,
       monthlyFixed: fixedMonthly,
       monthlyEbitda,
       annualEbitda: monthlyEbitda * 12,
