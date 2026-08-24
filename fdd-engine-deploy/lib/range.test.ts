@@ -75,6 +75,16 @@ describe("range", () => {
         readFileSync(file, "utf8")
           .split("\n")
           .forEach((line, i) => {
+            // COMMENTS ARE NOT OUTPUT. This lint is about where a figure breaks
+            // on a phone, and a comment does not render anywhere. It caught a
+            // doc block on August 24, 2026 that transcribed a Two Maids Item 7
+            // table verbatim — spacing and all — and the only ways to satisfy
+            // it were to falsify the quotation or to stop scanning prose that
+            // nobody reads on a screen. Same reasoning as the US-English copy
+            // lint, which inspects string literals through the AST rather than
+            // grepping source, for exactly this reason.
+            const t = line.trim();
+            if (t.startsWith("*") || t.startsWith("//") || t.startsWith("/*")) return;
             if (SPACED_ENDASH.test(line)) offenders.push(`${file}:${i + 1} → ${line.trim().slice(0, 90)}`);
           });
       }

@@ -42,6 +42,7 @@
  */
 
 import type { ExtractedFDD } from "./schema";
+import { range } from "./range";
 
 export interface ConversionPath {
   /** the standard estimated initial investment, low and high */
@@ -67,7 +68,10 @@ const DISCRETION_RE =
   /\b(?:sole discretion|our discretion|we (?:may|will determine)|based on various factors|qualifies? as)\b/i;
 
 const money = (n: number) => `$${Math.round(n).toLocaleString("en-US")}`;
-const range = (r: [number, number]) => (r[0] === r[1] ? money(r[0]) : `${money(r[0])} – ${money(r[1])}`);
+// Joined by range() from lib/range.ts, never by hand. A spaced dash is where a
+// figure breaks in half on a phone, and there is a source lint that enforces it
+// — which caught this file's first draft.
+const moneyRange = (r: [number, number]) => (r[0] === r[1] ? money(r[0]) : range(money(r[0]), money(r[1])));
 
 export function conversionPath(fdd: ExtractedFDD | null | undefined): ConversionPath | null {
   const i17 = fdd?.item17;
@@ -97,16 +101,16 @@ export function conversionPath(fdd: ExtractedFDD | null | undefined): Conversion
   const parts: string[] = [];
   if (standard && conversion) {
     parts.push(
-      `This filing prices two different purchases. Opening new, the estimated initial investment is ${range(standard)}. Converting an existing business, the franchisor discloses ${range(conversion)}.`,
+      `This filing prices two different purchases. Opening new, the estimated initial investment is ${moneyRange(standard)}. Converting an existing business, the franchisor discloses ${moneyRange(conversion)}.`,
     );
   } else if (conversion) {
-    parts.push(`Converting an existing business, the franchisor discloses an estimated initial investment of ${range(conversion)}.`);
+    parts.push(`Converting an existing business, the franchisor discloses an estimated initial investment of ${moneyRange(conversion)}.`);
   }
   if (discount) {
     parts.push(
       discount[0] === discount[1]
         ? `The disclosed conversion credit is ${money(discount[0])}.`
-        : `The disclosed conversion credit runs ${range(discount)} — and ${money(discount[0])} is one of the disclosed outcomes.`,
+        : `The disclosed conversion credit runs ${moneyRange(discount)} — and ${money(discount[0])} is one of the disclosed outcomes.`,
     );
   }
   if (discretionary) {

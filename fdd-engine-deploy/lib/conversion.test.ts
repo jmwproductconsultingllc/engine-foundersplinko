@@ -7,6 +7,7 @@
  */
 import { describe, it, expect } from "vitest";
 import { conversionPath } from "./conversion";
+import { range } from "./range";
 import type { ExtractedFDD } from "./schema";
 
 const fdd = (item17: Record<string, unknown>): ExtractedFDD =>
@@ -59,8 +60,8 @@ describe("FE-141 — a conversion is a different purchase, priced differently", 
     const c = conversionPath(twoMaids())!;
     expect(c.standard).toEqual([93_440, 149_890]);
     expect(c.conversion).toEqual([93_440, 139_890]);
-    expect(c.headline).toMatch(/\$93,440 – \$149,890/);
-    expect(c.headline).toMatch(/\$93,440 – \$139,890/);
+    expect(c.headline).toContain(range("$93,440", "$149,890"));
+    expect(c.headline).toContain(range("$93,440", "$139,890"));
   });
 
   it("THE FE-142 MIRROR — a discretionary credit is never applied as if granted", () => {
@@ -107,6 +108,6 @@ describe("FE-141 — a conversion is a different purchase, priced differently", 
     expect(c.conversion).toBeNull();
     expect(c.discount).toEqual([0, 5_000]);
     expect(c.discretionary).toBe(false);
-    expect(c.headline).toMatch(/\$0 – \$5,000/);
+    expect(c.headline).toContain(range("$0", "$5,000"));
   });
 });
