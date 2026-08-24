@@ -34,16 +34,56 @@ import type { Basis, CostStructure, Financing, LadderInput } from "./ladder";
 
 /* ─────────────────────────── percentage fees ─────────────────────────── */
 
+/**
+ * FE-142 · What KIND of obligation a fee is, not merely how large it is.
+ *
+ * FIXED      — a stated rate owed every period.
+ * CEILING    — "not to exceed 8%", "maximum", "may require ... up to". The real
+ *              amount is set outside the FDD, usually in the Manual, so the
+ *              honest output is an unknown and a question, never a charge.
+ * FLOOR      — "the greater of 5% or $500/month". Resolution belongs to FE-144;
+ *              the member exists here so both tickets share one vocabulary.
+ * CONTINGENT — triggered by an event: late reporting, audit, transfer.
+ */
+export type FeeObligation = "FIXED" | "CEILING" | "FLOOR" | "CONTINGENT";
+
+/**
+ * Trigger words are load-bearing. If the extracted label prints "Maximum," the
+ * arithmetic may not then treat the figure as a rate — the label and the number
+ * are the same fact and are not allowed to disagree. That disagreement is the
+ * whole of FE-142: the Budget Blinds report rendered "Local Area Marketing
+ * Maximum 8%" into rung 2 and billed it as certain, and that single line is
+ * what manufactured "this unit does not turn an operating profit" on the
+ * flagship brand of an eight-brand portfolio.
+ */
+const CEILING_TRIGGER =
+  /\b(?:maximum|not to exceed|no more than|up to|at (?:our|its)(?: sole)? discretion|may require|as specified in the manual)\b/i;
+
+export function classifyFeeObligation(label: string | null | undefined): FeeObligation {
+  return CEILING_TRIGGER.test(label ?? "") ? "CEILING" : "FIXED";
+}
+
+/** Absent obligation means FIXED — every already-minted record predates the field. */
+export function obligationOf(f: { obligation?: FeeObligation }): FeeObligation {
+  return f.obligation ?? "FIXED";
+}
+
 export interface ResolvedPercentageFee {
   label: string;
   /** whole-number percent of gross sales: 5 means 5% */
   pct: number;
   source: string;
+  /** absent on pre-FE-142 records; read it through obligationOf() */
+  obligation?: FeeObligation;
 }
 
 export interface PercentageFeeResolution {
   fees: ResolvedPercentageFee[];
-  /** sum of fees[].pct — the number rung 2 runs on */
+  /** Ceilings lifted OUT of the ladder and surfaced in the fees panel with a
+   *  question attached. A ceiling that silently disappears is the mirror defect
+   *  of a ceiling that gets billed, and it is the one this fix could introduce. */
+  ceilings: ResolvedPercentageFee[];
+  /** sum of the FIXED fees only — the number rung 2 runs on */
   totalPct: number;
   /** true when the record carries the complete Item 6 percentage list */
   complete: boolean;
@@ -76,10 +116,14 @@ export function resolvePercentageFees(fdd: ExtractedFDD | null | undefined): Per
   const localAd = normalizeRoyaltyPct(f?.localAdPct);
 
   const listed = (f?.percentageFees ?? [])
-    .map((p) => ({
+    // The annotation is load-bearing: without it TS infers `obligation` as
+    // REQUIRED here, which makes ResolvedPercentageFee (where it is optional)
+    // unassignable and silently breaks the type predicate on the next line.
+    .map((p): { label: string; pct: number | null; source: string; obligation?: FeeObligation } => ({
       label: (p?.label ?? "").trim(),
       pct: normalizeRoyaltyPct(p?.pct),
       source: p?.source ?? "Item 6",
+      obligation: classifyFeeObligation(p?.label),
     }))
     .filter((p): p is ResolvedPercentageFee => !!p.label && p.pct != null && p.pct > 0);
 
@@ -94,11 +138,18 @@ export function resolvePercentageFees(fdd: ExtractedFDD | null | undefined): Per
     if (localAd != null && localAd > 0 && !coversSlot(fees, /local/, localAd)) {
       fees.push({ label: "Local advertising", pct: localAd, source: "Item 6" });
     }
+    const ceilings = fees.filter((x) => obligationOf(x) === "CEILING");
+    const chargeable = fees.filter((x) => obligationOf(x) === "FIXED");
     return {
       fees,
-      totalPct: round2(fees.reduce((a, x) => a + x.pct, 0)),
+      ceilings,
+      totalPct: round2(chargeable.reduce((a, x) => a + x.pct, 0)),
       complete: true,
-      note: null,
+      note: ceilings.length
+        ? `Item 6 caps ${ceilings.length === 1 ? "one fee" : `${ceilings.length} fees`} rather than setting a rate: ${ceilings
+            .map((c) => `${c.label} (up to ${c.pct}%)`)
+            .join("; ")}. What is actually required is set outside the disclosure document, so it is not charged above. Ask the franchisor what the Manual currently requires and what revenue caps apply — for most buyers this is the single highest-value question in the filing.`
+        : null,
     };
   }
 
@@ -111,6 +162,7 @@ export function resolvePercentageFees(fdd: ExtractedFDD | null | undefined): Per
 
   return {
     fees,
+    ceilings: [],
     totalPct: round2(fees.reduce((a, x) => a + x.pct, 0)),
     complete: false,
     note:
