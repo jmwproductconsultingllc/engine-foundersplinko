@@ -282,6 +282,28 @@ export interface ExtractedFDD {
   item17: {
     initialInvestmentLow: number | null;
     initialInvestmentHigh: number | null;
+    /**
+     * FE-141 · some filings price TWO purchases — opening new, and converting
+     * an existing independent business under the brand. Two Maids prints both
+     * totals and a "Conversion Discount $0 – ($10,000)" line; Ellie publishes a
+     * whole separate Item 7 table and a flat reduced franchise fee. Optional:
+     * absent when the filing offers no conversion path, and absent on every
+     * record extracted before this field existed.
+     */
+    conversion?: {
+      totalLow: number | null;
+      totalHigh: number | null;
+      /** the discount line as disclosed, positive dollars */
+      discountLow: number | null;
+      discountHigh: number | null;
+      /** how the amount is set, in the filing's own words */
+      howDetermined: string | null;
+      /** who qualifies, in the filing's own words */
+      eligibility: string | null;
+      /** the franchisor decides case by case */
+      discretionary: boolean | null;
+      sourcePage: string | null;
+    };
     lineItems: Item17LineItem[];
     sourcePage: string;
   };
@@ -436,6 +458,19 @@ export const fddResponseSchema = {
     item17: {
       type: Type.OBJECT,
       properties: {
+        conversion: {
+          type: Type.OBJECT,
+          properties: {
+            totalLow: { type: Type.NUMBER, nullable: true },
+            totalHigh: { type: Type.NUMBER, nullable: true },
+            discountLow: { type: Type.NUMBER, nullable: true },
+            discountHigh: { type: Type.NUMBER, nullable: true },
+            howDetermined: { type: Type.STRING, nullable: true },
+            eligibility: { type: Type.STRING, nullable: true },
+            discretionary: { type: Type.BOOLEAN, nullable: true },
+            sourcePage: { type: Type.STRING, nullable: true },
+          },
+        },
         initialInvestmentLow: { type: Type.NUMBER, nullable: true },
         initialInvestmentHigh: { type: Type.NUMBER, nullable: true },
         lineItems: {

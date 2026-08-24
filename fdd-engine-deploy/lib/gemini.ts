@@ -167,6 +167,15 @@ RULES:
   complete set, not the leftovers. If a rate is disclosed as a RANGE or a tiered
   schedule, record the rate that applies to a typical single unit at maturity. Fees
   charged as a flat dollar amount belong in flatMonthlyFees, never here.
+- item17.conversion: does this filing price a CONVERSION as well as a startup — a buyer
+  bringing an existing independent business under the brand? Signals: a second "Total
+  Estimated Initial Investment (Conversion)" row, a "Conversion Discount" line item, a
+  separate Item 7 table headed for a conversion franchise, or Item 5 language about
+  converting an existing business. Capture BOTH totals, the discount as positive dollars,
+  and quote the filing on how the amount is set and who qualifies — those sentences are the
+  product, because the number is usually the franchisor's to decide. Set discretionary true
+  when the filing says "in our sole discretion", "we will determine", or similar. Leave the
+  block absent when the filing offers no conversion path.
 - item19.cohorts[].outletsCovered: HOW MANY OUTLETS THIS ROW'S REVENUE FIGURE COVERS.
   Many Item 19 tables report by market or by owner rather than by outlet, and print the
   outlet count in a column beside the revenue. Bar-B-Clean's Table 1a lists "Central Texas,
