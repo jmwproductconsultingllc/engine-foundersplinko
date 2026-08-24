@@ -58,6 +58,7 @@ import { normalizeSeverity } from "./severity";
 import { normalizeCitation } from "./citation";
 import { sectionSpec, navAnchor, isUndisclosed } from "./sections";
 import type { DiligenceResult } from "./types";
+import { assessCoverage } from "./coverage";
 import type {
   Provenance,
   ReportSource,
@@ -425,13 +426,21 @@ function itemNineteen(r: DiligenceResult): SourceSection {
 }
 
 function documentCheck(r: DiligenceResult): SourceSection {
-  const found = r.extracted.documentCheck?.itemsFound ?? [];
+  // FE-140 / FE-143 · the blurb used to assert completeness unconditionally
+  // while appearsComplete and warnings — both extracted, both in the record —
+  // were read by nothing. It is derived now. See lib/coverage.ts.
+  const c = assessCoverage(r);
+  const chips = [...c.itemsFound];
+  if (c.level !== "complete") {
+    chips.push(c.level === "unverified" ? "UNVERIFIED READ" : "PARTIAL READ");
+  }
+  if (!c.conceptKnown) chips.push("Business type unclassified");
   return {
     id: "document-check",
     title: "What we found in the document",
     anchor: "Document",
-    blurb: `${found.length} Items located and parsed. Every figure above cites one of them.`,
-    freeChips: [...found],
+    blurb: c.headline,
+    freeChips: chips,
     figures: [],
   };
 }
