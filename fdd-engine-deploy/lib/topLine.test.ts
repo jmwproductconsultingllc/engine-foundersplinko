@@ -190,23 +190,32 @@ describe("a combined row is not an outlet", () => {
     ({ label: "Central Texas", revenueType: "gross_sales", ownership: "franchised", ...over }) as Item19Cohort;
 
   it("divides by the outlet count the filing prints", () => {
-    const c = cohort({ annualRevenue: 1_512_928, outletsCovered: 11, avgMonthlyRevenue: 126_077 });
+    const c = cohort({ annualRevenue: 1_512_928, figureScope: "combined", combinedAcross: 11, avgMonthlyRevenue: 126_077 });
     expect(perOutletAnnualRevenue(c)).toBeCloseTo(137_538.9, 0);
   });
 
   it("a genuine single-outlet row is untouched", () => {
-    const c = cohort({ annualRevenue: 381_674, outletsCovered: 1, avgMonthlyRevenue: 31_806 });
+    const c = cohort({ annualRevenue: 381_674, figureScope: "per_outlet", avgMonthlyRevenue: 31_806 });
     expect(perOutletAnnualRevenue(c)).toBe(381_674);
   });
 
-  it("a legacy record with no count keeps the old contract", () => {
+  it("a legacy record with no scope keeps the old contract", () => {
     const c = cohort({ annualRevenue: 500_000, avgMonthlyRevenue: 41_667 });
     expect(perOutletAnnualRevenue(c)).toBe(500_000);
   });
 
+  it("THE REAL RUN'S TRAP — a cohort average is per_outlet, whatever its size", () => {
+    // Two Maids Quintile Two: 19 territories, average $594,532 EACH. The first
+    // version of this field asked "how many outlets does this figure cover" and
+    // got 19 back on every quintile — identical to sampleSize on every row.
+    // Dividing would have turned a correct $49,544/mo top line into $2,608.
+    const q2 = cohort({ annualRevenue: 594_532, sampleSize: 19, figureScope: "per_outlet" });
+    expect(perOutletAnnualRevenue(q2)).toBe(594_532);
+  });
+
   it("a nonsense count is refused rather than applied", () => {
-    expect(perOutletAnnualRevenue(cohort({ annualRevenue: 500_000, outletsCovered: 0 }))).toBeNull();
-    expect(perOutletAnnualRevenue(cohort({ annualRevenue: 500_000, outletsCovered: -3 }))).toBeNull();
+    expect(perOutletAnnualRevenue(cohort({ annualRevenue: 500_000, figureScope: "combined", combinedAcross: 0 }))).toBeNull();
+    expect(perOutletAnnualRevenue(cohort({ annualRevenue: 500_000, figureScope: "combined", combinedAcross: null }))).toBeNull();
   });
 
   it("the top line divides, and the report says out loud that it did", () => {
@@ -224,7 +233,8 @@ describe("a combined row is not an outlet", () => {
             basis: "Item 19 Table 1a",
             annualRevenue: 1_512_928,
             avgMonthlyRevenue: 126_077,
-            outletsCovered: 11,
+            figureScope: "combined",
+            combinedAcross: 11,
             sampleSize: 11,
           },
         ],

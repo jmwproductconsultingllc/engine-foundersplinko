@@ -46,8 +46,9 @@ export interface CohortRow {
   revenueType?: "gross_sales" | "net_or_ebitda" | "pre_sale_only" | "other" | null;
   avgMonthlyRevenue?: number | null;
   annualRevenue?: number | null;
-  /** how many outlets this row's figure covers — 1, or a combined count */
-  outletsCovered?: number | null;
+  /** whether this row's figure is one outlet or several added together */
+  figureScope?: "per_outlet" | "combined" | null;
+  combinedAcross?: number | null;
 }
 
 export interface CallListInput {
@@ -167,7 +168,8 @@ const PORTFOLIO_LABEL =
   /\b(?:multi[- ]?unit|multiple territor|owners? operating|per owner|portfolio|combined figures)\b/i;
 
 function isPortfolioRow(c: CohortRow): boolean {
-  if (typeof c.outletsCovered === "number" && c.outletsCovered > 1) return true;
+  if (c.figureScope === "combined") return true;
+  if (c.figureScope === "per_outlet") return false; // an explicit answer beats the label
   return PORTFOLIO_LABEL.test(c.label ?? "");
 }
 

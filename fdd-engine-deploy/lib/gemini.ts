@@ -176,14 +176,20 @@ RULES:
   product, because the number is usually the franchisor's to decide. Set discretionary true
   when the filing says "in our sole discretion", "we will determine", or similar. Leave the
   block absent when the filing offers no conversion path.
-- item19.cohorts[].outletsCovered: HOW MANY OUTLETS THIS ROW'S REVENUE FIGURE COVERS.
-  Many Item 19 tables report by market or by owner rather than by outlet, and print the
-  outlet count in a column beside the revenue. Bar-B-Clean's Table 1a lists "Central Texas,
-  Number of Bar-B-Clean Businesses 11, Gross Revenue $1,512,928" — eleven businesses sharing
-  that figure, and no per-business number printed anywhere in the filing. Set outletsCovered
-  to that count. Set it to 1 when the row genuinely describes one outlet. This is the single
-  most load-bearing number in Item 19 after the revenue itself: a combined figure read as
-  one unit overstates the top line by exactly this factor, and every rung below inherits it.
+- item19.cohorts[].figureScope: IS THIS ROW'S REVENUE ONE OUTLET, OR SEVERAL ADDED
+  TOGETHER? Answer the MEANING of the number, not the size of the group it came from. This
+  is not sampleSize and must never be copied from it.
+    "per_outlet" — the figure describes a single outlet. An AVERAGE or MEDIAN across a
+      cohort is per_outlet: "Quintile Two, 19 territories, average gross revenue $594,532"
+      is what ONE territory earned, so figureScope is per_outlet and combinedAcross is null.
+      This is the common case and the easy one to get wrong.
+    "combined"   — the figure is a SUM across several outlets and must be divided before it
+      can describe one. Bar-B-Clean's Table 1a reads "Central Texas, Number of Bar-B-Clean
+      Businesses 11, Gross Revenue $1,512,928" — eleven businesses sharing one figure, with
+      no per-business number printed anywhere in that filing. Set combinedAcross to 11.
+      A row labeled "Total gross revenue" beside a franchisee count is also combined.
+  Ask yourself: would one franchisee recognize this number as their own year? If yes,
+  per_outlet. If it would take several of them to add up to it, combined.
 - item19 tables almost always print a SYSTEM TOTAL beside a PER-OUTLET average. Gorilla
   Property Services prints "Total gross revenue $10,028,981.01" directly above "Average gross
   revenue per franchisee $313,405.66" for the same 32 franchisees. annualRevenue and

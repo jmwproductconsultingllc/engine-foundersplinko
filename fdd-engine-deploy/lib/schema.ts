@@ -48,7 +48,29 @@ export interface Item19Cohort {
    *  median instead of mixing an average numerator with a median denominator. */
   medianAnnualRevenue?: number | null;
   /**
-   * HOW MANY OUTLETS THIS ROW'S REVENUE FIGURE COVERS.
+   * IS THIS ROW'S FIGURE ONE OUTLET, OR SEVERAL ADDED TOGETHER?
+   *
+   * A CATEGORY, deliberately, because a bare count was tried on August 24, 2026
+   * and failed on the first real filing. Asked "how many outlets does this
+   * figure cover", the extractor returned 19 for every Two Maids quintile —
+   * which is how many territories are IN the cohort, and identical to
+   * sampleSize on every row. The figure is an average PER territory, so the
+   * honest answer was 1. Had it shipped, a correct $49,544/mo top line would
+   * have been divided by nineteen.
+   *
+   * The old field invited a restatement of the sample size. This one cannot:
+   * "per_outlet" and "combined" are a judgment about what the number means,
+   * and there is no way to answer it by copying another field.
+   *
+   * ABSENT NEVER DIVIDES. Every stored record predates this, and a missing
+   * scope is treated as per-outlet — the contract those records were built
+   * under.
+   */
+  figureScope?: "per_outlet" | "combined" | null;
+  /** when figureScope is "combined", how many outlets are added together */
+  combinedAcross?: number | null;
+  /**
+   * DEPRECATED — the ambiguous count this replaced. Read by nothing.
    *
    * Not the same as sampleSize, and conflating the two is how Bar-B-Clean
    * shipped a top line 44x too high. Its Item 19 reports by "Location" — a
@@ -431,7 +453,8 @@ export const fddResponseSchema = {
               avgMonthlyRevenue: { type: Type.NUMBER, nullable: true },
               monthlyValues: { type: Type.ARRAY, items: { type: Type.NUMBER } },
               annualRevenue: { type: Type.NUMBER, nullable: true },
-              outletsCovered: { type: Type.NUMBER, nullable: true },
+              figureScope: { type: Type.STRING, enum: ["per_outlet", "combined"], nullable: true },
+              combinedAcross: { type: Type.NUMBER, nullable: true },
               totalAnnualRevenue: { type: Type.NUMBER, nullable: true },
               disclosedCosts: {
                 type: Type.OBJECT,

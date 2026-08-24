@@ -30,7 +30,8 @@ const TWO_MAIDS: CohortRow[] = [
 
 const CHART_12 = row("Chart 12 — 24 Multi-Unit Owners Operating 65 Locations", 118_780, {
   sampleSize: 24,
-  outletsCovered: 65,
+  figureScope: "combined",
+  combinedAcross: 65,
 });
 
 const tiers = (cohorts: CohortRow[]) =>
@@ -50,8 +51,8 @@ describe("the spread a buyer is handed is a single-territory spread", () => {
     expect(tiers([...TWO_MAIDS, CHART_12])!.who).toBe(tiers(TWO_MAIDS)!.who);
   });
 
-  it("outletsCovered is the signal, and it beats the label", () => {
-    const unlabeled = row("Chart 12", 118_780, { outletsCovered: 65 });
+  it("figureScope is the signal, and it beats the label", () => {
+    const unlabeled = row("Chart 12", 118_780, { figureScope: "combined", combinedAcross: 65 });
     expect(tiers([...TWO_MAIDS, unlabeled])!.who).toMatch(/4\.7×/);
   });
 
@@ -61,11 +62,11 @@ describe("the spread a buyer is handed is a single-territory spread", () => {
   });
 
   it("a single-outlet row is never excluded — this must not over-correct", () => {
-    const single = row("Top Performing Territory", 140_000, { outletsCovered: 1 });
+    const single = row("Top Performing Territory", 140_000, { figureScope: "per_outlet" });
     expect(tiers([...TWO_MAIDS, single])!.who).toMatch(/7\.3×/);
   });
 
   it("a brand whose only rows are portfolios makes no spread claim at all", () => {
-    expect(tiers([CHART_12, row("Multi-Unit Owners B", 40_000, { outletsCovered: 8 })])).toBeUndefined();
+    expect(tiers([CHART_12, row("Multi-Unit Owners B", 40_000, { figureScope: "combined", combinedAcross: 8 })])).toBeUndefined();
   });
 });

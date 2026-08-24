@@ -153,10 +153,13 @@ export function perOutletAnnualRevenue(c: Item19Cohort | null | undefined): numb
   if (c == null) return null;
   const annual = c.annualRevenue ?? (c.avgMonthlyRevenue != null ? c.avgMonthlyRevenue * 12 : null);
   if (annual == null || !(annual > 0)) return null;
-  const outlets = c.outletsCovered;
-  if (outlets == null) return annual;
-  if (!Number.isFinite(outlets) || outlets < 1) return null;
-  return annual / outlets;
+  // ONLY AN EXPLICIT "combined" DIVIDES. A missing scope is the contract every
+  // stored record was built under, and an ambiguous count is worse than none —
+  // see the schema note on figureScope for the run where that was proven.
+  if (c.figureScope !== "combined") return annual;
+  const across = c.combinedAcross;
+  if (across == null || !Number.isFinite(across) || across < 1) return null;
+  return annual / across;
 }
 
 export function isRevenueCohort(c: Item19Cohort | null | undefined): boolean {
@@ -354,7 +357,7 @@ export function scoreFdd(
     return annual == null ? null : annual / 12;
   };
   const noteDivision = (c: Item19Cohort) => {
-    const outlets = c.outletsCovered;
+    const outlets = c.figureScope === "combined" ? c.combinedAcross : null;
     if (outlets != null && outlets > 1) {
       notes.push(
         `The Item 19 row this pro forma runs on reports ${outlets} outlets together ("${c.label}"). The top line above is that figure divided by ${outlets} — the revenue of ONE outlet. The filing does not publish a per-outlet number directly.`,
