@@ -54,7 +54,7 @@ import { band } from "./range";
  * a disclosure and is never labeled one — but it outranks a category benchmark,
  * because it is a real local quote rather than our estimate.
  */
-export type Basis = "disclosed" | "buyer" | "derived" | "benchmark" | "inferred";
+export type Basis = "disclosed" | "buyer" | "derived" | "benchmark" | "inferred" | "unverified";
 
 /** Every money figure in the ladder is a range. When a figure is exact, lo === hi.
  *  This is deliberate: it means no consumer ever has to ask "is this one a range?" */
@@ -146,6 +146,15 @@ export interface LadderInput {
    * Renderers must label money with it. Absent means USD.
    */
   currencyCode?: string;
+  /**
+   * Why there is no top line, when there is none. Two situations that look
+   * identical in a null and are not remotely the same to a buyer: a filing with
+   * no Item 19 revenue at all, and a filing whose Item 19 we read and refused.
+   * Gorilla discloses plenty; we declined to build a pro forma on a system
+   * total. Telling a reader "no revenue figure disclosed" about that filing
+   * would be false.
+   */
+  revenueUnavailable?: { reason: string; whatToAsk?: string };
   /** franchised | company | mixed — company-unit revenue is NOT franchisee revenue */
   revenueOwnership?: string;
 
@@ -285,6 +294,7 @@ const pctOf = (a: Money, base: number): Money | null =>
 
 /** Widest basis wins: if any input to a line is a benchmark, the line is a benchmark. */
 function weakest(...b: Basis[]): Basis {
+  if (b.includes("unverified")) return "unverified";
   if (b.includes("inferred")) return "inferred";
   if (b.includes("benchmark")) return "benchmark";
   if (b.includes("derived")) return "derived";
@@ -299,9 +309,26 @@ export function buildCashLadder(input: LadderInput): CashLadder {
   const rev = input.monthlyRevenue;
   const push = (r: Rung) => rungs.push(r);
 
-  const nullRung = (id: RungId, n: number, label: string, kind: RungKind, source: string): Rung => ({
+  // A rung with no number may not claim a provenance. "DERIVED" on an empty
+  // row asserts we calculated something from disclosed figures, which is the
+  // one thing that definitely did not happen.
+  // A rung with no number may not claim a provenance it does not have. But the
+  // two reasons a rung is empty are not the same claim, and collapsing them was
+  // the first version of this fix and it was wrong:
+  //
+  //   NOT APPLICABLE — an all-cash buyer has no debt service. That is a fact
+  //   about the deal, and FE-116 deliberately shaped those rungs. They keep the
+  //   basis they have always had.
+  //
+  //   UNVERIFIED — the filing discloses figures we read and refused. Nothing
+  //   was calculated, so "DERIVED" (our calculation from disclosed figures) is
+  //   a false claim about an empty cell.
+  const nullRung = (
+    id: RungId, n: number, label: string, kind: RungKind, source: string,
+    basis: Basis = "derived",
+  ): Rung => ({
     id, n, label, kind, monthly: null, annual: null, pctOfRevenue: null,
-    basis: "derived", source,
+    basis, source,
   });
 
   /* 1 — gross revenue */
@@ -323,10 +350,16 @@ export function buildCashLadder(input: LadderInput): CashLadder {
       ["dscr", "Debt-service coverage ratio", "ratio"],
       ["payback", "Years to recover the build-out", "ratio"],
     ];
+    const why =
+      input.revenueUnavailable?.reason ?? "No revenue figure disclosed in Item 19";
+    const ask = input.revenueUnavailable?.whatToAsk;
     ids.forEach(([id, label, kind], i) =>
-      push(nullRung(id, i + 1, label, kind, "No revenue figure disclosed in Item 19")),
+      push({
+        ...nullRung(id, i + 1, label, kind, why, "unverified"),
+        ...(i === 0 && ask ? { note: ask } : {}),
+      }),
     );
-    return finalize(rungs, null, "benchmark", false, input.revenueLabel, blockNoteFor(input.costs));
+    return finalize(rungs, null, "unverified", false, input.revenueLabel, blockNoteFor(input.costs));
   }
 
   const revenue = exact(rev);

@@ -90,6 +90,13 @@ export interface ScoringResult {
   rentResolution?: RentResolution | null;
   /** flat monthly fees only (fixedMonthly minus rent) — powers the split line */
   fixedFeesMonthly?: number;
+  /**
+   * Why no pro forma was built, when none was. A filing with no Item 19 revenue
+   * and a filing whose Item 19 we read and refused both produce a null cohort
+   * and are not remotely the same thing to a buyer. The ladder renders this
+   * instead of guessing which happened.
+   */
+  item19Unusable?: { reason: string; whatToAsk?: string };
   notes: string[];
 }
 
@@ -319,8 +326,16 @@ export function scoreFdd(
     );
   }
 
+  let item19Unusable: { reason: string; whatToAsk?: string } | undefined;
+
   const item19IsSuspect = suspectedSystemTotals(cohorts);
   if (item19IsSuspect) {
+    item19Unusable = {
+      reason:
+        "Item 19 discloses revenue, but it reports outlets together rather than one at a time — one table is many times its siblings and divides back into line by its own franchisee count. A per-outlet figure cannot be read from it, and this report will not estimate one.",
+      whatToAsk:
+        "Ask the franchisor for gross revenue PER FRANCHISED OUTLET for the most recent year, and for the Item 20 franchisee roster. Three owners in markets like yours will tell you in ten minutes what this table does not.",
+    };
     // Refuse the whole Item 19 rather than pick the least wrong number.
     cohorts.length = 0;
     reasons.push(
@@ -637,6 +652,12 @@ export function scoreFdd(
       "Franchisee unit economics could not be scored — no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk.",
     );
     if (riskLevel === "Low") riskLevel = "Medium";
+    item19Unusable ??= {
+      reason:
+        "No franchisee revenue figure could be read from Item 19 — this filing publishes company or affiliate results only, or no financial performance representation at all.",
+      whatToAsk:
+        "Ask the franchisor why no franchisee FPR is published, and go straight to the Item 20 roster. A franchisor that will not put franchisee revenue in writing has told you something.",
+    };
   }
 
   if (reasons.length === 0) {
@@ -658,6 +679,7 @@ export function scoreFdd(
     fixedMonthly,
     rentResolution: rentRes ?? null,
     fixedFeesMonthly: flatFees,
+    ...(item19Unusable ? { item19Unusable } : {}),
     notes,
   };
 }

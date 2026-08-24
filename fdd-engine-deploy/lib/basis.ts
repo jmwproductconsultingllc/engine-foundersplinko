@@ -68,6 +68,18 @@ export const BASIS_STYLE: Record<Basis, BasisStyle> = {
     color: "#8194B0",
     definition: "AI classification",
   },
+  /**
+   * Not "we don't know" — "we read the filing, and what it discloses did not
+   * survive a check we can defend." A blank rung carrying this chip is a
+   * deliberate refusal, and for a product whose guidepost is cited accuracy it
+   * is a better answer than a confident number we cannot stand behind.
+   */
+  unverified: {
+    label: "UNVERIFIED",
+    word: "Unverified",
+    color: "#F27A6E",
+    definition: "read, but not verifiable — no figure is shown rather than a wrong one",
+  },
 };
 
 /**
