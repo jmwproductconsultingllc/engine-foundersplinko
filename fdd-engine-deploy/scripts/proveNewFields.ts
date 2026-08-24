@@ -30,10 +30,41 @@ if (!pdfPath) {
   console.error("usage: npx tsx scripts/proveNewFields.ts <file.pdf> [--json out.json]");
   process.exit(1);
 }
-if (!process.env.GEMINI_API_KEY) {
-  console.error("GEMINI_API_KEY is not set. This script makes a real extraction call.");
+// A KEY THAT IS OBVIOUSLY NOT A KEY SHOULD FAIL IN ONE LINE.
+//
+// Twice on August 24, 2026 this ran with a placeholder — first the literal
+// string "...", then "<paste your key>" left in the shell by an earlier export
+// that a failed `read` never overwrote. Both times the output was a two-page
+// cascade: Gemini's 400, the failover to Claude, Claude's missing-key error,
+// and then the whole thing repeated inside a wrapper message. The real fault —
+// nobody ever typed a key — appeared nowhere in it.
+//
+// Cheap to check, and the check is the message.
+const KEYS = ["GEMINI_API_KEY", "ANTHROPIC_API_KEY"] as const;
+const present = KEYS.filter((k) => (process.env[k] ?? "").trim().length > 0);
+if (present.length === 0) {
+  console.error(
+    `No API key set. This script makes a real extraction call and needs one of:\n` +
+      `  GEMINI_API_KEY     (primary provider)\n` +
+      `  ANTHROPIC_API_KEY  (fallback provider)\n`,
+  );
   process.exit(1);
 }
+for (const k of present) {
+  const v = (process.env[k] ?? "").trim();
+  const looksPlaceholder =
+    /[<>]/.test(v) || /\s/.test(v) || /^\.{2,}$/.test(v) || /paste|your.?key|xxx|example/i.test(v) || v.length < 20;
+  if (looksPlaceholder) {
+    console.error(
+      `${k} is set but does not look like a key: ${JSON.stringify(v.slice(0, 24))}${v.length > 24 ? "…" : ""}\n\n` +
+        `If a previous command left a placeholder in this shell, it is still there —\n` +
+        `a failed \`read\` does not clear an earlier export. Run:\n\n` +
+        `  unset ${KEYS.join(" ")}\n`,
+    );
+    process.exit(1);
+  }
+}
+console.log(`using ${present.join(" + ")}`);
 
 const jsonAt = rest.indexOf("--json");
 const outPath = jsonAt >= 0 ? rest[jsonAt + 1] : null;
