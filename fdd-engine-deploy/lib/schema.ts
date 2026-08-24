@@ -48,6 +48,23 @@ export interface Item19Cohort {
    *  median instead of mixing an average numerator with a median denominator. */
   medianAnnualRevenue?: number | null;
   /**
+   * HOW MANY OUTLETS THIS ROW'S REVENUE FIGURE COVERS.
+   *
+   * Not the same as sampleSize, and conflating the two is how Bar-B-Clean
+   * shipped a top line 44x too high. Its Item 19 reports by "Location" — a
+   * market — and prints a "Number of Bar-B-Clean Businesses" column beside
+   * each one: Central Texas is 11 businesses sharing $1,512,928. The filing
+   * publishes NO per-business figure anywhere; the only way to one is
+   * division, and the count needed to divide is printed right there.
+   *
+   * 1 means the figure describes a single outlet, which is what a pro forma
+   * needs. Greater than 1 means it is combined and MUST be divided before it
+   * can be a top line. Absent means unknown, and unknown is treated as 1 only
+   * because every stored record predates this field — the detector in
+   * scoring.ts exists to catch the ones where that assumption is wrong.
+   */
+  outletsCovered?: number | null;
+  /**
    * The SYSTEM total for this cohort — the sum across every outlet in it, which
    * Item 19 tables routinely print in the row above the per-outlet average.
    * Never a per-unit figure and never the top line. It lives here so that
@@ -392,6 +409,7 @@ export const fddResponseSchema = {
               avgMonthlyRevenue: { type: Type.NUMBER, nullable: true },
               monthlyValues: { type: Type.ARRAY, items: { type: Type.NUMBER } },
               annualRevenue: { type: Type.NUMBER, nullable: true },
+              outletsCovered: { type: Type.NUMBER, nullable: true },
               totalAnnualRevenue: { type: Type.NUMBER, nullable: true },
               disclosedCosts: {
                 type: Type.OBJECT,

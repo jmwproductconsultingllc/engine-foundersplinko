@@ -129,6 +129,29 @@ export function amortize(principal: number, annualRatePct: number, years: number
  * records, and a legacy cohort with no tag is not evidence of a bad tag. An
  * EXPLICIT non-revenue tag disqualifies.
  */
+/**
+ * The revenue ONE outlet earned, which is the only figure a pro forma may use.
+ *
+ * Bar-B-Clean's Item 19 reports by market: "Central Texas, 11 Bar-B-Clean
+ * Businesses, $1,512,928". Read as one unit that is $126,077 a month. Divided
+ * by the count printed in the next column it is $137,539 a YEAR. The filing
+ * publishes no per-business figure at all — division is the only route to one,
+ * and the divisor is sitting right there in the table.
+ *
+ * Absent outletsCovered means a record extracted before the field existed, and
+ * those are treated as per-unit because that is what the old contract assumed.
+ * suspectedSystemTotals() is the net under that assumption.
+ */
+export function perOutletAnnualRevenue(c: Item19Cohort | null | undefined): number | null {
+  if (c == null) return null;
+  const annual = c.annualRevenue ?? (c.avgMonthlyRevenue != null ? c.avgMonthlyRevenue * 12 : null);
+  if (annual == null || !(annual > 0)) return null;
+  const outlets = c.outletsCovered;
+  if (outlets == null) return annual;
+  if (!Number.isFinite(outlets) || outlets < 1) return null;
+  return annual / outlets;
+}
+
 export function isRevenueCohort(c: Item19Cohort | null | undefined): boolean {
   return c != null && (c.revenueType == null || c.revenueType === "gross_sales");
 }
@@ -311,9 +334,23 @@ export function scoreFdd(
 
   let midSource: CohortEconomics["source"] = null;
   let midRevenue: number | null = null;
-  if (midRaw?.avgMonthlyRevenue != null) {
-    midRevenue = midRaw.avgMonthlyRevenue;
+  const perOutletMonthly = (c: Item19Cohort | null | undefined): number | null => {
+    const annual = perOutletAnnualRevenue(c);
+    return annual == null ? null : annual / 12;
+  };
+  const noteDivision = (c: Item19Cohort) => {
+    const outlets = c.outletsCovered;
+    if (outlets != null && outlets > 1) {
+      notes.push(
+        `The Item 19 row this pro forma runs on reports ${outlets} outlets together ("${c.label}"). The top line above is that figure divided by ${outlets} — the revenue of ONE outlet. The filing does not publish a per-outlet number directly.`,
+      );
+    }
+  };
+
+  if (midRaw != null && perOutletMonthly(midRaw) != null) {
+    midRevenue = perOutletMonthly(midRaw);
     midSource = disclosedSource(midRaw);
+    noteDivision(midRaw);
   } else if (!item19IsSuspect && fdd.item19?.networkAverageMonthly != null) {
     // A tier cohort may have matched by keyword but carried no value (the
     // median / blank-cohort case) — the NUMBER is still the network average, so
@@ -341,8 +378,9 @@ export function scoreFdd(
     );
     if (franchised) {
       midRaw = franchised;
-      midRevenue = franchised.avgMonthlyRevenue;
+      midRevenue = perOutletMonthly(franchised);
       midSource = disclosedSource(franchised);
+      noteDivision(franchised);
       if (franchised.sampleSize != null && franchised.sampleSize <= 5) {
         reasons.push(
           `Pro forma is built on only ${franchised.sampleSize} franchised location${
@@ -353,7 +391,7 @@ export function scoreFdd(
     }
   }
 
-  const bottomRevenue = bottomRaw?.avgMonthlyRevenue ?? null;
+  const bottomRevenue = perOutletMonthly(bottomRaw);
 
   // Currency is reported, never converted. The franchisor's own parity claim —
   // Gorilla argues a Canadian franchisee charges $250 CAD where a US one

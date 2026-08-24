@@ -29,7 +29,13 @@
 import { describe, it, expect } from "vitest";
 import fs from "node:fs";
 import path from "node:path";
-import { scoreFdd, isRevenueCohort, suspectedSystemTotals, resolveItem19Currency } from "./scoring";
+import {
+  scoreFdd,
+  isRevenueCohort,
+  suspectedSystemTotals,
+  resolveItem19Currency,
+  perOutletAnnualRevenue,
+} from "./scoring";
 import type { ExtractedFDD, Item19Cohort } from "./schema";
 
 const load = (slug: string) =>
@@ -153,5 +159,89 @@ describe("a system total is not a unit", () => {
   it("ELLIE is untouched by the total guard — it has a different disease", () => {
     expect(suspectedSystemTotals(load("ellie-mental-health").item19!.cohorts)).toBe(false);
     expect(scoreFdd(load("ellie-mental-health")).midCohort).not.toBeNull();
+  });
+});
+
+/**
+ * BAR-B-CLEAN — the third distinct way an Item 19 top line goes wrong, and the
+ * only one where the filing publishes no correct figure at all.
+ *
+ * Confirmed against the source FDD on August 24, 2026. Item 19 Table 1a reports
+ * by "Location" — a MARKET — and prints a "Number of Bar-B-Clean Businesses"
+ * column beside each one:
+ *
+ *     Central Texas   11 businesses   $1,512,928
+ *     Ventura          2 businesses     $251,944
+ *     San Diego        8 businesses     $577,330
+ *     ...
+ *
+ * Eight full-time franchised Locations, 38 businesses, $4,122,303 combined.
+ * The per-business average is $108,482 a year — $9,040 a month. The shipped
+ * top line was $399,122 a MONTH. Forty-four times too high, in the optimistic
+ * direction, on a report that tells someone whether to spend six figures.
+ *
+ * Ellie read a count column as revenue. Gorilla took a printed system-total row
+ * when the per-franchisee average was printed directly beneath it. Bar-B-Clean
+ * is neither: this filing prints NO per-outlet figure anywhere. The only route
+ * to one is division, and the divisor is sitting in the next column.
+ */
+describe("a combined row is not an outlet", () => {
+  const cohort = (over: Partial<Item19Cohort>): Item19Cohort =>
+    ({ label: "Central Texas", revenueType: "gross_sales", ownership: "franchised", ...over }) as Item19Cohort;
+
+  it("divides by the outlet count the filing prints", () => {
+    const c = cohort({ annualRevenue: 1_512_928, outletsCovered: 11, avgMonthlyRevenue: 126_077 });
+    expect(perOutletAnnualRevenue(c)).toBeCloseTo(137_538.9, 0);
+  });
+
+  it("a genuine single-outlet row is untouched", () => {
+    const c = cohort({ annualRevenue: 381_674, outletsCovered: 1, avgMonthlyRevenue: 31_806 });
+    expect(perOutletAnnualRevenue(c)).toBe(381_674);
+  });
+
+  it("a legacy record with no count keeps the old contract", () => {
+    const c = cohort({ annualRevenue: 500_000, avgMonthlyRevenue: 41_667 });
+    expect(perOutletAnnualRevenue(c)).toBe(500_000);
+  });
+
+  it("a nonsense count is refused rather than applied", () => {
+    expect(perOutletAnnualRevenue(cohort({ annualRevenue: 500_000, outletsCovered: 0 }))).toBeNull();
+    expect(perOutletAnnualRevenue(cohort({ annualRevenue: 500_000, outletsCovered: -3 }))).toBeNull();
+  });
+
+  it("the top line divides, and the report says out loud that it did", () => {
+    const base = load("code-ninjas");
+    const fdd = {
+      ...base,
+      item19: {
+        ...base.item19,
+        networkAverageMonthly: null,
+        cohorts: [
+          {
+            label: "Central Texas",
+            ownership: "franchised",
+            revenueType: "gross_sales",
+            basis: "Item 19 Table 1a",
+            annualRevenue: 1_512_928,
+            avgMonthlyRevenue: 126_077,
+            outletsCovered: 11,
+            sampleSize: 11,
+          },
+        ],
+      },
+    } as unknown as ExtractedFDD;
+    const s = scoreFdd(fdd);
+    expect(s.midCohort!.monthlyRevenue).toBeCloseTo(137_538.9 / 12, 0);
+    expect(s.notes.join(" ")).toMatch(/reports 11 outlets together/i);
+    expect(s.notes.join(" ")).toMatch(/revenue of ONE outlet/i);
+  });
+
+  it("BAR-B-CLEAN's stored record is still refused — it predates the count field", () => {
+    // The record carries the combined figure with no outletsCovered, so nothing
+    // can divide it. Refusal is the correct outcome until it is re-extracted.
+    const s = scoreFdd(load("bar-b-clean"));
+    expect(s.midCohort).toBeNull();
+    expect(s.riskReasons.join(" ")).toMatch(/SYSTEM TOTALS/i);
+    expect(s.riskLevel).not.toBe("Low");
   });
 });
