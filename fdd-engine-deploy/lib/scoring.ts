@@ -432,8 +432,9 @@ export function scoreFdd(
     // FE-143 · say the true thing. "Could not be resolved" and "the filing says
     // there is nothing to resolve" are different statements, and a buyer who
     // reads the first one goes looking for a number that does not exist.
+    const ev = premisesModel(fdd).evidence;
     notes.push(
-      "This filing states the business is operated from the franchisee's home and requires no site approval, so no premises rent is modeled. Any vehicle storage or equipment parking disclosed in Item 7 is charged; confirm what you will actually pay.",
+      `${ev ? `This filing says: "${ev}"` : "This filing describes a business run without leased premises."} No premises rent is modeled, because a category occupancy band would invent a lease the filing does not describe. Read that sentence as written — a filing saying MOST franchisees work from home is not telling you that you will — and confirm with the franchisor what space you would actually need.`,
     );
   } else if (rentRes == null) {
     notes.push("Rent could not be resolved from the FDD or benchmarks; fixed costs EXCLUDE rent and the report labels the margin accordingly.");

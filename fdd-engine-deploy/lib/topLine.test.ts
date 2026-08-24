@@ -255,3 +255,77 @@ describe("a combined row is not an outlet", () => {
     expect(s.riskLevel).not.toBe("Low");
   });
 });
+
+/**
+ * GORILLA, RE-EXTRACTED — the P0 fixed at the source.
+ *
+ * These figures are transcribed from a live extraction run on August 24, 2026,
+ * against the real gorillaservices.pdf, using the figureScope instruction that
+ * replaced the ambiguous outletsCovered count.
+ *
+ * The stored record carries $10,028,981.01 for Table No. 1 — the "Total gross
+ * revenue" row for 32 franchisees, read as one franchisee's year. The re-run
+ * returns $313,405.66, which is the "Average gross revenue per franchisee" row
+ * printed directly beneath it, tagged per_outlet.
+ *
+ * Table No. 2 moves the same way: $407,430.76 combined across 2 multi-unit
+ * franchisees becomes $203,715.38 each.
+ *
+ * So the guard that refuses this filing is no longer needed for it — not
+ * because the guard was wrong, but because the input stopped being wrong. That
+ * is the outcome to want: suspectedSystemTotals is a net under a bad read, and
+ * a net nobody falls into is a net doing its job.
+ */
+describe("Gorilla re-extracted — a correct top line, no refusal", () => {
+  const reExtracted = (): ExtractedFDD =>
+    ({
+      conceptType: "home_trade_services",
+      ongoingFees: { royaltyPct: 6, brandFundPct: 2, localAdPct: null, flatMonthlyFees: [] },
+      item17: { initialInvestmentLow: 128_950, initialInvestmentHigh: 214_500, lineItems: [], sourcePage: "Item 7" },
+      hiddenCosts: [],
+      documentCheck: { appearsComplete: true, appearsScanned: false, itemsFound: ["Item 7", "Item 19"], warnings: [] },
+      item19: {
+        hasItem19: true,
+        unitsReported: 32,
+        sourcePage: "Item 19, p.36-39",
+        notes: "All dollar amounts in Item 19 are presented in CAD and not USD.",
+        networkAverageMonthly: null,
+        cohorts: [
+          { label: "Canadian Franchisees Gross Revenue (Table No. 1)", ownership: "franchised", revenueType: "gross_sales", basis: "32 franchisees", annualRevenue: 313_405.66, avgMonthlyRevenue: 313_405.66 / 12, sampleSize: 32, figureScope: "per_outlet" },
+          { label: "Canadian Multi-Unit Combined Gross Revenue (Table No. 2)", ownership: "franchised", revenueType: "gross_sales", basis: "2 multi-unit", annualRevenue: 203_715.38, avgMonthlyRevenue: 203_715.38 / 12, sampleSize: 2, figureScope: "per_outlet" },
+          { label: "Canadian Franchisees Profit and Loss (Table No. 4)", ownership: "franchised", revenueType: "net_or_ebitda", basis: "6 franchisees", annualRevenue: 180_834, avgMonthlyRevenue: 180_834 / 12, sampleSize: 6, figureScope: "per_outlet" },
+        ],
+      },
+    }) as unknown as ExtractedFDD;
+
+  it("the top line is the per-franchisee average, not the system total", () => {
+    const s = scoreFdd(reExtracted());
+    expect(s.midCohort).not.toBeNull();
+    expect(s.midCohort!.monthlyRevenue).toBeCloseTo(313_405.66 / 12, 0);
+    // The number the stored record shipped, for contrast.
+    expect(s.midCohort!.monthlyRevenue).toBeLessThan(10_028_981 / 12);
+  });
+
+  it("the system-total guard no longer fires — the input stopped being wrong", () => {
+    expect(suspectedSystemTotals(reExtracted().item19!.cohorts)).toBe(false);
+    expect(scoreFdd(reExtracted()).item19Unusable).toBeUndefined();
+  });
+
+  it("the profit table still cannot become the top line", () => {
+    expect(scoreFdd(reExtracted()).midCohort!.label).not.toMatch(/profit and loss/i);
+  });
+
+  it("per_outlet never divides, whatever the sample size says", () => {
+    // 32 in the cohort, and the figure is one franchisee's year. The first
+    // version of this field would have returned 32 here and divided by it.
+    const t1 = reExtracted().item19!.cohorts[0];
+    expect(perOutletAnnualRevenue(t1)).toBeCloseTo(313_405.66, 2);
+  });
+
+  it("CAD still resolves — the field was absent, the note carried it", () => {
+    // item19.currency came back undefined on the live run. The fallback in
+    // lib/currency.ts reads the sentence the extractor DID capture.
+    expect(resolveItem19Currency(reExtracted())).toBe("CAD");
+    expect(scoreFdd(reExtracted()).notes.join(" ")).toMatch(/CAD/);
+  });
+});

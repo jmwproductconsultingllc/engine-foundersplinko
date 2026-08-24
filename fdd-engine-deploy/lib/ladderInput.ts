@@ -214,9 +214,11 @@ export function buildLadderInput(
       premises.homeBased && rentMonthly == null ? "disclosed" : rentBasisFor(rentRes),
     rentSource:
       premises.homeBased && rentMonthly == null
-        ? `This filing states the business is operated from the franchisee's home and requires no site approval, so no premises rent is charged${
-            premises.evidence ? ` ("${premises.evidence}")` : ""
-          }. Any vehicle storage or parking cost disclosed in Item 7 is charged above; confirm what you will actually pay to store equipment.`
+        ? `${
+            premises.evidence
+              ? `This filing says: "${premises.evidence}"`
+              : "This filing describes a business run without leased premises."
+          } No premises rent is charged here, because applying a category occupancy band would invent a lease the filing does not describe. Any vehicle storage or parking disclosed in Item 7 is charged above. Read the sentence quoted here as written — "most franchisees" is a different claim from "you will" — and confirm with the franchisor what you would actually pay for space.`
         : rentRes?.source ?? (rentMonthly != null ? "FDD rent disclosure" : "Not disclosed"),
     costs,
     buildoutMidpoint: s?.buildoutMidpoint ?? null,

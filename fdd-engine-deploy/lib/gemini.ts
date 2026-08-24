@@ -199,15 +199,19 @@ RULES:
   revenue set are not always the same population, and downstream code must know it is
   looking at an unresolved figure.
 - item19.currency: the three-letter code the FPR is denominated in, when the filing says so.
-  Gorilla states "All dollar amounts are presented in CAD and not USD." Report exactly what
-  the filing says and never convert.
+  Gorilla states "All dollar amounts are presented in CAD and not USD" — that sentence means
+  item19.currency is "CAD". Putting it only in item19.notes is NOT enough: notes are prose
+  nothing can compute with, and a figure whose currency lives only in a sentence renders with
+  a US dollar sign in front of it. Set the FIELD. Report what the filing says, never convert.
 - item19.cohorts[].disclosedCosts: Item 19 charts frequently print COST columns beside
   the revenue column, repeated per cohort — read every chart, not only the revenue line.
   Map the franchisor's own column headings: Direct Labor / Labor / Payroll -> laborAnnual;
   Cleaning Materials / Cost of Materials / Product Cost / Food Cost / COGS / Cost of Goods
   Sold -> cogsAnnual; Total Cost of Sales / Total COS -> totalCostOfSalesAnnual; Gross
   Margin % -> grossMarginPct. Report ANNUAL dollars as printed and attach the chart's
-  printed page. Put each chart's figures on ITS OWN cohort — never carry one cohort's costs
+  printed page. Attach these ONLY to a cohort reporting GROSS SALES. A profit-and-loss table
+  is not a cost column beside a revenue figure; its lines belong to that table, and hanging
+  them on it puts cost data on the one row that can never become a top line. Put each chart's figures on ITS OWN cohort — never carry one cohort's costs
   onto another and never average them. If a cost-shaped column does not match any of these
   names, still report it in notes rather than dropping it silently. Leave the block absent
   when the charts genuinely print revenue only.

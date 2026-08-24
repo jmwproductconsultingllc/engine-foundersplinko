@@ -89,26 +89,41 @@ async function main() {
 
   // 1 · FE-143 — is this business run from premises at all?
   show("1 · premises  (FE-143)", (x as unknown as Record<string, unknown>).premises,
-    "Expect homeBased false for Two Maids — it leases 1,500–2,000 sq ft. A null block is a MISS only if the filing says otherwise.");
+    "Does the filing say the business runs from premises at all? A hedged answer — \"the majority operate from a home office\" — is not the same claim as \"you will run it from your home\", and the evidence string is what carries that difference.");
 
   // 2 · FE-140 — the Item 19 cost columns
   const cohorts = x.item19?.cohorts ?? [];
   show("2 · item19.cohorts[].disclosedCosts  (FE-140)",
     cohorts.map((c) => ({ label: c.label, disclosedCosts: (c as unknown as Record<string, unknown>).disclosedCosts })),
-    "Two Maids discloses Direct Labor and Cleaning Materials per cohort across twelve charts, pp. 51–62. 2nd Quintile should read labor 254,990 and cogs 22,471. ANY cohort coming back without them is the miss this run exists to find.");
+    "Cost columns beside the revenue column, per cohort. All-null on a revenue-only table is correct. Costs landing on a PROFIT table are inert — that cohort can never be the top line — but they are noise, and noise on the wrong row is how the next reader is misled.");
 
-  // 3 · Bar-B-Clean class — how many outlets does each row cover?
-  show("3 · item19.cohorts[].outletsCovered",
-    cohorts.map((c) => ({ label: c.label, outletsCovered: (c as unknown as Record<string, unknown>).outletsCovered, sampleSize: c.sampleSize })),
-    "Every quintile row covers 19 territories but reports PER territory, so outletsCovered should be 1 — not 19. Chart 12 is the opposite: 24 owners, 65 locations, so 65. Getting 19 on the quintiles would be worse than getting nothing.");
+  // 3 · Bar-B-Clean class — is each row one outlet, or several added together?
+  show("3 · item19.cohorts[].figureScope",
+    cohorts.map((c) => {
+      const r = c as unknown as Record<string, unknown>;
+      return {
+        label: c.label,
+        figureScope: r.figureScope ?? "(absent)",
+        combinedAcross: r.combinedAcross ?? null,
+        revenueType: c.revenueType,
+        sampleSize: c.sampleSize,
+        annualRevenue: c.annualRevenue,
+      };
+    }),
+    "An AVERAGE across a cohort is per_outlet however many are in it. A SUM across several outlets is combined, with combinedAcross set. ABSENT on every row means the instruction did not land — and absent never divides, so the failure is silent.");
 
   // 4 · Gorilla class — currency
   show("4 · item19.currency", (x.item19 as unknown as Record<string, unknown>)?.currency,
-    "Expect USD or null for a US filing. This is here so the field is exercised, not because Two Maids is at risk.");
+    "A non-US filing MUST populate this. lib/currency.ts falls back to sniffing item19.notes, so check the notes below before calling an absent field a miss.");
 
   // 5 · FE-141 — the second buyer
   show("5 · item17.conversion  (FE-141)", (x.item17 as unknown as Record<string, unknown>)?.conversion,
-    "Ground truth from p. 21: totals 93,440–149,890 standard and 93,440–139,890 conversion, discount 0–10,000, and footnote 9's 'in our sole discretion … 10% of the total Gross Revenue for the previous year … in no event will the discount exceed $10,000.'");
+    "ABSENT is correct for a filing with no conversion path — this doubles as the negative control.");
+
+  // The currency fallback reads this, so an absent currency field is only a
+  // miss if the note does not carry the sentence either.
+  show("4b · item19.notes  (the currency fallback's input)", x.item19?.notes ?? null,
+    "lib/currency.ts matches /presented|denominated|reported|expressed in ([A-Z]{3})/ against this.");
 
   if (outPath) {
     writeFileSync(outPath, JSON.stringify(x, null, 2));
