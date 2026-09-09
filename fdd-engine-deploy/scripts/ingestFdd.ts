@@ -28,6 +28,10 @@
 //
 // The determinism cache is keyed on the file hash, so re-running the same PDF
 // costs nothing and returns byte-identical extraction.
+// BRAND-JSON-EXEMPT: writes a .result.json snapshot and a batch JSONL line, never a
+// data/brands record. scripts/jsonl-to-brands.ts is the writer that mints records from
+// this output, and it is held to this contract. Caught by the detector because the
+// header above names data/brands in order to say it does NOT write there.
 
 import { readFileSync, writeFileSync, appendFileSync, mkdirSync } from "node:fs";
 import { createHash } from "node:crypto";

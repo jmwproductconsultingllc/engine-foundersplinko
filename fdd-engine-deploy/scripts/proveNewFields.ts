@@ -21,6 +21,10 @@
 // public URL.
 //
 // COST: one extraction call on one document.
+// BRAND-JSON-EXEMPT: writes only an optional extraction dump for inspection, never a
+// data/brands record. It exists to prove the extractor populates the new schema fields
+// and stops there. Caught by the detector because the header names data/brands in
+// order to say it does NOT write one.
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { extractFdd } from "../lib/extractFdd";
