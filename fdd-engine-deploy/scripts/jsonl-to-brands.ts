@@ -88,6 +88,14 @@ export const REGISTRY: Record<string, RegistryEntry> = {
   // filename intentionally neutral ("joshua-tree.pdf"); confirm, then set slug.
   "joshua-tree": { slug: "joshua-tree-experts", category: "Tree & lawn care", vertical: "Home & Property Services", sourceFddYear: null },
   "cabinet-iq": { slug: "cabinet-iq", category: "Cabinet remodel", vertical: "Home & Property Services", sourceFddYear: null },
+  // ── Re-mint (2026-09-09) ──
+  // the-back-nine was minted from an older extraction whose Item 19 cohorts carry
+  // no page citation and labels the current cohort selector does not match, so the
+  // catalog page recomputes to a null midCohort and renders every cash-ladder rung
+  // as "not disclosed" while the Item 19 block above it prints $19,770/mo. The live
+  // upload path reads the same PDF and produces four properly cited cohorts. This
+  // entry makes the record re-mintable from b9-fdd.pdf instead of hand-built.
+  "b9-fdd": { slug: "the-back-nine", category: "Golf & Simulators", vertical: "Sports & Entertainment", sourceFddYear: 2026 },
 };
 
 interface BatchLine {

@@ -83,7 +83,11 @@ async function one(pdfPath: string) {
 
   if (outJsonl) {
     mkdirSync(path.dirname(outJsonl), { recursive: true });
-    appendFileSync(outJsonl, JSON.stringify({ file: `${stem}.pdf`, status: "ok", report }) + "\n");
+    // STATUS TOKEN IS A CONTRACT, NOT A LABEL. scripts/jsonl-to-brands.ts skips any
+    // line whose status is not exactly "SUCCESS", and it skips it BEFORE the
+    // no-registry-entry report, so a mismatch here mints nothing and says nothing.
+    // This wrote "ok" and cost a silent zero-file run on 2026-09-09.
+    appendFileSync(outJsonl, JSON.stringify({ file: `${stem}.pdf`, status: "SUCCESS", report }) + "\n");
     console.log(`   batch line appended → ${outJsonl}`);
   }
 }
