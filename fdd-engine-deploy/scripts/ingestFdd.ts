@@ -87,7 +87,24 @@ async function one(pdfPath: string) {
     // line whose status is not exactly "SUCCESS", and it skips it BEFORE the
     // no-registry-entry report, so a mismatch here mints nothing and says nothing.
     // This wrote "ok" and cost a silent zero-file run on 2026-09-09.
-    appendFileSync(outJsonl, JSON.stringify({ file: `${stem}.pdf`, status: "SUCCESS", report }) + "\n");
+    // A REFUSAL MUST REACH THE STATUS TOKEN, NOT JUST THE CONSOLE.
+    // scoring.item19Unusable is the engine declining to state a per-outlet figure.
+    // Until 2026-09-10 that refusal printed to stdout and the line still said
+    // "SUCCESS" — and scripts/jsonl-to-brands.ts gates on nothing but that token,
+    // so it would mint a public, purchasable page for a filing the engine had just
+    // refused to score. RealClean Aircraft Detailing (one affiliate location,
+    // sampleSize 1, no franchisee data at all) is the case that caught it.
+    const refusal = (report.scoring as { item19Unusable?: { reason: string; whatToAsk?: string } })
+      ?.item19Unusable;
+    appendFileSync(
+      outJsonl,
+      JSON.stringify({
+        file: `${stem}.pdf`,
+        status: refusal ? "REFUSED" : "SUCCESS",
+        ...(refusal ? { refusal } : {}),
+        report,
+      }) + "\n",
+    );
     console.log(`   batch line appended → ${outJsonl}`);
   }
 }

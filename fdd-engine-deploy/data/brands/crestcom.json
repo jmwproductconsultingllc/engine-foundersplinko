@@ -1,0 +1,716 @@
+{
+ "slug": "crestcom",
+ "brandName": "Crestcom",
+ "category": "Leadership training",
+ "vertical": "B2B & Business Services",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-09-10T21:31:59.961Z",
+ "sourceStem": "crestcom",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Crestcom",
+   "franchisorEntity": "Crestcom International, LLC",
+   "headquarters": "Greenwood Village, Colorado",
+   "brandBackground": "",
+   "leadership": [
+    {
+     "name": "Julie Draguns",
+     "role": "President and Chief Financial Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Usmaan Khan",
+     "role": "Executive Vice President and General Counsel",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Eduardo Pinzon",
+     "role": "Director of Operations",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Amy Schirmer",
+     "role": "Director of New Product Development",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Cara Rufo",
+     "role": "Director of Marketing",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Dana Hise",
+     "role": "Director of Franchise Development",
+     "background": "",
+     "whyItMatters": ""
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "75th \u2013 99.99th percentile of U.S. and International Franchisees",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 45635,
+      "basis": "Average Gross Sales",
+      "annualRevenue": 547615.95,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p. 50",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 15,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "50th \u2013 74.99th percentile of U.S. and International Franchisees",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 20616,
+      "basis": "Average Gross Sales",
+      "annualRevenue": 247390.87,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p. 50",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 15,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "25th \u2013 49.99th percentile of U.S. and International Franchisees",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 9677,
+      "basis": "Average Gross Sales",
+      "annualRevenue": 116123.37,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p. 50",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 15,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "0 \u2013 24.99th percentile of U.S. and International Franchisees",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 3830,
+      "basis": "Average Gross Sales",
+      "annualRevenue": 45960.55,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p. 50",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 15,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "Combined Average - U.S. and International Franchisees",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 19939,
+      "basis": "Average Gross Sales",
+      "annualRevenue": 239272.69,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p. 50",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 60,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "Gross Margin Per Participant Attending the Crestcom LEADER Program",
+      "ownership": "franchised",
+      "revenueType": "other",
+      "avgMonthlyRevenue": 347,
+      "basis": "Gross Revenue Margin",
+      "annualRevenue": 4169.03,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 38.85,
+       "grossMarginPct": 79.41,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p. 52",
+       "totalCostOfSalesAnnual": 1080.97
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": null,
+      "totalAnnualRevenue": null
+     }
+    ],
+    "notes": "",
+    "sourcePage": "Item 19, p. 50-52",
+    "networkAverageMonthly": null,
+    "unitsReported": 60
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 75000,
+      "low": 75000
+     },
+     {
+      "category": "Distribution Fee",
+      "recurring": true,
+      "notes": "",
+      "high": 2625,
+      "low": 2625
+     },
+     {
+      "category": "Office Lease Costs",
+      "recurring": true,
+      "notes": "",
+      "high": 500,
+      "low": 0
+     },
+     {
+      "category": "Initial Inventory",
+      "recurring": false,
+      "notes": "",
+      "high": 0,
+      "low": 0
+     },
+     {
+      "category": "Equipment and Supplies",
+      "recurring": false,
+      "notes": "",
+      "high": 2000,
+      "low": 575
+     },
+     {
+      "category": "Insurance",
+      "recurring": true,
+      "notes": "",
+      "high": 900,
+      "low": 350
+     },
+     {
+      "category": "Travel and Living Expenses During Initial Training",
+      "recurring": false,
+      "notes": "",
+      "high": 2569,
+      "low": 0
+     },
+     {
+      "category": "Seminar Expense",
+      "recurring": true,
+      "notes": "",
+      "high": 1250,
+      "low": 0
+     },
+     {
+      "category": "Legal and Accounting",
+      "recurring": false,
+      "notes": "",
+      "high": 1500,
+      "low": 500
+     },
+     {
+      "category": "Shipping Costs; Initial Inventory",
+      "recurring": false,
+      "notes": "",
+      "high": 200,
+      "low": 0
+     },
+     {
+      "category": "Marketing Program",
+      "recurring": true,
+      "notes": "",
+      "high": 9600,
+      "low": 7800
+     },
+     {
+      "category": "Additional Funds (3 months)",
+      "recurring": true,
+      "notes": "",
+      "high": 8775,
+      "low": 5000
+     }
+    ],
+    "sourcePage": "Item 7, p. 14",
+    "initialInvestmentHigh": 104919,
+    "initialInvestmentLow": 91850
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Distribution Fee",
+      "source": "Item 6, p. 6",
+      "monthlyAmount": 875
+     },
+     {
+      "name": "Customer Relationship Management Software",
+      "source": "Item 6, p. 7",
+      "monthlyAmount": 48
+     }
+    ],
+    "brandFundPct": null,
+    "localAdPct": null,
+    "percentageFees": [
+     {
+      "label": "Royalty Fee",
+      "pct": 19.75,
+      "source": "Item 6, p. 6"
+     }
+    ],
+    "royaltyPct": 19.75
+   },
+   "hiddenCosts": [
+    {
+     "name": "New Materials Surcharge",
+     "description": "",
+     "source": "Item 6, p. 6",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Crestcom Next Generation Sales Academy Program Surcharge",
+     "description": "",
+     "source": "Item 6, p. 6",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "360 Assessment",
+     "description": "",
+     "source": "Item 6, p. 7",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 57-63",
+    "closedLastYear": 14,
+    "openedLastYear": 12,
+    "totalUnits": 168,
+    "transfersLastYear": 6,
+    "unitsStartOfYear": 170
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p. 4"
+    }
+   ],
+   "conceptType": "other",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "cash": 295185,
+      "currentAssets": 1739760,
+      "currentLiabilities": 1160514,
+      "deferredRevenue": 290350,
+      "netIncome": -859027,
+      "netWorth": 2887843,
+      "relatedPartyDebt": 188420,
+      "revenue": 5158164,
+      "totalAssets": 12486592,
+      "totalLiabilities": 9598749
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "cash": 337479,
+      "currentAssets": 1380688,
+      "currentLiabilities": 910987,
+      "deferredRevenue": 341667,
+      "netIncome": -625865,
+      "netWorth": 3746870,
+      "relatedPartyDebt": 188420,
+      "revenue": 5338904,
+      "totalAssets": 12150743,
+      "totalLiabilities": 8403873
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "cash": 304672,
+      "currentAssets": 1587606,
+      "currentLiabilities": 1101039,
+      "deferredRevenue": 0,
+      "netIncome": -329810,
+      "netWorth": 4372735,
+      "relatedPartyDebt": 188420,
+      "revenue": 5848589,
+      "totalAssets": 12347324,
+      "totalLiabilities": 7974589
+     }
+    ],
+    "auditorName": "THE ADAMS GROUP, LLC",
+    "parentName": "Crestcom International Holdings, LLC"
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "",
+   "exitTerms": {
+    "curableDefaults": [
+     {
+      "category": "Failure to dismiss non-compliant legal action",
+      "cureDays": 7
+     },
+     {
+      "category": "Any other curable breach",
+      "cureDays": 10
+     }
+    ],
+    "sourcePage": "Item 17, p. 47-49",
+    "deathTransferDays": 120,
+    "disputeResolution": "Arbitration",
+    "estateApplicationDays": null,
+    "forum": "Denver, Colorado",
+    "franchiseeTerminationGrounds": 2,
+    "franchisorTerminationWithoutCause": false,
+    "governingLaw": "Colorado",
+    "inTermNonCompete": "Prohibits owning, operating or performing services for a competing business",
+    "initialTermYears": 7,
+    "nonCurableDefaultCount": 21,
+    "nonCurableOpenEnded": true,
+    "postTermNonCompeteMiles": 0,
+    "postTermNonCompeteScope": "Prohibited from owning or operating a competing business within any Crestcom assigned area",
+    "postTermNonCompeteYears": 2.5,
+    "renewalConditions": "Notice 120 days prior, compliance, pay successor fee, sign then-current agreement",
+    "renewalRequiresCurrentAgreement": true,
+    "rightOfFirstRefusal": false,
+    "rightOfFirstRefusalDays": null,
+    "successorFeeBasis": "Flat fee of $3,500",
+    "successorTermCount": 3,
+    "successorTermYears": 7,
+    "transferApprovalRequired": true,
+    "transferConditionCount": 11
+   },
+   "premises": {
+    "evidence": "Most current Franchisees maintain an office in their residence.",
+    "homeBased": true,
+    "siteApprovalRequired": false
+   },
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p. 15",
+    "squareFootage": 100
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": ""
+  },
+  "scoring": {
+   "riskLevel": "Low",
+   "riskReasons": [
+    "Royalty runs 19.75% of gross revenue \u2014 verify what that leaves at the bottom line."
+   ],
+   "midCohort": {
+    "label": "75th \u2013 99.99th percentile of U.S. and International Franchisees",
+    "monthlyRevenue": 45634.6625,
+    "monthlyVariable": 9012.84584375,
+    "monthlyFixed": 923,
+    "monthlyEbitda": 35698.81665625,
+    "annualEbitda": 428385.79987499997,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "75th \u2013 99.99th percentile of U.S. and International Franchisees",
+     "math": "$547,616/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 15
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 98384.5,
+   "assumedLoan": 78707.6,
+   "assumedMonthlyDebtService": 1062.040975221102,
+   "dscr": 33.613408040888444,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.22966330823455847,
+   "variableRate": 0.1975,
+   "fixedMonthly": 923,
+   "rentResolution": null,
+   "fixedFeesMonthly": 923,
+   "notes": [
+    "Item 19 in this filing also publishes a table that is not gross sales \u2014 patient or visit counts, a profit-and-loss table, or pre-sale figures. It is excluded from the top line, which is built only on disclosed gross revenue.",
+    "This filing says: \"Most current Franchisees maintain an office in their residence.\" No premises rent is modeled, because a category occupancy band would invent a lease the filing does not describe. Read that sentence as written \u2014 a filing saying MOST franchisees work from home is not telling you that you will \u2014 and confirm with the franchisor what space you would actually need."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 35698.81665625,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $98,385 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, about $35,699/mo is left after fees, rent and debt service \u2014 cost of goods and labor still come out of that, and the cash ladder below subtracts them."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "other",
+   "conceptLabel": "General franchise (uncategorized)",
+   "conceptRationale": "",
+   "benchmark": {
+    "label": "General franchise (uncategorized)",
+    "cogsPct": [
+     15,
+     35
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     6,
+     12
+    ],
+    "operatingEbitdaPct": [
+     8,
+     20
+    ],
+    "dominantRisk": "Cost of goods and labor are not disclosed in any FDD \u2014 model them explicitly before trusting any margin figure.",
+    "rampNote": "Assume 6\u201318 months to a mature run-rate.",
+    "considerations": [
+     "Budget COGS and labor explicitly \u2014 neither is in the FDD, and together they usually run 45\u201365% of sales.",
+     "Use the Item 20 franchisee list to validate real operating costs and ramp before committing capital."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 8\u201320% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 45634.6625,
+   "marginAfterFeesMonthly": 35698.81665625,
+   "benchmarkOperatingEbitdaMonthly": [
+    -6284,
+    14251
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    20,
+    35
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      35698.81665625,
+      35698.81665625
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      12
+     ],
+     "dollarRange": [
+      2738,
+      5476
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      15,
+      35
+     ],
+     "dollarRange": [
+      6845,
+      15972
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      20,
+      35
+     ],
+     "dollarRange": [
+      9127,
+      15972
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 2.6\u20134.6 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      2738,
+      4563
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -6284,
+      14251
+     ],
+     "note": "\u2248 -14% to 31% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cGeneral franchise (uncategorized)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 6\u201312% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 15\u201335% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 20\u201335% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "This franchisor is losing money as it grows (a net loss of $859K in the most recent year), though it still has positive net worth. Worth understanding how long its runway lasts.",
+   "context": null,
+   "body": [
+    "What we found (2025-12-31, audited by THE ADAMS GROUP, LLC): Net loss of $859K on $5.16M of revenue \u2014 roughly 1.2x spent per $1 earned. Losses are widening, not shrinking. Positive net worth of $2.89M. Cash of $295K against $1.16M of obligations due within a year (a current ratio of 1.50).",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Crestcom International Holdings, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "operating losses that are widening",
+    "no parent guarantee backing the franchisor's obligations to you",
+    "elevated unit closures (14 in the last year, about 8% of the system)"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "positive net worth"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": 2887843,
+    "netWorthSign": "positive",
+    "netWorthTrend": "worsening",
+    "netIncome": -859027,
+    "netIncomeTrend": "worsening",
+    "revenue": 5158164,
+    "revenueTrend": "flat",
+    "currentRatio": 1.4991288342923912,
+    "workingCapital": 579246,
+    "liabilitiesToAssets": 0.7687244846311948,
+    "adjLiabilitiesToAssets": 0.7454715425954496,
+    "relatedPartyDebtPct": 0.01962964132096797,
+    "deferredRevenuePct": 0.030248733454744988,
+    "expenseToRevenue": 1.1665373570906237,
+    "cash": 295185,
+    "nearTermObligations": 1160514
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

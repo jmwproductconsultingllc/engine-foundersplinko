@@ -641,5 +641,11 @@
    "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
    "dataQuality": "partial"
   }
+ },
+ "retraction": {
+  "retractedAt": "2026-09-10",
+  "figure": "the top-line monthly revenue",
+  "detail": "Item 19 discloses an average of 400 new patients per clinic per year. That patient count was read as $400 of annual revenue, producing a $33/month top line. The same Item 19 discloses average collected revenue per clinic of $818,077 per year.",
+  "internal": "midCohort selected a cohort whose revenueType is 'other' (a count, not currency). Item 19 plausibility gate added to scripts/jsonl-to-brands.ts on 2026-09-10; this record predates it."
  }
 }

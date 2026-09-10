@@ -1,0 +1,870 @@
+{
+ "slug": "jetset-pilates",
+ "brandName": "JETSET Pilates",
+ "category": "Boutique fitness",
+ "vertical": "Fitness & Wellness",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-09-10T21:31:59.965Z",
+ "sourceStem": "jetset-pilates",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 12",
+     "Item 13",
+     "Item 15",
+     "Item 17",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "JETSET Pilates",
+   "franchisorEntity": "JETSET Franchising, LLC",
+   "headquarters": "560 NW 29th Street, Miami, FL 33127",
+   "brandBackground": "",
+   "leadership": [
+    {
+     "name": "Bertus Albertse",
+     "role": "Chief Executive Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Charly Williams",
+     "role": "Chief Administrative Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Natalie Straub",
+     "role": "Chief Strategy Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Uri Kenig",
+     "role": "Chief Operating Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Sarah Buie",
+     "role": "Senior Director of Business Administration",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Taylor Talcott",
+     "role": "Senior Vice President of Operations Services",
+     "background": "",
+     "whyItMatters": ""
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Reporting Studios Average Gross Revenue",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 94775,
+      "basis": "Item 19, p.46",
+      "annualRevenue": 1137299,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.46",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 13,
+      "totalAnnualRevenue": 14784887
+     },
+     {
+      "label": "Reporting Studios Average EBITDA",
+      "ownership": "franchised",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 29092,
+      "basis": "Item 19, p.46",
+      "annualRevenue": 349103,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.46",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 13,
+      "totalAnnualRevenue": 4538339
+     },
+     {
+      "label": "Downtown Miami Studio",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 67121,
+      "basis": "Item 19, p.49, 57",
+      "annualRevenue": 805457,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 18103,
+       "grossMarginPct": null,
+       "laborAnnual": 159250,
+       "otherOpexAnnual": 125140,
+       "sourcePage": "Item 19, p.57",
+       "totalCostOfSalesAnnual": 216979
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 1,
+      "totalAnnualRevenue": 805457
+     },
+     {
+      "label": "West McKinney Studio",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 108174,
+      "basis": "Item 19, p.49, 58",
+      "annualRevenue": 1298085,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 66008,
+       "grossMarginPct": null,
+       "laborAnnual": 282004,
+       "otherOpexAnnual": 175103,
+       "sourcePage": "Item 19, p.58",
+       "totalCostOfSalesAnnual": 402435
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 1,
+      "totalAnnualRevenue": 1298085
+     },
+     {
+      "label": "Alpharetta Studio",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 69834,
+      "basis": "Item 19, p.49, 59",
+      "annualRevenue": 838006,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 43648,
+       "grossMarginPct": null,
+       "laborAnnual": 150927,
+       "otherOpexAnnual": 145999,
+       "sourcePage": "Item 19, p.59",
+       "totalCostOfSalesAnnual": 223924
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 1,
+      "totalAnnualRevenue": 838006
+     },
+     {
+      "label": "Wellington Studio",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 118435,
+      "basis": "Item 19, p.49, 60",
+      "annualRevenue": 1421215,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 58915,
+       "grossMarginPct": null,
+       "laborAnnual": 191366,
+       "otherOpexAnnual": 200182,
+       "sourcePage": "Item 19, p.60",
+       "totalCostOfSalesAnnual": 268590
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 1,
+      "totalAnnualRevenue": 1421215
+     },
+     {
+      "label": "SoHo Studio",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 90555,
+      "basis": "Item 19, p.49, 61",
+      "annualRevenue": 1086660,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 23432,
+       "grossMarginPct": null,
+       "laborAnnual": 235765,
+       "otherOpexAnnual": 189397,
+       "sourcePage": "Item 19, p.61",
+       "totalCostOfSalesAnnual": 294834
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 1,
+      "totalAnnualRevenue": 1086660
+     },
+     {
+      "label": "Flagler Village Studio",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 106012,
+      "basis": "Item 19, p.49, 62",
+      "annualRevenue": 1272138,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 37741,
+       "grossMarginPct": null,
+       "laborAnnual": 194066,
+       "otherOpexAnnual": 155131,
+       "sourcePage": "Item 19, p.62",
+       "totalCostOfSalesAnnual": 274041
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 1,
+      "totalAnnualRevenue": 1272138
+     },
+     {
+      "label": "Downtown Raleigh Studio",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 80004,
+      "basis": "Item 19, p.49, 63",
+      "annualRevenue": 960053,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 35416,
+       "grossMarginPct": null,
+       "laborAnnual": 135284,
+       "otherOpexAnnual": 128135,
+       "sourcePage": "Item 19, p.63",
+       "totalCostOfSalesAnnual": 192035
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 1,
+      "totalAnnualRevenue": 960053
+     },
+     {
+      "label": "Florham Park Studio",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 110236,
+      "basis": "Item 19, p.49, 64",
+      "annualRevenue": 1322837,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 33059,
+       "grossMarginPct": null,
+       "laborAnnual": 237639,
+       "otherOpexAnnual": 170942,
+       "sourcePage": "Item 19, p.64",
+       "totalCostOfSalesAnnual": 322588
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 1,
+      "totalAnnualRevenue": 1322837
+     },
+     {
+      "label": "Merrick Park Studio",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 97984,
+      "basis": "Item 19, p.49, 65",
+      "annualRevenue": 1175805,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 32450,
+       "grossMarginPct": null,
+       "laborAnnual": 199290,
+       "otherOpexAnnual": 180041,
+       "sourcePage": "Item 19, p.65",
+       "totalCostOfSalesAnnual": 279005
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 1,
+      "totalAnnualRevenue": 1175805
+     },
+     {
+      "label": "West Boca Studio",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 146132,
+      "basis": "Item 19, p.49, 66",
+      "annualRevenue": 1753581,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 47392,
+       "grossMarginPct": null,
+       "laborAnnual": 266793,
+       "otherOpexAnnual": 167031,
+       "sourcePage": "Item 19, p.66",
+       "totalCostOfSalesAnnual": 380541
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 1,
+      "totalAnnualRevenue": 1753581
+     }
+    ],
+    "notes": "",
+    "sourcePage": "Item 19, p.44-67",
+    "networkAverageMonthly": null,
+    "unitsReported": 13
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 60000,
+      "low": 60000
+     },
+     {
+      "category": "Food, Lodging & Travel for Training",
+      "recurring": false,
+      "notes": "",
+      "high": 10000,
+      "low": 3000
+     },
+     {
+      "category": "Lease Deposit",
+      "recurring": false,
+      "notes": "",
+      "high": 36000,
+      "low": 7500
+     },
+     {
+      "category": "Build Out & Improvements",
+      "recurring": false,
+      "notes": "",
+      "high": 275000,
+      "low": 190000
+     },
+     {
+      "category": "Sound System",
+      "recurring": false,
+      "notes": "",
+      "high": 21500,
+      "low": 17500
+     },
+     {
+      "category": "Millwork",
+      "recurring": false,
+      "notes": "",
+      "high": 40400,
+      "low": 29600
+     },
+     {
+      "category": "Signage",
+      "recurring": false,
+      "notes": "",
+      "high": 53800,
+      "low": 21000
+     },
+     {
+      "category": "Security and Computer Systems",
+      "recurring": false,
+      "notes": "",
+      "high": 3150,
+      "low": 2650
+     },
+     {
+      "category": "Equipment Package, Shipping and White Glove Install",
+      "recurring": false,
+      "notes": "",
+      "high": 70100,
+      "low": 52500
+     },
+     {
+      "category": "JETSET Inventory Items and Supplies",
+      "recurring": false,
+      "notes": "",
+      "high": 12000,
+      "low": 8000
+     },
+     {
+      "category": "Security System",
+      "recurring": false,
+      "notes": "",
+      "high": 250,
+      "low": 165
+     },
+     {
+      "category": "Grand Opening Advertising",
+      "recurring": false,
+      "notes": "",
+      "high": 45000,
+      "low": 45000
+     },
+     {
+      "category": "Utility Deposits",
+      "recurring": false,
+      "notes": "",
+      "high": 1000,
+      "low": 100
+     },
+     {
+      "category": "Business License",
+      "recurring": false,
+      "notes": "",
+      "high": 800,
+      "low": 250
+     },
+     {
+      "category": "Professional Fees",
+      "recurring": false,
+      "notes": "",
+      "high": 56500,
+      "low": 40000
+     },
+     {
+      "category": "Banking Setup",
+      "recurring": false,
+      "notes": "",
+      "high": 200,
+      "low": 150
+     },
+     {
+      "category": "Insurance",
+      "recurring": false,
+      "notes": "",
+      "high": 3875,
+      "low": 3125
+     },
+     {
+      "category": "Additional Funds (3-month period)",
+      "recurring": true,
+      "notes": "",
+      "high": 60000,
+      "low": 45000
+     }
+    ],
+    "sourcePage": "Item 7, p.10",
+    "initialInvestmentHigh": 752375,
+    "initialInvestmentLow": 543440
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p.5",
+      "monthlyAmount": 400
+     }
+    ],
+    "brandFundPct": 1.5,
+    "localAdPct": 3,
+    "percentageFees": [
+     {
+      "label": "Royalty Fee",
+      "pct": 7.5,
+      "source": "Item 6, p.5"
+     },
+     {
+      "label": "Brand & System Development Fund Fee",
+      "pct": 1.5,
+      "source": "Item 6, p.5"
+     }
+    ],
+    "royaltyPct": 7.5
+   },
+   "hiddenCosts": [
+    {
+     "name": "Instructor Training Program Fee",
+     "description": "",
+     "source": "Item 6, p.6",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Conference Registration Fee",
+     "description": "",
+     "source": "Item 6, p.6",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Fines",
+     "description": "",
+     "source": "Item 6, p.6",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Management Fee",
+     "description": "",
+     "source": "Item 6, p.6",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Business Consulting & Assistance Fee",
+     "description": "",
+     "source": "Item 6, p.6",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Audit Fee",
+     "description": "",
+     "source": "Item 6, p.7",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "New or Alternative Supplier Approval and Product or Supplier Testing",
+     "description": "",
+     "source": "Item 6, p.7",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p.61-63",
+    "closedLastYear": 1,
+    "openedLastYear": 23,
+    "totalUnits": 40,
+    "transfersLastYear": 3,
+    "unitsStartOfYear": 16
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "",
+     "severity": "high",
+     "source": "Special Risks, p.3"
+    },
+    {
+     "title": "Financial Condition",
+     "description": "",
+     "severity": "high",
+     "source": "Special Risks, p.3"
+    },
+    {
+     "title": "Short Operating History",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p.3"
+    },
+    {
+     "title": "Mandatory Minimum Payments",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p.3"
+    },
+    {
+     "title": "Supplier Control",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p.3"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "",
+     "severity": "high",
+     "source": "Special Risks, p.3"
+    },
+    {
+     "title": "Unopened Franchises",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p.3"
+    }
+   ],
+   "conceptType": "fitness_studio",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025",
+      "cash": null,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "deferredRevenue": null,
+      "netIncome": null,
+      "netWorth": null,
+      "relatedPartyDebt": null,
+      "revenue": 1897557,
+      "totalAssets": null,
+      "totalLiabilities": null
+     }
+    ],
+    "auditorName": null,
+    "parentName": "JETSET Holdings LLC"
+   },
+   "averageRentMonthly": 12000,
+   "conceptRationale": "",
+   "exitTerms": {
+    "curableDefaults": [
+     {
+      "category": "Payment Default",
+      "cureDays": 10
+     },
+     {
+      "category": "Other Defaults",
+      "cureDays": 30
+     }
+    ],
+    "sourcePage": "Item 17, p.39-41",
+    "deathTransferDays": 180,
+    "disputeResolution": "Mediation before arbitration",
+    "estateApplicationDays": 180,
+    "forum": "Miami-Dade County, Florida",
+    "franchiseeTerminationGrounds": 1,
+    "franchisorTerminationWithoutCause": false,
+    "governingLaw": "Florida",
+    "inTermNonCompete": "No involvement in competing business",
+    "initialTermYears": 10,
+    "nonCurableDefaultCount": 20,
+    "nonCurableOpenEnded": false,
+    "postTermNonCompeteMiles": 10,
+    "postTermNonCompeteScope": "Within 10 miles of the Studio or any other then-existing JETSET studio",
+    "postTermNonCompeteYears": 2,
+    "renewalConditions": "Not in default, sign then-current agreement, pay renewal fee, remodel studio",
+    "renewalRequiresCurrentAgreement": true,
+    "rightOfFirstRefusal": true,
+    "rightOfFirstRefusalDays": 30,
+    "successorFeeBasis": "Flat fee of $25,000",
+    "successorTermCount": 2,
+    "successorTermYears": 5,
+    "transferApprovalRequired": true,
+    "transferConditionCount": 11
+   },
+   "premises": {
+    "evidence": "Leasing of Premises. These figures presume that you will be leasing your premises.",
+    "homeBased": false,
+    "siteApprovalRequired": true
+   },
+   "rentDetail": {
+    "rawValue": 12000,
+    "unit": "per_month",
+    "source": "Item 7, p.11",
+    "squareFootage": 2500
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": ""
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "Royalty runs 7.5% of gross revenue \u2014 verify what that leaves at the bottom line.",
+    "2 high-severity operational tripwires disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Reporting Studios Average Gross Revenue",
+    "monthlyRevenue": 94774.91666666667,
+    "monthlyVariable": 11372.99,
+    "monthlyFixed": 12400,
+    "monthlyEbitda": 71001.92666666667,
+    "annualEbitda": 852023.12,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Reporting Studios Average Gross Revenue",
+     "math": "$1,137,299/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 13
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 647907.5,
+   "assumedLoan": 518326,
+   "assumedMonthlyDebtService": 6994.031713868201,
+   "dscr": 10.15178792024629,
+   "rentPctOfRevenue": 0.12661578001915064,
+   "paybackYears": 0.7604341769505034,
+   "variableRate": 0.12,
+   "fixedMonthly": 12400,
+   "rentResolution": {
+    "lo": 12000,
+    "hi": 12000,
+    "mid": 12000,
+    "basis": "disclosed",
+    "source": "Item 7, p.11"
+   },
+   "fixedFeesMonthly": 400,
+   "notes": [
+    "Item 19 in this filing also publishes a table that is not gross sales \u2014 patient or visit counts, a profit-and-loss table, or pre-sale figures. It is excluded from the top line, which is built only on disclosed gross revenue."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 397907.5,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 397907.5,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 5369.164722946584,
+   "adjustedMonthlyNetCashFlow": 65632.76194372008,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $647,908 mid-point build-out, there is a $397,908 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, about $65,633/mo is left after fees, rent and debt service \u2014 cost of goods and labor still come out of that, and the cash ladder below subtracts them."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "fitness_studio",
+   "conceptLabel": "Boutique fitness / studio",
+   "conceptRationale": "",
+   "benchmark": {
+    "label": "Boutique fitness / studio",
+    "cogsPct": [
+     3,
+     10
+    ],
+    "laborPct": [
+     20,
+     30
+    ],
+    "occupancyPct": [
+     12,
+     20
+    ],
+    "operatingEbitdaPct": [
+     15,
+     28
+    ],
+    "dominantRisk": "Member retention/churn and fixed-cost coverage \u2014 NOT cost of goods. The deal is decided by recurring membership against rent and equipment lease.",
+    "rampNote": "9\u201318 months to a mature, retained member base.",
+    "considerations": [
+     "COGS is trivial; the risks are member churn and covering fixed rent + equipment lease.",
+     "Ask Item 20 operators for monthly retention, average membership lifetime, and break-even member count.",
+     "Model CAC and free-trial conversion \u2014 member acquisition cost is the hidden operating line."
+    ]
+   },
+   "disclosedOperatingMarginPct": 30.7,
+   "disclosedMarginSource": "Reporting Studios Average EBITDA \u00f7 Reporting Studios Average Gross Revenue",
+   "crossCheck": {
+    "status": "consistent",
+    "message": "The franchisor's disclosed margin (30.7%) is consistent with the typical 15\u201328% band for this concept \u2014 a positive signal on the reported economics. Still verify against real franchisee P&Ls (Item 20)."
+   },
+   "proFormaRevenueMonthly": 94774.91666666667,
+   "marginAfterFeesMonthly": 71001.92666666667,
+   "benchmarkOperatingEbitdaMonthly": [
+    29096,
+    29096
+   ],
+   "trueEbitdaBasis": "disclosed",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    20,
+    30
+   ],
+   "buildup": [
+    {
+     "label": "Franchised gross sales (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      94774.91666666667,
+      94774.91666666667
+     ],
+     "basis": "disclosed"
+    },
+    {
+     "label": "\u00d7 franchisor's disclosed operating margin (30.7%)",
+     "kind": "result",
+     "dollarRange": [
+      29096,
+      29096
+     ],
+     "note": "Reporting Studios Average EBITDA \u00f7 Reporting Studios Average Gross Revenue",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cBoutique fitness / studio\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating margin",
+     "basis": "disclosed",
+     "detail": "Taken straight from the franchisor's Item 19 disclosure (Reporting Studios Average EBITDA \u00f7 Reporting Studios Average Gross Revenue); no benchmark applied."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed margin applied to the modeled franchised gross. The margin is from the FDD; this dollar figure is computed, not disclosed."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 3\u201310% category band \u2014 COGS is never disclosed in an FDD. Applied on rung 6 of the cash ladder, not to the disclosed margin above."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 20\u201330% category band (conventionally staffed \u00b7 \u2248 5.5\u20138.2 FTE at ~$20/hr fully loaded). Applied on rung 7 of the cash ladder, not to the disclosed margin above."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Estimated at the 6\u201310% category band \u2014 utilities, insurance, R&M, supplies. Applied on rung 8 of the cash ladder, not to the disclosed margin above."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so JETSET Holdings LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 1897557,
+    "revenueTrend": "unknown",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": null,
+    "adjLiabilitiesToAssets": null,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

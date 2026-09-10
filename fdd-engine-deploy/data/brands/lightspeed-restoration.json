@@ -1,0 +1,699 @@
+{
+ "slug": "lightspeed-restoration",
+ "brandName": "Lightspeed Restoration",
+ "category": "Restoration",
+ "vertical": "Home & Property Services",
+ "grade": "READY",
+ "sourceFddYear": 2026,
+ "generatedAt": "2026-09-10T21:31:59.995Z",
+ "sourceStem": "lightspeed-restoration",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Lightspeed Restoration",
+   "franchisorEntity": "Lightspeed Restoration, LLC",
+   "headquarters": "777 International Parkway, Suite 300, Flower Mound, TX 75022",
+   "brandBackground": "Lightspeed Restoration offers water and fire damage restoration and indoor air quality services to residential and commercial customers.",
+   "leadership": [
+    {
+     "name": "Paul Ebert",
+     "role": "Group President",
+     "background": "Group President since November 2024, previously President of APM and TM.",
+     "whyItMatters": "Brings extensive leadership experience across multiple home service franchise brands."
+    },
+    {
+     "name": "Troy Coolidge",
+     "role": "VP of Operations",
+     "background": "VP of Operations since January 2023, previously VP of Operations for ACS.",
+     "whyItMatters": "Directs operational support and training with deep industry-specific experience."
+    },
+    {
+     "name": "Corey Benish",
+     "role": "Chief Executive Officer and President of HFC",
+     "background": "President of HFC since April 2025, previously Group VP and COO for JMF.",
+     "whyItMatters": "Leads the parent platform with a strong background in technology and operations."
+    },
+    {
+     "name": "Amir Yeganehjoo",
+     "role": "Chief Financial Officer of HFC",
+     "background": "CFO of HFC since January 2023, previously SVP of Finance at European Wax Center.",
+     "whyItMatters": "Oversees financial strategy and capitalization across the brand portfolio."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Single Territory Franchisees - Average Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 43134,
+      "basis": "Item 19, p.44",
+      "annualRevenue": 517606,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.44",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 4,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "Multiple Territory Franchisees - Average Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 67101,
+      "basis": "Item 19, p.44",
+      "annualRevenue": 805211,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.44",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 9,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "Single Territory Franchisees - Median Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 38103,
+      "basis": "Item 19, p.44",
+      "annualRevenue": 457231,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.44",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 4,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "Multiple Territory Franchisees - Median Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 48525,
+      "basis": "Item 19, p.44",
+      "annualRevenue": 582303,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.44",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 9,
+      "totalAnnualRevenue": null
+     }
+    ],
+    "notes": "Data represents a subset of existing outlets open for the full calendar year 2025.",
+    "sourcePage": "Item 19, p.43-45",
+    "networkAverageMonthly": null,
+    "unitsReported": 13
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Paid upon signing the franchise agreement.",
+      "high": 19950,
+      "low": 19950
+     },
+     {
+      "category": "Initial Territory Fee",
+      "recurring": false,
+      "notes": "Fee for the first territory.",
+      "high": 40000,
+      "low": 40000
+     },
+     {
+      "category": "Travel and Living Expenses While Training",
+      "recurring": false,
+      "notes": "Estimated cost per person.",
+      "high": 1500,
+      "low": 1000
+     },
+     {
+      "category": "Vehicle",
+      "recurring": false,
+      "notes": "Assumes lease with $0 down or cash purchase.",
+      "high": 60000,
+      "low": 0
+     },
+     {
+      "category": "Real Estate Rent and Security Deposits",
+      "recurring": false,
+      "notes": "Three months' rent for commercial space.",
+      "high": 5000,
+      "low": 1000
+     },
+     {
+      "category": "Initial Equipment Package",
+      "recurring": false,
+      "notes": "Required equipment package paid to us.",
+      "high": 50000,
+      "low": 50000
+     },
+     {
+      "category": "Technology Systems Package",
+      "recurring": false,
+      "notes": "Computer hardware and software.",
+      "high": 3000,
+      "low": 0
+     },
+     {
+      "category": "Office Equipment, Furniture and Supplies",
+      "recurring": false,
+      "notes": "Desk, chairs, and office supplies.",
+      "high": 1000,
+      "low": 400
+     },
+     {
+      "category": "Credit Card Processing Technology",
+      "recurring": false,
+      "notes": "Lease, finance, or lump sum.",
+      "high": 500,
+      "low": 30
+     },
+     {
+      "category": "Auto Insurance",
+      "recurring": true,
+      "notes": "Lump sum or monthly installments.",
+      "high": 3500,
+      "low": 1800
+     },
+     {
+      "category": "Commercial General Liability and Other Insurance",
+      "recurring": true,
+      "notes": "Required business insurance coverages.",
+      "high": 6500,
+      "low": 3000
+     },
+     {
+      "category": "Contractor's License and Bonds",
+      "recurring": false,
+      "notes": "Only required in states that mandate it.",
+      "high": 1500,
+      "low": 0
+     },
+     {
+      "category": "Licenses and Certifications",
+      "recurring": false,
+      "notes": "Government agencies and/or vendors.",
+      "high": 5000,
+      "low": 3000
+     },
+     {
+      "category": "Professional Fees",
+      "recurring": false,
+      "notes": "Attorney, accountant, and business advisor.",
+      "high": 5000,
+      "low": 2000
+     },
+     {
+      "category": "Initial Marketing",
+      "recurring": false,
+      "notes": "Local marketing spend.",
+      "high": 15000,
+      "low": 10000
+     },
+     {
+      "category": "Additional Funds - 3 Months",
+      "recurring": true,
+      "notes": "Working capital for first three months.",
+      "high": 50000,
+      "low": 25000
+     }
+    ],
+    "sourcePage": "Item 7, p.13-14",
+    "conversion": {
+     "discountHigh": null,
+     "discountLow": null,
+     "discretionary": null,
+     "eligibility": null,
+     "howDetermined": null,
+     "sourcePage": null,
+     "totalHigh": null,
+     "totalLow": null
+    },
+    "initialInvestmentHigh": 268950,
+    "initialInvestmentLow": 157180
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p.8",
+      "monthlyAmount": 750
+     },
+     {
+      "name": "Minimum Royalty (Months 7-12)",
+      "source": "Item 6, p.7",
+      "monthlyAmount": 500
+     },
+     {
+      "name": "Minimum Royalty (Month 13+)",
+      "source": "Item 6, p.7",
+      "monthlyAmount": 1000
+     }
+    ],
+    "brandFundPct": 2,
+    "localAdPct": 8,
+    "percentageFees": [
+     {
+      "label": "Royalty Fee (Tier 1)",
+      "pct": 6,
+      "source": "Item 6, p.7"
+     },
+     {
+      "label": "Royalty Fee (Tier 2)",
+      "pct": 5,
+      "source": "Item 6, p.7"
+     },
+     {
+      "label": "National Advertising Fund Payment",
+      "pct": 2,
+      "source": "Item 6, p.7"
+     }
+    ],
+    "royaltyPct": 6
+   },
+   "hiddenCosts": [
+    {
+     "name": "Technology Fee (Additional Territories)",
+     "description": "Charged at $250 per month for second and subsequent territories.",
+     "source": "Item 6, p.8",
+     "estimatedAnnualAmount": 3000
+    },
+    {
+     "name": "Convention Fee",
+     "description": "Annual fee not to exceed $2,000.",
+     "source": "Item 6, p.9",
+     "estimatedAnnualAmount": 2000
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p.45",
+    "closedLastYear": 0,
+    "openedLastYear": 13,
+    "totalUnits": 40,
+    "transfersLastYear": 0,
+    "unitsStartOfYear": 27
+   },
+   "operationalRisks": [
+    {
+     "title": "Short Operating History",
+     "description": "The franchisor is at an early stage of development with limited operating history.",
+     "severity": "medium",
+     "source": "Special Risks, p.4"
+    },
+    {
+     "title": "Financial Condition",
+     "description": "The franchisor's financial condition calls into question its ability to provide services.",
+     "severity": "high",
+     "source": "Special Risks, p.4"
+    },
+    {
+     "title": "Unregistered Trademark",
+     "description": "The primary logo used in the business is not federally registered.",
+     "severity": "medium",
+     "source": "Special Risks, p.4"
+    }
+   ],
+   "conceptType": "home_trade_services",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "cash": 20068280,
+      "currentAssets": 44439357,
+      "currentLiabilities": 48487643,
+      "deferredRevenue": 3693325,
+      "netIncome": 17603502,
+      "netWorth": 432603250,
+      "relatedPartyDebt": 114600000,
+      "revenue": 145468412,
+      "totalAssets": 688564783,
+      "totalLiabilities": 255961533
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "cash": 16615613,
+      "currentAssets": 46273858,
+      "currentLiabilities": 36249323,
+      "deferredRevenue": 3408286,
+      "netIncome": -4059736,
+      "netWorth": 456626764,
+      "relatedPartyDebt": 114600000,
+      "revenue": 143278985,
+      "totalAssets": 695771873,
+      "totalLiabilities": 239145109
+     }
+    ],
+    "auditorName": "PricewaterhouseCoopers LLP",
+    "parentName": "Home Franchise Concepts, LLC"
+   },
+   "averageRentMonthly": 5000,
+   "conceptRationale": "The franchise provides water and fire damage restoration and indoor air quality services.",
+   "exitTerms": {
+    "curableDefaults": [
+     {
+      "category": "Service mark violations",
+      "cureDays": 7
+     },
+     {
+      "category": "Other defaults",
+      "cureDays": 30
+     }
+    ],
+    "sourcePage": "Item 17, p.39-41",
+    "deathTransferDays": 30,
+    "disputeResolution": "Arbitration or mediation",
+    "estateApplicationDays": null,
+    "forum": "Orange County, California or Dallas County, Texas",
+    "franchiseeTerminationGrounds": 1,
+    "franchisorTerminationWithoutCause": false,
+    "governingLaw": "Texas law",
+    "inTermNonCompete": "No involvement in competing business anywhere in the U.S.",
+    "initialTermYears": 10,
+    "nonCurableDefaultCount": 15,
+    "nonCurableOpenEnded": false,
+    "postTermNonCompeteMiles": 25,
+    "postTermNonCompeteScope": "Within former territory or within 25 miles of any brand territory",
+    "postTermNonCompeteYears": 2,
+    "renewalConditions": "Pay renewal fee, sign then-current agreement, not be in default, make upgrades.",
+    "renewalRequiresCurrentAgreement": true,
+    "rightOfFirstRefusal": true,
+    "rightOfFirstRefusalDays": 10,
+    "successorFeeBasis": "Flat fee of $5,000 per territory",
+    "successorTermCount": 2,
+    "successorTermYears": 5,
+    "transferApprovalRequired": true,
+    "transferConditionCount": 8
+   },
+   "premises": {
+    "evidence": "The above table assumes that you operate your Franchised Business from a leased commercial office/warehouse, which is approximately 1,500 to 2,000 square feet.",
+    "homeBased": false,
+    "siteApprovalRequired": true
+   },
+   "rentDetail": {
+    "rawValue": 5000,
+    "unit": "per_month",
+    "source": "Item 7, p.13",
+    "squareFootage": 2000
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "Requires conventional staffing to handle 24/7 emergency restoration services."
+  },
+  "scoring": {
+   "riskLevel": "Low",
+   "riskReasons": [
+    "Economics were assessable and no major stress flags triggered."
+   ],
+   "midCohort": {
+    "label": "Single Territory Franchisees - Median Sales",
+    "monthlyRevenue": 38102.583333333336,
+    "monthlyVariable": 8001.5425000000005,
+    "monthlyFixed": 5750,
+    "monthlyEbitda": 24351.040833333336,
+    "annualEbitda": 292212.49000000005,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Single Territory Franchisees - Median Sales",
+     "math": "$457,231/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 4
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 213065,
+   "assumedLoan": 170452,
+   "assumedMonthlyDebtService": 2299.9940070385483,
+   "dscr": 10.58743664497088,
+   "rentPctOfRevenue": 0.131224698237871,
+   "paybackYears": 0.7291440554098149,
+   "variableRate": 0.21,
+   "fixedMonthly": 5750,
+   "rentResolution": {
+    "lo": 5000,
+    "hi": 5000,
+    "mid": 5000,
+    "basis": "disclosed",
+    "source": "Item 7, p.13"
+   },
+   "fixedFeesMonthly": 750,
+   "notes": []
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 24351.040833333336,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $213,065 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, about $24,351/mo is left after fees, rent and debt service \u2014 cost of goods and labor still come out of that, and the cash ladder below subtracts them."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "The franchise provides water and fire damage restoration and indoor air quality services.",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 38102.583333333336,
+   "marginAfterFeesMonthly": 24351.040833333336,
+   "benchmarkOperatingEbitdaMonthly": [
+    -8036,
+    4918
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    20,
+    35
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      24351.040833333336,
+      24351.040833333336
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      25,
+      40
+     ],
+     "dollarRange": [
+      9526,
+      15241
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      20,
+      35
+     ],
+     "dollarRange": [
+      7621,
+      13336
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 2.2\u20133.8 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      2286,
+      3810
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -8036,
+      4918
+     ],
+     "note": "\u2248 -21% to 13% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Rent",
+     "basis": "disclosed",
+     "detail": "Taken from the FDD (~$5,000/mo); already netted in margin after fees & rent."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 25\u201340% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 20\u201335% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "What we found (2025-12-31, audited by PricewaterhouseCoopers LLP): Net income of $17.60M on $145.47M of revenue \u2014 roughly 0.9x spent per $1 earned. Positive net worth of $432.60M. About 45% of liabilities is money owed to related parties \u2014 the entity is kept alive largely by insider loans, not profit. Cash of $20.07M against $48.49M of obligations due within a year (a current ratio of 0.92).",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. Home Franchise Concepts, LLC guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "more due within a year than current assets to cover it",
+    "heavy dependence on related-party loans to stay funded"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "positive net worth",
+    "the business is profitable",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": 432603250,
+    "netWorthSign": "positive",
+    "netWorthTrend": "worsening",
+    "netIncome": 17603502,
+    "netIncomeTrend": "improving",
+    "revenue": 145468412,
+    "revenueTrend": "flat",
+    "currentRatio": 0.9165089134153211,
+    "workingCapital": -4048286,
+    "liabilitiesToAssets": 0.3717319551034895,
+    "adjLiabilitiesToAssets": 0.36636815333612555,
+    "relatedPartyDebtPct": 0.4477235257064975,
+    "deferredRevenuePct": 0.014429218940488217,
+    "expenseToRevenue": 0.8789874601779526,
+    "cash": 20068280,
+    "nearTermObligations": 48487643
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

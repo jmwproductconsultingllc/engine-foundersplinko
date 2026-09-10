@@ -1,0 +1,557 @@
+{
+ "slug": "everline-coatings",
+ "brandName": "EverLine Coatings and Services",
+ "category": "Concrete coatings",
+ "vertical": "Home & Property Services",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-09-10T21:31:59.964Z",
+ "sourceStem": "everline-coatings",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 17",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "EverLine Coatings and Services",
+   "franchisorEntity": "EverLine Franchising US, Inc.",
+   "headquarters": "Houston, TX",
+   "brandBackground": "EverLine offers franchises for pavement marking, parking lot painting, and pavement maintenance services.",
+   "leadership": [
+    {
+     "name": "John Evans",
+     "role": "Chief Executive Officer and President",
+     "background": "Founder and President of EverLine Franchising Ltd. since September 2016.",
+     "whyItMatters": "He has led the brand since its inception and brings deep industry experience."
+    },
+    {
+     "name": "Cameron Aiton",
+     "role": "Chief Operating Officer",
+     "background": "Served as COO since September 2021 and previously as VP of Market Development.",
+     "whyItMatters": "Oversees system-wide operations and has been with the brand since 2012."
+    },
+    {
+     "name": "Nigel Baxter",
+     "role": "Vice President of Operation and Support",
+     "background": "VP of Operation and Support since September 2021 and owner of a Canadian franchise since 2017.",
+     "whyItMatters": "Brings direct franchisee operational experience to support the network."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "All 16 of the 2025 Disclosed CN Businesses",
+      "ownership": "mixed",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 68955,
+      "basis": "Item 19, p. 66",
+      "annualRevenue": 827459,
+      "combinedAcross": null,
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 16,
+      "totalAnnualRevenue": 13239344
+     },
+     {
+      "label": "All 54 of the 2025 Disclosed US Businesses",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 55996,
+      "basis": "Item 19, p. 66",
+      "annualRevenue": 671949,
+      "combinedAcross": null,
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 54,
+      "totalAnnualRevenue": 36285246
+     },
+     {
+      "label": "2025 Average Monthly Revenue Months 0-12 US Businesses",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 28803,
+      "basis": "Item 19, p. 75",
+      "annualRevenue": null,
+      "combinedAcross": null,
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 58,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "2025 Average Monthly Revenue Months 12-24 US Businesses",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 54555,
+      "basis": "Item 19, p. 75",
+      "annualRevenue": null,
+      "combinedAcross": null,
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 40,
+      "totalAnnualRevenue": null
+     }
+    ],
+    "notes": "Canadian business figures were converted from CAD to USD.",
+    "sourcePage": "Item 19, p. 59-85",
+    "networkAverageMonthly": null,
+    "unitsReported": 70
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Non-refundable fee for a single territory.",
+      "high": 59500,
+      "low": 59500
+     },
+     {
+      "category": "Equipment Acquisition",
+      "recurring": false,
+      "notes": "Leasing or purchasing required equipment.",
+      "high": 97060,
+      "low": 19865
+     },
+     {
+      "category": "Initial Tools Purchased",
+      "recurring": false,
+      "notes": "Startup tools for line painting and repair.",
+      "high": 12000,
+      "low": 9000
+     },
+     {
+      "category": "Additional Funds - 3 months",
+      "recurring": true,
+      "notes": "Working capital for initial operations.",
+      "high": 80000,
+      "low": 50000
+     }
+    ],
+    "sourcePage": "Item 7, p. 24-26",
+    "initialInvestmentHigh": 319312,
+    "initialInvestmentLow": 183544
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p. 17",
+      "monthlyAmount": 285
+     },
+     {
+      "name": "Non-Development Fee",
+      "source": "Item 6, p. 21",
+      "monthlyAmount": 2500
+     }
+    ],
+    "brandFundPct": 2,
+    "localAdPct": 1,
+    "percentageFees": [
+     {
+      "label": "Royalty Fee",
+      "pct": 6,
+      "source": "Item 6, p. 15"
+     },
+     {
+      "label": "Fund Contribution",
+      "pct": 2,
+      "source": "Item 6, p. 15"
+     },
+     {
+      "label": "Local Advertising Requirement",
+      "pct": 1,
+      "source": "Item 6, p. 15"
+     }
+    ],
+    "royaltyPct": 6
+   },
+   "hiddenCosts": [
+    {
+     "name": "Management Fee",
+     "description": "Charged if the franchisor steps in to operate the business during default.",
+     "source": "Item 6, p. 21",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Late Reporting Fee",
+     "description": "Charged per delinquent report.",
+     "source": "Item 6, p. 21",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 86-90",
+    "closedLastYear": 9,
+    "openedLastYear": 18,
+    "totalUnits": 87,
+    "transfersLastYear": 1,
+    "unitsStartOfYear": 78
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved in Texas, which may increase costs.",
+     "severity": "medium",
+     "source": "Special Risks, p. 4"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "Spouses must sign a personal guarantee, placing personal assets at risk.",
+     "severity": "high",
+     "source": "Special Risks, p. 4"
+    }
+   ],
+   "conceptType": "home_trade_services",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": true,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025",
+      "revenue": 7047278,
+      "totalAssets": 13202395,
+      "totalLiabilities": 14145890
+     },
+     {
+      "fiscalYearEnd": "2024",
+      "revenue": 5956669,
+      "totalAssets": 12302866,
+      "totalLiabilities": 14329686
+     },
+     {
+      "fiscalYearEnd": "2023",
+      "revenue": 4300655,
+      "totalAssets": 11452426,
+      "totalLiabilities": 12396777
+     }
+    ],
+    "auditorName": "WithumSmith+Brown, PC",
+    "parentName": "EverLine Holdings Aggregator, LLC"
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "The business provides commercial and residential pavement marking and maintenance services.",
+   "exitTerms": {
+    "curableDefaults": [
+     {
+      "category": "Failure to pay",
+      "cureDays": 10
+     },
+     {
+      "category": "Other defaults",
+      "cureDays": 30
+     }
+    ],
+    "sourcePage": "Item 17, p. 59-65",
+    "deathTransferDays": 180,
+    "disputeResolution": "Mediation",
+    "estateApplicationDays": 180,
+    "forum": "Harris County, Texas",
+    "franchiseeTerminationGrounds": 1,
+    "franchisorTerminationWithoutCause": false,
+    "governingLaw": "Texas",
+    "inTermNonCompete": "Yes",
+    "initialTermYears": 10,
+    "nonCurableDefaultCount": 10,
+    "nonCurableOpenEnded": true,
+    "postTermNonCompeteMiles": 25,
+    "postTermNonCompeteScope": "Competing business",
+    "postTermNonCompeteYears": 2,
+    "renewalConditions": "Satisfy requirements, pay fee, sign release",
+    "renewalRequiresCurrentAgreement": true,
+    "rightOfFirstRefusal": true,
+    "rightOfFirstRefusalDays": 30,
+    "successorFeeBasis": "Flat fee",
+    "successorTermCount": 2,
+    "successorTermYears": 10,
+    "transferApprovalRequired": true,
+    "transferConditionCount": 13
+   },
+   "premises": {
+    "evidence": "Our standard franchise offering expects and assumes that you will operate your Franchised Business primarily from a home office.",
+    "homeBased": true,
+    "siteApprovalRequired": false
+   },
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p. 25",
+    "squareFootage": null
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "Requires technicians to operate vehicles and equipment for line painting and maintenance."
+  },
+  "scoring": {
+   "riskLevel": "Low",
+   "riskReasons": [
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "All 54 of the 2025 Disclosed US Businesses",
+    "monthlyRevenue": 55995.75,
+    "monthlyVariable": 5039.617499999999,
+    "monthlyFixed": 2785,
+    "monthlyEbitda": 48171.1325,
+    "annualEbitda": 578053.59,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "All 54 of the 2025 Disclosed US Businesses",
+     "math": "$671,949/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 54
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 251428,
+   "assumedLoan": 201142.40000000002,
+   "assumedMonthlyDebtService": 2714.114909542572,
+   "dscr": 17.74837621304641,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.43495621227782705,
+   "variableRate": 0.09,
+   "fixedMonthly": 2785,
+   "rentResolution": null,
+   "fixedFeesMonthly": 2785,
+   "notes": [
+    "This filing says: \"Our standard franchise offering expects and assumes that you will operate your Franchised Business primarily from a home office.\" No premises rent is modeled, because a category occupancy band would invent a lease the filing does not describe. Read that sentence as written \u2014 a filing saying MOST franchisees work from home is not telling you that you will \u2014 and confirm with the franchisor what space you would actually need."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 1428,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 1428,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 19.268717539548064,
+   "adjustedMonthlyNetCashFlow": 48151.86378246045,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $251,428 mid-point build-out, there is a $1,428 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, about $48,152/mo is left after fees, rent and debt service \u2014 cost of goods and labor still come out of that, and the cash ladder below subtracts them."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "The business provides commercial and residential pavement marking and maintenance services.",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 55995.75,
+   "marginAfterFeesMonthly": 48171.1325,
+   "benchmarkOperatingEbitdaMonthly": [
+    -2786,
+    18493
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    20,
+    35
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      48171.1325,
+      48171.1325
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      2,
+      6
+     ],
+     "dollarRange": [
+      1120,
+      3360
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      25,
+      40
+     ],
+     "dollarRange": [
+      13999,
+      22398
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      20,
+      35
+     ],
+     "dollarRange": [
+      11199,
+      19599
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 3.2\u20135.7 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      3360,
+      5600
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -2786,
+      18493
+     ],
+     "note": "\u2248 -5% to 33% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 2\u20136% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 25\u201340% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 20\u201335% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. We could not read usable income-statement or balance-sheet figures from this filing, so nothing here characterises the franchisor's profitability or net worth either way, including the financial-condition risk the franchisor flags about itself \u2014 read the audited statements in Item 21 directly.",
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so EverLine Holdings Aggregator, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "no parent guarantee backing the franchisor's obligations to you",
+    "prior-year financials were restated",
+    "elevated unit closures (9 in the last year, about 10% of the system)"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 7047278,
+    "revenueTrend": "improving",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 1.0714639275676876,
+    "adjLiabilitiesToAssets": 1.0714639275676876,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

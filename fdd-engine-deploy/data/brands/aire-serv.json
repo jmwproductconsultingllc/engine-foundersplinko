@@ -1,0 +1,660 @@
+{
+ "slug": "aire-serv",
+ "brandName": "Aire Serv",
+ "category": "HVAC & appliance repair",
+ "vertical": "Home & Property Services",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-09-10T21:31:59.962Z",
+ "sourceStem": "aire-serv",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 17",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Aire Serv",
+   "franchisorEntity": "Aire Serv SPV LLC",
+   "headquarters": "1010 North University Parks Drive, Waco, Texas 76707",
+   "brandBackground": "",
+   "leadership": [
+    {
+     "name": "Jario Jimenez",
+     "role": "President",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "William Lane Dixon",
+     "role": "Vice President of Operations",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Michael Anthony Davis",
+     "role": "Chief Executive Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Malia Gelfo",
+     "role": "SVP, Corporate Controller",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Grayson Brown",
+     "role": "Secretary",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Bradley Stevenson",
+     "role": "Chief Development Officer",
+     "background": "",
+     "whyItMatters": ""
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Top 10% Franchised Businesses",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 545704,
+      "basis": "Item 19, p. 73",
+      "annualRevenue": 6548443,
+      "combinedAcross": null,
+      "figureScope": "per_outlet",
+      "sampleSize": 17,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "1st Quartile Franchised Businesses",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 341099,
+      "basis": "Item 19, p. 73",
+      "annualRevenue": 4093185,
+      "combinedAcross": null,
+      "figureScope": "per_outlet",
+      "sampleSize": 43,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "2nd Quartile Franchised Businesses",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 117869,
+      "basis": "Item 19, p. 73",
+      "annualRevenue": 1414426,
+      "combinedAcross": null,
+      "figureScope": "per_outlet",
+      "sampleSize": 43,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "3rd Quartile Franchised Businesses",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 48064,
+      "basis": "Item 19, p. 73",
+      "annualRevenue": 576772,
+      "combinedAcross": null,
+      "figureScope": "per_outlet",
+      "sampleSize": 43,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "4th Quartile Franchised Businesses",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 13422,
+      "basis": "Item 19, p. 73",
+      "annualRevenue": 161062,
+      "combinedAcross": null,
+      "figureScope": "per_outlet",
+      "sampleSize": 43,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "Bottom 10% Franchised Businesses",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 5343,
+      "basis": "Item 19, p. 73",
+      "annualRevenue": 64112,
+      "combinedAcross": null,
+      "figureScope": "per_outlet",
+      "sampleSize": 17,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "All Franchised Businesses (100%)",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 130113,
+      "basis": "Item 19, p. 73",
+      "annualRevenue": 1561361,
+      "combinedAcross": null,
+      "figureScope": "per_outlet",
+      "sampleSize": 172,
+      "totalAnnualRevenue": null
+     }
+    ],
+    "notes": "",
+    "sourcePage": "Item 19, p. 72-73",
+    "networkAverageMonthly": null,
+    "unitsReported": 172
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "",
+      "low": 45000
+     },
+     {
+      "category": "Vehicle",
+      "recurring": false,
+      "notes": "",
+      "low": 6500
+     },
+     {
+      "category": "Equipment, Supplies & Inventory",
+      "recurring": false,
+      "notes": "",
+      "low": 5100
+     },
+     {
+      "category": "Insurance",
+      "recurring": false,
+      "notes": "",
+      "low": 3000
+     },
+     {
+      "category": "Advertising, Marketing and Promotional Spending",
+      "recurring": false,
+      "notes": "",
+      "low": 30000
+     },
+     {
+      "category": "Start-up package",
+      "recurring": false,
+      "notes": "",
+      "low": 1708.5
+     },
+     {
+      "category": "Training, Travel, Lodging & Food",
+      "recurring": false,
+      "notes": "",
+      "low": 4000
+     },
+     {
+      "category": "Deposits, Permits & Licenses",
+      "recurring": false,
+      "notes": "",
+      "low": 500
+     },
+     {
+      "category": "Professional Fees",
+      "recurring": false,
+      "notes": "",
+      "low": 0
+     },
+     {
+      "category": "Additional Funds - 3 Months",
+      "recurring": false,
+      "notes": "",
+      "low": 15000
+     },
+     {
+      "category": "Real Estate",
+      "recurring": false,
+      "notes": "",
+      "low": 3000
+     }
+    ],
+    "sourcePage": "Item 7, p. 30-31",
+    "conversion": {
+     "discretionary": true,
+     "eligibility": "",
+     "howDetermined": "",
+     "sourcePage": "Item 5, p. 15-16",
+     "totalHigh": null,
+     "totalLow": null
+    },
+    "initialInvestmentHigh": 271708.5,
+    "initialInvestmentLow": 113808.5
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Software System Monthly Fees",
+      "source": "Item 6, p. 19",
+      "monthlyAmount": 189.95
+     },
+     {
+      "name": "HelpDesk Plus Fee",
+      "source": "Item 6, p. 20",
+      "monthlyAmount": 400
+     },
+     {
+      "name": "Call Center Program Fees",
+      "source": "Item 6, p. 22",
+      "monthlyAmount": 349.99
+     }
+    ],
+    "brandFundPct": 2,
+    "localAdPct": 8,
+    "percentageFees": [
+     {
+      "label": "License Fee",
+      "pct": 7,
+      "source": "Item 6, p. 18"
+     },
+     {
+      "label": "MAP Fee",
+      "pct": 2,
+      "source": "Item 6, p. 19"
+     },
+     {
+      "label": "Local Marketing Groups",
+      "pct": 3,
+      "source": "Item 6, p. 19"
+     }
+    ],
+    "royaltyPct": 7
+   },
+   "hiddenCosts": [
+    {
+     "name": "ServiceTitan Fee",
+     "description": "",
+     "source": "Item 6, p. 25",
+     "estimatedAnnualAmount": 2736
+    },
+    {
+     "name": "Annual Convention (Reunion) Fee",
+     "description": "",
+     "source": "Item 6, p. 21",
+     "estimatedAnnualAmount": 1000
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 74-79",
+    "closedLastYear": 24,
+    "openedLastYear": 45,
+    "totalUnits": 229,
+    "transfersLastYear": 18,
+    "unitsStartOfYear": 208
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p. 5"
+    },
+    {
+     "title": "Mandatory Minimum Payments",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p. 5"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "",
+     "severity": "high",
+     "source": "Special Risks, p. 5"
+    },
+    {
+     "title": "Sales Performance Requirement",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p. 5"
+    }
+   ],
+   "conceptType": "home_trade_services",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 480797000,
+      "totalAssets": 3038726000,
+      "totalLiabilities": 88238000
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 461666000,
+      "totalAssets": 3115790000,
+      "totalLiabilities": 88530000
+     }
+    ],
+    "auditorName": "Ernst & Young LLP",
+    "parentName": "Neighborly Assetco LLC"
+   },
+   "averageRentMonthly": 1000,
+   "conceptRationale": "",
+   "exitTerms": {
+    "curableDefaults": [
+     {
+      "category": "Failure to pay or submit reports",
+      "cureDays": 10
+     },
+     {
+      "category": "Other defaults",
+      "cureDays": 30
+     }
+    ],
+    "sourcePage": "Item 17, p. 67-71",
+    "deathTransferDays": 120,
+    "disputeResolution": "Mediation",
+    "estateApplicationDays": 120,
+    "forum": "McLennan County, Texas",
+    "franchiseeTerminationGrounds": 1,
+    "franchisorTerminationWithoutCause": false,
+    "governingLaw": "Texas",
+    "inTermNonCompete": "No involvement in Competitive Business",
+    "initialTermYears": 10,
+    "nonCurableDefaultCount": 12,
+    "nonCurableOpenEnded": false,
+    "postTermNonCompeteMiles": 25,
+    "postTermNonCompeteScope": "Competitive Business",
+    "postTermNonCompeteYears": 2,
+    "renewalConditions": "Not in default, pay fee, sign release, complete training",
+    "renewalRequiresCurrentAgreement": true,
+    "rightOfFirstRefusal": true,
+    "rightOfFirstRefusalDays": 10,
+    "successorFeeBasis": "Flat fee of $5,000",
+    "successorTermCount": 1,
+    "successorTermYears": 10,
+    "transferApprovalRequired": true,
+    "transferConditionCount": 9
+   },
+   "premises": {
+    "evidence": "The franchise can be operated from your home for the first 6 months.",
+    "homeBased": true,
+    "siteApprovalRequired": true
+   },
+   "rentDetail": {
+    "rawValue": 12000,
+    "unit": "per_year",
+    "source": "Item 7, p. 33",
+    "squareFootage": 2000
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": ""
+  },
+  "scoring": {
+   "riskLevel": "Low",
+   "riskReasons": [
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "2nd Quartile Franchised Businesses",
+    "monthlyRevenue": 117868.83333333333,
+    "monthlyVariable": 14144.259999999998,
+    "monthlyFixed": 1939.94,
+    "monthlyEbitda": 101784.63333333333,
+    "annualEbitda": 1221415.6,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "2nd Quartile Franchised Businesses",
+     "math": "$1,414,426/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 43
+    }
+   },
+   "bottomCohort": {
+    "label": "4th Quartile Franchised Businesses",
+    "monthlyRevenue": 13421.833333333334,
+    "monthlyVariable": 1610.6200000000001,
+    "monthlyFixed": 1939.94,
+    "monthlyEbitda": 9871.273333333333,
+    "annualEbitda": 118455.28,
+    "coversCosts": true
+   },
+   "buildoutMidpoint": 192758.5,
+   "assumedLoan": 154206.80000000002,
+   "assumedMonthlyDebtService": 2080.789406076737,
+   "dscr": 48.91635503145177,
+   "rentPctOfRevenue": 0.008484006939917677,
+   "paybackYears": 0.15781565259195968,
+   "variableRate": 0.12,
+   "fixedMonthly": 1939.94,
+   "rentResolution": {
+    "lo": 1000,
+    "hi": 1000,
+    "mid": 1000,
+    "basis": "disclosed",
+    "source": "Item 7, p. 33"
+   },
+   "fixedFeesMonthly": 939.94,
+   "notes": []
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 101784.63333333333,
+   "survivesBottomCohort": true,
+   "assessment": "$250,000 liquid covers the $192,759 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, about $101,785/mo is left after fees, rent and debt service \u2014 cost of goods and labor still come out of that, and the cash ladder below subtracts them."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 117868.83333333333,
+   "marginAfterFeesMonthly": 101784.63333333333,
+   "benchmarkOperatingEbitdaMonthly": [
+    1596,
+    41672
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    20,
+    35
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      101784.63333333333,
+      101784.63333333333
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      25,
+      40
+     ],
+     "dollarRange": [
+      29467,
+      47148
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      20,
+      35
+     ],
+     "dollarRange": [
+      23574,
+      41254
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 6.8\u201311.9 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      7072,
+      11787
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      1596,
+      41672
+     ],
+     "note": "\u2248 1% to 35% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Rent",
+     "basis": "disclosed",
+     "detail": "Taken from the FDD (~$1,000/mo); already netted in margin after fees & rent."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 25\u201340% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 20\u201335% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "LOW",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. Neighborly Assetco LLC guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "elevated unit closures (24 in the last year, about 10% of the system)"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 480797000,
+    "revenueTrend": "flat",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 0.02903782703672526,
+    "adjLiabilitiesToAssets": 0.02903782703672526,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}

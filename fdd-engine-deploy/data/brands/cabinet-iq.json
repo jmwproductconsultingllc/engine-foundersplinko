@@ -1,0 +1,705 @@
+{
+ "slug": "cabinet-iq",
+ "brandName": "Cabinet IQ",
+ "category": "Cabinet remodel",
+ "vertical": "Home & Property Services",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-09-10T21:31:59.963Z",
+ "sourceStem": "cabinet-iq",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Cabinet IQ",
+   "franchisorEntity": "Cabinet IQ Franchising, LLC",
+   "headquarters": "Cedar Park, TX",
+   "brandBackground": "Cabinet IQ offers professional kitchen remodeling services, specializing in cabinet and countertop evaluation, design, and installation, alongside a retail showroom.",
+   "leadership": [
+    {
+     "name": "Michael Hartel",
+     "role": "Chief Executive Officer & Founder",
+     "background": "Founder of Cabinet IQ and its affiliate Cabinet Plus, LLC since 2018, and owner of Hartel Homes since 2016.",
+     "whyItMatters": "He has led the brand and its operational model since its inception."
+    },
+    {
+     "name": "Jacob Collums",
+     "role": "Chief Operating Officer",
+     "background": "Served as COO since May 2021, previously working as a Performance Excellence System Practitioner at WestRock.",
+     "whyItMatters": "He oversees the daily operations and training programs for the franchise system."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Cabinet IQ of Cedar Park (Affiliate)",
+      "ownership": "affiliate",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 198616,
+      "basis": "Item 19, Table 1, p. 44",
+      "annualRevenue": 2383388,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 1077291,
+       "grossMarginPct": 42.2,
+       "laborAnnual": 300307,
+       "otherOpexAnnual": 683220,
+       "sourcePage": "Item 19, p. 44",
+       "totalCostOfSalesAnnual": 1377598
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 1,
+      "totalAnnualRevenue": 2383388
+     },
+     {
+      "label": "Operational Franchise Outlets with Showroom Open Throughout 2025",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 94152,
+      "basis": "Item 19, Table 3, p. 46",
+      "annualRevenue": 1129828,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": 41.4,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p. 46",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 2,
+      "totalAnnualRevenue": 2259656
+     },
+     {
+      "label": "Operational Franchise Outlets with Showroom Open 6-11 Months During 2025",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 57475,
+      "basis": "Item 19, Table 4, p. 47",
+      "annualRevenue": 689701,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": 38.7,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p. 47",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 7,
+      "totalAnnualRevenue": 4827907
+     },
+     {
+      "label": "Operational Franchise Outlets with Showroom Open Less than 6 Months During 2025",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 43624,
+      "basis": "Item 19, Table 5, p. 49",
+      "annualRevenue": 523487,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": 36.7,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p. 49",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 7,
+      "totalAnnualRevenue": 3664409
+     }
+    ],
+    "notes": "Table 1 represents the affiliate location in Cedar Park, TX. Tables 3, 4, and 5 represent franchised locations grouped by the number of months their showrooms were open in 2025.",
+    "sourcePage": "Item 19, pp. 43-50",
+    "networkAverageMonthly": null,
+    "unitsReported": 17
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "For a Base Territory of up to 100,000 owner-occupied households.",
+      "high": 59500,
+      "low": 53550
+     },
+     {
+      "category": "Custom Marketing & Services Activation Fee",
+      "recurring": false,
+      "notes": "Paid to the franchisor prior to launch.",
+      "high": 2500,
+      "low": 2500
+     },
+     {
+      "category": "Showroom Design and Order Preparation Fee",
+      "recurring": false,
+      "notes": "Paid to the franchisor prior to launch.",
+      "high": 3500,
+      "low": 3500
+     },
+     {
+      "category": "Software Implementation Assistance Fee",
+      "recurring": false,
+      "notes": "Paid to the franchisor prior to launch.",
+      "high": 2500,
+      "low": 2500
+     },
+     {
+      "category": "Rent",
+      "recurring": true,
+      "notes": "Estimated for the first 3 months of operation.",
+      "high": 21000,
+      "low": 10000
+     },
+     {
+      "category": "Lease, Utility, and Security Deposits",
+      "recurring": false,
+      "notes": "Deposits required by landlords and utility providers.",
+      "high": 10500,
+      "low": 6300
+     },
+     {
+      "category": "Exterior Signage",
+      "recurring": false,
+      "notes": "Signage for the retail showroom.",
+      "high": 8000,
+      "low": 5000
+     },
+     {
+      "category": "Improvements",
+      "recurring": false,
+      "notes": "Build-out and remodeling costs for the showroom.",
+      "high": 295000,
+      "low": 185000
+     },
+     {
+      "category": "Construction Management",
+      "recurring": false,
+      "notes": "Optional fee if using franchisor's construction management services.",
+      "high": 20000,
+      "low": 0
+     },
+     {
+      "category": "Travel Expense to Training",
+      "recurring": false,
+      "notes": "Transportation, lodging, and meals for two trainees.",
+      "high": 3000,
+      "low": 500
+     },
+     {
+      "category": "Insurance",
+      "recurring": true,
+      "notes": "Estimated premium before launch.",
+      "high": 3500,
+      "low": 1500
+     },
+     {
+      "category": "Grand Opening Advertising/Marketing",
+      "recurring": false,
+      "notes": "Required local marketing spend for lead generation.",
+      "high": 18000,
+      "low": 18000
+     },
+     {
+      "category": "Professional Fees",
+      "recurring": false,
+      "notes": "Legal, accounting, and bookkeeping setup fees.",
+      "high": 5000,
+      "low": 1000
+     },
+     {
+      "category": "Office Supplies and Promotional Items",
+      "recurring": false,
+      "notes": "Supplies needed to establish the office.",
+      "high": 1250,
+      "low": 500
+     },
+     {
+      "category": "Technology, Computer, and Software",
+      "recurring": false,
+      "notes": "Laptops, monitors, and initial software licenses.",
+      "high": 3500,
+      "low": 3500
+     },
+     {
+      "category": "Business Licenses and Permits",
+      "recurring": false,
+      "notes": "Local government licenses and permits.",
+      "high": 1000,
+      "low": 0
+     },
+     {
+      "category": "Additional Funds - 3 Months",
+      "recurring": true,
+      "notes": "Working capital for the first 3 months of operation.",
+      "high": 25000,
+      "low": 15000
+     }
+    ],
+    "sourcePage": "Item 7, pp. 18-19",
+    "conversion": {
+     "discountHigh": null,
+     "discountLow": null,
+     "discretionary": null,
+     "eligibility": null,
+     "howDetermined": null,
+     "sourcePage": null,
+     "totalHigh": null,
+     "totalLow": null
+    },
+    "initialInvestmentHigh": 482750,
+    "initialInvestmentLow": 308350
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p. 11",
+      "monthlyAmount": 549
+     },
+     {
+      "name": "Bookkeeping/Accounting Service Fee",
+      "source": "Item 6, p. 12",
+      "monthlyAmount": 615
+     }
+    ],
+    "brandFundPct": 1,
+    "localAdPct": 4,
+    "percentageFees": [
+     {
+      "label": "Royalty Fee",
+      "pct": 6,
+      "source": "Item 6, p. 11"
+     },
+     {
+      "label": "Local Marketing (Ongoing)",
+      "pct": 4,
+      "source": "Item 6, p. 11"
+     },
+     {
+      "label": "Brand Fund Contribution",
+      "pct": 1,
+      "source": "Item 6, p. 11"
+     }
+    ],
+    "royaltyPct": 6
+   },
+   "hiddenCosts": [
+    {
+     "name": "Minimum Royalty Fee",
+     "description": "Minimum monthly royalty of $2,500 (months 13-24), $3,750 (months 25-36), and $5,000 (months 37+) applies per territory.",
+     "source": "Item 6, p. 17",
+     "estimatedAnnualAmount": 60000
+    },
+    {
+     "name": "Minimum Monthly Local Marketing Spend",
+     "description": "Minimum local marketing spend of $4,500 per month per showroom is required.",
+     "source": "Item 6, p. 11",
+     "estimatedAnnualAmount": 54000
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p. 51",
+    "closedLastYear": 4,
+    "openedLastYear": 36,
+    "totalUnits": 54,
+    "transfersLastYear": 0,
+    "unitsStartOfYear": 23
+   },
+   "operationalRisks": [
+    {
+     "title": "Short Operating History",
+     "description": "The franchisor is at an early stage of development and has a limited operating history.",
+     "severity": "medium",
+     "source": "Front Matter, p. 4"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "Franchisee spouses must sign a personal guarantee making them liable for all financial obligations.",
+     "severity": "high",
+     "source": "Front Matter, p. 4"
+    },
+    {
+     "title": "Supplier Sourcing Restrictions",
+     "description": "Franchisees must purchase nearly all inventory and supplies from approved or designated suppliers.",
+     "severity": "medium",
+     "source": "Front Matter, p. 4"
+    }
+   ],
+   "conceptType": "home_trade_services",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025",
+      "cash": 212558,
+      "currentAssets": 1155927,
+      "currentLiabilities": 924043,
+      "deferredRevenue": 773604,
+      "netIncome": 11258,
+      "netWorth": -360358,
+      "relatedPartyDebt": null,
+      "revenue": 3536720,
+      "totalAssets": 3523642,
+      "totalLiabilities": 3884000
+     },
+     {
+      "fiscalYearEnd": "2024",
+      "cash": 129590,
+      "currentAssets": 694902,
+      "currentLiabilities": 779673,
+      "deferredRevenue": 664803,
+      "netIncome": -539524,
+      "netWorth": -371616,
+      "relatedPartyDebt": 100000,
+      "revenue": 1442051,
+      "totalAssets": 1964526,
+      "totalLiabilities": 2336142
+     },
+     {
+      "fiscalYearEnd": "2023",
+      "cash": 303531,
+      "currentAssets": 385891,
+      "currentLiabilities": 217983,
+      "deferredRevenue": 164800,
+      "netIncome": -329590,
+      "netWorth": 167908,
+      "relatedPartyDebt": null,
+      "revenue": null,
+      "totalAssets": 385891,
+      "totalLiabilities": 217983
+     }
+    ],
+    "auditorName": "Kezos & Dunlavy",
+    "parentName": "Cabinet IQ Holdings, LLC"
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "The business specializes in kitchen remodeling, cabinet design, and countertop installation services.",
+   "exitTerms": {
+    "curableDefaults": [
+     {
+      "category": "Monetary Defaults",
+      "cureDays": 5
+     },
+     {
+      "category": "Non-Monetary Defaults",
+      "cureDays": 30
+     }
+    ],
+    "sourcePage": "Item 17, pp. 40-42",
+    "deathTransferDays": 365,
+    "disputeResolution": "Arbitration",
+    "estateApplicationDays": null,
+    "forum": "Austin, Texas",
+    "franchiseeTerminationGrounds": null,
+    "franchisorTerminationWithoutCause": false,
+    "governingLaw": "Texas",
+    "inTermNonCompete": "No interest in any competitive business offering cabinet evaluation, installation, or removal.",
+    "initialTermYears": 10,
+    "nonCurableDefaultCount": 12,
+    "nonCurableOpenEnded": true,
+    "postTermNonCompeteMiles": 100,
+    "postTermNonCompeteScope": "No interest in any competitive business offering cabinet evaluation, installation, or removal.",
+    "postTermNonCompeteYears": 2,
+    "renewalConditions": "Notice, update to standards, satisfy monetary obligations, sign new agreement, pay renewal fee, execute release.",
+    "renewalRequiresCurrentAgreement": true,
+    "rightOfFirstRefusal": true,
+    "rightOfFirstRefusalDays": 30,
+    "successorFeeBasis": "25% of the Initial Franchise Fee or $5,000, whichever is greater",
+    "successorTermCount": 2,
+    "successorTermYears": 5,
+    "transferApprovalRequired": true,
+    "transferConditionCount": 11
+   },
+   "premises": {
+    "evidence": "A typical Showroom will occupy 1,800 to 2,000 square feet total and will be located in a light industrial or a strip shopping center.",
+    "homeBased": false,
+    "siteApprovalRequired": true
+   },
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p. 19",
+    "squareFootage": 2000
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "Requires conventional staffing including an Operating Principal, a Manager, a Salesperson, and installation crews."
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "Pro forma is built on only 2 franchised locations \u2014 a very thin sample; treat the modeled franchisee economics as low-confidence.",
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section.",
+    "Franchisor financial distress disclosed (negative net worth) \u2014 confirm its ability to support the system against the audited statements."
+   ],
+   "midCohort": {
+    "label": "Operational Franchise Outlets with Showroom Open Throughout 2025",
+    "monthlyRevenue": 94152.33333333333,
+    "monthlyVariable": 10356.756666666666,
+    "monthlyFixed": 5655,
+    "monthlyEbitda": 78140.57666666666,
+    "annualEbitda": 937686.9199999999,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Operational Franchise Outlets with Showroom Open Throughout 2025",
+     "math": "$1,129,828/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 2
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 395550,
+   "assumedLoan": 316440,
+   "assumedMonthlyDebtService": 4269.883037965399,
+   "dscr": 18.300402135581837,
+   "rentPctOfRevenue": 0.04769929582201893,
+   "paybackYears": 0.42183589379704695,
+   "variableRate": 0.11,
+   "fixedMonthly": 5655,
+   "rentResolution": {
+    "lo": 3333,
+    "hi": 5649,
+    "mid": 4491,
+    "basis": "benchmark",
+    "source": "2\u20136% category occupancy \u00d7 modeled revenue, bounded by Item 7 rent lines \u00f7 3 months (e.g. \"Rent\")"
+   },
+   "fixedFeesMonthly": 1164,
+   "notes": [
+    "Rent modeled at $3,333\u2013$5,649/mo (category occupancy benchmark); the math uses the midpoint."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 145550,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 145550,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 1963.9788780680817,
+   "adjustedMonthlyNetCashFlow": 76176.59778859858,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $395,550 mid-point build-out, there is a $145,550 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, about $76,177/mo is left after fees, rent and debt service \u2014 cost of goods and labor still come out of that, and the cash ladder below subtracts them."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "The business specializes in kitchen remodeling, cabinet design, and countertop installation services.",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 94152.33333333333,
+   "marginAfterFeesMonthly": 78140.57666666666,
+   "benchmarkOperatingEbitdaMonthly": [
+    -1888,
+    30124
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    20,
+    35
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      78140.57666666666,
+      78140.57666666666
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      25,
+      40
+     ],
+     "dollarRange": [
+      23538,
+      37661
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      20,
+      35
+     ],
+     "dollarRange": [
+      18830,
+      32953
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 5.4\u20139.5 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      5649,
+      9415
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -1888,
+      30124
+     ],
+     "note": "\u2248 -2% to 32% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Rent",
+     "basis": "benchmark",
+     "detail": "Estimated: ~$3,333\u2013$5,649/mo (2\u20136% category occupancy \u00d7 modeled revenue, bounded by Item 7 rent lines \u00f7 3 months (e.g. \"Rent\")); already netted in the margin line \u2014 no separate occupancy subtraction applied."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 25\u201340% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 20\u201335% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "This franchisor has negative net worth (about $360K in the red) \u2014 it owes more than it owns \u2014 though the trend isn't worsening. Understand what's funding the gap before you commit.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; the business is profitable. Note what this is and is not: the negative net worth sits alongside positive net income of $11K, so the balance sheet reflects how this business was financed rather than how it trades. Ask what created the gap \u2014 a recapitalization, distributions to the owner, or accumulated losses from earlier years \u2014 because those carry very different consequences for a franchisee.",
+   "body": [
+    "What we found (2025, audited by Kezos & Dunlavy): Net income of $11K on $3.54M of revenue \u2014 roughly 1.0x spent per $1 earned. Negative net worth (a members'/stockholders' deficit) of $360K. Total liabilities are about 1.1x total assets. Cash of $213K against $924K of obligations due within a year (a current ratio of 1.25). Note: about 20% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.9x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Cabinet IQ Holdings, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "negative net worth \u2014 it owes more than it owns",
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing",
+    "the business is profitable"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025",
+    "netWorth": -360358,
+    "netWorthSign": "negative",
+    "netWorthTrend": "flat",
+    "netIncome": 11258,
+    "netIncomeTrend": "improving",
+    "revenue": 3536720,
+    "revenueTrend": "improving",
+    "currentRatio": 1.2509450317788242,
+    "workingCapital": 231884,
+    "liabilitiesToAssets": 1.1022686186621682,
+    "adjLiabilitiesToAssets": 0.882721911022743,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": 0.1991771369721936,
+    "expenseToRevenue": 0.9968168246284693,
+    "cash": 212558,
+    "nearTermObligations": 924043
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

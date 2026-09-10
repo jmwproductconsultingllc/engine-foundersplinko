@@ -1,0 +1,729 @@
+{
+ "slug": "five-iron-golf",
+ "brandName": "Five Iron Golf",
+ "category": "Indoor golf & entertainment",
+ "vertical": "Sports & Entertainment",
+ "grade": "READY",
+ "sourceFddYear": 2026,
+ "generatedAt": "2026-09-10T21:31:59.965Z",
+ "sourceStem": "five-iron-golf",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 11",
+     "Item 12",
+     "Item 17",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Five Iron Golf",
+   "franchisorEntity": "Five Iron Golf Franchising LLC",
+   "headquarters": "883 Avenue of the Americas, Fl. 3, New York, New York 10001",
+   "brandBackground": "",
+   "leadership": [
+    {
+     "name": "Jared Solomon",
+     "role": "Chief Executive Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Katherine Solomon",
+     "role": "Chief Legal Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Nora Dunnan",
+     "role": "Chief Development Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Ross Ufberg",
+     "role": "General Counsel",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Morgan Dunnan",
+     "role": "Senior Vice President, Strategy",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Joshua Frankel",
+     "role": "Senior Vice President of Franchising",
+     "background": "",
+     "whyItMatters": ""
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Company Centers Average Gross Sales",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 251741,
+      "basis": "Item 19, p.49",
+      "annualRevenue": 3020897,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 563046,
+       "grossMarginPct": 81,
+       "laborAnnual": 699860,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.49",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 18,
+      "totalAnnualRevenue": 54376146
+     },
+     {
+      "label": "Select Company Centers Average Gross Sales",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 182465,
+      "basis": "Item 19, p.49",
+      "annualRevenue": 2189582,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 439536,
+       "grossMarginPct": 80,
+       "laborAnnual": 584665,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.50",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 9,
+      "totalAnnualRevenue": 19706238
+     },
+     {
+      "label": "Franchised Centers Average Gross Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 127809,
+      "basis": "Item 19, p.49",
+      "annualRevenue": 1533704,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": null,
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 2,
+      "totalAnnualRevenue": 3067408
+     },
+     {
+      "label": "Company Centers EBITDA",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 79511,
+      "basis": "Item 19, p.49",
+      "annualRevenue": 954132,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": null,
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 18,
+      "totalAnnualRevenue": 17174376
+     },
+     {
+      "label": "Select Company Centers EBITDA",
+      "ownership": "company",
+      "revenueType": "net_or_ebitda",
+      "avgMonthlyRevenue": 43741,
+      "basis": "Item 19, p.50",
+      "annualRevenue": 524893,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": null,
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 9,
+      "totalAnnualRevenue": 4724037
+     }
+    ],
+    "notes": "",
+    "sourcePage": "Item 19, p.48-51",
+    "networkAverageMonthly": null,
+    "unitsReported": 20
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 50000,
+      "low": 50000
+     },
+     {
+      "category": "Real Estate, Lease, Utility and Security Deposits",
+      "recurring": false,
+      "notes": "",
+      "high": 375000,
+      "low": 75000
+     },
+     {
+      "category": "Leasehold Improvements",
+      "recurring": false,
+      "notes": "",
+      "high": 2500000,
+      "low": 750000
+     },
+     {
+      "category": "Design & Architectural Fees",
+      "recurring": false,
+      "notes": "",
+      "high": 80000,
+      "low": 60000
+     },
+     {
+      "category": "Furniture, Fixtures, and Equipment",
+      "recurring": false,
+      "notes": "",
+      "high": 1200000,
+      "low": 850000
+     },
+     {
+      "category": "Interior and Exterior Signage",
+      "recurring": false,
+      "notes": "",
+      "high": 50000,
+      "low": 20000
+     },
+     {
+      "category": "Computer System",
+      "recurring": false,
+      "notes": "",
+      "high": 10000,
+      "low": 5000
+     },
+     {
+      "category": "Professional Fees",
+      "recurring": false,
+      "notes": "",
+      "high": 15000,
+      "low": 2500
+     },
+     {
+      "category": "Opening Inventory",
+      "recurring": false,
+      "notes": "",
+      "high": 25000,
+      "low": 10000
+     },
+     {
+      "category": "Opening Supplies",
+      "recurring": false,
+      "notes": "",
+      "high": 15000,
+      "low": 5000
+     },
+     {
+      "category": "Grand Opening Program",
+      "recurring": false,
+      "notes": "",
+      "high": 100000,
+      "low": 50000
+     },
+     {
+      "category": "Training Expenses",
+      "recurring": false,
+      "notes": "",
+      "high": 5000,
+      "low": 1000
+     },
+     {
+      "category": "Insurance",
+      "recurring": true,
+      "notes": "",
+      "high": 10000,
+      "low": 5000
+     },
+     {
+      "category": "Duckpin Bowling",
+      "recurring": false,
+      "notes": "",
+      "high": 70000,
+      "low": 0
+     },
+     {
+      "category": "Additional Funds - 3 months",
+      "recurring": true,
+      "notes": "",
+      "high": 150000,
+      "low": 80000
+     }
+    ],
+    "sourcePage": "Item 7, p.13-14",
+    "initialInvestmentHigh": 4655000,
+    "initialInvestmentLow": 1963500
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p.10",
+      "monthlyAmount": 1200
+     },
+     {
+      "name": "Mindbody POS Fee",
+      "source": "Item 11, p.28",
+      "monthlyAmount": 270
+     }
+    ],
+    "brandFundPct": 2,
+    "localAdPct": 1,
+    "percentageFees": [
+     {
+      "label": "Royalty",
+      "pct": 7,
+      "source": "Item 6, p.7"
+     },
+     {
+      "label": "Brand Fund Contribution",
+      "pct": 2,
+      "source": "Item 6, p.8"
+     },
+     {
+      "label": "Local Advertising",
+      "pct": 1,
+      "source": "Item 6, p.8"
+     },
+     {
+      "label": "Regional Co-Op",
+      "pct": 2,
+      "source": "Item 6, p.8"
+     }
+    ],
+    "royaltyPct": 7
+   },
+   "hiddenCosts": [
+    {
+     "name": "Trackman License Fee (per simulator bay)",
+     "description": "",
+     "source": "Item 11, p.28",
+     "estimatedAnnualAmount": 2000
+    },
+    {
+     "name": "Initial Training Rescheduling Fee",
+     "description": "",
+     "source": "Item 5, p.7",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Convention Fee",
+     "description": "",
+     "source": "Item 6, p.9",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p.52-53",
+    "closedLastYear": 0,
+    "openedLastYear": 4,
+    "totalUnits": 37,
+    "transfersLastYear": 0,
+    "unitsStartOfYear": 28
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "",
+     "severity": "high",
+     "source": "Special Risks, p.i"
+    },
+    {
+     "title": "Short Operating History",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p.i"
+    },
+    {
+     "title": "Supplier Control",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p.i"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "",
+     "severity": "high",
+     "source": "Special Risks, p.i"
+    },
+    {
+     "title": "Financial Condition",
+     "description": "",
+     "severity": "high",
+     "source": "Special Risks, p.i"
+    }
+   ],
+   "conceptType": "experiential_with_fb",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": true,
+    "priorPeriodRestatement": true,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025",
+      "cash": 257206,
+      "currentAssets": 352368,
+      "currentLiabilities": 1106234,
+      "deferredRevenue": 1097208,
+      "netIncome": -1642282,
+      "netWorth": -3140222,
+      "relatedPartyDebt": 2527687,
+      "revenue": 718385,
+      "totalAssets": 493699,
+      "totalLiabilities": 3633921
+     },
+     {
+      "fiscalYearEnd": "2024",
+      "cash": 540000,
+      "currentAssets": 599430,
+      "currentLiabilities": 642146,
+      "deferredRevenue": 631353,
+      "netIncome": -896440,
+      "netWorth": -1497940,
+      "relatedPartyDebt": 1564807,
+      "revenue": 336525,
+      "totalAssets": 709013,
+      "totalLiabilities": 2206953
+     },
+     {
+      "fiscalYearEnd": "2023",
+      "cash": 328011,
+      "currentAssets": 335506,
+      "currentLiabilities": 423256,
+      "deferredRevenue": 420000,
+      "netIncome": -628003,
+      "netWorth": -601500,
+      "relatedPartyDebt": 547750,
+      "revenue": null,
+      "totalAssets": 369506,
+      "totalLiabilities": 971006
+     }
+    ],
+    "auditorName": "Armanino LLP",
+    "parentName": "The Range NYC LLC"
+   },
+   "averageRentMonthly": 25000,
+   "conceptRationale": "",
+   "exitTerms": {
+    "curableDefaults": [
+     {
+      "category": "Health, safety or sanitation law violation",
+      "cureDays": 3
+     },
+     {
+      "category": "Monetary defaults",
+      "cureDays": 30
+     },
+     {
+      "category": "Failure to maintain required insurance",
+      "cureDays": 15
+     },
+     {
+      "category": "Operational defaults and other defaults",
+      "cureDays": 30
+     },
+     {
+      "category": "Relocate Premises after loss of possession",
+      "cureDays": 270
+     }
+    ],
+    "sourcePage": "Item 17, p.39-47",
+    "deathTransferDays": 180,
+    "disputeResolution": "Arbitration",
+    "estateApplicationDays": 15,
+    "forum": "New York, New York",
+    "franchiseeTerminationGrounds": 1,
+    "franchisorTerminationWithoutCause": false,
+    "governingLaw": "New York",
+    "inTermNonCompete": "No direct or indirect interest in a Competitive Business anywhere",
+    "initialTermYears": 10,
+    "nonCurableDefaultCount": 21,
+    "nonCurableOpenEnded": false,
+    "postTermNonCompeteMiles": 10,
+    "postTermNonCompeteScope": "No direct or indirect ownership interest in, or performing services for, competing business at the Premises, within the Territory, within a 10 mile radius of the Territory, or within 10 miles of any other Five Iron Golf Center",
+    "postTermNonCompeteYears": 2,
+    "renewalConditions": "Full compliance, timely notice, pay renewal fee, maintain possession of Premises or find acceptable substitute, remodel Center to then-current standards, sign then-current Franchise Agreement and general release",
+    "renewalRequiresCurrentAgreement": true,
+    "rightOfFirstRefusal": true,
+    "rightOfFirstRefusalDays": 60,
+    "successorFeeBasis": "50% of then-current initial franchise fee",
+    "successorTermCount": 2,
+    "successorTermYears": 5,
+    "transferApprovalRequired": true,
+    "transferConditionCount": 14
+   },
+   "premises": {
+    "evidence": "Typical Five Iron Golf Centers are between approximately 5,000 and 15,000 square feet and our targeted location is based on an estimated gross rent of $20 to $50 per square foot.",
+    "homeBased": false,
+    "siteApprovalRequired": true
+   },
+   "rentDetail": {
+    "rawValue": 20,
+    "unit": "per_sqft_per_year",
+    "source": "Item 7, p.14",
+    "squareFootage": 15000
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": ""
+  },
+  "scoring": {
+   "riskLevel": "High",
+   "riskReasons": [
+    "Pro forma is built on only 2 franchised locations \u2014 a very thin sample; treat the modeled franchisee economics as low-confidence.",
+    "Capital gap of $3,059,250 is ~12x your liquid \u2014 extreme leverage; the deal rests almost entirely on outside capital.",
+    "2 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
+    "Franchisor financial distress disclosed (going-concern doubt) \u2014 confirm its ability to support the system against the audited statements."
+   ],
+   "midCohort": {
+    "label": "Franchised Centers Average Gross Sales",
+    "monthlyRevenue": 127808.66666666667,
+    "monthlyVariable": 15337.04,
+    "monthlyFixed": 26470,
+    "monthlyEbitda": 86001.62666666668,
+    "annualEbitda": 1032019.5200000001,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Franchised Centers Average Gross Sales",
+     "math": "$1,533,704/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 2
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 3309250,
+   "assumedLoan": 2647400,
+   "assumedMonthlyDebtService": 35722.691046358224,
+   "dscr": 2.407478948186189,
+   "rentPctOfRevenue": 0.19560488855737482,
+   "paybackYears": 3.2065769453663044,
+   "variableRate": 0.12,
+   "fixedMonthly": 26470,
+   "rentResolution": {
+    "lo": 25000,
+    "hi": 25000,
+    "mid": 25000,
+    "basis": "disclosed",
+    "source": "Item 7, p.14"
+   },
+   "fixedFeesMonthly": 1470,
+   "notes": [
+    "Item 19 in this filing also publishes 2 tables that are not gross sales \u2014 patient or visit counts, a profit-and-loss table, or pre-sale figures. They are excluded from the top line, which is built only on disclosed gross revenue."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 3059250,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 3059250,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 41279.98888855911,
+   "adjustedMonthlyNetCashFlow": 44721.637778107564,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $3,309,250 mid-point build-out, there is a $3,059,250 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, about $44,722/mo is left after fees, rent and debt service \u2014 cost of goods and labor still come out of that, and the cash ladder below subtracts them."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "experiential_with_fb",
+   "conceptLabel": "Experiential entertainment with F&B attach (e.g. indoor golf + bar)",
+   "conceptRationale": "",
+   "benchmark": {
+    "label": "Experiential entertainment with F&B attach (e.g. indoor golf + bar)",
+    "cogsPct": [
+     15,
+     28
+    ],
+    "laborPct": [
+     22,
+     30
+    ],
+    "occupancyPct": [
+     10,
+     16
+    ],
+    "operatingEbitdaPct": [
+     15,
+     26
+    ],
+    "dominantRisk": "Blended margin. The bar/kitchen attach rate swings COGS up; the large footprint plus simulator/equipment R&M swing fixed costs. Owner-operator vs. absentee is a full GM salary either way.",
+    "rampNote": "6\u201318 months to a mature membership/booking base; the Item 19 average is NOT a year-one number.",
+    "considerations": [
+     "Budget blended COGS ~15\u201328% (sim time and memberships carry little; the bar and kitchen drive it) and labor ~22\u201330%.",
+     "Decide owner-operator vs. absentee before modeling \u2014 absentee adds a GM salary (~$60\u201390K/yr) the pro forma omits.",
+     "Confirm the F&B attach rate and per-bay equipment costs (e.g. simulator licenses, R&M) at mature franchised units via Item 20.",
+     "Assume a 6\u201318 month ramp; discount the Item 19 mature average for year one."
+    ]
+   },
+   "disclosedOperatingMarginPct": 31.6,
+   "disclosedMarginSource": "Company Centers EBITDA \u00f7 Company Centers Average Gross Sales",
+   "crossCheck": {
+    "status": "optimistic",
+    "message": "The franchisor's disclosed margin (31.6%) sits ABOVE the typical 15\u201326% band for this concept. Treat the headline economics as optimistic and confirm how that figure is calculated (company-owned vs. franchised, what's added back)."
+   },
+   "proFormaRevenueMonthly": 127808.66666666667,
+   "marginAfterFeesMonthly": 86001.62666666668,
+   "benchmarkOperatingEbitdaMonthly": [
+    40388,
+    40388
+   ],
+   "trueEbitdaBasis": "disclosed",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    22,
+    30
+   ],
+   "buildup": [
+    {
+     "label": "Franchised gross sales (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      127808.66666666667,
+      127808.66666666667
+     ],
+     "basis": "disclosed"
+    },
+    {
+     "label": "\u00d7 franchisor's disclosed operating margin (31.6%)",
+     "kind": "result",
+     "dollarRange": [
+      40388,
+      40388
+     ],
+     "note": "Company Centers EBITDA \u00f7 Company Centers Average Gross Sales",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cExperiential entertainment with F&B attach (e.g. indoor golf + bar)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Operating margin",
+     "basis": "disclosed",
+     "detail": "Taken straight from the franchisor's Item 19 disclosure (Company Centers EBITDA \u00f7 Company Centers Average Gross Sales); no benchmark applied."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed margin applied to the modeled franchised gross. The margin is from the FDD; this dollar figure is computed, not disclosed."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 15\u201328% category band \u2014 COGS is never disclosed in an FDD. Applied on rung 6 of the cash ladder, not to the disclosed margin above."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 22\u201330% category band (conventionally staffed \u00b7 \u2248 8.1\u201311.1 FTE at ~$20/hr fully loaded). Applied on rung 7 of the cash ladder, not to the disclosed margin above."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Estimated at the 6\u201310% category band \u2014 utilities, insurance, R&M, supplies. Applied on rung 8 of the cash ladder, not to the disclosed margin above."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "HIGH",
+   "headline": "The franchisor's own auditor has raised substantial doubt about whether it can stay in business \u2014 a serious signal for a company you'd depend on for years of support.",
+   "context": null,
+   "body": [
+    "What we found (2025, audited by Armanino LLP): Net loss of $1.64M on $718K of revenue \u2014 roughly 3.3x spent per $1 earned. Losses are widening, not shrinking. Negative net worth (a members'/stockholders' deficit) of $3.14M, and deepening year over year. Total liabilities are about 7.4x total assets. About 70% of liabilities is money owed to related parties \u2014 the entity is kept alive largely by insider loans, not profit. Cash of $257K against $1.11M of obligations due within a year (a current ratio of 0.32). Note: about 30% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 5.1x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so The Range NYC LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "the auditor raised substantial doubt about the company's ability to continue as a going concern",
+    "negative net worth that is deepening year over year",
+    "operating losses that are widening",
+    "more due within a year than current assets to cover it",
+    "liabilities far exceed assets",
+    "heavy dependence on related-party loans to stay funded",
+    "no parent guarantee backing the franchisor's obligations to you",
+    "prior-year financials were restated"
+   ],
+   "mitigants": [
+    "revenue is growing"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025",
+    "netWorth": -3140222,
+    "netWorthSign": "negative",
+    "netWorthTrend": "worsening",
+    "netIncome": -1642282,
+    "netIncomeTrend": "worsening",
+    "revenue": 718385,
+    "revenueTrend": "improving",
+    "currentRatio": 0.318529352740921,
+    "workingCapital": -753866,
+    "liabilitiesToAssets": 7.36060028478891,
+    "adjLiabilitiesToAssets": 5.1381773104664985,
+    "relatedPartyDebtPct": 0.6955811642575609,
+    "deferredRevenuePct": 0.3019350172994955,
+    "expenseToRevenue": 3.286075015486125,
+    "cash": 257206,
+    "nearTermObligations": 1106234
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

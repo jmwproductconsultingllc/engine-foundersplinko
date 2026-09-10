@@ -1,0 +1,734 @@
+{
+ "slug": "bark-and-mane",
+ "brandName": "BARK & MANE",
+ "category": "Mobile pet grooming",
+ "vertical": "Pets",
+ "grade": "READY",
+ "sourceFddYear": 2026,
+ "generatedAt": "2026-09-10T21:31:59.992Z",
+ "sourceStem": "bark-and-mane",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 11",
+     "Item 12",
+     "Item 17",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "BARK & MANE",
+   "franchisorEntity": "Aussie Pet Mobile, Inc.",
+   "headquarters": "19000 MacArthur Blvd, Suite 100, Irvine, California 92612",
+   "brandBackground": "Originally founded in 1999 as Aussie Pet Mobile, the brand rebranded to BARK & MANE in June 2026 to offer mobile pet grooming services.",
+   "leadership": [
+    {
+     "name": "Paul Ebert",
+     "role": "Group President",
+     "background": "Group President since November 2024, previously Brand President, and President of Two Maids Franchising.",
+     "whyItMatters": "Brings extensive franchise leadership experience from multiple home service brands."
+    },
+    {
+     "name": "Meribeth Gunn",
+     "role": "Brand Vice President",
+     "background": "Brand Vice President since November 2024, previously Vice President of Operations for HFC.",
+     "whyItMatters": "Oversees brand operations with deep experience in HFC's corporate structure."
+    },
+    {
+     "name": "Corey Benish",
+     "role": "Chief Executive Officer and President of HFC",
+     "background": "President of HFC since April 2025, previously Group VP and COO/CTO for JM Family Enterprises.",
+     "whyItMatters": "Provides high-level strategic and technology leadership across the parent company's brands."
+    },
+    {
+     "name": "Amir Yeganehjoo",
+     "role": "Chief Financial Officer of HFC",
+     "background": "CFO of HFC since January 2023, previously Senior VP of Finance at European Wax Center.",
+     "whyItMatters": "Directs financial strategy with a strong background in public and private franchise systems."
+    },
+    {
+     "name": "Megan Hoyt",
+     "role": "Vice President, General Counsel and Secretary",
+     "background": "VP and General Counsel since March 2026, previously Deputy General Counsel.",
+     "whyItMatters": "Manages legal compliance and franchise registrations."
+    },
+    {
+     "name": "Josh Barker",
+     "role": "Chief Development Officer",
+     "background": "Chief Development Officer since March 2026, previously with Unleashed Brands and Neighborly.",
+     "whyItMatters": "Leads franchise recruitment and system growth."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "1-3 Vans Average Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 26199,
+      "basis": "Item 19, p.51",
+      "annualRevenue": 314387,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.51",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 38,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "4-6 Vans Average Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 59758,
+      "basis": "Item 19, p.51",
+      "annualRevenue": 717096,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.51",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 14,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "7-10 Vans Average Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 102532,
+      "basis": "Item 19, p.51",
+      "annualRevenue": 1230386,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.51",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 15,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "More than 10 Vans Average Sales",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 174157,
+      "basis": "Item 19, p.51",
+      "annualRevenue": 2089878,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.51",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 7,
+      "totalAnnualRevenue": null
+     }
+    ],
+    "notes": "Figures represent historical gross sales of 74 franchisees open for the full calendar year 2025, operating under the Aussie Pet Mobile brand.",
+    "sourcePage": "Item 19, p.50-51",
+    "networkAverageMonthly": null,
+    "unitsReported": 74
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Paid upon signing the franchise agreement.",
+      "high": 19950,
+      "low": 19950
+     },
+     {
+      "category": "Territory Fees",
+      "recurring": false,
+      "notes": "Fee for three territories required for new franchisees.",
+      "high": 100000,
+      "low": 100000
+     },
+     {
+      "category": "Van Down Payment (Financed)",
+      "recurring": false,
+      "notes": "Down payment for the first mobile grooming van.",
+      "high": 30000,
+      "low": 25000
+     },
+     {
+      "category": "Van Payments (Financed)",
+      "recurring": true,
+      "notes": "First three months of payments for the first van.",
+      "high": 7800,
+      "low": 6300
+     },
+     {
+      "category": "Computer Hardware and Software",
+      "recurring": false,
+      "notes": "Required computer setup.",
+      "high": 750,
+      "low": 0
+     },
+     {
+      "category": "Business Licenses",
+      "recurring": false,
+      "notes": "Local permits and licenses.",
+      "high": 350,
+      "low": 350
+     },
+     {
+      "category": "Grand Opening and Ongoing Advertising",
+      "recurring": false,
+      "notes": "Required marketing spend over the first three months.",
+      "high": 11000,
+      "low": 9000
+     },
+     {
+      "category": "Insurance",
+      "recurring": true,
+      "notes": "First van insurance for three months.",
+      "high": 2400,
+      "low": 2400
+     },
+     {
+      "category": "Expenses During Training",
+      "recurring": false,
+      "notes": "Travel and lodging for initial training.",
+      "high": 3650,
+      "low": 1475
+     },
+     {
+      "category": "Shipping of Van",
+      "recurring": false,
+      "notes": "Delivery cost of the customized van.",
+      "high": 3400,
+      "low": 0
+     },
+     {
+      "category": "Optional Basic Groomer Training",
+      "recurring": false,
+      "notes": "Optional training program.",
+      "high": 1200,
+      "low": 1200
+     },
+     {
+      "category": "Online Marketing Package",
+      "recurring": true,
+      "notes": "Three months of online marketing services.",
+      "high": 1650,
+      "low": 1650
+     },
+     {
+      "category": "Van Storage",
+      "recurring": true,
+      "notes": "Storage costs for cold weather climates.",
+      "high": 1500,
+      "low": 0
+     },
+     {
+      "category": "Additional Funds - 3 Months",
+      "recurring": true,
+      "notes": "Working capital for the first three months.",
+      "high": 25000,
+      "low": 15000
+     }
+    ],
+    "sourcePage": "Item 7, p.22-23",
+    "conversion": {
+     "discountHigh": null,
+     "discountLow": null,
+     "discretionary": null,
+     "eligibility": null,
+     "howDetermined": null,
+     "sourcePage": null,
+     "totalHigh": null,
+     "totalLow": null
+    },
+    "initialInvestmentHigh": 208650,
+    "initialInvestmentLow": 167325
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "National Advertising Fund Minimum",
+      "source": "Item 6, p.16",
+      "monthlyAmount": 500
+     },
+     {
+      "name": "Technology Fee (First Territory)",
+      "source": "Item 6, p.16",
+      "monthlyAmount": 450
+     },
+     {
+      "name": "Technology Fee (Subsequent Territories)",
+      "source": "Item 6, p.16",
+      "monthlyAmount": 100
+     },
+     {
+      "name": "CMS Fee",
+      "source": "Item 6, p.16",
+      "monthlyAmount": 400
+     },
+     {
+      "name": "Van Support Subscription Fee",
+      "source": "Item 6, p.16",
+      "monthlyAmount": 225
+     }
+    ],
+    "brandFundPct": 2,
+    "localAdPct": null,
+    "percentageFees": [
+     {
+      "label": "Royalty Fee",
+      "pct": 6,
+      "source": "Item 6, p.16"
+     },
+     {
+      "label": "National Advertising Fund Payment",
+      "pct": 2,
+      "source": "Item 6, p.16"
+     }
+    ],
+    "royaltyPct": 6
+   },
+   "hiddenCosts": [
+    {
+     "name": "Late Reporting Administrative Fee",
+     "description": "Charged if Gross Revenue is not timely reported.",
+     "source": "Item 6, p.18",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Convention Fee",
+     "description": "Mandatory annual convention registration fee.",
+     "source": "Item 6, p.18",
+     "estimatedAnnualAmount": 2000
+    },
+    {
+     "name": "Audit Cost",
+     "description": "Cost of inspection or audit if understatement is found.",
+     "source": "Item 6, p.19",
+     "estimatedAnnualAmount": 10000
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p.53-56",
+    "closedLastYear": 9,
+    "openedLastYear": 64,
+    "totalUnits": 167,
+    "transfersLastYear": 10,
+    "unitsStartOfYear": 111
+   },
+   "operationalRisks": [
+    {
+     "title": "Unregistered Trademark",
+     "description": "The primary trademark BARK & MANE is not federally registered, posing a risk of forced rebranding.",
+     "severity": "high",
+     "source": "Special Risks, p.4"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "Franchisee's spouse must sign a personal guarantee, placing personal assets at risk.",
+     "severity": "medium",
+     "source": "Special Risks, p.4"
+    },
+    {
+     "title": "Mandatory Minimum Payments",
+     "description": "Franchisees must make minimum royalty and advertising payments regardless of sales levels.",
+     "severity": "medium",
+     "source": "Special Risks, p.4"
+    }
+   ],
+   "conceptType": "other",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": false,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "cash": 20068280,
+      "currentAssets": 44439357,
+      "currentLiabilities": 48487643,
+      "deferredRevenue": 3693325,
+      "netIncome": 17603502,
+      "netWorth": 432603250,
+      "relatedPartyDebt": 114600000,
+      "revenue": 145468412,
+      "totalAssets": 688564783,
+      "totalLiabilities": 255961533
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "cash": 16615613,
+      "currentAssets": 46273858,
+      "currentLiabilities": 36249323,
+      "deferredRevenue": 3408286,
+      "netIncome": -4059736,
+      "netWorth": 456626764,
+      "relatedPartyDebt": 114600000,
+      "revenue": 143278985,
+      "totalAssets": 695771873,
+      "totalLiabilities": 239145109
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "cash": 15977767,
+      "currentAssets": null,
+      "currentLiabilities": null,
+      "deferredRevenue": null,
+      "netIncome": 10386432,
+      "netWorth": 487110663,
+      "relatedPartyDebt": null,
+      "revenue": 142655848,
+      "totalAssets": null,
+      "totalLiabilities": null
+     }
+    ],
+    "auditorName": "PricewaterhouseCoopers LLP",
+    "parentName": "Home Franchise Concepts, LLC"
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "Mobile pet grooming services operated out of customized vehicles.",
+   "exitTerms": {
+    "curableDefaults": [
+     {
+      "category": "Service mark violations",
+      "cureDays": 7
+     },
+     {
+      "category": "Other defaults",
+      "cureDays": 30
+     }
+    ],
+    "sourcePage": "Item 17, p.46-49",
+    "deathTransferDays": 30,
+    "disputeResolution": "Arbitration or mediation",
+    "estateApplicationDays": null,
+    "forum": "Orange County, California",
+    "franchiseeTerminationGrounds": 1,
+    "franchisorTerminationWithoutCause": false,
+    "governingLaw": "California",
+    "inTermNonCompete": "No involvement in competing business anywhere in the U.S. or countries with registered trademarks.",
+    "initialTermYears": 10,
+    "nonCurableDefaultCount": 12,
+    "nonCurableOpenEnded": false,
+    "postTermNonCompeteMiles": 25,
+    "postTermNonCompeteScope": "Any competing business within the former territory or within 25 miles of any other BARK & MANE territory.",
+    "postTermNonCompeteYears": 2,
+    "renewalConditions": "Pay renewal fee, sign then-current agreement, not be in default, make necessary upgrades.",
+    "renewalRequiresCurrentAgreement": true,
+    "rightOfFirstRefusal": true,
+    "rightOfFirstRefusalDays": 10,
+    "successorFeeBasis": "$5,000 per territory",
+    "successorTermCount": 2,
+    "successorTermYears": 5,
+    "transferApprovalRequired": true,
+    "transferConditionCount": 8
+   },
+   "premises": {
+    "evidence": "Since the business is mobile, we expect that you will run your BARK & MANE Franchised Business from your home and no site approval is required.",
+    "homeBased": true,
+    "siteApprovalRequired": false
+   },
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p.23",
+    "squareFootage": null
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "Requires hiring qualified groomers to operate the mobile vans."
+  },
+  "scoring": {
+   "riskLevel": "Low",
+   "riskReasons": [
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "1-3 Vans Average Sales",
+    "monthlyRevenue": 26198.916666666668,
+    "monthlyVariable": 2095.9133333333334,
+    "monthlyFixed": 1075,
+    "monthlyEbitda": 23028.003333333334,
+    "annualEbitda": 276336.04000000004,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "1-3 Vans Average Sales",
+     "math": "$314,387/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 38
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 187987.5,
+   "assumedLoan": 150390,
+   "assumedMonthlyDebtService": 2029.2874165074466,
+   "dscr": 11.347827393009823,
+   "rentPctOfRevenue": 0,
+   "paybackYears": 0.6802858577549276,
+   "variableRate": 0.08,
+   "fixedMonthly": 1075,
+   "rentResolution": null,
+   "fixedFeesMonthly": 1075,
+   "notes": [
+    "This filing says: \"Since the business is mobile, we expect that you will run your BARK & MANE Franchised Business from your home and no site approval is required.\" No premises rent is modeled, because a category occupancy band would invent a lease the filing does not describe. Read that sentence as written \u2014 a filing saying MOST franchisees work from home is not telling you that you will \u2014 and confirm with the franchisor what space you would actually need."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 0,
+   "sbaLoanRequired": false,
+   "recommendedLoan": 0,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 0,
+   "adjustedMonthlyNetCashFlow": 23028.003333333334,
+   "survivesBottomCohort": null,
+   "assessment": "$250,000 liquid covers the $187,988 mid-point build-out without financing, though that leaves little working-capital cushion. At mid-cohort revenue, about $23,028/mo is left after fees, rent and debt service \u2014 cost of goods and labor still come out of that, and the cash ladder below subtracts them."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "other",
+   "conceptLabel": "General franchise (uncategorized)",
+   "conceptRationale": "Mobile pet grooming services operated out of customized vehicles.",
+   "benchmark": {
+    "label": "General franchise (uncategorized)",
+    "cogsPct": [
+     15,
+     35
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     6,
+     12
+    ],
+    "operatingEbitdaPct": [
+     8,
+     20
+    ],
+    "dominantRisk": "Cost of goods and labor are not disclosed in any FDD \u2014 model them explicitly before trusting any margin figure.",
+    "rampNote": "Assume 6\u201318 months to a mature run-rate.",
+    "considerations": [
+     "Budget COGS and labor explicitly \u2014 neither is in the FDD, and together they usually run 45\u201365% of sales.",
+     "Use the Item 20 franchisee list to validate real operating costs and ramp before committing capital."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 8\u201320% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 26198.916666666668,
+   "marginAfterFeesMonthly": 23028.003333333334,
+   "benchmarkOperatingEbitdaMonthly": [
+    -1076,
+    10714
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    20,
+    35
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      23028.003333333334,
+      23028.003333333334
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      12
+     ],
+     "dollarRange": [
+      1572,
+      3144
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      15,
+      35
+     ],
+     "dollarRange": [
+      3930,
+      9170
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      20,
+      35
+     ],
+     "dollarRange": [
+      5240,
+      9170
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 1.5\u20132.6 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      1572,
+      2620
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -1076,
+      10714
+     ],
+     "note": "\u2248 -4% to 41% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cGeneral franchise (uncategorized)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 6\u201312% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 15\u201335% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 20\u201335% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
+   "context": null,
+   "body": [
+    "What we found (2025-12-31, audited by PricewaterhouseCoopers LLP): Net income of $17.60M on $145.47M of revenue \u2014 roughly 0.9x spent per $1 earned. Positive net worth of $432.60M. About 45% of liabilities is money owed to related parties \u2014 the entity is kept alive largely by insider loans, not profit. Cash of $20.07M against $48.49M of obligations due within a year (a current ratio of 0.92).",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. Home Franchise Concepts, LLC guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "more due within a year than current assets to cover it",
+    "heavy dependence on related-party loans to stay funded",
+    "elevated unit closures (9 in the last year, about 5% of the system)"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "positive net worth",
+    "the business is profitable",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": 432603250,
+    "netWorthSign": "positive",
+    "netWorthTrend": "worsening",
+    "netIncome": 17603502,
+    "netIncomeTrend": "improving",
+    "revenue": 145468412,
+    "revenueTrend": "flat",
+    "currentRatio": 0.9165089134153211,
+    "workingCapital": -4048286,
+    "liabilitiesToAssets": 0.3717319551034895,
+    "adjLiabilitiesToAssets": 0.36636815333612555,
+    "relatedPartyDebtPct": 0.4477235257064975,
+    "deferredRevenuePct": 0.014429218940488217,
+    "expenseToRevenue": 0.8789874601779526,
+    "cash": 20068280,
+    "nearTermObligations": 48487643
+   },
+   "evidenceNote": "Derived from the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

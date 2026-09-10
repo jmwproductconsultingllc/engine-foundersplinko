@@ -1,0 +1,741 @@
+{
+ "slug": "cascadia-pizza",
+ "brandName": "Cascadia Pizza Co.",
+ "category": "Pizza QSR",
+ "vertical": "Food & Beverage",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-09-10T21:31:59.963Z",
+ "sourceStem": "cascadia-pizza",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "Cascadia Pizza Co.",
+   "franchisorEntity": "Cascadia Pizza Co Franchising LLC",
+   "headquarters": "Maple Valley, Washington",
+   "brandBackground": "Cascadia Pizza Co. is a craft-style restaurant featuring Neapolitan-inspired wood fired pizza, wings, and specialty menu items served from traditional restaurant locations and mobile food units.",
+   "leadership": [
+    {
+     "name": "Calvin Freatman",
+     "role": "Chief Executive Officer",
+     "background": "Served as CEO of Cascadia Pizza Co Franchising LLC since May 2023 and CEO of affiliate owned Cascadia Pizza Co. Restaurants since September 2018.",
+     "whyItMatters": "Co-founder with deep operational experience in the brand's core restaurant locations."
+    },
+    {
+     "name": "Christian Buck",
+     "role": "Chief Operations Officer",
+     "background": "Served as COO of Cascadia Pizza Co Franchising LLC since May 2023 and Founder/COO of affiliate Cascadia Pizza Co., LLC since January 2017.",
+     "whyItMatters": "Original founder who manages the operational standards and mobile food unit configurations."
+    },
+    {
+     "name": "Thomas Reinhard",
+     "role": "Chief Financial Officer",
+     "background": "Served as CFO since May 2023, CFO/General Counsel of affiliate Cascadia Pizza Co., LLC since September 2018, and Senior Associate Attorney at Cummins & White LLP.",
+     "whyItMatters": "Brings legal and financial oversight to the franchise system's expansion."
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "Company Owned Outlet: Enumclaw",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 107919,
+      "basis": "Item 19, p.42",
+      "annualRevenue": 1295031,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 321402,
+       "grossMarginPct": 50.08,
+       "laborAnnual": 325029,
+       "otherOpexAnnual": 352953,
+       "sourcePage": "Item 19, p.42",
+       "totalCostOfSalesAnnual": 646431
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 1,
+      "totalAnnualRevenue": 1295031
+     },
+     {
+      "label": "Company Owned Outlet: Maple Valley",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 217772,
+      "basis": "Item 19, p.43",
+      "annualRevenue": 2613266,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 701923,
+       "grossMarginPct": 44.92,
+       "laborAnnual": 737340,
+       "otherOpexAnnual": 638735,
+       "sourcePage": "Item 19, p.43",
+       "totalCostOfSalesAnnual": 1439263
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 1,
+      "totalAnnualRevenue": 2613266
+     },
+     {
+      "label": "Company Owned Outlet: North Bend",
+      "ownership": "company",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 60454,
+      "basis": "Item 19, p.44",
+      "annualRevenue": 725446,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 164409,
+       "grossMarginPct": 52.04,
+       "laborAnnual": 183517,
+       "otherOpexAnnual": 221422,
+       "sourcePage": "Item 19, p.44",
+       "totalCostOfSalesAnnual": 347926
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 1,
+      "totalAnnualRevenue": 725446
+     },
+     {
+      "label": "Franchise Outlet: Coeur d'Alene, Idaho",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 81499,
+      "basis": "Item 19, p.47",
+      "annualRevenue": 977992,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 243653,
+       "grossMarginPct": 46.98,
+       "laborAnnual": 274898,
+       "otherOpexAnnual": 87839,
+       "sourcePage": "Item 19, p.47",
+       "totalCostOfSalesAnnual": 518551
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 1,
+      "totalAnnualRevenue": 977992
+     },
+     {
+      "label": "Franchise Outlet: Rathdrum, Idaho",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 94404,
+      "basis": "Item 19, p.47",
+      "annualRevenue": 1132853,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 329755,
+       "grossMarginPct": 42.56,
+       "laborAnnual": 321007,
+       "otherOpexAnnual": 100228,
+       "sourcePage": "Item 19, p.47",
+       "totalCostOfSalesAnnual": 650762
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 1,
+      "totalAnnualRevenue": 1132853
+     },
+     {
+      "label": "Franchise Outlet: Salem, Oregon",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 99216,
+      "basis": "Item 19, p.47",
+      "annualRevenue": 1190588,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": 277732,
+       "grossMarginPct": 40.28,
+       "laborAnnual": 433324,
+       "otherOpexAnnual": 104847,
+       "sourcePage": "Item 19, p.47",
+       "totalCostOfSalesAnnual": 711056
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 1,
+      "totalAnnualRevenue": 1190588
+     }
+    ],
+    "notes": "The financial performance representations include results from three operational company-owned outlets and three operational franchised outlets during the 2025 calendar year.",
+    "sourcePage": "Item 19, p.39-47",
+    "networkAverageMonthly": null,
+    "unitsReported": 6
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Initial Franchise Fee",
+      "recurring": false,
+      "notes": "Non-refundable fee paid to the franchisor.",
+      "high": 49500,
+      "low": 49500
+     },
+     {
+      "category": "Construction and Leasehold Improvements",
+      "recurring": false,
+      "notes": "Build-out costs for a 1,500 to 3,000 square foot restaurant.",
+      "high": 124500,
+      "low": 47500
+     },
+     {
+      "category": "Lease Deposits and Rent - Three Months",
+      "recurring": true,
+      "notes": "Estimated rent and security deposit for the first three months.",
+      "high": 30000,
+      "low": 12000
+     },
+     {
+      "category": "Furniture and Fixtures",
+      "recurring": false,
+      "notes": "Branded and unbranded furniture and fixtures.",
+      "high": 47000,
+      "low": 17000
+     },
+     {
+      "category": "Equipment",
+      "recurring": false,
+      "notes": "Ovens, baking, mixing, refrigeration, and kitchen equipment.",
+      "high": 158800,
+      "low": 91000
+     },
+     {
+      "category": "Signage",
+      "recurring": false,
+      "notes": "Interior and exterior signs and displays.",
+      "high": 30000,
+      "low": 15000
+     },
+     {
+      "category": "Computer, Software, and Point of Sale System",
+      "recurring": false,
+      "notes": "Square POS system and hardware terminals.",
+      "high": 2500,
+      "low": 0
+     },
+     {
+      "category": "Grand Opening Marketing",
+      "recurring": false,
+      "notes": "Minimum required spend for grand opening promotion.",
+      "high": 2500,
+      "low": 1000
+     },
+     {
+      "category": "Initial Inventory",
+      "recurring": false,
+      "notes": "Smallwares, uniforms, and initial food supplies.",
+      "high": 21250,
+      "low": 11900
+     },
+     {
+      "category": "Utility Deposits",
+      "recurring": false,
+      "notes": "Upfront deposits for gas, electric, water, and internet.",
+      "high": 870,
+      "low": 653
+     },
+     {
+      "category": "Insurance Deposits - Three Months",
+      "recurring": true,
+      "notes": "Estimated insurance premiums for the first three months.",
+      "high": 2070,
+      "low": 378
+     },
+     {
+      "category": "Travel for Initial Training",
+      "recurring": false,
+      "notes": "Travel and lodging expenses for training in Maple Valley, WA.",
+      "high": 10200,
+      "low": 1000
+     },
+     {
+      "category": "Professional Fees",
+      "recurring": false,
+      "notes": "Attorneys, accountants, architects, and advisors.",
+      "high": 24000,
+      "low": 11000
+     },
+     {
+      "category": "Licenses and Permits",
+      "recurring": false,
+      "notes": "Government permits, business licenses, and liquor licenses.",
+      "high": 6700,
+      "low": 3200
+     },
+     {
+      "category": "Additional Funds - Three Months",
+      "recurring": true,
+      "notes": "Working capital for employee salaries, utilities, and other opex.",
+      "high": 136220,
+      "low": 64411
+     }
+    ],
+    "sourcePage": "Item 7, p.8-9",
+    "initialInvestmentHigh": 646110,
+    "initialInvestmentLow": 325542
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p.5",
+      "monthlyAmount": 300
+     },
+     {
+      "name": "Franchisee Directed Local Marketing",
+      "source": "Item 6, p.5",
+      "monthlyAmount": 500
+     }
+    ],
+    "brandFundPct": 2,
+    "localAdPct": null,
+    "percentageFees": [
+     {
+      "label": "Royalty",
+      "pct": 6,
+      "source": "Item 6, p.4"
+     },
+     {
+      "label": "Brand Development Fund",
+      "pct": 2,
+      "source": "Item 6, p.4"
+     }
+    ],
+    "royaltyPct": 6
+   },
+   "hiddenCosts": [
+    {
+     "name": "Additional Employee Initial Training Fee",
+     "description": "Charged for training more than two individuals.",
+     "source": "Item 6, p.5",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Supplemental On-Site Training Fee",
+     "description": "Trainer fee plus travel and accommodations for on-site training.",
+     "source": "Item 6, p.5",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Alternate Supplier Evaluation Fee",
+     "description": "Costs incurred to review and evaluate a potential supplier.",
+     "source": "Item 6, p.6",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p.48-49",
+    "closedLastYear": 0,
+    "openedLastYear": 0,
+    "totalUnits": 8,
+    "transfersLastYear": 0,
+    "unitsStartOfYear": 8
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "Disputes must be resolved by mediation, arbitration, and/or litigation only in Washington.",
+     "severity": "medium",
+     "source": "Front Matter, p.iv"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "Spouses must sign a personal guarantee making them liable for all financial obligations.",
+     "severity": "high",
+     "source": "Front Matter, p.iv"
+    },
+    {
+     "title": "Short Operating History",
+     "description": "The franchisor is at an early stage of development with limited operating history.",
+     "severity": "medium",
+     "source": "Front Matter, p.iv"
+    },
+    {
+     "title": "Supplier Control",
+     "description": "Franchisees must purchase nearly all inventory and supplies from designated suppliers at set prices.",
+     "severity": "medium",
+     "source": "Front Matter, p.iv"
+    }
+   ],
+   "conceptType": "food_beverage_qsr",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": false,
+    "years": [
+     {
+      "fiscalYearEnd": "2025",
+      "cash": 78605,
+      "currentAssets": 135719,
+      "currentLiabilities": 164796,
+      "deferredRevenue": 211518,
+      "netIncome": -61143,
+      "netWorth": -14684,
+      "relatedPartyDebt": 34162,
+      "revenue": 382290,
+      "totalAssets": 308305,
+      "totalLiabilities": 322989
+     },
+     {
+      "fiscalYearEnd": "2024",
+      "cash": 101073,
+      "currentAssets": 106392,
+      "currentLiabilities": 28309,
+      "deferredRevenue": 35625,
+      "netIncome": 47443,
+      "netWorth": 46459,
+      "relatedPartyDebt": 6884,
+      "revenue": 200381,
+      "totalAssets": 106392,
+      "totalLiabilities": 59934
+     },
+     {
+      "fiscalYearEnd": "2023",
+      "cash": 7813,
+      "currentAssets": 8670,
+      "currentLiabilities": 3279,
+      "deferredRevenue": 7125,
+      "netIncome": -57827,
+      "netWorth": -984,
+      "relatedPartyDebt": 1783,
+      "revenue": 17247,
+      "totalAssets": 8670,
+      "totalLiabilities": 9654
+     }
+    ],
+    "auditorName": "Metwally CPA PLLC",
+    "parentName": "Tomcal Inc. / Buck Ventures Inc."
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "Cascadia Pizza Co. operates as a quick-service craft pizza restaurant and mobile food unit concept.",
+   "exitTerms": {
+    "curableDefaults": [
+     {
+      "category": "Failure to pay fees or obligations",
+      "cureDays": 10
+     },
+     {
+      "category": "Failure to pay suppliers",
+      "cureDays": 10
+     },
+     {
+      "category": "Failure to maintain standards, lease, or open timely",
+      "cureDays": 30
+     }
+    ],
+    "sourcePage": "Item 17, p.31-35",
+    "deathTransferDays": 365,
+    "disputeResolution": "Mediation first, then binding arbitration.",
+    "estateApplicationDays": 30,
+    "forum": "King County, Washington",
+    "franchiseeTerminationGrounds": 1,
+    "franchisorTerminationWithoutCause": false,
+    "governingLaw": "Washington",
+    "inTermNonCompete": "No involvement in any competitive business.",
+    "initialTermYears": 10,
+    "nonCurableDefaultCount": 20,
+    "nonCurableOpenEnded": true,
+    "postTermNonCompeteMiles": 25,
+    "postTermNonCompeteScope": "No involvement in any competing business within the restricted territory.",
+    "postTermNonCompeteYears": 2,
+    "renewalConditions": "Good standing, 180 days notice, sign then-current agreement, pay renewal fee, remodel premises, and sign general release.",
+    "renewalRequiresCurrentAgreement": true,
+    "rightOfFirstRefusal": true,
+    "rightOfFirstRefusalDays": 30,
+    "successorFeeBasis": "Fixed fee of $10,000",
+    "successorTermCount": 1,
+    "successorTermYears": 10,
+    "transferApprovalRequired": true,
+    "transferConditionCount": 19
+   },
+   "premises": {
+    "evidence": "The typical square footage for a Restaurant ranges from 1,500 to 3,000 square feet.",
+    "homeBased": false,
+    "siteApprovalRequired": true
+   },
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p.16",
+    "squareFootage": 3000
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": "The concept requires conventional restaurant staffing for food preparation, customer service, and mobile unit operations."
+  },
+  "scoring": {
+   "riskLevel": "Medium",
+   "riskReasons": [
+    "Pro forma is built on only 1 franchised location \u2014 a very thin sample; treat the modeled franchisee economics as low-confidence.",
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section.",
+    "Franchisor financial distress disclosed (negative net worth) \u2014 confirm its ability to support the system against the audited statements."
+   ],
+   "midCohort": {
+    "label": "Franchise Outlet: Coeur d'Alene, Idaho",
+    "monthlyRevenue": 81499.33333333333,
+    "monthlyVariable": 6519.946666666667,
+    "monthlyFixed": 7320,
+    "monthlyEbitda": 67659.38666666666,
+    "annualEbitda": 811912.6399999999,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Franchise Outlet: Coeur d'Alene, Idaho",
+     "math": "$977,992/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 1
+    }
+   },
+   "bottomCohort": null,
+   "buildoutMidpoint": 485826,
+   "assumedLoan": 388660.80000000005,
+   "assumedMonthlyDebtService": 5244.39437947814,
+   "dscr": 12.901277396571256,
+   "rentPctOfRevenue": 0.080000654402081,
+   "paybackYears": 0.5983722583749898,
+   "variableRate": 0.08,
+   "fixedMonthly": 7320,
+   "rentResolution": {
+    "lo": 4890,
+    "hi": 8150,
+    "mid": 6520,
+    "basis": "benchmark",
+    "source": "6\u201310% category occupancy \u00d7 modeled revenue"
+   },
+   "fixedFeesMonthly": 800,
+   "notes": [
+    "Rent modeled at $4,890\u2013$8,150/mo (category occupancy benchmark); the math uses the midpoint."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": 235826,
+   "sbaLoanRequired": true,
+   "recommendedLoan": 235826,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": 3182.118054959007,
+   "adjustedMonthlyNetCashFlow": 64477.26861170765,
+   "survivesBottomCohort": null,
+   "assessment": "With $250,000 liquid against a $485,826 mid-point build-out, there is a $235,826 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, about $64,477/mo is left after fees, rent and debt service \u2014 cost of goods and labor still come out of that, and the cash ladder below subtracts them."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "food_beverage_qsr",
+   "conceptLabel": "QSR / fast-casual",
+   "conceptRationale": "Cascadia Pizza Co. operates as a quick-service craft pizza restaurant and mobile food unit concept.",
+   "benchmark": {
+    "label": "QSR / fast-casual",
+    "cogsPct": [
+     28,
+     33
+    ],
+    "laborPct": [
+     22,
+     28
+    ],
+    "occupancyPct": [
+     6,
+     10
+    ],
+    "operatingEbitdaPct": [
+     10,
+     18
+    ],
+    "dominantRisk": "Prime cost and throughput per labor hour. Smaller footprint helps fixed costs, but COGS + labor still set the ceiling.",
+    "rampNote": "3\u20136 months to run-rate once open.",
+    "considerations": [
+     "Budget COGS ~28\u201333% and labor ~22\u201328%; target prime cost under ~60%.",
+     "Verify average ticket and daily transaction counts with Item 20 operators, not the franchisor.",
+     "Watch for required remodels and equipment refresh cycles buried in Item 6/Item 11."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201318% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 81499.33333333333,
+   "marginAfterFeesMonthly": 67659.38666666666,
+   "benchmarkOperatingEbitdaMonthly": [
+    9794,
+    22019
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    22,
+    28
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      67659.38666666666,
+      67659.38666666666
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      28,
+      33
+     ],
+     "dollarRange": [
+      22820,
+      26895
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      22,
+      28
+     ],
+     "dollarRange": [
+      17930,
+      22820
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 5.2\u20136.6 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      4890,
+      8150
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      9794,
+      22019
+     ],
+     "note": "\u2248 12% to 27% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cQSR / fast-casual\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Rent",
+     "basis": "benchmark",
+     "detail": "Estimated: ~$4,890\u2013$8,150/mo (6\u201310% category occupancy \u00d7 modeled revenue); already netted in the margin line \u2014 no separate occupancy subtraction applied."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 28\u201333% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 22\u201328% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "HIGH",
+   "headline": "Several stress signals show up together here \u2014 a net-worth deficit of roughly $15K alongside operating losses, thin near-term liquidity, and unit closures. Any one of these alone can be normal for a young brand; appearing together is the pattern that separates real distress from ordinary early-stage losses. Treat this as a franchisor-stability question to resolve \u2014 with the specific items below \u2014 before you commit.",
+   "context": null,
+   "body": [
+    "What we found (2025, audited by Metwally CPA PLLC): Net loss of $61K on $382K of revenue \u2014 roughly 1.2x spent per $1 earned. Losses are widening, not shrinking. Negative net worth (a members'/stockholders' deficit) of $15K, and deepening year over year. Total liabilities are about 1.0x total assets. Cash of $79K against $165K of obligations due within a year (a current ratio of 0.82). Note: about 65% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.4x assets.",
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Tomcal Inc. / Buck Ventures Inc. is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "negative net worth that is deepening year over year",
+    "operating losses that are widening",
+    "more due within a year than current assets to cover it",
+    "no parent guarantee backing the franchisor's obligations to you"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "revenue is growing"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025",
+    "netWorth": -14684,
+    "netWorthSign": "negative",
+    "netWorthTrend": "worsening",
+    "netIncome": -61143,
+    "netIncomeTrend": "worsening",
+    "revenue": 382290,
+    "revenueTrend": "improving",
+    "currentRatio": 0.823557610621617,
+    "workingCapital": -29077,
+    "liabilitiesToAssets": 1.0476281604255526,
+    "adjLiabilitiesToAssets": 0.3615607920727851,
+    "relatedPartyDebtPct": 0.10576830789903062,
+    "deferredRevenuePct": 0.6548767914696786,
+    "expenseToRevenue": 1.1599387899238798,
+    "cash": 78605,
+    "nearTermObligations": 164796
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "audited"
+  }
+ }
+}

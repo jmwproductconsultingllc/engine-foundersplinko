@@ -1,0 +1,795 @@
+{
+ "slug": "360-painting",
+ "brandName": "360 Painting",
+ "category": "Painting",
+ "vertical": "Home & Property Services",
+ "grade": "READY",
+ "sourceFddYear": null,
+ "generatedAt": "2026-09-10T21:31:59.960Z",
+ "sourceStem": "360-painting",
+ "result": {
+  "extracted": {
+   "documentCheck": {
+    "appearsComplete": true,
+    "appearsScanned": false,
+    "itemsFound": [
+     "Item 1",
+     "Item 5",
+     "Item 6",
+     "Item 7",
+     "Item 17",
+     "Item 19",
+     "Item 20",
+     "Item 21"
+    ],
+    "warnings": []
+   },
+   "brandName": "360 Painting",
+   "franchisorEntity": "360 Painting, LLC",
+   "headquarters": "126 Garrett Street, Suite J, Charlottesville, VA 22902",
+   "brandBackground": "",
+   "leadership": [
+    {
+     "name": "Paul Flick",
+     "role": "Chief Executive Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Roxanne Conrad",
+     "role": "Chief Operating Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Laura McDonald",
+     "role": "General Counsel",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "David Cuff",
+     "role": "Chief Development Officer",
+     "background": "",
+     "whyItMatters": ""
+    },
+    {
+     "name": "Brian Morgan",
+     "role": "President of 360 Painting",
+     "background": "",
+     "whyItMatters": ""
+    }
+   ],
+   "item19": {
+    "hasItem19": true,
+    "cohorts": [
+     {
+      "label": "All Franchised Businesses",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 37772,
+      "basis": "Item 19, p.42",
+      "annualRevenue": 453268,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.42",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 108,
+      "totalAnnualRevenue": 48952949
+     },
+     {
+      "label": "All Franchisees",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 44829,
+      "basis": "Item 19, p.42",
+      "annualRevenue": 537944,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.42",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 92,
+      "totalAnnualRevenue": 48952949
+     },
+     {
+      "label": "Top Quartile Franchisees",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 100232,
+      "basis": "Item 19, p.42",
+      "annualRevenue": 1202784,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.42",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 23,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "Median 50% Franchisees",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 35908,
+      "basis": "Item 19, p.42",
+      "annualRevenue": 430894,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.42",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 46,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "Bottom Quartile Franchisees",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 8700,
+      "basis": "Item 19, p.42",
+      "annualRevenue": 104394,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.42",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 23,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "12-23 Months Operational Franchisees",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 26999,
+      "basis": "Item 19, p.43",
+      "annualRevenue": 323987,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.43",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 17,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "24-35 Months Operational Franchisees",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 35215,
+      "basis": "Item 19, p.43",
+      "annualRevenue": 422583,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.43",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 15,
+      "totalAnnualRevenue": null
+     },
+     {
+      "label": "36+ Months Operational Franchisees",
+      "ownership": "franchised",
+      "revenueType": "gross_sales",
+      "avgMonthlyRevenue": 42267,
+      "basis": "Item 19, p.43",
+      "annualRevenue": 507203,
+      "combinedAcross": null,
+      "disclosedCosts": {
+       "cogsAnnual": null,
+       "grossMarginPct": null,
+       "laborAnnual": null,
+       "otherOpexAnnual": null,
+       "sourcePage": "Item 19, p.43",
+       "totalCostOfSalesAnnual": null
+      },
+      "figureScope": "per_outlet",
+      "monthlyValues": [],
+      "sampleSize": 60,
+      "totalAnnualRevenue": null
+     }
+    ],
+    "notes": "",
+    "sourcePage": "Item 19, p.42-43"
+   },
+   "item17": {
+    "lineItems": [
+     {
+      "category": "Franchise Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 65000,
+      "low": 65000
+     },
+     {
+      "category": "Vehicle",
+      "recurring": false,
+      "notes": "",
+      "high": 5000,
+      "low": 1500
+     },
+     {
+      "category": "Real Estate and/or Leasehold Improvements",
+      "recurring": false,
+      "notes": "",
+      "high": 3000,
+      "low": 0
+     },
+     {
+      "category": "Equipment & Supplies",
+      "recurring": false,
+      "notes": "",
+      "high": 4500,
+      "low": 1250
+     },
+     {
+      "category": "Insurance",
+      "recurring": false,
+      "notes": "",
+      "high": 5000,
+      "low": 2000
+     },
+     {
+      "category": "Signage",
+      "recurring": false,
+      "notes": "",
+      "high": 4000,
+      "low": 3000
+     },
+     {
+      "category": "Technology Fee",
+      "recurring": false,
+      "notes": "",
+      "high": 5000,
+      "low": 5000
+     },
+     {
+      "category": "Grand Opening",
+      "recurring": false,
+      "notes": "",
+      "high": 5000,
+      "low": 2500
+     },
+     {
+      "category": "Training Expenses",
+      "recurring": false,
+      "notes": "",
+      "high": 5000,
+      "low": 3000
+     },
+     {
+      "category": "Licenses/Bonds",
+      "recurring": false,
+      "notes": "",
+      "high": 1500,
+      "low": 100
+     },
+     {
+      "category": "Professional Fees",
+      "recurring": false,
+      "notes": "",
+      "high": 3000,
+      "low": 1500
+     },
+     {
+      "category": "Designated Manager Salary",
+      "recurring": false,
+      "notes": "",
+      "high": 30000,
+      "low": 0
+     },
+     {
+      "category": "Marketing",
+      "recurring": false,
+      "notes": "",
+      "high": 20000,
+      "low": 10000
+     },
+     {
+      "category": "Additional Funds (6 months)",
+      "recurring": false,
+      "notes": "",
+      "high": 40000,
+      "low": 17500
+     }
+    ],
+    "sourcePage": "Item 7, p.18"
+   },
+   "ongoingFees": {
+    "flatMonthlyFees": [
+     {
+      "name": "Technology Fee",
+      "source": "Item 6, p.15",
+      "monthlyAmount": 910
+     },
+     {
+      "name": "Accounting and Business Advisory Services Fee",
+      "source": "Item 6, p.15",
+      "monthlyAmount": 368.33
+     }
+    ],
+    "brandFundPct": 2,
+    "localAdPct": 10,
+    "percentageFees": [
+     {
+      "label": "Royalty",
+      "pct": 6,
+      "source": "Item 6, p.15"
+     },
+     {
+      "label": "Marketing Fund Contribution",
+      "pct": 2,
+      "source": "Item 6, p.15"
+     },
+     {
+      "label": "Contact Center Fee",
+      "pct": 2,
+      "source": "Item 6, p.15"
+     }
+    ],
+    "royaltyPct": 6
+   },
+   "hiddenCosts": [
+    {
+     "name": "Initial Technology Fee",
+     "description": "",
+     "source": "Item 5, p.14",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Job Proposal/Estimating Software Fee",
+     "description": "",
+     "source": "Item 6, p.15",
+     "estimatedAnnualAmount": 420
+    },
+    {
+     "name": "Non-Compliance Fee",
+     "description": "",
+     "source": "Item 6, p.15",
+     "estimatedAnnualAmount": null
+    },
+    {
+     "name": "Annual Convention Non-Attendance Fee",
+     "description": "",
+     "source": "Item 6, p.16",
+     "estimatedAnnualAmount": null
+    }
+   ],
+   "systemScale": {
+    "sourcePage": "Item 20, p.43",
+    "closedLastYear": 24,
+    "openedLastYear": 22,
+    "totalUnits": 148,
+    "transfersLastYear": 13,
+    "unitsStartOfYear": 153
+   },
+   "operationalRisks": [
+    {
+     "title": "Out-of-State Dispute Resolution",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p.3"
+    },
+    {
+     "title": "Mandatory Minimum Payments",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p.3"
+    },
+    {
+     "title": "Spousal Liability",
+     "description": "",
+     "severity": "medium",
+     "source": "Special Risks, p.3"
+    },
+    {
+     "title": "Turnover Rate",
+     "description": "",
+     "severity": "high",
+     "source": "Special Risks, p.3"
+    }
+   ],
+   "conceptType": "home_trade_services",
+   "staffingModel": "staffed",
+   "financialCondition": {
+    "specialRiskPresent": true,
+    "auditOpinion": "unmodified",
+    "goingConcernRaised": false,
+    "priorPeriodRestatement": false,
+    "parentGuaranteeOfPerformance": true,
+    "years": [
+     {
+      "fiscalYearEnd": "2025-12-31",
+      "revenue": 26295638,
+      "totalAssets": 34799949,
+      "totalLiabilities": 452183455
+     },
+     {
+      "fiscalYearEnd": "2024-12-31",
+      "revenue": 25442044,
+      "totalAssets": 36457216,
+      "totalLiabilities": 42330330
+     },
+     {
+      "fiscalYearEnd": "2023-12-31",
+      "revenue": 23592896,
+      "totalAssets": 35499749,
+      "totalLiabilities": 40685068
+     }
+    ],
+    "auditorName": "Robinson, Farmer, Cox Associates, PLLC",
+    "parentName": "Premium Service Brands, LLC"
+   },
+   "averageRentMonthly": null,
+   "conceptRationale": "",
+   "exitTerms": {
+    "curableDefaults": [
+     {
+      "category": "Failure to make payments due",
+      "cureDays": 10
+     },
+     {
+      "category": "Failure to operate under approved Manager",
+      "cureDays": 10
+     },
+     {
+      "category": "Failure to submit reports",
+      "cureDays": 30
+     },
+     {
+      "category": "Failure to relocate or lease default",
+      "cureDays": 30
+     },
+     {
+      "category": "Failure to obtain insurance",
+      "cureDays": 30
+     }
+    ],
+    "sourcePage": "Item 17, p.38-41",
+    "deathTransferDays": 180,
+    "disputeResolution": "Mediation",
+    "estateApplicationDays": 180,
+    "forum": "Charlottesville, VA",
+    "franchiseeTerminationGrounds": 1,
+    "franchisorTerminationWithoutCause": false,
+    "governingLaw": "Virginia",
+    "inTermNonCompete": "Yes",
+    "initialTermYears": 10,
+    "nonCurableDefaultCount": 19,
+    "nonCurableOpenEnded": true,
+    "postTermNonCompeteMiles": 20,
+    "postTermNonCompeteScope": "Competitive Business",
+    "postTermNonCompeteYears": 2,
+    "renewalConditions": "Notice, no default, sign then-current agreement, pay fee, refurbish",
+    "renewalRequiresCurrentAgreement": true,
+    "rightOfFirstRefusal": true,
+    "rightOfFirstRefusalDays": 30,
+    "successorFeeBasis": "Greater of 25% of then-current initial Franchise Fee or $15,000",
+    "successorTermCount": 2,
+    "successorTermYears": 10,
+    "transferApprovalRequired": true,
+    "transferConditionCount": 13
+   },
+   "premises": {
+    "evidence": "We offer a franchise to establish and operate a home-based, mobile business.",
+    "homeBased": true,
+    "siteApprovalRequired": false
+   },
+   "rentDetail": {
+    "rawValue": null,
+    "unit": "unknown",
+    "source": "Item 7, p.18",
+    "squareFootage": null
+   },
+   "requiredLiquidCapital": null,
+   "requiredNetWorth": null,
+   "staffingRationale": ""
+  },
+  "scoring": {
+   "riskLevel": "Low",
+   "riskReasons": [
+    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
+   ],
+   "midCohort": {
+    "label": "Median 50% Franchisees",
+    "monthlyRevenue": 35907.833333333336,
+    "monthlyVariable": 7181.5666666666675,
+    "monthlyFixed": 1278.33,
+    "monthlyEbitda": 27447.93666666667,
+    "annualEbitda": 329375.24,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "Median 50% Franchisees",
+     "math": "$430,894/yr \u00f7 12",
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 46
+    }
+   },
+   "bottomCohort": {
+    "label": "Bottom Quartile Franchisees",
+    "monthlyRevenue": 8699.5,
+    "monthlyVariable": 1739.9,
+    "monthlyFixed": 1278.33,
+    "monthlyEbitda": 5681.27,
+    "annualEbitda": 68175.24,
+    "coversCosts": true
+   },
+   "buildoutMidpoint": null,
+   "assumedLoan": null,
+   "assumedMonthlyDebtService": null,
+   "dscr": null,
+   "rentPctOfRevenue": 0,
+   "paybackYears": null,
+   "variableRate": 0.2,
+   "fixedMonthly": 1278.33,
+   "rentResolution": null,
+   "fixedFeesMonthly": 1278.33,
+   "notes": [
+    "This filing says: \"We offer a franchise to establish and operate a home-based, mobile business.\" No premises rent is modeled, because a category occupancy band would invent a lease the filing does not describe. Read that sentence as written \u2014 a filing saying MOST franchisees work from home is not telling you that you will \u2014 and confirm with the franchisor what space you would actually need.",
+    "Item 17 initial investment not found; debt-service and payback cannot be computed."
+   ]
+  },
+  "underwriting": {
+   "capitalGap": null,
+   "sbaLoanRequired": false,
+   "recommendedLoan": null,
+   "meetsNetWorthRequirement": null,
+   "meetsLiquidRequirement": null,
+   "adjustedMonthlyDebtService": null,
+   "adjustedMonthlyNetCashFlow": null,
+   "survivesBottomCohort": true,
+   "assessment": "Item 17 investment range was not found, so the capital gap cannot be computed from this document."
+  },
+  "buyer": {
+   "liquidCapital": 250000,
+   "netWorth": 250000
+  },
+  "insights": {
+   "conceptType": "home_trade_services",
+   "conceptLabel": "Home & trade services (mobile / low-overhead)",
+   "conceptRationale": "",
+   "benchmark": {
+    "label": "Home & trade services (mobile / low-overhead)",
+    "cogsPct": [
+     25,
+     40
+    ],
+    "laborPct": [
+     20,
+     35
+    ],
+    "occupancyPct": [
+     2,
+     6
+    ],
+    "operatingEbitdaPct": [
+     10,
+     25
+    ],
+    "dominantRisk": "Crew utilization, callback/warranty cost, and customer-acquisition cost. Low fixed overhead, but CAC and scheduling efficiency decide profitability.",
+    "rampNote": "3\u20139 months to a steady job pipeline.",
+    "considerations": [
+     "Budget materials/subcontractor COGS ~25\u201340% and field labor ~20\u201335%.",
+     "CAC (lead cost per booked job) is the dominant hidden line \u2014 ask Item 20 operators what they actually spend per job.",
+     "Confirm territory size, lead-generation expectations, and any required call-center/marketing fees."
+    ]
+   },
+   "disclosedOperatingMarginPct": null,
+   "disclosedMarginSource": null,
+   "crossCheck": {
+    "status": "no_disclosure",
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+   },
+   "proFormaRevenueMonthly": 35907.833333333336,
+   "marginAfterFeesMonthly": 27447.93666666667,
+   "benchmarkOperatingEbitdaMonthly": [
+    -5228,
+    8417
+   ],
+   "trueEbitdaBasis": "modeled",
+   "staffingModel": "staffed",
+   "staffingLabel": "conventionally staffed",
+   "staffingNote": null,
+   "laborPctEffective": [
+    20,
+    35
+   ],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      27447.93666666667,
+      27447.93666666667
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Occupancy / rent (not disclosed)",
+     "kind": "subtract",
+     "pctRange": [
+      2,
+      6
+     ],
+     "dollarRange": [
+      718,
+      2154
+     ],
+     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      25,
+      40
+     ],
+     "dollarRange": [
+      8977,
+      14363
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      20,
+      35
+     ],
+     "dollarRange": [
+      7182,
+      12568
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 2.1\u20133.6 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      2154,
+      3591
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -5228,
+      8417
+     ],
+     "note": "\u2248 -15% to 23% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
+   "assumptions": [
+    {
+     "field": "Concept type",
+     "basis": "inferred",
+     "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Occupancy / rent",
+     "basis": "benchmark",
+     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 2\u20136% category band."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 25\u201340% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 20\u201335% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
+    }
+   ],
+   "consultCtaUrl": null,
+   "consultCtaLabel": "Book a territory review",
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+  },
+  "financialCondition": {
+   "severity": "MEDIUM",
+   "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
+   "context": null,
+   "body": [
+    "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. Premium Service Brands, LLC guarantees the franchisor's performance, which partly backstops this.",
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+   ],
+   "aggravators": [
+    "liabilities far exceed assets",
+    "elevated unit closures (24 in the last year, about 16% of the system)"
+   ],
+   "mitigants": [
+    "the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt",
+    "the parent guarantees the franchisor's performance"
+   ],
+   "metrics": {
+    "fiscalYearEnd": "2025-12-31",
+    "netWorth": null,
+    "netWorthSign": "unknown",
+    "netWorthTrend": "unknown",
+    "netIncome": null,
+    "netIncomeTrend": "unknown",
+    "revenue": 26295638,
+    "revenueTrend": "flat",
+    "currentRatio": null,
+    "workingCapital": null,
+    "liabilitiesToAssets": 12.993796485161516,
+    "adjLiabilitiesToAssets": 12.993796485161516,
+    "relatedPartyDebtPct": null,
+    "deferredRevenuePct": null,
+    "expenseToRevenue": null,
+    "cash": null,
+    "nearTermObligations": null
+   },
+   "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
+   "dataQuality": "partial"
+  }
+ }
+}
