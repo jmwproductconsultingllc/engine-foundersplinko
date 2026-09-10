@@ -65,9 +65,40 @@ export async function GET(req: NextRequest) {
   // hash-based dedup analytics never collide two buyers.
   const { readUtm } = await import("@/lib/utm");
   const utm = readUtm(req);
+
+  /* UNDERWRITE AGAINST THE BUYER'S OWN NUMBER, NOT THE INGEST DEFAULT.
+     Every record in data/brands carries buyer {liquidCapital: 250000,
+     netWorth: 250000} — the default scripts/ingestFdd.ts runs with. This route
+     saved brand.result verbatim, so the capital a visitor set on the teaser
+     slider was discarded at the moment of purchase and every paid report ever
+     sold was underwritten at $250,000. Confirmed on a real Kitchen Tune-Up
+     purchase (2026-09-10): slider at $140,000, report line one "$250,000
+     liquid covers the $160,390 mid-point build-out without financing."
+
+     Re-underwriting is deterministic local code — no model call, no cost. */
+  let result = brand.result;
+  const statedRaw = req.cookies.get("fe_capital")?.value;
+  const stated = statedRaw ? Number(statedRaw) : NaN;
+  if (Number.isFinite(stated) && stated > 0 && stated < 100_000_000) {
+    try {
+      const { underwrite } = await import("@/lib/underwriting");
+      const liquidCapital = Math.round(stated);
+      /* NET WORTH IS NOT DISCLOSED BY THE SLIDER, so it takes the same figure
+         rather than keeping a $250,000 the visitor never entered. Net worth is
+         always >= liquid capital, so this can only make the fit verdict
+         STRICTER — it can never overstate what a buyer can carry. Asking for
+         net worth separately is the real fix; this is the safe reading until
+         then. */
+      const buyer = { liquidCapital, netWorth: liquidCapital };
+      const underwriting = underwrite(result.extracted, result.scoring, buyer);
+      result = { ...result, buyer, underwriting };
+    } catch (err) {
+      console.error("[mint] re-underwrite failed, falling back to record buyer:", err);
+    }
+  }
   let reportId: string;
   try {
-    reportId = await saveReport(brand.result, `brand:${slug}:${Date.now()}`, {
+    reportId = await saveReport(result, `brand:${slug}:${Date.now()}`, {
       email,
       ref,
       brandSlug: slug,

@@ -585,7 +585,7 @@ function CapitalVerdict({
   return (
     <div className={styles.capital}>
       <label className={styles.capLabel} htmlFor="rg-capital">
-        Capital available
+        Move the slider to the capital you can actually put in
       </label>
       <input
         id="rg-capital"
@@ -679,6 +679,24 @@ export default function ReportGlass({
       setCapital(next);
       setCapitalEdited(true);
       onCapitalChange(); // debounced capital_modified — unchanged
+      /* CARRY THE NUMBER TO THE MINT. Until 2026-09-10 this value lived and
+         died in this component: unlockHref is a fixed server-rendered string
+         (slug + ref), /api/mint-brand-report read nothing else, and the minted
+         report was saved with the record's ingest-default buyer. A buyer who
+         set $140,000 paid $199 for a report whose first line read "$250,000
+         liquid covers the $160,390 mid-point build-out without financing" —
+         a materially wrong verdict, since $140,000 does not.
+
+         A COOKIE, NOT A QUERY PARAM. The obvious fix is &capital= on the
+         anchor, which is how email already travels. It also writes a visitor's
+         self-reported liquid capital into server logs, analytics, and the
+         referrer that goes to Stripe. A short-lived first-party cookie reaches
+         the same request without any of that. Only a real drag writes it —
+         the seeded thumb position never does. */
+      try {
+        document.cookie =
+          `fe_capital=${Math.round(next)}; Path=/; Max-Age=1800; SameSite=Lax`;
+      } catch {}
     },
     [onCapitalChange],
   );
