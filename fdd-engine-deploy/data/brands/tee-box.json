@@ -439,9 +439,21 @@
    "rentPctOfRevenue": null,
    "paybackYears": null,
    "variableRate": 0.135,
-   "fixedMonthly": 1200,
+   "fixedMonthly": 15783,
+   "rentResolution": {
+    "lo": 14583,
+    "hi": 14583,
+    "mid": 14583,
+    "basis": "disclosed",
+    "source": "Item 7, p.29"
+   },
+   "fixedFeesMonthly": 1200,
+   "item19Unusable": {
+    "reason": "No franchisee revenue figure could be read from Item 19 \u2014 this filing publishes company or affiliate results only, or no financial performance representation at all.",
+    "whatToAsk": "Ask the franchisor why no franchisee FPR is published, and go straight to the Item 20 roster. A franchisor that will not put franchisee revenue in writing has told you something."
+   },
    "notes": [
-    "Average rent not found; fixed costs may be understated.",
+    "Item 19 in this filing also publishes a table that is not gross sales \u2014 patient or visit counts, a profit-and-loss table, or pre-sale figures. It is excluded from the top line, which is built only on disclosed gross revenue.",
     "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
    ]
   },
@@ -529,7 +541,7 @@
   "financialCondition": {
    "severity": "MEDIUM",
    "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
-   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; positive net worth; the business is profitable. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "context": "Worth perspective: the most recent year is profitable at $87K of net income; net worth is positive at $157K; the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. The franchisor still flags its own financial condition. We cannot tell from the extracted figures which disclosure drove that \u2014 ask the franchisor directly, and read the balance sheet composition rather than the income statement.",
    "body": [
     "What we found (2025-12-31, audited by A+P CPAs): Net income of $87K on $2.49M of revenue \u2014 roughly 1.0x spent per $1 earned. Losses are widening, not shrinking. Positive net worth of $157K. Cash of $128K against $336K of obligations due within a year (a current ratio of 1.40).",
     "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Tee Box Enterprises, L.L.C. is not contractually obligated to keep funding the franchisor or backing its commitments to you.",

@@ -520,9 +520,21 @@
    "rentPctOfRevenue": null,
    "paybackYears": null,
    "variableRate": 0.3,
-   "fixedMonthly": 8500,
+   "fixedMonthly": 12333,
+   "rentResolution": {
+    "lo": 3833,
+    "hi": 3833,
+    "mid": 3833,
+    "basis": "disclosed",
+    "source": "Item 7, p. 22 (Note 4) \u2014 estimated $18\u2013$28/sq ft/year; midpoint $23; estimated 1,000\u20133,000 sq ft"
+   },
+   "fixedFeesMonthly": 8500,
+   "item19Unusable": {
+    "reason": "No franchisee revenue figure could be read from Item 19 \u2014 this filing publishes company or affiliate results only, or no financial performance representation at all.",
+    "whatToAsk": "Ask the franchisor why no franchisee FPR is published, and go straight to the Item 20 roster. A franchisor that will not put franchisee revenue in writing has told you something."
+   },
    "notes": [
-    "Average rent not found; fixed costs may be understated.",
+    "Item 19 in this filing also publishes 3 tables that are not gross sales \u2014 patient or visit counts, a profit-and-loss table, or pre-sale figures. They are excluded from the top line, which is built only on disclosed gross revenue.",
     "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
    ]
   },

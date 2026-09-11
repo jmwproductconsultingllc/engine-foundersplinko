@@ -516,9 +516,22 @@
    "rentPctOfRevenue": null,
    "paybackYears": null,
    "variableRate": 0.09,
-   "fixedMonthly": 2747,
+   "fixedMonthly": 10247,
+   "rentResolution": {
+    "lo": 6667,
+    "hi": 8333,
+    "mid": 7500,
+    "basis": "disclosed_range",
+    "source": "Item 7 rent lines \u00f7 3 months (e.g. \"Operating Expenses / Additional Funds \u2013 3 months\")"
+   },
+   "fixedFeesMonthly": 2747,
+   "item19Unusable": {
+    "reason": "No franchisee revenue figure could be read from Item 19 \u2014 this filing publishes company or affiliate results only, or no financial performance representation at all.",
+    "whatToAsk": "Ask the franchisor why no franchisee FPR is published, and go straight to the Item 20 roster. A franchisor that will not put franchisee revenue in writing has told you something."
+   },
    "notes": [
-    "Average rent not found; fixed costs may be understated.",
+    "Item 19 in this filing also publishes a table that is not gross sales \u2014 patient or visit counts, a profit-and-loss table, or pre-sale figures. It is excluded from the top line, which is built only on disclosed gross revenue.",
+    "Rent modeled at $6,667\u2013$8,333/mo (disclosed range); the math uses the midpoint.",
     "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
    ]
   },
@@ -606,7 +619,7 @@
   "financialCondition": {
    "severity": "MEDIUM",
    "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
-   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; positive net worth; the business is profitable. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "context": "Worth perspective: the most recent year is profitable at $752K of net income; net worth is positive at $575K; the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. The franchisor still flags its own financial condition, and on these figures the reason sits on the balance sheet rather than the income statement: $5.08M of deferred revenue against $575K of net worth \u2014 about 8.8x \u2014 which is money already collected on agreements whose obligations are still owed. Ask how many signed outlets are not yet open, and what supporting them costs.",
    "body": [
     "What we found (2025-12-31, audited by DA Advisory Group PLLC): Net income of $752K on $3.40M of revenue \u2014 roughly 0.8x spent per $1 earned. Positive net worth of $575K. Cash of $836K against $1.30M of obligations due within a year (a current ratio of 2.23). Note: about 93% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.1x assets.",
     "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",

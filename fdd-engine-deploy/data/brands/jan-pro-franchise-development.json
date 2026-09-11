@@ -543,30 +543,49 @@
     "4 high-severity operational tripwires disclosed \u2014 see the tripwires section."
    ],
    "midCohort": {
-    "label": "Network Average",
-    "monthlyRevenue": 507485,
-    "monthlyVariable": 32986.525,
-    "monthlyFixed": 580,
-    "monthlyEbitda": 473918.475,
-    "annualEbitda": 5687021.699999999,
+    "label": "Middle Third RFDs \u2013 Gross Contract Revenue (FY Sept 30 2025)",
+    "monthlyRevenue": 450151.9166666667,
+    "monthlyVariable": 252085.07333333336,
+    "monthlyFixed": 1630,
+    "monthlyEbitda": 196436.84333333332,
+    "annualEbitda": 2357242.12,
     "coversCosts": true,
     "source": {
-     "basis": "network",
-     "label": "network average of disclosed cohorts",
-     "math": null
+     "basis": "disclosed",
+     "label": "Middle Third RFDs \u2013 Gross Contract Revenue (FY Sept 30 2025)",
+     "math": null,
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 39
     }
    },
-   "bottomCohort": null,
+   "bottomCohort": {
+    "label": "All RFDs \u2013 Total Gross Contract Revenue (FY Sept 30 2025)",
+    "monthlyRevenue": 507485.1666666667,
+    "monthlyVariable": 284191.69333333336,
+    "monthlyFixed": 1630,
+    "monthlyEbitda": 221663.47333333333,
+    "annualEbitda": 2659961.6799999997,
+    "coversCosts": true
+   },
    "buildoutMidpoint": 275750,
    "assumedLoan": 220600,
    "assumedMonthlyDebtService": 2976.6660288685594,
-   "dscr": 159.21116793211027,
-   "rentPctOfRevenue": 0,
-   "paybackYears": 0.04848759413033364,
-   "variableRate": 0.065,
-   "fixedMonthly": 580,
+   "dscr": 65.9922347445876,
+   "rentPctOfRevenue": 0.003332208404459013,
+   "paybackYears": 0.11697992228307884,
+   "variableRate": 0.56,
+   "fixedMonthly": 1630,
+   "rentResolution": {
+    "lo": 1500,
+    "hi": 1500,
+    "mid": 1500,
+    "basis": "disclosed",
+    "source": "Item 7, p. A-22 \u2014 office of approximately 1,500\u20132,000 sq ft required; Real Estate line item $1,500\u2013$5,000 represents 3 months' rent (first, last, security deposit); implied monthly rent derived from range low divided by 3."
+   },
+   "fixedFeesMonthly": 130,
    "notes": [
-    "Average rent not found; fixed costs may be understated."
+    "Item 19 in this filing also publishes 3 tables that are not gross sales \u2014 patient or visit counts, a profit-and-loss table, or pre-sale figures. They are excluded from the top line, which is built only on disclosed gross revenue."
    ]
   },
   "underwriting": {
@@ -576,9 +595,9 @@
    "meetsNetWorthRequirement": null,
    "meetsLiquidRequirement": null,
    "adjustedMonthlyDebtService": 347.4576166970327,
-   "adjustedMonthlyNetCashFlow": 473571.01738330297,
-   "survivesBottomCohort": null,
-   "assessment": "With $250,000 liquid against a $275,750 mid-point build-out, there is a $25,750 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $473,571/mo before payroll and maintenance \u2014 a thin margin of error."
+   "adjustedMonthlyNetCashFlow": 196089.3857166363,
+   "survivesBottomCohort": true,
+   "assessment": "With $250,000 liquid against a $275,750 mid-point build-out, there is a $25,750 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, about $196,089/mo is left after fees, rent and debt service \u2014 cost of goods and labor still come out of that, and the cash ladder below subtracts them."
   },
   "buyer": {
    "liquidCapital": 250000,
@@ -620,11 +639,11 @@
     "status": "no_disclosure",
     "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
    },
-   "proFormaRevenueMonthly": 507485,
-   "marginAfterFeesMonthly": 473918.475,
+   "proFormaRevenueMonthly": 450151.9166666667,
+   "marginAfterFeesMonthly": 196436.84333333332,
    "benchmarkOperatingEbitdaMonthly": [
-    12106,
-    204951
+    -186192,
+    -33140
    ],
    "trueEbitdaBasis": "modeled",
    "staffingModel": "staffed",
@@ -639,24 +658,10 @@
      "label": "Margin after fees & rent (modeled)",
      "kind": "base",
      "dollarRange": [
-      473918.475,
-      473918.475
+      196436.84333333332,
+      196436.84333333332
      ],
      "basis": "derived"
-    },
-    {
-     "label": "\u2212 Occupancy / rent (not disclosed)",
-     "kind": "subtract",
-     "pctRange": [
-      2,
-      6
-     ],
-     "dollarRange": [
-      10150,
-      30449
-     ],
-     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
-     "basis": "benchmark"
     },
     {
      "label": "\u2212 Cost of goods",
@@ -666,8 +671,8 @@
       40
      ],
      "dollarRange": [
-      126871,
-      202994
+      112538,
+      180061
      ],
      "basis": "benchmark"
     },
@@ -679,10 +684,10 @@
       35
      ],
      "dollarRange": [
-      101497,
-      177620
+      90030,
+      157553
      ],
-     "note": "conventionally staffed \u00b7 \u2248 29.3\u201351.2 FTE at ~$20/hr fully loaded",
+     "note": "conventionally staffed \u00b7 \u2248 26\u201345.4 FTE at ~$20/hr fully loaded",
      "basis": "benchmark"
     },
     {
@@ -693,8 +698,8 @@
       10
      ],
      "dollarRange": [
-      30449,
-      50749
+      27009,
+      45015
      ],
      "note": "utilities, insurance, repairs & maintenance (category estimate)",
      "basis": "benchmark"
@@ -703,10 +708,10 @@
      "label": "= True operating EBITDA",
      "kind": "result",
      "dollarRange": [
-      12106,
-      204951
+      -186192,
+      -33140
      ],
-     "note": "\u2248 2% to 40% operating margin, before debt",
+     "note": "\u2248 -41% to -7% operating margin, before debt",
      "basis": "derived"
     }
    ],
@@ -717,9 +722,9 @@
      "detail": "Classified as \u201cHome & trade services (mobile / low-overhead)\u201d from the FDD (Item 1 / brand description)."
     },
     {
-     "field": "Occupancy / rent",
-     "basis": "benchmark",
-     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 2\u20136% category band."
+     "field": "Rent",
+     "basis": "disclosed",
+     "detail": "Disclosed range: ~$1,500\u2013$1,500/mo (Item 7, p. A-22 \u2014 office of approximately 1,500\u20132,000 sq ft required; Real Estate line item $1,500\u2013$5,000 represents 3 months' rent (first, last, security deposit); implied monthly rent derived from range low divided by 3.); already netted in the margin line \u2014 no separate occupancy subtraction applied."
     },
     {
      "field": "Cost of goods",

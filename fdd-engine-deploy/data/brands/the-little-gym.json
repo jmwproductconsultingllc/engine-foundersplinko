@@ -670,22 +670,53 @@
    "riskLevel": "Medium",
    "riskReasons": [
     "Royalty runs 8% of gross revenue \u2014 verify what that leaves at the bottom line.",
-    "2 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
-    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+    "2 high-severity operational tripwires disclosed \u2014 see the tripwires section."
    ],
-   "midCohort": null,
-   "bottomCohort": null,
+   "midCohort": {
+    "label": "2nd Quartile \u2013 All Franchised Units (Gross Sales)",
+    "monthlyRevenue": 62461.583333333336,
+    "monthlyVariable": 8744.621666666668,
+    "monthlyFixed": 8864,
+    "monthlyEbitda": 44852.96166666667,
+    "annualEbitda": 538235.54,
+    "coversCosts": true,
+    "source": {
+     "basis": "disclosed",
+     "label": "2nd Quartile \u2013 All Franchised Units (Gross Sales)",
+     "math": null,
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 41
+    }
+   },
+   "bottomCohort": {
+    "label": "4th Quartile \u2013 All Franchised Units (Gross Sales)",
+    "monthlyRevenue": 26755.583333333332,
+    "monthlyVariable": 3745.7816666666668,
+    "monthlyFixed": 8864,
+    "monthlyEbitda": 14145.801666666666,
+    "annualEbitda": 169749.62,
+    "coversCosts": true
+   },
    "buildoutMidpoint": 571548.5,
    "assumedLoan": 457238.80000000005,
    "assumedMonthlyDebtService": 6169.751600365484,
-   "dscr": null,
-   "rentPctOfRevenue": null,
-   "paybackYears": null,
+   "dscr": 7.26981644836555,
+   "rentPctOfRevenue": 0.140006057056404,
+   "paybackYears": 1.061892902872969,
    "variableRate": 0.14,
-   "fixedMonthly": 2619,
+   "fixedMonthly": 8864,
+   "rentResolution": {
+    "lo": 6246,
+    "hi": 11243,
+    "mid": 8745,
+    "basis": "benchmark",
+    "source": "10\u201318% category occupancy \u00d7 modeled revenue"
+   },
+   "fixedFeesMonthly": 119,
    "notes": [
-    "Average rent not found; fixed costs may be understated.",
-    "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
+    "Item 19 in this filing also publishes 12 tables that are not gross sales \u2014 patient or visit counts, a profit-and-loss table, or pre-sale figures. They are excluded from the top line, which is built only on disclosed gross revenue.",
+    "Rent modeled at $6,246\u2013$11,243/mo (category occupancy benchmark); the math uses the midpoint."
    ]
   },
   "underwriting": {
@@ -695,9 +726,9 @@
    "meetsNetWorthRequirement": null,
    "meetsLiquidRequirement": null,
    "adjustedMonthlyDebtService": 4338.814581068186,
-   "adjustedMonthlyNetCashFlow": null,
-   "survivesBottomCohort": null,
-   "assessment": "With $250,000 liquid against a $571,549 mid-point build-out, there is a $321,549 capital gap. An SBA loan or an equity partner is required to do this deal."
+   "adjustedMonthlyNetCashFlow": 40514.14708559848,
+   "survivesBottomCohort": true,
+   "assessment": "With $250,000 liquid against a $571,549 mid-point build-out, there is a $321,549 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, about $40,514/mo is left after fees, rent and debt service \u2014 cost of goods and labor still come out of that, and the cash ladder below subtracts them."
   },
   "buyer": {
    "liquidCapital": 250000,
@@ -739,10 +770,13 @@
     "status": "no_disclosure",
     "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201320% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
    },
-   "proFormaRevenueMonthly": null,
-   "marginAfterFeesMonthly": null,
-   "benchmarkOperatingEbitdaMonthly": null,
-   "trueEbitdaBasis": "none",
+   "proFormaRevenueMonthly": 62461.583333333336,
+   "marginAfterFeesMonthly": 44852.96166666667,
+   "benchmarkOperatingEbitdaMonthly": [
+    -3242,
+    12997
+   ],
+   "trueEbitdaBasis": "modeled",
    "staffingModel": "staffed",
    "staffingLabel": "conventionally staffed",
    "staffingNote": null,
@@ -750,12 +784,98 @@
     40,
     55
    ],
-   "buildup": [],
+   "buildup": [
+    {
+     "label": "Margin after fees & rent (modeled)",
+     "kind": "base",
+     "dollarRange": [
+      44852.96166666667,
+      44852.96166666667
+     ],
+     "basis": "derived"
+    },
+    {
+     "label": "\u2212 Cost of goods",
+     "kind": "subtract",
+     "pctRange": [
+      5,
+      12
+     ],
+     "dollarRange": [
+      3123,
+      7495
+     ],
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Labor",
+     "kind": "subtract",
+     "pctRange": [
+      40,
+      55
+     ],
+     "dollarRange": [
+      24985,
+      34354
+     ],
+     "note": "conventionally staffed \u00b7 \u2248 7.2\u20139.9 FTE at ~$20/hr fully loaded",
+     "basis": "benchmark"
+    },
+    {
+     "label": "\u2212 Other operating costs",
+     "kind": "subtract",
+     "pctRange": [
+      6,
+      10
+     ],
+     "dollarRange": [
+      3748,
+      6246
+     ],
+     "note": "utilities, insurance, repairs & maintenance (category estimate)",
+     "basis": "benchmark"
+    },
+    {
+     "label": "= True operating EBITDA",
+     "kind": "result",
+     "dollarRange": [
+      -3242,
+      12997
+     ],
+     "note": "\u2248 -5% to 21% operating margin, before debt",
+     "basis": "derived"
+    }
+   ],
    "assumptions": [
     {
      "field": "Concept type",
      "basis": "inferred",
      "detail": "Classified as \u201cEducation / childcare\u201d from the FDD (Item 1 / brand description)."
+    },
+    {
+     "field": "Rent",
+     "basis": "benchmark",
+     "detail": "Estimated: ~$6,246\u2013$11,243/mo (10\u201318% category occupancy \u00d7 modeled revenue); already netted in the margin line \u2014 no separate occupancy subtraction applied."
+    },
+    {
+     "field": "Cost of goods",
+     "basis": "benchmark",
+     "detail": "Estimated at the 5\u201312% category band \u2014 COGS is never disclosed in an FDD."
+    },
+    {
+     "field": "Labor",
+     "basis": "benchmark",
+     "detail": "Estimated at the 40\u201355% conventionally staffed band \u2014 labor is never disclosed in an FDD."
+    },
+    {
+     "field": "Other operating costs",
+     "basis": "benchmark",
+     "detail": "Utilities, insurance, and R&M estimated at 6\u201310% (category catch-all)."
+    },
+    {
+     "field": "True operating EBITDA",
+     "basis": "derived",
+     "detail": "Our calculation \u2014 the disclosed top line minus the benchmarked costs above. Not a figure stated in the FDD."
     }
    ],
    "consultCtaUrl": null,
@@ -767,7 +887,7 @@
   "financialCondition": {
    "severity": "MEDIUM",
    "headline": "This franchisor is losing money as it grows (a net loss of $68.67M in the most recent year), though it still has positive net worth. Worth understanding how long its runway lasts.",
-   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; positive net worth; the parent guarantees the franchisor's performance. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; positive net worth; the parent guarantees the franchisor's performance. The most recent year is a loss of $68.67M, but net worth is still positive at $351.01M \u2014 there is equity absorbing it rather than a deficit deepening underneath it. The question is how many more years like this that cushion covers.",
    "body": [
     "What we found (2024-12-31, audited by Deloitte & Touche LLP): Net loss of $68.67M on $194.71M of revenue \u2014 roughly 1.4x spent per $1 earned. Losses are widening, not shrinking. Positive net worth of $351.01M. Cash of $13.14M against $60.14M of obligations due within a year (a current ratio of 1.16). Note: about 13% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.5x assets.",
     "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. UA Holdings, LLC guarantees the franchisor's performance, which partly backstops this.",

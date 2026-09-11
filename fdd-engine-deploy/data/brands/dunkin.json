@@ -638,30 +638,49 @@
     "3 high-severity operational tripwires disclosed \u2014 see the tripwires section."
    ],
    "midCohort": {
-    "label": "Network Average",
-    "monthlyRevenue": 114339,
-    "monthlyVariable": 12462.951,
-    "monthlyFixed": 28.33,
-    "monthlyEbitda": 101847.719,
-    "annualEbitda": 1222172.628,
+    "label": "All 2025 Franchised Restaurants \u2013 2nd Quartile",
+    "monthlyRevenue": 124163.5,
+    "monthlyVariable": 13533.8215,
+    "monthlyFixed": 9961.33,
+    "monthlyEbitda": 100668.3485,
+    "annualEbitda": 1208020.182,
     "coversCosts": true,
     "source": {
-     "basis": "network",
-     "label": "network average of disclosed cohorts",
-     "math": null
+     "basis": "disclosed",
+     "label": "All 2025 Franchised Restaurants \u2013 2nd Quartile",
+     "math": null,
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 1753
     }
    },
-   "bottomCohort": null,
+   "bottomCohort": {
+    "label": "All 2025 Franchised Restaurants \u2013 4th Quartile",
+    "monthlyRevenue": 59840.666666666664,
+    "monthlyVariable": 6522.632666666666,
+    "monthlyFixed": 9961.33,
+    "monthlyEbitda": 43356.704,
+    "annualEbitda": 520280.448,
+    "coversCosts": true
+   },
    "buildoutMidpoint": 1182450,
    "assumedLoan": 945960,
    "assumedMonthlyDebtService": 12764.310954979614,
-   "dscr": 7.979100427686397,
-   "rentPctOfRevenue": 0,
-   "paybackYears": 0.9674983491775598,
+   "dscr": 7.8867044884022715,
+   "rentPctOfRevenue": 0.07999935568826587,
+   "paybackYears": 0.9788329844310498,
    "variableRate": 0.109,
-   "fixedMonthly": 28.33,
+   "fixedMonthly": 9961.33,
+   "rentResolution": {
+    "lo": 7450,
+    "hi": 12416,
+    "mid": 9933,
+    "basis": "benchmark",
+    "source": "6\u201310% category occupancy \u00d7 modeled revenue"
+   },
+   "fixedFeesMonthly": 28.33,
    "notes": [
-    "Average rent not found; fixed costs may be understated."
+    "Rent modeled at $7,450\u2013$12,416/mo (category occupancy benchmark); the math uses the midpoint."
    ]
   },
   "underwriting": {
@@ -671,9 +690,9 @@
    "meetsNetWorthRequirement": null,
    "meetsLiquidRequirement": null,
    "adjustedMonthlyDebtService": 12582.013774335848,
-   "adjustedMonthlyNetCashFlow": 89265.70522566415,
-   "survivesBottomCohort": null,
-   "assessment": "With $250,000 liquid against a $1,182,450 mid-point build-out, there is a $932,450 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $89,266/mo before payroll and maintenance \u2014 a thin margin of error."
+   "adjustedMonthlyNetCashFlow": 88086.33472566414,
+   "survivesBottomCohort": true,
+   "assessment": "With $250,000 liquid against a $1,182,450 mid-point build-out, there is a $932,450 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, about $88,086/mo is left after fees, rent and debt service \u2014 cost of goods and labor still come out of that, and the cash ladder below subtracts them."
   },
   "buyer": {
    "liquidCapital": 250000,
@@ -715,11 +734,11 @@
     "status": "no_disclosure",
     "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201318% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
    },
-   "proFormaRevenueMonthly": 114339,
-   "marginAfterFeesMonthly": 101847.719,
+   "proFormaRevenueMonthly": 124163.5,
+   "marginAfterFeesMonthly": 100668.3485,
    "benchmarkOperatingEbitdaMonthly": [
-    9233,
-    30958
+    12512,
+    31136
    ],
    "trueEbitdaBasis": "modeled",
    "staffingModel": "staffed",
@@ -734,24 +753,10 @@
      "label": "Margin after fees & rent (modeled)",
      "kind": "base",
      "dollarRange": [
-      101847.719,
-      101847.719
+      100668.3485,
+      100668.3485
      ],
      "basis": "derived"
-    },
-    {
-     "label": "\u2212 Occupancy / rent (not disclosed)",
-     "kind": "subtract",
-     "pctRange": [
-      6,
-      10
-     ],
-     "dollarRange": [
-      6860,
-      11434
-     ],
-     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
-     "basis": "benchmark"
     },
     {
      "label": "\u2212 Cost of goods",
@@ -761,8 +766,8 @@
       33
      ],
      "dollarRange": [
-      32015,
-      37732
+      34766,
+      40974
      ],
      "basis": "benchmark"
     },
@@ -774,10 +779,10 @@
       28
      ],
      "dollarRange": [
-      25155,
-      32015
+      27316,
+      34766
      ],
-     "note": "conventionally staffed \u00b7 \u2248 7.3\u20139.2 FTE at ~$20/hr fully loaded",
+     "note": "conventionally staffed \u00b7 \u2248 7.9\u201310 FTE at ~$20/hr fully loaded",
      "basis": "benchmark"
     },
     {
@@ -788,8 +793,8 @@
       10
      ],
      "dollarRange": [
-      6860,
-      11434
+      7450,
+      12416
      ],
      "note": "utilities, insurance, repairs & maintenance (category estimate)",
      "basis": "benchmark"
@@ -798,10 +803,10 @@
      "label": "= True operating EBITDA",
      "kind": "result",
      "dollarRange": [
-      9233,
-      30958
+      12512,
+      31136
      ],
-     "note": "\u2248 8% to 27% operating margin, before debt",
+     "note": "\u2248 10% to 25% operating margin, before debt",
      "basis": "derived"
     }
    ],
@@ -812,9 +817,9 @@
      "detail": "Classified as \u201cQSR / fast-casual\u201d from the FDD (Item 1 / brand description)."
     },
     {
-     "field": "Occupancy / rent",
+     "field": "Rent",
      "basis": "benchmark",
-     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 6\u201310% category band."
+     "detail": "Estimated: ~$7,450\u2013$12,416/mo (6\u201310% category occupancy \u00d7 modeled revenue); already netted in the margin line \u2014 no separate occupancy subtraction applied."
     },
     {
      "field": "Cost of goods",

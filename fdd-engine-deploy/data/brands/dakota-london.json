@@ -507,9 +507,21 @@
    "rentPctOfRevenue": null,
    "paybackYears": null,
    "variableRate": 0.09,
-   "fixedMonthly": 3578,
+   "fixedMonthly": 8578,
+   "rentResolution": {
+    "lo": 5000,
+    "hi": 5000,
+    "mid": 5000,
+    "basis": "disclosed",
+    "source": "Item 7, p. 9 \u2014 most salons 1,200\u20131,600 sq ft; rent $5,000\u2013$10,000/month; midpoint of size range used for squareFootage"
+   },
+   "fixedFeesMonthly": 3578,
+   "item19Unusable": {
+    "reason": "No franchisee revenue figure could be read from Item 19 \u2014 this filing publishes company or affiliate results only, or no financial performance representation at all.",
+    "whatToAsk": "Ask the franchisor why no franchisee FPR is published, and go straight to the Item 20 roster. A franchisor that will not put franchisee revenue in writing has told you something."
+   },
    "notes": [
-    "Average rent not found; fixed costs may be understated.",
+    "Item 19 in this filing also publishes 6 tables that are not gross sales \u2014 patient or visit counts, a profit-and-loss table, or pre-sale figures. They are excluded from the top line, which is built only on disclosed gross revenue.",
     "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
    ]
   },

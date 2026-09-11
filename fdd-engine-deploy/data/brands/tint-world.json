@@ -651,30 +651,49 @@
     "4 high-severity operational tripwires disclosed \u2014 see the tripwires section."
    ],
    "midCohort": {
-    "label": "Network Average",
-    "monthlyRevenue": 67689,
-    "monthlyVariable": 9476.460000000001,
-    "monthlyFixed": 1649,
-    "monthlyEbitda": 56563.54,
-    "annualEbitda": 678762.48,
+    "label": "105 Centers (2+ Years) \u2014 Median All",
+    "monthlyRevenue": 62428.166666666664,
+    "monthlyVariable": 8739.943333333335,
+    "monthlyFixed": 5649,
+    "monthlyEbitda": 48039.22333333333,
+    "annualEbitda": 576470.6799999999,
     "coversCosts": true,
     "source": {
-     "basis": "network",
-     "label": "network average of disclosed cohorts",
-     "math": null
+     "basis": "disclosed",
+     "label": "105 Centers (2+ Years) \u2014 Median All",
+     "math": null,
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 105
     }
    },
-   "bottomCohort": null,
+   "bottomCohort": {
+    "label": "105 Centers (2+ Years) \u2014 Bottom 50% Average",
+    "monthlyRevenue": 46581.833333333336,
+    "monthlyVariable": 6521.456666666668,
+    "monthlyFixed": 5649,
+    "monthlyEbitda": 34411.37666666667,
+    "annualEbitda": 412936.52,
+    "coversCosts": true
+   },
    "buildoutMidpoint": 364950,
    "assumedLoan": 291960,
    "assumedMonthlyDebtService": 3939.56216585886,
-   "dscr": 14.357823945562396,
-   "rentPctOfRevenue": 0,
-   "paybackYears": 0.5376696720184062,
+   "dscr": 12.194051346530877,
+   "rentPctOfRevenue": 0.06407364197250708,
+   "paybackYears": 0.6330764298368132,
    "variableRate": 0.14,
-   "fixedMonthly": 1649,
+   "fixedMonthly": 5649,
+   "rentResolution": {
+    "lo": 4000,
+    "hi": 4000,
+    "mid": 4000,
+    "basis": "disclosed",
+    "source": "Item 7, p. 19 \u2014 monthly base rent typically ranges from approximately $4,000 to $8,000 for a 3,000\u20135,000 sq ft center"
+   },
+   "fixedFeesMonthly": 1649,
    "notes": [
-    "Average rent not found; fixed costs may be understated."
+    "Item 19 in this filing also publishes 4 tables that are not gross sales \u2014 patient or visit counts, a profit-and-loss table, or pre-sale figures. They are excluded from the top line, which is built only on disclosed gross revenue."
    ]
   },
   "underwriting": {
@@ -684,9 +703,9 @@
    "meetsNetWorthRequirement": null,
    "meetsLiquidRequirement": null,
    "adjustedMonthlyDebtService": 1551.0777879349089,
-   "adjustedMonthlyNetCashFlow": 55012.46221206509,
-   "survivesBottomCohort": null,
-   "assessment": "With $250,000 liquid against a $364,950 mid-point build-out, there is a $114,950 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $55,012/mo before payroll and maintenance \u2014 a thin margin of error."
+   "adjustedMonthlyNetCashFlow": 46488.145545398416,
+   "survivesBottomCohort": true,
+   "assessment": "With $250,000 liquid against a $364,950 mid-point build-out, there is a $114,950 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, about $46,488/mo is left after fees, rent and debt service \u2014 cost of goods and labor still come out of that, and the cash ladder below subtracts them."
   },
   "buyer": {
    "liquidCapital": 250000,
@@ -728,11 +747,11 @@
     "status": "no_disclosure",
     "message": "No operating-EBITDA margin is disclosed in Item 19. The 5\u201312% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
    },
-   "proFormaRevenueMonthly": 67689,
-   "marginAfterFeesMonthly": 56563.54,
+   "proFormaRevenueMonthly": 62428.166666666664,
+   "marginAfterFeesMonthly": 48039.22333333333,
    "benchmarkOperatingEbitdaMonthly": [
-    -14510,
-    9859
+    -10019,
+    9957
    ],
    "trueEbitdaBasis": "modeled",
    "staffingModel": "staffed",
@@ -747,24 +766,10 @@
      "label": "Margin after fees & rent (modeled)",
      "kind": "base",
      "dollarRange": [
-      56563.54,
-      56563.54
+      48039.22333333333,
+      48039.22333333333
      ],
      "basis": "derived"
-    },
-    {
-     "label": "\u2212 Occupancy / rent (not disclosed)",
-     "kind": "subtract",
-     "pctRange": [
-      8,
-      12
-     ],
-     "dollarRange": [
-      5415,
-      8123
-     ],
-     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
-     "basis": "benchmark"
     },
     {
      "label": "\u2212 Cost of goods",
@@ -774,8 +779,8 @@
       65
      ],
      "dollarRange": [
-      30460,
-      43998
+      28093,
+      40578
      ],
      "basis": "benchmark"
     },
@@ -787,10 +792,10 @@
       18
      ],
      "dollarRange": [
-      6769,
-      12184
+      6243,
+      11237
      ],
-     "note": "conventionally staffed \u00b7 \u2248 2\u20133.5 FTE at ~$20/hr fully loaded",
+     "note": "conventionally staffed \u00b7 \u2248 1.8\u20133.2 FTE at ~$20/hr fully loaded",
      "basis": "benchmark"
     },
     {
@@ -801,8 +806,8 @@
       10
      ],
      "dollarRange": [
-      4061,
-      6769
+      3746,
+      6243
      ],
      "note": "utilities, insurance, repairs & maintenance (category estimate)",
      "basis": "benchmark"
@@ -811,10 +816,10 @@
      "label": "= True operating EBITDA",
      "kind": "result",
      "dollarRange": [
-      -14510,
-      9859
+      -10019,
+      9957
      ],
-     "note": "\u2248 -21% to 15% operating margin, before debt",
+     "note": "\u2248 -16% to 16% operating margin, before debt",
      "basis": "derived"
     }
    ],
@@ -825,9 +830,9 @@
      "detail": "Classified as \u201cRetail / product\u201d from the FDD (Item 1 / brand description)."
     },
     {
-     "field": "Occupancy / rent",
-     "basis": "benchmark",
-     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 8\u201312% category band."
+     "field": "Rent",
+     "basis": "disclosed",
+     "detail": "Disclosed range: ~$4,000\u2013$4,000/mo (Item 7, p. 19 \u2014 monthly base rent typically ranges from approximately $4,000 to $8,000 for a 3,000\u20135,000 sq ft center); already netted in the margin line \u2014 no separate occupancy subtraction applied."
     },
     {
      "field": "Cost of goods",

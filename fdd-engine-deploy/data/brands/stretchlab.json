@@ -515,30 +515,49 @@
     "6 high-severity operational tripwires disclosed \u2014 see the tripwires section."
    ],
    "midCohort": {
-    "label": "Network Average",
-    "monthlyRevenue": 42608,
-    "monthlyVariable": 5112.96,
-    "monthlyFixed": 878,
-    "monthlyEbitda": 36617.04,
-    "annualEbitda": 439404.48,
+    "label": "2nd Quartile Qualified Studios \u2013 Annual Gross Revenue",
+    "monthlyRevenue": 45625,
+    "monthlyVariable": 5475,
+    "monthlyFixed": 8178,
+    "monthlyEbitda": 31972,
+    "annualEbitda": 383664,
     "coversCosts": true,
     "source": {
-     "basis": "network",
-     "label": "network average of disclosed cohorts",
-     "math": null
+     "basis": "disclosed",
+     "label": "2nd Quartile Qualified Studios \u2013 Annual Gross Revenue",
+     "math": null,
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 112
     }
    },
-   "bottomCohort": null,
+   "bottomCohort": {
+    "label": "Bottom Quartile Qualified Studios \u2013 Annual Gross Revenue",
+    "monthlyRevenue": 24041.666666666668,
+    "monthlyVariable": 2885,
+    "monthlyFixed": 8178,
+    "monthlyEbitda": 12978.666666666668,
+    "annualEbitda": 155744,
+    "coversCosts": true
+   },
    "buildoutMidpoint": 542614.5,
    "assumedLoan": 434091.60000000003,
    "assumedMonthlyDebtService": 5857.41486462919,
-   "dscr": 6.251399439216277,
-   "rentPctOfRevenue": 0,
-   "paybackYears": 1.23488613497978,
+   "dscr": 5.458380657492326,
+   "rentPctOfRevenue": 0.16,
+   "paybackYears": 1.414296102839985,
    "variableRate": 0.12,
-   "fixedMonthly": 878,
+   "fixedMonthly": 8178,
+   "rentResolution": {
+    "lo": 5475,
+    "hi": 9125,
+    "mid": 7300,
+    "basis": "benchmark",
+    "source": "12\u201320% category occupancy \u00d7 modeled revenue"
+   },
+   "fixedFeesMonthly": 878,
    "notes": [
-    "Average rent not found; fixed costs may be understated."
+    "Rent modeled at $5,475\u2013$9,125/mo (category occupancy benchmark); the math uses the midpoint."
    ]
   },
   "underwriting": {
@@ -548,9 +567,9 @@
    "meetsNetWorthRequirement": null,
    "meetsLiquidRequirement": null,
    "adjustedMonthlyDebtService": 3948.3936613978203,
-   "adjustedMonthlyNetCashFlow": 32668.64633860218,
-   "survivesBottomCohort": null,
-   "assessment": "With $250,000 liquid against a $542,615 mid-point build-out, there is a $292,615 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $32,669/mo before payroll and maintenance \u2014 a thin margin of error."
+   "adjustedMonthlyNetCashFlow": 28023.606338602178,
+   "survivesBottomCohort": true,
+   "assessment": "With $250,000 liquid against a $542,615 mid-point build-out, there is a $292,615 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, about $28,024/mo is left after fees, rent and debt service \u2014 cost of goods and labor still come out of that, and the cash ladder below subtracts them."
   },
   "buyer": {
    "liquidCapital": 250000,
@@ -592,11 +611,11 @@
     "status": "no_disclosure",
     "message": "No operating-EBITDA margin is disclosed in Item 19. The 15\u201328% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
    },
-   "proFormaRevenueMonthly": 42608,
-   "marginAfterFeesMonthly": 36617.04,
+   "proFormaRevenueMonthly": 45625,
+   "marginAfterFeesMonthly": 31972,
    "benchmarkOperatingEbitdaMonthly": [
-    6791,
-    19148
+    9158,
+    18740
    ],
    "trueEbitdaBasis": "modeled",
    "staffingModel": "staffed",
@@ -611,24 +630,10 @@
      "label": "Margin after fees & rent (modeled)",
      "kind": "base",
      "dollarRange": [
-      36617.04,
-      36617.04
+      31972,
+      31972
      ],
      "basis": "derived"
-    },
-    {
-     "label": "\u2212 Occupancy / rent (not disclosed)",
-     "kind": "subtract",
-     "pctRange": [
-      12,
-      20
-     ],
-     "dollarRange": [
-      5113,
-      8522
-     ],
-     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
-     "basis": "benchmark"
     },
     {
      "label": "\u2212 Cost of goods",
@@ -638,8 +643,8 @@
       10
      ],
      "dollarRange": [
-      1278,
-      4261
+      1369,
+      4563
      ],
      "basis": "benchmark"
     },
@@ -651,10 +656,10 @@
       30
      ],
      "dollarRange": [
-      8522,
-      12782
+      9125,
+      13688
      ],
-     "note": "conventionally staffed \u00b7 \u2248 2.5\u20133.7 FTE at ~$20/hr fully loaded",
+     "note": "conventionally staffed \u00b7 \u2248 2.6\u20133.9 FTE at ~$20/hr fully loaded",
      "basis": "benchmark"
     },
     {
@@ -665,8 +670,8 @@
       10
      ],
      "dollarRange": [
-      2556,
-      4261
+      2738,
+      4563
      ],
      "note": "utilities, insurance, repairs & maintenance (category estimate)",
      "basis": "benchmark"
@@ -675,10 +680,10 @@
      "label": "= True operating EBITDA",
      "kind": "result",
      "dollarRange": [
-      6791,
-      19148
+      9158,
+      18740
      ],
-     "note": "\u2248 16% to 45% operating margin, before debt",
+     "note": "\u2248 20% to 41% operating margin, before debt",
      "basis": "derived"
     }
    ],
@@ -689,9 +694,9 @@
      "detail": "Classified as \u201cBoutique fitness / studio\u201d from the FDD (Item 1 / brand description)."
     },
     {
-     "field": "Occupancy / rent",
+     "field": "Rent",
      "basis": "benchmark",
-     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 12\u201320% category band."
+     "detail": "Estimated: ~$5,475\u2013$9,125/mo (12\u201320% category occupancy \u00d7 modeled revenue); already netted in the margin line \u2014 no separate occupancy subtraction applied."
     },
     {
      "field": "Cost of goods",
@@ -723,7 +728,7 @@
   "financialCondition": {
    "severity": "MEDIUM",
    "headline": "The franchisor's statements don't show the distress signals we screen for \u2014 positive net worth and a clean audit. Still worth a quick confirmation against current figures.",
-   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; positive net worth; the business is profitable; the parent guarantees the franchisor's performance. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "context": "Worth perspective: the most recent year is profitable at $151.66M of net income; net worth is positive at $25.53M; the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; the parent guarantees the franchisor's performance. The franchisor still flags its own financial condition, and on these figures the reason sits on the balance sheet rather than the income statement: $78.81M of deferred revenue against $25.53M of net worth \u2014 about 3.1x \u2014 which is money already collected on agreements whose obligations are still owed. Ask how many signed outlets are not yet open, and what supporting them costs.",
    "body": [
     "What we found (2025-12-31, audited by Deloitte & Touche LLP): Net income of $151.66M on $227.84M of revenue \u2014 roughly 0.3x spent per $1 earned. Positive net worth of $25.53M. About 399% of liabilities is money owed to related parties \u2014 the entity is kept alive largely by insider loans, not profit. Cash of $5.92M against $14.22M of obligations due within a year (a current ratio of 0.85). Note: about 98% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.0x assets.",
     "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. XPOF Assetco, LLC guarantees the franchisor's performance, which partly backstops this.",

@@ -646,7 +646,15 @@
     "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
    ],
    "midCohort": null,
-   "bottomCohort": null,
+   "bottomCohort": {
+    "label": "Franchised Studios - NCI Tier 4 Lowest Performing (2025)",
+    "monthlyRevenue": 34533.416666666664,
+    "monthlyVariable": 3108.0074999999997,
+    "monthlyFixed": 11438,
+    "monthlyEbitda": 19987.409166666665,
+    "annualEbitda": 239848.90999999997,
+    "coversCosts": true
+   },
    "buildoutMidpoint": 670931,
    "assumedLoan": 536744.8,
    "assumedMonthlyDebtService": 7242.565785729145,
@@ -654,9 +662,22 @@
    "rentPctOfRevenue": null,
    "paybackYears": null,
    "variableRate": 0.09,
-   "fixedMonthly": 6648,
+   "fixedMonthly": 11438,
+   "rentResolution": {
+    "lo": 4344,
+    "hi": 5235,
+    "mid": 4790,
+    "basis": "disclosed_range",
+    "source": "Item 7 rent lines \u00f7 3 months (e.g. \"Fitness Equipment - Ongoing Payments (3 months)\")"
+   },
+   "fixedFeesMonthly": 6648,
+   "item19Unusable": {
+    "reason": "No franchisee revenue figure could be read from Item 19 \u2014 this filing publishes company or affiliate results only, or no financial performance representation at all.",
+    "whatToAsk": "Ask the franchisor why no franchisee FPR is published, and go straight to the Item 20 roster. A franchisor that will not put franchisee revenue in writing has told you something."
+   },
    "notes": [
-    "Average rent not found; fixed costs may be understated.",
+    "Item 19 in this filing also publishes 6 tables that are not gross sales \u2014 patient or visit counts, a profit-and-loss table, or pre-sale figures. They are excluded from the top line, which is built only on disclosed gross revenue.",
+    "Rent modeled at $4,344\u2013$5,235/mo (disclosed range); the math uses the midpoint.",
     "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
    ]
   },
@@ -668,7 +689,7 @@
    "meetsLiquidRequirement": null,
    "adjustedMonthlyDebtService": 5679.832312772764,
    "adjustedMonthlyNetCashFlow": null,
-   "survivesBottomCohort": null,
+   "survivesBottomCohort": true,
    "assessment": "With $250,000 liquid against a $670,931 mid-point build-out, there is a $420,931 capital gap. An SBA loan or an equity partner is required to do this deal."
   },
   "buyer": {

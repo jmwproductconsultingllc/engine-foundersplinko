@@ -642,6 +642,7 @@
   "scoring": {
    "riskLevel": "Medium",
    "riskReasons": [
+    "Item 19 in this filing appears to report SYSTEM TOTALS where a per-outlet figure is required \u2014 one revenue table is many times its siblings and divides back into line by its own franchisee count. No franchisee pro forma is built from it. Read the Item 19 tables directly and check whether each figure is a total or a per-outlet average before relying on any number below.",
     "Royalty runs 10% of gross revenue \u2014 verify what that leaves at the bottom line.",
     "3 high-severity operational tripwires disclosed \u2014 see the tripwires section.",
     "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
@@ -655,9 +656,21 @@
    "rentPctOfRevenue": null,
    "paybackYears": null,
    "variableRate": 0.14,
-   "fixedMonthly": 6450,
+   "fixedMonthly": 42284,
+   "rentResolution": {
+    "lo": 26667,
+    "hi": 45000,
+    "mid": 35834,
+    "basis": "disclosed_range",
+    "source": "Item 7 rent lines \u00f7 3 months (e.g. \"Additional Funds \u2013 First 3 Months\")"
+   },
+   "fixedFeesMonthly": 6450,
+   "item19Unusable": {
+    "reason": "Item 19 discloses revenue, but it reports outlets together rather than one at a time \u2014 one table is many times its siblings and divides back into line by its own franchisee count. A per-outlet figure cannot be read from it, and this report will not estimate one.",
+    "whatToAsk": "Ask the franchisor for gross revenue PER FRANCHISED OUTLET for the most recent year, and for the Item 20 franchisee roster. Three owners in markets like yours will tell you in ten minutes what this table does not."
+   },
    "notes": [
-    "Average rent not found; fixed costs may be understated.",
+    "Rent modeled at $26,667\u2013$45,000/mo (disclosed range); the math uses the midpoint.",
     "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
    ]
   },
@@ -740,7 +753,7 @@
   "financialCondition": {
    "severity": "MEDIUM",
    "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
-   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; positive net worth; the business is profitable; the parent guarantees the franchisor's performance. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "context": "Worth perspective: the most recent year is profitable at $68 of net income; net worth is positive at $761; the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; the parent guarantees the franchisor's performance. The franchisor still flags its own financial condition. We cannot tell from the extracted figures which disclosure drove that \u2014 ask the franchisor directly, and read the balance sheet composition rather than the income statement.",
    "body": [
     "What we found (2025-12-31, audited by PricewaterhouseCoopers LLP): Net income of $68 on $367 of revenue \u2014 roughly 0.8x spent per $1 earned. Positive net worth of $761. Cash of $68 against $42 of obligations due within a year (a current ratio of 3.65).",
     "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. ServiceMaster Systems LLC guarantees the franchisor's performance, which partly backstops this.",

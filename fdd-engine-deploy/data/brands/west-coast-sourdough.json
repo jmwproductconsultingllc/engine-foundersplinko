@@ -253,9 +253,15 @@
    "paybackYears": null,
    "variableRate": 0,
    "fixedMonthly": 250,
+   "rentResolution": null,
+   "fixedFeesMonthly": 250,
+   "item19Unusable": {
+    "reason": "No franchisee revenue figure could be read from Item 19 \u2014 this filing publishes company or affiliate results only, or no financial performance representation at all.",
+    "whatToAsk": "Ask the franchisor why no franchisee FPR is published, and go straight to the Item 20 roster. A franchisor that will not put franchisee revenue in writing has told you something."
+   },
    "notes": [
     "Royalty % not found; variable costs may be understated.",
-    "Average rent not found; fixed costs may be understated.",
+    "Rent could not be resolved from the FDD or benchmarks; fixed costs EXCLUDE rent and the report labels the margin accordingly.",
     "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."
    ]
   },
@@ -338,7 +344,7 @@
   "financialCondition": {
    "severity": "MEDIUM",
    "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
-   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. We could not read usable income-statement or balance-sheet figures from this filing, so nothing here characterises the franchisor's profitability or net worth either way, including the financial-condition risk the franchisor flags about itself \u2014 read the audited statements in Item 21 directly.",
    "body": [
     "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",
     "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."

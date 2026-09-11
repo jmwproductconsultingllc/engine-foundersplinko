@@ -335,6 +335,18 @@
    "paybackYears": null,
    "variableRate": 0,
    "fixedMonthly": 9300,
+   "rentResolution": {
+    "lo": 9000,
+    "hi": 9000,
+    "mid": 9000,
+    "basis": "disclosed",
+    "source": "Item 7, p.24"
+   },
+   "fixedFeesMonthly": 300,
+   "item19Unusable": {
+    "reason": "No franchisee revenue figure could be read from Item 19 \u2014 this filing publishes company or affiliate results only, or no financial performance representation at all.",
+    "whatToAsk": "Ask the franchisor why no franchisee FPR is published, and go straight to the Item 20 roster. A franchisor that will not put franchisee revenue in writing has told you something."
+   },
    "notes": [
     "Royalty % not found; variable costs may be understated.",
     "No Item 19 middle-cohort or network-average revenue found; economics are indeterminate."

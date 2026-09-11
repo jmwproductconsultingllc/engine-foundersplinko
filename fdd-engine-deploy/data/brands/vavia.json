@@ -579,30 +579,41 @@
     "Franchisor financial distress disclosed (negative net worth) \u2014 confirm its ability to support the system against the audited statements."
    ],
    "midCohort": {
-    "label": "Network Average",
-    "monthlyRevenue": 118273,
-    "monthlyVariable": 12418.664999999999,
-    "monthlyFixed": 2750,
-    "monthlyEbitda": 103104.335,
-    "annualEbitda": 1237252.02,
+    "label": "Operational Franchise Outlets \u2013 Median Gross Sales (2025)",
+    "monthlyRevenue": 101472.91666666667,
+    "monthlyVariable": 10654.65625,
+    "monthlyFixed": 3000,
+    "monthlyEbitda": 87818.26041666667,
+    "annualEbitda": 1053819.125,
     "coversCosts": true,
     "source": {
-     "basis": "network",
-     "label": "network average of disclosed cohorts",
-     "math": null
+     "basis": "disclosed",
+     "label": "Operational Franchise Outlets \u2013 Median Gross Sales (2025)",
+     "math": null,
+     "revenueType": "gross_sales",
+     "ownership": "franchised",
+     "sample": 16
     }
    },
    "bottomCohort": null,
    "buildoutMidpoint": 647020.5,
    "assumedLoan": 517616.4,
    "assumedMonthlyDebtService": 6984.456726497009,
-   "dscr": 14.761969189221542,
-   "rentPctOfRevenue": 0,
-   "paybackYears": 0.5229496412541723,
+   "dscr": 12.573384567408025,
+   "rentPctOfRevenue": 0.02956453897797031,
+   "paybackYears": 0.6139768055547483,
    "variableRate": 0.105,
-   "fixedMonthly": 2750,
+   "fixedMonthly": 3000,
+   "rentResolution": {
+    "lo": 3000,
+    "hi": 3000,
+    "mid": 3000,
+    "basis": "disclosed",
+    "source": "Item 7, p.13 \u2014 lease payments estimated at $3,000\u2013$6,000 for 3 months; Operations Center typically ~750 sq ft office plus half-acre lot in industrial park."
+   },
+   "fixedFeesMonthly": 0,
    "notes": [
-    "Average rent not found; fixed costs may be understated."
+    "Item 19 in this filing also publishes 3 tables that are not gross sales \u2014 patient or visit counts, a profit-and-loss table, or pre-sale figures. They are excluded from the top line, which is built only on disclosed gross revenue."
    ]
   },
   "underwriting": {
@@ -612,9 +623,9 @@
    "meetsNetWorthRequirement": null,
    "meetsLiquidRequirement": null,
    "adjustedMonthlyDebtService": 5357.195988732593,
-   "adjustedMonthlyNetCashFlow": 97747.13901126741,
+   "adjustedMonthlyNetCashFlow": 82461.06442793408,
    "survivesBottomCohort": null,
-   "assessment": "With $250,000 liquid against a $647,021 mid-point build-out, there is a $397,021 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, modeled cash flow after debt service is about $97,747/mo before payroll and maintenance \u2014 a thin margin of error."
+   "assessment": "With $250,000 liquid against a $647,021 mid-point build-out, there is a $397,021 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, about $82,461/mo is left after fees, rent and debt service \u2014 cost of goods and labor still come out of that, and the cash ladder below subtracts them."
   },
   "buyer": {
    "liquidCapital": 250000,
@@ -656,11 +667,11 @@
     "status": "no_disclosure",
     "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
    },
-   "proFormaRevenueMonthly": 118273,
-   "marginAfterFeesMonthly": 103104.335,
+   "proFormaRevenueMonthly": 101472.91666666667,
+   "marginAfterFeesMonthly": 87818.26041666667,
    "benchmarkOperatingEbitdaMonthly": [
-    12035,
-    52248
+    15773,
+    46215
    ],
    "trueEbitdaBasis": "modeled",
    "staffingModel": "lightly_staffed",
@@ -675,24 +686,10 @@
      "label": "Margin after fees & rent (modeled)",
      "kind": "base",
      "dollarRange": [
-      103104.335,
-      103104.335
+      87818.26041666667,
+      87818.26041666667
      ],
      "basis": "derived"
-    },
-    {
-     "label": "\u2212 Occupancy / rent (not disclosed)",
-     "kind": "subtract",
-     "pctRange": [
-      2,
-      6
-     ],
-     "dollarRange": [
-      2365,
-      7096
-     ],
-     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
-     "basis": "benchmark"
     },
     {
      "label": "\u2212 Cost of goods",
@@ -702,8 +699,8 @@
       40
      ],
      "dollarRange": [
-      29568,
-      47309
+      25368,
+      40589
      ],
      "basis": "benchmark"
     },
@@ -715,10 +712,10 @@
       21
      ],
      "dollarRange": [
-      11827,
-      24837
+      10147,
+      21309
      ],
-     "note": "lightly staffed \u00b7 \u2248 3.4\u20137.2 FTE at ~$20/hr fully loaded",
+     "note": "lightly staffed \u00b7 \u2248 2.9\u20136.1 FTE at ~$20/hr fully loaded",
      "basis": "benchmark"
     },
     {
@@ -729,8 +726,8 @@
       10
      ],
      "dollarRange": [
-      7096,
-      11827
+      6088,
+      10147
      ],
      "note": "utilities, insurance, repairs & maintenance (category estimate)",
      "basis": "benchmark"
@@ -739,10 +736,10 @@
      "label": "= True operating EBITDA",
      "kind": "result",
      "dollarRange": [
-      12035,
-      52248
+      15773,
+      46215
      ],
-     "note": "\u2248 10% to 44% operating margin, before debt",
+     "note": "\u2248 16% to 46% operating margin, before debt",
      "basis": "derived"
     }
    ],
@@ -758,9 +755,9 @@
      "detail": "Read as lightly staffed from the FDD, which lowers the labor band applied below."
     },
     {
-     "field": "Occupancy / rent",
-     "basis": "benchmark",
-     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 2\u20136% category band."
+     "field": "Rent",
+     "basis": "disclosed",
+     "detail": "Disclosed range: ~$3,000\u2013$3,000/mo (Item 7, p.13 \u2014 lease payments estimated at $3,000\u2013$6,000 for 3 months; Operations Center typically ~750 sq ft office plus half-acre lot in industrial park.); already netted in the margin line \u2014 no separate occupancy subtraction applied."
     },
     {
      "field": "Cost of goods",
@@ -792,7 +789,7 @@
   "financialCondition": {
    "severity": "MEDIUM",
    "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
-   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing; positive net worth; the business is profitable. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "context": "Worth perspective: the most recent year is profitable at $1.20M of net income; net worth is positive at $59K; the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. The franchisor still flags its own financial condition, and on these figures the reason sits on the balance sheet rather than the income statement: $2.72M of deferred revenue against $59K of net worth \u2014 about 46.3x \u2014 which is money already collected on agreements whose obligations are still owed. Ask how many signed outlets are not yet open, and what supporting them costs.",
    "body": [
     "What we found (2025-12-31, audited by Kezos & Dunlavy, LLC (2025); Reese CPA LLC (2024, 2023)): Net income of $1.20M on $3.05M of revenue \u2014 roughly 0.6x spent per $1 earned. Positive net worth of $59K. Cash of $1.11M against $321K of obligations due within a year (a current ratio of 6.67). Note: about 90% of those liabilities is deferred revenue \u2014 prepaid franchise fees the company owes as future services, not borrowed money. Netting it out, liabilities are still about 0.1x assets.",
     "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut.",

@@ -387,25 +387,23 @@
    "staffingRationale": "Clinics require 5 to 15 Licensed Providers plus administrative and clinical support staff."
   },
   "scoring": {
-   "riskLevel": "High",
+   "riskLevel": "Low",
    "riskReasons": [
-    "Debt-service coverage is thin: mid-cohort DSCR \u2248 0.01.",
-    "Payback on the build-out is not meaningfully computable \u2014 modeled mid-cohort earnings are too thin to amortize the investment over any realistic horizon.",
     "A high-severity operational tripwire is disclosed \u2014 see the tripwires section."
    ],
    "midCohort": {
-    "label": "Franchised Clinics New Patients",
-    "monthlyRevenue": 33,
+    "label": "Franchised Clinics Collected Revenue",
+    "monthlyRevenue": 68173.08333333333,
     "monthlyVariable": 0,
-    "monthlyFixed": 0,
-    "monthlyEbitda": 33,
-    "annualEbitda": 396,
+    "monthlyFixed": 7499,
+    "monthlyEbitda": 60674.08333333333,
+    "annualEbitda": 728089,
     "coversCosts": true,
     "source": {
      "basis": "disclosed",
-     "label": "Franchised Clinics New Patients",
-     "math": "$400/yr \u00f7 12",
-     "revenueType": "other",
+     "label": "Franchised Clinics Collected Revenue",
+     "math": "$818,077/yr \u00f7 12",
+     "revenueType": "gross_sales",
      "ownership": "franchised",
      "sample": 188
     }
@@ -414,14 +412,23 @@
    "buildoutMidpoint": 317242.5,
    "assumedLoan": 253794,
    "assumedMonthlyDebtService": 3424.569257165309,
-   "dscr": 0.00963624839268568,
-   "rentPctOfRevenue": 0,
-   "paybackYears": 801.1174242424242,
+   "dscr": 17.717289030257888,
+   "rentPctOfRevenue": 0.10999942548195342,
+   "paybackYears": 0.4357193969418574,
    "variableRate": 0,
-   "fixedMonthly": 0,
+   "fixedMonthly": 7499,
+   "rentResolution": {
+    "lo": 5454,
+    "hi": 9544,
+    "mid": 7499,
+    "basis": "benchmark",
+    "source": "8\u201314% category occupancy \u00d7 modeled revenue"
+   },
+   "fixedFeesMonthly": 0,
    "notes": [
     "Royalty % not found; variable costs may be understated.",
-    "Average rent not found; fixed costs may be understated."
+    "Item 19 in this filing also publishes 2 tables that are not gross sales \u2014 patient or visit counts, a profit-and-loss table, or pre-sale figures. They are excluded from the top line, which is built only on disclosed gross revenue.",
+    "Rent modeled at $5,454\u2013$9,544/mo (category occupancy benchmark); the math uses the midpoint."
    ]
   },
   "underwriting": {
@@ -431,9 +438,9 @@
    "meetsNetWorthRequirement": null,
    "meetsLiquidRequirement": null,
    "adjustedMonthlyDebtService": 907.3366520679697,
-   "adjustedMonthlyNetCashFlow": -874.3366520679697,
+   "adjustedMonthlyNetCashFlow": 59766.74668126536,
    "survivesBottomCohort": null,
-   "assessment": "With $250,000 liquid against a $317,243 mid-point build-out, there is a $67,243 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, monthly cash flow after debt service is negative (-$874/mo) before payroll \u2014 this deal does not cash-flow at the typical performance tier."
+   "assessment": "With $250,000 liquid against a $317,243 mid-point build-out, there is a $67,243 capital gap. An SBA loan or an equity partner is required to do this deal. At mid-cohort revenue, about $59,767/mo is left after fees, rent and debt service \u2014 cost of goods and labor still come out of that, and the cash ladder below subtracts them."
   },
   "buyer": {
    "liquidCapital": 250000,
@@ -475,11 +482,11 @@
     "status": "no_disclosure",
     "message": "No operating-EBITDA margin is disclosed in Item 19. The 12\u201325% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
    },
-   "proFormaRevenueMonthly": 33,
-   "marginAfterFeesMonthly": 33,
+   "proFormaRevenueMonthly": 68173.08333333333,
+   "marginAfterFeesMonthly": 60674.08333333333,
    "benchmarkOperatingEbitdaMonthly": [
-    5,
-    15
+    12953,
+    29315
    ],
    "trueEbitdaBasis": "modeled",
    "staffingModel": "staffed",
@@ -494,24 +501,10 @@
      "label": "Margin after fees & rent (modeled)",
      "kind": "base",
      "dollarRange": [
-      33,
-      33
+      60674.08333333333,
+      60674.08333333333
      ],
      "basis": "derived"
-    },
-    {
-     "label": "\u2212 Occupancy / rent (not disclosed)",
-     "kind": "subtract",
-     "pctRange": [
-      8,
-      14
-     ],
-     "dollarRange": [
-      3,
-      5
-     ],
-     "note": "Item 7 disclosed no rent figure \u2014 benchmark occupancy applied so the line above isn't overstated",
-     "basis": "benchmark"
     },
     {
      "label": "\u2212 Cost of goods",
@@ -521,8 +514,8 @@
       25
      ],
      "dollarRange": [
-      5,
-      8
+      10226,
+      17043
      ],
      "basis": "benchmark"
     },
@@ -534,10 +527,10 @@
       35
      ],
      "dollarRange": [
-      8,
-      12
+      17043,
+      23861
      ],
-     "note": "conventionally staffed \u00b7 \u2248 0\u20130 FTE at ~$20/hr fully loaded",
+     "note": "conventionally staffed \u00b7 \u2248 4.9\u20136.9 FTE at ~$20/hr fully loaded",
      "basis": "benchmark"
     },
     {
@@ -548,8 +541,8 @@
       10
      ],
      "dollarRange": [
-      2,
-      3
+      4090,
+      6817
      ],
      "note": "utilities, insurance, repairs & maintenance (category estimate)",
      "basis": "benchmark"
@@ -558,10 +551,10 @@
      "label": "= True operating EBITDA",
      "kind": "result",
      "dollarRange": [
-      5,
-      15
+      12953,
+      29315
      ],
-     "note": "\u2248 15% to 45% operating margin, before debt",
+     "note": "\u2248 19% to 43% operating margin, before debt",
      "basis": "derived"
     }
    ],
@@ -572,9 +565,9 @@
      "detail": "Classified as \u201cHealth & wellness (med-spa, IV, longevity, recovery)\u201d from the FDD (Item 1 / brand description)."
     },
     {
-     "field": "Occupancy / rent",
+     "field": "Rent",
      "basis": "benchmark",
-     "detail": "Item 7 disclosed no rent \u2014 occupancy estimated at the 8\u201314% category band."
+     "detail": "Estimated: ~$5,454\u2013$9,544/mo (8\u201314% category occupancy \u00d7 modeled revenue); already netted in the margin line \u2014 no separate occupancy subtraction applied."
     },
     {
      "field": "Cost of goods",
@@ -606,7 +599,7 @@
   "financialCondition": {
    "severity": "MEDIUM",
    "headline": "The franchisor flagged its own financial condition as a risk. The figures we extracted look comparatively stable, so confirm directly against the most recent statements.",
-   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. Early-stage franchisors commonly run losses and carry a deficit while investing to scale \u2014 this reads more like spending ahead of revenue than a failing business. The real question is runway: how the gap is funded, and for how long.",
+   "context": "Worth perspective: the auditor issued a clean (unmodified) opinion and did not raise going-concern doubt; revenue is growing. We could not read usable income-statement or balance-sheet figures from this filing, so nothing here characterises the franchisor's profitability or net worth either way, including the financial-condition risk the franchisor flags about itself \u2014 read the audited statements in Item 21 directly.",
    "body": [
     "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so EMH PEP Holdco, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
     "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
@@ -641,11 +634,5 @@
    "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
    "dataQuality": "partial"
   }
- },
- "retraction": {
-  "retractedAt": "2026-09-10",
-  "figure": "the top-line monthly revenue",
-  "detail": "Item 19 discloses an average of 400 new patients per clinic per year. That patient count was read as $400 of annual revenue, producing a $33/month top line. The same Item 19 discloses average collected revenue per clinic of $818,077 per year.",
-  "internal": "midCohort selected a cohort whose revenueType is 'other' (a count, not currency). Item 19 plausibility gate added to scripts/jsonl-to-brands.ts on 2026-09-10; this record predates it."
  }
 }
