@@ -24,6 +24,7 @@
  */
 
 import type { ExtractedFDD } from "./schema";
+import { explainNoHeadline } from "./noHeadline";
 import type { ScoringResult } from "./scoring";
 import { RUBRIC } from "./scoring";
 import type { DiligenceResult } from "./types";
@@ -189,6 +190,21 @@ export function buildLadderInput(
 
   const financing = resolveFinancing(result, opts);
 
+    function revenueUnavailable(): { reason: string; whatToAsk?: string } | undefined {
+    const rev = cohort?.monthlyRevenue;
+    if (typeof rev === "number" && Number.isFinite(rev) && rev > 0) return undefined;
+    const i19 = fdd?.item19;
+    const reason = explainNoHeadline({
+      cohorts: i19?.cohorts ?? [],
+      hasItem19: Boolean(i19?.hasItem19),
+      notes: i19?.notes ?? null,
+      systemUnits: (fdd as { systemScale?: { totalUnits?: number } })?.systemScale?.totalUnits ?? null,
+      unusableReason: s?.item19Unusable?.reason ?? null,
+    }).detail;
+    const ask = s?.item19Unusable?.whatToAsk;
+    return ask ? { reason, whatToAsk: ask } : { reason };
+  }
+
   return {
     monthlyRevenue: cohort?.monthlyRevenue ?? null,
     revenueLabel: cohort?.label ?? "Item 19 top line",
@@ -197,7 +213,22 @@ export function buildLadderInput(
     revenueSource: [revenueSourceText(cohort), currencyDisclosure(fdd)].filter(Boolean).join(" — "),
     currencyCode: resolveCurrency(fdd) ?? undefined,
     revenueOwnership: cohort?.source?.ownership ?? undefined,
-    revenueUnavailable: s?.item19Unusable,
+    /* THE LADDER MUST NOT CONTRADICT ITS OWN RECORD.
+       scoring.item19Unusable carries ONE generic sentence for every refusal
+       that is not a system total: "this filing publishes company or affiliate
+       results only, or no financial performance representation at all." On
+       2026-09-11 that was false on EIGHT of the nineteen withheld brands —
+       golf-envy, property-sellwise, puddle-pool-services,
+       real-property-management, southern-steer-butcher, spenga, tee-box and
+       the-original-rainbow-cone all have franchised cohorts. Real Property
+       Management discloses six of them, per managed unit, and rung 1 told the
+       buyer the franchisor published corporate results only.
+
+       lib/noHeadline.ts already classifies this correctly from the record, so
+       the ladder reads the same classifier the card and the hero read rather
+       than a second, blunter sentence. whatToAsk is preserved — it is the
+       scorer's, and it is good. */
+    revenueUnavailable: revenueUnavailable(),
     // FE-142 + FE-144 · rung 2 charges only what is actually owed. Not the
     // ceilings — those are lifted into the fees panel with a question attached —
     // and not a percentage that a binding minimum has already replaced.

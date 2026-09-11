@@ -10,6 +10,8 @@ import path from "node:path";
 import { resolveBrandFacts } from "./brandFacts";
 import { explainNoHeadline } from "./noHeadline";
 import type { BrandRecord } from "./brands";
+import { buildLadderInput } from "./ladderInput";
+import type { DiligenceResult } from "./types";
 
 async function loadAll(): Promise<BrandRecord[]> {
   const dir = path.join(process.cwd(), "data", "brands");
@@ -94,6 +96,40 @@ describe("explainNoHeadline — against the live corpus", () => {
     for (const f of facts.filter((x) => x.moModelable)) {
       expect(f.noHeadline, `${f.slug} publishes a figure AND a reason`).toBeNull();
     }
+  });
+
+  it("the cash ladder never contradicts its own record", async () => {
+    /* scoring.item19Unusable carries ONE sentence for every refusal that is not
+       a system total — "this filing publishes company or affiliate results
+       only, or no financial performance representation at all" — and rung 1
+       printed it verbatim. On 2026-09-11 it was false on eight of the nineteen
+       withheld brands, all of which disclose franchised cohorts. Real Property
+       Management discloses six, per managed unit, and the ladder told the buyer
+       the franchisor published corporate results only.
+
+       buildLadderInput now reads lib/noHeadline.ts — the same classifier the
+       card and the glass hero read — so there is one answer to "why is there no
+       figure" instead of two. */
+    const brands = await loadAll();
+    const FRANCHISED = new Set(["franchised", "mixed"]);
+    let checked = 0;
+    for (const b of brands) {
+      const result = (b as unknown as { result: DiligenceResult }).result;
+      const cohorts =
+        ((result as unknown as { extracted?: { item19?: { cohorts?: { ownership?: string }[] } } })
+          .extracted?.item19?.cohorts) ?? [];
+      if (!cohorts.some((c) => FRANCHISED.has(String(c.ownership ?? "")))) continue;
+      const reason = buildLadderInput(result).revenueUnavailable?.reason;
+      if (!reason) continue;
+      checked++;
+      expect(
+        reason,
+        `${b.slug}: the ladder says the franchisor published corporate results only, ` +
+          `but this record carries ${cohorts.length} cohort(s) including franchised ones`,
+      ).not.toMatch(/company or affiliate results only/i);
+    }
+    // Floor: a pass that checked nothing is not a pass.
+    expect(checked, "no withheld brand with franchised cohorts — nothing was checked").toBeGreaterThan(0);
   });
 
   it('the "unexplained" residue stays small', async () => {
