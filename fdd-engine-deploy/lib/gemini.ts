@@ -368,6 +368,33 @@ The goal: identical structured data, zero prose, so the JSON fits the output bud
 `;
 
 // True when Gemini stopped because it hit the output-token ceiling (truncated JSON).
+/**
+ * TOKEN COUNTS, BECAUSE "WHAT DOES AN EXTRACTION COST" HAD NO ANSWER.
+ *
+ * Every Gemini response carries usageMetadata and this module threw it away, so
+ * the only way to price a run was the Cloud billing console — which reports a
+ * daily total across everything, not a per-document figure, and shows nothing
+ * at all while credits are covering the spend. That made a real decision
+ * un-makeable: whether to re-extract 82 legacy filings, or run a targeted pass,
+ * or refresh lazily at purchase, all turn on the unit cost, and the unit cost
+ * was a guess.
+ *
+ * A document can take up to four model calls — full, minimal, narrowed-minimal,
+ * plus the targeted financials pass — so the per-PASS number is not the answer
+ * either. This accumulates across every pass on one document and prints one
+ * line per extraction. Multiply by the published per-token rate for whatever
+ * tier you are on; no other bookkeeping required.
+ */
+function tokensOf(r: unknown): { prompt: number; output: number; total: number } {
+  const u = (r as { usageMetadata?: Record<string, unknown> } | null)?.usageMetadata ?? {};
+  const n = (v: unknown) => (typeof v === "number" && Number.isFinite(v) ? v : 0);
+  return {
+    prompt: n(u.promptTokenCount),
+    output: n(u.candidatesTokenCount) + n(u.thoughtsTokenCount),
+    total: n(u.totalTokenCount),
+  };
+}
+
 function hitOutputCap(r: {
   candidates?: ReadonlyArray<{ finishReason?: unknown }> | null;
 }): boolean {
@@ -535,10 +562,20 @@ export async function extractFddFromFile(
     // schema with all prose stripped, so the numbers (Item 7 / 19 / fees /
     // financials) survive and only the narrative goes light. Only a genuinely
     // enormous filing fails after that.
-    let response = await callExtraction(false, fileInfo);
+    const spend = { prompt: 0, output: 0, total: 0, passes: 0 };
+    const bill = <T,>(r: T): T => {
+      const t = tokensOf(r);
+      spend.prompt += t.prompt;
+      spend.output += t.output;
+      spend.total += t.total;
+      spend.passes += 1;
+      return r;
+    };
+
+    let response = bill(await callExtraction(false, fileInfo));
     if (hitOutputCap(response)) {
       console.warn("[extract] output cap hit — retrying in minimal (numbers-only) mode.");
-      response = await callExtraction(true, fileInfo);
+      response = bill(await callExtraction(true, fileInfo));
     }
     // Rung three: minimal mode still overflowed. Re-prepare the SAME document at a
     // narrower page window and try minimal once more BEFORE surrendering it to the
@@ -552,7 +589,7 @@ export async function extractFddFromFile(
           `[extract] minimal mode still over cap — re-preparing at ${narrowed} of ${pagesSent} pages and retrying.`,
         );
         const narrowedPrep = await prepare(narrowed);
-        response = await callExtraction(true, narrowedPrep.fileInfo);
+        response = bill(await callExtraction(true, narrowedPrep.fileInfo));
       }
     }
     if (hitOutputCap(response)) {
@@ -560,6 +597,12 @@ export async function extractFddFromFile(
         "This FDD is too data-dense to extract in full, even after compacting — its Item 19 or fee tables are exceptionally large. Try a text-based copy of the document.",
       );
     }
+
+    console.log(
+      `[extract] tokens: ${spend.prompt.toLocaleString("en-US")} in + ` +
+        `${spend.output.toLocaleString("en-US")} out = ` +
+        `${spend.total.toLocaleString("en-US")} across ${spend.passes} pass${spend.passes === 1 ? "" : "es"}`,
+    );
 
     const text = response.text;
     if (!text) throw new Error("Empty extraction response from Gemini.");
