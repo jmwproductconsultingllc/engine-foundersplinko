@@ -34,6 +34,11 @@
 // longer ship (there is nothing left to mismatch).
 
 import type { Item19Cohort } from "./schema";
+import {
+  explainNoHeadline,
+  isSubUnitBasis,
+  type NoHeadlineReason,
+} from "./noHeadline";
 import { resolveMonthlyRent } from "./rent";
 import { normalizeRoyaltyPct } from "./fees";
 import { derivePerFranchiseRevenue } from "./perUnitRevenue";
@@ -96,6 +101,11 @@ export interface BrandFacts {
    *  so no surface prints it. `mo` is forced null and the figure we declined to
    *  publish is kept in moUnmodelable for the audit and the refusal block. */
   moModelable: boolean;
+  /** WHY there is no figure, when moModelable is false. An em-dash is more
+   *  truthful than a wrong number and still useless — this is what the card and
+   *  the brand page say instead, built from the record rather than written by
+   *  hand. null whenever a headline IS published. See lib/noHeadline.ts. */
+  noHeadline: NoHeadlineReason | null;
   /** The headline that WOULD have been published had the ladder been able to
    *  model it. Diagnostics only — never render this. */
   moUnmodelable: number | null;
@@ -205,11 +215,10 @@ function monthlyOf(c: Item19Cohort): number | null {
 // exactly this). Generic "per unit" = per outlet is fine; the sub-unit signal
 // requires a managed-denominator qualifier. The correct per-franchise figure
 // (per-unit × units-managed) is a derivation — a follow-up ticket, not a guess here.
-const SUBUNIT_RE =
-  /per\s+property\s+unit|per\s+door\b|per\s+managed|per\s+unit\s+managed|unit\s+managed|revenue\s+per\s+(door|property|managed)/i;
-function isSubUnitBasis(c: Item19Cohort): boolean {
-  return SUBUNIT_RE.test(`${c.label ?? ""} ${c.basis ?? ""}`);
-}
+// MOVED to lib/noHeadline.ts on 2026-09-11 and imported from there, so there is
+// exactly ONE definition of "this figure is not per outlet" — the reason module
+// needs the same test, and a second copy of this regex would recreate the
+// two-paths defect the ladder gate exists to close.
 
 // Part-time franchisee cohorts are a side-gig tier — never the headline over a
 // full-time cohort (Schooley Mitchell shipped a $1,229/mo part-time headline
@@ -427,6 +436,15 @@ export function resolveBrandFacts(
     typeof ladderRevenue === "number" && Number.isFinite(ladderRevenue) && ladderRevenue > 0;
   const moUnmodelable = moModelable ? null : mo;
   if (!moModelable) mo = null;
+  const noHeadline: NoHeadlineReason | null = moModelable
+    ? null
+    : explainNoHeadline({
+        cohorts,
+        hasItem19: Boolean(i19obj?.hasItem19),
+        notes: i19obj?.notes ?? null,
+        systemUnits: (ex?.systemScale as { totalUnits?: number } | undefined)?.totalUnits ?? null,
+        unusableReason: (scoring as any)?.item19Unusable?.reason ?? null,
+      });
 
   // moUnits chain: unitsReported → hero cohort sampleSize → null.
   const ur = i19obj?.unitsReported;
@@ -584,6 +602,7 @@ export function resolveBrandFacts(
     moBasis,
     moModelable,
     moUnmodelable,
+    noHeadline,
     cohortCount: cohorts.length,
     lo,
     hi,

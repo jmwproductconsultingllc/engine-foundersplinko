@@ -13,13 +13,14 @@ import path from "node:path";
 import type { DiligenceResult } from "./types";
 import { normalizeRoyaltyPct } from "./fees";
 import { resolveBrandFacts, pickHeroCohort, costRange, type HeroPick } from "./brandFacts";
+import type { NoHeadlineReason } from "./noHeadline";
 
 import { isRetracted, retractionOf, type Retraction } from "./retraction";
 
 export { normalizeRoyaltyPct }; // one import site for page code
 export { resolveBrandFacts, pickHeroCohort, costRange }; // legacy import sites
 export { isRetracted, retractionOf }; // page code imports the store, not lib/retraction
-export type { HeroPick, Retraction };
+export type { HeroPick, Retraction, NoHeadlineReason };
 
 // ---------------------------------------------------------------------------
 // Store shape (matches scripts/jsonl-to-brands.ts output)
@@ -68,6 +69,10 @@ export interface BrandCard {
    *  this says WHY, so the grid can render a reason instead of an em-dash.
    *  See lib/brandFacts.ts::moModelable. */
   moModelable: boolean;
+  /** What to print where the figure was, when moModelable is false. Card-sized
+   *  `short` plus the sentence and the filing's own basis note for the detail
+   *  page. null whenever a figure IS published. */
+  noHeadline: NoHeadlineReason | null;
   moLabel: "average" | "median";
   moKind: "revenue" | "profit" | null;
   moBasis: "disclosed" | "derived";
@@ -191,6 +196,7 @@ export function toCard(brand: BrandRecord, preference: CohortPreference = "reven
     i19: f.i19,
     mo: f.mo,
     moModelable: f.moModelable,
+    noHeadline: f.noHeadline,
     moLabel: f.moLabel,
     moKind: f.mo != null ? f.moKind : null,
     moBasis: f.moBasis,
