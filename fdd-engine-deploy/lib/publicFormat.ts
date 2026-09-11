@@ -101,6 +101,20 @@ export interface PublicHook {
   monthlyCaveat: string | null;
   /** "1,046 units reporting" — the sample behind the headline, or null. */
   monthlySample: string | null;
+  /** WHY there is no monthly figure, when `monthly` is null.
+   *
+   *  The ladder gate (lib/brandFacts.ts::moModelable) withholds a headline the
+   *  cash ladder cannot model, which is right — but it left the glass hero
+   *  showing an Item 7 range and nothing else. That is the em-dash problem the
+   *  gate was supposed to end, surviving on the variant most brands serve:
+   *  /franchise/[slug] renders ReportGlass when the glass gate says ok and only
+   *  falls through to BrandDetail otherwise, and the reason had been added to
+   *  BrandDetail alone.
+   *
+   *  Free-side by design, like `monthly` and `cost` beside it: a visitor should
+   *  read WHY no figure exists before deciding whether to pay, not after. */
+  noHeadlineShort: string | null;
+  noHeadlineDetail: string | null;
   /** "$364k–$1.1M" — Item 7. The one pair already crossing to the free side. */
   cost: string | null;
   /** "2,193 open units" — system scale, or null. */
@@ -138,6 +152,17 @@ export const PUBLIC_HOOK_KEYS = [
   "monthlyBasis",
   "monthlyCaveat",
   "monthlySample",
+  /* ADDED 2026-09-11, and the required sentence said out loud: NO PAID FIGURE
+     BECAME FREE HERE. These two carry the REASON a monthly figure is absent —
+     "1 outlet of 44 reported", "Outlets reported together", "No Item 19
+     disclosure" — and they are only ever non-null when `monthly` is null. They
+     exist because the ladder gate withheld a headline, and a visitor deciding
+     whether to pay $199 should read why no figure exists BEFORE paying rather
+     than after. Neither ever carries a revenue, profit or capital figure; the
+     only numbers in them are disclosed outlet counts, which already cross on
+     `units`. */
+  "noHeadlineShort",
+  "noHeadlineDetail",
   "cost",
   "units",
   "fddEdition",

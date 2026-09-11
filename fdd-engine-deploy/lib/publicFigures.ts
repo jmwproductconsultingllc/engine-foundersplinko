@@ -84,6 +84,8 @@ export function buildPublicHook(brand: BrandRecord): PublicHook {
       f.mo != null && f.moUnits != null
         ? `${f.moUnits.toLocaleString("en-US")} ${f.moUnits === 1 ? "unit" : "units"} reporting`
         : null,
+    noHeadlineShort: f.mo == null ? (f.noHeadline?.short ?? null) : null,
+    noHeadlineDetail: f.mo == null ? (f.noHeadline?.detail ?? null) : null,
     cost: compactRange(f.lo, f.hi),
     units:
       f.units != null

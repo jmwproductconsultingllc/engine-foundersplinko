@@ -216,12 +216,23 @@ export function HeroHook({ hook, brandName }: { hook: PublicHook; brandName: str
         </p>
       )}
 
+      {!hook.monthly && hook.noHeadlineShort && (
+        <p className={styles.hookBig}>
+          Item 19 gives no per-unit figure this report will stand behind:{" "}
+          <strong className={styles.hookFig}>{hook.noHeadlineShort}</strong>.
+        </p>
+      )}
+
       <p className={styles.hookMeta}>
         {hook.monthly && hook.monthlyBasis && (
           <ProvenanceChip kind={hook.monthlyBasis} />
         )}
         <span className={styles.hookMetaText}>{meta.join(" · ")}</span>
       </p>
+
+      {!hook.monthly && hook.noHeadlineDetail && (
+        <p className={styles.hookCaveat}>{hook.noHeadlineDetail}</p>
+      )}
 
       {hook.monthlyCaveat && (
         <p className={styles.hookCaveat}>{hook.monthlyCaveat}</p>
