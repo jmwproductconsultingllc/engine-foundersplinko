@@ -1,7 +1,7 @@
 {
  "slug": "kona-ice",
  "brandName": "Kona Ice",
- "category": "Kids",
+ "category": "Mobile Food & Events",
  "grade": "THIN",
  "sourceFddYear": null,
  "generatedAt": "2026-07-09T18:47:27.233Z",
@@ -273,9 +273,9 @@
   "scoring": {
    "riskLevel": "Medium",
    "riskReasons": [
-    "No Item 19 financial performance representation \u2014 earnings are undisclosed, which is itself a caution.",
-    "A high-severity operational tripwire is disclosed \u2014 see the tripwires section.",
-    "Franchisee unit economics could not be scored \u2014 no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
+    "No Item 19 financial performance representation — earnings are undisclosed, which is itself a caution.",
+    "A high-severity operational tripwire is disclosed — see the tripwires section.",
+    "Franchisee unit economics could not be scored — no usable Item 19 (company/affiliate-owned only, or no FPR). Treat this as UNVERIFIED, not low-risk."
    ],
    "midCohort": null,
    "bottomCohort": null,
@@ -290,7 +290,7 @@
    "rentResolution": null,
    "fixedFeesMonthly": 123,
    "item19Unusable": {
-    "reason": "No franchisee revenue figure could be read from Item 19 \u2014 this filing publishes company or affiliate results only, or no financial performance representation at all.",
+    "reason": "No franchisee revenue figure could be read from Item 19 — this filing publishes company or affiliate results only, or no financial performance representation at all.",
     "whatToAsk": "Ask the franchisor why no franchisee FPR is published, and go straight to the Item 20 roster. A franchisor that will not put franchisee revenue in writing has told you something."
    },
    "notes": [
@@ -337,9 +337,9 @@
      18
     ],
     "dominantRisk": "Prime cost and throughput per labor hour. Smaller footprint helps fixed costs, but COGS + labor still set the ceiling.",
-    "rampNote": "3\u20136 months to run-rate once open.",
+    "rampNote": "3–6 months to run-rate once open.",
     "considerations": [
-     "Budget COGS ~28\u201333% and labor ~22\u201328%; target prime cost under ~60%.",
+     "Budget COGS ~28–33% and labor ~22–28%; target prime cost under ~60%.",
      "Verify average ticket and daily transaction counts with Item 20 operators, not the franchisor.",
      "Watch for required remodels and equipment refresh cycles buried in Item 6/Item 11."
     ]
@@ -348,7 +348,7 @@
    "disclosedMarginSource": null,
    "crossCheck": {
     "status": "no_disclosure",
-    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10\u201318% band below is an industry estimate for this concept \u2014 validate it against real franchisee P&Ls (Item 20) before relying on any margin."
+    "message": "No operating-EBITDA margin is disclosed in Item 19. The 10–18% band below is an industry estimate for this concept — validate it against real franchisee P&Ls (Item 20) before relying on any margin."
    },
    "proFormaRevenueMonthly": null,
    "marginAfterFeesMonthly": null,
@@ -356,7 +356,7 @@
    "trueEbitdaBasis": "none",
    "staffingModel": "lightly_staffed",
    "staffingLabel": "lightly staffed",
-   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 11\u201317% \u2014 the 22\u201328% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
+   "staffingNote": "Flagged as an lightly staffed model from the FDD, so labor is adjusted down to 11–17% — the 22–28% category band assumes a staffed venue. Confirm actual staffing with Item 20 franchisees.",
    "laborPctEffective": [
     11,
     17
@@ -366,7 +366,7 @@
     {
      "field": "Concept type",
      "basis": "inferred",
-     "detail": "Classified as \u201cQSR / fast-casual\u201d from the FDD (Item 1 / brand description)."
+     "detail": "Classified as “QSR / fast-casual” from the FDD (Item 1 / brand description)."
     },
     {
      "field": "Operating model",
@@ -376,9 +376,9 @@
    ],
    "consultCtaUrl": null,
    "consultCtaLabel": "Book a territory review",
-   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line \u2014 your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
-   "asOf": "2026 \u2014 general industry benchmarks, refine against real franchisee P&Ls",
-   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions \u2014 NOT a projection of this franchise's results, and not investment advice."
+   "consultCtaPitch": "These are category benchmarks applied to the disclosed top line — your unit's real costs will differ, and that difference is the conversation. Want them pressure-tested against actual franchisee P&Ls for your territory?",
+   "asOf": "2026 — general industry benchmarks, refine against real franchisee P&Ls",
+   "disclaimer": "Industry benchmark ranges for your own budgeting and Item 20 questions — NOT a projection of this franchise's results, and not investment advice."
   },
   "financialCondition": {
    "severity": "MEDIUM",
@@ -386,7 +386,7 @@
    "context": null,
    "body": [
     "Why it matters to you: field support, training, technology, and marketing come out of the franchisor's budget. If outside funding slows, those are the first things to get cut. There is no parent guarantee of performance in this FDD, so Kona Ice Holdings, LLC is not contractually obligated to keep funding the franchisor or backing its commitments to you.",
-    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 \u2014 unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
+    "Verify before you commit: ask for the most recent interim (unaudited) financials and the current-year funding plan; ask whether the parent will sign a guarantee of performance; and cross-check Item 20 — unit closures, transfers, and terminations are the operational tell that corroborates financial stress."
    ],
    "aggravators": [
     "no parent guarantee backing the franchisor's obligations to you"
@@ -416,5 +416,6 @@
    "evidenceNote": "Flagged on the FDD's \"Special Risks\" page and grounded in the Item 21 / Exhibit F audited financials. Figures are extracted; all ratios and grading are computed. Confirm against the source statements and a CPA before relying on them.",
    "dataQuality": "partial"
   }
- }
+ },
+ "vertical": "Food & Beverage"
 }
