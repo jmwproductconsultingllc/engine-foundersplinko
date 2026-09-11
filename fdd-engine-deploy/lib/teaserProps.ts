@@ -16,6 +16,7 @@
 // the result to <BrandDetail teaser={...}/>. Do NOT pass the full card/brand.
 
 import type { BrandRecord } from "./brands";
+import type { NoHeadlineReason } from "./noHeadline";
 import { resolveBrandFacts } from "./brandFacts";
 
 export interface TeaserTripwire {
@@ -38,6 +39,12 @@ export interface TeaserCard {
   moBasis: "disclosed" | "derived";
   /** honesty note for a derived/degraded headline (e.g. RPM per-unit derivation) */
   moCaveat: string | null;
+  /** WHY there is no headline, when mo is null. VISIBLE by design and the whole
+   *  point: the teaser used to assert the franchisor "chose not to publish unit
+   *  earnings" for every brand with no figure, which is untrue of most of them.
+   *  Carries no locked value — the reason, the sentence, and the filing's own
+   *  basis note are all things a visitor should read before paying. */
+  noHeadline: NoHeadlineReason | null;
   mn: number | null; // unitsReported → hero cohort sampleSize → null
   cohortCount: number; // count only — the spread values stay server-side
 
@@ -83,6 +90,7 @@ export function toTeaserCard(brand: BrandRecord): TeaserCard {
     moKind: f.moKind,
     moBasis: f.moBasis,
     moCaveat: f.moCaveat,
+    noHeadline: f.noHeadline,
     mn: f.moUnits,
     cohortCount: f.cohortCount,
     lo: f.lo,

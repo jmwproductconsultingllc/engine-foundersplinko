@@ -74,8 +74,15 @@ export function LiveBrandCard({ card, refTag }: { card: BrandCardModel; refTag?:
               {card.lo != null ? "to open" : "est. build-out"}
             </span>
           </div>
+          {/* THE REASON, NOT A SHRUG. This line read "Item 19 not disclosed" for
+              every card with no figure — false for fourteen of the nineteen.
+              Puddle Pool DID disclose; it disclosed one outlet out of 44.
+              card.noHeadline says which, built from the record. */}
           <div className="mt-1.5 text-[11px] text-[#8194B0]">
-            Item 19 not disclosed · see the diligence →
+            <span className="font-semibold text-[#CBD5E1]">
+              {card.noHeadline ? card.noHeadline.short : "Item 19 not disclosed"}
+            </span>{" "}
+            · see the diligence →
           </div>
         </>
       )}

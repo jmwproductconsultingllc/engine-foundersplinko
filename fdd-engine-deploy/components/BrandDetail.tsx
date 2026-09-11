@@ -226,11 +226,26 @@ export default function BrandDetail({
               <div className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#8194B0]">
                 Item 19 · earnings disclosure
               </div>
-              <div className="mt-2 text-[26px] font-extrabold text-[#8194B0]">Not disclosed</div>
+              {/* WHY, SPECIFICALLY. The old copy asserted the franchisor "chose
+                  not to publish unit earnings" for every brand with no figure,
+                  which is untrue of most of them: Puddle Pool published one
+                  outlet out of 44, Gorilla published a system total, RPM
+                  published per managed unit. Only five of the nineteen publish
+                  no Item 19 at all. card.noHeadline distinguishes them. */}
+              <div className="mt-2 text-[26px] font-extrabold text-[#8194B0]">
+                {card.noHeadline ? card.noHeadline.short : "Not disclosed"}
+              </div>
               <p className="mt-2 max-w-[54ch] text-[13px] leading-relaxed text-[#CBD5E1]">
-                This franchisor chose not to publish unit earnings. That is itself a data point — the full
-                report shows how to pressure-test economics through Item 20 operators instead.
+                {card.noHeadline
+                  ? card.noHeadline.detail
+                  : "This franchisor chose not to publish unit earnings. That is itself a data point — the full report shows how to pressure-test economics through Item 20 operators instead."}
               </p>
+              {card.noHeadline?.filingNote && (
+                <p className="mt-3 max-w-[62ch] border-l-2 border-[#27344F] pl-3 text-[12px] leading-relaxed text-[#8194B0]">
+                  <span className="font-semibold text-[#CBD5E1]">The filing&rsquo;s own basis note:</span>{" "}
+                  {card.noHeadline.filingNote}
+                </p>
+              )}
             </div>
           )}
         </div>
