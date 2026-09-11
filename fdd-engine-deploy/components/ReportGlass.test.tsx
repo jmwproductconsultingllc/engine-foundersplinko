@@ -35,6 +35,7 @@ import { buildReportShell, DEFAULT_GLASS_CONFIG } from "@/lib/reportShell";
 import { reportSourceFromComputed } from "@/lib/reportSource";
 import { qualifiesForGlass } from "@/lib/reportShell";
 import { buildPublicHook } from "@/lib/publicFigures";
+import { resolveBrandFacts } from "@/lib/brandFacts";
 import type { PublicHook } from "@/lib/publicFormat";
 import type { BrandRecord as CatalogRecord } from "@/lib/brands";
 import type { DiligenceResult } from "@/lib/types";
@@ -392,11 +393,31 @@ describe("THE RENDERED LEAK TEST", () => {
       .filter((h) => h.hook.monthly != null);
 
     const derived = hooks.filter((h) => h.hook.monthlyBasis === "derived");
+
+    /* THE FLOOR MOVED FROM PUBLICATION TO RESOLUTION, 2026-09-11.
+     *
+     * This used to require at least one PUBLISHED derived headline, on the
+     * reasoning that a lint scanning nothing reports green vacuously. That is
+     * still the right instinct — but the ladder gate (lib/brandFacts.ts::
+     * moModelable) can legitimately withhold every derived headline at once,
+     * and it currently does: Real Property Management was the catalog's derived
+     * brand, and its scoring.midCohort is null, so publishing its $43,624/mo
+     * over thirteen "not disclosed" rungs is exactly the defect that gate
+     * exists to stop.
+     *
+     * So the floor now asserts the DERIVATION PATH still exists — that the
+     * resolver is still producing derived-basis figures somewhere — while the
+     * copy assertion below runs over whatever subset is actually published.
+     * Zero published derived headlines is a real state, not a broken lint; zero
+     * derived RESOLUTIONS would mean the derivation itself had been lost. */
+    const derivedResolutions = all.filter(
+      ({ rec }) => resolveBrandFacts(rec as unknown as CatalogRecord).moBasis === "derived",
+    );
     expect(
-      derived.length,
-      "no derived-basis brand in the catalog — this lint scanned nothing. If " +
-        "every headline is now franchisor-disclosed, delete the lint on purpose " +
-        "rather than leaving it passing vacuously.",
+      derivedResolutions.length,
+      "no derived-basis brand resolves anywhere in the catalog — the per-unit " +
+        "derivation itself is gone, not merely withheld. If that is deliberate, " +
+        "delete this lint on purpose rather than leaving it passing vacuously.",
     ).toBeGreaterThan(0);
     expect(
       hooks.filter((h) => h.hook.monthlyBasis === "disclosed").length,

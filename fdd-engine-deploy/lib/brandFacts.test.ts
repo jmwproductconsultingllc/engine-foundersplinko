@@ -5,7 +5,7 @@
 import { describe, it, expect } from "vitest";
 import fs from "node:fs/promises";
 import path from "node:path";
-import { resolveBrandFacts, auditBrandFacts } from "./brandFacts";
+import { resolveBrandFacts, auditBrandFacts, suppressedHeadlines } from "./brandFacts";
 import type { BrandRecord } from "./brands";
 
 async function loadAll(): Promise<BrandRecord[]> {
@@ -28,6 +28,50 @@ describe("brand-facts corpus audit", () => {
     const brands = await loadAll();
     expect(brands.length).toBeGreaterThan(50);
     expect(() => auditBrandFacts(brands)).not.toThrow();
+  });
+});
+
+describe("the headline and the ladder agree", () => {
+  /* THE PUDDLE POOL RATCHET.
+   *
+   * The cash ladder builds from scoring.midCohort.monthlyRevenue; when that is
+   * null, lib/ladder.ts emits all thirteen rungs as "not disclosed". This
+   * resolver runs its own chain and used to find a figure anyway, so on
+   * 2026-09-10 THIRTEEN live pages advertised a monthly number over a ladder
+   * that could not model a single rung of it — Puddle Pool Services headlining
+   * $139k/mo against a $102k build-out, off one franchised outlet, with 42 of
+   * 43 excluded from the filing's own Item 19 for being open under a year.
+   *
+   * The count may FALL — a re-score, a better cohort pick, a cleaner extraction
+   * all reduce it. It must never rise silently: a new brand whose headline
+   * cannot be modelled is a thing to look at, not a number to absorb. Lower
+   * this baseline when it drops; never raise it to make a build pass. */
+  const SUPPRESSED_BASELINE = 14;
+
+  it("no live card publishes a figure the ladder cannot model", async () => {
+    const brands = await loadAll();
+    // auditBrandFacts throws on the Puddle Pool-class violation. This asserts
+    // the corpus is clean of it rather than trusting the guard in isolation.
+    expect(() => auditBrandFacts(brands)).not.toThrow();
+  });
+
+  it("the withheld-headline count does not grow", async () => {
+    const brands = await loadAll();
+    const withheld = suppressedHeadlines(brands);
+    expect(withheld.length).toBeLessThanOrEqual(SUPPRESSED_BASELINE);
+  });
+
+  it("a withheld headline keeps the fact and only stops publishing it", async () => {
+    const brands = await loadAll();
+    const withheld = suppressedHeadlines(brands);
+    // Floor: a test that measured an empty set would pass by measuring nothing.
+    expect(withheld.length).toBeGreaterThan(0);
+    for (const slug of withheld) {
+      const f = resolveBrandFacts(brands.find((b) => b.slug === slug)!);
+      expect(f.mo, `${slug} must publish no figure`).toBeNull();
+      expect(f.moModelable, `${slug} must be marked unmodelable`).toBe(false);
+      expect(f.moUnmodelable, `${slug} must keep what it declined to say`).not.toBeNull();
+    }
   });
 });
 
@@ -76,7 +120,18 @@ describe("resolver golden pins (spec acceptance matrix)", () => {
 
   it("P2(a) RPM: per-unit revenue derived to per-franchise, tagged 'derived' (not $379)", async () => {
     const f = resolveBrandFacts(await load("real-property-management"));
-    expect(f.mo).toBe(43624); // median $4,256/yr per unit × 123 median units ÷ 12
+    /* THE DERIVATION STILL RUNS; PUBLICATION IS A SEPARATE QUESTION.
+       This pin asserted f.mo === 43624 until 2026-09-11. The derivation is
+       unchanged and still correct — median $4,256/yr per unit × 123 median
+       units ÷ 12 — but RPM's scoring.midCohort is null, so lib/ladder.ts emits
+       all thirteen rungs as "not disclosed". Publishing $43,624/mo over that
+       ladder is the Puddle Pool defect with a better provenance story, so the
+       ladder gate withholds it and moUnmodelable keeps what it would have said.
+       The real fix for RPM is teaching the SCORER the per-unit derivation so
+       the ladder can build; until then this is the honest state. */
+    expect(f.moUnmodelable).toBe(43624);
+    expect(f.mo).toBeNull(); // withheld: the ladder cannot model a unit from it
+    expect(f.moModelable).toBe(false);
     expect(f.moBasis).toBe("derived"); // never claimed as franchisor-disclosed
     expect(f.moDegraded).toBe(true);
     expect(f.moCaveat).toMatch(/derived/i);

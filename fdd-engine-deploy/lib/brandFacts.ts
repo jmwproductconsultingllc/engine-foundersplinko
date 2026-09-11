@@ -76,6 +76,29 @@ export interface BrandFacts {
    *  e.g. per-unit revenue × units-managed, RPM). Surfaces must NEVER claim a
    *  derived headline was "franchisor-disclosed". */
   moBasis: "disclosed" | "derived";
+  /** THE HEADLINE AND THE LADDER MUST AGREE.
+   *
+   *  The cash ladder builds from result.scoring.midCohort.monthlyRevenue. When
+   *  that is null, lib/ladder.ts takes a deliberate branch and emits all
+   *  thirteen rungs as "not disclosed" — the honest half of the system. This
+   *  resolver runs its own chain (networkAverageMonthly → pickHeroCohort →
+   *  derivePerFranchiseRevenue) and finds a figure in cases where midCohort
+   *  found none, and the two never consulted each other.
+   *
+   *  Measured 2026-09-10: THIRTEEN live, purchasable pages advertised a monthly
+   *  figure over a ladder whose every rung read "not disclosed" — Puddle Pool
+   *  Services headlined $139k/mo against a $102k build-out while its own Item 19
+   *  section states the figure is one franchised outlet, with 42 of 43 excluded
+   *  for being open under twelve months and a $225,000 expense the filing itself
+   *  calls atypical.
+   *
+   *  false = the fact resolved, but nothing downstream can model a unit from it,
+   *  so no surface prints it. `mo` is forced null and the figure we declined to
+   *  publish is kept in moUnmodelable for the audit and the refusal block. */
+  moModelable: boolean;
+  /** The headline that WOULD have been published had the ladder been able to
+   *  model it. Diagnostics only — never render this. */
+  moUnmodelable: number | null;
   cohortCount: number;
 
   // Item 7 (PUBLIC)
@@ -389,6 +412,22 @@ export function resolveBrandFacts(
     }
   }
 
+  /* ── THE LADDER GATE ──────────────────────────────────────────────────────
+     One resolver, one answer. If lib/ladder.ts cannot build a rung from this
+     record, no surface may print a monthly figure for it: not the index card,
+     not the glass hero, not the report header. Gating HERE rather than at each
+     surface is the point — a surface can forget, a resolver cannot.
+
+     Keyed on the exact input buildLadderInput() reads, so the two can never
+     drift again. Nulling `mo` also fixes the sort for free: /brands orders each
+     vertical by (mo ?? 0) descending, which had been promoting precisely these
+     records to the top of the page. */
+  const ladderRevenue = (scoring as any)?.midCohort?.monthlyRevenue;
+  const moModelable =
+    typeof ladderRevenue === "number" && Number.isFinite(ladderRevenue) && ladderRevenue > 0;
+  const moUnmodelable = moModelable ? null : mo;
+  if (!moModelable) mo = null;
+
   // moUnits chain: unitsReported → hero cohort sampleSize → null.
   const ur = i19obj?.unitsReported;
   const moUnits: number | null = typeof ur === "number" && ur > 0 ? ur : heroSample;
@@ -543,6 +582,8 @@ export function resolveBrandFacts(
     moCaveat,
     moDegraded,
     moBasis,
+    moModelable,
+    moUnmodelable,
     cohortCount: cohorts.length,
     lo,
     hi,
@@ -569,8 +610,23 @@ export function resolveBrandFacts(
 // mismatch or un-normalized value can no longer ship.
 // ---------------------------------------------------------------------------
 
+/** Slugs whose headline is withheld because the cash ladder cannot model a unit
+ *  from the filing. Exported so the ratchet test can assert the count without
+ *  re-deriving the rule. */
+export function suppressedHeadlines(brands: BrandRecord[]): string[] {
+  return brands
+    .map((b) => resolveBrandFacts(b))
+    .filter((f) => !f.moModelable && f.moUnmodelable != null)
+    .map((f) => f.slug);
+}
+
 export function auditBrandFacts(brands: BrandRecord[]): string {
   const errors: string[] = [];
+  /* THE SUPPRESSION RATCHET. Every entry here is a brand whose Item 19 resolved
+     a headline that the cash ladder cannot model, so we publish no figure. The
+     count is allowed to FALL — a better extraction, a re-score, a fixed cohort
+     selector — and never to rise silently. lib/brandFacts.test.ts holds it. */
+  const suppressed: string[] = [];
   let rentNullAvg = 0;
   const rentBasis: Record<string, number> = {};
   const rows: string[] = [
@@ -600,8 +656,32 @@ export function auditBrandFacts(brands: BrandRecord[]): string {
           // null mo when only those exist is right, not the v2.0 bug (RPM).
           !isSubUnitBasis(c),
       );
-    if (i19obj?.hasItem19 && usable && f.mo == null) {
+    /* RESOLUTION GUARDS RUN ON THE RESOLVED FIGURE, NOT THE PUBLISHED ONE.
+       Adding the ladder gate nulled `mo` for 14 records and silently disarmed
+       two guards that had been reading it — the $379 per-unit check and the
+       sub-$2k mis-basis check — because both of them are about whether the
+       number was DERIVED correctly, not about whether it is fit to print.
+       Those are different questions and they now use different inputs: these
+       guards take resolvedMo, the publication gate sits downstream of them.
+       A guard that goes quiet when a surface stops rendering is not a guard. */
+    const resolvedMo = f.mo ?? f.moUnmodelable;
+
+    // A DELIBERATE SUPPRESSION IS NOT THE v2.0 BUG. f.moModelable === false means
+    // the fact resolved and we declined to publish it because the ladder cannot
+    // model a unit from this filing — see the field comment. The v2.0 bug was a
+    // headline that went missing for no reason; this one goes missing for a
+    // stated one, and moUnmodelable carries what it would have said.
+    if (i19obj?.hasItem19 && usable && f.mo == null && f.moModelable) {
       errors.push(`${f.slug}: hasItem19 with usable cohorts but mo resolved null (v2.0-bug class)`);
+    }
+    // THE INVARIANT THIS WHOLE FIELD EXISTS FOR. A live card printing a monthly
+    // figure over a ladder that cannot build one is the Puddle Pool defect, and
+    // it must be impossible by construction rather than by review.
+    if (f.live && f.mo != null && !f.moModelable) {
+      errors.push(
+        `${f.slug}: headline $${f.mo}/mo published while the cash ladder resolves to the ` +
+          `all-null branch — the card and the ladder disagree (Puddle Pool class)`,
+      );
     }
     // Margin-based B2B models (Express Employment 40%-of-gross-margin, freight
     // 30%) legitimately exceed sales-royalty norms — bound royalty at 60.
@@ -620,9 +700,9 @@ export function auditBrandFacts(brands: BrandRecord[]): string {
     // Item 19 REVENUE headline under ~$2k/mo is almost always a mis-basis read —
     // a per-unit/per-door fee or a part-time tier — not the franchise's revenue.
     // Only fires on LIVE brands (what a buyer actually sees); THIN/excluded skip.
-    if (f.live && f.mo != null && f.moKind === "revenue" && f.mo < 2000) {
+    if (f.live && resolvedMo != null && f.moKind === "revenue" && resolvedMo < 2000) {
       errors.push(
-        `${f.slug}: live Item 19 revenue headline $${f.mo}/mo is implausibly low (<$2k) — likely a per-unit/part-time mis-basis read; verify against the FDD`,
+        `${f.slug}: live Item 19 revenue headline $${resolvedMo}/mo is implausibly low (<$2k) — likely a per-unit/part-time mis-basis read; verify against the FDD`,
       );
     }
 
@@ -650,17 +730,17 @@ export function auditBrandFacts(brands: BrandRecord[]): string {
       .filter((m): m is number => m != null);
     if (rawPerUnitMonthly.length) {
       const near = (a: number, b: number) => Math.abs(a - b) <= Math.max(2, Math.abs(b) * 0.02);
-      if (f.mo != null && rawPerUnitMonthly.some((m) => near(m, f.mo!))) {
+      if (resolvedMo != null && rawPerUnitMonthly.some((m) => near(m, resolvedMo))) {
         errors.push(
-          `${f.slug}: headline $${f.mo}/mo equals a RAW per-unit figure ÷12 — the units-managed multiplier was dropped (RPM $379 class); a per-unit disclosure must derive per-franchise (× units) or stay null`,
+          `${f.slug}: headline $${resolvedMo}/mo equals a RAW per-unit figure ÷12 — the units-managed multiplier was dropped (RPM $379 class); a per-unit disclosure must derive per-franchise (× units) or stay null`,
         );
       }
       // A non-null headline off a per-unit-only disclosure is only honest if it's
       // the derivation (moBasis "derived") AND that derivation reproduces from the
       // store. Anything else means a per-unit number leaked as a headline.
-      if (f.mo != null && f.moBasis !== "derived") {
+      if (resolvedMo != null && f.moBasis !== "derived") {
         errors.push(
-          `${f.slug}: per-unit Item 19 headlined as $${f.mo}/mo with moBasis "${f.moBasis}" — must be moBasis "derived" (× units-managed) or null, never a raw per-unit headline`,
+          `${f.slug}: per-unit Item 19 headlined as $${resolvedMo}/mo with moBasis "${f.moBasis}" — must be moBasis "derived" (× units-managed) or null, never a raw per-unit headline`,
         );
       }
       if (f.moBasis === "derived" && !derivePerFranchiseRevenue(cohorts)) {
@@ -699,6 +779,9 @@ export function auditBrandFacts(brands: BrandRecord[]): string {
     }
 
     const money = (n: number | null) => (n == null ? "—" : `$${Math.round(n).toLocaleString("en-US")}`);
+    if (!f.moModelable && f.moUnmodelable != null) {
+      suppressed.push(`${f.slug} (${money(f.moUnmodelable)}/mo withheld)`);
+    }
     rows.push(
       `${f.slug.padEnd(33)} | ${money(f.mo).padEnd(9)} | ${f.moLabel.padEnd(7)} | ${String(f.moUnits ?? "—").padEnd(5)} | ${`${money(f.lo)}–${money(f.hi)}`.padEnd(25)} | ${(f.royaltyPct != null ? `${f.royaltyPct}%` : f.flatRoyaltyNote ? "flat" : "—").padEnd(7)} | ${(f.risk ?? "—").padEnd(6)} | ${rentCell}`,
     );
@@ -709,6 +792,10 @@ export function auditBrandFacts(brands: BrandRecord[]): string {
   console.log(`[brand-facts audit] ${brands.length} brands\n${table}`);
   console.log(
     `[brand-facts audit] rent blast radius: averageRentMonthly null on ${rentNullAvg}/${brands.length} (each was silently $0 pre-hotfix) · resolution basis: ${JSON.stringify(rentBasis)}`,
+  );
+  console.log(
+    `[brand-facts audit] headline withheld (ladder cannot model a unit) on ${suppressed.length}/${brands.length}` +
+      (suppressed.length ? `:\n  ${suppressed.join("\n  ")}` : ""),
   );
   if (errors.length) {
     throw new Error(`[brand-facts audit] ${errors.length} violation(s):\n${errors.join("\n")}`);

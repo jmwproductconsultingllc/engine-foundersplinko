@@ -63,6 +63,11 @@ export interface BrandCard {
   risk: string | null;
   i19: boolean;
   mo: number | null;
+  /** false = the Item 19 fact resolved but the cash ladder cannot model a unit
+   *  from it, so no figure is published for this brand. `mo` is already null;
+   *  this says WHY, so the grid can render a reason instead of an em-dash.
+   *  See lib/brandFacts.ts::moModelable. */
+  moModelable: boolean;
   moLabel: "average" | "median";
   moKind: "revenue" | "profit" | null;
   moBasis: "disclosed" | "derived";
@@ -185,6 +190,7 @@ export function toCard(brand: BrandRecord, preference: CohortPreference = "reven
     risk: f.risk,
     i19: f.i19,
     mo: f.mo,
+    moModelable: f.moModelable,
     moLabel: f.moLabel,
     moKind: f.mo != null ? f.moKind : null,
     moBasis: f.moBasis,
